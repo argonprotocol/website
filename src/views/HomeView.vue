@@ -12,17 +12,19 @@ import EthereumIcon from '../assets/ethereum.svg';
 import ArbitrumIcon from '../assets/arbitrum.svg';
 import CardanoIcon from '../assets/cardano.svg';
 import PolkadotIcon from '../assets/polkadot.svg';
+import GnosisIcon from '../assets/gnosis.svg';
+import BnbChainIcon from '../assets/bnbchain.svg';
 </script>
 
 <template>
-  <main class=" flex flex-col items-center text-center min-h-screen pb-32">
+  <main class=" flex flex-col items-center text-center min-h-screen pb-10 md:pb-32">
     <div class="absolute -top-5 -left-5 md:-top-8 md:-left-8">
-      <LaunchingBanner class="w-[150px] md:w-[250px]" />
-      <div class="text-white font-bold text-xl absolute top-[108px] left-[34px] -rotate-45 text-center whitespace-nowrap">Launching Jan 15th</div>
+      <LaunchingBanner class="w-[180px] md:w-[250px]" />
+      <div class="text-white font-bold text-sm md:text-xl absolute top-[65px] left-[14px] md:top-[108px] md:left-[34px] -rotate-45 text-center whitespace-nowrap">Launching Jan 15th</div>
     </div>
 
-    <div class="absolute top-5 right-5 whitespace-nowrap text-white flex flex-row gap-4 cursor-default">
-      <div class="opacity-80">LIVE ON</div>
+    <div class="absolute top-3 right-3 md:top-5 md:right-5 whitespace-nowrap text-sm md:text-base text-white flex flex-row gap-2 md:gap-4 cursor-default">
+      <div class="opacity-80 hidden md:block">LIVE ON</div>
       <div class="flex flex-row items-center gap-2">
         <div class="rounded-full w-4 h-4 bg-[#8FFF23] border border-black"></div>
         TESTNET
@@ -43,82 +45,90 @@ import PolkadotIcon from '../assets/polkadot.svg';
         <div class="text-3xl md:text-4xl lg:text-6xl px-10 font-black md:leading-[3rem] lg:leading-[4.5rem] opacity-80">
           Crypto's First Stable Asset
         </div>
-        <div class="px-10 text-xl mt-4 md:mt-2 md:text-3xl lg:text-5xl font-light md:leading-[3rem] lg:leading-[4.5rem] opacity-80">
+        <div class="px-6 md:px-10 text-xl mt-4 md:mt-2 md:text-3xl lg:text-5xl font-light md:leading-[3rem] lg:leading-[4.5rem] opacity-80">
           <div class="inline md:block">Argon is protected from inflation, immune</div>
           to death spirals, and powered by Bitcoin.
         </div>
       </div>
-      <div class="flex flex-row gap-8 text-white font-bold text-lg justify-center mt-10">
-        <button class="border border-[#B95EC5] rounded-md px-20 py-2 flex flex-row items-center gap-2 hover:bg-white/10">
+      <div class="flex flex-col md:flex-row gap-8 text-white font-bold text-lg justify-center mt-10 px-10 md:px-0">
+        <button class="border border-[#B95EC5] rounded-md md:px-20 py-2 hover:bg-white/10">
           Our Founding Manfesto
         </button>
-        <button class="border border-[#B95EC5] rounded-md px-20 py-2 flex flex-row items-center gap-2 hover:bg-white/10">
+        <button class="border border-[#B95EC5] rounded-md md:px-20 py-2 hover:bg-white/10">
           Getting Started Guide
-          <ChevronDoubleRightIcon class="w-4 h-4" />
+          <ChevronDoubleRightIcon class="w-4 h-4 inline-block" />
         </button>
       </div>
       <div class="LINE LINE2"></div>
     </header>
 
     <div class="relative flex flex-col items-center justify-center w-full md:w-10/12 pt-8 cursor-default">
-      <div class="flex flex-row items-center justify-between w-10/12 text-center pb-8">
+      <div class="flex flex-row flex-wrap items-center justify-between w-10/12 text-center pb-8">
         <!-- binance -->
-        <div class="opacity-80 hover:opacity-100">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto">
           <OptimismIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Optimism</div>
         </div>
-        <div class="opacity-80 hover:opacity-100">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto">
           <PolygonIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Polygon</div>
         </div>
-        <div class="opacity-80 hover:opacity-100">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto">
           <BaseIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Base</div>
         </div>
-        <div class="opacity-80 hover:opacity-100">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto mt-8 md:mt-0">
           <EthereumIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Ethereum</div>
         </div>
-        <div class="opacity-80 hover:opacity-100">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:hidden mt-8 md:mt-0  ">
           <ArbitrumIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Arbitrum</div>
         </div>
-        <div class="opacity-80 hover:opacity-100">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto mt-8 md:mt-0">
           <CardanoIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Cardano</div>
         </div>
-        <div class="opacity-80 hover:opacity-100">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] sm:hidden mt-8 md:mt-0">
           <PolkadotIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Polkadot</div>
+        </div>
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto mt-8 md:mt-0">
+          <GnosisIcon class="w-12 h-12 inline-block mb-2" />
+          <div class="text-white/80 text-md">Gnosis</div>
+        </div>
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto mt-8 md:mt-0">
+          <BnbChainIcon class="w-12 h-12 inline-block mb-2" />
+          <div class="text-white/80 text-md">BNB Chain</div>
         </div>
       </div>
       <div class="LINE LINE2"></div>
     </div>
 
-    <div class="TOOLS border-1 border-[#B95EC5] rounded text-white text-center block border px-6 md:px-8 pb-7 mt-16 md:mt-24 w-10/12 md:w-8/12 bg-[#901D9C] shadow-md">
-      <span class="relative -top-3 whitespace-nowrap px-3 bg-[#9721A6] text-[#C98BD1] text-lg">TEST OUR INTERACTIVE MODELS</span>
-      <div class="relative flex flex-row gap-3 justify-around">
-        <a class="block pb-3 pt-5 w-5/12" href="http://localhost:5174">
+    <div class="TOOLS border-1 border-[#B95EC5] rounded text-white text-center block border px-0 md:px-8 pb-7 mt-16 md:mt-24 w-10/12 md:w-8/12 bg-[#901D9C] shadow-md">
+      <span class="relative -top-3 whitespace-nowrap px-3 bg-[#9721A6] text-[#C98BD1] text-lg"><span class="hidden md:block">TEST </span>OUR INTERACTIVE MODELS</span>
+      <div class="relative flex flex-row gap-1 md:gap-3 justify-around">
+        <a class="block pb-3 pt-5 w-5/12" href="https://sam.argonprotocol.org">
           <div class="text-lg md:text-3xl font-black pt-2 leading-snug mb-2 md:mb-0">S.A.M</div>
           <div class="opacity-80 italic md:text-md mt-1">Stabilization Analysis Model</div>
         </a>
         <div class="DIVIDER-VERTICAL absolute top-2 left-1/2 -translate-x-1/2 w-[1px] h-full"></div>
-        <a class="block pb-3 pt-5 px-10 w-5/12" href="http://localhost:5173">
+        <a class="block pb-3 pt-5 w-5/12" href="https://llb.argonprotocol.org">
           <div class="text-lg md:text-3xl font-black pt-2 leading-snug mb-2 md:mb-0">L.L.B</div>
           <div class="opacity-80 italic md:text-md mt-1">Liquid Locking for Bitcoin</div>
         </a>
       </div>
     </div>
     
-    <div class="WHITEPAPERS border-1 border-[#B95EC5] rounded text-white text-center block border px-6  md:px-8 pb-7 mt-16 md:mt-24 w-10/12 md:w-8/12 bg-[#9722A6] shadow-md">
-      <span class="relative -top-3 whitespace-nowrap px-3 bg-[#9721A6] text-[#C98BD1] text-lg">DOWNLOAD OUR WHITEPAPERS</span>
+    <div class="WHITEPAPERS border-1 border-[#B95EC5] rounded text-white text-center block border px-6  md:px-8 pb-2 md:pb-7 mt-16 md:mt-24 w-10/12 md:w-8/12 bg-[#9722A6] shadow-md">
+      <span class="relative -top-3 whitespace-nowrap px-3 bg-[#9721A6] text-[#C98BD1] text-lg"><span class="hidden md:block">DOWNLOAD </span>OUR WHITEPAPERS</span>
       <a class="block pb-3" href="/on-the-stabilization-of-collateral-backed-stablecoins.pdf">
         <div class="text-lg md:text-3xl font-black pt-2 leading-snug mb-2 md:mb-0">On the Stabilization of Collateral-Backed Stablecoins</div>
         <div class="opacity-80 italic md:text-xl mt-1">By Caleb Clark and Blake Byrnes</div>
       </a>
       <div class="DIVIDER h-[1px] w-11/12 mt-3 mb-5 mx-auto"></div>
       <a class="block pb-3" href="/on-the-stabilization-of-collateral-backed-stablecoins.pdf">
-        <div class="text-lg md:text-3xl font-black pt-2 leading-snug mb-2 md:mb-0">The Fundamentals of Creating a Stable Crypto Asset</div>
+        <div class="text-lg md:text-3xl font-black pt-2 leading-snug mb-2 md:mb-0">The Fundamentals for Creating a Stable Crypto Asset</div>
         <div class="opacity-80 italic md:text-xl mt-1">By Caleb Clark and Blake Byrnes</div>
       </a>
       <div class="DIVIDER h-[1px] w-11/12 my-5 mx-auto"></div>
