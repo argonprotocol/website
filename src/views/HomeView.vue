@@ -1,32 +1,11 @@
-<script setup lang="ts">
-import * as Vue from 'vue';
-import Logo from '../assets/logo.svg';
-import GithubIcon from '../assets/github.svg';
-import DiscordIcon from '../assets/discord.svg';
-import SubstackIcon from '../assets/substack.svg';
-import LaunchingBanner from '../assets/launching.svg';
-import { ChevronDoubleRightIcon } from '@heroicons/vue/24/outline';
-import OptimismIcon from '../assets/optimism.svg';
-import PolygonIcon from '../assets/polygon.svg';
-import BaseIcon from '../assets/base.svg';
-import EthereumIcon from '../assets/ethereum.svg';
-import ArbitrumIcon from '../assets/arbitrum.svg';
-import CardanoIcon from '../assets/cardano.svg';
-import PolkadotIcon from '../assets/polkadot.svg';
-import GnosisIcon from '../assets/gnosis.svg';
-import BnbChainIcon from '../assets/bnbchain.svg';
-import vTooltip from '../directives/tooltip';
-
-</script>
-
 <template>
   <main class=" flex flex-col items-center text-center min-h-screen pb-10 md:pb-32">
-    <div class="absolute -top-5 -left-5">
+    <div class="absolute -top-5 -left-5 z-10">
       <LaunchingBanner class="w-[180px] md:w-[250px]" />
-      <div class="text-white font-bold text-sm md:text-xl absolute top-[65px] left-[14px] md:top-[93px] md:left-[14px] -rotate-45 text-center whitespace-nowrap">Launching Jan 15th</div>
+      <div class="text-white font-bold text-sm md:text-xl absolute top-[65px] left-[14px] md:top-[93px] md:left-[14px] -rotate-45 text-center whitespace-nowrap">Launching Jan 18th</div>
     </div>
 
-    <div class="absolute top-3 right-3 md:top-5 md:right-5 whitespace-nowrap text-sm md:text-base text-white flex flex-row gap-2 md:gap-4 cursor-default">
+    <div class="absolute top-0 left-0 py-3 pr-3 md:pt-5 md:pr-5 w-full whitespace-nowrap text-sm md:text-base text-white flex flex-row justify-end gap-2 md:gap-4 cursor-default">
       <div class="opacity-80 hidden md:block">Live On</div>
       <a href="https://github.com/argonprotocol/mainchain/blob/main/docs/README.md" class="flex flex-row items-center gap-2" v-tooltip="'Argon\'s Testnet is live and operational. Click to view our Getting Started Guide.'" align="right">
         <div class="rounded-full w-4 h-4 bg-[#8FFF23] border border-black"></div>
@@ -42,7 +21,7 @@ import vTooltip from '../directives/tooltip';
 
     <Logo class="mt-20 w-[80px] md:w-[100px]" />
 
-    <h1 class="LOGO-TEXT text-white font-black text-5xl md:text-8xl uppercase opacity-65 my-5">Argon</h1>
+    <h1 class="LOGO-TEXT text-white font-black text-6xl md:text-8xl uppercase opacity-65 my-5">Argon</h1>
 
     <header class="relative w-full md:w-10/12 py-10 md:py-14 mt-6 md:mt-9">
       <div class="LINE LINE1"></div>
@@ -56,9 +35,9 @@ import vTooltip from '../directives/tooltip';
         </div>
       </div>
       <div class="flex flex-col md:flex-row gap-8 text-white font-bold text-lg justify-center mt-10 px-10 md:px-0">
-        <button class="border border-[#B95EC5] rounded-md md:px-20 py-2 hover:bg-white/10">
+        <a href="/manifesto" class="border border-[#B95EC5] rounded-md md:px-20 py-2 hover:bg-white/10 font-bold">
           Our Founding Manifesto
-        </button>
+        </a>
         <a href="https://github.com/argonprotocol/mainchain/blob/main/docs/README.md" class="border border-[#B95EC5] rounded-md md:px-20 py-2 hover:bg-white/10 font-bold">
           Getting Started Guide
           <ChevronDoubleRightIcon class="w-4 h-4 inline-block" />
@@ -143,22 +122,26 @@ import vTooltip from '../directives/tooltip';
       </div>
     </div>
   </main>
-
-  <footer class="bg-[#9422A2] border-t border-[#C362CE] w-full">
-    <div class="py-3 flex flex-row px-5 md:px-10 whitespace-nowrap">
-      <p class="text-sm w-full text-left text-white/60">
-        <span class="hidden md:inline">An open source project for the world.</span>
-        <span class="inline md:hidden">Open source.</span>
-        Zero rights reserved.
-      </p>
-      <div class="flex flex-row gap-4">
-        <a href="https://substack.com/"><SubstackIcon class="w-[21px] text-white/60 hover:text-white mx-auto mr-1" /></a>
-        <a href="https://github.com/argonprotocol/mainchain"><GithubIcon class="relative top-[1px] w-6 h-6 text-white/60 hover:text-white mx-auto" /></a>
-        <a href="https://discord.gg/xDwwDgCYr9"><DiscordIcon class="relative top-[1px] w-6 h-6 text-white/60 hover:text-white mx-auto" /></a>
-      </div>
-    </div>
-  </footer>
+  <FooterBar />
 </template>
+
+<script setup lang="ts">
+import * as Vue from 'vue';
+import Logo from '../assets/logo.svg';
+import LaunchingBanner from '../assets/launching.svg';
+import { ChevronDoubleRightIcon } from '@heroicons/vue/24/outline';
+import OptimismIcon from '../assets/optimism.svg';
+import PolygonIcon from '../assets/polygon.svg';
+import BaseIcon from '../assets/base.svg';
+import EthereumIcon from '../assets/ethereum.svg';
+import ArbitrumIcon from '../assets/arbitrum.svg';
+import CardanoIcon from '../assets/cardano.svg';
+import PolkadotIcon from '../assets/polkadot.svg';
+import GnosisIcon from '../assets/gnosis.svg';
+import BnbChainIcon from '../assets/bnbchain.svg';
+import vTooltip from '../directives/tooltip';
+import FooterBar from '../components/FooterBar.vue';
+</script>
 
 <style scoped>
 .LOGO-TEXT {
@@ -216,6 +199,4 @@ import vTooltip from '../directives/tooltip';
 .LINE2 {
   bottom: 0;
 }
-
-
 </style>

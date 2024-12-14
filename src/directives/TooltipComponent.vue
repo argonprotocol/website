@@ -2,7 +2,7 @@
   <div class="Tooltip Component" :style="{ opacity }">
     <div Arrow :style="arrowStyles" class="absolute">
       <svg class="relative z-10" width="24" height="12" viewBox="0 0 24 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 0L24 12H0L12 0Z" fill="#C88DCD"/>
+        <path d="M12 0L24 12H0L12 0Z" fill="#E5B2E9"/>
       </svg>
       <svg class="absolute z-0 -top-0.5 left-[-1px] opacity-10" width="26" height="14" viewBox="0 0 24 12" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 0L24 12H0L12 0Z" fill="black"/>
@@ -70,14 +70,15 @@ defineExpose({ showTooltip, hideTooltip });
   transition: opacity 0.2s ease;
   [Box] {
     position: absolute;
-    background: #C88DCD;
+    background: #E5B2E9;
     color: #501456;
-    padding: 5px 15px;
+    padding: 10px 15px;
     border-radius: 6px;
     pointer-events: none;
     border: 1px solid #521759;
     box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
     z-index: 1000;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
   }
   [Arrow] {
     z-index: 1001;
