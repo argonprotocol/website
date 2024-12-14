@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import * as Vue from 'vue';
 import Logo from '../assets/logo.svg';
 import GithubIcon from '../assets/github.svg';
 import DiscordIcon from '../assets/discord.svg';
@@ -14,24 +15,28 @@ import CardanoIcon from '../assets/cardano.svg';
 import PolkadotIcon from '../assets/polkadot.svg';
 import GnosisIcon from '../assets/gnosis.svg';
 import BnbChainIcon from '../assets/bnbchain.svg';
+import vTooltip from '../directives/tooltip';
+
 </script>
 
 <template>
   <main class=" flex flex-col items-center text-center min-h-screen pb-10 md:pb-32">
-    <div class="absolute -top-5 -left-5 md:-top-8 md:-left-8">
+    <div class="absolute -top-5 -left-5">
       <LaunchingBanner class="w-[180px] md:w-[250px]" />
-      <div class="text-white font-bold text-sm md:text-xl absolute top-[65px] left-[14px] md:top-[108px] md:left-[34px] -rotate-45 text-center whitespace-nowrap">Launching Jan 15th</div>
+      <div class="text-white font-bold text-sm md:text-xl absolute top-[65px] left-[14px] md:top-[93px] md:left-[14px] -rotate-45 text-center whitespace-nowrap">Launching Jan 15th</div>
     </div>
 
     <div class="absolute top-3 right-3 md:top-5 md:right-5 whitespace-nowrap text-sm md:text-base text-white flex flex-row gap-2 md:gap-4 cursor-default">
-      <div class="opacity-80 hidden md:block">LIVE ON</div>
-      <div class="flex flex-row items-center gap-2">
+      <div class="opacity-80 hidden md:block">Live On</div>
+      <a href="https://github.com/argonprotocol/mainchain/blob/main/docs/README.md" class="flex flex-row items-center gap-2" v-tooltip="'Argon\'s Testnet is live and operational. Click to view our Getting Started Guide.'" align="right">
         <div class="rounded-full w-4 h-4 bg-[#8FFF23] border border-black"></div>
         TESTNET
-      </div>
-      <div class="opacity-40 flex flex-row items-center gap-2">
+      </a>
+      <div class="flex flex-row items-center gap-2" v-tooltip="'Argon\'s Mainnet is launching live on January 15, 2024.'" align="right">
         <div class="rounded-full w-4 h-4 bg-[#8B1699] border border-black"></div>
-        MAINNET
+        <span class="opacity-50">
+          MAINNET
+        </span>
       </div>
     </div>
 
@@ -52,12 +57,12 @@ import BnbChainIcon from '../assets/bnbchain.svg';
       </div>
       <div class="flex flex-col md:flex-row gap-8 text-white font-bold text-lg justify-center mt-10 px-10 md:px-0">
         <button class="border border-[#B95EC5] rounded-md md:px-20 py-2 hover:bg-white/10">
-          Our Founding Manfesto
+          Our Founding Manifesto
         </button>
-        <button class="border border-[#B95EC5] rounded-md md:px-20 py-2 hover:bg-white/10">
+        <a href="https://github.com/argonprotocol/mainchain/blob/main/docs/README.md" class="border border-[#B95EC5] rounded-md md:px-20 py-2 hover:bg-white/10 font-bold">
           Getting Started Guide
           <ChevronDoubleRightIcon class="w-4 h-4 inline-block" />
-        </button>
+        </a>
       </div>
       <div class="LINE LINE2"></div>
     </header>
@@ -65,39 +70,39 @@ import BnbChainIcon from '../assets/bnbchain.svg';
     <div class="relative flex flex-col items-center justify-center w-full md:w-10/12 pt-8 cursor-default">
       <div class="flex flex-row flex-wrap items-center justify-between w-10/12 text-center pb-8">
         <!-- binance -->
-        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto" v-tooltip="'Going Live On January 15, 2025'">
           <OptimismIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Optimism</div>
         </div>
-        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto" v-tooltip="'Going Live In 2025'">
           <PolygonIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Polygon</div>
         </div>
-        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto" v-tooltip="'Going Live On January 15, 2025'">
           <BaseIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Base</div>
         </div>
-        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto mt-8 md:mt-0">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto mt-8 md:mt-0" v-tooltip="'Going Live On January 15, 2025'">
           <EthereumIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Ethereum</div>
         </div>
-        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:hidden mt-8 md:mt-0  ">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:hidden mt-8 md:mt-0" v-tooltip="'Going Live On January 15, 2025'">
           <ArbitrumIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Arbitrum</div>
         </div>
-        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto mt-8 md:mt-0">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto mt-8 md:mt-0" v-tooltip="'Going Live In 2025'">
           <CardanoIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Cardano</div>
         </div>
-        <div class="opacity-80 hover:opacity-100 w-[33.33%] sm:hidden mt-8 md:mt-0">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] sm:hidden mt-8 md:mt-0" v-tooltip="'Going Live In 2025'">
           <PolkadotIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Polkadot</div>
         </div>
-        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto mt-8 md:mt-0">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto mt-8 md:mt-0" v-tooltip="'Going Live In 2025'">
           <GnosisIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Gnosis</div>
         </div>
-        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto mt-8 md:mt-0">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto mt-8 md:mt-0" v-tooltip="'Going Live On January 15, 2025'">
           <BnbChainIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">BNB Chain</div>
         </div>
@@ -106,7 +111,7 @@ import BnbChainIcon from '../assets/bnbchain.svg';
     </div>
 
     <div class="TOOLS border-1 border-[#B95EC5] rounded text-white text-center block border px-0 md:px-8 pb-7 mt-16 md:mt-24 w-10/12 md:w-8/12 bg-[#901D9C] shadow-md">
-      <span class="relative -top-3 whitespace-nowrap px-3 bg-[#9721A6] text-[#C98BD1] text-lg"><span class="hidden md:block">TEST </span>OUR INTERACTIVE MODELS</span>
+      <span class="relative -top-3 whitespace-nowrap px-3 bg-[#9721A6] text-[#C98BD1] text-lg"><span class="hidden md:inline">TEST </span>OUR INTERACTIVE MODELS</span>
       <div class="relative flex flex-row gap-1 md:gap-3 justify-around">
         <a class="block pb-3 pt-5 w-5/12" href="https://sam.argonprotocol.org">
           <div class="text-lg md:text-3xl font-black pt-2 leading-snug mb-2 md:mb-0">S.A.M</div>
@@ -121,8 +126,8 @@ import BnbChainIcon from '../assets/bnbchain.svg';
     </div>
     
     <div class="WHITEPAPERS border-1 border-[#B95EC5] rounded text-white text-center block border px-6  md:px-8 pb-2 md:pb-7 mt-16 md:mt-24 w-10/12 md:w-8/12 bg-[#9722A6] shadow-md">
-      <span class="relative -top-3 whitespace-nowrap px-3 bg-[#9721A6] text-[#C98BD1] text-lg"><span class="hidden md:block">DOWNLOAD </span>OUR WHITEPAPERS</span>
-      <a class="block pb-3" href="/on-the-stabilization-of-collateral-backed-stablecoins.pdf">
+      <span class="relative -top-3 whitespace-nowrap px-3 bg-[#9721A6] text-[#C98BD1] text-lg"><span class="hidden md:inline">DOWNLOAD </span>OUR WHITEPAPERS</span>
+      <a class="block pb-3 pt-1 md:pt-3" href="/on-the-stabilization-of-collateral-backed-stablecoins.pdf">
         <div class="text-lg md:text-3xl font-black pt-2 leading-snug mb-2 md:mb-0">On the Stabilization of Collateral-Backed Stablecoins</div>
         <div class="opacity-80 italic md:text-xl mt-1">By Caleb Clark and Blake Byrnes</div>
       </a>
@@ -140,23 +145,22 @@ import BnbChainIcon from '../assets/bnbchain.svg';
   </main>
 
   <footer class="bg-[#9422A2] border-t border-[#C362CE] w-full">
-    <div class="text-white py-3 flex flex-row opacity-60 px-5 md:px-10 whitespace-nowrap">
-      <p class="text-sm w-full text-left">
+    <div class="py-3 flex flex-row px-5 md:px-10 whitespace-nowrap">
+      <p class="text-sm w-full text-left text-white/60">
         <span class="hidden md:inline">An open source project for the world.</span>
         <span class="inline md:hidden">Open source.</span>
         Zero rights reserved.
       </p>
       <div class="flex flex-row gap-4">
-        <SubstackIcon class="w-[22px] text-white mx-auto mr-1" />
-        <GithubIcon class="relative top-[1px] w-6 h-6 text-white mx-auto" />
-        <DiscordIcon class="relative top-[1px] w-6 h-6 text-white mx-auto" />
+        <a href="https://substack.com/"><SubstackIcon class="w-[21px] text-white/60 hover:text-white mx-auto mr-1" /></a>
+        <a href="https://github.com/argonprotocol/mainchain"><GithubIcon class="relative top-[1px] w-6 h-6 text-white/60 hover:text-white mx-auto" /></a>
+        <a href="https://discord.gg/xDwwDgCYr9"><DiscordIcon class="relative top-[1px] w-6 h-6 text-white/60 hover:text-white mx-auto" /></a>
       </div>
     </div>
   </footer>
 </template>
 
 <style scoped>
-
 .LOGO-TEXT {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
