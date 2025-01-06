@@ -2,7 +2,7 @@
   <main class=" flex flex-col items-center text-center min-h-screen pb-10 md:pb-32">
     <div class="absolute -top-5 -left-5 z-10">
       <LaunchingBanner class="w-[180px] md:w-[250px]" />
-      <div class="text-white font-bold text-sm md:text-xl absolute top-[65px] left-[14px] md:top-[93px] md:left-[14px] -rotate-45 text-center whitespace-nowrap">Launching Jan 18th</div>
+      <div class="text-white font-bold text-sm md:text-xl absolute top-[65px] left-[14px] md:top-[93px] md:left-[14px] -rotate-45 text-center whitespace-nowrap">Launching Jan 15th</div>
     </div>
 
     <div class="absolute top-0 left-0 py-3 pr-3 md:pt-5 md:pr-5 w-full whitespace-nowrap text-sm md:text-base text-white flex flex-row justify-end gap-2 md:gap-4 cursor-default">
@@ -35,8 +35,8 @@
         </div>
       </div>
       <div class="flex flex-col md:flex-row gap-8 text-white font-bold text-lg justify-center mt-10 px-10 md:px-0">
-        <a href="/manifesto" class="border border-[#B95EC5] rounded-md md:px-20 py-2 hover:bg-white/10 font-bold">
-          Our Founding Manifesto
+        <a href="https://clarkbyrnes.substack.com/p/the-future-of-ulixee-is-argon" class="border border-[#B95EC5] rounded-md md:px-20 py-2 hover:bg-white/10 font-bold">
+          Letter from the Founders
         </a>
         <a href="https://github.com/argonprotocol/mainchain/blob/main/docs/README.md" class="border border-[#B95EC5] rounded-md md:px-20 py-2 hover:bg-white/10 font-bold">
           Getting Started Guide
@@ -90,7 +90,7 @@
     </div>
 
     <div class="TOOLS border-1 border-[#B95EC5] rounded text-white text-center block border px-0 md:px-8 pb-7 mt-16 md:mt-24 w-10/12 md:w-8/12 bg-[#901D9C] shadow-md">
-      <span class="relative -top-3 whitespace-nowrap px-3 bg-[#9721A6] text-[#C98BD1] text-lg"><span class="hidden md:inline">TEST </span>OUR INTERACTIVE MODELS</span>
+      <span class="relative -top-3 whitespace-nowrap px-3 bg-[#9721A6] text-[#C98BD1] text-lg"><span class="hidden md:inline">TEST </span>OUR SIMULATION ENGINE</span>
       <div class="relative flex flex-row gap-1 md:gap-3 justify-around">
         <a class="block pb-3 pt-5 w-5/12" href="https://sam.argonprotocol.org">
           <div class="text-lg md:text-3xl font-black pt-2 leading-snug mb-2 md:mb-0">S.A.M</div>
@@ -111,7 +111,7 @@
         <div class="opacity-80 italic md:text-xl mt-1">By Caleb Clark and Blake Byrnes</div>
       </a>
       <div class="DIVIDER h-[1px] w-11/12 mt-3 mb-5 mx-auto"></div>
-      <a class="block pb-3" href="/on-the-stabilization-of-collateral-backed-stablecoins.pdf">
+      <a class="block pb-3" href="/the-fundamentals-for-creating-a-stable-crypto-asset.pdf">
         <div class="text-lg md:text-3xl font-black pt-2 leading-snug mb-2 md:mb-0">The Fundamentals for Creating a Stable Crypto Asset</div>
         <div class="opacity-80 italic md:text-xl mt-1">By Caleb Clark and Blake Byrnes</div>
       </a>

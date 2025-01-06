@@ -33,8 +33,8 @@
           such asset. All the assets are either being continually debased by inflation or are at constant risk of volatility. This is true of the dollar, the stock market, and even of gold.
         </div>
         <div class="w-full md:w-[28%] text-base md:text-lg opacity-80">
-          <p>Over the last hundred years, the dollar lost 96% of its value. Argon is the first truly hard currecy with no inflation or deflation. Although gold is better than the dollar, 
-            it's also suceptible to inflation (around 1% annually).</p>
+          <p>Over the last hundred years, the dollar lost 96%+ of its value. Argon is the first truly hard currency with no inflation or deflation. Although gold has outperformedthe dollar, 
+            it is still susceptible to inflation of 1.5-2% annually.</p>
         </div>
       </div>
 
@@ -42,13 +42,13 @@
 
       <div class="flex flex-col md:flex-row w-full space-y-5 md:space-y-0">
         <div class="leading-7 md:leading-9 text-lg md:text-xl w-full md:w-[65%] mr-0 md:mr-[7%]">
-          <strong>We believe crypto needs a new medium of exchange that is fully and truly decentralized</strong>. The current market relies on stablecoins that are collaterally backed 
+          <strong class="uppercase">We believe crypto needs a new medium of exchange that is fully and truly decentralized</strong>. The current market relies on stablecoins that are collaterally backed 
           by the old banking system. Crypto can never achieve its goal of disrupting the old banking system so long as it is based on the same system. It will eventually be reeled back 
           in and merged into the old banking system until only the old system remains.
         </div>
 
         <div class="w-full md:w-[28%] text-base md:text-lg opacity-80">
-          <p>Ninety-eight percent of all stablecoins in circulation are minted and controlled by centralized entities (like Tether, Circle, etc). They are basically traditional finance 
+          <p>Ninety-eight percent of all stablecoins in circulation are minted and controlled by centralized entities like Tether, Circle, etc. They are basically traditional finance 
             entities with a different API.</p>
         </div>
       </div>
@@ -57,9 +57,9 @@
 
       <div class="flex flex-col md:flex-row w-full space-y-5 md:space-y-0">
         <div class="leading-7 md:leading-9 text-lg md:text-xl w-full md:w-[65%] mr-0 md:mr-[7%]">
-          <strong>We believe the current crop of stablecoins are doomed to failure because of their off-chain collateral architecture</strong>. Off-chain assets cannot be independently 
+          <strong class="uppercase">We believe the current crop of stablecoins are doomed to failure because of their off-chain collateral architecture</strong>. Off-chain assets cannot be independently 
           verified using on-chain algorithms. As such, these stablecoins inherit all the problems of fractional reserve banking without the regulatory oversight and insurance guarantees 
-          of traditional banking. It's hard to see how these centrally-backed stablecoins become anything other than CBDCs (Central bank Digital Currencies).
+          of traditional banking. It's hard to see how these centrally backed stablecoins become anything other than CBDCs (Central Bank Digital Currencies).
         </div>
 
         <div class="w-full md:w-[28%] text-base md:text-lg opacity-80">
@@ -73,16 +73,16 @@
 
       <div class="flex flex-col md:flex-row w-full space-y-5 md:space-y-0">
         <div class="leading-7 md:leading-9 text-lg md:text-xl w-full md:w-[65%] mr-0 md:mr-[7%]">
-          <strong>We believe the practice of rewarding genesis block tokens, smart contract air drops, and other pre-allocation methods has destroyed the purity and potential of the 
-            crypto industry</strong>. Pre-aloocation goes against the founding ethos of bitcoin and the basic tenants of decentralization. It creates uneven playing fields that 
-            incentivizes short-term hype over long-term value. It rewards past involvement over future behavior. It has fueled a wave of projects that masquerade as decentralized 
-            that are in reality controlled by shadow entities.
+          <strong class="uppercase">We believe the practice of rewarding genesis block tokens, smart contract air drops, and other pre-allocation methods has destroyed the purity and potential of the 
+            crypto industry</strong>. Pre-allocation goes against the founding ethos of Bitcoin and the basic tenants of decentralization. It creates uneven playing fields that 
+            incentivize short-term hype over long-term value. It rewards past involvement over future behavior. It fuels projects that masquerade as decentralized, but are, in reality 
+            controlled by shadow entities.
         </div>
 
         <div class="w-full md:w-[28%] text-base md:text-lg opacity-80">
-          Argon is being launched with zero token distribution to any founders, funders, or other entities. There will be no ICOs, no genesis block rewards, no revenue streams
-          allocated to a centralized entity. Zipo. Everyone will participate in an even playing field.All the code, trademarks, pending-patents, and other intellectual property 
-          is being open sourced and released.
+          Argon is launching on January 15, 2025, with zero tokens being distributed to founders, funders, or any other entity. There will be no ICOs, no genesis block rewards, and 
+          no revenue streams allocated to a company or individual. Zipo. All the intellectual property -- code, trademarks, patents, etc -- is being open sourced. Everyone has a chance
+          to participate on an even playing field.
         </div>
       </div>
     </div>
