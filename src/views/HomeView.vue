@@ -1,5 +1,5 @@
 <template>
-  <main class=" flex flex-col items-center text-center min-h-screen pb-10 md:pb-32">
+  <main class=" flex flex-col items-center text-center min-h-screen pb-10 md:pb-32 relative">
     <div class="absolute -top-5 -left-5 z-10">
       <LaunchingBanner class="w-[180px] md:w-[250px]" />
       <div class="text-white font-bold text-sm md:text-xl absolute top-[65px] left-[14px] md:top-[93px] md:left-[14px] -rotate-45 text-center whitespace-nowrap">Launching Jan 15th</div>
@@ -92,14 +92,14 @@
     <div class="TOOLS border-1 border-[#B95EC5] rounded text-white text-center block border px-0 md:px-8 pb-7 mt-16 md:mt-24 w-10/12 md:w-8/12 bg-[#901D9C] shadow-md">
       <span class="relative -top-3 whitespace-nowrap px-3 bg-[#9721A6] text-[#C98BD1] text-lg"><span class="hidden md:inline">TEST </span>OUR SIMULATION ENGINE</span>
       <div class="relative flex flex-row gap-1 md:gap-3 justify-around">
-        <a class="block pb-3 pt-5 w-5/12" href="https://sam.argonprotocol.org">
-          <div class="text-lg md:text-3xl font-black pt-2 leading-snug mb-2 md:mb-0">S.A.M</div>
-          <div class="opacity-80 italic md:text-md mt-1">Stabilization Analysis Model</div>
-        </a>
-        <div class="DIVIDER-VERTICAL absolute top-2 left-1/2 -translate-x-1/2 w-[1px] h-full"></div>
         <a class="block pb-3 pt-5 w-5/12" href="https://llb.argonprotocol.org">
           <div class="text-lg md:text-3xl font-black pt-2 leading-snug mb-2 md:mb-0">L.L.B</div>
           <div class="opacity-80 italic md:text-md mt-1">Liquid Locking for Bitcoin</div>
+        </a>
+        <div class="DIVIDER-VERTICAL absolute top-2 left-1/2 -translate-x-1/2 w-[1px] h-full"></div>
+        <a class="block pb-3 pt-5 w-5/12" href="https://sam.argonprotocol.org">
+          <div class="text-lg md:text-3xl font-black pt-2 leading-snug mb-2 md:mb-0">S.A.M</div>
+          <div class="opacity-80 italic md:text-md mt-1">Stabilization Analysis Model</div>
         </a>
       </div>
     </div>
