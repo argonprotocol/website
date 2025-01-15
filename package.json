@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "test:unit": "vitest",
     "build-only": "vite build",
-    "predeploy": "npm run build",
+    "predeploy": "NODE_ENV=production npm run build",
     "deploy": "gh-pages -d dist -b ws-staging",
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
