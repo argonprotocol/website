@@ -1,22 +1,12 @@
 <template>
   <main class=" flex flex-col items-center text-center min-h-screen pb-10 md:pb-32 relative">
-    <div class="absolute -top-5 -left-5 z-10">
+    <div class="absolute -top-16 -left-5 z-10">
       <LaunchingBanner class="w-[180px] md:w-[250px]" />
-      <div class="text-white font-bold text-sm md:text-xl absolute top-[65px] left-[14px] md:top-[93px] md:left-[14px] -rotate-45 text-center whitespace-nowrap">Launching Jan 15th</div>
+      <a href="https://clarkbyrnes.substack.com/p/argon-is-live" class="block hover:opacity-70 text-white font-bold text-base md:text-2xl absolute top-[65px] left-[14px] md:top-[93px] md:left-[14px] -rotate-45 text-center whitespace-nowrap">EXPERIMENTAL</a>
     </div>
 
-    <div class="absolute top-0 left-0 py-3 pr-3 md:pt-5 md:pr-5 w-full whitespace-nowrap text-sm md:text-base text-white flex flex-row justify-end gap-2 md:gap-4 cursor-default">
-      <div class="opacity-80 hidden md:block">Live On</div>
-      <a href="https://github.com/argonprotocol/mainchain/blob/main/docs/README.md" class="flex flex-row items-center gap-2" v-tooltip="'Argon\'s Testnet is live and operational. Click to view our Getting Started Guide.'" align="right">
-        <div class="rounded-full w-4 h-4 bg-[#8FFF23] border border-black"></div>
-        TESTNET
-      </a>
-      <div class="flex flex-row items-center gap-2" v-tooltip="'Argon\'s Mainnet is launching live on January 15, 2024.'" align="right">
-        <div class="rounded-full w-4 h-4 bg-[#8B1699] border border-black"></div>
-        <span class="opacity-50">
-          MAINNET
-        </span>
-      </div>
+    <div class="absolute top-0 left-0 w-full flex flex-row justify-end">
+      <ChainStatus />
     </div>
 
     <Logo class="mt-20 w-[80px] md:w-[100px]" />
@@ -49,39 +39,39 @@
     <div class="relative flex flex-col items-center justify-center w-full md:w-10/12 pt-8 cursor-default">
       <div class="flex flex-row flex-wrap items-center justify-between w-10/12 text-center pb-8">
         <!-- binance -->
-        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto" v-tooltip="'Going Live On January 15, 2025'">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto" v-tooltip="'Live!'">
           <OptimismIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Optimism</div>
         </div>
-        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto" v-tooltip="'Going Live In 2025'">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto" v-tooltip="'Coming Soon'">
           <PolygonIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Polygon</div>
         </div>
-        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto" v-tooltip="'Going Live On January 15, 2025'">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto" v-tooltip="'Live!'">
           <BaseIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Base</div>
         </div>
-        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto mt-8 md:mt-0" v-tooltip="'Going Live On January 15, 2025'">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto mt-8 md:mt-0" v-tooltip="'Live!'">
           <EthereumIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Ethereum</div>
         </div>
-        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:hidden mt-8 md:mt-0" v-tooltip="'Going Live On January 15, 2025'">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:hidden mt-8 md:mt-0" v-tooltip="'Live!'">
           <ArbitrumIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Arbitrum</div>
         </div>
-        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto mt-8 md:mt-0" v-tooltip="'Going Live In 2025'">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto mt-8 md:mt-0" v-tooltip="'Coming Soon'">
           <CardanoIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Cardano</div>
         </div>
-        <div class="opacity-80 hover:opacity-100 w-[33.33%] sm:hidden mt-8 md:mt-0" v-tooltip="'Going Live In 2025'">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] sm:hidden mt-8 md:mt-0" v-tooltip="'Coming Soon'">
           <PolkadotIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Polkadot</div>
         </div>
-        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto mt-8 md:mt-0" v-tooltip="'Going Live In 2025'">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto mt-8 md:mt-0" v-tooltip="'Coming Soon'">
           <GnosisIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">Gnosis</div>
         </div>
-        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto mt-8 md:mt-0" v-tooltip="'Going Live On January 15, 2025'">
+        <div class="opacity-80 hover:opacity-100 w-[33.33%] md:w-auto mt-8 md:mt-0" v-tooltip="'Live!'">
           <BnbChainIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-white/80 text-md">BNB Chain</div>
         </div>
@@ -126,7 +116,6 @@
 </template>
 
 <script setup lang="ts">
-import * as Vue from 'vue';
 import Logo from '../assets/logo.svg';
 import LaunchingBanner from '../assets/launching.svg';
 import { ChevronDoubleRightIcon } from '@heroicons/vue/24/outline';
@@ -141,6 +130,7 @@ import GnosisIcon from '../assets/gnosis.svg';
 import BnbChainIcon from '../assets/bnbchain.svg';
 import vTooltip from '../directives/tooltip';
 import FooterBar from '../components/FooterBar.vue';
+import ChainStatus from '../components/ChainStatus.vue';
 </script>
 
 <style scoped>

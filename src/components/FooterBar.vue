@@ -7,7 +7,7 @@
         Zero rights reserved.
       </p>
       <div class="flex flex-row gap-4">
-        <a href="https://clarkbyrnes.substack.com/"><SubstackIcon class="w-[21px] text-white/60 hover:text-white mx-auto mr-1" /></a>
+        <a href="https://clarkbyrnes.substack.com/"><SubstackIcon class="w-[21px] text-white/60 hover:text-white mx-auto mr-1 relative top-[2px]" /></a>
         <a href="https://github.com/argonprotocol/mainchain"><GithubIcon class="relative top-[1px] w-6 h-6 text-white/60 hover:text-white mx-auto" /></a>
         <a href="https://discord.gg/xDwwDgCYr9"><DiscordIcon class="relative top-[1px] w-6 h-6 text-white/60 hover:text-white mx-auto" /></a>
       </div>

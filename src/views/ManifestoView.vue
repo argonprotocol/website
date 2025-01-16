@@ -1,5 +1,5 @@
 <template>
-  <main class=" flex flex-col items-center text-center min-h-screen pb-10 md:pb-32">
+  <main class="relative flex flex-col items-center text-center min-h-screen pb-10 md:pb-32">
 
     <div class="absolute top-0 left-0 py-3 pr-3 md:pt-5 md:pr-5 w-full whitespace-nowrap text-sm md:text-base text-white flex flex-row justify-end gap-2 md:gap-4 cursor-default">
       <div class="absolute left-3 top-3 md:left-5 md:top-5 opacity-50 hover:opacity-100 cursor-pointer" @click="$router.push('/')">
@@ -7,17 +7,7 @@
         Back to Home
       </div>
       
-      <div class="opacity-80 hidden md:block">Live On</div>
-      <a href="https://github.com/argonprotocol/mainchain/blob/main/docs/README.md" class="flex flex-row items-center gap-2" v-tooltip="'Argon\'s Testnet is live and operational. Click to view our Getting Started Guide.'" align="right">
-        <div class="rounded-full w-4 h-4 bg-[#8FFF23] border border-black"></div>
-        TESTNET
-      </a>
-      <div class="flex flex-row items-center gap-2" v-tooltip="'Argon\'s Mainnet is launching live on January 15, 2024.'" align="right">
-        <div class="rounded-full w-4 h-4 bg-[#8B1699] border border-black"></div>
-        <span class="opacity-50">
-          MAINNET
-        </span>
-      </div>
+      <ChainStatus />
     </div>
 
     <a href="/"><Logo class="mt-20 w-[80px] md:w-[100px]" /></a>
@@ -91,9 +81,8 @@
 </template>
 
 <script setup lang="ts">
-import * as Vue from 'vue';
 import FooterBar from '../components/FooterBar.vue';
-import vTooltip from '../directives/tooltip';
+import ChainStatus from '../components/ChainStatus.vue';
 import Logo from '../assets/logo.svg';
 import { ArrowLeftIcon } from '@heroicons/vue/24/outline';
 </script>
