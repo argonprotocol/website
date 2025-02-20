@@ -56,7 +56,7 @@
 
     <div class="text-white/70 w-min">
       <h1 class="LOGO-TEXT text-white text-3xl md:text-5xl uppercase font-bold mb-4 mt-10 md:mt-20 md:whitespace-nowrap">
-        Full Launch Begins <span class="block md:inline font-bold">February 25, 2025</span>
+        Full Launch Begins <span class="block md:inline font-bold">February 20, 2025</span>
       </h1>
     
       <p class="text-lg md:text-2xl leading-8 md:leading-10 text-justify uppercase px-5 md:px-0">
@@ -71,7 +71,7 @@
         JOIN THE BOOTSTRAP
       </h1>
 
-      <!-- <div class="text-white mt-10 mx-auto text-left font-extralight leading-9 flex flex-col gap-10">
+      <div class="text-white mt-10 mx-auto text-left font-extralight leading-9 flex flex-col gap-10">
         <div class="LINE LINE2"></div>
         <p v-if="countryCode === 'LOADING'" class="text-center mt-10 opacity-50 text-xl">Loading...</p>
         <div v-else-if="['US', 'GB'].includes(countryCode)">
@@ -141,7 +141,7 @@
           </div>
 
         </div>
-      </div> -->
+      </div>
     </div>
 
   </main>
@@ -155,7 +155,6 @@ import utc from 'dayjs/plugin/utc';
 import FooterBar from '../components/FooterBar.vue';
 import ChainStatus from '../components/ChainStatus.vue';
 import Logo from '../assets/logo.svg';
-import AlertIcon from '../assets/alert.svg';
 import Map from '../assets/map.svg?skipsvgo';
 import { ApiPromise, WsProvider } from '@polkadot/api';
 import VueCountdown from '@chenfengyuan/vue-countdown';
