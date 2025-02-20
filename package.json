@@ -16,10 +16,13 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@chenfengyuan/vue-countdown": "2",
+    "@heroicons/vue": "^2.1.5",
+    "@polkadot/api": "^15.3.1",
+    "dayjs": "^1.11.13",
     "pinia": "^2.1.7",
     "vue": "^3.4.29",
-    "vue-router": "^4.3.3",
-    "@heroicons/vue": "^2.1.5"
+    "vue-router": "^4.3.3"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.8.0",
