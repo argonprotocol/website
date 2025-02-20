@@ -1,8 +1,17 @@
 <template>
+  <div Banner class="pt-[13px] pb-[12px] relative text-right md:text-center">
+    <a href="https://clarkbyrnes.substack.com/p/the-basics-of-argon-bidding" class="text-white/80 hover:text-white px-2">
+      <SubstackIcon class="inline-block h-5 mr-2 relative top-[-1px]" />
+      NEW: The Basics of Argon Bidding ->
+    </a>
+  </div>
+
   <main class=" flex flex-col items-center text-center min-h-screen pb-10 md:pb-32 relative">
     <div class="absolute -top-16 -left-5 z-10">
       <LaunchingBanner class="w-[180px] md:w-[250px]" />
-      <a href="https://clarkbyrnes.substack.com/p/argon-is-live" class="block hover:opacity-70 text-white font-bold text-base md:text-2xl absolute top-[65px] left-[14px] md:top-[93px] md:left-[14px] -rotate-45 text-center whitespace-nowrap">EXPERIMENTAL</a>
+      <a href="https://clarkbyrnes.substack.com/p/argon-is-live" class="block hover:opacity-70 text-white font-bold text-base md:text-lg absolute top-[64px] left-[16px] md:top-[95px] md:left-[6px] -rotate-45 text-center whitespace-nowrap">
+        <span class="hidden md:inline">A GRAND</span><span class="inline md:hidden font-bold">AN</span> EXPERIMENT
+      </a>
     </div>
 
     <div class="absolute top-0 left-0 w-full flex flex-row justify-end">
@@ -28,8 +37,8 @@
         <a href="https://clarkbyrnes.substack.com/p/the-future-of-ulixee-is-argon" class="border border-[#B95EC5] rounded-md md:px-20 py-2 hover:bg-white/10 font-bold">
           Letter from the Founders
         </a>
-        <a href="https://github.com/argonprotocol/mainchain/blob/main/docs/README.md" class="border border-[#B95EC5] rounded-md md:px-20 py-2 hover:bg-white/10 font-bold">
-          Getting Started Guide
+        <a href="/mainnet" class="border border-[#B95EC5] rounded-md md:px-20 py-2 hover:bg-white/10 font-bold">
+          Help Us Bootstrap the Network
           <ChevronDoubleRightIcon class="w-4 h-4 inline-block" />
         </a>
       </div>
@@ -131,6 +140,7 @@ import BnbChainIcon from '../assets/bnbchain.svg';
 import vTooltip from '../directives/tooltip';
 import FooterBar from '../components/FooterBar.vue';
 import ChainStatus from '../components/ChainStatus.vue';
+import SubstackIcon from '../assets/substack.svg';
 </script>
 
 <style scoped>
@@ -188,5 +198,21 @@ import ChainStatus from '../components/ChainStatus.vue';
 
 .LINE2 {
   bottom: 0;
+}
+
+[Banner] {
+  display: block;
+  box-shadow: inset 0 -1px 0px rgba(0,0,0,0.2);
+  background: #6c0e79;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.2);
+  }
 }
 </style>
