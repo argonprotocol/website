@@ -161,7 +161,7 @@ import VueCountdown from '@chenfengyuan/vue-countdown';
 
 dayjs.extend(utc);
 
-const launchDate = dayjs.utc('2025-02-20 17:00:00');
+const launchDate = dayjs.utc('2025-02-24 17:00:00');
 const millisecondsUntilLaunch = launchDate.valueOf() - Date.now();
 
 const countryCode = Vue.ref('LOADING');
