@@ -29,7 +29,7 @@
 
     <div Clock class="relative w-10/12 md:w-8/12 bg-black/20 border border-white/30 rounded-lg p-4 text-white md:-mt-16 z-10">
       <div class="text-xl md:text-3xl font-light pt-4 md:pt-8">ARGON'S BOOTSTRAPPING PHASE ENDS IN</div>
-      <vue-countdown CountdownClock :time="millisecondsUntilLaunch" v-slot="{ days, hours, minutes, seconds }">
+      <VueCountdown CountdownClock :time="millisecondsUntilLaunch" v-slot="{ days, hours, minutes, seconds }">
         <div class="flex flex-row w-full justify-around py-4 md:py-10 px-2 md:px-8">
           <ul class="flex flex-col items-center">
             <li>{{ days }}</li>
@@ -51,7 +51,7 @@
             <li>SECONDS</li>
           </ul>
         </div>
-      </vue-countdown>
+      </VueCountdown>
     </div>
 
     <div class="text-white/70 w-min">
