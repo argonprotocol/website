@@ -44,8 +44,12 @@ export default {
     if ((el as any)._tooltipApp) {
       (el as any)._tooltipApp.unmount();
     }
-    if ((el as any)._tooltipInstance.$el) {
-      document.body.removeChild((el as any)._tooltipInstance.$el);
+    try {
+      if ((el as any)._tooltipInstance.$el) {
+        document.body.removeChild((el as any)._tooltipInstance.$el);
+      }
+    } catch (error) {
+      console.error(error);
     }
   },
 };
