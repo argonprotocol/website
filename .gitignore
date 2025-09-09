@@ -91,6 +91,8 @@ out
 # Nuxt.js build / generate output
 .nuxt
 dist
+dist-staging
+dist-production
 
 # vuepress build output
 .vuepress/dist

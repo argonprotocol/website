@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="141px" height="72px" viewBox="0 0 141 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Combined Shape</title>
+    <defs>
+        <path d="M0,0 L1440,0 L1440,7588 L0,7588 L0,0 Z" id="path-1"></path>
+        <filter x="-0.7%" y="-0.1%" width="101.9%" height="100.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="4" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.25 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Argon-Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard" transform="translate(-362, -5404)" xlink:href="#path-1">
+            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            <path stroke-opacity="0.20703125" stroke="#4E4E4E" stroke-width="1" d="M1439.5,0.5 L1439.5,7587.5 L0.5,7587.5 L0.5,0.5 L1439.5,0.5 Z" stroke-linejoin="square"></path>
+            <path d="M445.267199,5416.01804 C463.822071,5423.72528 481.941423,5440.39021 499.680877,5465.96738 L502.069356,5464.80253 L501.959097,5475.98233 L493.081416,5469.18624 L496.042653,5467.74163 C478.818512,5443.03054 461.363739,5427.0355 443.732801,5419.71204 C425.377749,5412.0878 398.304852,5408.35826 362.558512,5408.57515 L362.534243,5404.57523 C398.768157,5404.35538 426.331008,5408.15241 445.267199,5416.01804 Z" id="Combined-Shape" fill="#DFBCE3" fill-rule="nonzero"></path>
+        </g>
+    </g>
+</svg>

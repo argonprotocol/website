@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 76 76" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path d="M0,0 L1440,0 L1440,7588 L0,7588 L0,0 Z" id="path-1"></path>
+        <filter x="-0.7%" y="-0.1%" width="101.9%" height="100.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="4" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.25 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Argon-Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard" transform="translate(-552, -4008)" xlink:href="#path-1">
+            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            <path stroke-opacity="0.20703125" stroke="#4E4E4E" stroke-width="1" d="M1439.5,0.5 L1439.5,7587.5 L0.5,7587.5 L0.5,0.5 L1439.5,0.5 Z" stroke-linejoin="square"></path>
+            <g id="AI-FIRST" stroke-width="1" fill-rule="evenodd" transform="translate(-0, 3685.1633)" fill="currentColor">
+                <g id="LOGOS" transform="translate(109.2554, 317.1184)" fill-rule="nonzero">
+                    <path d="M477.475189,66.9495503 C479.47597,71.512093 480.47636,76.3872029 480.47636,81.5747334 C480.47636,76.3872029 481.444527,71.512093 483.382327,66.9495503 C485.381643,62.3870076 488.069369,58.4182545 491.444039,55.0432911 C494.820174,51.6681813 498.788049,49.0119465 503.350591,47.0744404 C507.913134,45.0743916 512.789123,44.0744404 517.975628,44.0744404 C512.789123,44.0744404 507.913134,43.1056874 503.350591,41.1680348 C498.788049,39.1681325 494.820174,36.4805531 491.444039,33.1055897 C488.069369,29.7304799 485.381643,25.7617268 483.382327,21.1991402 C481.444527,16.6365975 480.47636,11.7615462 480.47636,6.57400103 C480.47636,11.7615462 479.47597,16.6365975 477.475189,21.1991402 C475.538854,25.7617268 472.881887,29.7304799 469.507217,33.1055897 C466.132546,36.4805531 462.163207,39.1681325 457.600665,41.1680348 C453.038122,43.1056874 448.163598,44.0744404 442.975628,44.0744404 C448.163598,44.0744404 453.038122,45.0743916 457.600665,47.0744404 C462.163207,49.0119465 466.132546,51.6681813 469.507217,55.0432911 C472.881887,58.4182545 475.538854,62.3870076 477.475189,66.9495503 Z" id="gemini"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="658px" height="148px" viewBox="0 0 658 148" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>LEARN</title>
+    <defs>
+        <path d="M0,0 L1440,0 L1440,1933 L0,1933 L0,0 Z" id="path-1"></path>
+        <filter x="-0.7%" y="-0.5%" width="101.9%" height="101.4%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="4" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.25 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Argon-Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard-Copy" transform="translate(-151, -202)" xlink:href="#path-1">
+            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            <path stroke-opacity="0.20703125" stroke="#4E4E4E" stroke-width="1" d="M1439.5,0.5 L1439.5,1932.5 L0.5,1932.5 L0.5,0.5 L1439.5,0.5 Z" stroke-linejoin="square"></path>
+            <g id="LEARN" stroke-width="1" fill-rule="evenodd" transform="translate(142.0107, 154.6749)" fill="#EFF2F8" stroke="#7C1189">
+                <path d="M48.3636364,49.0454545 L48.3636364,162.681818 L107.170455,162.681818 L107.170455,193.5 L9.875,193.5 L9.875,49.0454545 L48.3636364,49.0454545 Z" id="Path" fill-rule="nonzero"></path>
+                <path d="M227.909091,49.0454545 L227.909091,79.8636364 L162.568182,79.8636364 L162.568182,105.863636 L222.511364,105.863636 L222.511364,136.681818 L162.568182,136.681818 L162.568182,162.681818 L227.625,162.681818 L227.625,193.5 L124.079545,193.5 L124.079545,49.0454545 L227.909091,49.0454545 Z" id="Path" fill-rule="nonzero"></path>
+                <polygon id="Path" fill-rule="nonzero" points="277.840909 136.613636 357.954545 136.613636 357.954545 166.159091 277.840909 166.159091"></polygon>
+                <polygon id="Path" fill-rule="nonzero" points="285.795455 194 243.181818 194 291.193182 48.5454545 345.170455 48.5454545 393.181818 194 350.568182 194 318.75 88.6022727 317.613636 88.6022727"></polygon>
+                <path d="M460.511364,145.988636 C457.428879,145.988636 452.755877,145.988636 446.590909,145.988636 L446.590909,115.306818 L460.511364,115.306818 C465.151515,115.306818 469.116951,114.726799 472.40767,113.566761 C475.69839,112.406723 478.231534,110.548295 480.007102,107.991477 C481.78267,105.434659 482.670455,102.096591 482.670455,97.9772727 C482.670455,93.8106061 481.78267,90.4133523 480.007102,87.7855114 C478.231534,85.1576705 475.69839,83.2163826 472.40767,81.9616477 C469.116951,80.7069129 465.151515,80.0795455 460.511364,80.0795455 L446.590909,80.0795455 L446.590909,194 L407.102273,194 L407.102273,48.5454545 L469.886364,48.5454545 C480.681818,48.5454545 490.127841,50.5104167 498.224432,54.4403409 C506.321023,58.3702652 512.618371,64.0284091 517.116477,71.4147727 C521.614583,78.8011364 523.863636,87.655303 523.863636,97.9772727 C523.863636,108.393939 521.555398,117.177083 516.93892,124.326705 C512.778509,130.770008 506.681167,135.905966 499.492718,139.510166" id="Path" fill-rule="nonzero"></path>
+                <polyline id="Path" fill-rule="nonzero" points="498.856833 139.286523 528.693182 194 485.795455 194 460.090215 145.721086"></polyline>
+                <path d="M573.882883,49.0454545 L625.587428,125.181818 L627.488636,125.181818 L627.488636,49.0454545 L665.977273,49.0454545 L665.977273,193.5 L633.785692,193.5 L581.228874,117.079545 L579.613636,117.079545 L579.613636,193.5 L541.125,193.5 L541.125,49.0454545 L573.882883,49.0454545 Z" id="Path" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>
