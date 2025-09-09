@@ -1,1 +1,0 @@
-import{_ as r}from"./index-rZWpiFqo.js";const e={};function s(t,c){return null}const o=r(e,[["render",s],["__file","/Users/calebclark/Projects/Argon/website/src/screens/start/Argonots.vue"]]);export{o as default};
