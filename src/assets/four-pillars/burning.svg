@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 104 158" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Path</title>
+    <defs>
+        <path d="M0,0 L3456,0 L3456,16440 L0,16440 L0,0 Z" id="path-1"></path>
+        <filter x="-0.3%" y="-0.1%" width="100.8%" height="100.2%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="4" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.25 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Argon-Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Frame-3-Copy-5" transform="translate(-2288, -6995)" xlink:href="#path-1">
+            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            <path stroke-opacity="0.20703125" stroke="#4E4E4E" stroke-width="1" d="M3455.5,0.5 L3455.5,16439.5 L0.5,16439.5 L0.5,0.5 L3455.5,0.5 Z" stroke-linejoin="square"></path>
+            <g id="Group-Copy-2" stroke-width="1" fill-rule="evenodd" transform="translate(388, 6660.2272)" fill="#000000">
+                <path d="M1968.97936,453.919848 C1967.1695,461.278124 1963.85877,465.743832 1959.04687,467.317914 C1963.51529,454.532148 1959.78147,440.71866 1947.84512,425.87745 C1947.58751,441.205674 1943.91105,452.371514 1936.81542,459.375284 C1927.04057,469.014142 1927.15558,479.892358 1937.16016,492.009618 C1895.62941,469.86571 1889.77013,440.166334 1919.58172,402.912432 C1921.43076,411.9123 1925.9114,417.437758 1933.02426,419.488806 C1925.27113,386.524772 1933.42854,358.437158 1957.49618,335.225964 C1957.64411,386.736722 1973.40955,391.315156 1993.34254,414.308434 C2014.86414,441.901498 2002.21669,473.744552 1966.77368,492.225964 C1974.75245,480.403864 1975.48768,467.635368 1968.97936,453.919848 Z" id="Path" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>

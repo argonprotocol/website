@@ -7,7 +7,7 @@
     <SubTitle>Bitcoin to Argon Short Value</SubTitle>
 
     <SubContent>
-      The short value of bitcoin to argon.
+
     </SubContent>
   </SubLayout>
 </template>

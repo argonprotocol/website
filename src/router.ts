@@ -1,11 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from './screens/Home.vue';
-import MainnetView from './screens/start/Mainnet.vue';
-import TestnetView from './screens/start/Testnet.vue';
-import ArgonotsView from './screens/start/Argonots.vue';
-import CommunityView from './screens/start/Community.vue';
-import LearnView from './screens/learn/Index.vue';
-import StartView from './screens/start/Index.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,6 +7,14 @@ const router = createRouter({
     {
       path: '/',
       component: HomeView
+    },
+    {
+      path: '/start',
+      component: () => import('@/screens/start/Index.vue')
+    },
+    {
+      path: '/playbook',
+      component: () => import('@/screens/playbook/Index.vue')
     },
     {
       path: '/learn',
@@ -27,8 +29,8 @@ const router = createRouter({
       component: () => import('./screens/learn/currency-metrics/ArgonsInCirculation.vue')
     },
     {
-      path: '/learn/currency-metrics/argon-to-dollar-exchange-rate',
-      component: () => import('./screens/learn/currency-metrics/ArgonToDollarExchangeRate.vue')
+      path: '/learn/currency-metrics/argon-to-fiat-exchange-rate',
+      component: () => import('./screens/learn/currency-metrics/ArgonToFiatExchangeRate.vue')
     },
     {
       path: '/learn/currency-metrics/bitcoin-to-argon-short-value',
@@ -64,41 +66,41 @@ const router = createRouter({
     },
     {
       path: '/learn/four-pillars/immunity-from-death-spirals',
-      component: () => import('./screens/learn/four-pillars/ImmunityFromDeathSpirals.vue')
+      component: () => import('./screens/learn/four-pillars/ImmuneFromDeathSpirals.vue')
     },
     {
-      path: '/learn/four-pillars/full-stack-decentralization',
-      component: () => import('./screens/learn/four-pillars/FullStackDecentralization.vue')
+      path: '/learn/four-pillars/indifferent-to-catastrophe',
+      component: () => import('./screens/learn/four-pillars/IndifferentToCatastrophe.vue')
     },
     {
-      path: '/learn/four-pillars/zero-inflation-money',
-      component: () => import('./screens/learn/four-pillars/ZeroInflationMoney.vue')
+      path: '/learn/four-pillars/resistant-to-inflation',
+      component: () => import('./screens/learn/four-pillars/ResistantToInflation.vue')
     },
     {
-      path: '/learn/four-pillars/exogenous-profit-incentives',
-      component: () => import('./screens/learn/four-pillars/ExogenousProfitIncentives.vue')
+      path: '/learn/four-pillars/intrinsic-price-stabilization',
+      component: () => import('./screens/learn/four-pillars/IntrinsicPriceStabilization.vue')
     },
     {
-      path: '/start',
-      component: () => import('./screens/start/Index.vue')
+      path: '/mainnet',
+      component: () => import('@/screens/Network.vue')
     },
     {
-      path: '/start/argonots',
-      component: () => import('./screens/start/Argonots.vue')
+      path: '/testnet',
+      component: () => import('@/screens/Network.vue')
     },
-    {
-      path: '/start/community',
-      component: () => import('./screens/start/Community.vue')
-    },
-    {
-      path: '/start/mainnet',
-      component: () => import('./screens/start/Mainnet.vue')
-    },
-    {
-      path: '/start/testnet',
-      component: () => import('./screens/start/Testnet.vue')
-    },
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    // 1) Browser back/forward: restore previous scroll
+    if (savedPosition) return savedPosition
+
+    // 2) Anchor links like /about#team
+    if (to.hash) {
+      return { el: to.hash, behavior: 'smooth' }
+    }
+
+    // 3) Default: jump to top on new pages
+    return { left: 0, top: 0 }
+  }
 })
 
 export default router

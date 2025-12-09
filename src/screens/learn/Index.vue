@@ -105,29 +105,29 @@
         <ul>
           <li Header>The Four Pillars of Argon</li>
           <li>
+            <RouterLink to="/learn/four-pillars/resistant-to-inflation">
+              Inflation-Resistant Value
+            </RouterLink>
+          </li>
+          <li>
+            <RouterLink to="/learn/four-pillars/indifferent-to-catastrophe">
+              Indifference to Catastrophe
+            </RouterLink>
+          </li>
+          <li>
+            <RouterLink to="/learn/four-pillars/intrinsic-price-stabilization">
+              Intrinsic Price Stabilization
+            </RouterLink>
+          </li>
+          <li>
             <RouterLink to="/learn/four-pillars/immunity-from-death-spirals">
-              Immunity from Death Spirals
-            </RouterLink>
-          </li>
-          <li>
-            <RouterLink to="/learn/four-pillars/full-stack-decentralization">
-              Full Stack Decentralization
-            </RouterLink>
-          </li>
-          <li>
-            <RouterLink to="/learn/four-pillars/zero-inflation-money">
-              Zero Inflation Money
-            </RouterLink>
-          </li>
-          <li>
-            <RouterLink to="/learn/four-pillars/exogenous-profit-incentives">
-              Exogenous Profit Incentives
+              Immune from Death Spirals
             </RouterLink>
           </li>
         </ul>
 
         <ul>
-          <li Header>Core Engine Modeling</li>
+          <li Header>Argon Simulation Engines</li>
           <li><a href="https://llb.argonprotocol.org">Liquid Locking for Bitcoin</a></li>
           <li><a href="https://sam.argonprotocol.org">Stabilization Analysis Model</a></li>
         </ul>
@@ -140,7 +140,7 @@
             </RouterLink>
           </li>
           <li>
-            <RouterLink to="/learn/currency-metrics/argon-to-dollar-exchange-rate">
+            <RouterLink to="/learn/currency-metrics/argon-to-fiat-exchange-rate">
               Argon to Dollar Exchange Rate
             </RouterLink>
           </li>
@@ -189,7 +189,6 @@
     </div>
 
   </MainLayout>
-  <FooterBar class="relative z-10" />
 </template>
 
 <script setup lang="ts">

@@ -1,7 +1,9 @@
 <template>
-  <div class="flex flex-row items-center gap-x-2">
+  <div class="flex flex-row items-center gap-x-2 mb-3">
+    <RouterLink to="/">Home</RouterLink>
+    <span class="text-gray-400">/</span>
     <template v-for="(child, index) in slotChildren" :key="index">
-      <component :is="child" />
+      <component :is="child" class="text-gray-500 hover:text-argon-600" />
       <span v-if="index < slotChildren.length - 1" class="text-gray-400">/</span>
     </template>
   </div>

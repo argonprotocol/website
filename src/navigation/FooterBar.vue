@@ -1,34 +1,34 @@
 <template>
   <footer class="border-t border-white/10 w-full">
 
-    <ul DepressedBlock class="flex flex-row px-2.5 py-3 space-x-3 text-white text-xl" style="box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, .4);">
-      <li class="flex flex-col cursor-pointer items-center justify-center rounded-sm w-1/3 h-60 border border-black/50" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, .2), 1px 1px 2px rgba(0, 0, 0, .2);">
-        <RouterLink to="/learn/whitepapers" class="flex flex-col items-center justify-center w-full h-full">
-          <WhitepapersIcon class="h-10 mb-2" />
-          Read the
-          <div class="font-bold">Whitepapers</div>
-        </RouterLink>
-      </li>
-      <li class="flex flex-col cursor-pointer items-center justify-center rounded-sm w-1/3 h-60 border border-black/50" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, .2), 1px 1px 2px rgba(0, 0, 0, .2);">
-        <RouterLink to="/learn/community/argonots" class="flex flex-col items-center justify-center w-full h-full">
-          <ArgonotsIcon class="h-10 mb-2" />
-          Follow the
-          <div class="font-bold">Argonots</div>
-        </RouterLink>
-      </li>
-      <li class="flex flex-col cursor-pointer items-center justify-center rounded-sm w-1/3 h-60 border border-black/50" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, .2), 1px 1px 2px rgba(0, 0, 0, .2);">
-        <RouterLink to="/learn/community" class="flex flex-col items-center justify-center w-full h-full">
-          <CommunityIcon class="h-10 mb-2" />
-          Join the
-          <div class="font-bold">Community</div>
-        </RouterLink>
-      </li>
+    <ul DepressedBlock class="flex flex-col md:flex-row px-2.5 pb-px space-y-2 md:space-y-0 md:space-x-3 text-white text-xl" style="box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, .4);">
+<!--      <li class="flex flex-col cursor-pointer items-center justify-center rounded-sm w-full md:w-1/3 h-40 md:h-60" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, .2), 1px 1px 2px rgba(0, 0, 0, .2);">-->
+<!--        <RouterLink to="/learn/whitepapers" class="flex flex-col items-center justify-center w-full h-full">-->
+<!--          <WhitepapersIcon class="h-10 mb-2" />-->
+<!--          Read the-->
+<!--          <div class="font-bold">Whitepapers</div>-->
+<!--        </RouterLink>-->
+<!--      </li>-->
+<!--      <li class="flex flex-col cursor-pointer items-center justify-center rounded-sm w-full md:w-1/3 h-40 md:h-60" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, .2), 1px 1px 2px rgba(0, 0, 0, .2);">-->
+<!--        <RouterLink to="/learn/community/argonots" class="flex flex-col items-center justify-center w-full h-full">-->
+<!--          <ArgonotsIcon class="h-10 mb-2" />-->
+<!--          Follow the-->
+<!--          <div class="font-bold">Argonots</div>-->
+<!--        </RouterLink>-->
+<!--      </li>-->
+<!--      <li class="flex flex-col cursor-pointer items-center justify-center rounded-sm w-full md:w-1/3 h-40 md:h-60" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, .2), 1px 1px 2px rgba(0, 0, 0, .2);">-->
+<!--        <RouterLink to="/learn/community" class="flex flex-col items-center justify-center w-full h-full">-->
+<!--          <CommunityIcon class="h-10 mb-2" />-->
+<!--          Join the-->
+<!--          <div class="font-bold">Community</div>-->
+<!--        </RouterLink>-->
+<!--      </li>-->
     </ul>
 
     <div BottomBar class="py-3 flex flex-row px-5 md:px-5 whitespace-nowrap border-t border-white/10">
       <p class="text-sm w-full text-left text-white/60">
-        <span class="hidden md:inline">An open source project for the world.</span>
-        <span class="inline md:hidden">Open source.</span>
+        <span class="hidden lg:inline">An open source project for the world.</span>
+        <span class="hidden md:inline">Open source.</span>
         Zero rights reserved.
       </p>
       <div class="flex flex-row gap-4">
@@ -55,9 +55,11 @@ const props = defineProps<{
 
 const color = {
   bg: props.darkMode ? '#780F85' : 'rgb(249, 242, 250)',
+  bgHover: props.darkMode ? '#6E0D7BFF' : '#e9e2ea',
   bgDepressed: props.darkMode ? '#640B70' : '#CCD1DA',
-  text: props.darkMode ? 'rgba(255, 255, 255, 0.8)' : '#780F85',
+  text: props.darkMode ? 'rgba(255, 255, 255, 0.8)' : '#93379f',
   textHover: props.darkMode ? 'rgba(255, 255, 255, 1)' : '#53085d',
+  borderColor: props.darkMode ? 'rgba(0,0,0,0.5)' : 'rgba(0,0,0,0.3)',
 }
 </script>
 
@@ -71,7 +73,10 @@ footer {
 ul[DepressedBlock] {
   @apply bg-[v-bind(color.bgDepressed)] text-[v-bind(color.text)];
   li {
-    @apply bg-[v-bind(color.bg)] cursor-pointer;
+    @apply bg-[v-bind(color.bg)] cursor-pointer hover:bg-[v-bind(color.bgHover)] border border-[v-bind(color.borderColor)];
+  }
+  a {
+    @apply text-[v-bind(color.text)] hover:text-[v-bind(color.textHover)];
   }
 }
 
