@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg viewBox="0 0 79 76" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-        <path d="M0,0 L1440,0 L1440,7588 L0,7588 L0,0 Z" id="path-1"></path>
-        <filter x="-0.7%" y="-0.1%" width="101.9%" height="100.4%" filterUnits="objectBoundingBox" id="filter-2">
-            <feOffset dx="4" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
-            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
-            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
-            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.25 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
-        </filter>
-    </defs>
     <g id="Argon-Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Dashboard" transform="translate(-767, -4008)" xlink:href="#path-1">
-            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
-            <path stroke-opacity="0.20703125" stroke="#4E4E4E" stroke-width="1" d="M1439.5,0.5 L1439.5,7587.5 L0.5,7587.5 L0.5,0.5 L1439.5,0.5 Z" stroke-linejoin="square"></path>
             <g id="AI-FIRST" stroke-width="1" fill-rule="evenodd" transform="translate(-0, 3685.1633)" fill="currentColor">
                 <g id="LOGOS" transform="translate(109.2554, 317.1184)" fill-rule="nonzero">
                     <path d="M677.668596,23.9207042 C686.24165,15.344126 698.867991,13.1816417 709.414239,17.5266495 C711.747459,18.3943292 713.780911,19.629087 715.367407,20.7770792 L706.560937,24.8484542 C698.361268,21.4044776 688.968154,23.7471729 683.235066,29.4872042 C675.482002,37.2426729 673.915381,50.6915792 683.001861,59.3817354 L658.189198,81.574001 C659.762475,79.4048604 661.715747,77.3557198 663.662362,75.3068135 C669.155519,69.5266573 674.608691,63.8001729 671.282136,55.7041573 C666.828932,44.8715792 669.422193,32.1768917 677.668596,23.9207042 Z M736.313417,6.57400103 C736.120056,6.84765025 735.926695,7.11462681 735.733569,7.38160103 C727.567182,18.6412901 723.580434,24.1476495 726.780379,37.9235323 L726.760457,37.9036104 C728.967114,47.2809542 726.607175,57.6797042 718.987354,65.3086104 C709.380957,74.9329854 694.00819,77.0754073 681.348568,68.4122042 L690.174959,64.3207198 C698.254627,67.4976729 707.094378,66.1026729 713.447393,59.7422042 C719.800642,53.381501 721.227292,44.1173604 718.034144,36.4085323 C717.427343,34.9467354 715.607408,34.5797042 714.33404,35.5207198 L688.361587,54.7162667 L725.567011,17.2997276 L725.567011,17.3331026 Z" id="grok"></path>

@@ -1,6 +1,6 @@
 <template>
   <MainLayout>
-    <div class="mt-20 w-10/12 mx-auto">
+    <div class="mt-20 ml-[15%] mr-[17%]">
       <slot />
     </div>
   </MainLayout>
@@ -10,6 +10,7 @@
 import SubTitle from './SubTitle.vue';
 import SubContent from './SubContent.vue';
 import Breadcrumbs from './Breadcrumbs.vue';
+import MainLayout from './MainLayout.vue';
 
 export {
     SubTitle,
@@ -20,6 +21,5 @@ export {
 
 <script setup lang="ts">
 import * as Vue from 'vue';
-import MainLayout from './MainLayout.vue';
 
 </script>

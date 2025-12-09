@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 67 69" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Rectangle</title>
+    <defs>
+        <path d="M0,0 L3456,0 L3456,9060 L0,9060 L0,0 Z" id="path-1"></path>
+        <filter x="-0.3%" y="-0.1%" width="100.8%" height="100.3%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="4" dy="4" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.25 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Argon-Website" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Frame-2" transform="translate(-360, -569)" xlink:href="#path-1">
+            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            <path stroke-opacity="0.20703125" stroke="#4E4E4E" stroke-width="1" d="M3455.5,0.5 L3455.5,9059.5 L0.5,9059.5 L0.5,0.5 L3455.5,0.5 Z" stroke-linejoin="square"></path>
+            <polygon id="Rectangle" fill="currentColor" fill-rule="evenodd" points="375.5 569 411.12726 569 411.12726 610.307692 426.12726 610.307692 393.332554 638 360.5 610.307692 375.5 610.307692"></polygon>
+        </g>
+    </g>
+</svg>

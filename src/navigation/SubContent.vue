@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-6">  
+  <div class="mt-6 text-lg font-light">  
     <slot />
   </div>
 </template>
