@@ -48,7 +48,9 @@ export default async function run() {
       lastUpdatedAt: dayjs.utc().toISOString(),
       microgonsInCirculation: microgonsIssued.toBigInt(),
       micronotsInCirculation: micronotsIssued.toBigInt(),
-      usdForArgon: bigNumberToBigInt(priceIndexModel.argonUsdPrice || BigNumber(0)),
+      usdForArgon: (priceIndexModel.argonUsdPrice || BigNumber(0)).toNumber(),
+      argonotUsdPrice: (priceIndexModel.argonotUsdPrice || BigNumber(0)).toNumber(),
+      btcUsdPrice: (priceIndexModel.btcUsdPrice || BigNumber(0)).toNumber(),
     };
 
     Fs.writeFileSync(filePath, JsonExt.stringify(data, 2));

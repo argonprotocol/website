@@ -44,20 +44,21 @@
   box-shadow: inset 2px 2px 1px 0 rgba(0, 0, 0, 0.1);
 }
 
-.pulse-network-header {
-    animation: pulse-network-header 1.5s ease-in-out infinite;
+.pulse-item {
+    animation: pulse-item 3.5s ease-in-out infinite;
     transform-origin: center bottom;
 }
 
-@keyframes pulse-network-header {
+@keyframes pulse-item {
     0%,
+    60%,
     100% {
-        color: oklch(0.48 0.24 320);
-        opacity: 0.8;
-    }
-    50% {
-        color: oklch(0.41 0.2 320);
         opacity: 1;
+        scale: 1;
+    }
+    80% {
+        opacity: 0.8;
+        scale: 0.98;
     }
 }
 
