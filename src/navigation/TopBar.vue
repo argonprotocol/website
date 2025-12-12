@@ -10,35 +10,39 @@
           Argon
         </span>
       </div>
-      <ul class="hidden md:flex flex-row items-center gap-x-5 relative top-0.5 text-lg">
-        <li
+      <ul class="hidden md:flex flex-row items-center gap-x-5 relative top-0.5">
+        <RouterLink
           Button
-          @click="router.push('/start')"
-          :Selected="router.currentRoute.value.path.startsWith('/start') || undefined"
+          as="li"
+          to="/desktop-app"
+          class="text-lg"
+          :Selected="router.currentRoute.value.path.startsWith('/desktop-app') || undefined"
         >
-          Get Started
-        </li>
-        <li
+          Desktop App
+        </RouterLink>
+        <RouterLink
           Button
-          @click="router.push('/playbook')"
-          :Selected="router.currentRoute.value.path.startsWith('/playbook') || undefined"
+          to="/secret-plan"
+          class="text-lg"
+          :Selected="router.currentRoute.value.path.startsWith('/secret-plan') || undefined"
         >
-          Read Our Playbook
-        </li>
-        <li 
+          Secret Plan
+        </RouterLink>
+        <RouterLink
           Button
-          @click="router.push('/learn')"
-          :Selected="router.currentRoute.value.path.startsWith('/learn') || undefined"
+          to="/learn-more"
+          class="text-lg"
+          :Selected="router.currentRoute.value.path.startsWith('/learn-more') || undefined"
         >
-          Go Deeper
-        </li>
+          Learn More
+        </RouterLink>
       </ul>
       <div class="grow relative"></div>
       <MenuMobile class="md:hidden" />
       <ul class="hidden md:flex flex-row items-center">
         <li class="whitespace-nowrap text-sm md:text-base flex flex-row justify-end gap-0 md:gap-2 cursor-default">
           <div class="opacity-80 hidden py-1 md:block">Live On</div>
-          <router-link
+          <RouterLink
             Button
             to="/mainnet"
             class="flex flex-row items-center gap-2 text-base"
@@ -48,8 +52,8 @@
             <span class="opacity-100">
               MAINNET
             </span>
-          </router-link>
-          <router-link
+          </RouterLink>
+          <RouterLink
               Button
               to="/testnet"
               class="flex flex-row items-center gap-2 text-base opacity-70"
@@ -59,13 +63,17 @@
             <span class="opacity-80">
               TESTNET
             </span>
-          </router-link>
+          </RouterLink>
         </li>
-        <li Button @click="window.open('https://discord.gg/xDwwDgCYr9', '_blank')">
-          <DiscordIcon class="w-6 h-6" />
+        <li Button>
+          <a href="https://discord.gg/xDwwDgCYr9" target="_blank">
+            <DiscordIcon class="w-6 h-6" />
+          </a>
         </li>
-        <li Button @click="window.open('https://github.com/argonprotocol/mainchain', '_blank')">
-          <GithubIcon class="w-6 h-6" />
+        <li Button>
+          <a href="https://github.com/argonprotocol/mainchain" target="_blank">
+            <GithubIcon class="w-6 h-6" />
+          </a>
         </li>
       </ul>
     </div>
@@ -92,6 +100,9 @@ const color = {
   textHover: props.darkMode ? 'rgba(255, 255, 255, 1)' : '#53085d',
   line: props.darkMode ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0.15)',
   lineShadow: props.darkMode ? 'rgba(255,255,255,0.2)' : 'rgba(255, 255, 255, 1)',
+  statusLightest: props.darkMode ? `rgba(255, 255, 255, 0.3)` : 'oklch(0.41 0.2 320)',
+  statusDarkest: props.darkMode ? `rgba(255, 255, 255, 0.5)` : 'oklch(0.55 0.28 320)',
+  statusRipples: props.darkMode ? `rgba(255, 255, 255, 0.7)` : 'oklch(0.48 0.24 320)',
 }
 </script>
 
@@ -102,6 +113,10 @@ const color = {
   .LoadingPulse {
     opacity: 1;
     animation: fadeInOut 1s linear infinite;
+  }
+
+  a svg {
+    @apply text-[v-bind(color.text)];
   }
 
   [BarWrapper] {
@@ -144,8 +159,8 @@ const color = {
   }
 
   [NetworkStatus] {
-    background-color: oklch(0.48 0.24 320);
-    border-color: oklch(0.41 0.2 320);
+    background-color: v-bind('color.statusDarkest');
+    border-color: rgba(0, 0, 0, 0.9);
     animation: pulse-network-status 1.5s ease-in-out infinite;
     transform-origin: center bottom;
     position: relative;
@@ -160,9 +175,9 @@ const color = {
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    border: 2px solid oklch(0.48 0.24 320);
+    border: 2px solid v-bind('color.statusRipples');
     border-radius: 50%;
-    animation: ripple 2s ease-out infinite;
+    animation: ripple-network-status 2s ease-out infinite;
     opacity: 0;
   }
 
@@ -174,14 +189,14 @@ const color = {
 @keyframes pulse-network-status {
   0%,
   100% {
-    background: oklch(0.55 0.28 320);
+    background: v-bind('color.statusDarkest');
   }
   50% {
-    background: oklch(0.41 0.2 320);
+    background: v-bind('color.statusLightest');
   }
 }
 
-@keyframes ripple {
+@keyframes ripple-network-status {
   0% {
     width: 100%;
     height: 100%;

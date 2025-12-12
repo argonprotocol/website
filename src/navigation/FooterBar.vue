@@ -3,21 +3,21 @@
 
     <ul DepressedBlock class="flex flex-col md:flex-row px-2.5 pb-px space-y-2 md:space-y-0 md:space-x-3 text-white text-xl" style="box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, .4);">
 <!--      <li class="flex flex-col cursor-pointer items-center justify-center rounded-sm w-full md:w-1/3 h-40 md:h-60" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, .2), 1px 1px 2px rgba(0, 0, 0, .2);">-->
-<!--        <RouterLink to="/learn/whitepapers" class="flex flex-col items-center justify-center w-full h-full">-->
+<!--        <RouterLink to="/documentation/learn-more" class="flex flex-col items-center justify-center w-full h-full">-->
 <!--          <WhitepapersIcon class="h-10 mb-2" />-->
 <!--          Read the-->
 <!--          <div class="font-bold">Whitepapers</div>-->
 <!--        </RouterLink>-->
 <!--      </li>-->
 <!--      <li class="flex flex-col cursor-pointer items-center justify-center rounded-sm w-full md:w-1/3 h-40 md:h-60" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, .2), 1px 1px 2px rgba(0, 0, 0, .2);">-->
-<!--        <RouterLink to="/learn/community/argonots" class="flex flex-col items-center justify-center w-full h-full">-->
+<!--        <RouterLink to="/documentation/community/argonots" class="flex flex-col items-center justify-center w-full h-full">-->
 <!--          <ArgonotsIcon class="h-10 mb-2" />-->
 <!--          Follow the-->
 <!--          <div class="font-bold">Argonots</div>-->
 <!--        </RouterLink>-->
 <!--      </li>-->
 <!--      <li class="flex flex-col cursor-pointer items-center justify-center rounded-sm w-full md:w-1/3 h-40 md:h-60" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, .2), 1px 1px 2px rgba(0, 0, 0, .2);">-->
-<!--        <RouterLink to="/learn/community" class="flex flex-col items-center justify-center w-full h-full">-->
+<!--        <RouterLink to="/documentation/community" class="flex flex-col items-center justify-center w-full h-full">-->
 <!--          <CommunityIcon class="h-10 mb-2" />-->
 <!--          Join the-->
 <!--          <div class="font-bold">Community</div>-->
@@ -31,10 +31,10 @@
         <span class="hidden md:inline">Open source.</span>
         Zero rights reserved.
       </p>
-      <div class="flex flex-row gap-4">
-        <a href="https://clarkbyrnes.substack.com/"><SubstackIcon class="w-[21px] hover:text-white mx-auto mr-1 relative top-[2px]" /></a>
-        <a href="https://github.com/argonprotocol/mainchain"><GithubIcon class="relative top-[1px] w-6 h-6 hover:text-white mx-auto" /></a>
-        <a href="https://discord.gg/xDwwDgCYr9"><DiscordIcon class="relative top-[1px] w-6 h-6 hover:text-white mx-auto" /></a>
+      <div class="flex flex-row gap-x-3">
+        <a href="https://clarkbyrnes.substack.com/"target="_blank"><SubstackIcon class="w-[21px] hover:text-white mx-auto mr-1 relative top-[2px]" /></a>
+        <a href="https://discord.gg/xDwwDgCYr9" target="_blank"><DiscordIcon class="relative top-[1px] w-6 h-6 hover:text-white mx-auto" /></a>
+        <a href="https://github.com/argonprotocol/mainchain"target="_blank"><GithubIcon class="relative top-[1px] w-6 h-6 hover:text-white mx-auto" /></a>
       </div>
     </div>
   </footer>

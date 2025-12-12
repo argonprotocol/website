@@ -1,71 +1,101 @@
 <template>
   <div class="flex flex-row items-center justify-end gap-x-1">
-    <div Button @click="window.open('https://discord.gg/xDwwDgCYr9', '_blank')">
+    <a Button href="https://discord.gg/xDwwDgCYr9" target="_blank">
       <DiscordIcon class="w-6 h-6" />
-    </div>
-    <div Button @click="window.open('https://github.com/argonprotocol/mainchain', '_blank')">
+    </a>
+    <a Button href="https://github.com/argonprotocol/mainchain" target="_blank">
       <GithubIcon class="w-6 h-6" />
+    </a>
+    <div>
+      <Bars3Icon @click="toggleMenu" class="w-6 h-6" />
     </div>
-    <DropdownMenuRoot>
-      <DropdownMenuTrigger>
-        <Bars3Icon class="w-6 h-6 block md:hidden" />
-      </DropdownMenuTrigger>
-      <DropdownMenuPortal>
-        <DropdownMenuContent class="w-full bg-white border border-gray-200 rounded-md shadow-lg py-1 z-100">
-            <DropdownMenuItem
-                Button
-                :Selected="router.currentRoute.value.path.startsWith('/start') || undefined"
-                @click="router.push('/start')"
-            >
-              Get Started
-            </DropdownMenuItem>
-          <DropdownMenuItem
+    <Teleport to="body">
+      <div v-if="isOpen" class="absolute top-0 left-0 w-full bg-white border-b border-gray-200 rounded-b-md shadow-lg py-1 z-100">
+        <div BarWrapper class="flex flex-row items-center pt-4 pb-3 px-5 w-full whitespace-nowrap text-base gap-x-5 cursor-default">
+          <RouterLink LogoWrapper class="flex flex-row items-center cursor-pointer gap-x-4 text-base" to="/">
+            <div class="w-14 relative">
+              <div LogoBgBlock class="absolute top-8 -translate-y-0.5 left-0 w-full h-[2px]"></div>
+              <Logo class="absolute -top-5 left-0 w-14" />
+            </div>
+            <span class="text-2xl font-black">
+              Argon
+            </span>
+          </RouterLink>
+          <div class="grow" />
+          <div class="flex flex-row items-center justify-end gap-x-1">
+            <div>
+              <Bars3Icon @click="toggleMenu" class="w-6 h-6" />
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-col items-stretch text-right px-5 space-y-2 divide-y divide-gray-200">
+          <RouterLink
               Button
-              :Selected="router.currentRoute.value.path.startsWith('/playbook') || undefined"
-              @click="router.push('/playbook')"
+              to="/desktop-app"
+              class="text-base"
+              :Selected="router.currentRoute.value.path.startsWith('/desktop-app') || undefined"
           >
-            Read Our Playbook
-          </DropdownMenuItem>
-            <DropdownMenuItem
-                Button
-                :Selected="router.currentRoute.value.path.startsWith('/learn') || undefined"
-                @click="router.push('/learn')"
-            >
-              Go Deeper
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <a Button href="/start/testnet" class="flex flex-row items-center gap-2">
-                <div class="rounded-full w-4 h-4 bg-[#8FFF23]/80 border border-black"></div>
-                <span class="opacity-80">
-                  TESTNET
-                </span>
-              </a>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <a Button href="/start/mainnet" class="flex flex-row items-center gap-2">
-                <div class="LoadingPulse rounded-full w-4 h-4 bg-[#8FFF23] border border-black"></div>
-                <span class="opacity-100">
-                  MAINNET
-                </span>
-              </a>
-            </DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenuPortal>
-    </DropdownMenuRoot>
+            Desktop App
+          </RouterLink>
+          <RouterLink
+              Button
+              to="/secret-plan"
+              class="text-base"
+              :Selected="router.currentRoute.value.path.startsWith('/secret-plan') || undefined"
+          >
+            Secret Plan
+          </RouterLink>
+          <RouterLink
+              Button
+              to="/learn-more"
+              class="text-base"
+              :Selected="router.currentRoute.value.path.startsWith('/learn-more') || undefined"
+          >
+            Learn More
+          </RouterLink>
+          <RouterLink
+              Button
+              to="/testnet"
+              class="flex flex-row justify-end text-base items-center gap-2"
+          >
+            <div class="rounded-full w-4 h-4 bg-[#8FFF23]/80 border border-black"></div>
+            <span class="opacity-80">
+              TESTNET
+            </span>
+          </RouterLink>
+          <RouterLink
+              Button
+              to="/mainnet"
+              class="flex flex-row justify-end text-base items-center gap-2"
+          >
+            <div class="LoadingPulse rounded-full w-4 h-4 bg-[#8FFF23] border border-black"></div>
+            <span class="opacity-100">
+              MAINNET
+            </span>
+          </RouterLink>
+        </div>
+      </div>
+    </Teleport>
   </div>
 </template>
 
 <script setup lang="ts">
-
-import {
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuPortal,
-  DropdownMenuRoot,
-  DropdownMenuTrigger
-} from "reka-ui";
-import {Bars3Icon} from "@heroicons/vue/24/solid";
+import * as Vue from "vue";
+import { Bars3Icon } from "@heroicons/vue/24/solid";
 import router from "@/router";
 import DiscordIcon from "@/assets/discord.svg";
 import GithubIcon from "@/assets/github.svg";
+import Logo from "@/assets/logo.svg";
+
+const isOpen = Vue.ref(false);
+
+function toggleMenu() {
+  isOpen.value = !isOpen.value;
+}
 </script>
+
+<style scoped>
+@import "../main.css";
+
+
+</style>
