@@ -23,13 +23,13 @@
 
         <img src="/commander.png" alt="Argon Commander" class="relative md:left-[-10%] w-full md:min-w-[120%] my-5" />
 
-        <p>Other than its beautiful interface and easy-to-use features, one of the best things about Argon Investor Console
+        <p>Other than its beautiful interface and easy-to-use features, one of the best things about Argon's investor app
           is its security. It runs 100% on your hardware, meaning, there are no centralized servers, databases or login
           accounts that can be compromised. There is no tracking or telemetry integrations. The entire code-base is
           open-source, decentralized, and designed to keep you fully anonymous.</p>
 
         <h3 class="font-bold mt-5 mb-0">Basic System Requirements</h3>
-        <p class="-mt-3">The computing needs for Argon are quite minimal. Any modern laptop running any of the three major OSes should suffice.</p>
+        <p class="-mt-3">The computing needs for Argon is minimal. Any modern laptop running a major OS should suffice.</p>
         <ul class="grid grid-cols-3 w-full space-x-5">
           <li class="border-t border-gray-300 py-5">
             4GB RAM minimum
@@ -51,54 +51,70 @@
           </li>
         </ul>
 
-        <h3 class="font-bold mt-7">Download a Stable Release (v{{ currentVersion }})</h3>
+        <h3 class="font-bold mt-7">Stable Releases (v{{ download.currentVersion }})</h3>
         <p class="-mt-3">These are the actively supported installers.</p>
         <ul>
           <li class="flex flex-row items-center w-full border-t border-gray-300 py-5">
-            <div class="grow">Stable v{{ currentVersion }} for Windows</div>
+            <WindowsIcon class="w-6 h-6 relative -top-0.5 inline-block mr-3 text-slate-700/30" />
+            <div class="grow">Stable v{{ download.currentVersion }} for Windows</div>
             <a
-              :href="downloadUrlFor('windows', false)"
+              :href="download.urlFor(OsName.windows, false)"
               class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
             >
               Download
             </a>
           </li>
           <li class="flex flex-row items-center w-full border-t border-gray-300 py-5">
-            <div class="grow">Stable v{{ currentVersion }} for MacOS</div>
+            <MacIcon class="w-7 h-7 relative -top-0.5 inline-block mr-2 text-slate-700/30" />
+            <div class="grow">Stable v{{ download.currentVersion }} for MacOS</div>
             <a
-              :href="downloadUrlFor('mac', false)"
+              :href="download.urlFor(OsName.mac, false)"
               class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
             >
               Download
             </a>
           </li>
           <li class="flex flex-row items-center w-full border-y border-gray-300 py-5">
-            <div class="grow opacity-50">Stable v{{ currentVersion }} for Linux</div>
-            <div
-              class="pointer-events-none opacity-30 bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
+            <LinuxIcon class="w-7 h-7 relative -top-0.5 inline-block mr-2 text-slate-700/30" />
+            <div class="grow">Stable v{{ download.currentVersion }} for Linux</div>
+            <a
+                :href="download.urlFor(OsName.linux, false)"
+                class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
             >
               Download
-            </div>
+            </a>
           </li>
         </ul>
 
-        <h3 class="font-bold mt-7">Download an Experimental Release (v{{ currentVersion }})</h3>
+        <h3 class="font-bold mt-7">Experimental Releases (v{{ download.currentVersion }})</h3>
         <p class="-mt-3">These are primarily for the purpose of trying out new features .</p>
         <ul>
           <li class="flex flex-row items-center w-full border-t border-gray-300 py-5">
-            <div class="grow">Experimental v{{ currentVersion }} for Windows</div>
+            <WindowsIcon class="w-6 h-6 relative -top-0.5 inline-block mr-3 text-slate-700/30" />
+            <div class="grow">Experimental v{{ download.currentVersion }} for Windows</div>
             <a
-              :href="downloadUrlFor('windows', true)"
+              :href="download.urlFor(OsName.windows, true)"
+              class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
+            >
+              Download
+            </a>
+          </li>
+          <li class="flex flex-row items-center w-full border-t border-gray-300 py-5">
+            <MacIcon class="w-7 h-7 relative -top-0.5 inline-block mr-2 text-slate-700/30" />
+            <div class="grow">Experimental v{{ download.currentVersion }} for MacOS</div>
+            <a
+              :href="download.urlFor(OsName.mac, true)"
               class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
             >
               Download
             </a>
           </li>
           <li class="flex flex-row items-center w-full border-y border-gray-300 py-5">
-            <div class="grow">Experimental v{{ currentVersion }} for MacOS</div>
+            <LinuxIcon class="w-7 h-7 relative -top-0.5 inline-block mr-2 text-slate-700/30" />
+            <div class="grow">Experimental v{{ download.currentVersion }} for Linux</div>
             <a
-              :href="downloadUrlFor('mac', true)"
-              class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
+                :href="download.urlFor(OsName.linux, true)"
+                class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
             >
               Download
             </a>
@@ -111,24 +127,12 @@
 
 <script setup lang="ts">
 import MainLayout from "@/navigation/MainLayout.vue";
+import MacIcon from '../../assets/os/mac.svg?component';
+import LinuxIcon from '../../assets/os/linux.svg?component';
+import WindowsIcon from '../../assets/os/windows.svg?component';
+import { Download, OsName } from "@/lib/Download";
 
-type IOs = 'mac' | 'windows';
-
-const currentVersion = '1.0.0';
-const currentTag = 'untagged-c61adb52c17cff08cc8f';
-
-function downloadUrlFor(os: IOs, isExperimental: boolean) {
-  const suffix = fileNameSuffix(os, isExperimental);
-  return `https://github.com/argonprotocol/apps/releases/download/${currentTag}/Argon.Investor.Console_${currentVersion}_${suffix}`;
-}
-
-function fileNameSuffix(os: IOs, isExperimental: boolean) {
-  if (os === 'mac') {
-    return `universal${isExperimental ? '-debug' : ''}.dmg`;
-  } else if (os === 'windows') {
-    return `x64-setup${isExperimental ? '-debug' : ''}.exe`;
-  }
-}
+const download = new Download();
 </script>
 
 <style scoped>
