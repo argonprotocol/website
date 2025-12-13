@@ -4,13 +4,13 @@
 
     <main class=" flex flex-col items-center text-center min-h-screen relative border-b border-argon-800">
 
-      <div as="h1" to="/learn/four-pillars"
+      <h1 to="/learn/four-pillars"
         class="text-white/80 text-shadow-md text-shadow-argon-800 text-3xl md:text-8xl uppercase mt-20 md:mt-40 font-black hover:text-white/90"
       >
-        <div class="my-5">THE STABLECOIN</div>
-        <div class="my-5">BUILT TO LAST FOR A</div>
-        <div class="my-5">THOUSAND YEARS</div>
-      </div>
+        <div class="inline lg:block lg:my-5">THE STABLECOIN </div>
+        <div class="inline lg:block lg:my-5">BUILT TO LAST FOR A </div>
+        <div class="inline lg:block lg:my-5">THOUSAND YEARS </div>
+      </h1>
       
       <div class="relative w-full h-56 -mb-20 hidden md:block">
         <div class="DIVIDER-VERTICAL !h-full !absolute top-0 left-[37.5%] translate-x-1/2"></div>
@@ -29,7 +29,7 @@
             </header>
             <div class="text-xl font-light relative w-fit inline-block cursor-pointer md:pr-7">
               <span>Argon allows you to build wealth without </span>
-              <span class="md:block mt-px">worrying about the cost of time eroding it<span class="inline md:hidden">. <strong class="font-bold">Learn more</strong>.</span></span>
+              <span class="lg:block mt-px">worrying about the cost of time eroding it<span class="inline md:hidden">. <strong class="hidden font-bold">Learn more</strong>.</span></span>
             </div>
           </div>
           <div class="grow hidden md:block">
@@ -55,7 +55,7 @@
             </header>
             <div class="text-xl font-light relative w-fit inline-block cursor-pointer md:pl-7">
               <span>Argon works regardless of banking </span>
-              <span class="md:block mt-px">collapses or government bond failures<span class="inline md:hidden">. <strong class="font-bold">Learn more</strong>.</span></span>
+              <span class="lg:block mt-px">collapses or government bond failures<span class="inline md:hidden">. <strong class="hidden font-bold">Learn more</strong>.</span></span>
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@
             </header>
             <div class="text-xl font-light relative w-fit inline-block cursor-pointer pr-7">
               <span>Argon creates economic balance between the </span>
-              <span class="md:block mt-px">growth of currency and long-term durability<span class="inline md:hidden">. <strong class="font-bold">Learn more</strong>.</span></span>
+              <span class="lg:block mt-px">growth of currency and long-term durability<span class="inline md:hidden">. <strong class="hidden font-bold">Learn more</strong>.</span></span>
             </div>
           </div>
           <div class="grow hidden md:block">
@@ -102,25 +102,25 @@
             </header>
             <div class="text-xl font-light relative w-fit inline-block cursor-pointer md:pl-7">
               <span>Argon solves the core problem inherent </span>
-              <span class="md:block mt-px">in previous algorithmic stablecoins<span class="inline md:hidden">. <strong class="font-bold">Learn more</strong>.</span></span>
+              <span class="lg:block mt-px">in previous algorithmic stablecoins<span class="inline md:hidden">. <strong class="hidden font-bold">Learn more</strong>.</span></span>
             </div>
           </div>
         </div>
 
       </div>
 
-      <p class="text-justify md:text-center text-white/80 argon-dark-text-shadow font-light w-10/12 md:w-8/12 md:px-10 text-lg md:text-xl my-4 md:my-20 lg:text-[29px] md:leading-[3rem] lg:leading-[43px]">
+      <p class="text-justify md:text-center text-white/80 argon-dark-text-shadow font-light w-10/12 md:w-8/12 md:px-10 text-lg md:text-xl my-4 md:my-20 lg:text-[29px] md:leading-[2rem] lg:leading-[43px]">
         Argon's novel algorithmic stablecoin leverages Bitcoin's $2.7T market capitalization to create a currency you can depend
         on. Bitcoin drives both the bootstrapping mechanism of Argon's network and the stabilizing force of its currency. Argon's 
         immutable purchasing power never loses value like fiat or fiat-pegged stablecoins, and it has zero centralized 
         dependencies, meaning it can outlast any nation state or world calamity.
       </p>
 
-      <div class="flex flex-col md:flex-row gap-x-16 gap-y-4 text-white/80 font-bold text-xl w-10/12 md:w-8/12 mx-auto py-16 relative">
-        <RouterLink to="/learn-more" class="grow w-full bg-argon-500 border border-argon-700 rounded-md md:px-32 py-4 hover:bg-argon-500/70 hover:text-white font-bold" style="box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.3), 1px 1px 3px rgba(0, 0, 0, 0.3)">
+      <div class="flex flex-col md:flex-row gap-x-16 gap-y-4 text-white/80 font-bold text-xl w-fit mx-auto py-16 relative">
+        <RouterLink to="/learn-more" class="whitespace-nowrap grow w-full bg-argon-500 border border-argon-700 rounded-md md:px-32 py-4 hover:bg-argon-500/70 hover:text-white font-bold" style="box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.3), 1px 1px 3px rgba(0, 0, 0, 0.3)">
           Learn More
         </RouterLink>
-        <RouterLink to="/desktop-app" class="grow w-full bg-argon-500 border border-argon-700 rounded-md md:px-32 py-4 hover:bg-argon-500/70 hover:text-white font-bold" style="box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.3), 1px 1px 3px rgba(0, 0, 0, 0.3)">
+        <RouterLink to="/desktop-app" class="whitespace-nowrap grow w-full bg-argon-500 border border-argon-700 rounded-md md:px-32 py-4 hover:bg-argon-500/70 hover:text-white font-bold" style="box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.3), 1px 1px 3px rgba(0, 0, 0, 0.3)">
           Get Started
           <ChevronDoubleRightIcon class="w-4 h-4 inline-block" />
         </RouterLink>
@@ -129,19 +129,19 @@
       <div class="relative flex flex-col md:flex-row items-stretch whitespace-nowrap w-full text-white/80 py-3 md:mt-12">
         <div class="DIVIDER-HORIZONTAL-FADED !absolute top-0 left-0"></div>
         <div as="div" to="/learn/currency-metrics/argons-in-circulation" class="md:w-1/3 py-10 hover:bg-black/10 hover:text-white">
-          <div class="text-4xl md:text-6xl font-bold">{{ microgonToArgonNm(microgonsInCirculation).format('0,0') }}</div>
+          <div class="text-4xl lg:text-6xl font-bold">{{ microgonToArgonNm(microgonsInCirculation).format('0,0') }}</div>
           <div class="mt-2 font-light">ARGNs In Circulation</div>
         </div>
         <div class="DIVIDER-VERTICAL !h-auto self-stretch mx-3 hidden md:block"></div>
         <div class="DIVIDER-HORIZONTAL-FADED w-full h-px block md:hidden"></div>
         <div as="div" to="/learn/currency-metrics/argon-to-fiat-exchange-rate" class="md:w-1/3 py-10 hover:bg-black/10 hover:text-white">
-          <div class="text-4xl md:text-6xl font-bold">₳1.00 -> ${{ usdForArgon ? numeral(usdForArgon).format('0.00') : '-.--' }}</div>
+          <div class="text-4xl lg:text-6xl font-bold">₳1.00 -> ${{ usdForArgon ? numeral(usdForArgon).format('0.00') : '-.--' }}</div>
           <div class="mt-2 font-light">ARGN-to-USD Exchange Rate</div>
         </div>
         <div class="DIVIDER-VERTICAL !h-auto self-stretch mx-3 hidden md:block"></div>
         <div class="DIVIDER-HORIZONTAL-FADED w-full h-px block md:hidden"></div>
         <div as="div" to="/learn/currency-metrics/bitcoin-to-argon-short-value" class="md:w-1/3 py-10 hover:bg-black/10 hover:text-white">
-          <div class="text-4xl md:text-6xl font-bold">₳{{ numeral(shortValue).format('0,0') }}</div>
+          <div class="text-4xl lg:text-6xl font-bold">₳{{ numeral(shortValue).format('0,0') }}</div>
           <div class="mt-2 font-light">BTC-to-ARGN Short Value</div>
         </div>
       </div>
@@ -153,7 +153,7 @@
         Argon is a sovereign, level-one blockchain built on Polkadot's rust-based Substrate. It uses the Hyperbridge protocol to deliver
         trustless, native bridging across all major chains.
       </p>
-      <div class="grid grid-cols-3 md:grid-cols-9 space-y-5 w-full text-center pt-12 pb-6 divide-x divide-argon-400/20 text-argon-600/70">
+      <div class="grid grid-cols-3 lg:grid-cols-9 space-y-5 w-full text-center pt-12 pb-6 divide-x divide-argon-400/20 text-argon-600/70">
         <div class="opacity-80 hover:opacity-100">
           <OptimismIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-md">Optimism</div>
@@ -206,14 +206,15 @@
 
       <div class="flex flex-col items-center px-10 md:mt-20">
         <button @click="downloadCommander" class="flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-md md:text-2xl w-full md:w-10/12 px-2 md:px-40 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);">
-          <MacIcon class="w-7 h-7 relative -top-0.5 inline-block" />
+          <MacIcon v-if="osName === OsName.mac" class="w-7 h-7 relative -top-0.5 inline-block" />
+          <WindowsIcon v-if="osName === OsName.windows" class="w-7 h-7 relative inline-block" />
           <span>Download <span class="hidden md:inline">Argon</span> Investor Console</span>
         </button>
         <div class="text-gray-500/80 text-sm md:text-base mt-2">Lastest version: 1.0.0-rc1, experimental for testnet</div>
         <p class="w-full md:w-7/12 mx-auto text-base md:text-xl text-center opacity-70 mt-10 md:mt-16 leading-relaxed">
           Our simple desktop app makes it easy to capitalize on the growth of Argon without needing expensive ASIC mining rigs.
           It runs on any Windows, Linux, or MacOS computer, and it's fully anonymous, meaning there are no centralized logins, 
-          telementry data or other trackable mechanics.
+          telemetry data or other trackable mechanics.
         </p>
       </div>
 
@@ -240,8 +241,8 @@
     <section class="relative flex flex-col bg-white items-center justify-center w-full pt-16 pb-4 cursor-default text-center border-t border-argon-800/15 border-b border-b-argon-900/70" style="box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);">
       <h3 class="text-argon-600/80 font-bold text-2xl px-10">THE AI-FIRST MICROPAYMENT STACK</h3>
       <p class="text-black/50 text-base text-justify md:text-xl w-10/12 md:w-8/12 mx-auto mt-4">
-        Argon's L2 localchain is a lightweight, fast throughput, peer-to-peer payment protocol. Our new MCP Payment protocol will
-        serve as the foundational layer for AI agents to faciliate payments.
+        Argon's Localchain is a lightweight, fast throughput, peer-to-peer L2 payment protocol. Our new MCP Payment protocol will
+        serve as the foundational layer for AI agents to facilitate micro-transactions.
       </p>
       <div class="grid grid-cols-3 md:grid-cols-6 space-y-3 w-full text-center pt-16 pb-6 divide-x divide-argon-400/20 text-argon-600/70">
         <div class="opacity-80 hover:opacity-100 py-2">
@@ -293,15 +294,14 @@
         </p>
 
         <p class="text-justify">
-          Unlike most other crypto projects, Argon has shown no favoritism
-          to the founders or early adopters. On January 15, 2025, Argon launched with zero rewards in its genesis block.
-          Its goal of becoming the world's dominant currency
+          Unlike most other crypto projects, Argon has shown no favoritism to the founders or early adopters. On January
+          15, 2025, Argon launched with zero rewards in its genesis block. Its goal of becoming the world's dominant currency
           requires a platform that can be fully trusted, fully open, and accessible to everyone. From day one.
         </p>
 
         <p class="text-justify">
-          Argon's launch is unfolding across seven phases. The first two are now complete. The third is underway. You're invited to join us at
-          any point along the journey.
+          Argon's launch is unfolding across six phases. The first two are now complete. The third is underway. You're
+          invited to join us at any point along the journey.
         </p>
       </div>
 
@@ -345,12 +345,18 @@ import GrokIcon from '../assets/aimodels/grok.svg?component';
 import LlamaIcon from '../assets/aimodels/llama.svg?component';
 import MinstralIcon from '../assets/aimodels/minstral.svg?component';
 import MacIcon from '../assets/os/mac.svg?component';
+import WindowsIcon from '../assets/os/windows.svg?component';
+import LinuxIcon from '../assets/os/linux.svg?component';
 import FooterBar from '../navigation/FooterBar.vue';
 import TopBar from '../navigation/TopBar.vue';
 import numeral, { microgonToArgonNm } from '@/lib/numeral';
 import Data from "@/lib/Data";
+import { Download, OsName } from '@/lib/Download';
 
 shortValue.value = calculateUnlockBurnPerBitcoinDollar(0.001) * bitcoinDollarValue.value;
+
+const download = new Download();
+const osName = Vue.ref(download.currentOsName);
 
 function calculateUnlockBurnPerBitcoinDollar(argonRatioPrice: number): number {
   const r = argonRatioPrice;
@@ -366,7 +372,8 @@ function calculateUnlockBurnPerBitcoinDollar(argonRatioPrice: number): number {
 }
 
 function downloadCommander() {
-  window.open('https://github.com/argonprotocol/commander/releases/download/v1.0.0-rc1/Argon.Commander.-.Experimental_1.0.0-rc1_universal.dmg');
+  const downloadUrl = download.urlFor(osName.value, false);
+  window.open(downloadUrl);
 }
 
 Vue.onMounted(async () => {
