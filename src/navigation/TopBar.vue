@@ -110,11 +110,6 @@ const color = {
 @import "../main.css";
 
 .TopBar {
-  .LoadingPulse {
-    opacity: 1;
-    animation: fadeInOut 1s linear infinite;
-  }
-
   a svg {
     @apply text-[v-bind(color.text)];
   }
@@ -146,18 +141,6 @@ const color = {
     background: linear-gradient(to right, v-bind('color.bgTransparent') 0%, v-bind('color.bg') 30%, v-bind('color.bg') 70%, v-bind('color.bgTransparent') 100%);
   }
 
-  @keyframes fadeInOut {
-    0% {
-      opacity: 0.3;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0.3;
-    }
-  }
-
   [NetworkStatus] {
     background-color: v-bind('color.statusDarkest');
     border-color: rgba(0, 0, 0, 0.9);
@@ -166,7 +149,6 @@ const color = {
     position: relative;
   }
 
-  [NetworkStatus]::before,
   [NetworkStatus]::after {
     content: '';
     position: absolute;
@@ -177,12 +159,8 @@ const color = {
     height: 100%;
     border: 2px solid v-bind('color.statusRipples');
     border-radius: 50%;
-    animation: ripple-network-status 2s ease-out infinite;
+    animation: ripple-network-status 2s ease-in-out infinite;
     opacity: 0;
-  }
-
-  [NetworkStatus]::after {
-    animation-delay: 1s;
   }
 }
 
@@ -198,6 +176,11 @@ const color = {
 
 @keyframes ripple-network-status {
   0% {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+  }
+  1% {
     width: 100%;
     height: 100%;
     opacity: 0.5;

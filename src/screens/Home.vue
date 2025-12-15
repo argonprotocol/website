@@ -210,7 +210,9 @@
           <WindowsIcon v-if="osName === OsName.windows" class="w-7 h-7 relative inline-block" />
           <span>Download <span class="hidden md:inline">Argon</span> Investor Console</span>
         </button>
-        <div class="text-gray-500/80 text-sm md:text-base mt-2">Lastest version: 1.0.0-rc1, experimental for testnet</div>
+        <div class="text-gray-500/80 text-sm md:text-base mt-2">
+          Lastest version: {{ download.stableVersion }}, stable for mainnet
+        </div>
         <p class="w-full md:w-7/12 mx-auto text-base md:text-xl text-center opacity-70 mt-10 md:mt-16 leading-relaxed">
           Our simple desktop app makes it easy to capitalize on the growth of Argon without needing expensive ASIC mining rigs.
           It runs on any Windows, Linux, or MacOS computer, and it's fully anonymous, meaning there are no centralized logins, 
