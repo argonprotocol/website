@@ -51,12 +51,12 @@
           </li>
         </ul>
 
-        <h3 class="font-bold mt-7">Stable Releases (v{{ download.currentVersion }})</h3>
+        <h3 class="font-bold mt-7">Stable Releases (v{{ download.stableVersion }})</h3>
         <p class="-mt-3">These are the actively supported installers.</p>
         <ul>
           <li class="flex flex-row items-center w-full border-t border-gray-300 py-5">
             <WindowsIcon class="w-6 h-6 relative -top-0.5 inline-block mr-3 text-slate-700/30" />
-            <div class="grow">Stable v{{ download.currentVersion }} for Windows</div>
+            <div class="grow">Stable v{{ download.stableVersion }} for Windows</div>
             <a
               :href="download.urlFor(OsName.windows, false)"
               class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
@@ -66,7 +66,7 @@
           </li>
           <li class="flex flex-row items-center w-full border-t border-gray-300 py-5">
             <MacIcon class="w-7 h-7 relative -top-0.5 inline-block mr-2 text-slate-700/30" />
-            <div class="grow">Stable v{{ download.currentVersion }} for MacOS</div>
+            <div class="grow">Stable v{{ download.stableVersion }} for MacOS</div>
             <a
               :href="download.urlFor(OsName.mac, false)"
               class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
@@ -76,7 +76,7 @@
           </li>
           <li class="flex flex-row items-center w-full border-y border-gray-300 py-5">
             <LinuxIcon class="w-7 h-7 relative -top-0.5 inline-block mr-2 text-slate-700/30" />
-            <div class="grow">Stable v{{ download.currentVersion }} for Linux</div>
+            <div class="grow">Stable v{{ download.stableVersion }} for Linux</div>
             <a
                 :href="download.urlFor(OsName.linux, false)"
                 class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
@@ -86,12 +86,12 @@
           </li>
         </ul>
 
-        <h3 class="font-bold mt-7">Experimental Releases (v{{ download.currentVersion }})</h3>
+        <h3 class="font-bold mt-7">Experimental Releases (v{{ download.experimentalVersion }})</h3>
         <p class="-mt-3">These are primarily for the purpose of trying out new features .</p>
         <ul>
           <li class="flex flex-row items-center w-full border-t border-gray-300 py-5">
             <WindowsIcon class="w-6 h-6 relative -top-0.5 inline-block mr-3 text-slate-700/30" />
-            <div class="grow">Experimental v{{ download.currentVersion }} for Windows</div>
+            <div class="grow">Experimental v{{ download.experimentalVersion }} for Windows</div>
             <a
               :href="download.urlFor(OsName.windows, true)"
               class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
@@ -101,7 +101,7 @@
           </li>
           <li class="flex flex-row items-center w-full border-t border-gray-300 py-5">
             <MacIcon class="w-7 h-7 relative -top-0.5 inline-block mr-2 text-slate-700/30" />
-            <div class="grow">Experimental v{{ download.currentVersion }} for MacOS</div>
+            <div class="grow">Experimental v{{ download.experimentalVersion }} for MacOS</div>
             <a
               :href="download.urlFor(OsName.mac, true)"
               class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
@@ -111,7 +111,7 @@
           </li>
           <li class="flex flex-row items-center w-full border-y border-gray-300 py-5">
             <LinuxIcon class="w-7 h-7 relative -top-0.5 inline-block mr-2 text-slate-700/30" />
-            <div class="grow">Experimental v{{ download.currentVersion }} for Linux</div>
+            <div class="grow">Experimental v{{ download.experimentalVersion }} for Linux</div>
             <a
                 :href="download.urlFor(OsName.linux, true)"
                 class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"

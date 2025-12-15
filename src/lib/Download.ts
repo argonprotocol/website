@@ -1,6 +1,3 @@
-const currentTag = 'untagged-c61adb52c17cff08cc8f';
-const currentVersion = '1.0.0';
-
 export enum OsName {
   windows = 'windows',
   mac = 'mac',
@@ -9,8 +6,11 @@ export enum OsName {
 }
 
 export class Download {
-  public currentTag = currentTag;
-  public currentVersion = currentVersion;
+  public stableTag = 'untagged-c61adb52c17cff08cc8f';
+  public stableVersion = '1.0.0';
+
+  public experimentalTag = 'v1.0.0-rc1';
+  public experimentalVersion = 'v1.0.0-rc1';
 
   public get currentOsName(): OsName {
     const platform = navigator.platform.toLowerCase();
@@ -29,17 +29,19 @@ export class Download {
   }
 
   public urlFor(osName: OsName, isExperimental: boolean) {
-    const suffix = this.fileNameSuffix(osName, isExperimental);
-    return `https://github.com/argonprotocol/apps/releases/download/${this.currentTag}/Argon.Investor.Console_${this.currentVersion}_${suffix}`;
+    const suffix = this.fileNameSuffix(osName);
+    const tag = isExperimental ? this.experimentalTag : this.stableTag;
+    const version = isExperimental ? this.experimentalVersion : this.stableVersion;
+    return `https://github.com/argonprotocol/apps/releases/download/${tag}/Argon.Investor.Console_${version}_${suffix}`;
   }
 
-  private fileNameSuffix(osName: OsName, isExperimental: boolean) {
+  private fileNameSuffix(osName: OsName, isDebug: boolean = false) {
     if (osName === 'mac') {
-      return `universal${isExperimental ? '-debug' : ''}.dmg`;
+      return `universal${isDebug ? '-debug' : ''}.dmg`;
     } else if (osName === 'windows') {
-      return `x64-setup${isExperimental ? '-debug' : ''}.exe`;
+      return `x64-setup${isDebug ? '-debug' : ''}.exe`;
     } else if (osName === 'linux') {
-      return `amd64${isExperimental ? '-debug' : ''}.deb`;
+      return `amd64${isDebug ? '-debug' : ''}.deb`;
     }
   }
 }
