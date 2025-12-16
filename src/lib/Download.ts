@@ -6,11 +6,11 @@ export enum OsName {
 }
 
 export class Download {
-  public stableTag = 'untagged-c61adb52c17cff08cc8f';
+  public stableTag = 'v1.0.0';
   public stableVersion = '1.0.0';
 
   public experimentalTag = 'v1.0.0-rc1';
-  public experimentalVersion = 'v1.0.0-rc1';
+  public experimentalVersion = '1.0.0-rc1';
 
   public get currentOsName(): OsName {
     const platform = navigator.platform.toLowerCase();
