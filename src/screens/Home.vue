@@ -117,7 +117,7 @@
       </p>
 
       <div class="flex flex-col md:flex-row gap-x-16 gap-y-4 text-white/80 font-bold text-xl w-fit mx-auto py-16 relative">
-        <RouterLink to="/learn-more" class="whitespace-nowrap grow w-full bg-argon-500 border border-argon-700 rounded-md md:px-32 py-4 hover:bg-argon-500/70 hover:text-white font-bold" style="box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.3), 1px 1px 3px rgba(0, 0, 0, 0.3)">
+        <RouterLink to="/documentation" class="whitespace-nowrap grow w-full bg-argon-500 border border-argon-700 rounded-md md:px-32 py-4 hover:bg-argon-500/70 hover:text-white font-bold" style="box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.3), 1px 1px 3px rgba(0, 0, 0, 0.3)">
           Learn More
         </RouterLink>
         <RouterLink to="/desktop-app" class="whitespace-nowrap grow w-full bg-argon-500 border border-argon-700 rounded-md md:px-32 py-4 hover:bg-argon-500/70 hover:text-white font-bold" style="box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.3), 1px 1px 3px rgba(0, 0, 0, 0.3)">

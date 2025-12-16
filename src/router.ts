@@ -17,8 +17,12 @@ const router = createRouter({
       component: () => import('@/screens/secret-plan/Index.vue')
     },
     {
-      path: '/learn-more',
-      component: () => import('@/screens/learn-more/Index.vue')
+      path: '/documentation',
+      component: () => import('@/screens/documentation/Index.vue')
+    },
+    {
+      path: '/documentation/from-uniswap',
+      component: () => import('@/screens/documentation/FromUniswap.vue')
     },
     {
       path: '/mainnet',

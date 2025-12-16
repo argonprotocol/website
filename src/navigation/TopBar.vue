@@ -30,9 +30,9 @@
         </RouterLink>
         <RouterLink
           Button
-          to="/learn-more"
+          to="/documentation"
           class="text-lg"
-          :Selected="router.currentRoute.value.path.startsWith('/learn-more') || undefined"
+          :Selected="router.currentRoute.value.path.startsWith('/documentation') || undefined"
         >
           Learn More
         </RouterLink>
@@ -48,7 +48,9 @@
             class="flex flex-row items-center gap-2 text-base"
             :Selected="router.currentRoute.value.path.startsWith('/mainnet') || undefined"
           >
-            <div NetworkStatus class="rounded-full w-4 h-4 border"></div>
+            <div NetworkStatusWrapper class="w-4 h-4">
+              <div NetworkStatus />
+            </div>
             <span class="opacity-100">
               MAINNET
             </span>
@@ -59,7 +61,9 @@
               class="flex flex-row items-center gap-2 text-base opacity-70"
               :Selected="router.currentRoute.value.path.startsWith('/testnet') || undefined"
           >
-            <div NetworkStatus class="rounded-full w-4 h-4 border"></div>
+            <div NetworkStatusWrapper Testnet class="w-4 h-4">
+              <div NetworkStatus />
+            </div>
             <span class="opacity-80">
               TESTNET
             </span>
@@ -141,26 +145,46 @@ const color = {
     background: linear-gradient(to right, v-bind('color.bgTransparent') 0%, v-bind('color.bg') 30%, v-bind('color.bg') 70%, v-bind('color.bgTransparent') 100%);
   }
 
-  [NetworkStatus] {
-    background-color: v-bind('color.statusDarkest');
-    border-color: rgba(0, 0, 0, 0.9);
-    animation: pulse-network-status 1.5s ease-in-out infinite;
-    transform-origin: center bottom;
-    position: relative;
-  }
+  [NetworkStatusWrapper] {
+    @apply relative;
+    [NetworkStatus] {
+      @apply rounded-full border w-full h-full;
+      background-color: v-bind('color.statusDarkest');
+      border-color: rgba(0, 0, 0, 0.9);
+      animation: pulse-network-status 1.5s ease-in-out infinite;
+      transform-origin: center bottom;
+      position: relative;
 
-  [NetworkStatus]::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    border: 2px solid v-bind('color.statusRipples');
-    border-radius: 50%;
-    animation: ripple-network-status 2s ease-in-out infinite;
-    opacity: 0;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+
+    &::after {
+      @apply absolute w-full h-full;
+      content: '';
+      top: 50%;
+      left: 50%;
+      /* keep size fixed; center once */
+      width: 100%;
+      height: 100%;
+      border: 2px solid v-bind('color.statusRipples');
+      border-radius: 50%;
+
+      /* animate scale instead of width/height */
+      transform: translate(-50%, -50%) scale(1);
+      transform-origin: center;
+
+      animation: ripple-network-status 2s ease-in-out infinite;
+      opacity: 0;
+
+      /* force stable compositing on iOS Safari */
+      will-change: transform, opacity;
+      -webkit-transform: translate(-50%, -50%) translateZ(0) scale(1);
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
   }
 }
 
@@ -175,21 +199,8 @@ const color = {
 }
 
 @keyframes ripple-network-status {
-  0% {
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-  }
-  1% {
-    width: 100%;
-    height: 100%;
-    opacity: 0.5;
-  }
-  100% {
-    width: 250%;
-    height: 250%;
-    opacity: 0;
-  }
+  0%   { transform: translate3d(-50%, -50%, 0) scale(1);   opacity: 0.5; }
+  100% { transform: translate3d(-50%, -50%, 0) scale(2.5); opacity: 0; }
 }
 </style>
 

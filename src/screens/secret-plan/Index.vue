@@ -62,14 +62,14 @@
           volatility, and it works regardless of network size (i.e., the first user finds just as much value as the one millionth).
           This is a huge value-add for the bitcoin market, and in doing so, it converts Bitcoin's fixed 21M
           supply into an elastic yet stable Argon currency. You can
-          <router-link to="/learn-more">read more about this in our whitepapers</router-link>.
+          <router-link to="/documentation">read more about this in our whitepapers</router-link>.
         </p>
 
         <p>
           Argon's incentive structure for Bitcoin price-hedging creates an exponential growth curve of stablecoin minting
           that escalates until Argon's circulation becomes twice the size of Bitcoin's market value. At that
           scale, Argon will have the critical mass required to begin operating as an independent, global
-          currency (i.e., enough people will hold argon). See our soon to be released, <RouterLink to="/learn-more">third whitepaper</RouterLink>.
+          currency (i.e., enough people will hold argon). See our soon to be released, <RouterLink to="/documentation">third whitepaper</RouterLink>.
         </p>
 
         <p>

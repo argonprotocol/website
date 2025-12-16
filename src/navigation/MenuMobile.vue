@@ -47,9 +47,9 @@
           </RouterLink>
           <RouterLink
               Button
-              to="/learn-more"
+              to="/documentation"
               class="text-base"
-              :Selected="router.currentRoute.value.path.startsWith('/learn-more') || undefined"
+              :Selected="router.currentRoute.value.path.startsWith('/documentation') || undefined"
           >
             Learn More
           </RouterLink>

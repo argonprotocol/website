@@ -3,21 +3,21 @@
 
     <ul DepressedBlock class="flex flex-col md:flex-row px-2.5 pb-px space-y-2 md:space-y-0 md:space-x-3 text-white text-xl" style="box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, .4);">
 <!--      <li class="flex flex-col cursor-pointer items-center justify-center rounded-sm w-full md:w-1/3 h-40 md:h-60" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, .2), 1px 1px 2px rgba(0, 0, 0, .2);">-->
-<!--        <RouterLink to="/documentation/learn-more" class="flex flex-col items-center justify-center w-full h-full">-->
+<!--        <RouterLink to="/misc/documentation" class="flex flex-col items-center justify-center w-full h-full">-->
 <!--          <WhitepapersIcon class="h-10 mb-2" />-->
 <!--          Read the-->
 <!--          <div class="font-bold">Whitepapers</div>-->
 <!--        </RouterLink>-->
 <!--      </li>-->
 <!--      <li class="flex flex-col cursor-pointer items-center justify-center rounded-sm w-full md:w-1/3 h-40 md:h-60" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, .2), 1px 1px 2px rgba(0, 0, 0, .2);">-->
-<!--        <RouterLink to="/documentation/community/argonots" class="flex flex-col items-center justify-center w-full h-full">-->
+<!--        <RouterLink to="/misc/community/argonots" class="flex flex-col items-center justify-center w-full h-full">-->
 <!--          <ArgonotsIcon class="h-10 mb-2" />-->
 <!--          Follow the-->
 <!--          <div class="font-bold">Argonots</div>-->
 <!--        </RouterLink>-->
 <!--      </li>-->
 <!--      <li class="flex flex-col cursor-pointer items-center justify-center rounded-sm w-full md:w-1/3 h-40 md:h-60" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, .2), 1px 1px 2px rgba(0, 0, 0, .2);">-->
-<!--        <RouterLink to="/documentation/community" class="flex flex-col items-center justify-center w-full h-full">-->
+<!--        <RouterLink to="/misc/community" class="flex flex-col items-center justify-center w-full h-full">-->
 <!--          <CommunityIcon class="h-10 mb-2" />-->
 <!--          Join the-->
 <!--          <div class="font-bold">Community</div>-->
