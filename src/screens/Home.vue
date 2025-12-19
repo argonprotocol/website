@@ -205,11 +205,11 @@
       </div>
 
       <div class="flex flex-col items-center px-10 md:mt-20">
-        <button @click="downloadCommander" class="flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-md md:text-2xl w-full md:w-10/12 px-2 md:px-40 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);">
+        <a :href="download.currentUrl" class="flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-md md:text-2xl w-full md:w-10/12 px-2 md:px-40 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);">
           <MacIcon v-if="osName === OsName.mac" class="w-7 h-7 relative -top-0.5 inline-block" />
           <WindowsIcon v-if="osName === OsName.windows" class="w-7 h-7 relative inline-block" />
           <span>Download <span class="hidden md:inline">Argon</span> Investor Console</span>
-        </button>
+        </a>
         <div class="text-gray-500/80 text-sm md:text-base mt-2">
           Lastest version: {{ download.stableVersion }}, stable for mainnet
         </div>
@@ -371,11 +371,6 @@ function calculateUnlockBurnPerBitcoinDollar(argonRatioPrice: number): number {
   } else {
     return (1 / r) * (0.576 * r + 0.4);
   }
-}
-
-function downloadCommander() {
-  const downloadUrl = download.urlFor(osName.value, false);
-  window.open(downloadUrl);
 }
 
 Vue.onMounted(async () => {

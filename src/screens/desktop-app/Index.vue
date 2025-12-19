@@ -23,10 +23,22 @@
 
         <img src="/commander.png" alt="Argon Commander" class="relative md:left-[-10%] w-full md:min-w-[120%] my-5" />
 
-        <p>Other than its beautiful interface and easy-to-use features, one of the best things about Argon's investor app
+        <div class="flex flex-col items-center md:-mt-10">
+          <a :href="download.currentUrl" class="flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-md md:text-2xl w-full px-2 md:px-40 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);">
+            <MacIcon v-if="osName === OsName.mac" class="w-7 h-7 relative -top-0.5 inline-block" />
+            <WindowsIcon v-if="osName === OsName.windows" class="w-7 h-7 relative inline-block" />
+            <span>Download <span class="hidden md:inline">Argon</span> Investor Console</span>
+          </a>
+          <div class="text-gray-500/80 text-sm md:text-base mt-2">
+            Lastest version: {{ download.stableVersion }}, stable for mainnet
+          </div>
+        </div>
+
+        <p class="mt-5">Other than its beautiful interface and easy-to-use features, one of the best things about Argon's investor app
           is its security. It runs 100% on your hardware, meaning, there are no centralized servers, databases or login
           accounts that can be compromised. There is no tracking or telemetry integrations. The entire code-base is
-          open-source, decentralized, and designed to keep you fully anonymous.</p>
+          open-source, decentralized, and designed to keep you fully anonymous.
+        </p>
 
         <h3 class="font-bold mt-5 mb-0">Basic System Requirements</h3>
         <p class="-mt-3">The computing needs for Argon is minimal. Any modern laptop running a major OS should suffice.</p>
@@ -126,6 +138,7 @@
 </template>
 
 <script setup lang="ts">
+import * as Vue from 'vue';
 import MainLayout from "@/navigation/MainLayout.vue";
 import MacIcon from '../../assets/os/mac.svg?component';
 import LinuxIcon from '../../assets/os/linux.svg?component';
@@ -133,6 +146,7 @@ import WindowsIcon from '../../assets/os/windows.svg?component';
 import { Download, OsName } from "@/lib/Download";
 
 const download = new Download();
+const osName = Vue.ref(download.currentOsName);
 </script>
 
 <style scoped>

@@ -6,8 +6,8 @@ export enum OsName {
 }
 
 export class Download {
-  public stableTag = 'v1.0.2';
-  public stableVersion = '1.0.2';
+  public stableTag = 'v1.0.3';
+  public stableVersion = '1.0.3';
 
   public experimentalTag = 'v1.0.0-rc1';
   public experimentalVersion = '1.0.0-rc1';
@@ -26,6 +26,10 @@ export class Download {
     if (userAgent.includes('linux')) return OsName.linux;
 
     return OsName.unknown;
+  }
+
+  public get currentUrl() {
+    return this.urlFor(this.currentOsName, false);
   }
 
   public urlFor(osName: OsName, isExperimental: boolean) {
