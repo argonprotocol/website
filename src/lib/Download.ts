@@ -6,11 +6,10 @@ export enum OsName {
 }
 
 export class Download {
-  public stableTag = 'v1.0.4';
-  public stableVersion = '1.0.4';
-
-  public experimentalTag = 'v1.0.0-rc1';
+  public stableVersion!: string;
   public experimentalVersion = '1.0.0-rc1';
+
+  public isLoaded = false;
 
   public get currentOsName(): OsName {
     const platform = navigator.platform.toLowerCase();
@@ -28,18 +27,25 @@ export class Download {
     return OsName.unknown;
   }
 
+  public async load() {
+    const response = await fetch('https://raw.githubusercontent.com/argonprotocol/apps/refs/heads/main/release-channels/stable.json');
+    const data = await response.json();
+    this.stableVersion = data.version;
+    this.isLoaded = true;
+  }
+
   public get currentUrl() {
     return this.urlFor(this.currentOsName, false);
   }
 
   public urlFor(osName: OsName, isExperimental: boolean) {
+    if (!this.isLoaded) throw new Error('download.load() must be called first');
     const suffix = this.fileNameSuffix(osName);
-    const tag = isExperimental ? this.experimentalTag : this.stableTag;
     const version = isExperimental ? this.experimentalVersion : this.stableVersion;
-    return `https://github.com/argonprotocol/apps/releases/download/${tag}/Argon.Investor.Console_${version}_${suffix}`;
+    return `https://github.com/argonprotocol/apps/releases/download/v${version}/Argon.Investor.Console_${version}_${suffix}`;
   }
 
-  private fileNameSuffix(osName: OsName, isDebug: boolean = false) {
+  private fileNameSuffix(osName: OsName, isDebug: boolean = true) {
     if (osName === 'mac') {
       return `universal${isDebug ? '-debug' : ''}.dmg`;
     } else if (osName === 'windows') {

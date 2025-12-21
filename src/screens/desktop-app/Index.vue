@@ -24,13 +24,13 @@
         <img src="/commander.png" alt="Argon Commander" class="relative md:left-[-10%] w-full md:min-w-[120%] my-5" />
 
         <div class="flex flex-col items-center md:-mt-10">
-          <a :href="download.currentUrl" class="flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-md md:text-2xl w-full px-2 md:px-40 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);">
+          <a :href="stableUrl" class="flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-md md:text-2xl w-full px-2 md:px-40 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);">
             <MacIcon v-if="osName === OsName.mac" class="w-7 h-7 relative -top-0.5 inline-block" />
             <WindowsIcon v-if="osName === OsName.windows" class="w-7 h-7 relative inline-block" />
             <span>Download <span class="hidden md:inline">Argon</span> Investor Console</span>
           </a>
           <div class="text-gray-500/80 text-sm md:text-base mt-2">
-            Lastest version: {{ download.stableVersion }}, stable for mainnet
+            Lastest version: {{ stableVersion }}, stable for mainnet
           </div>
         </div>
 
@@ -63,14 +63,14 @@
           </li>
         </ul>
 
-        <h3 class="font-bold mt-7">Stable Releases (v{{ download.stableVersion }})</h3>
+        <h3 class="font-bold mt-7">Stable Releases (v{{ stableVersion }})</h3>
         <p class="-mt-3">These are the actively supported installers.</p>
         <ul>
           <li class="flex flex-row items-center w-full border-t border-gray-300 py-5">
             <WindowsIcon class="w-6 h-6 relative -top-0.5 inline-block mr-3 text-slate-700/30" />
-            <div class="grow">Stable v{{ download.stableVersion }} for Windows</div>
+            <div class="grow">Stable v{{ stableVersion }} for Windows</div>
             <a
-              :href="download.urlFor(OsName.windows, false)"
+              :href="urls.stable.windows"
               class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
             >
               Download
@@ -78,9 +78,9 @@
           </li>
           <li class="flex flex-row items-center w-full border-t border-gray-300 py-5">
             <MacIcon class="w-7 h-7 relative -top-0.5 inline-block mr-2 text-slate-700/30" />
-            <div class="grow">Stable v{{ download.stableVersion }} for MacOS</div>
+            <div class="grow">Stable v{{ stableVersion }} for MacOS</div>
             <a
-              :href="download.urlFor(OsName.mac, false)"
+              :href="urls.stable.mac"
               class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
             >
               Download
@@ -88,9 +88,9 @@
           </li>
           <li class="flex flex-row items-center w-full border-y border-gray-300 py-5">
             <LinuxIcon class="w-7 h-7 relative -top-0.5 inline-block mr-2 text-slate-700/30" />
-            <div class="grow">Stable v{{ download.stableVersion }} for Linux</div>
+            <div class="grow">Stable v{{ stableVersion }} for Linux</div>
             <a
-                :href="download.urlFor(OsName.linux, false)"
+                :href="urls.stable.linux"
                 class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
             >
               Download
@@ -98,40 +98,40 @@
           </li>
         </ul>
 
-        <h3 class="font-bold mt-7">Experimental Releases (v{{ download.experimentalVersion }})</h3>
-        <p class="-mt-3">These are primarily for the purpose of trying out new features .</p>
-        <ul>
-          <li class="flex flex-row items-center w-full border-t border-gray-300 py-5">
-            <WindowsIcon class="w-6 h-6 relative -top-0.5 inline-block mr-3 text-slate-700/30" />
-            <div class="grow">Experimental v{{ download.experimentalVersion }} for Windows</div>
-            <a
-              :href="download.urlFor(OsName.windows, true)"
-              class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
-            >
-              Download
-            </a>
-          </li>
-          <li class="flex flex-row items-center w-full border-t border-gray-300 py-5">
-            <MacIcon class="w-7 h-7 relative -top-0.5 inline-block mr-2 text-slate-700/30" />
-            <div class="grow">Experimental v{{ download.experimentalVersion }} for MacOS</div>
-            <a
-              :href="download.urlFor(OsName.mac, true)"
-              class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
-            >
-              Download
-            </a>
-          </li>
-          <li class="flex flex-row items-center w-full border-y border-gray-300 py-5">
-            <LinuxIcon class="w-7 h-7 relative -top-0.5 inline-block mr-2 text-slate-700/30" />
-            <div class="grow">Experimental v{{ download.experimentalVersion }} for Linux</div>
-            <a
-                :href="download.urlFor(OsName.linux, true)"
-                class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
-            >
-              Download
-            </a>
-          </li>
-        </ul>
+<!--        <h3 class="font-bold mt-7">Experimental Releases (v{{ download.experimentalVersion }})</h3>-->
+<!--        <p class="-mt-3">These are primarily for the purpose of trying out new features .</p>-->
+<!--        <ul>-->
+<!--          <li class="flex flex-row items-center w-full border-t border-gray-300 py-5">-->
+<!--            <WindowsIcon class="w-6 h-6 relative -top-0.5 inline-block mr-3 text-slate-700/30" />-->
+<!--            <div class="grow">Experimental v{{ download.experimentalVersion }} for Windows</div>-->
+<!--            <a-->
+<!--              :href="download.urlFor(OsName.windows, true)"-->
+<!--              class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"-->
+<!--            >-->
+<!--              Download-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li class="flex flex-row items-center w-full border-t border-gray-300 py-5">-->
+<!--            <MacIcon class="w-7 h-7 relative -top-0.5 inline-block mr-2 text-slate-700/30" />-->
+<!--            <div class="grow">Experimental v{{ download.experimentalVersion }} for MacOS</div>-->
+<!--            <a-->
+<!--              :href="download.urlFor(OsName.mac, true)"-->
+<!--              class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"-->
+<!--            >-->
+<!--              Download-->
+<!--            </a>-->
+<!--          </li>-->
+<!--          <li class="flex flex-row items-center w-full border-y border-gray-300 py-5">-->
+<!--            <LinuxIcon class="w-7 h-7 relative -top-0.5 inline-block mr-2 text-slate-700/30" />-->
+<!--            <div class="grow">Experimental v{{ download.experimentalVersion }} for Linux</div>-->
+<!--            <a-->
+<!--                :href="download.urlFor(OsName.linux, true)"-->
+<!--                class="bg-argon-button border border-argon-800 text-white rounded-md px-2 py-1 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"-->
+<!--            >-->
+<!--              Download-->
+<!--            </a>-->
+<!--          </li>-->
+<!--        </ul>-->
       </section>
     </div>
   </MainLayout>
@@ -147,6 +147,30 @@ import { Download, OsName } from "@/lib/Download";
 
 const download = new Download();
 const osName = Vue.ref(download.currentOsName);
+
+const stableUrl = Vue.ref('');
+const stableVersion = Vue.ref('');
+
+const urls = Vue.ref({
+  stable: {
+    windows: '',
+    mac: '',
+    linux: '',
+  }
+});
+
+Vue.onMounted(async () => {
+  await download.load();
+  stableVersion.value = download.stableVersion;
+  stableUrl.value = download.currentUrl;
+  urls.value = {
+    stable: {
+      windows: download.urlFor(OsName.windows, false),
+      mac: download.urlFor(OsName.mac, false),
+      linux: download.urlFor(OsName.linux, false),
+    }
+  };
+});
 </script>
 
 <style scoped>
