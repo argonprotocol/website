@@ -1,4 +1,3 @@
-import './_globals.js';
 import * as Fs from 'node:fs';
 import * as Path from 'node:path';
 import { fileURLToPath } from 'node:url';

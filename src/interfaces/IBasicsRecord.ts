@@ -5,4 +5,5 @@ export default interface IBasicsRecord {
   usdForArgon: number;
   argonotUsdPrice: number;
   btcUsdPrice: number;
+  argonBurnPotentialFromBitcoins: number;
 }

@@ -130,19 +130,19 @@
         <div class="DIVIDER-HORIZONTAL-FADED !absolute top-0 left-0"></div>
         <div as="div" to="/learn/currency-metrics/argons-in-circulation" class="md:w-1/3 py-10 hover:bg-black/10 hover:text-white">
           <div class="text-4xl lg:text-6xl font-bold">{{ microgonToArgonNm(microgonsInCirculation).format('0,0') }}</div>
-          <div class="mt-2 font-light">ARGNs In Circulation</div>
+          <div class="mt-2 font-light">Argons In Circulation</div>
         </div>
         <div class="DIVIDER-VERTICAL !h-auto self-stretch mx-3 hidden md:block"></div>
         <div class="DIVIDER-HORIZONTAL-FADED w-full h-px block md:hidden"></div>
         <div as="div" to="/learn/currency-metrics/argon-to-fiat-exchange-rate" class="md:w-1/3 py-10 hover:bg-black/10 hover:text-white">
           <div class="text-4xl lg:text-6xl font-bold">₳1.00 -> ${{ usdForArgon ? numeral(usdForArgon).format('0.00') : '-.--' }}</div>
-          <div class="mt-2 font-light">ARGN-to-USD Exchange Rate</div>
+          <div class="mt-2 font-light">Argon-to-Dollar Exchange Rate</div>
         </div>
         <div class="DIVIDER-VERTICAL !h-auto self-stretch mx-3 hidden md:block"></div>
         <div class="DIVIDER-HORIZONTAL-FADED w-full h-px block md:hidden"></div>
         <div as="div" to="/learn/currency-metrics/bitcoin-to-argon-short-value" class="md:w-1/3 py-10 hover:bg-black/10 hover:text-white">
-          <div class="text-4xl lg:text-6xl font-bold">₳{{ numeral(shortValue).format('0,0') }}</div>
-          <div class="mt-2 font-light">BTC-to-ARGN Short Value</div>
+          <div class="text-4xl lg:text-6xl font-bold">₳{{ numeral(argonBurnPotentialFromBitcoins).format('0,0') }}</div>
+          <div class="mt-2 font-light">Argon Burn Potential From Bitcoin</div>
         </div>
       </div>
     </main>
@@ -324,8 +324,7 @@ import * as Vue from 'vue';
 
 const microgonsInCirculation = Vue.ref(0n);
 const usdForArgon = Vue.ref(0);
-const shortValue = Vue.ref(0);
-const bitcoinDollarValue = Vue.ref(1_028);
+const argonBurnPotentialFromBitcoins = Vue.ref(0);
 </script>
 
 <script setup lang="ts">
@@ -355,25 +354,10 @@ import numeral, { microgonToArgonNm } from '@/lib/numeral';
 import Data from "@/lib/Data";
 import { Download, OsName } from '@/lib/Download';
 
-shortValue.value = calculateUnlockBurnPerBitcoinDollar(0.001) * bitcoinDollarValue.value;
-
 const download = new Download();
 const osName = Vue.ref(download.currentOsName);
 const stableUrl = Vue.ref('');
 const stableVersion = Vue.ref('');
-
-function calculateUnlockBurnPerBitcoinDollar(argonRatioPrice: number): number {
-  const r = argonRatioPrice;
-  if (r >= 1.0) {
-    return 1;
-  } else if (r >= 0.9) {
-    return 20 * Math.pow(r, 2) - 38 * r + 19;
-  } else if (r >= 0.01) {
-    return (0.5618 * r + 0.3944) / r;
-  } else {
-    return (1 / r) * (0.576 * r + 0.4);
-  }
-}
 
 Vue.onMounted(async () => {
   const [basics, _] = await Promise.all([
@@ -384,6 +368,7 @@ Vue.onMounted(async () => {
   stableVersion.value = download.stableVersion;
   microgonsInCirculation.value = basics.microgonsInCirculation;
   usdForArgon.value = basics.usdForArgon;
+  argonBurnPotentialFromBitcoins.value = basics.argonBurnPotentialFromBitcoins;
 });
 </script>
 

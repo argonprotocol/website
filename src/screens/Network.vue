@@ -71,8 +71,8 @@
 <!--            <div class="h-full w-[1px] bg-slate-400/50"></div>-->
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
-            <span>$0.00</span>
-            <label>BTC-to-Argon Short <span class="hidden md:inline">Value</span></label>
+            <span>{{ numeral(data.argonBurnPotentialFromBitcoins).format('0,0')}}</span>
+            <label>Argon Burn <span class="hidden md:inline">Potential</span> From Bitcoin</label>
           </div>
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">

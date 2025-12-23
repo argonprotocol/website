@@ -1,3 +1,4 @@
+import './_globals.ts';
 // import fetchBitcoinPrices from './fetchBitcoinPrices.ts';
 // import fetchBitcoinFees from './fetchBitcoinFees.ts';
 import importFrames from './importFrames.ts';
