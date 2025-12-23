@@ -1,8 +1,9 @@
 {
-  "lastUpdatedAt": "2025-12-09T19:15:47.906Z",
-  "microgonsInCirculation": "491524959537n",
-  "micronotsInCirculation": "685340813635n",
-  "usdForArgon": 1.031,
+  "lastUpdatedAt": "2025-12-23T03:23:35.953Z",
+  "microgonsInCirculation": "550303667287n",
+  "micronotsInCirculation": "732028672135n",
+  "usdForArgon": 1.032,
   "argonotUsdPrice": 0,
-  "btcUsdPrice": 93955.596
+  "btcUsdPrice": 88196.295,
+  "argonBurnPotentialFromBitcoins": 3858932.419333906
 }
