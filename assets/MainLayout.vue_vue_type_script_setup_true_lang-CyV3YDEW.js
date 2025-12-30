@@ -1,1 +1,0 @@
-import{d as s,c as o,a as t,h as e,q as r,B as n,C as c,F as l,o as _}from"./index-CvsL8ZPG.js";const i={class:"flex flex-col min-h-screen pb-20"},f=s({__name:"MainLayout",setup(m){return(a,d)=>(_(),o(l,null,[t("div",i,[e(n,{class:"relative z-10"}),r(a.$slots,"default")]),e(c,{class:"relative z-10"})],64))}});export{f as _};
