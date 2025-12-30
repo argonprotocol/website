@@ -1,4 +1,4 @@
-import { BlockWatch, MainchainClients, MiningFrames, PriceIndex, NetworkConfig, NetworkConfigSettings } from "@argonprotocol/apps-core";
+import { BlockWatch, MainchainClients, MiningFrames, NetworkConfig, NetworkConfigSettings } from "@argonprotocol/apps-core";
 import * as Fs from 'node:fs/promises';
 import { dirname } from 'path';
 import { createRequire } from 'module';
@@ -29,8 +29,4 @@ export function getMiningFrames(networkName: keyof typeof NetworkConfigSettings)
       return Fs.writeFile(framesFilePath, data);
     }
   });
-}
-
-export function getPriceIndex(networkName: keyof typeof NetworkConfigSettings): PriceIndex {
-  return new PriceIndex(getMainchainClients(networkName));
 }

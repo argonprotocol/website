@@ -129,20 +129,20 @@
       <div class="relative flex flex-col md:flex-row items-stretch whitespace-nowrap w-full text-white/80 py-3 md:mt-12">
         <div class="DIVIDER-HORIZONTAL-FADED !absolute top-0 left-0"></div>
         <div as="div" to="/learn/currency-metrics/argons-in-circulation" class="md:w-1/3 py-10 hover:bg-black/10 hover:text-white">
-          <div class="text-4xl lg:text-6xl font-bold">{{ microgonToArgonNm(microgonsInCirculation).format('0,0') }}</div>
-          <div class="mt-2 font-light">Argons In Circulation</div>
+          <div class="text-4xl lg:text-6xl font-bold">{{ microgonToArgonNm(data.microgonsInCirculation).format('0,0') }}</div>
+          <div class="mt-2 font-light">Argon Circulation ({{ microgonToArgonNm(data.micronotsInCirculation).format('0,0') }})</div>
         </div>
         <div class="DIVIDER-VERTICAL !h-auto self-stretch mx-3 hidden md:block"></div>
         <div class="DIVIDER-HORIZONTAL-FADED w-full h-px block md:hidden"></div>
         <div as="div" to="/learn/currency-metrics/argon-to-fiat-exchange-rate" class="md:w-1/3 py-10 hover:bg-black/10 hover:text-white">
-          <div class="text-4xl lg:text-6xl font-bold">₳1.00 -> ${{ usdForArgon ? numeral(usdForArgon).format('0.00') : '-.--' }}</div>
+          <div class="text-4xl lg:text-6xl font-bold">₳1.00 -> ${{ data.usdForArgon ? numeral(data.usdForArgon).format('0.00') : '-.--' }}</div>
           <div class="mt-2 font-light">Argon-to-Dollar Exchange Rate</div>
         </div>
         <div class="DIVIDER-VERTICAL !h-auto self-stretch mx-3 hidden md:block"></div>
         <div class="DIVIDER-HORIZONTAL-FADED w-full h-px block md:hidden"></div>
         <div as="div" to="/learn/currency-metrics/bitcoin-to-argon-short-value" class="md:w-1/3 py-10 hover:bg-black/10 hover:text-white">
-          <div class="text-4xl lg:text-6xl font-bold">₳{{ numeral(argonBurnPotentialFromBitcoins).format('0,0') }}</div>
-          <div class="mt-2 font-light">Argon Burn Potential From Bitcoin</div>
+          <div class="text-4xl lg:text-6xl font-bold">{{ numeral(data.vaulting.argonBurnCapability).format('0,0') }}</div>
+          <div class="mt-2 font-light">Argon Circulation Burn Capability</div>
         </div>
       </div>
     </main>
@@ -220,21 +220,22 @@
         </p>
       </div>
 
-      <div class="grid md:grid-cols-4 w-full text-center pb-6 mt-32 divide-x divide-argon-400/30 text-argon-600/70">
+      <div class="mx-6 h-px bg-argon-400/30 mt-28" />
+      <div class="grid md:grid-cols-4 w-full text-center py-6 divide-x divide-argon-400/30 text-argon-600/70">
         <div as="div" to="/learn/mining-metrics/active-mining-seats" class="opacity-80 hover:opacity-100 py-5">
-          <div class="text-6xl font-bold">100</div>
+          <div class="text-6xl font-bold">{{ data.mining.activeSeatCount }}</div>
           <div class="mt-2 font-light">Active Mining Seats</div>
         </div>
         <div as="div" to="/learn/mining-metrics/current-mining-apy" class="opacity-80 hover:opacity-100 py-5">
-          <div class="text-6xl font-bold">473.3%</div>
+          <div class="text-6xl font-bold">{{ numeral(data.mining.averageAPY).formatCapped('0,0', 9_999) }}%</div>
           <div class="mt-2 font-light">Current Mining APY</div>
         </div>
         <div as="div" to="/learn/vaulting-metrics/active-vaults" class="opacity-80 hover:opacity-100 py-5">
-          <div class="text-6xl font-bold">4</div>
+          <div class="text-6xl font-bold">{{ data.vaulting.count }}</div>
           <div class="mt-2 font-light">Active Vaults</div>
         </div>
         <div as="div" to="/learn/vaulting-metrics/current-vaulting-apy" class="opacity-80 hover:opacity-100 py-5">
-          <div class="text-6xl font-bold">528.1%</div>
+          <div class="text-6xl font-bold">{{ numeral(data.vaulting.averageAPY).formatCapped('0,0', 9_999) }}%</div>
           <div class="mt-2 font-light">Current Vaulting APY</div>
         </div>
       </div>
@@ -321,10 +322,9 @@
 
 <script lang="ts">
 import * as Vue from 'vue';
+import { type IBasicsRecord, defaultBasicsRecord } from "@/interfaces/IBasicsRecord";
 
-const microgonsInCirculation = Vue.ref(0n);
-const usdForArgon = Vue.ref(0);
-const argonBurnPotentialFromBitcoins = Vue.ref(0);
+const data = Vue.ref<IBasicsRecord>(defaultBasicsRecord);
 </script>
 
 <script setup lang="ts">
@@ -364,11 +364,9 @@ Vue.onMounted(async () => {
     Data.fetchBasics(),
     download.load(),
   ]);
+  data.value = basics;
   stableUrl.value = download.currentUrl;
   stableVersion.value = download.stableVersion;
-  microgonsInCirculation.value = basics.microgonsInCirculation;
-  usdForArgon.value = basics.usdForArgon;
-  argonBurnPotentialFromBitcoins.value = basics.argonBurnPotentialFromBitcoins;
 });
 </script>
 

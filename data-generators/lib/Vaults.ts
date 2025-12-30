@@ -1,6 +1,6 @@
 import {
   MiningFrames,
-  PriceIndex,
+  Currency,
   MainchainClients,
   Vaults as VaultsBase,
   type IAllVaultStats,
@@ -9,11 +9,11 @@ import {
 export class Vaults extends VaultsBase {
   constructor(
     network: string,
-    priceIndex: PriceIndex,
+    currency: Currency,
     miningFrames: MiningFrames,
     mainchainClients: MainchainClients
   ) {
-    super(network, priceIndex, miningFrames, mainchainClients);
+    super(network, currency, miningFrames, mainchainClients);
   }
 
   protected async saveStats(): Promise<void> {

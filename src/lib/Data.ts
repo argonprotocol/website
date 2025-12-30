@@ -1,5 +1,5 @@
 import { JsonExt } from '@argonprotocol/apps-core';
-import type IBasicsRecord from "@/interfaces/IBasicsRecord";
+import { type IBasicsRecord } from "@/interfaces/IBasicsRecord";
 import type IArgonCirculationRecord from "@/interfaces/IArgonCirculationRecord";
 
 export enum NetworkName {

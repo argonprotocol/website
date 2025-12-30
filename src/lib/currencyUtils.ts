@@ -5,7 +5,7 @@ export function microgonToArgon(microgons: bigint): number {
   return Number(microgons) / MICROGONS_PER_ARGON;
 }
 
-export function micronotToArgoonot(micronots: bigint): number {
+export function micronotToArgonot(micronots: bigint): number {
   if (!micronots) return 0;
   return Number(micronots) / MICROGONS_PER_ARGON;
 }

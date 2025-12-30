@@ -1,18 +1,23 @@
 import * as Fs from 'node:fs';
 import * as Path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import {fileURLToPath} from 'node:url';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc.js';
 import {
-  MainchainClients,
-  NetworkConfig,
+  calculateAPY,
+  Currency, GlobalMiningStats,
   JsonExt,
+  MainchainClients,
+  Mining,
+  NetworkConfig,
+  UnitOfMeasurement,
 } from '@argonprotocol/apps-core';
-import { Vaults } from './lib/Vaults.ts';
+import {Vaults} from './lib/Vaults.ts';
 import { PriceIndex as PriceIndexModel } from "@argonprotocol/mainchain";
-import IBasicsRecord from "../src/interfaces/IBasicsRecord.ts";
-import { getMainchainClients, getMiningFrames, getPriceIndex } from './lib/mainchain.ts';
+import { type IBasicsRecord } from "../src/interfaces/IBasicsRecord.ts";
+import { getMainchainClients, getMiningFrames } from './lib/mainchain.ts';
 import BigNumber from 'bignumber.js';
+import {GlobalVaultingStats} from "../../apps/core/src/GlobalVaultingStats.ts";
 
 dayjs.extend(utc);
 
@@ -21,7 +26,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = Path.dirname(__filename);
 
 export default async function run() {
-  for (const chain of ['testnet', 'mainnet'] as const) {
+  for (const chain of ['mainnet', 'testnet'] as const) {
     console.log('------------------------------------------------------');
     console.log(`Fetching Argon Basic Data for ${chain}`);
     console.log('------------------------------------------------------');
@@ -39,24 +44,26 @@ export default async function run() {
     const networkConfig = NetworkConfig.get();
     const mainchainClients = new MainchainClients(networkConfig.archiveUrl);
     const api = await mainchainClients.archiveClientPromise;
+    const currency = new Currency(mainchainClients.prunedClientOrArchivePromise);
 
-    const microgonsIssued = await api.query.balances.totalIssuance();
-    const micronotsIssued = await api.query.ownership.totalIssuance();
+    const microgonsInCirculation = await currency.fetchMicrogonsInCirculation();
+    const micronotsInCirculation = await currency.fetchMicronotsInCirculation();
+
     const priceIndexModel = new PriceIndexModel();
     await priceIndexModel.load(api);
 
-    const dollarValueOfVaultedBitcoin = await fetchDollarValueOfVaultedBitcoin(chain);
-    const burnPerBitcoinDollar = calculateUnlockBurnPerBitcoinDollar(0.001);
-    const argonBurnPotentialFromBitcoins = burnPerBitcoinDollar * dollarValueOfVaultedBitcoin;
+    const miningStats = await fetchMiningStats(chain, currency);
+    const vaultingStats = await fetchVaultingStats(chain, currency);
 
     const data: IBasicsRecord = {
       lastUpdatedAt: dayjs.utc().toISOString(),
-      microgonsInCirculation: microgonsIssued.toBigInt(),
-      micronotsInCirculation: micronotsIssued.toBigInt(),
-      usdForArgon: (priceIndexModel.argonUsdPrice || BigNumber(0)).toNumber(),
-      argonotUsdPrice: (priceIndexModel.argonotUsdPrice || BigNumber(0)).toNumber(),
-      btcUsdPrice: (priceIndexModel.btcUsdPrice || BigNumber(0)).toNumber(),
-      argonBurnPotentialFromBitcoins,
+      microgonsInCirculation: microgonsInCirculation,
+      micronotsInCirculation: micronotsInCirculation,
+      usdForArgon: (priceIndexModel.argonUsdPrice || BigNumber(0)).toNumber() || 1,
+      usdForArgonot: (priceIndexModel.argonotUsdPrice || BigNumber(0)).toNumber() || 1,
+      usdForBtc: (priceIndexModel.btcUsdPrice || BigNumber(0)).toNumber() || 80_000,
+      mining: miningStats,
+      vaulting: vaultingStats,
     };
 
     Fs.writeFileSync(filePath, JsonExt.stringify(data, 2));
@@ -66,28 +73,33 @@ export default async function run() {
 
 // FUNCTIONS
 
-async function fetchDollarValueOfVaultedBitcoin(chain: 'testnet' | 'mainnet'): Promise<number> {
-  const miningFrames = getMiningFrames(chain);
-  const priceIndex = getPriceIndex(chain);
+async function fetchMiningStats(chain: 'testnet' | 'mainnet', currency: Currency) {
   const mainchainClients = getMainchainClients(chain);
-  const vaults = new Vaults(chain, priceIndex, miningFrames, mainchainClients);
-  await vaults.load();
-  const satsLocked = vaults.getTotalSatoshisLocked();
+  const mining = new Mining(mainchainClients);
+  const stats = new GlobalMiningStats(mining, currency);
+  await stats.load();
 
-  const microgonValue = await vaults.getMarketRate(satsLocked);
-  const microgonExchangeRatesTo = await priceIndex.fetchMicrogonExchangeRatesTo();
-  return BigNumber(microgonValue).dividedBy(microgonExchangeRatesTo.USD).toNumber();
+  return {
+    activeSeatCount: stats.activeSeatCount,
+    aggregatedBidCosts: currency.convertMicrogonTo(stats.aggregatedBidCosts, UnitOfMeasurement.USD),
+    aggregatedBlockRewards: currency.convertMicrogonTo(stats.aggregatedBlockRewards, UnitOfMeasurement.USD),
+    averageAPY: stats.averageAPY,
+  }
 }
 
-function calculateUnlockBurnPerBitcoinDollar(argonRatioPrice: number): number {
-  const r = argonRatioPrice;
-  if (r >= 1.0) {
-    return 1;
-  } else if (r >= 0.9) {
-    return 20 * Math.pow(r, 2) - 38 * r + 19;
-  } else if (r >= 0.01) {
-    return (0.5618 * r + 0.3944) / r;
-  } else {
-    return (1 / r) * (0.576 * r + 0.4);
+async function fetchVaultingStats(chain: 'testnet' | 'mainnet', currency: Currency) {
+  const mainchainClients = getMainchainClients(chain);
+  const miningFrames = getMiningFrames(chain);
+  const vaults = new Vaults(chain, currency, miningFrames, mainchainClients);
+  const stats = new GlobalVaultingStats(vaults, currency);
+  await stats.load();
+
+  return {
+    count: stats.vaultCount,
+    valueInVaults: currency.convertMicrogonTo(stats.microgonValueOfVaultedBitcoins, UnitOfMeasurement.USD),
+    bitcoinLocked: stats.bitcoinLocked,
+    averageAPY: stats.averageAPY,
+    epochEarnings: currency.convertMicrogonTo(stats.epochEarnings, UnitOfMeasurement.USD),
+    argonBurnCapability: stats.argonBurnCapability,
   }
 }

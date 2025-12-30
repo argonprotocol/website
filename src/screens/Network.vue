@@ -44,39 +44,39 @@
 <!--            <div class="h-full w-[1px] bg-slate-400/50"></div>-->
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
-            <span>${{ numeral(data.argonotUsdPrice).format('0,0.00')}}</span>
+            <span>${{ numeral(data.usdForArgonot).format('0,0.00')}}</span>
             <label>Price Per Argonot</label>
           </div>
 
 <!--          <div class="h-full w-[1px] bg-slate-400/50"></div>-->
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
-            <span class="block md:hidden">${{ numeral(data.btcUsdPrice).format('0,0')}}</span>
-            <span class="hidden md:block">${{ numeral(data.btcUsdPrice).format('0,0.00')}}</span>
+            <span class="block md:hidden">${{ numeral(data.usdForBtc).format('0,0')}}</span>
+            <span class="hidden md:block">${{ numeral(data.usdForBtc).format('0,0.00')}}</span>
             <label>Price Per Bitcoin</label>
           </div>
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
             <span>{{ microgonToArgonNm(data.microgonsInCirculation).format('0,0')}}</span>
-            <label>Argons In Circulation</label>
+            <label>Argon Circulation</label>
           </div>
 
 <!--            <div class="h-full w-[1px] bg-slate-400/50"></div>-->
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
             <span>{{ micronotToArgonotNm(data.micronotsInCirculation).format('0,0')}}</span>
-            <label>Argonots In Circulation</label>
+            <label>Argonot Circulation</label>
           </div>
 
 <!--            <div class="h-full w-[1px] bg-slate-400/50"></div>-->
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
-            <span>{{ numeral(data.argonBurnPotentialFromBitcoins).format('0,0')}}</span>
+            <span>{{ numeral(data.vaulting.argonBurnCapability).format('0,0')}}</span>
             <label>Argon Burn <span class="hidden md:inline">Potential</span> From Bitcoin</label>
           </div>
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
-            <span>100</span>
+            <span>{{ data.mining.activeSeatCount }}</span>
             <label>Mining Seats</label>
           </div>
 
@@ -84,7 +84,7 @@
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
             <span>
-              $0.00
+              ${{  numeral(data.mining.aggregatedBidCosts).format('0,0.00') }}
             </span>
             <label>Active Seat Cost</label>
           </div>
@@ -93,7 +93,7 @@
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
             <span>
-              $0.00
+              ${{  numeral(data.mining.aggregatedBlockRewards).format('0,0.00') }}
             </span>
             <label>Active Seat Rewards</label>
           </div>
@@ -101,35 +101,30 @@
 <!--          <div class="h-full w-[1.05px] bg-slate-400/50"></div>-->
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
-            <span>0.0%</span>
+            <span>{{ numeral(data.mining.averageAPY).formatCapped('0,0', 9_999) }}%</span>
             <label>Average Mining APY</label>
           </div>
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
-            <span>11</span>
+            <span>{{ data.vaulting.count }}</span>
             <label>Active Vaults</label>
           </div>
 
-<!--          <div class="h-full w-[1.05px] bg-slate-400/50"></div>-->
-
-          <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
-            <span>0.3824</span>
-            <label>Bitcoin In Vaults</label>
-          </div>
-
-<!--          <div class="h-full w-[1px] bg-slate-400/50"></div>-->
-
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
             <span>
-              $0.00
+              ${{  numeral(data.vaulting.valueInVaults).format('0,0.00') }}
             </span>
             <label>Total Value In Vaults</label>
           </div>
-<!--          <div class="h-full w-[1.05px] bg-slate-400/50"></div>-->
+
+          <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
+            <span>{{ data.vaulting.bitcoinLocked }}</span>
+            <label>Bitcoin In Vaults</label>
+          </div>
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
             <span>
-              0.0%
+              {{ numeral(data.vaulting.averageAPY).formatCapped('0,0', 9_999) }}%
             </span>
             <label>Average Vault APY</label>
           </div>
@@ -154,19 +149,14 @@ import utc from 'dayjs/plugin/utc';
 import numeral, { microgonToArgonNm, micronotToArgonotNm } from '@/lib/numeral';
 import MainLayout from "@/navigation/MainLayout.vue";
 import Data, { NetworkName } from "@/lib/Data";
-import type IBasicsRecord from "@/interfaces/IBasicsRecord";
+import {defaultBasicsRecord, type IBasicsRecord} from "@/interfaces/IBasicsRecord";
 import router from "@/router";
 import CountupClock from "@/components/CountupClock.vue";
 
 dayjs.extend(utc);
 
 const chainName = Vue.ref<NetworkName>(extractChainName(router.currentRoute.value.path));
-const data = Vue.ref<IBasicsRecord>({
-  lastUpdatedAt: '',
-  microgonsInCirculation: 0n,
-  micronotsInCirculation: 0n,
-  usdForArgon: 0n,
-});
+const data = Vue.ref<IBasicsRecord>(defaultBasicsRecord);
 
 const lastBlockAt = Vue.computed(() => {
   return dayjs.utc();
@@ -195,7 +185,7 @@ Vue.onMounted(async () => {
 </script>
 
 <style scoped>
-@import "../main.css";
+@import '../main.css';
 
 [StatWrapper] {
   @apply flex flex-col items-center justify-center text-slate-800/70 py-12;

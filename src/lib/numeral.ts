@@ -1,5 +1,5 @@
 import numeralOriginal, { Numeral } from 'numeral';
-import { microgonToArgon, micronotToArgoonot } from './currencyUtils';
+import { microgonToArgon, micronotToArgonot } from './currencyUtils';
 
 // Extend the Numeral interface to include our custom method
 declare module 'numeral' {
@@ -61,7 +61,7 @@ export function microgonToArgonNm(this: void, microgons: bigint): Numeral {
 }
 
 export function micronotToArgonotNm(this: void, micronots: bigint): Numeral {
-  return numeral(micronotToArgoonot(micronots));
+  return numeral(micronotToArgonot(micronots));
 }
 
 function chooseIfElseFormat(condition: ICondition, ifFormat: string, elseFormat: string, value: number) {

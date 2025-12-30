@@ -3,8 +3,15 @@ import * as Path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc.js';
-import { MainchainClients, MiningFrames, NetworkConfig, PriceIndex, JsonExt, defaultExchangeRates } from '@argonprotocol/apps-core';
-import type {  IFrameHistory, IMainchainExchangeRates } from '@argonprotocol/apps-core';
+import {
+  MainchainClients,
+  MiningFrames,
+  NetworkConfig,
+  JsonExt,
+  Currency,
+  defaultMicrogonsPer,
+} from '@argonprotocol/apps-core';
+import type {  IFrameHistory, IMicrogonsPer } from '@argonprotocol/apps-core';
 import IArgonExchangeRatesRecord from "../src/interfaces/IArgonExchangeRatesRecord.ts";
 
 import { type ApiDecoration, PriceIndex as PriceIndexModel } from '@argonprotocol/mainchain';
@@ -39,7 +46,7 @@ export default async function run() {
 
     for (const frame of miningFrames.frames) {
       console.log(`Fetching exchange rates for frame ${frame.frameId}`);
-      const api = frame.firstBlockHash ? await archiveClient.at(frame.firstBlockHash) : null;
+      const api = frame.firstBlockHash ? archiveClient.at(frame.firstBlockHash) : null;
       await appendToData(records, api, frame);
     }
 
@@ -48,26 +55,28 @@ export default async function run() {
   }
 }
 
-async function appendToData(records: any[], api: ApiDecoration<'promise'> | null, frame: IFrameHistory) {
-  let exchangeRates: IMainchainExchangeRates | null = null;
-  
+async function appendToData(records: any[], api: Promise<ApiDecoration<'promise'>> | null, frame: IFrameHistory) {
+  let microgonsPer: IMicrogonsPer | null = null;
+  let usdTarget = Number(defaultMicrogonsPer.USD);
+
   if (api) {
     try {
-      const priceIndexModel = new PriceIndexModel();
-      await priceIndexModel.load(api);
-      exchangeRates = PriceIndex.extractMicrogonExchangeRatesTo(priceIndexModel);
+      const currency = new Currency(api)
+      await currency.load();
+      microgonsPer = currency.microgonsPer;
+      usdTarget = currency.usdTarget || usdTarget;
     } catch (e) {}
   }
 
-  const lastRecord = records[records.length - 1] || defaultExchangeRates;
+  const lastRecord = records[records.length - 1] || defaultMicrogonsPer;
 
   records.push({
     frameId: frame.frameId,
     date: frame.dateStart,
-    USD: exchangeRates?.USD || lastRecord?.USD || defaultExchangeRates?.USD || 0n,
-    USDTarget: exchangeRates?.USDTarget || lastRecord?.USDTarget || defaultExchangeRates?.USDTarget || 0n,
-    ARGNOT: exchangeRates?.ARGNOT || lastRecord?.ARGNOT || defaultExchangeRates?.ARGNOT || 0n,
-    BTC: exchangeRates?.BTC || lastRecord?.BTC || defaultExchangeRates?.BTC || 0n,
+    USD: api ? microgonsPer?.USD : lastRecord?.USD || 0n,
+    USDTarget: api ? usdTarget : lastRecord?.USDTarget || 0n,
+    ARGNOT: api ? microgonsPer?.ARGNOT : lastRecord?.ARGNOT ||  0n,
+    BTC: api ? microgonsPer?.BTC : lastRecord?.BTC || 0n,
   });
 }
 
