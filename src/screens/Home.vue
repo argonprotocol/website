@@ -130,7 +130,7 @@
         <div class="DIVIDER-HORIZONTAL-FADED !absolute top-0 left-0"></div>
         <div as="div" to="/learn/currency-metrics/argons-in-circulation" class="md:w-1/3 py-10 hover:bg-black/10 hover:text-white">
           <div class="text-4xl lg:text-6xl font-bold">{{ microgonToArgonNm(data.microgonsInCirculation).format('0,0') }}</div>
-          <div class="mt-2 font-light">Argon Circulation ({{ microgonToArgonNm(data.micronotsInCirculation).format('0,0') }})</div>
+          <div class="mt-2 font-light">Argon Circulation</div>
         </div>
         <div class="DIVIDER-VERTICAL !h-auto self-stretch mx-3 hidden md:block"></div>
         <div class="DIVIDER-HORIZONTAL-FADED w-full h-px block md:hidden"></div>

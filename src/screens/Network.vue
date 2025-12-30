@@ -72,7 +72,7 @@
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
             <span>{{ numeral(data.vaulting.argonBurnCapability).format('0,0')}}</span>
-            <label>Argon Burn <span class="hidden md:inline">Potential</span> From Bitcoin</label>
+            <label>Argon Circulation Burn <span class="hidden md:inline">Capability</span></label>
           </div>
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
