@@ -4,20 +4,19 @@ import {fileURLToPath} from 'node:url';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc.js';
 import {
-  calculateAPY,
   Currency, GlobalMiningStats,
   JsonExt,
   MainchainClients,
   Mining,
   NetworkConfig,
   UnitOfMeasurement,
+  GlobalVaultingStats
 } from '@argonprotocol/apps-core';
 import {Vaults} from './lib/Vaults.ts';
 import { PriceIndex as PriceIndexModel } from "@argonprotocol/mainchain";
 import { type IBasicsRecord } from "../src/interfaces/IBasicsRecord.ts";
 import { getMainchainClients, getMiningFrames } from './lib/mainchain.ts';
 import BigNumber from 'bignumber.js';
-import {GlobalVaultingStats} from "../../apps/core/src/GlobalVaultingStats.ts";
 
 dayjs.extend(utc);
 
@@ -44,7 +43,7 @@ export default async function run() {
     const networkConfig = NetworkConfig.get();
     const mainchainClients = new MainchainClients(networkConfig.archiveUrl);
     const api = await mainchainClients.archiveClientPromise;
-    const currency = new Currency(mainchainClients.prunedClientOrArchivePromise);
+    const currency = new Currency(mainchainClients);
 
     const microgonsInCirculation = await currency.fetchMicrogonsInCirculation();
     const micronotsInCirculation = await currency.fetchMicronotsInCirculation();
@@ -100,6 +99,6 @@ async function fetchVaultingStats(chain: 'testnet' | 'mainnet', currency: Curren
     bitcoinLocked: stats.bitcoinLocked,
     averageAPY: stats.averageAPY,
     epochEarnings: currency.convertMicrogonTo(stats.epochEarnings, UnitOfMeasurement.USD),
-    argonBurnCapability: stats.argonBurnCapability,
+    argonBurnCapacity: stats.argonBurnCapacity,
   }
 }

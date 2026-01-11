@@ -71,8 +71,8 @@
 <!--            <div class="h-full w-[1px] bg-slate-400/50"></div>-->
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
-            <span>{{ numeral(data.vaulting.argonBurnCapability).format('0,0')}}</span>
-            <label>Argon Circulation Burn <span class="hidden md:inline">Capability</span></label>
+            <span>{{ numeral(data.vaulting.argonBurnCapacity).format('0,0') }}</span>
+            <label>Argon Circulation Burn <span class="hidden md:inline">Capacity</span></label>
           </div>
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">

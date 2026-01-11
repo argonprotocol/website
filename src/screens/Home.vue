@@ -141,8 +141,8 @@
         <div class="DIVIDER-VERTICAL !h-auto self-stretch mx-3 hidden md:block"></div>
         <div class="DIVIDER-HORIZONTAL-FADED w-full h-px block md:hidden"></div>
         <div as="div" to="/learn/currency-metrics/bitcoin-to-argon-short-value" class="md:w-1/3 py-10 hover:bg-black/10 hover:text-white">
-          <div class="text-4xl lg:text-6xl font-bold">{{ numeral(data.vaulting.argonBurnCapability).format('0,0') }}</div>
-          <div class="mt-2 font-light">Argon Circulation Burn Capability</div>
+          <div class="text-4xl lg:text-6xl font-bold">{{ numeral(data.vaulting.argonBurnCapacity).format('0,0') }}</div>
+          <div class="mt-2 font-light">Argon Circulation Burn Capacity</div>
         </div>
       </div>
     </main>
@@ -208,7 +208,7 @@
         <a :href="stableUrl" class="flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-md md:text-2xl w-full md:w-10/12 px-2 md:px-40 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);">
           <MacIcon v-if="osName === OsName.mac" class="w-7 h-7 relative -top-0.5 inline-block" />
           <WindowsIcon v-if="osName === OsName.windows" class="w-7 h-7 relative inline-block" />
-          <span>Download <span class="hidden md:inline">Argon</span> Investor Console</span>
+          <span>Download Argonot Operator</span>
         </a>
         <div class="text-gray-500/80 text-sm md:text-base mt-2">
           Lastest version: {{ stableVersion }}, stable for mainnet

@@ -17,7 +17,7 @@ export interface IBasicsRecord {
     bitcoinLocked: number;
     averageAPY: number;
     epochEarnings: number;
-    argonBurnCapability: number;
+    argonBurnCapacity: number;
   }
 };
 
@@ -40,6 +40,6 @@ export const defaultBasicsRecord: IBasicsRecord = {
     bitcoinLocked: 0,
     averageAPY: 0,
     epochEarnings: 0,
-    argonBurnCapability: 0,
+    argonBurnCapacity: 0,
   }
 };
