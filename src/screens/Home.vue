@@ -310,7 +310,7 @@
 
       <div class="flex flex-col items-center w-8/12 mx-auto mt-12 pb-40">
         <router-link to="/secret-plan" class="flex flex-row items-center justify-center border border-white/30 hover:shadow-lg text-white rounded-md md:text-2xl w-full px-2 md:px-40 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-600 whitespace-nowrap">
-          <span>Read Our Secret Plan</span>
+          <span>Read Our Launch Plan</span>
         </router-link>
       </div>
 

@@ -43,7 +43,7 @@
               class="text-base"
               :Selected="router.currentRoute.value.path.startsWith('/secret-plan') || undefined"
           >
-            Secret Plan
+            Launch Plan
           </RouterLink>
           <RouterLink
               Button
