@@ -42,7 +42,7 @@ export class Download {
     if (!this.isLoaded) throw new Error('download.load() must be called first');
     const suffix = this.fileNameSuffix(osName);
     const version = isExperimental ? this.experimentalVersion : this.stableVersion;
-    return `https://github.com/argonprotocol/apps/releases/download/v${version}/Argonot.Operator_${version}_${suffix}`;
+    return `https://github.com/argonprotocol/apps/releases/download/v${version}/Argon.Operations_${version}_${suffix}`;
   }
 
   private fileNameSuffix(osName: OsName, isDebug: boolean = true) {
