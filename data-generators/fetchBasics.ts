@@ -80,9 +80,9 @@ async function fetchMiningStats(chain: 'testnet' | 'mainnet', currency: Currency
 
   return {
     activeSeatCount: stats.activeSeatCount,
-    aggregatedBidCosts: currency.convertMicrogonTo(stats.aggregatedBidCosts, UnitOfMeasurement.USD),
-    aggregatedBlockRewards: currency.convertMicrogonTo(stats.aggregatedBlockRewards, UnitOfMeasurement.USD),
-    averageAPY: stats.averageAPY,
+    activeBidCosts: currency.convertMicrogonTo(stats.activeBidCosts, UnitOfMeasurement.USD),
+    activeBlockRewards: currency.convertMicrogonTo(stats.activeBlockRewards, UnitOfMeasurement.USD),
+    activeAPY: stats.activeAPY,
   }
 }
 
@@ -97,7 +97,7 @@ async function fetchVaultingStats(chain: 'testnet' | 'mainnet', currency: Curren
     count: stats.vaultCount,
     valueInVaults: currency.convertMicrogonTo(stats.microgonValueOfVaultedBitcoins, UnitOfMeasurement.USD),
     bitcoinLocked: stats.bitcoinLocked,
-    averageAPY: stats.averageAPY,
+    activeAPY: stats.activeAPY,
     epochEarnings: currency.convertMicrogonTo(stats.epochEarnings, UnitOfMeasurement.USD),
     argonBurnCapacity: stats.argonBurnCapacity,
   }

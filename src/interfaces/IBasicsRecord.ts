@@ -7,15 +7,15 @@ export interface IBasicsRecord {
   usdForBtc: number;
   mining: {
     activeSeatCount: number;
-    aggregatedBidCosts: number;
-    aggregatedBlockRewards: number;
-    averageAPY: number;
+    activeBidCosts: number;
+    activeBlockRewards: number;
+    activeAPY: number;
   },
   vaulting: {
     count: number;
     valueInVaults: number;
     bitcoinLocked: number;
-    averageAPY: number;
+    activeAPY: number;
     epochEarnings: number;
     argonBurnCapacity: number;
   }
@@ -30,15 +30,15 @@ export const defaultBasicsRecord: IBasicsRecord = {
   usdForBtc: 0,
   mining: {
     activeSeatCount: 0,
-    aggregatedBidCosts: 0,
-    aggregatedBlockRewards: 0,
-    averageAPY: 0,
+    activeBidCosts: 0,
+    activeBlockRewards: 0,
+    activeAPY: 0,
   },
   vaulting: {
     count: 0,
     valueInVaults: 0,
     bitcoinLocked: 0,
-    averageAPY: 0,
+    activeAPY: 0,
     epochEarnings: 0,
     argonBurnCapacity: 0,
   }
