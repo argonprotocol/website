@@ -145,7 +145,6 @@
 <script setup lang="ts">
 import * as Vue from 'vue';
 import dayjs from "dayjs";
-import utc from 'dayjs/plugin/utc';
 import numeral, { microgonToArgonNm, micronotToArgonotNm } from '@/lib/numeral';
 import MainLayout from "@/navigation/MainLayout.vue";
 import Data, { NetworkName } from "@/lib/Data";
@@ -153,14 +152,11 @@ import {defaultBasicsRecord, type IBasicsRecord} from "@/interfaces/IBasicsRecor
 import router from "@/router";
 import CountupClock from "@/components/CountupClock.vue";
 
-dayjs.extend(utc);
-
 const chainName = Vue.ref<NetworkName>(extractChainName(router.currentRoute.value.path));
 const data = Vue.ref<IBasicsRecord>(defaultBasicsRecord);
 
-const lastBlockAt = Vue.ref(dayjs.utc());
+const lastBlockAt = Vue.ref(dayjs().startOf('minute'));
 let minuteTimeout: ReturnType<typeof setTimeout> | null = null;
-let minuteInterval: ReturnType<typeof setInterval> | null = null;
 
 function scheduleMinuteReset() {
   const now = Date.now();
@@ -169,13 +165,8 @@ function scheduleMinuteReset() {
     clearTimeout(minuteTimeout);
   }
   minuteTimeout = setTimeout(() => {
-    lastBlockAt.value = dayjs.utc();
-    if (minuteInterval) {
-      clearInterval(minuteInterval);
-    }
-    minuteInterval = setInterval(() => {
-      lastBlockAt.value = dayjs.utc();
-    }, 60000);
+    lastBlockAt.value = dayjs().startOf('minute');
+    scheduleMinuteReset();
   }, msToNextMinute);
 }
 
@@ -197,6 +188,7 @@ Vue.watch(() => router.currentRoute, async () => {
 }, { deep: true });
 
 Vue.onMounted(async () => {
+  lastBlockAt.value = dayjs().startOf('minute');
   scheduleMinuteReset();
   await loadData();
 });
@@ -204,9 +196,6 @@ Vue.onMounted(async () => {
 Vue.onUnmounted(() => {
   if (minuteTimeout) {
     clearTimeout(minuteTimeout);
-  }
-  if (minuteInterval) {
-    clearInterval(minuteInterval);
   }
 });
 </script>

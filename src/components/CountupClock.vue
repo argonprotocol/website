@@ -36,7 +36,7 @@ function updateTime() {
   let totalSecondsElapsed = 0;
 
   if (props.time) {
-    const now = dayjs.utc();
+    const now = dayjs();
     totalSecondsElapsed = now.diff(props.time, 'seconds');
     hours.value = Math.floor(totalSecondsElapsed / 3600);
     minutes.value = Math.floor((totalSecondsElapsed % 3600) / 60);
