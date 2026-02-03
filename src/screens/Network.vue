@@ -126,7 +126,7 @@
             <span>
               {{ numeral(data.vaulting.activeAPY).formatCapped('0,0', 9_999) }}%
             </span>
-            <label>Average Vault APY</label>
+            <label>Average Vaulting APY</label>
           </div>
 
           <div StatWrapper class="!hidden md:block h-full border-b border-slate-400/50" />
@@ -158,9 +158,26 @@ dayjs.extend(utc);
 const chainName = Vue.ref<NetworkName>(extractChainName(router.currentRoute.value.path));
 const data = Vue.ref<IBasicsRecord>(defaultBasicsRecord);
 
-const lastBlockAt = Vue.computed(() => {
-  return dayjs.utc();
-});
+const lastBlockAt = Vue.ref(dayjs.utc());
+let minuteTimeout: ReturnType<typeof setTimeout> | null = null;
+let minuteInterval: ReturnType<typeof setInterval> | null = null;
+
+function scheduleMinuteReset() {
+  const now = Date.now();
+  const msToNextMinute = 60000 - (now % 60000);
+  if (minuteTimeout) {
+    clearTimeout(minuteTimeout);
+  }
+  minuteTimeout = setTimeout(() => {
+    lastBlockAt.value = dayjs.utc();
+    if (minuteInterval) {
+      clearInterval(minuteInterval);
+    }
+    minuteInterval = setInterval(() => {
+      lastBlockAt.value = dayjs.utc();
+    }, 60000);
+  }, msToNextMinute);
+}
 
 function extractChainName(str: string): NetworkName {
   return str.toLowerCase().replace('/', '') as NetworkName;
@@ -180,7 +197,17 @@ Vue.watch(() => router.currentRoute, async () => {
 }, { deep: true });
 
 Vue.onMounted(async () => {
+  scheduleMinuteReset();
   await loadData();
+});
+
+Vue.onUnmounted(() => {
+  if (minuteTimeout) {
+    clearTimeout(minuteTimeout);
+  }
+  if (minuteInterval) {
+    clearInterval(minuteInterval);
+  }
 });
 </script>
 
