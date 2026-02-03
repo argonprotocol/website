@@ -86,7 +86,7 @@
             <span>
               ${{  numeral(data.mining.activeBidCosts).format('0,0.00') }}
             </span>
-            <label>Active Seat Cost</label>
+            <label>Cost of Active Seats</label>
           </div>
 
 <!--          <div class="h-full w-[1px] bg-slate-400/50"></div>-->
@@ -95,7 +95,7 @@
             <span>
               ${{  numeral(data.mining.activeBlockRewards).format('0,0.00') }}
             </span>
-            <label>Active Seat Rewards</label>
+            <label>Revenue from Active Seats</label>
           </div>
 
 <!--          <div class="h-full w-[1.05px] bg-slate-400/50"></div>-->

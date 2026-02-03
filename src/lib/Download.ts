@@ -28,7 +28,7 @@ export class Download {
   }
 
   public async load() {
-    const response = await fetch('https://raw.githubusercontent.com/argonprotocol/apps/refs/heads/main/release-channels/stable.json');
+    const response = await fetch('https://raw.githubusercontent.com/argonprotocol/apps/refs/heads/main/release-channels/operations-stable.json');
     const data = await response.json();
     this.stableVersion = data.version;
     this.isLoaded = true;
