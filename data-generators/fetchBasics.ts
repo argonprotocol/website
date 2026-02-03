@@ -49,7 +49,7 @@ export default async function run() {
     const micronotsInCirculation = await currency.fetchMicronotsInCirculation();
 
     const priceIndexModel = new PriceIndexModel();
-    await priceIndexModel.load(api);
+    await priceIndexModel.load(api as any);
 
     const miningStats = await fetchMiningStats(chain, currency);
     const vaultingStats = await fetchVaultingStats(chain, currency);
@@ -80,9 +80,9 @@ async function fetchMiningStats(chain: 'testnet' | 'mainnet', currency: Currency
 
   return {
     activeSeatCount: stats.activeSeatCount,
-    aggregatedBidCosts: currency.convertMicrogonTo(stats.aggregatedBidCosts, UnitOfMeasurement.USD),
-    aggregatedBlockRewards: currency.convertMicrogonTo(stats.aggregatedBlockRewards, UnitOfMeasurement.USD),
-    averageAPY: stats.averageAPY,
+    activeBidCosts: currency.convertMicrogonTo(stats.activeBidCosts, UnitOfMeasurement.USD),
+    activeBlockRewards: currency.convertMicrogonTo(stats.activeBlockRewards, UnitOfMeasurement.USD),
+    activeAPY: Math.max(stats.activeAPY, 0),
   }
 }
 
@@ -97,8 +97,8 @@ async function fetchVaultingStats(chain: 'testnet' | 'mainnet', currency: Curren
     count: stats.vaultCount,
     valueInVaults: currency.convertMicrogonTo(stats.microgonValueOfVaultedBitcoins, UnitOfMeasurement.USD),
     bitcoinLocked: stats.bitcoinLocked,
-    averageAPY: stats.averageAPY,
     epochEarnings: currency.convertMicrogonTo(stats.epochEarnings, UnitOfMeasurement.USD),
     argonBurnCapacity: stats.argonBurnCapacity,
+    activeAPY: Math.max(stats.activeAPY),
   }
 }

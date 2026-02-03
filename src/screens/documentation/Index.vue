@@ -23,6 +23,19 @@
       </div>
 
       <h2 class="text-2xl md:text-[3.5rem] mt-4 md:mt-10 pb-2 md:leading-20 font-semibold whitespace-nowrap border-b border-gray-300">
+        Core Engine Modeling
+      </h2>
+      <div class="text-left block mt-1">
+        <a Whitepaper class="block py-5 text-lg text-argon-600" href="https://llb.argonprotocol.org">
+          <div class="text-lg md:text-2xl font-black pt-2 leading-snug mb-2 md:mb-0">Liquid Locking for Bitcoin</div>
+        </a>
+        <div class="DIVIDER h-[1px] w-full my-1 mx-auto"></div>
+        <a Whitepaper class="block py-5 text-lg text-argon-600" href="https://sam.argonprotocol.org">
+          <div class="text-lg md:text-2xl font-black pt-2 leading-snug mb-2 md:mb-0">Stabilization Analysis Model</div>
+        </a>
+      </div>
+
+      <h2 class="text-2xl md:text-[3.5rem] mt-4 md:mt-10 pb-2 md:leading-20 font-semibold whitespace-nowrap border-b border-gray-300">
         Explanation Videos
       </h2>
       <div class="relative mt-7" style="padding-bottom: 62.42774566473989%; height: 0;">

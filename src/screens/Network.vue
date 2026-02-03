@@ -84,24 +84,24 @@
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
             <span>
-              ${{  numeral(data.mining.aggregatedBidCosts).format('0,0.00') }}
+              ${{  numeral(data.mining.activeBidCosts).format('0,0.00') }}
             </span>
-            <label>Active Seat Cost</label>
+            <label>Cost of Active Seats</label>
           </div>
 
 <!--          <div class="h-full w-[1px] bg-slate-400/50"></div>-->
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
             <span>
-              ${{  numeral(data.mining.aggregatedBlockRewards).format('0,0.00') }}
+              ${{  numeral(data.mining.activeBlockRewards).format('0,0.00') }}
             </span>
-            <label>Active Seat Rewards</label>
+            <label>Revenue from Active Seats</label>
           </div>
 
 <!--          <div class="h-full w-[1.05px] bg-slate-400/50"></div>-->
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
-            <span>{{ numeral(data.mining.averageAPY).formatCapped('0,0', 9_999) }}%</span>
+            <span>{{ numeral(data.mining.activeAPY).formatCapped('0,0', 9_999) }}%</span>
             <label>Average Mining APY</label>
           </div>
 
@@ -124,7 +124,7 @@
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
             <span>
-              {{ numeral(data.vaulting.averageAPY).formatCapped('0,0', 9_999) }}%
+              {{ numeral(data.vaulting.activeAPY).formatCapped('0,0', 9_999) }}%
             </span>
             <label>Average Vault APY</label>
           </div>

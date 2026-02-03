@@ -205,11 +205,17 @@
       </div>
 
       <div class="flex flex-col items-center px-10 md:mt-20">
-        <a :href="stableUrl" class="flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-md md:text-2xl w-full md:w-10/12 px-2 md:px-40 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);">
-          <MacIcon v-if="osName === OsName.mac" class="w-7 h-7 relative -top-0.5 inline-block" />
-          <WindowsIcon v-if="osName === OsName.windows" class="w-7 h-7 relative inline-block" />
-          <span>Download Desktop App</span>
-        </a>
+        <div class="flex flex-row gap-x-4">
+          <a :href="stableUrl" class="flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-md md:text-2xl w-full md:w-10/12 px-2 md:px-40 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);">
+            <ArgonotLogo class="w-10 h-10 relative -top-0.5 inline-block" />
+            <span>Download Operations App</span>
+          </a>
+          <a :href="stableUrl" class="pointer-events-none opacity-30 flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white/50 rounded-md md:text-2xl w-full md:w-10/12 px-2 md:px-40 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);">
+            <ArgonLogo class="w-10 h-10 relative inline-block" />
+            <span>Download Capital App</span>
+          </a>
+        </div>
+
         <div class="text-gray-500/80 text-sm md:text-base mt-2">
           Lastest version: {{ stableVersion }}, stable for mainnet
         </div>
@@ -227,7 +233,7 @@
           <div class="mt-2 font-light">Active Mining Seats</div>
         </div>
         <div as="div" to="/learn/mining-metrics/current-mining-apy" class="opacity-80 hover:opacity-100 py-5">
-          <div class="text-6xl font-bold">{{ numeral(data.mining.averageAPY).formatCapped('0,0', 9_999) }}%</div>
+          <div class="text-6xl font-bold">{{ numeral(data.mining.activeAPY).formatCapped('0,0', 9_999) }}%</div>
           <div class="mt-2 font-light">Current Mining APY</div>
         </div>
         <div as="div" to="/learn/vaulting-metrics/active-vaults" class="opacity-80 hover:opacity-100 py-5">
@@ -235,7 +241,7 @@
           <div class="mt-2 font-light">Active Vaults</div>
         </div>
         <div as="div" to="/learn/vaulting-metrics/current-vaulting-apy" class="opacity-80 hover:opacity-100 py-5">
-          <div class="text-6xl font-bold">{{ numeral(data.vaulting.averageAPY).formatCapped('0,0', 9_999) }}%</div>
+          <div class="text-6xl font-bold">{{ numeral(data.vaulting.activeAPY).formatCapped('0,0', 9_999) }}%</div>
           <div class="mt-2 font-light">Current Vaulting APY</div>
         </div>
       </div>
@@ -345,17 +351,15 @@ import GeminiIcon from '../assets/aimodels/gemini.svg?component';
 import GrokIcon from '../assets/aimodels/grok.svg?component';
 import LlamaIcon from '../assets/aimodels/llama.svg?component';
 import MinstralIcon from '../assets/aimodels/minstral.svg?component';
-import MacIcon from '../assets/os/mac.svg?component';
-import WindowsIcon from '../assets/os/windows.svg?component';
-import LinuxIcon from '../assets/os/linux.svg?component';
+import ArgonLogo from '../assets/logo.svg?component';
+import ArgonotLogo from '../assets/argonot.svg?component';
 import FooterBar from '../navigation/FooterBar.vue';
 import TopBar from '../navigation/TopBar.vue';
 import numeral, { microgonToArgonNm } from '@/lib/numeral';
 import Data from "@/lib/Data";
-import { Download, OsName } from '@/lib/Download';
+import { Download } from '@/lib/Download';
 
 const download = new Download();
-const osName = Vue.ref(download.currentOsName);
 const stableUrl = Vue.ref('');
 const stableVersion = Vue.ref('');
 
