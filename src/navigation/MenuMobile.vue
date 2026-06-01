@@ -31,27 +31,35 @@
         <div class="flex flex-col items-stretch text-right px-5 space-y-2 divide-y divide-gray-200">
           <RouterLink
               Button
-              to="/desktop-app"
+              to="/apps/operations"
               class="text-base"
-              :Selected="router.currentRoute.value.path.startsWith('/desktop-app') || undefined"
+              :Selected="router.currentRoute.value.path.startsWith('/apps/operations') || undefined"
           >
-            Desktop App
+            Operations
           </RouterLink>
           <RouterLink
               Button
-              to="/secret-plan"
+              to="/apps/treasury"
               class="text-base"
-              :Selected="router.currentRoute.value.path.startsWith('/secret-plan') || undefined"
+              :Selected="router.currentRoute.value.path.startsWith('/apps/treasury') || undefined"
+          >
+            Treasury
+          </RouterLink>
+          <RouterLink
+              Button
+              to="/launch-plan"
+              class="text-base"
+              :Selected="router.currentRoute.value.path.startsWith('/launch-plan') || undefined"
           >
             Launch Plan
           </RouterLink>
           <RouterLink
               Button
-              to="/documentation"
+              to="/docs"
               class="text-base"
-              :Selected="router.currentRoute.value.path.startsWith('/documentation') || undefined"
+              :Selected="router.currentRoute.value.path.startsWith('/docs') || undefined"
           >
-            Learn More
+            Docs
           </RouterLink>
           <RouterLink
               Button

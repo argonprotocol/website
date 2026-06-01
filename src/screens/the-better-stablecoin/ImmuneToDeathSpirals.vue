@@ -2,7 +2,7 @@
   <SubLayout>
     <Breadcrumbs>
       <RouterLink to="/learn">Learn</RouterLink>
-      <RouterLink to="/learn/four-pillars">The Four Pillars of Argon</RouterLink>
+      <RouterLink to="/the-better-stablecoin">The Four Pillars of Argon</RouterLink>
     </Breadcrumbs>
     <SubTitle>Immune from Death Spirals</SubTitle>
 
@@ -71,13 +71,13 @@
 </template>
 
 <script setup lang="ts">
-import SubLayout, { SubTitle, SubContent, Breadcrumbs } from '../../../navigation/SubLayout.vue';
-import TimeChart from '../../../components/TimeChart.vue';
+import SubLayout, { SubTitle, SubContent, Breadcrumbs } from '../../navigation/SubLayout.vue';
+import TimeChart from '../../components/TimeChart.vue';
 
 </script>
 
 
 <style scoped>
-@import "../../../main.css";
+@import "../../main.css";
 
 </style>

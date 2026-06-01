@@ -1,0 +1,176 @@
+[
+  {
+    "title": "Welcome Overview",
+    "link": "/"
+  },
+  {
+    "title": "Economic Pillars",
+    "base": "/economic-pillars",
+    "items": [
+      {
+        "title": "Protected from Inflation",
+        "link": "/protected-from-inflation"
+      },
+      {
+        "title": "Insulated from Fiat Money",
+        "link": "/insulated-from-fiat-money"
+      },
+      {
+        "title": "Resistant to Death Spirals",
+        "link": "/resistant-to-death-spirals"
+      }
+    ]
+  },
+  {
+    "title": "The Desktop Apps",
+    "base": "/operations",
+    "items": [
+      {
+        "title": "Overview",
+        "link": "/"
+      },
+      {
+        "title": "Argon Operations",
+        "link": "/operations"
+      },
+      {
+        "title": "Argon Treasury",
+        "link": "/treasury"
+      }
+    ]
+  },
+  {
+    "title": "Bridgeless Transfers",
+    "base": "bridgeless-transfers",
+    "items": [
+      {
+        "title": "Overview",
+        "link": "/"
+      }
+    ]
+  },
+  {
+    "title": "Bitcoin Locking",
+    "base": "/bitcoin-locking",
+    "items": [
+      {
+        "title": "Overview",
+        "link": "/"
+      }
+    ]
+  },
+  {
+    "title": "Argon Bonds",
+    "base": "/argon-bonds",
+    "items": [
+      {
+        "title": "Overview",
+        "link": "/"
+      }
+    ]
+  },
+  {
+    "title": "Stable Swaps",
+    "base": "/stable-swaps",
+    "items": [
+      {
+        "title": "Overview",
+        "link": "/"
+      }
+    ]
+  },
+  {
+    "title": "Mining Operations",
+    "base": "/mining-operations",
+    "items": [
+      {
+        "title": "Overview",
+        "link": "/"
+      }
+    ]
+  },
+  {
+    "title": "Vaulting Operations",
+    "base": "/vaulting-operations",
+    "items": [
+      {
+        "title": "Overview",
+        "link": "/"
+      }
+    ]
+  },
+  {
+    "title": "Operator Certification",
+    "base": "/operator-certification",
+    "items": [
+      {
+        "title": "Overview",
+        "link": "/"
+      },
+      {
+        "title": "Bootstrap to Node",
+        "link": "/bootstrap-to-node"
+      },
+      {
+        "title": "Transfer from Uniswap",
+        "link": "/transfer-from-uniswap"
+      },
+      {
+        "title": "Activate Vault",
+        "link": "/activate-vault"
+      },
+      {
+        "title": "Liquid Lock Bitcoin",
+        "link": "/liquid-lock"
+      },
+      {
+        "title": "Acquire Bonds",
+        "link": "/acquire-bonds"
+      },
+      {
+        "title": "Win a Mining Seat",
+        "link": "/win-first-mining-seat"
+      },
+      {
+        "title": "Win More Mining Seats",
+        "link": "/win-more-mining-seats"
+      }
+    ]
+  },
+  {
+    "title": "Whitepapers",
+    "base": "/whitepapers",
+    "items": [
+      {
+        "title": "Overview",
+        "link": "/"
+      },
+      {
+        "title": "State of Stablecoins",
+        "link": "/state-of-stablecoins"
+      },
+      {
+        "title": "Stability Fundamentals",
+        "link": "/stability-fundamentals"
+      }
+    ]
+  },
+  {
+    "title": "Engine Modeling",
+    "base": "/engine-modeling",
+    "items": [
+      {
+        "title": "Overview",
+        "link": "/"
+      },
+      {
+        "title": "LLB",
+        "link": "/llb"
+      },
+      {
+        "title": "SAM",
+        "link": "/sam"
+      }
+    ]
+  }
+]

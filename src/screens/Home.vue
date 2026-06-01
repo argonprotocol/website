@@ -1,175 +1,249 @@
 <template>
-  <div class="Home Screen">
-    <TopBar class="relative z-10" :darkMode="true" />
+  <div class="Home Screen bg-[#670973] relative">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_50%_-5%,#8a1a9e_0%,transparent_65%)]" />
+    <TopBar class="relative z-10" mode="argon" />
 
-    <main class=" flex flex-col items-center text-center min-h-screen relative border-b border-argon-800">
+    <main class="flex flex-col items-start min-h-screen border-b border-argon-800">
 
-      <h1 to="/learn/four-pillars"
-        class="text-white/80 text-shadow-md text-shadow-argon-800 text-3xl md:text-8xl uppercase mt-20 md:mt-40 font-black hover:text-white/90"
-      >
-        <div class="inline lg:block lg:my-5">THE STABLECOIN </div>
-        <div class="inline lg:block lg:my-5">BUILT TO LAST FOR A </div>
-        <div class="inline lg:block lg:my-5">THOUSAND YEARS </div>
-      </h1>
-      
-      <div class="relative w-full h-56 -mb-20 hidden md:block">
-        <div class="DIVIDER-VERTICAL !h-full !absolute top-0 left-[37.5%] translate-x-1/2"></div>
-        <div class="DIVIDER-VERTICAL !h-1/2 !absolute top-0 left-1/2 -translate-x-1/2"></div>
-        <div class="DIVIDER-VERTICAL !h-full !absolute top-0 !left-auto right-[37.5%] translate-x-1/2"></div>
-      </div>
-      
-      <div class="pointer-events-none relative md:grid grid-cols-2 items-center text-center gap-x-4 space-y-8 text-white/75 argon-dark-text-shadow pt-10 md:pt-24 pb-10 w-10/12">
-        
-        <div class="flex flex-row justify-start text-left md:pr-[110px]">
-          <div class="relative block items-star group hover:text-white" to="/learn/four-pillars/resistant-to-inflation">
-            <div class="absolute -top-3 -left-3 right-1 -bottom-3 bg-black/30 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-100" />
-            <header class="flex flex-row items-center text-xl font-black mb-1 relative">
-              <span class="relative z-10 whitespace-nowrap pr-3">Resistant to Inflation</span>
-              <div class="hidden md:block grow h-px bg-black/60 group-hover:invisible" style="box-shadow: 0 1px 0 rgba(255,255,255,0.25)" />
-            </header>
-            <div class="text-xl font-light relative w-fit inline-block cursor-pointer md:pr-7">
-              <span>Argon allows you to build wealth without </span>
-              <span class="lg:block mt-px">worrying about the cost of time eroding it<span class="inline md:hidden">. <strong class="hidden font-bold">Learn more</strong>.</span></span>
-            </div>
-          </div>
-          <div class="grow hidden md:block">
-            <div class="text-xl font-black relative z-10">
-              &nbsp;
-              <div class="absolute bg-black/60 top-1/2 -translate-y-1/2 left-0 w-full h-px" style="box-shadow: 0 1px 0 rgba(255,255,255,0.25)"></div>
-            </div>
+      <div class="flex flex-row grow w-full overflow-hidden">
+        <div class="flex flex-col px-20 pt-20 pb-24 relative">
+          <router-link as="h1" to="/the-better-stablecoin" class="text-argon-100 opacity-80 text-shadow-sm text-shadow-argon-800 font-light text-lg md:text-3xl tracking-widest uppercase font-serif hover:text-white/90">
+            THE BETTER STABLECOIN
+          </router-link>
+
+          <div class="flex flex-col gap-y-10 mt-10 text-2xl md:text-6xl font-serif leading-tight">
+            <router-link to="/docs/economic-pillars/protected-from-inflation" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit hover:text-white">
+              IT'S PROTECTED FROM<br />
+              <span>THE DOLLAR'S INFLATION RISK</span>,
+            </router-link>
+
+            <router-link to="docs/economic-pillars/insulated-from-fiat-money" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit hover:text-white">
+              INSULATED FROM THE<br />
+              <span>COLLAPSE OF FIAT-MONEY</span>,
+            </router-link>
+
+            <router-link to="docs/economic-pillars/resistant-to-death-spirals" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit hover:text-white">
+              AND RESISTANT TO<br />
+              <span>CRYPTO DEATH SPIRALS</span>.
+            </router-link>
           </div>
         </div>
+        <div class="grow flex flex-col relative items-end">
+          <img src="/colony.png" class="absolute -top-10 left-[-60%] h-[calc(100%+100px)] w-auto max-w-none opacity-30 pointer-events-none" />
 
-        <div class="flex flex-row justify-start text-left md:text-right md:pl-[110px]">
-          <div class="grow hidden md:block">
-            <div class="text-xl font-black relative z-10">
-              &nbsp;
-              <div class="absolute bg-black/60 top-1/2 -translate-y-1/2 right-0 w-full h-px" style="box-shadow: 0 1px 0 rgba(255,255,255,0.25)"></div>
-            </div>
-          </div>
-          <div class="relative block items-star group hover:text-white" to="/learn/four-pillars/indifferent-to-catastrophe">
-            <div class="hidden md:block absolute -top-3 -right-3 left-1 -bottom-3 bg-black/30 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-100" />
-            <header class="flex flex-row items-center text-xl font-black mb-1 relative">
-              <div class="hidden md:block grow h-px bg-black/60 group-hover:invisible" style="box-shadow: 0 1px 0 rgba(255,255,255,0.25)" />
-              <span class="relative z-10 whitespace-nowrap md:pl-3">Indifferent to Catastrophe</span>
-            </header>
-            <div class="text-xl font-light relative w-fit inline-block cursor-pointer md:pl-7">
-              <span>Argon works regardless of banking </span>
-              <span class="lg:block mt-px">collapses or government bond failures<span class="inline md:hidden">. <strong class="hidden font-bold">Learn more</strong>.</span></span>
-            </div>
+          <div class="z-10 absolute top-18 right-20 bg-[#9317A3] border-8 border-[#7B128B]  rounded-full text-white/90  w-fit">
+            <router-link to="/the-better-stablecoin" class="flex flex-row items-center border border-argon-900 cursor-pointer rounded-full hover:text-white pr-5 group hover:bg-argon-700/50">
+              <div class="bg-[#BD19D2] group-hover:bg-argon-500/80 rounded-l-full border border-[#9317A3] pl-4 pr-3 py-2 text-lg font-bold">NEW</div>
+              <div class="pl-4 pr-2 text-xl whitespace-nowrap ">
+                Three Reasons Why Argon Is Better
+              </div>
+              <ArrowLongRightIcon class="h-10" />
+            </router-link>
           </div>
         </div>
-
-        <div class="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-[-90%] w-[80px] md:w-[220px] z-20">
-          <LogoSkinny class="w-full text-white/70" />
-          <div class="absolute left-1/2 top-[97%] translate-y-4 w-px h-[90%] bg-black/60" style="box-shadow: 1px 0 0 rgba(255,255,255,0.25)" />
-        </div>
-        
-        <div class="flex flex-row justify-start text-left md:pr-[30px]">
-          <div class="relative block items-star group hover:text-white" to="/learn/four-pillars/intrinsic-price-stabilization">
-            <div class="absolute -top-3 -left-3 right-1 -bottom-3 bg-black/30 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-100" />
-            <header class="flex flex-row items-center text-xl font-black mb-1 relative">
-              <span class="relative z-10 whitespace-nowrap pr-3">Intrinsic Price Stabilization</span>
-              <div class="hidden md:block grow h-px bg-black/60 group-hover:invisible" style="box-shadow: 0 1px 0 rgba(255,255,255,0.25)" />
-            </header>
-            <div class="text-xl font-light relative w-fit inline-block cursor-pointer pr-7">
-              <span>Argon creates economic balance between the </span>
-              <span class="lg:block mt-px">growth of currency and long-term durability<span class="inline md:hidden">. <strong class="hidden font-bold">Learn more</strong>.</span></span>
-            </div>
-          </div>
-          <div class="grow hidden md:block">
-            <div class="text-xl font-black relative z-10">
-              &nbsp;
-              <div class="absolute bg-black/60 top-1/2 -translate-y-1/2 left-0 w-full h-px" style="box-shadow: 0 1px 0 rgba(255,255,255,0.25)" />
-              <div class="absolute right-0 top-[-125%] w-px h-[180%] bg-black/60" style="box-shadow: 1px 0 0 rgba(255,255,255,0.25)" />
-            </div>
-          </div>
-        </div>
-
-        <div class="flex flex-row justify-start text-left md:text-right md:pl-[30px]">
-          <div class="grow hidden md:block">
-            <div class="text-xl font-black relative z-10">
-              &nbsp;
-              <div class="absolute bg-black/60 top-1/2 -translate-y-1/2 right-0 w-full h-px" style="box-shadow: 0 1px 0 rgba(255,255,255,0.25)" />
-              <div class="absolute left-0 top-[-125%] w-px h-[180%] bg-black/60" style="box-shadow: 1px 0 0 rgba(255,255,255,0.25)" />
-            </div>
-          </div>
-          <div class="relative block items-star group hover:text-white" to="/learn/four-pillars/immunity-from-death-spirals">
-            <div class="hidden md:block absolute -top-3 -right-3 left-1 -bottom-3 bg-black/30 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-100" />
-            <header class="flex flex-row items-center text-xl font-black mb-1 relative">
-              <div class="hidden md:block grow h-px bg-black/60 group-hover:invisible" style="box-shadow: 0 1px 0 rgba(255,255,255,0.25)" />
-              <span class="relative z-10 whitespace-nowrap md:pl-3">Immune from Death Spirals</span>
-            </header>
-            <div class="text-xl font-light relative w-fit inline-block cursor-pointer md:pl-7">
-              <span>Argon solves the core problem inherent </span>
-              <span class="lg:block mt-px">in previous algorithmic stablecoins<span class="inline md:hidden">. <strong class="hidden font-bold">Learn more</strong>.</span></span>
-            </div>
-          </div>
-        </div>
-
       </div>
 
-      <p class="text-justify md:text-center text-white/80 argon-dark-text-shadow font-light w-10/12 md:w-8/12 md:px-10 text-lg md:text-xl my-4 md:my-20 lg:text-[29px] md:leading-[2rem] lg:leading-[43px]">
-        Argon's novel algorithmic stablecoin leverages Bitcoin's $2.7T market capitalization to create a currency you can depend
-        on. Bitcoin drives both the bootstrapping mechanism of Argon's network and the stabilizing force of its currency. Argon's 
-        immutable purchasing power never loses value like fiat or fiat-pegged stablecoins, and it has zero centralized 
-        dependencies, meaning it can outlast any nation state or world calamity.
-      </p>
-
-      <div class="flex flex-col md:flex-row gap-x-16 gap-y-4 text-white/80 font-bold text-xl w-fit mx-auto py-16 relative">
-        <RouterLink to="/documentation" class="whitespace-nowrap grow w-full bg-argon-500 border border-argon-700 rounded-md md:px-32 py-4 hover:bg-argon-500/70 hover:text-white font-bold" style="box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.3), 1px 1px 3px rgba(0, 0, 0, 0.3)">
-          Learn More
-        </RouterLink>
-        <RouterLink to="/desktop-app" class="whitespace-nowrap grow w-full bg-argon-500 border border-argon-700 rounded-md md:px-32 py-4 hover:bg-argon-500/70 hover:text-white font-bold" style="box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.3), 1px 1px 3px rgba(0, 0, 0, 0.3)">
-          Get Started
-          <ChevronDoubleRightIcon class="w-4 h-4 inline-block" />
-        </RouterLink>
+      <div class="flex flex-col relative px-20 py-16 bg-[#5B0968] border-t border-argon-900" style="box-shadow: inset 0 1px 0 0 rgba(255,255,255, 0.2);">
+        <div class="flex flex-row items-start">
+          <p class="text-argon-100/80 argon-dark-text-shadow font-light w-10/12 md:w-7/12 text-lg md:text-lg lg:text-2xl leading-relaxed">
+            Argon uses Bitcoin’s pricing volatility to create a new type of decentralized stabilization mechanism.
+            Unlike fiat or fiat-pegged stablecoins, Argon will never lose value. It has the same purchasing power
+            today as it will a hundred years from now. And it has zero
+            centralized dependencies, meaning it can outlast any nation state or world calamity.
+          </p>
+          <div class="grow flex md:flex-col flex-row gap-x-16 gap-y-4 md:ml-10 pl-20 pt-3 text-white/80 font-bold text-xl text-center">
+            <RouterLink to="/launch-plan" class="flex flex-row items-center justify-center whitespace-nowrap grow bg-argon-500 border border-argon-700 rounded-xl md:px-32 py-4 hover:bg-argon-500/70 hover:text-white font-bold" style="box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.3), 1px 1px 3px rgba(0, 0, 0, 0.3)">
+              Get Started
+              <ChevronDoubleRightIcon class="w-5 ml-2 inline-block" />
+            </RouterLink>
+            <RouterLink to="/apps" class="whitespace-nowrap grow border border-argon-200/50 rounded-xl md:px-32 py-4 hover:bg-argon-500/20 hover:text-white font-bold">
+              Documentation
+            </RouterLink>
+          </div>
+        </div>
       </div>
 
-      <div class="relative flex flex-col md:flex-row items-stretch whitespace-nowrap w-full text-white/80 py-3 md:mt-12">
-        <div class="DIVIDER-HORIZONTAL-FADED !absolute top-0 left-0"></div>
-        <div as="div" to="/learn/currency-metrics/argons-in-circulation" class="md:w-1/3 py-10 hover:bg-black/10 hover:text-white">
-          <div class="text-4xl lg:text-6xl font-bold">{{ microgonToArgonNm(data.microgonsInCirculation).format('0,0') }}</div>
-          <div class="mt-2 font-light">Argon Circulation</div>
-        </div>
-        <div class="DIVIDER-VERTICAL !h-auto self-stretch mx-3 hidden md:block"></div>
-        <div class="DIVIDER-HORIZONTAL-FADED w-full h-px block md:hidden"></div>
-        <div as="div" to="/learn/currency-metrics/argon-to-fiat-exchange-rate" class="md:w-1/3 py-10 hover:bg-black/10 hover:text-white">
-          <div class="text-4xl lg:text-6xl font-bold">₳1.00 -> ${{ data.usdForArgon ? numeral(data.usdForArgon).format('0.00') : '-.--' }}</div>
-          <div class="mt-2 font-light">Argon-to-Dollar Exchange Rate</div>
-        </div>
-        <div class="DIVIDER-VERTICAL !h-auto self-stretch mx-3 hidden md:block"></div>
-        <div class="DIVIDER-HORIZONTAL-FADED w-full h-px block md:hidden"></div>
-        <div as="div" to="/learn/currency-metrics/bitcoin-to-argon-short-value" class="md:w-1/3 py-10 hover:bg-black/10 hover:text-white">
-          <div class="text-4xl lg:text-6xl font-bold">{{ numeral(data.vaulting.argonBurnCapacity).format('0,0') }}</div>
-          <div class="mt-2 font-light">Argon Circulation Burn Capacity</div>
+      <div class="flex flex-col relative w-full bg-[#5B0968] border-t border-argon-900" style="box-shadow: inset 0 1px 0 0 rgba(255,255,255, 0.2);">
+        <div class="relative flex flex-col md:flex-row items-stretch whitespace-nowrap w-full text-white/80 py-3 text-center">
+          <div as="div" to="/learn/currency-metrics/argons-in-circulation" class="md:w-1/3 py-10 hover:bg-black/10 hover:text-white">
+            <div class="text-4xl lg:text-6xl font-bold">{{ microgonToArgonNm(data.microgonsInCirculation).format('0,0') }}</div>
+            <div class="mt-2 font-light">Argon Circulation</div>
+          </div>
+          <div class="DIVIDER-VERTICAL !h-auto self-stretch mx-3 hidden md:block"></div>
+          <div as="div" to="/learn/currency-metrics/argon-to-fiat-exchange-rate" class="md:w-1/3 py-10 hover:bg-black/10 hover:text-white">
+            <div class="text-4xl lg:text-6xl font-bold">₳1.00 -> ${{ data.usdForArgon ? numeral(data.usdForArgon).format('0.00') : '-.--' }}</div>
+            <div class="mt-2 font-light">Argon-to-Dollar Exchange Rate</div>
+          </div>
+          <div class="DIVIDER-VERTICAL !h-auto self-stretch mx-3 hidden md:block"></div>
+          <div as="div" to="/learn/currency-metrics/bitcoin-to-argon-short-value" class="md:w-1/3 py-10 hover:bg-black/10 hover:text-white">
+            <div class="flex flex-row items-center justify-center text-6xl gap-x-3 lg:text-6xl font-bold">43.6 <span class="text-4xl font-semibold">TO</span> 1</div>
+            <div class="mt-2 font-light">Restabilization Leverage</div>
+          </div>
         </div>
       </div>
     </main>
       
-    <section class="relative flex flex-col bg-white items-center justify-center w-full pt-10 cursor-default text-center border-b border-argon-600/30 shadow-md">
-      <h3 class="text-argon-600/70 font-bold text-2xl px-10 md:px-auto">DESIGNED TO WORK ACROSS ALL CHAINS</h3>
-      <p class="text-black/50 text-xl w-10/12 md:w-7/12 mx-auto mt-4">
-        Argon is a sovereign, level-one blockchain built on Polkadot's rust-based Substrate. It uses the Hyperbridge protocol to deliver
-        trustless, native bridging across all major chains.
-      </p>
-      <div class="grid grid-cols-3 lg:grid-cols-9 space-y-5 w-full text-center pt-12 pb-6 divide-x divide-argon-400/20 text-argon-600/70">
-        <div class="opacity-80 hover:opacity-100">
+    <section class="relative flex flex-col bg-white items-justify justify-center w-full cursor-default text-center border-b border-argon-600/30 shadow-md">
+      <h3 class="text-argon-600/60 font-bold text-xl pt-24 px-10 md:px-auto tracking-widest font-serif">
+        DECENTRALIZED & DEMOCRATIZED
+      </h3>
+      <header class="text-6xl font-serif mt-5 leading-tight">
+        ARGON MINING REQUIRES<br />
+        LITTLE MORE THAN A LAPTOP
+      </header>
+
+      <div
+        ref="appSliderEl"
+        class="AppPreviewSlider relative opacity-70 w-10/12 h-100 max-w-260 mx-auto mt-12 overflow-hidden touch-none select-none"
+        :class="{ 'is-dragging': isAppSliderDragging }"
+        role="slider"
+        aria-label="Compare Operations and Treasury app previews"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        :aria-valuenow="Math.round(activeSliderPercent)"
+        tabindex="0"
+        @pointerdown="startAppSliderDrag"
+        @keydown.left.prevent="nudgeAppSlider(-5)"
+        @keydown.right.prevent="nudgeAppSlider(5)"
+        @keydown.home.prevent="setAppSliderPercent(0)"
+        @keydown.end.prevent="setAppSliderPercent(100)"
+      >
+        <img src="/app-treasury.png" alt="Argon Treasury App" class="w-full -mb-20 object-cover object-top pointer-events-none" draggable="false" />
+        <div
+          class="absolute inset-0 pointer-events-none"
+          :style="{ clipPath: `inset(0 ${100 - activeSliderPercent}% 0 0)` }"
+        >
+          <img src="/app-operations.png" alt="Argon Operations App" class="w-full -mb-20 object-cover object-top" draggable="false" />
+        </div>
+        <div
+          class="AppPreviewSlider__divider absolute top-1 bottom-0 pointer-events-none"
+          :style="{ left: `${activeSliderPercent}%` }"
+        >
+          <div class="AppPreviewSlider__handle">
+            <span>&lsaquo;</span>
+            <span>&rsaquo;</span>
+          </div>
+        </div>
+        <div class="absolute left-0 bottom-0 w-full h-1/2 z-10" style="background: linear-gradient(to bottom, var(--bg-transparent) 0%, white 100%)" />
+      </div>
+
+      <div class="flex flex-col items-center w-10/12 max-w-260 mx-auto md:mt-0 px-2.5">
+        <div class="flex flex-row gap-x-4 w-full">
+          <a
+              :href="stableUrl"
+              class="w-1/2 flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-lg md:text-2xl px-2 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap"
+              style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
+              @mouseenter="previewApp('operations')"
+              @mouseleave="clearAppPreview"
+              @focus="previewApp('operations')"
+              @blur="clearAppPreview"
+          >
+            <ArgonotLogo class="w-10 h-10 relative -top-0.5 inline-block" />
+            <span>Download Operations</span>
+          </a>
+          <a
+            :href="stableUrl"
+            class="w-1/2 flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-lg md:text-2xl px-2 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap"
+            style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
+            @mouseenter="previewApp('treasury')"
+            @mouseleave="clearAppPreview"
+            @focus="previewApp('treasury')"
+            @blur="clearAppPreview"
+          >
+            <ArgonLogo class="w-10 h-10 relative inline-block" />
+            <span>Download Treasury</span>
+          </a>
+        </div>
+
+        <p class="text-base md:text-xl text-justify opacity-70 mt-10 md:mt-16 leading-relaxed">
+          Unlike most crypto networks, you can become a key player in Argon’s ecosystem without needing millions of
+          dollars and complex systems. The Operations app makes it easy to start mining and vaulting without the need
+          for expensive ASIC mining rigs or specialized cloud machines. The Treasury app gives you full access to all of
+          the network's yield-bearing assets.
+        </p>
+      </div>
+
+      <div class="w-[calc(75%-48px)] mx-auto h-px mt-18 bg-argon-400/20" />
+
+      <div class="grid md:grid-cols-3 w-[75%] mx-auto text-center py-6 divide-x divide-argon-400/20 text-slate-400/80">
+        <div as="div" to="/learn/mining-metrics/current-mining-apy" class="hover:text-argon-600/70 py-5">
+          <div class="text-6xl font-bold">100</div>
+          <div class="mt-2 font-light">Active Mining Seats</div>
+        </div>
+        <div as="div" to="/learn/vaulting-metrics/active-vaults" class="hover:text-argon-600/70 py-5">
+          <div class="text-6xl font-bold">{{ data.vaulting.count }}</div>
+          <div class="mt-2 font-light">Active Vaults</div>
+        </div>
+        <div as="div" to="/learn/vaulting-metrics/current-vaulting-apy" class="hover:text-argon-600/70 py-5">
+          <div class="text-6xl font-bold">{{ numeral(data.vaulting.activeAPY).formatCapped('0,0', 9_999) }}%</div>
+          <div class="mt-2 font-light">Active Bitcoin Txns</div>
+        </div>
+      </div>
+
+      <div class="mx-12 h-px bg-argon-400/20" />
+
+      <div class="grid md:grid-cols-4 w-full text-center py-6 divide-x divide-argon-400/20 text-slate-400/80">
+        <div as="div" to="/learn/mining-metrics/active-mining-seats" class="hover:text-argon-600/70 py-5">
+          <div class="text-6xl font-bold">{{ data.mining.activeSeatCount }}</div>
+          <div class="mt-2 font-light">Mining APY</div>
+        </div>
+        <div as="div" to="/learn/mining-metrics/current-mining-apy" class="hover:text-argon-600/70 py-5">
+          <div class="text-6xl font-bold">{{ numeral(data.mining.activeAPY).formatCapped('0,0', 9_999) }}%</div>
+          <div class="mt-2 font-light">Treasury APY</div>
+        </div>
+        <div as="div" to="/learn/vaulting-metrics/active-vaults" class="hover:text-argon-600/70 py-5">
+          <div class="text-6xl font-bold">{{ data.vaulting.count }}%</div>
+          <div class="mt-2 font-light">Vaulting APY</div>
+        </div>
+        <div as="div" to="/learn/vaulting-metrics/current-vaulting-apy" class="hover:text-argon-600/70 py-5">
+          <div class="text-6xl font-bold">{{ numeral(data.vaulting.activeAPY).formatCapped('0,0', 9_999) }}%</div>
+          <div class="mt-2 font-light">Bitcoin APY</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="relative flex flex-col bg-[var(--bg-color)] text-center">
+      <h3 class="text-argon-600/70 font-bold text-xl pt-16 px-10 md:px-auto tracking-widest font-serif">
+        BRIDGELESS & NATIVE
+      </h3>
+      <header class="text-6xl font-serif mt-5 leading-tight">
+        ARGON AVOIDS THE RISK<br />
+        OF CROSS-CHAIN BRIDGING
+      </header>
+
+      <div class="flex flex-col items-center w-10/12 max-w-260 mx-auto px-2.5">
+        <p class="text-base md:text-xl text-justify opacity-70 mt-10 leading-relaxed">
+          According to Chainalysis, cross-chain bridges are the single largest source of crypto hacks. Argon sidesteps
+          this risk by integrating cross-chain in a bridgeless capacity. Minting Authorities are empowered to mint/burn
+          argons native to each chain without knowledge of the other chain and without forcing collateral to be exposed
+          across the bridges.  Learn more.
+        </p>
+      </div>
+
+      <div class="w-[80%] mx-auto h-px mt-28 bg-argon-400/30" />
+
+      <div class="w-[80%] mx-auto grid grid-cols-3 lg:grid-cols-4 space-y-5 text-center pt-16 pb-2 divide-x divide-argon-400/30 text-argon-600/70">
+        <div class="hover:text-argon-600">
           <OptimismIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-md">Optimism</div>
         </div>
-        <div class="opacity-80 hover:opacity-100">
+        <div class="hover:text-argon-600">
           <PolygonIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-md">Polygon</div>
         </div>
-        <div class="opacity-80 hover:opacity-100">
+        <div class="hover:text-argon-600">
           <BaseIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-md">Base</div>
         </div>
-        <div class="opacity-80 hover:opacity-100">
+        <div class="hover:text-argon-600">
           <EthereumIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-md">Ethereum</div>
         </div>
+      </div>
+
+      <div class="mx-12 h-px bg-argon-400/30" />
+
+      <div class="grid grid-cols-3 lg:grid-cols-5 space-y-5 w-full text-center pt-16 pb-2 divide-x divide-argon-400/30 text-argon-600/70">
         <div class="opacity-80 hover:opacity-100">
           <ArbitrumIcon class="w-12 h-12 inline-block mb-2" />
           <div class="text-md">Arbitrum</div>
@@ -191,101 +265,40 @@
           <div class="text-md">BNB Chain</div>
         </div>
       </div>
+
     </section>
 
-    <section class="relative flex flex-col pt-12 md:pt-28">
-      <h2 class="text-center text-argon-700 px-10 md:px-0">
-        <div class="font-light text-2xl md:text-5xl mb-3 uppercase">Participate In Growing the Network</div>
-        <div class="font-bold text-3xl md:text-7xl">DIRECTLY FROM YOUR LAPTOP</div>
-      </h2>
+    <section class="relative flex flex-col bg-white items-center justify-center w-full pb-5 cursor-default text-center border-t border-argon-800/15 border-b border-b-argon-900/70" style="box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);">
+      <h3 class="text-argon-600/70 font-bold text-xl pt-16 px-10 md:px-auto tracking-widest font-serif">
+        LIQUID LOCKING
+      </h3>
+      <header class="text-6xl font-serif mt-5 leading-tight">
+        ARGON TURNS BITCOIN<br />
+        INTO A LOSS-PROTECTED,<br />
+        YIELD-GENERATING ASSET
+      </header>
 
-      <div class="relative opacity-70">
-        <img src="/commander.png" alt="Argon Commander" class="w-10/12 mx-auto mt-12 -mb-20 object-cover object-top" />
-        <div class="absolute left-0 bottom-0 w-full h-1/2" style="background: linear-gradient(to bottom, var(--bg-transparent) 0%, var(--bg-color) 100%)" />
-      </div>
-
-      <div class="flex flex-col items-center px-10 md:mt-20">
-        <div class="flex flex-row gap-x-4">
-          <a :href="stableUrl" class="flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-md md:text-2xl w-full md:w-10/12 px-2 md:px-40 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);">
-            <ArgonotLogo class="w-10 h-10 relative -top-0.5 inline-block" />
-            <span>Download Operations App</span>
-          </a>
-          <a :href="stableUrl" class="pointer-events-none opacity-30 flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white/50 rounded-md md:text-2xl w-full md:w-10/12 px-2 md:px-40 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);">
-            <ArgonLogo class="w-10 h-10 relative inline-block" />
-            <span>Download Capital App</span>
-          </a>
-        </div>
-
-        <div class="text-gray-500/80 text-sm md:text-base mt-2">
-          Lastest version: {{ stableVersion }}, stable for mainnet
-        </div>
-        <p class="w-full md:w-7/12 mx-auto text-base md:text-xl text-center opacity-70 mt-10 md:mt-16 leading-relaxed">
-          Our simple desktop app makes it easy to capitalize on the growth of Argon without needing expensive ASIC mining rigs.
-          It runs on any Windows, Linux, or MacOS computer, and it's fully anonymous, meaning there are no centralized logins, 
-          telemetry data or other trackable mechanics.
+      <div class="flex flex-col items-center w-10/12 max-w-260 mx-auto px-2.5">
+        <p class="text-base md:text-xl text-justify opacity-70 mt-10 leading-relaxed">
+          Liquid Locking lets Bitcoin holders unlock stable liquidity without selling their Bitcoin. Argon preserves
+          the locked value, protects against downside volatility, and allows the position to keep earning yield — turning
+          Bitcoin from a passive asset into productive capital.
         </p>
       </div>
 
-      <div class="mx-6 h-px bg-argon-400/30 mt-28" />
-      <div class="grid md:grid-cols-4 w-full text-center py-6 divide-x divide-argon-400/30 text-argon-600/70">
-        <div as="div" to="/learn/mining-metrics/active-mining-seats" class="opacity-80 hover:opacity-100 py-5">
-          <div class="text-6xl font-bold">{{ data.mining.activeSeatCount }}</div>
-          <div class="mt-2 font-light">Active Mining Seats</div>
-        </div>
-        <div as="div" to="/learn/mining-metrics/current-mining-apy" class="opacity-80 hover:opacity-100 py-5">
-          <div class="text-6xl font-bold">{{ numeral(data.mining.activeAPY).formatCapped('0,0', 9_999) }}%</div>
-          <div class="mt-2 font-light">Current Mining APY</div>
-        </div>
-        <div as="div" to="/learn/vaulting-metrics/active-vaults" class="opacity-80 hover:opacity-100 py-5">
-          <div class="text-6xl font-bold">{{ data.vaulting.count }}</div>
-          <div class="mt-2 font-light">Active Vaults</div>
-        </div>
-        <div as="div" to="/learn/vaulting-metrics/current-vaulting-apy" class="opacity-80 hover:opacity-100 py-5">
-          <div class="text-6xl font-bold">{{ numeral(data.vaulting.activeAPY).formatCapped('0,0', 9_999) }}%</div>
-          <div class="mt-2 font-light">Current Vaulting APY</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="relative flex flex-col bg-white items-center justify-center w-full pt-16 pb-4 cursor-default text-center border-t border-argon-800/15 border-b border-b-argon-900/70" style="box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);">
-      <h3 class="text-argon-600/80 font-bold text-2xl px-10">THE AI-FIRST MICROPAYMENT STACK</h3>
-      <p class="text-black/50 text-base text-justify md:text-xl w-10/12 md:w-8/12 mx-auto mt-4">
-        Argon's Localchain is a lightweight, fast throughput, peer-to-peer L2 payment protocol. Our new MCP Payment protocol will
-        serve as the foundational layer for AI agents to facilitate micro-transactions.
-      </p>
-      <div class="grid grid-cols-3 md:grid-cols-6 space-y-3 w-full text-center pt-16 pb-6 divide-x divide-argon-400/20 text-argon-600/70">
-        <div class="opacity-80 hover:opacity-100 py-2">
-          <ChatgptIcon class="w-12 h-12 inline-block mb-2" />
-          <div class="text-md">ChatGPT</div>
-        </div>
-        <div class="opacity-80 hover:opacity-100 py-2">
-          <ClaudeIcon class="w-12 h-12 inline-block mb-2" />
-          <div class="text-md">Claude</div>
-        </div>
-        <div class="opacity-80 hover:opacity-100 py-2">
-          <GeminiIcon class="w-12 h-12 inline-block mb-2" />
-          <div class="text-md">Gemini</div>
-        </div>
-        <div class="opacity-80 hover:opacity-100 py-2">
-          <GrokIcon class="w-12 h-12 inline-block mb-2" />
-          <div class="text-md">Grok</div>
-        </div>
-        <div class="opacity-80 hover:opacity-100 py-2">
-          <LlamaIcon class="w-12 h-12 inline-block mb-2" />
-          <div class="text-md">Llama</div>
-        </div>
-        <div class="opacity-80 hover:opacity-100 py-2">
-          <MinstralIcon class="w-12 h-12 inline-block mb-2" />
-          <div class="text-md">Minstral</div>
-        </div>
+      <div class="my-10">
+        <img src="/bitcoin-flow.png" class="w-full mx-auto max-w-480 opacity-50" />
       </div>
     </section>
 
     <section HelpUsBootstrap class="text-white">
-      <h2 class="text-center pt-24">
-        <div class="font-light text-2xl md:text-4xl mb-3">JOIN US IN BOOTSTRAPPING ARGON INTO A</div>
-        <div class="font-bold text-4xl md:text-7xl">TRILLION DOLLAR STABLECOIN</div>
-      </h2>
+      <h3 class="text-argon-100/70 font-bold text-xl pt-16 px-10 md:px-auto tracking-widest font-serif text-center">
+        TRILLION DOLLAR STABLECOIN
+      </h3>
+      <header class="font-serif mt-5 text-7xl leading-tight text-white text-center">
+        <span class="text-6xl">JOIN US ON THE ADVENTURE TO</span><br />
+        <span class="">REMAKE GLOBAL CURRENCY</span>
+      </header>
 
       <div class="flex flex-col gap-5 w-8/12 mx-auto text-xl mt-12 font-light">
         <p class="text-justify">
@@ -315,7 +328,7 @@
       </div>
 
       <div class="flex flex-col items-center w-8/12 mx-auto mt-12 pb-40">
-        <router-link to="/secret-plan" class="flex flex-row items-center justify-center border border-white/30 hover:shadow-lg text-white rounded-md md:text-2xl w-full px-2 md:px-40 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-600 whitespace-nowrap">
+        <router-link to="/launch-plan" class="flex flex-row items-center justify-center border border-white/30 hover:shadow-lg text-white rounded-md md:text-2xl w-full px-2 md:px-40 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-600 whitespace-nowrap">
           <span>Read Our Launch Plan</span>
         </router-link>
       </div>
@@ -329,6 +342,7 @@
 <script lang="ts">
 import * as Vue from 'vue';
 import { type IBasicsRecord, defaultBasicsRecord } from "@/interfaces/IBasicsRecord";
+import { ArrowLongRightIcon } from "@heroicons/vue/24/outline";
 
 const data = Vue.ref<IBasicsRecord>(defaultBasicsRecord);
 </script>
@@ -362,6 +376,57 @@ import { Download } from '@/lib/Download';
 const download = new Download();
 const stableUrl = Vue.ref('');
 const stableVersion = Vue.ref('');
+const appSliderEl = Vue.ref<HTMLElement | null>(null);
+const appSliderPercent = Vue.ref(50);
+const appPreviewPercent = Vue.ref<number | null>(null);
+const isAppSliderDragging = Vue.ref(false);
+
+const activeSliderPercent = Vue.computed(() => appPreviewPercent.value ?? appSliderPercent.value);
+
+function clampSliderPercent(value: number): number {
+  return Math.min(100, Math.max(0, value));
+}
+
+function setAppSliderPercent(value: number): void {
+  appPreviewPercent.value = null;
+  appSliderPercent.value = clampSliderPercent(value);
+}
+
+function nudgeAppSlider(amount: number): void {
+  setAppSliderPercent(appSliderPercent.value + amount);
+}
+
+function updateAppSliderFromPointer(event: PointerEvent): void {
+  if (!appSliderEl.value) return;
+
+  const bounds = appSliderEl.value.getBoundingClientRect();
+  const percent = ((event.clientX - bounds.left) / bounds.width) * 100;
+  setAppSliderPercent(percent);
+}
+
+function stopAppSliderDrag(): void {
+  isAppSliderDragging.value = false;
+  window.removeEventListener('pointermove', updateAppSliderFromPointer);
+  window.removeEventListener('pointerup', stopAppSliderDrag);
+  window.removeEventListener('pointercancel', stopAppSliderDrag);
+}
+
+function startAppSliderDrag(event: PointerEvent): void {
+  event.preventDefault();
+  isAppSliderDragging.value = true;
+  updateAppSliderFromPointer(event);
+  window.addEventListener('pointermove', updateAppSliderFromPointer);
+  window.addEventListener('pointerup', stopAppSliderDrag);
+  window.addEventListener('pointercancel', stopAppSliderDrag);
+}
+
+function previewApp(app: 'operations' | 'treasury'): void {
+  appPreviewPercent.value = app === 'operations' ? 100 : 0;
+}
+
+function clearAppPreview(): void {
+  appPreviewPercent.value = null;
+}
 
 Vue.onMounted(async () => {
   const [basics, _] = await Promise.all([
@@ -372,6 +437,8 @@ Vue.onMounted(async () => {
   stableUrl.value = download.currentUrl;
   stableVersion.value = download.stableVersion;
 });
+
+Vue.onBeforeUnmount(stopAppSliderDrag);
 </script>
 
 <style>
@@ -383,12 +450,56 @@ Vue.onMounted(async () => {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
   }
 
-  main {
-    background: linear-gradient(to bottom, #780F85, #A428B3);
-  }
-
   [HelpUsBootstrap] {
     background: linear-gradient(to bottom, #A428B3, #780F85);
+  }
+
+  .AppPreviewSlider {
+    cursor: ew-resize;
+  }
+
+  .AppPreviewSlider > img,
+  .AppPreviewSlider > div:not(.AppPreviewSlider__divider) {
+    transition: clip-path 180ms ease;
+  }
+
+  .AppPreviewSlider.is-dragging > div:not(.AppPreviewSlider__divider),
+  .AppPreviewSlider.is-dragging .AppPreviewSlider__divider {
+    transition: none;
+  }
+
+  .AppPreviewSlider__divider {
+    @apply rounded-full border border-argon-400/60;
+    width: 7px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 18px rgba(112, 15, 130, 0.55);
+    transform: translateX(-50%);
+    transition: left 180ms ease;
+    z-index: 2;
+  }
+
+  .AppPreviewSlider__handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3px;
+    width: 46px;
+    height: 46px;
+    color: #70108a;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 1;
+    background: rgba(255, 255, 255, 0.92);
+    border: 3px solid #70108a;
+    border-radius: 9999px;
+    box-shadow: 0 8px 30px rgba(112, 15, 130, 0.3);
+    transform: translate(-50%, -50%);
+    span {
+      @apply leading-none relative top-[-2.5px] font-light;
+    }
   }
 
   --line-dark: rgba(15, 1, 17, 0.7);

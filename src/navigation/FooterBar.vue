@@ -1,9 +1,8 @@
 <template>
-  <footer class="border-t border-white/10 w-full">
-
-    <ul DepressedBlock class="flex flex-col md:flex-row px-2.5 pb-px space-y-2 md:space-y-0 md:space-x-3 text-white text-xl" style="box-shadow: inset 0 0 5px 1px rgba(0, 0, 0, .4);">
+  <footer class="w-full">
+    <ul DepressedBlock class="flex flex-col md:flex-row px-2.5 pb-px space-y-2 md:space-y-0 md:space-x-3 text-white text-xl">
 <!--      <li class="flex flex-col cursor-pointer items-center justify-center rounded-sm w-full md:w-1/3 h-40 md:h-60" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, .2), 1px 1px 2px rgba(0, 0, 0, .2);">-->
-<!--        <RouterLink to="/misc/documentation" class="flex flex-col items-center justify-center w-full h-full">-->
+<!--        <RouterLink to="/misc/docs" class="flex flex-col items-center justify-center w-full h-full">-->
 <!--          <WhitepapersIcon class="h-10 mb-2" />-->
 <!--          Read the-->
 <!--          <div class="font-bold">Whitepapers</div>-->
@@ -25,7 +24,7 @@
 <!--      </li>-->
     </ul>
 
-    <div BottomBar class="py-3 flex flex-row px-5 md:px-5 whitespace-nowrap border-t border-white/10">
+    <div BottomBar class="py-3 flex flex-row px-5 md:px-5 whitespace-nowrap">
       <p class="text-sm w-full text-left text-white/60">
         <span class="hidden lg:inline">An open source project for the world.</span>
         <span class="hidden md:inline">Open source.</span>
@@ -49,31 +48,53 @@ import WhitepapersIcon from '../assets/footer/whitepapers.svg';
 import ArgonotsIcon from '../assets/footer/argonots.svg';
 import CommunityIcon from '../assets/footer/community.svg';
 
-const props = defineProps<{
-  darkMode?: boolean;
-}>();
+const props = withDefaults(
+    defineProps<{
+      mode?: 'argon' | 'charcoal' | 'light';
+    }>(),
+    {
+      mode: 'light',
+    },
+);
 
 const color = {
-  bg: props.darkMode ? '#780F85' : 'rgb(249, 242, 250)',
-  bgHover: props.darkMode ? '#6E0D7BFF' : '#e9e2ea',
-  bgDepressed: props.darkMode ? '#640B70' : '#CCD1DA',
-  text: props.darkMode ? 'rgba(255, 255, 255, 0.8)' : '#93379f',
-  textHover: props.darkMode ? 'rgba(255, 255, 255, 1)' : '#53085d',
-  borderColor: props.darkMode ? 'rgba(0,0,0,0.5)' : 'rgba(0,0,0,0.3)',
-}
+  argon: {
+    bg: '#780F85',
+    bgHover: '#6E0D7BFF',
+    text: 'rgba(255, 255, 255, 0.8)',
+    textHover: 'rgba(255, 255, 255, 1)',
+    line: 'rgba(0,0,0,0.5)',
+  },
+  charcoal: {
+    bg: '#27232F',
+    bgHover: '#000000',
+    text: 'rgba(255, 255, 255, 0.8)',
+    textHover: 'rgba(255, 255, 255, 1)',
+    line: 'rgba(0,0,0,0.7)',
+    lineShadow: 'rgba(255,255,255,0.1)',
+  },
+  light: {
+    bg: 'rgb(249, 242, 250)',
+    bgHover: '#e9e2ea',
+
+    text: '#93379f',
+    textHover: '#53085d',
+    line: 'rgba(0,0,0,0.3)',
+  }
+}[props.mode];
 </script>
 
 <style scoped>
 @import "../main.css";
 
 footer {
-  @apply bg-[v-bind(color.bg)] text-[v-bind(color.text)];
+  @apply bg-[v-bind(color.bg)] text-[v-bind(color.text)] border-t border-[v-bind(color.line)];
 }
 
 ul[DepressedBlock] {
-  @apply bg-[v-bind(color.bgDepressed)] text-[v-bind(color.text)];
+  @apply text-[v-bind(color.text)] border-t border-[v-bind(color.lineShadow)];
   li {
-    @apply bg-[v-bind(color.bg)] cursor-pointer hover:bg-[v-bind(color.bgHover)] border border-[v-bind(color.borderColor)];
+    @apply bg-[v-bind(color.bg)] cursor-pointer hover:bg-[v-bind(color.bgHover)];
   }
   a {
     @apply text-[v-bind(color.text)] hover:text-[v-bind(color.textHover)];

@@ -29,6 +29,21 @@
   --color-argon-error-darker: #c62030;
   --color-argon-error-darkest: #800000;
 
+  --font-sans:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Fira Sans',
+    'Droid Sans',
+    'Helvetica Neue',
+    sans-serif;
+  --font-serif: 'PT Serif', Georgia, Cambria, 'Times New Roman', Times, serif;
+
   --text-md: 15px;
 }
 
@@ -70,19 +85,7 @@
 body {
   min-height: 100vh;
   background-color: var(--bg-color);
-  font-family:
-    Inter,
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    'Fira Sans',
-    'Droid Sans',
-    'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-sans);
   font-size: 15px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;

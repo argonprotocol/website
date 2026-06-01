@@ -1,5 +1,5 @@
 <template>
-  <MainLayout>
+  <MainLayout :mode="props.mode">
     <div class="mt-20 ml-[15%] mr-[17%]">
       <slot />
     </div>
@@ -10,7 +10,6 @@
 import SubTitle from './SubTitle.vue';
 import SubContent from './SubContent.vue';
 import Breadcrumbs from './Breadcrumbs.vue';
-import MainLayout from './MainLayout.vue';
 
 export {
     SubTitle,
@@ -21,5 +20,9 @@ export {
 
 <script setup lang="ts">
 import * as Vue from 'vue';
+import MainLayout from './MainLayout.vue';
 
+const props = defineProps<{
+  mode?: 'argon' | 'charcoal' | 'light';
+}>();
 </script>

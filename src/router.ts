@@ -9,12 +9,24 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/desktop-app',
-      component: () => import('@/screens/desktop-app/Index.vue')
+      path: '/apps/operations',
+      component: () => import('@/screens/apps/Operations.vue')
     },
     {
-      path: '/secret-plan',
-      component: () => import('@/screens/secret-plan/Index.vue')
+      path: '/apps/treasury',
+      component: () => import('@/screens/apps/Treasury.vue')
+    },
+    {
+      path: '/operations-invite/:inviteCode',
+      component: () => import('@/screens/OperationsInvite.vue')
+    },
+    {
+      path: '/launch-plan',
+      component: () => import('@/screens/launch-plan/Index.vue')
+    },
+    {
+      path: '/docs/:id?/:subId?',
+      component: () => import('@/screens/docs/DocLoader.vue')
     },
     {
       path: '/documentation',
@@ -32,6 +44,10 @@ const router = createRouter({
       path: '/testnet',
       component: () => import('@/screens/Network.vue')
     },
+    {
+      path: '/the-better-stablecoin',
+      component: () => import('@/screens/the-better-stablecoin/Index.vue')
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     // 1) Browser back/forward: restore previous scroll
@@ -42,7 +58,7 @@ const router = createRouter({
       return { el: to.hash, behavior: 'smooth' }
     }
 
-    // 3) Default: jump to top on new pages
+    // 3) Default: jump to top on new vaulting
     return { left: 0, top: 0 }
   }
 })

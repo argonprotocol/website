@@ -1,40 +1,54 @@
 <template>
-  <nav :class="{ 'dark': props.darkMode }" class="TopBar Component">
+  <nav class="TopBar Component">
     <div BarWrapper class="flex flex-row items-center pt-4 pb-3 px-5 w-full whitespace-nowrap text-base gap-x-5 cursor-default">
       <div LogoWrapper class="flex flex-row items-center cursor-pointer gap-x-4" @click="router.push('/')">
-        <div class="w-14 relative">
-          <div LogoBgBlock class="absolute top-8 -translate-y-0.5 left-0 w-full h-[2px]"></div>
-          <Logo class="absolute -top-5 left-0 w-14" />
-        </div>
-        <span class="text-2xl font-black">
+        <Logo class="w-10" />
+        <span class="text-xl font-black uppercase tracking-widest">
           Argon
         </span>
       </div>
-      <ul class="hidden md:flex flex-row items-center gap-x-5 relative top-0.5">
+      <ul class="hidden md:flex flex-row items-center gap-x-4 relative top-0.5">
         <RouterLink
           Button
           as="li"
-          to="/desktop-app"
+          to="/apps/operations"
           class="text-lg"
-          :Selected="router.currentRoute.value.path.startsWith('/desktop-app') || undefined"
+          :Selected="router.currentRoute.value.path.startsWith('/apps/operations') || undefined"
         >
-          Desktop App
+          Operations
         </RouterLink>
         <RouterLink
-          Button
-          to="/secret-plan"
-          class="text-lg"
-          :Selected="router.currentRoute.value.path.startsWith('/secret-plan') || undefined"
+            Button
+            as="li"
+            to="/apps/treasury"
+            class="text-lg"
+            :Selected="router.currentRoute.value.path.startsWith('/apps/treasury') || undefined"
+        >
+          Treasury
+        </RouterLink>
+        <RouterLink
+            Button
+            to="/the-better-stablecoin"
+            class="text-lg"
+            :Selected="router.currentRoute.value.path.startsWith('/the-better-stablecoin') || undefined"
+        >
+          Why It's Better
+        </RouterLink>
+        <RouterLink
+            Button
+            to="/launch-plan"
+            class="text-lg"
+            :Selected="router.currentRoute.value.path.startsWith('/launch-plan') || undefined"
         >
           Launch Plan
         </RouterLink>
         <RouterLink
           Button
-          to="/documentation"
+          to="/docs"
           class="text-lg"
-          :Selected="router.currentRoute.value.path.startsWith('/documentation') || undefined"
+          :Selected="router.currentRoute.value.path.startsWith('/docs') || undefined"
         >
-          Learn More
+          Docs
         </RouterLink>
       </ul>
       <div class="grow relative"></div>
@@ -92,22 +106,53 @@ import DiscordIcon from '../assets/discord.svg';
 import GithubIcon from '../assets/github.svg';
 import MenuMobile from "@/navigation/MenuMobile.vue";
 
-const props = defineProps<{
-  darkMode?: boolean;
-}>();
+const props = withDefaults(
+  defineProps<{
+    mode?: 'argon' | 'charcoal' | 'light';
+  }>(),
+  {
+    mode: 'light',
+  },
+);
 
 const color = {
-  bgTransparent: props.darkMode ? 'rgba(120, 15, 133, 0)' : 'rgba(249, 242, 250, 0)',
-  bgHover: props.darkMode ? '#53085d' : '#e9e2ea',
-  bg: props.darkMode ? '#780F85' : 'rgb(249, 242, 250)',
-  text: props.darkMode ? 'rgba(255, 255, 255, 0.8)' : '#780F85',
-  textHover: props.darkMode ? 'rgba(255, 255, 255, 1)' : '#53085d',
-  line: props.darkMode ? 'rgba(0, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0.15)',
-  lineShadow: props.darkMode ? 'rgba(255,255,255,0.2)' : 'rgba(255, 255, 255, 1)',
-  statusLightest: props.darkMode ? `rgba(255, 255, 255, 0.3)` : 'oklch(0.41 0.2 320)',
-  statusDarkest: props.darkMode ? `rgba(255, 255, 255, 0.5)` : 'oklch(0.55 0.28 320)',
-  statusRipples: props.darkMode ? `rgba(255, 255, 255, 0.7)` : 'oklch(0.48 0.24 320)',
-}
+  argon: {
+    bgTransparent: 'rgba(120, 15, 133, 0)',
+    bgHover: '#53085d',
+    bg: '#780F85',
+    text: 'rgba(255, 255, 255, 0.8)',
+    textHover: 'rgba(255, 255, 255, 1)',
+    line: 'rgba(0, 0, 0, 0.5)',
+    lineShadow: 'rgba(255,255,255,0.2)',
+    statusLightest: `rgba(255, 255, 255, 0.3)`,
+    statusDarkest: `rgba(255, 255, 255, 0.5)`,
+    statusRipples: `rgba(255, 255, 255, 0.7)`,
+  },
+  charcoal: {
+    bgTransparent: 'rgba(120, 15, 133, 0)',
+    bgHover: '#40384F',
+    bg: '#27232F',
+    text: 'rgba(255, 255, 255, 0.8)',
+    textHover: 'rgba(255, 255, 255, 1)',
+    line: 'rgba(0, 0, 0, 1)',
+    lineShadow: 'rgba(255,255,255,0.1)',
+    statusLightest: `rgba(255, 255, 255, 0.3)`,
+    statusDarkest: `rgba(255, 255, 255, 0.5)`,
+    statusRipples: `rgba(255, 255, 255, 0.7)`,
+  },
+  light: {
+    bgTransparent: 'rgba(249, 242, 250, 0)',
+    bgHover: '#e9e2ea',
+    bg: 'rgb(249, 242, 250)',
+    text: '#780F85',
+    textHover: '#53085d',
+    line: 'rgba(0, 0, 0, 0.15)',
+    lineShadow: 'rgba(255, 255, 255, 1)',
+    statusLightest: 'oklch(0.41 0.2 320)',
+    statusDarkest: 'oklch(0.55 0.28 320)',
+    statusRipples: 'oklch(0.48 0.24 320)',
+  },
+}[props.mode];
 </script>
 
 <style>
