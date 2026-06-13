@@ -72,7 +72,7 @@ defineExpose({
 .ScrollOverlay {
   text-shadow :1px 1px 1px rgba(255, 255, 255, 0.2);
 }
-.ScrollOverlay.is-at-or-above-top {
+.ScrollOverlay.gsap-is-at-or-above-top {
   [Background] {
     display: block !important;
   }

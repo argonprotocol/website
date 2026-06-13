@@ -34,8 +34,8 @@
             <div class="text-xl md:text-3xl text-center">
               FIRST THINGS FIRST
             </div>
-            <div class="text-3xl md:text-5xl xl:text-6xl mx-auto text-center leading-tight md:leading-normal mt-1 px-4">
-              <span>Understanding Fiat Money</span>
+            <div class="text-3xl md:text-5xl xl:text-6xl mx-auto text-center leading-tight md:leading-normal mt-1 px-4 md:flex flex-col">
+              <span>Understanding Fiat Money </span>
               <span>and Digital Stablecoins</span>
             </div>
             <div
@@ -56,7 +56,7 @@
 
       <div class="relative z-10 h-[25vh]"></div>
 
-      <ScrollOverlay color="charcoal" ref="firstThingsFirstRef" class="z-40">
+      <ScrollOverlay color="charcoal" ref="firstThingsFirstRef" class="z-40" gsap-is-at-or-above-top>
         <template #header>
           <div class="text-white text-center font-serif mx-auto pt-8 md:pt-16 pb-5 border-b border-gray-300/20 max-w-210">
             <div class="text-xl md:text-3xl uppercase text-argon-100/90">A Very Brief</div>
@@ -82,7 +82,7 @@
             </p>
           </div>
 
-          <div class="pb-10">
+          <div>
             <header class="font-serif text-xl md:text-2xl font-bold">
               The Transition to Infinite Fiat
             </header>
@@ -105,7 +105,7 @@
         class="relative z-40 pointer-events-none"
       />
 
-      <ScrollOverlay color="charcoal" ref="firstThingsIntermissionRef" class="z-50">
+      <ScrollOverlay color="charcoal" ref="firstThingsIntermissionRef" class="z-50" gsap-is-at-or-above-top>
         <div class="grow text-white text-center md:text-5xl font-serif relative z-20 flex flex-col justify-center">
           <div class="text-lg md:text-2xl w-11/12 max-w-200 mx-auto leading-relaxed font-bold">
             <MacOldIcon class="w-16 md:w-20 mx-auto mb-2 text-argon-100/90" />
@@ -116,7 +116,7 @@
         </div>
       </ScrollOverlay>
 
-      <ScrollOverlay color="charcoal" ref="firstThingsSecondRef" class="z-60">
+      <ScrollOverlay color="charcoal" ref="firstThingsSecondRef" class="z-60" gsap-is-at-or-above-top>
         <template #header>
           <div class="text-white text-center mx-auto font-serif pt-8 md:pt-16 pb-5 border-b border-gray-300/20 max-w-210">
             <div class="text-xl md:text-3xl uppercase text-argon-100/90">The Failed Attempts To</div>
@@ -222,6 +222,8 @@
           class="relative h-[25vh] z-[70]"
         />
 
+        <div class="relative z-10 h-[30vh]" />
+
         <ScrollRisk :showBackground="false" ref="inflationRiskRef" header="Inflation" class="z-[70]">
           Inflation is one of the great hidden taxes on society, and the dollar
           has it in spades. Unfortunately, the risk is getting worse, and
@@ -247,11 +249,12 @@
             </RiskStat>
           </template>
         </ScrollRisk>
+        <div ref="inflationRiskRunwayRef" aria-hidden="true" class="relative z-[70] pointer-events-none" />
       </ScrollGroup>
 
-      <div class="relative z-10 h-[15vh] bg-[var(--bg-charcoal)]" />
+      <div class="relative z-10 h-[5vh]" />
 
-      <ScrollOverlay ref="inflationOverlayRef" color="argon" class="z-[80] text-black" data-gsap-bg-from="#5E5968">
+      <ScrollOverlay ref="inflationOverlayRef" color="argon" class="z-[80] text-black" data-gsap-bg-from="#5E5968" gsap-is-at-or-above-top>
         <header class="w-11/12 max-w-300 mx-auto text-center mt-10 md:mt-20 font-serif uppercase">
           <div class="text-2xl md:text-5xl">Argon Is Fully</div>
           <div class="text-4xl md:text-7xl xl:text-8xl mt-2">Protected From Inflation</div>
@@ -301,11 +304,12 @@
             </RiskStat>
           </template>
         </ScrollRisk>
+        <div ref="fiatCollapseRiskRunwayRef" aria-hidden="true" class="relative z-[90] pointer-events-none" />
       </ScrollGroup>
 
       <div class="relative z-10 h-[15vh]"></div>
 
-      <ScrollOverlay ref="fiatCollapseOverlayRef" color="argon" class="z-[100] text-black" data-gsap-bg-from="#5E5968">
+      <ScrollOverlay ref="fiatCollapseOverlayRef" color="argon" class="z-[100] text-black" data-gsap-bg-from="#5E5968" gsap-is-at-or-above-top>
         <header class="w-11/12 max-w-300 mx-auto text-center mt-10 md:mt-20 font-serif uppercase">
           <div class="text-2xl md:text-5xl">Argon Is Fully</div>
           <div class="text-4xl md:text-7xl xl:text-8xl mt-2">Insulated From The Collapse of Fiat</div>
@@ -356,11 +360,12 @@
             </RiskStat>
           </template>
         </ScrollRisk>
+        <div ref="deathSpiralsRiskRunwayRef" aria-hidden="true" class="relative z-[110] pointer-events-none" />
       </ScrollGroup>
 
       <div class="relative z-10 h-[15vh]"></div>
 
-      <ScrollOverlay ref="deathSpiralsOverlayRef" color="argon" class="z-[120] text-black" data-gsap-bg-from="#5E5968">
+      <ScrollOverlay ref="deathSpiralsOverlayRef" color="argon" class="z-[120] text-black" data-gsap-bg-from="#5E5968" gsap-is-at-or-above-top>
         <header class="w-11/12 max-w-300 mx-auto text-center mt-10 md:mt-20 font-serif uppercase">
           <div class="text-2xl md:text-5xl">Argon Is Fully</div>
           <div class="text-4xl md:text-7xl xl:text-8xl mt-2">Immune From Death Spirals</div>
@@ -441,12 +446,15 @@ const stateOfMoneyRef = ref<unknown>(null);
 const stateOfMoneyContentRef = ref<HTMLElement | null>(null);
 const stateOfMoneyRunwayRef = ref<HTMLElement | null>(null);
 const inflationRiskRef = ref<unknown>(null);
+const inflationRiskRunwayRef = ref<HTMLElement | null>(null);
 const inflationOverlayRef = ref<unknown>(null);
 const inflationOverlayRunwayRef = ref<HTMLElement | null>(null);
 const fiatCollapseRiskRef = ref<unknown>(null);
+const fiatCollapseRiskRunwayRef = ref<HTMLElement | null>(null);
 const fiatCollapseOverlayRef = ref<unknown>(null);
 const fiatCollapseOverlayRunwayRef = ref<HTMLElement | null>(null);
 const deathSpiralsRiskRef = ref<unknown>(null);
+const deathSpiralsRiskRunwayRef = ref<HTMLElement | null>(null);
 const deathSpiralsOverlayRef = ref<unknown>(null);
 const deathSpiralsOverlayRunwayRef = ref<HTMLElement | null>(null);
 const conclusionRef = ref<unknown>(null);
@@ -560,15 +568,17 @@ const getMoveEnd = (element: HTMLElement) => {
 
 const getRiskElements = (value: unknown) => {
   const root = getExposedElement(value);
+  const content = getExposedElement(value, "$contentEl");
   const header = getExposedElement(value, "header");
   const body = getExposedElement(value, "body");
   const statsOne = getExposedElement(value, "statsOne");
   const statsTwo = getExposedElement(value, "statsTwo");
 
-  if (!root || !header || !body || !statsOne || !statsTwo) return null;
+  if (!root || !content || !header || !body || !statsOne || !statsTwo) return null;
 
   return {
     root,
+    content,
     header,
     body,
     statsOne,
@@ -636,12 +646,15 @@ onMounted(async () => {
     !stateOfMoneyContentRef.value ||
     !stateOfMoneyRunwayRef.value ||
     !inflationRisk ||
+    !inflationRiskRunwayRef.value ||
     !inflationOverlayEl ||
     !inflationOverlayRunwayRef.value ||
     !fiatCollapseRisk ||
+    !fiatCollapseRiskRunwayRef.value ||
     !fiatCollapseOverlayEl ||
     !fiatCollapseOverlayRunwayRef.value ||
     !deathSpiralsRisk ||
+    !deathSpiralsRiskRunwayRef.value ||
     !deathSpiralsOverlayEl ||
     !deathSpiralsOverlayRunwayRef.value
   ) {
@@ -955,36 +968,17 @@ onMounted(async () => {
         trigger: firstThingsIntermissionEl,
         start: "bottom bottom",
       },
-      {
-        section: inflationRisk.root,
-        trigger: inflationRisk.root,
-        start: "top top",
-        endTrigger: inflationOverlayRunwayRef.value,
-        end: "bottom bottom",
-      },
-      {
-        section: fiatCollapseRisk.root,
-        trigger: fiatCollapseRisk.root,
-        start: "top top",
-        endTrigger: fiatCollapseOverlayRunwayRef.value,
-        end: "bottom bottom",
-      },
-      {
-        section: deathSpiralsRisk.root,
-        trigger: deathSpiralsRisk.root,
-        start: "top top",
-        endTrigger: deathSpiralsOverlayRunwayRef.value,
-        end: "bottom bottom",
-      },
     ];
 
     const updateTopClasses = () => {
-      scenes.forEach((scene) => {
-        scene.section.classList.toggle(
-          "is-at-or-above-top",
-          scene.section.getBoundingClientRect().top <= 1,
-        );
-      });
+      pageRef.value
+        ?.querySelectorAll<HTMLElement>("[gsap-is-at-or-above-top]")
+        .forEach((element) => {
+          element.classList.toggle(
+          "gsap-is-at-or-above-top",
+            element.getBoundingClientRect().top <= 1,
+          );
+        });
     };
 
     scenes.forEach((scene) => {
@@ -1019,6 +1013,7 @@ onMounted(async () => {
       content: HTMLElement,
       runwayRef: { value: HTMLElement | null },
       exposedRef: { value: unknown },
+      pinEndTrigger?: HTMLElement,
     ) => {
       const getScrollDistance = () => {
         const viewport = content.parentElement?.parentElement;
@@ -1049,7 +1044,7 @@ onMounted(async () => {
       ScrollTrigger.create({
         trigger: overlay,
         start: "top top",
-        endTrigger: runwayRef.value,
+        endTrigger: pinEndTrigger ?? runwayRef.value,
         end: "bottom bottom",
         pin: overlay,
         pinSpacing: false,
@@ -1092,6 +1087,7 @@ onMounted(async () => {
       firstThingsFirstContentEl,
       firstThingsFirstRunwayRef,
       firstThingsFirstRef,
+      firstThingsIntermissionEl,
     );
 
     createScrollableOverlay(
@@ -1100,6 +1096,74 @@ onMounted(async () => {
       firstThingsSecondRunwayRef,
       firstThingsSecondRef,
     );
+
+    const createScrollableRiskContent = (
+      risk: NonNullable<ReturnType<typeof getRiskElements>>,
+      runwayRef: { value: HTMLElement | null },
+      pinEndTrigger: HTMLElement,
+    ) => {
+      const getScrollDistance = () => {
+        const bottomPadding = 48;
+        const availableHeight = Math.max(
+          0,
+          window.innerHeight - risk.header.offsetHeight,
+        );
+
+        return Math.max(
+          0,
+          risk.content.scrollHeight - availableHeight + bottomPadding,
+        );
+      };
+
+      const getRunwayDistance = () => (
+        getScrollDistance() +
+        (window.innerHeight * 0.25)
+      );
+
+      const updateRunway = () => {
+        if (!runwayRef.value) return;
+
+        runwayRef.value.style.height = `${getRunwayDistance()}px`;
+      };
+
+      updateRunway();
+
+      ScrollTrigger.create({
+        trigger: risk.root,
+        start: "top top",
+        endTrigger: pinEndTrigger,
+        end: "top top",
+        pin: risk.root,
+        pinSpacing: false,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        onRefreshInit: updateRunway,
+        onRefresh: updateRunway,
+      });
+
+      gsap.fromTo(
+        risk.content,
+        { y: 0 },
+        {
+          y: () => -getScrollDistance(),
+          ease: "none",
+          scrollTrigger: {
+            trigger: risk.root,
+            start: "top top",
+            end: () => `+=${getScrollDistance()}`,
+            scrub: true,
+            invalidateOnRefresh: true,
+            onRefreshInit: updateRunway,
+            onRefresh: updateRunway,
+          },
+        },
+      );
+    };
+
+    createScrollableRiskContent(inflationRisk, inflationRiskRunwayRef, inflationOverlayEl);
+    createScrollableRiskContent(fiatCollapseRisk, fiatCollapseRiskRunwayRef, fiatCollapseOverlayEl);
+    createScrollableRiskContent(deathSpiralsRisk, deathSpiralsRiskRunwayRef, deathSpiralsOverlayEl);
+    updateGroupEffectsHeight();
 
     const createRiskTimeline = (
       risk: NonNullable<ReturnType<typeof getRiskElements>>,
