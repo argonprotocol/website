@@ -45,7 +45,7 @@
           <RouterLink
             Button
             to="/"
-            class="text-base py-2"
+            class="text-base py-2 block"
             :Selected="router.currentRoute.value.path === '/' || undefined"
           >
             Home
@@ -54,7 +54,7 @@
           <RouterLink
             Button
             to="/apps/operations"
-            class="text-base py-2"
+            class="text-base py-2 block"
             :Selected="router.currentRoute.value.path.startsWith('/apps/operations') || undefined"
           >
             Operations
@@ -63,7 +63,7 @@
           <RouterLink
             Button
             to="/apps/treasury"
-            class="text-base py-2"
+            class="text-base py-2 block"
             :Selected="router.currentRoute.value.path.startsWith('/apps/treasury') || undefined"
           >
             Treasury
@@ -72,7 +72,7 @@
           <RouterLink
             Button
             to="/why-its-better"
-            class="text-base py-2"
+            class="text-base py-2 block"
             :Selected="router.currentRoute.value.path.startsWith('/why-its-better') || undefined"
           >
             Why It's Better
@@ -81,7 +81,7 @@
           <RouterLink
             Button
             to="/launch-plan"
-            class="text-base py-2"
+            class="text-base py-2 block"
             :Selected="router.currentRoute.value.path.startsWith('/launch-plan') || undefined"
           >
             Launch Plan
@@ -90,7 +90,7 @@
           <RouterLink
             Button
             to="/docs"
-            class="text-base py-2"
+            class="text-base py-2 block"
             :Selected="router.currentRoute.value.path.startsWith('/docs') || undefined"
           >
             Docs

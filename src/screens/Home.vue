@@ -212,7 +212,7 @@
       </div>
     </section>
 
-    <section class="relative flex flex-col bg-[var(--bg-color)] text-center">
+    <section class="relative flex flex-col bg-[var(--bg-color)] text-center pb-10">
       <h3 class="text-argon-600/70 font-bold text-base pt-14 px-5 tracking-widest font-serif md:text-lg md:pt-16 lg:text-xl">
         BRIDGELESS & NATIVE
       </h3>
