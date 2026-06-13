@@ -6,7 +6,7 @@
     <main class="flex flex-col items-start min-h-screen border-b border-argon-800 relative z-10">
 
       <div class="grid w-full overflow-hidden lg:grow lg:grid-cols-[minmax(0,50%)_minmax(0,1fr)] lg:grid-rows-[1fr_auto_auto_1fr_auto]">
-        <router-link as="h1" to="/the-better-stablecoin" class="order-1 px-5 pt-10 text-center text-argon-100 opacity-80 text-shadow-sm text-shadow-argon-800 font-light text-lg tracking-widest uppercase font-serif hover:text-white/90 md:text-3xl lg:col-start-1 lg:row-start-2 lg:px-10 lg:pt-0 lg:text-left xl:px-14 2xl:px-20">
+        <router-link as="h1" to="/why-its-better" class="order-1 px-5 pt-10 text-center text-argon-100 opacity-80 text-shadow-sm text-shadow-argon-800 font-light text-lg tracking-widest uppercase font-serif hover:text-white/90 md:text-3xl lg:col-start-1 lg:row-start-2 lg:px-10 lg:pt-0 lg:text-left xl:px-14 2xl:px-20">
           THE BETTER STABLECOIN
         </router-link>
 
@@ -43,7 +43,7 @@
             <div class="mt-1 h-px w-full bg-linear-to-r from-transparent via-20% via-argon-900 to-argon-900" />
             <div class="h-px w-full bg-linear-to-r from-transparent via-20% via-white/20 to-white/20" />
           </div>
-          <router-link to="/the-better-stablecoin" class="flex flex-row items-center justify-center cursor-pointer group text-white lg:mt-2 lg:justify-start 2xl:mt-6">
+          <router-link to="/why-its-better" class="flex flex-row items-center justify-center cursor-pointer group text-white lg:mt-2 lg:justify-start 2xl:mt-6">
             <div class="bg-argon-800/70 text-argon-100 group-hover:text-white rounded-full border border-argon-900 pl-4 pr-3 py-0.5 font-bold">NEW</div>
             <div class="ml-3 mr-2 text-base text-argon-100 group-hover:text-white lg:text-xl lg:whitespace-nowrap 2xl:text-2xl">
               Three Core Reasons Why Argon Is Better

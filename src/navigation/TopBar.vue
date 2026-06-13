@@ -28,9 +28,9 @@
         </RouterLink>
         <RouterLink
             Button
-            to="/the-better-stablecoin"
+            to="/why-its-better"
             class="text-lg"
-            :Selected="router.currentRoute.value.path.startsWith('/the-better-stablecoin') || undefined"
+            :Selected="router.currentRoute.value.path.startsWith('/why-its-better') || undefined"
         >
           Why It's Better
         </RouterLink>

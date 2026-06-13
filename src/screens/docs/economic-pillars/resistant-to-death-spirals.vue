@@ -267,19 +267,19 @@
 
     <ul class="list-disc list-outside space-y-4 pl-6">
       <li class="pl-2">
-        <RouterLink to="/the-better-stablecoin/indifferent-to-catastrophe" class="font-bold">Indifferent to Catastrophe</RouterLink>
+        <RouterLink to="/why-its-better/indifferent-to-catastrophe" class="font-bold">Indifferent to Catastrophe</RouterLink>
         <div class="mt-1">
           Argon works regardless of banking collapses or government bond failures.
         </div>
       </li>
       <li class="pl-2">
-        <RouterLink to="/the-better-stablecoin/resistant-to-inflation" class="font-bold">Resistant to Inflation</RouterLink>
+        <RouterLink to="/why-its-better/resistant-to-inflation" class="font-bold">Resistant to Inflation</RouterLink>
         <div class="mt-1">
           Argon allows you to build wealth without worrying about the cost of time eroding it
         </div>
       </li>
       <li class="pl-2">
-        <RouterLink to="/the-better-stablecoin/immune-from-death-spirals" class="font-bold">Immune from Death Spirals</RouterLink>
+        <RouterLink to="/why-its-better/immune-from-death-spirals" class="font-bold">Immune from Death Spirals</RouterLink>
         <div class="mt-1">
           Argon solves the core problem inherent in previous algorithmic stablecoins.
         </div>

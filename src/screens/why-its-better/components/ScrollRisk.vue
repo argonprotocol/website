@@ -10,21 +10,21 @@
       <div class="flex flex-col">
         <header ref="headerRef" class="relative bg-[var(--bg-charcoal)] text-center text-slate-100">
           <div class="absolute -top-12 bg-linear-to-b from-transparent to-[var(--bg-charcoal)] to-70% h-12 w-full z-10" />
-          <div class="text-3xl md:text-5xl">THE RISK OF</div>
-          <div class="text-8xl md:text-[8rem] leading-none uppercase">{{ props.header }}</div>
+          <div class="text-2xl md:text-5xl">THE RISK OF</div>
+          <div class="text-5xl md:text-7xl xl:text-[8rem] leading-none uppercase">{{ props.header }}</div>
         </header>
 
         <div class="bg-[var(--bg-charcoal)]">
-          <p ref="bodyRef" class="bg-[var(--bg-charcoal)] z-30 mx-auto max-w-270 px-8 text-center text-lg md:text-2xl leading-normal text-[#f0b7f3]">
+          <p ref="bodyRef" class="bg-[var(--bg-charcoal)] z-30 mx-auto max-w-270 px-4 md:px-8 text-center text-base md:text-2xl leading-normal text-[#f0b7f3]">
             <slot />
           </p>
 
-          <section ref="statsOneRef" class="min-w-9/12 z-20 mx-auto bg-[var(--bg-charcoal)] grid max-w-330 grid-cols-1 md:grid-cols-2 gap-8 px-12 pt-[2%]">
+          <section ref="statsOneRef" class="w-full md:w-11/12 z-20 mx-auto bg-[var(--bg-charcoal)] grid max-w-330 grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 px-4 md:px-12 pt-4 md:pt-[2%]">
             <slot name="stat1" />
             <slot name="stat2" />
           </section>
 
-          <section ref="statsTwoRef" class="relative min-w-9/12 z-20 mx-auto bg-[var(--bg-charcoal)] grid max-w-330 grid-cols-1 md:grid-cols-2 gap-8 px-12 pt-[2%]">
+          <section ref="statsTwoRef" class="relative w-full md:w-11/12 z-20 mx-auto bg-[var(--bg-charcoal)] grid max-w-330 grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 px-4 md:px-12 pt-4 md:pt-[2%]">
             <slot name="stat3" />
             <slot name="stat4" />
             <div class="absolute -bottom-14 bg-linear-to-t from-transparent to-[var(--bg-charcoal)] h-14 w-full z-10" />

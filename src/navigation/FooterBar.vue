@@ -33,7 +33,7 @@
       </div>
       <div class="flex flex-col gap-y-2 lg:grow">
         <div class="font-bold">More Information</div>
-        <router-link to="/the-better-stablecoin">Why It's Better</router-link>
+        <router-link to="/why-its-better">Why It's Better</router-link>
         <router-link to="/launch-plan">Launch Plan</router-link>
         <router-link to="/docs">Documentation</router-link>
       </div>

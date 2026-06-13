@@ -206,19 +206,19 @@
 
     <ul class="list-disc list-outside space-y-4 pl-6">
       <li class="pl-2">
-        <RouterLink to="/the-better-stablecoin/indifferent-to-catastrophe" class="font-bold">Indifferent to Catastrophe</RouterLink>
+        <RouterLink to="/why-its-better/indifferent-to-catastrophe" class="font-bold">Indifferent to Catastrophe</RouterLink>
         <div class="mt-1">
           Argon works regardless of banking collapses or government bond failures.
         </div>
       </li>
       <li class="pl-2">
-        <RouterLink to="/the-better-stablecoin/intrinsic-price-stabilization" class="font-bold">Intrinsic Price Stabilization</RouterLink>
+        <RouterLink to="/why-its-better/intrinsic-price-stabilization" class="font-bold">Intrinsic Price Stabilization</RouterLink>
         <div class="mt-1">
           Argon creates economic balance between the growth of currency and its stabilization
         </div>
       </li>
       <li class="pl-2">
-        <RouterLink to="/the-better-stablecoin/immune-from-death-spirals" class="font-bold">Immune from Death Spirals</RouterLink>
+        <RouterLink to="/why-its-better/immune-from-death-spirals" class="font-bold">Immune from Death Spirals</RouterLink>
         <div class="mt-1">
           Argon solves the core problem inherent in previous algorithmic stablecoins.
         </div>

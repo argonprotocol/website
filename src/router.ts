@@ -53,8 +53,8 @@ const router = createRouter({
       component: () => import('@/screens/Network.vue')
     },
     {
-      path: '/the-better-stablecoin',
-      component: () => import('@/screens/the-better-stablecoin/Index.vue')
+      path: '/why-its-better',
+      component: () => import('@/screens/why-its-better/Index.vue')
     },
   ],
   scrollBehavior(to, from, savedPosition) {

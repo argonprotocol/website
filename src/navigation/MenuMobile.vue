@@ -71,9 +71,9 @@
           <div class="h-px bg-gray-200 my-1" />
           <RouterLink
             Button
-            to="/the-better-stablecoin"
+            to="/why-its-better"
             class="text-base py-2"
-            :Selected="router.currentRoute.value.path.startsWith('/the-better-stablecoin') || undefined"
+            :Selected="router.currentRoute.value.path.startsWith('/why-its-better') || undefined"
           >
             Why It's Better
           </RouterLink>

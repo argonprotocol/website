@@ -3,11 +3,11 @@
     <div ref="pageRef">
 
       <ScrollBasic ref="heroRef" v-slot="{ setMoveWhenLeavingRef, setFadeWhenLeavingRef }" class="flex flex-col pt-12 md:pt-22 min-h-[calc(100vh-69px)] text-slate-100 justify-center">
-        <div class="grow flex flex-col max-w-260 mx-auto text-center pb-20 relative z-20 justify-center items-center">
+        <div class="grow flex flex-col w-11/12 max-w-260 mx-auto text-center pb-20 relative z-20 justify-center items-center">
           <h1 class="text-argon-100/50 font-bold text-xl md:text-2xl tracking-widest uppercase font-serif bg-[var(--bg-charcoal)]">
             The Better Stablecoin
           </h1>
-          <header class="text-4xl md:text-7xl leading-tight font-light font-serif mt-4 mx-5 bg-[var(--bg-charcoal)]">
+          <header class="text-4xl md:text-6xl xl:text-7xl leading-tight font-light font-serif mt-4 bg-[var(--bg-charcoal)]">
             Argon Solves the Biggest Problems of Fiat Money and Digital
             Stablecoins
           </header>
@@ -31,10 +31,10 @@
         <div ref="introContentRef" class="relative flex flex-col items-center justify-center z-30 font-serif">
           <div class="absolute -top-10 bg-linear-to-b from-transparent to-[var(--bg-charcoal)] h-10 w-10 z-10" />
           <header class="relative z-20 bg-[var(--bg-charcoal)]">
-            <div class="text-3xl text-center">
+            <div class="text-xl md:text-3xl text-center">
               FIRST THINGS FIRST
             </div>
-            <div class="text-6xl mx-auto text-center leading-normal mt-1">
+            <div class="text-3xl md:text-5xl xl:text-6xl mx-auto text-center leading-tight md:leading-normal mt-1 px-4">
               Understanding Fiat Money<br />
               and Digital Stablecoins
             </div>
@@ -58,18 +58,18 @@
 
       <ScrollOverlay color="charcoal" ref="firstThingsFirstRef" class="z-40">
         <template #header>
-          <div class="text-white text-center md:text-5xl mx-auto font-serif pt-16 pb-5 border-b border-gray-300/20 w-fit min-w-210">
-            <div class="text-3xl uppercase text-argon-100/90">A Very Brief</div>
-            <div class="text-7xl mt-2">History of Money</div>
+          <div class="text-white text-center mx-auto font-serif pt-8 md:pt-16 pb-5 border-b border-gray-300/20 w-full max-w-210 px-4">
+            <div class="text-xl md:text-3xl uppercase text-argon-100/90">A Very Brief</div>
+            <div class="text-4xl md:text-6xl xl:text-7xl mt-2">History of Money</div>
           </div>
         </template>
 
-        <div class="mt-1 md:mt-16 max-w-210 flex flex-col mx-5 md:mx-40 gap-y-12 relative z-20">
+        <div class="mt-1 md:mt-16 w-full max-w-210 flex flex-col mx-auto px-4 md:px-8 gap-y-8 md:gap-y-12 relative z-20">
           <div>
-            <header class="font-serif text-2xl font-bold">
+            <header class="font-serif text-xl md:text-2xl font-bold">
               Inventing Paper Money
             </header>
-            <p class="mt-1 text-xl leading-relaxed font-serif">
+            <p class="mt-1 text-base md:text-xl leading-relaxed font-serif">
               Paper money was invented in 7th century A.D. to solve gold's biggest weakness: large amounts are
               <span class="text-argon-100">heavy</span> to
               move, <span class="text-argon-100">slow</span> to transport and <span class="text-argon-100">hard to
@@ -83,10 +83,10 @@
           </div>
 
           <div class="pb-10">
-            <header class="font-serif text-2xl font-bold">
+            <header class="font-serif text-xl md:text-2xl font-bold">
               The Transition to Infinite Fiat
             </header>
-            <p class="mt-1 text-xl leading-relaxed font-serif">
+            <p class="mt-1 text-base md:text-xl leading-relaxed font-serif">
               Fiat is by definition "<em class="italic">an absolute command issued by decree.</em>"
               Fiat money has no intrinsic value; <span class="text-argon-100">it is money only because a government
             decrees it so</span>, and it contains a hidden superpower. Whoever controls the minting, controls unlimited
@@ -101,9 +101,9 @@
 
       <ScrollOverlay color="charcoal" ref="firstThingsIntermissionRef" class="z-50">
         <div class="grow text-white text-center md:text-5xl font-serif relative z-20 flex flex-col justify-center">
-          <div class="text-2xl max-w-200 mx-auto leading-relaxed font-bold">
-            <MacOldIcon class="w-20 mx-auto mb-2 text-argon-100/90" />
-            <div class="text-3xl uppercase mt-3 mb-6 text-argon-100/90 font-light">{ <span class="relative top-1">Hello World</span> }</div>
+          <div class="text-lg md:text-2xl w-11/12 max-w-200 mx-auto leading-relaxed font-bold">
+            <MacOldIcon class="w-16 md:w-20 mx-auto mb-2 text-argon-100/90" />
+            <div class="text-2xl md:text-3xl uppercase mt-3 mb-6 text-argon-100/90 font-light">{ <span class="relative top-1">Hello World</span> }</div>
             1989 was a pivotal moment in civilization. Tim Bernes-Lee invented the Web, and its emergence heralded
             a new age where everything would soon become digital: retail, finance, photos, music, social...
           </div>
@@ -112,19 +112,19 @@
 
       <ScrollOverlay color="charcoal" ref="firstThingsSecondRef" class="z-60">
         <template #header>
-          <div class="text-white text-center md:text-5xl mx-auto font-serif pt-16 pb-5 border-b border-gray-300/20 w-fit min-w-210">
-            <div class="text-3xl uppercase text-argon-100/90">The Failed Attempts To</div>
-            <div class="text-7xl mt-2">Invent Digital Money</div>
+          <div class="text-white text-center mx-auto font-serif pt-8 md:pt-16 pb-5 border-b border-gray-300/20 w-full max-w-210 px-4">
+            <div class="text-xl md:text-3xl uppercase text-argon-100/90">The Failed Attempts To</div>
+            <div class="text-4xl md:text-6xl xl:text-7xl mt-2">Invent Digital Money</div>
           </div>
         </template>
 
         <template #default="{ setMoveWhenAtEndRef }">
-          <div class="mt-1 md:mt-16 mx-5 md:mx-40 max-w-210 shrink-0 flex flex-col gap-y-16 relative z-20">
+          <div class="mt-1 md:mt-16 w-full max-w-210 mx-auto px-4 md:px-8 shrink-0 flex flex-col gap-y-10 md:gap-y-16 relative z-20">
             <div>
-              <header class="font-serif text-2xl font-bold">
+              <header class="font-serif text-xl md:text-2xl font-bold">
                 The Need for Digitization
               </header>
-              <p class="mt-1 text-xl leading-relaxed font-serif">
+              <p class="mt-1 text-base md:text-xl leading-relaxed font-serif">
                 The Web transformed commerce on a global scale, and in the process, it became increasingly clear the
                 <span class="text-argon-100">old monetary order of paper money</span> was no longer the future. Payment
                 systems began rapidly evolving, but the underlying rails of ACH, Wire, SWIFT, and Visa were
@@ -144,10 +144,10 @@
             </div>
 
             <div>
-              <header class="font-serif text-2xl font-bold">
+              <header class="font-serif text-xl md:text-2xl font-bold">
                 The Launch of Bitcoin
               </header>
-              <p class="mt-1 text-xl leading-relaxed font-serif">
+              <p class="mt-1 text-base md:text-xl leading-relaxed font-serif">
                 Bitcoin was released in 2009, and <span class="text-argon-100">it changed everything</span>. It
                 was the  <span class="text-argon-100">first digital currency that worked</span> without a central power dictating it. No gold
                 backed its value. No military power enforced its decree. It relied on no nation, bank or other
@@ -159,10 +159,10 @@
             </div>
 
             <div class="pb-10">
-              <header class="font-serif text-2xl font-bold">
+              <header class="font-serif text-xl md:text-2xl font-bold">
                 The Dream of an Independent Stablecoin
               </header>
-              <p class="mt-1 text-xl leading-relaxed font-serif">
+              <p class="mt-1 text-base md:text-xl leading-relaxed font-serif">
                 <span class="text-argon-100">A stable currency is paramount for economies to flourish</span> &ndash;
                 it's hard to sign a contract in a currency that could lose half its value by morning &ndash; which is
                 why Bitcoin's lack of a price stabilizer inhibits it from becoming a global medium of exchange.
@@ -200,8 +200,8 @@
         <ScrollBasic ref="stateOfMoneyRef" class="z-70 flex flex-col items-center justify-center">
           <div ref="stateOfMoneyContentRef" class="relative flex flex-col items-center justify-center z-30 font-serif">
             <div class="absolute -top-10 bg-linear-to-b from-transparent to-[var(--bg-charcoal)] h-10 w-10 z-10" />
-            <div class="text-2xl max-w-210 mx-auto leading-relaxed font-bold text-center bg-[var(--bg-charcoal)]">
-              <div class="text-3xl font-light uppercase opacity-80 text-argon-100 mt-3 mb-4">The Current State of Money</div>
+            <div class="text-lg md:text-2xl w-11/12 max-w-210 mx-auto leading-relaxed font-bold text-center bg-[var(--bg-charcoal)]">
+              <div class="text-2xl md:text-3xl font-light uppercase opacity-80 text-argon-100 mt-3 mb-4">The Current State of Money</div>
               The world has gone digital, but the dominant currencies still exist as fiat paper. Bank wire transfers and
               stablecoins sit atop this paper. A patchwork of bandaids make it somewhat workable, but the global rise of
               government spending, increased debt, and inflation risk all point to an uncertain future.
@@ -246,11 +246,11 @@
       <div class="relative z-10 h-[15vh] bg-[var(--bg-charcoal)]" />
 
       <ScrollOverlay ref="inflationOverlayRef" color="argon" class="z-[80] text-black" data-gsap-bg-from="#5E5968">
-        <header class="max-w-300 mx-auto text-center mt-20 font-serif uppercase">
-          <div class="text-5xl">Argon Is Fully</div>
-          <div class="text-8xl mt-2">Protected From Inflation</div>
+        <header class="w-11/12 max-w-300 mx-auto text-center mt-10 md:mt-20 font-serif uppercase">
+          <div class="text-2xl md:text-5xl">Argon Is Fully</div>
+          <div class="text-4xl md:text-7xl xl:text-8xl mt-2">Protected From Inflation</div>
         </header>
-        <div class="mt-10 mx-auto px-20 max-w-300 text-xl leading-normal font-serif">
+        <div class="mt-8 md:mt-10 mx-auto px-4 md:px-12 xl:px-20 max-w-300 text-base md:text-xl leading-normal font-serif">
           <p>
             Instead of being pegged to a fiat currency like the dollar, Argon uses an argon-numerated Consumer Price Index to ensure a stable purchasing power over time. A single argon will buy you the same amount of goods today as it will 100 years from now.
           </p>
@@ -300,12 +300,12 @@
       <div class="relative z-10 h-[15vh]"></div>
 
       <ScrollOverlay ref="fiatCollapseOverlayRef" color="argon" class="z-[100] text-black" data-gsap-bg-from="#5E5968">
-        <header class="max-w-300 mx-auto text-center mt-20 font-serif uppercase">
-          <div class="text-5xl">Argon Is Fully</div>
-          <div class="text-8xl mt-2">Insulated From The Collapse of Fiat</div>
+        <header class="w-11/12 max-w-300 mx-auto text-center mt-10 md:mt-20 font-serif uppercase">
+          <div class="text-2xl md:text-5xl">Argon Is Fully</div>
+          <div class="text-4xl md:text-7xl xl:text-8xl mt-2">Insulated From The Collapse of Fiat</div>
         </header>
 
-        <div class="mt-10 mx-auto px-20 max-w-300 text-xl leading-normal font-serif">
+        <div class="mt-8 md:mt-10 mx-auto px-4 md:px-12 xl:px-20 max-w-300 text-base md:text-xl leading-normal font-serif">
           <p>
             Instead of being pegged to a fiat currency like the dollar, Argon uses an argon-numerated Consumer Price Index to ensure a stable purchasing power over time. A single argon will buy you the same amount of goods today as it will 100 years from now.
           </p>
@@ -355,12 +355,12 @@
       <div class="relative z-10 h-[15vh]"></div>
 
       <ScrollOverlay ref="deathSpiralsOverlayRef" color="argon" class="z-[120] text-black" data-gsap-bg-from="#5E5968">
-        <header class="max-w-300 mx-auto text-center mt-20 font-serif uppercase">
-          <div class="text-5xl">Argon Is Fully</div>
-          <div class="text-8xl mt-2">Immune From Death Spirals</div>
+        <header class="w-11/12 max-w-300 mx-auto text-center mt-10 md:mt-20 font-serif uppercase">
+          <div class="text-2xl md:text-5xl">Argon Is Fully</div>
+          <div class="text-4xl md:text-7xl xl:text-8xl mt-2">Immune From Death Spirals</div>
         </header>
 
-        <div class="mt-10 mx-auto px-20 max-w-300 text-xl leading-normal font-serif">
+        <div class="mt-8 md:mt-10 mx-auto px-4 md:px-12 xl:px-20 max-w-300 text-base md:text-xl leading-normal font-serif">
           <p>
             Instead of being pegged to a fiat currency like the dollar, Argon uses an argon-numerated Consumer Price Index to ensure a stable purchasing power over time. A single argon will buy you the same amount of goods today as it will 100 years from now.
           </p>
@@ -382,8 +382,8 @@
 
         <div class="relative flex flex-col items-center justify-center z-30 font-serif">
           <div class="absolute -top-10 bg-linear-to-b from-transparent to-[var(--bg-charcoal)] h-10 w-10 z-10" />
-          <div class="text-2xl max-w-200 mx-auto leading-relaxed flex flex-col font-bold text-center bg-[var(--bg-charcoal)] pb-20">
-            <div class="text-3xl uppercase opacity-50 mt-3">In Conclusion</div>
+          <div class="text-lg md:text-2xl w-11/12 max-w-200 mx-auto leading-relaxed flex flex-col font-bold text-center bg-[var(--bg-charcoal)] pb-20">
+            <div class="text-2xl md:text-3xl uppercase opacity-50 mt-3">In Conclusion</div>
             <p class="border-b border-gray-300/20 pb-12 mt-5">
               Argon is the only stablecoin in production that is fully decentralized, protected from inflation,
               insulated from the collapse of fiat money, and immune to death spirals.

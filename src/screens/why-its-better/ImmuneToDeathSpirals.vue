@@ -2,7 +2,7 @@
   <SubLayout>
     <Breadcrumbs>
       <RouterLink to="/learn">Learn</RouterLink>
-      <RouterLink to="/the-better-stablecoin">The Four Pillars of Argon</RouterLink>
+      <RouterLink to="/why-its-better">The Four Pillars of Argon</RouterLink>
     </Breadcrumbs>
     <SubTitle>Immune from Death Spirals</SubTitle>
 
