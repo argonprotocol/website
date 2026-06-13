@@ -4,17 +4,17 @@
     :class="[showBackground ? 'bg-[var(--bg-charcoal)]' : '']"
   >
     <div class="relative min-h-screen font-serif flex flex-col justify-center">
-      <div class="grow relative">
+      <div class="grow relative min-h-6">
         <div v-if="showBackground" class="absolute top-0 bottom-0 left-1/2 w-px -translate-x-1/2 border-r-2 border-dashed border-gray-300" />
       </div>
-      <div class="flex flex-col">
+      <div ref="contentRef" class="flex flex-col">
         <header ref="headerRef" class="relative bg-[var(--bg-charcoal)] text-center text-slate-100">
           <div class="absolute -top-12 bg-linear-to-b from-transparent to-[var(--bg-charcoal)] to-70% h-12 w-full z-10" />
           <div class="text-2xl md:text-5xl">THE RISK OF</div>
           <div class="text-5xl md:text-7xl xl:text-[8rem] leading-none uppercase">{{ props.header }}</div>
         </header>
 
-        <div class="bg-[var(--bg-charcoal)]">
+        <div class="bg-[var(--bg-charcoal)] pt-3 pb-1">
           <p ref="bodyRef" class="bg-[var(--bg-charcoal)] z-30 mx-auto max-w-270 px-4 md:px-8 text-center text-base md:text-2xl leading-normal text-[#f0b7f3]">
             <slot />
           </p>
@@ -47,6 +47,8 @@ const props = withDefaults(defineProps<{
 });
 
 const riskRef = Vue.ref<HTMLElement | null>(null);
+const contentRef = Vue.ref<HTMLElement | null>(null);
+
 const headerRef = Vue.ref<HTMLElement | null>(null);
 const bodyRef = Vue.ref<HTMLElement | null>(null);
 const statsOneRef = Vue.ref<HTMLElement | null>(null);
@@ -54,6 +56,7 @@ const statsTwoRef = Vue.ref<HTMLElement | null>(null);
 
 defineExpose({
   $el: riskRef,
+  $contentEl: contentRef,
   header: headerRef,
   body: bodyRef,
   statsOne: statsOneRef,

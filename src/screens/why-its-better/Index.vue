@@ -26,7 +26,7 @@
 
       <ScrollBasic ref="introRef" v-slot="{ setFadeWhenLeavingRef, setTopWhileScrollingRef, setMoveToCenterRef }" class="z-10 flex flex-col items-center justify-center">
         <DottedLine :ref="setTopWhileScrollingRef" />
-        <Circle :ref="setMoveToCenterRef" />
+        <Circle :ref="setMoveToCenterRef" data-move-speed="0.45" />
 
         <div ref="introContentRef" class="relative flex flex-col items-center justify-center z-30 font-serif">
           <div class="absolute -top-10 bg-linear-to-b from-transparent to-[var(--bg-charcoal)] h-10 w-10 z-10" />
@@ -35,8 +35,8 @@
               FIRST THINGS FIRST
             </div>
             <div class="text-3xl md:text-5xl xl:text-6xl mx-auto text-center leading-tight md:leading-normal mt-1 px-4">
-              Understanding Fiat Money<br />
-              and Digital Stablecoins
+              <span>Understanding Fiat Money</span>
+              <span>and Digital Stablecoins</span>
             </div>
             <div
               :ref="setFadeWhenLeavingRef"
@@ -58,13 +58,13 @@
 
       <ScrollOverlay color="charcoal" ref="firstThingsFirstRef" class="z-40">
         <template #header>
-          <div class="text-white text-center mx-auto font-serif pt-8 md:pt-16 pb-5 border-b border-gray-300/20 w-full max-w-210 px-4">
+          <div class="text-white text-center font-serif mx-auto pt-8 md:pt-16 pb-5 border-b border-gray-300/20 max-w-210">
             <div class="text-xl md:text-3xl uppercase text-argon-100/90">A Very Brief</div>
-            <div class="text-4xl md:text-6xl xl:text-7xl mt-2">History of Money</div>
+            <div class="text-4xl md:text-6xl xl:text-7xl mt-1 md:mt-2">History of Money</div>
           </div>
         </template>
 
-        <div class="mt-1 md:mt-16 w-full max-w-210 flex flex-col mx-auto px-4 md:px-8 gap-y-8 md:gap-y-12 relative z-20">
+        <div class="mt-6 md:mt-16 w-full max-w-210 flex flex-col mx-auto px-4 md:px-8 gap-y-8 md:gap-y-12 relative z-20">
           <div>
             <header class="font-serif text-xl md:text-2xl font-bold">
               Inventing Paper Money
@@ -99,6 +99,12 @@
         </div>
       </ScrollOverlay>
 
+      <div
+        ref="firstThingsFirstRunwayRef"
+        aria-hidden="true"
+        class="relative z-40 pointer-events-none"
+      />
+
       <ScrollOverlay color="charcoal" ref="firstThingsIntermissionRef" class="z-50">
         <div class="grow text-white text-center md:text-5xl font-serif relative z-20 flex flex-col justify-center">
           <div class="text-lg md:text-2xl w-11/12 max-w-200 mx-auto leading-relaxed font-bold">
@@ -112,14 +118,14 @@
 
       <ScrollOverlay color="charcoal" ref="firstThingsSecondRef" class="z-60">
         <template #header>
-          <div class="text-white text-center mx-auto font-serif pt-8 md:pt-16 pb-5 border-b border-gray-300/20 w-full max-w-210 px-4">
+          <div class="text-white text-center mx-auto font-serif pt-8 md:pt-16 pb-5 border-b border-gray-300/20 max-w-210">
             <div class="text-xl md:text-3xl uppercase text-argon-100/90">The Failed Attempts To</div>
-            <div class="text-4xl md:text-6xl xl:text-7xl mt-2">Invent Digital Money</div>
+            <div class="text-4xl md:text-6xl xl:text-7xl mt-1 md:mt-2">Invent Digital Money</div>
           </div>
         </template>
 
         <template #default="{ setMoveWhenAtEndRef }">
-          <div class="mt-1 md:mt-16 w-full max-w-210 mx-auto px-4 md:px-8 shrink-0 flex flex-col gap-y-10 md:gap-y-16 relative z-20">
+          <div class="mt-8 md:mt-16 w-full max-w-210 mx-auto px-4 md:px-8 shrink-0 flex flex-col gap-y-10 md:gap-y-16 relative z-20">
             <div>
               <header class="font-serif text-xl md:text-2xl font-bold">
                 The Need for Digitization
@@ -423,6 +429,7 @@ const heroRef = ref<unknown>(null);
 const introRef = ref<unknown>(null);
 const introContentRef = ref<HTMLElement | null>(null);
 const firstThingsFirstRef = ref<unknown>(null);
+const firstThingsFirstRunwayRef = ref<HTMLElement | null>(null);
 const firstThingsIntermissionRef = ref<unknown>(null);
 const firstThingsSecondRef = ref<unknown>(null);
 const firstThingsSecondRunwayRef = ref<HTMLElement | null>(null);
@@ -598,6 +605,7 @@ onMounted(async () => {
   const heroEl = getExposedElement(heroRef.value);
   const introEl = getExposedElement(introRef.value);
   const firstThingsFirstEl = getExposedElement(firstThingsFirstRef.value);
+  const firstThingsFirstContentEl = getExposedElement(firstThingsFirstRef.value, "$contentEl");
   const firstThingsIntermissionEl = getExposedElement(firstThingsIntermissionRef.value);
   const firstThingsSecondEl = getExposedElement(firstThingsSecondRef.value);
   const firstThingsSecondContentEl = getExposedElement(firstThingsSecondRef.value, "$contentEl");
@@ -616,6 +624,8 @@ onMounted(async () => {
     !introEl ||
     !introContentRef.value ||
     !firstThingsFirstEl ||
+    !firstThingsFirstContentEl ||
+    !firstThingsFirstRunwayRef.value ||
     !firstThingsIntermissionEl ||
     !firstThingsSecondEl ||
     !firstThingsSecondContentEl ||
@@ -737,7 +747,7 @@ onMounted(async () => {
         element,
         { top: () => isFixed() ? window.innerHeight - 40 : -40 },
         {
-          top: "40%",
+          top: "45%",
           ease: "none",
           scrollTrigger: {
             trigger: section,
@@ -941,11 +951,6 @@ onMounted(async () => {
         onEnterBack: pulseIntroContent,
       },
       {
-        section: firstThingsFirstEl,
-        trigger: firstThingsFirstEl,
-        start: "bottom bottom",
-      },
-      {
         section: firstThingsIntermissionEl,
         trigger: firstThingsIntermissionEl,
         start: "bottom bottom",
@@ -1009,70 +1014,92 @@ onMounted(async () => {
       });
     });
 
-    const getFirstThingsSecondScrollDistance = () => {
-      const viewport = firstThingsSecondContentEl.parentElement;
-      if (!viewport) return 0;
+    const createScrollableOverlay = (
+      overlay: HTMLElement,
+      content: HTMLElement,
+      runwayRef: { value: HTMLElement | null },
+      exposedRef: { value: unknown },
+    ) => {
+      const getScrollDistance = () => {
+        const viewport = content.parentElement?.parentElement;
+        if (!viewport) return 0;
 
-      const bottomPadding = 48;
+        const bottomPadding = 48;
+        const viewportHeight = Math.min(viewport.clientHeight, window.innerHeight - 24);
 
-      return Math.max(
-        0,
-        firstThingsSecondContentEl.offsetTop + firstThingsSecondContentEl.scrollHeight - viewport.clientHeight + bottomPadding,
+        return Math.max(
+          0,
+          content.offsetTop + content.scrollHeight - viewportHeight + bottomPadding,
+        );
+      };
+
+      const getRunwayDistance = () => (
+        getScrollDistance() +
+        (window.innerHeight * 0.25)
       );
-    };
 
-    const getFirstThingsSecondRunwayDistance = () => (
-      getFirstThingsSecondScrollDistance() +
-      (window.innerHeight * 0.25)
-    );
+      const updateRunway = () => {
+        if (!runwayRef.value) return;
 
-    const updateFirstThingsSecondRunway = () => {
-      if (!firstThingsSecondRunwayRef.value) return;
+        runwayRef.value.style.height = `${getRunwayDistance()}px`;
+      };
 
-      firstThingsSecondRunwayRef.value.style.height = `${getFirstThingsSecondRunwayDistance()}px`;
-    };
+      updateRunway();
 
-    updateFirstThingsSecondRunway();
-
-    ScrollTrigger.create({
-      trigger: firstThingsSecondEl,
-      start: "top top",
-      endTrigger: firstThingsSecondRunwayRef.value,
-      end: "bottom bottom",
-      pin: firstThingsSecondEl,
-      pinSpacing: false,
-      anticipatePin: 1,
-      invalidateOnRefresh: true,
-      onRefreshInit: updateFirstThingsSecondRunway,
-      onRefresh: updateFirstThingsSecondRunway,
-    });
-
-    gsap.fromTo(
-      firstThingsSecondContentEl,
-      { y: 0 },
-      {
-        y: () => -getFirstThingsSecondScrollDistance(),
-        ease: "none",
-        scrollTrigger: {
-          trigger: firstThingsSecondEl,
-          start: "top top",
-          end: () => `+=${getFirstThingsSecondScrollDistance()}`,
-          scrub: true,
-          invalidateOnRefresh: true,
-          onRefreshInit: updateFirstThingsSecondRunway,
-          onRefresh: updateFirstThingsSecondRunway,
-        },
-      },
-    );
-
-    getExposedElements(firstThingsSecondRef.value, "$moveWhenAtEndEls")
-      .forEach((element) => {
-        moveWhenLeaving(firstThingsSecondEl, element, {
-          trigger: firstThingsSecondEl,
-          start: () => firstThingsSecondEl.offsetTop + getFirstThingsSecondScrollDistance() + getPauseDistance(element),
-          end: () => firstThingsSecondEl.offsetTop + getFirstThingsSecondScrollDistance() + getPauseDistance(element) + (window.innerHeight * 0.2),
-        });
+      ScrollTrigger.create({
+        trigger: overlay,
+        start: "top top",
+        endTrigger: runwayRef.value,
+        end: "bottom bottom",
+        pin: overlay,
+        pinSpacing: false,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+        onRefreshInit: updateRunway,
+        onRefresh: updateRunway,
       });
+
+      gsap.fromTo(
+        content,
+        { y: 0 },
+        {
+          y: () => -getScrollDistance(),
+          ease: "none",
+          scrollTrigger: {
+            trigger: overlay,
+            start: "top top",
+            end: () => `+=${getScrollDistance()}`,
+            scrub: true,
+            invalidateOnRefresh: true,
+            onRefreshInit: updateRunway,
+            onRefresh: updateRunway,
+          },
+        },
+      );
+
+      getExposedElements(exposedRef.value, "$moveWhenAtEndEls")
+        .forEach((element) => {
+          moveWhenLeaving(overlay, element, {
+            trigger: overlay,
+            start: () => overlay.offsetTop + getScrollDistance() + getPauseDistance(element),
+            end: () => overlay.offsetTop + getScrollDistance() + getPauseDistance(element) + (window.innerHeight * 0.2),
+          });
+        });
+    };
+
+    createScrollableOverlay(
+      firstThingsFirstEl,
+      firstThingsFirstContentEl,
+      firstThingsFirstRunwayRef,
+      firstThingsFirstRef,
+    );
+
+    createScrollableOverlay(
+      firstThingsSecondEl,
+      firstThingsSecondContentEl,
+      firstThingsSecondRunwayRef,
+      firstThingsSecondRef,
+    );
 
     const createRiskTimeline = (
       risk: NonNullable<ReturnType<typeof getRiskElements>>,
