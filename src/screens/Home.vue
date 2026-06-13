@@ -97,7 +97,7 @@
       <h3 class="text-argon-600/60 font-bold text-base pt-14 px-5 tracking-widest font-serif md:text-lg md:pt-20 lg:text-xl lg:pt-24">
         DECENTRALIZED & DEMOCRATIZED
       </h3>
-      <header class="text-3xl font-serif mt-4 leading-tight px-5 md:text-5xl lg:text-[3.25rem] xl:text-6xl">
+      <header class="text-2xl font-serif mt-4 leading-tight px-5 md:text-5xl lg:text-[3.25rem] xl:text-6xl">
         ARGON MINING REQUIRES<br />
         LITTLE MORE THAN A LAPTOP
       </header>
