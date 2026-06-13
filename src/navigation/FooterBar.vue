@@ -1,33 +1,56 @@
 <template>
-  <footer class="w-full">
-    <ul DepressedBlock class="flex flex-col md:flex-row px-2.5 pb-px space-y-2 md:space-y-0 md:space-x-3 text-white text-xl">
-<!--      <li class="flex flex-col cursor-pointer items-center justify-center rounded-sm w-full md:w-1/3 h-40 md:h-60" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, .2), 1px 1px 2px rgba(0, 0, 0, .2);">-->
-<!--        <RouterLink to="/misc/docs" class="flex flex-col items-center justify-center w-full h-full">-->
-<!--          <WhitepapersIcon class="h-10 mb-2" />-->
-<!--          Read the-->
-<!--          <div class="font-bold">Whitepapers</div>-->
-<!--        </RouterLink>-->
-<!--      </li>-->
-<!--      <li class="flex flex-col cursor-pointer items-center justify-center rounded-sm w-full md:w-1/3 h-40 md:h-60" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, .2), 1px 1px 2px rgba(0, 0, 0, .2);">-->
-<!--        <RouterLink to="/misc/community/argonots" class="flex flex-col items-center justify-center w-full h-full">-->
-<!--          <ArgonotsIcon class="h-10 mb-2" />-->
-<!--          Follow the-->
-<!--          <div class="font-bold">Argonots</div>-->
-<!--        </RouterLink>-->
-<!--      </li>-->
-<!--      <li class="flex flex-col cursor-pointer items-center justify-center rounded-sm w-full md:w-1/3 h-40 md:h-60" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, .2), 1px 1px 2px rgba(0, 0, 0, .2);">-->
-<!--        <RouterLink to="/misc/community" class="flex flex-col items-center justify-center w-full h-full">-->
-<!--          <CommunityIcon class="h-10 mb-2" />-->
-<!--          Join the-->
-<!--          <div class="font-bold">Community</div>-->
-<!--        </RouterLink>-->
-<!--      </li>-->
-    </ul>
+  <footer class="w-full relative z-100">
+
+    <div Colony class="relative">
+      <div class="flex flex-row justify-end relative w-full">
+        <div to="/" class="absolute flex flex-col justify-center left-20 top-2/12">
+          <router-link to="/" class="w-fit">
+            <div>
+              <ArgonOutline class="w-[50%] mb-6" />
+            </div>
+            <div class="flex flex-col font-serif text-6xl leading-tight">
+              <span>The Stablecoin</span>
+              <span>Built to Last for a</span>
+              <span>Thousand Years.</span>
+            </div>
+          </router-link>
+        </div>
+        <img src="/cityscape-clean.png" class="relative w-[80%] pointer-events-none" :class="[props.mode === 'light' ? 'ConvertToArgonColor opacity-20' : 'opacity-20']">
+      </div>
+    </div>
+
+    <div NavigationLinks class="flex flex-row px-20 py-10 text-lg">
+      <div class="grow flex flex-col gap-y-2">
+        <div class="font-bold">Economic Pillars</div>
+        <router-link to="/docs/economic-pillars/protected-from-inflation">Protected from Inflation</router-link>
+        <router-link to="/docs/economic-pillars/insulated-from-fiat-money">Insulated from Fiat Collapse</router-link>
+        <router-link to="/docs/economic-pillars/resistant-to-death-spirals">Immune from Death Spirals</router-link>
+      </div>
+      <div class="grow flex flex-col gap-y-2">
+        <div class="font-bold">The Desktop Apps</div>
+        <router-link to="/apps/treasury">Argon Treasury</router-link>
+        <router-link to="/apps/operations">Argon Operations</router-link>
+      </div>
+      <div class="grow flex flex-col gap-y-2">
+        <div class="font-bold">More Information</div>
+        <router-link to="/the-better-stablecoin">Why It's Better</router-link>
+        <router-link to="/launch-plan">Launch Plan</router-link>
+        <router-link to="/docs">Documentation</router-link>
+      </div>
+      <div class="grow text-right flex flex-col justify-center text-xl font-light">
+        <div class="flex flex-col opacity-80 leading-normal">
+          <span>Join Us In Creating the World’s</span>
+          <span>First Transactional Currency</span>
+          <span>That Remains Stable Over Time</span>
+        </div>
+        <router-link to="/apps" class="font-bold mt-2">Get Started -></router-link>
+      </div>
+    </div>
 
     <div BottomBar class="py-3 flex flex-row px-5 md:px-5 whitespace-nowrap">
       <p class="text-sm w-full text-left text-white/60">
         <span class="hidden lg:inline">An open source project for the world.</span>
-        <span class="hidden md:inline">Open source.</span>
+        <span class="hidden md:inline lg:hidden">Open source.</span>
         Zero rights reserved.
       </p>
       <div class="flex flex-row gap-x-3">
@@ -44,9 +67,7 @@ import * as Vue from 'vue';
 import GithubIcon from '../assets/github.svg';
 import DiscordIcon from '../assets/discord.svg';
 import SubstackIcon from '../assets/substack.svg';
-import WhitepapersIcon from '../assets/footer/whitepapers.svg';
-import ArgonotsIcon from '../assets/footer/argonots.svg';
-import CommunityIcon from '../assets/footer/community.svg';
+import ArgonOutline from '../assets/argon-outline.svg';
 
 const props = withDefaults(
     defineProps<{
@@ -57,29 +78,34 @@ const props = withDefaults(
     },
 );
 
+const bgCharcoal = '#27232F';
 const color = {
   argon: {
-    bg: '#780F85',
-    bgHover: '#6E0D7BFF',
+    bgDark: '#780F85',
+    bgDarker: '#63086E',
+    bgDarkest: '#5E0669',
     text: 'rgba(255, 255, 255, 0.8)',
     textHover: 'rgba(255, 255, 255, 1)',
     line: 'rgba(0,0,0,0.5)',
+    lineShadow: 'rgba(255,255,255,0.15)',
   },
   charcoal: {
-    bg: '#27232F',
-    bgHover: '#000000',
-    text: 'rgba(255, 255, 255, 0.8)',
+    bgDark: bgCharcoal,
+    bgDarker: bgCharcoal,
+    bgDarkest: '#201D27',
+    text: 'rgba(255, 255, 255, 0.6)',
     textHover: 'rgba(255, 255, 255, 1)',
     line: 'rgba(0,0,0,0.7)',
     lineShadow: 'rgba(255,255,255,0.1)',
   },
   light: {
-    bg: 'rgb(249, 242, 250)',
-    bgHover: '#e9e2ea',
-
+    bgDark: 'rgb(249, 242, 250)',
+    bgDarker: 'rgb(249, 242, 250)',
+    bgDarkest: '#F6ECF7',
     text: '#93379f',
     textHover: '#53085d',
-    line: 'rgba(0,0,0,0.3)',
+    line: 'rgba(0,0,0,0.15)',
+    lineShadow: 'rgba(255,255,255,1)',
   }
 }[props.mode];
 </script>
@@ -88,22 +114,43 @@ const color = {
 @import "../main.css";
 
 footer {
-  @apply bg-[v-bind(color.bg)] text-[v-bind(color.text)] border-t border-[v-bind(color.line)];
+  @apply text-[v-bind(color.text)];
 }
 
-ul[DepressedBlock] {
-  @apply text-[v-bind(color.text)] border-t border-[v-bind(color.lineShadow)];
-  li {
-    @apply bg-[v-bind(color.bg)] cursor-pointer hover:bg-[v-bind(color.bgHover)];
-  }
-  a {
-    @apply text-[v-bind(color.text)] hover:text-[v-bind(color.textHover)];
+[Colony] {
+  @apply bg-linear-to-b from-[v-bind(color.bgDark)] to-[v-bind(color.bgDarker)];
+}
+
+[BetterBox] {
+  @apply w-1/3 flex flex-col justify-center text-center font-bold cursor-pointer border border-[v-bind(color.line)] rounded py-8 px-3 bg-[v-bind(color.bgDarker)] hover:bg-[v-bind(color.bgDarkest)];
+  box-shadow: inset 1px 1px 0 v-bind(color.lineShadow), 1px 1px 0 v-bind(color.lineShadow);
+}
+
+[NavigationLinks] {
+  @apply bg-[v-bind(color.bgDarker)] border-t border-[v-bind(color.line)] relative;
+  &::before {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-px bg-[v-bind(color.lineShadow)];
   }
 }
 
 [BottomBar] {
+  @apply bg-[v-bind(color.bgDarker)] border-t border-[v-bind(color.line)] relative;
+  &::before {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-px bg-[v-bind(color.lineShadow)];
+  }
   p, a {
     @apply text-[v-bind(color.text)];
   }
+}
+
+img.ConvertToArgonColor {
+  filter: brightness(0) saturate(100%)
+  invert(27%) sepia(87%) saturate(1516%) hue-rotate(264deg) brightness(84%) contrast(92%);
+}
+
+footer a {
+  @apply text-[v-bind(color.text)]! no-underline! hover:text-[v-bind(color.textHover)]!;
 }
 </style>

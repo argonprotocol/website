@@ -69,19 +69,6 @@
               MAINNET
             </span>
           </RouterLink>
-          <RouterLink
-              Button
-              to="/testnet"
-              class="flex flex-row items-center gap-2 text-base opacity-70"
-              :Selected="router.currentRoute.value.path.startsWith('/testnet') || undefined"
-          >
-            <div NetworkStatusWrapper Testnet class="w-4 h-4">
-              <div NetworkStatus />
-            </div>
-            <span class="opacity-80">
-              TESTNET
-            </span>
-          </RouterLink>
         </li>
         <li Button>
           <a href="https://discord.gg/xDwwDgCYr9" target="_blank">
@@ -96,7 +83,6 @@
       </ul>
     </div>
   </nav>
-  
 </template>
 
 <script setup lang="ts">
@@ -115,6 +101,7 @@ const props = withDefaults(
   },
 );
 
+const bgCharcoal = '#27232F';
 const color = {
   argon: {
     bgTransparent: 'rgba(120, 15, 133, 0)',
@@ -131,7 +118,7 @@ const color = {
   charcoal: {
     bgTransparent: 'rgba(120, 15, 133, 0)',
     bgHover: '#40384F',
-    bg: '#27232F',
+    bg: bgCharcoal,
     text: 'rgba(255, 255, 255, 0.8)',
     textHover: 'rgba(255, 255, 255, 1)',
     line: 'rgba(0, 0, 0, 1)',

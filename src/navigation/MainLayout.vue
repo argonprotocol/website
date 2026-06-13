@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, useAttrs } from 'vue';
+import * as Vue from 'vue';
 import { twMerge } from 'tailwind-merge';
 import TopBar from './TopBar.vue';
 import FooterBar from './FooterBar.vue';
@@ -20,12 +20,12 @@ const props = defineProps<{
   mode?: 'argon' | 'charcoal' | 'light';
 }>();
 
-const attrs = useAttrs();
+const attrs = Vue.useAttrs();
 
-const rootAttrs = computed(() => {
+const rootAttrs = Vue.computed(() => {
   const { class: _class, ...rest } = attrs;
   return rest;
 });
 
-const rootClass = computed(() => twMerge('flex flex-col min-h-screen pb-20', attrs.class as string));
+const rootClass = Vue.computed(() => twMerge('flex flex-col min-h-screen pb-20', attrs.class as string));
 </script>

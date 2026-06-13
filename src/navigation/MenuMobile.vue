@@ -30,41 +30,49 @@
         </div>
         <div class="flex flex-col items-stretch text-right px-5 space-y-2 divide-y divide-gray-200">
           <RouterLink
-              Button
-              to="/apps/operations"
-              class="text-base"
-              :Selected="router.currentRoute.value.path.startsWith('/apps/operations') || undefined"
+            Button
+            to="/apps/operations"
+            class="text-base"
+            :Selected="router.currentRoute.value.path.startsWith('/apps/operations') || undefined"
           >
             Operations
           </RouterLink>
           <RouterLink
-              Button
-              to="/apps/treasury"
-              class="text-base"
-              :Selected="router.currentRoute.value.path.startsWith('/apps/treasury') || undefined"
+            Button
+            to="/apps/treasury"
+            class="text-base"
+            :Selected="router.currentRoute.value.path.startsWith('/apps/treasury') || undefined"
           >
             Treasury
           </RouterLink>
           <RouterLink
-              Button
-              to="/launch-plan"
-              class="text-base"
-              :Selected="router.currentRoute.value.path.startsWith('/launch-plan') || undefined"
+            Button
+            to="/the-better-stablecoin"
+            class="text-base"
+            :Selected="router.currentRoute.value.path.startsWith('/the-better-stablecoin') || undefined"
+          >
+            Why It's Better
+          </RouterLink>
+          <RouterLink
+            Button
+            to="/launch-plan"
+            class="text-base"
+            :Selected="router.currentRoute.value.path.startsWith('/launch-plan') || undefined"
           >
             Launch Plan
           </RouterLink>
           <RouterLink
-              Button
-              to="/docs"
-              class="text-base"
-              :Selected="router.currentRoute.value.path.startsWith('/docs') || undefined"
+            Button
+            to="/docs"
+            class="text-base"
+            :Selected="router.currentRoute.value.path.startsWith('/docs') || undefined"
           >
             Docs
           </RouterLink>
           <RouterLink
-              Button
-              to="/testnet"
-              class="flex flex-row justify-end text-base items-center gap-2"
+            Button
+            to="/testnet"
+            class="flex flex-row justify-end text-base items-center gap-2"
           >
             <div class="rounded-full w-4 h-4 bg-[#8FFF23]/80 border border-black"></div>
             <span class="opacity-80">
@@ -72,9 +80,9 @@
             </span>
           </RouterLink>
           <RouterLink
-              Button
-              to="/mainnet"
-              class="flex flex-row justify-end text-base items-center gap-2"
+            Button
+            to="/mainnet"
+            class="flex flex-row justify-end text-base items-center gap-2"
           >
             <div class="LoadingPulse rounded-full w-4 h-4 bg-[#8FFF23] border border-black"></div>
             <span class="opacity-100">

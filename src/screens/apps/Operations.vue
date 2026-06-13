@@ -1,7 +1,7 @@
 <template>
   <MainLayout class="pb-0">
     <div class="flex flex-col pt-12 md:pt-22 min-h-[calc(100vh-69px)] text-slate-800 relative">
-      <div class="flex flex-col max-w-220 mx-auto pb-80 text-center">
+      <div class="flex flex-col max-w-220 mx-auto pb-120 text-center">
         <h1 class="text-argon-600/50 font-bold text-2xl tracking-widest uppercase font-serif">
           Operations App
         </h1>
@@ -26,11 +26,14 @@
             <ArrowDownIcon class="w-5" />
           </a>
         </div>
+        <div class="mt-5 text-md text-center w-full">
+          ( note: <router-link to="/apps" class="underline">you'll need an access code to use this app</router-link> )
+        </div>
       </div>
-      <img src="/app-operations.png" alt="Argon Operations App" class="absolute top-full -translate-y-60 w-8/12 left-1/2 -translate-x-1/2" />
+      <img src="/app-operations.png" alt="Argon Operations App" class="absolute top-full -translate-y-100 w-8/12 left-1/2 -translate-x-1/2" />
     </div>
 
-    <div class="w-full  bg-white border-t border-gray-600/50 relative z-10" style="box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.1);">
+    <div class="w-full  bg-linear-to-b from-white to-[var(--bg-color)] border-t border-gray-600/50 relative z-10" style="box-shadow: 0 -5px 5px rgba(0, 0, 0, 0.1);">
       <div class="max-w-220 mx-auto pt-12">
         <h3 class="font-bold mt-3 font-serif text-2xl">Basic System Requirements</h3>
         <p class="mt-3 mb-3">The computing needs for Argon is minimal. Any modern laptop running a major OS should suffice.</p>

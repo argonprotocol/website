@@ -64,6 +64,11 @@
     transform-origin: center bottom;
 }
 
+.pulse-once-big {
+    animation: pulse-once-big 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    transform-origin: center bottom;
+}
+
 @keyframes pulse-item {
     0%,
     60%,
@@ -77,9 +82,49 @@
     }
 }
 
+@keyframes pulse-once-big {
+    0% {
+        opacity: 1;
+        scale: 1;
+    }
+    45% {
+        opacity: 0.96;
+        scale: 1.08;
+    }
+    72% {
+        scale: 0.995;
+    }
+    100% {
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+.overlay-pop {
+    animation: overlay-pop 360ms cubic-bezier(0.2, 1.35, 0.35, 1) both;
+}
+
+@keyframes overlay-pop {
+    0% {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+
+    70% {
+        opacity: 1;
+        transform: scale(1.018);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 :root {
   --bg-transparent: rgba(249, 242, 250, 0);
   --bg-color: rgb(249, 242, 250);
+  --bg-charcoal: #27232F;
 }
 
 body {

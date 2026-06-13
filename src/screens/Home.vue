@@ -1,9 +1,9 @@
 <template>
   <div class="Home Screen bg-[#670973] relative">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_90%_55%_at_50%_-5%,#8a1a9e_0%,transparent_65%)]" />
+    <div class="absolute top-0 left-0 w-full h-screen bg-[radial-gradient(ellipse_90%_55%_at_50%_-5%,#8a1a9e_0%,transparent_65%)]" />
     <TopBar class="relative z-10" mode="argon" />
 
-    <main class="flex flex-col items-start min-h-screen border-b border-argon-800">
+    <main class="flex flex-col items-start min-h-screen border-b border-argon-800 relative z-10">
 
       <div class="flex flex-row grow w-full overflow-hidden">
         <div class="flex flex-col px-20 pt-20 pb-24 relative">
@@ -14,7 +14,7 @@
           <div class="flex flex-col gap-y-10 mt-10 text-2xl md:text-6xl font-serif leading-tight">
             <router-link to="/docs/economic-pillars/protected-from-inflation" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit hover:text-white">
               IT'S PROTECTED FROM<br />
-              <span>THE DOLLAR'S INFLATION RISK</span>,
+              <span>INFLATION OF THE DOLLAR</span>,
             </router-link>
 
             <router-link to="docs/economic-pillars/insulated-from-fiat-money" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit hover:text-white">
@@ -23,21 +23,29 @@
             </router-link>
 
             <router-link to="docs/economic-pillars/resistant-to-death-spirals" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit hover:text-white">
-              AND RESISTANT TO<br />
+              AND IMMUNE TO<br />
               <span>CRYPTO DEATH SPIRALS</span>.
             </router-link>
           </div>
         </div>
-        <div class="grow flex flex-col relative items-end">
-          <img src="/colony.png" class="absolute -top-10 left-[-60%] h-[calc(100%+100px)] w-auto max-w-none opacity-30 pointer-events-none" />
-
-          <div class="z-10 absolute top-18 right-20 bg-[#9317A3] border-8 border-[#7B128B]  rounded-full text-white/90  w-fit">
-            <router-link to="/the-better-stablecoin" class="flex flex-row items-center border border-argon-900 cursor-pointer rounded-full hover:text-white pr-5 group hover:bg-argon-700/50">
-              <div class="bg-[#BD19D2] group-hover:bg-argon-500/80 rounded-l-full border border-[#9317A3] pl-4 pr-3 py-2 text-lg font-bold">NEW</div>
-              <div class="pl-4 pr-2 text-xl whitespace-nowrap ">
-                Three Reasons Why Argon Is Better
+        <div class="grow flex flex-col">
+          <div class="grow overflow-hidden w-full relative -left-5">
+            <DottedGlobe
+                :dot-size="4"
+                :rotation-speed="0.005"
+                :pulse-interval="2600"
+                class="absolute top-16 right-0 w-[720px] pointer-events-none"
+            />
+          </div>
+          <div class="h-39 flex flex-col items-end">
+            <div class="mt-1 h-px w-full bg-linear-to-r from-transparent via-20% via-argon-900 to-argon-900" />
+            <div class="h-px w-full bg-linear-to-r from-transparent via-20% via-white/20 to-white/20" />
+            <router-link to="/the-better-stablecoin" class="flex flex-row items-center cursor-pointer group text-white mt-2 mr-20">
+              <div class="bg-argon-800/70 text-argon-100 group-hover:text-white rounded-full border border-argon-900 pl-4 pr-3 py-0.5 font-bold">NEW</div>
+              <div class="ml-3 mr-2 text-2xl whitespace-nowrap text-argon-100 group-hover:text-white">
+                Three Core Reasons Why Argon Is Better
               </div>
-              <ArrowLongRightIcon class="h-10" />
+              <ArrowLongRightIcon class="h-10 text-argon-100 group-hover:text-white" />
             </router-link>
           </div>
         </div>
@@ -52,7 +60,7 @@
             centralized dependencies, meaning it can outlast any nation state or world calamity.
           </p>
           <div class="grow flex md:flex-col flex-row gap-x-16 gap-y-4 md:ml-10 pl-20 pt-3 text-white/80 font-bold text-xl text-center">
-            <RouterLink to="/launch-plan" class="flex flex-row items-center justify-center whitespace-nowrap grow bg-argon-500 border border-argon-700 rounded-xl md:px-32 py-4 hover:bg-argon-500/70 hover:text-white font-bold" style="box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.3), 1px 1px 3px rgba(0, 0, 0, 0.3)">
+            <RouterLink to="/apps" class="flex flex-row items-center justify-center whitespace-nowrap grow bg-argon-500 border border-argon-700 rounded-xl md:px-32 py-4 hover:bg-argon-500/70 hover:text-white font-bold" style="box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.3), 1px 1px 3px rgba(0, 0, 0, 0.3)">
               Get Started
               <ChevronDoubleRightIcon class="w-5 ml-2 inline-block" />
             </RouterLink>
@@ -293,11 +301,11 @@
 
     <section HelpUsBootstrap class="text-white">
       <h3 class="text-argon-100/70 font-bold text-xl pt-16 px-10 md:px-auto tracking-widest font-serif text-center">
-        TRILLION DOLLAR STABLECOIN
+        LAUNCH PLAN
       </h3>
-      <header class="font-serif mt-5 text-7xl leading-tight text-white text-center">
-        <span class="text-6xl">JOIN US ON THE ADVENTURE TO</span><br />
-        <span class="">REMAKE GLOBAL CURRENCY</span>
+      <header class="font-serif mt-5 text-6xl leading-tight text-white text-center uppercase">
+        <span class="text-6xl">Argon's Path to Becoming a</span><br />
+        <span>Global Transactional Currency</span>
       </header>
 
       <div class="flex flex-col gap-5 w-8/12 mx-auto text-xl mt-12 font-light">
@@ -335,7 +343,7 @@
 
     </section>
 
-    <FooterBar :darkMode="true" />
+    <FooterBar mode="argon" />
   </div>
 </template>
 
@@ -359,18 +367,13 @@ import CardanoIcon from '../assets/chains/cardano.svg?component';
 import PolkadotIcon from '../assets/chains/polkadot.svg?component';
 import GnosisIcon from '../assets/chains/gnosis.svg?component';
 import BnbChainIcon from '../assets/chains/bnbchain.svg?component';
-import ChatgptIcon from '../assets/aimodels/chatgpt.svg?component';
-import ClaudeIcon from '../assets/aimodels/claude.svg?component';
-import GeminiIcon from '../assets/aimodels/gemini.svg?component';
-import GrokIcon from '../assets/aimodels/grok.svg?component';
-import LlamaIcon from '../assets/aimodels/llama.svg?component';
-import MinstralIcon from '../assets/aimodels/minstral.svg?component';
 import ArgonLogo from '../assets/logo.svg?component';
 import ArgonotLogo from '../assets/argonot.svg?component';
 import FooterBar from '../navigation/FooterBar.vue';
 import TopBar from '../navigation/TopBar.vue';
 import numeral, { microgonToArgonNm } from '@/lib/numeral';
 import Data from "@/lib/Data";
+import DottedGlobe from "@/components/DottedGlobe.vue";
 import { Download } from '@/lib/Download';
 
 const download = new Download();
