@@ -94,17 +94,17 @@
 <!--    </main>-->
       
     <section class="relative flex flex-col bg-white items-justify justify-center w-full cursor-default text-center border-b border-argon-600/30 shadow-md">
-      <h3 class="text-argon-600/60 font-bold text-xl pt-24 px-10 md:px-auto tracking-widest font-serif">
+      <h3 class="text-argon-600/60 font-bold text-base pt-14 px-5 tracking-widest font-serif md:text-lg md:pt-20 lg:text-xl lg:pt-24">
         DECENTRALIZED & DEMOCRATIZED
       </h3>
-      <header class="text-6xl font-serif mt-5 leading-tight">
+      <header class="text-3xl font-serif mt-4 leading-tight px-5 md:text-5xl lg:text-[3.25rem] xl:text-6xl">
         ARGON MINING REQUIRES<br />
         LITTLE MORE THAN A LAPTOP
       </header>
 
       <div
         ref="appSliderEl"
-        class="AppPreviewSlider relative opacity-70 w-10/12 h-100 max-w-260 mx-auto mt-12 overflow-hidden touch-none select-none"
+        class="AppPreviewSlider relative opacity-70 w-10/12 aspect-[16/10] max-h-100 max-w-260 mx-auto mt-8 overflow-hidden touch-none select-none md:mt-10 lg:mt-12"
         :class="{ 'is-dragging': isAppSliderDragging }"
         role="slider"
         aria-label="Compare Operations and Treasury app previews"
@@ -118,12 +118,12 @@
         @keydown.home.prevent="setAppSliderPercent(0)"
         @keydown.end.prevent="setAppSliderPercent(100)"
       >
-        <img src="/app-treasury.png" alt="Argon Treasury App" class="w-full -mb-20 object-cover object-top pointer-events-none" draggable="false" />
+        <img src="/app-treasury.png" alt="Argon Treasury App" class="w-full h-full object-cover object-top pointer-events-none" draggable="false" />
         <div
           class="absolute inset-0 pointer-events-none"
           :style="{ clipPath: `inset(0 ${100 - activeSliderPercent}% 0 0)` }"
         >
-          <img src="/app-operations.png" alt="Argon Operations App" class="w-full -mb-20 object-cover object-top" draggable="false" />
+          <img src="/app-operations.png" alt="Argon Operations App" class="w-full h-full object-cover object-top" draggable="false" />
         </div>
         <div
           class="AppPreviewSlider__divider absolute top-1 bottom-0 pointer-events-none"
@@ -138,34 +138,34 @@
       </div>
 
       <div class="flex flex-col items-center w-10/12 max-w-260 mx-auto md:mt-0 px-2.5">
-        <div class="flex flex-row gap-x-4 w-full">
+        <div class="flex flex-col gap-3 w-full md:flex-row md:gap-x-4">
           <a
               :href="stableUrl"
-              class="w-1/2 flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-lg md:text-2xl px-2 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap"
+              class="w-full flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-lg text-base px-2 py-3 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap md:w-1/2 md:py-4 md:text-xl xl:py-5 xl:text-2xl"
               style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
               @mouseenter="previewApp('operations')"
               @mouseleave="clearAppPreview"
               @focus="previewApp('operations')"
               @blur="clearAppPreview"
           >
-            <ArgonotLogo class="w-10 h-10 relative -top-0.5 inline-block" />
+            <ArgonotLogo class="w-8 h-8 relative -top-0.5 inline-block md:w-10 md:h-10" />
             <span>Download Operations</span>
           </a>
           <a
             :href="stableUrl"
-            class="w-1/2 flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-lg md:text-2xl px-2 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap"
+            class="w-full flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-lg text-base px-2 py-3 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap md:w-1/2 md:py-4 md:text-xl xl:py-5 xl:text-2xl"
             style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
             @mouseenter="previewApp('treasury')"
             @mouseleave="clearAppPreview"
             @focus="previewApp('treasury')"
             @blur="clearAppPreview"
           >
-            <ArgonLogo class="w-10 h-10 relative inline-block" />
+            <ArgonLogo class="w-8 h-8 relative inline-block md:w-10 md:h-10" />
             <span>Download Treasury</span>
           </a>
         </div>
 
-        <p class="text-base md:text-xl text-justify opacity-70 mt-10 md:mt-16 leading-relaxed">
+        <p class="text-base md:text-lg xl:text-xl text-left md:text-justify opacity-70 mt-8 md:mt-12 xl:mt-16 leading-relaxed">
           Unlike most crypto networks, you can become a key player in Argon’s ecosystem without needing millions of
           dollars and complex systems. The Operations app makes it easy to start mining and vaulting without the need
           for expensive ASIC mining rigs or specialized cloud machines. The Treasury app gives you full access to all of
@@ -173,40 +173,40 @@
         </p>
       </div>
 
-      <div class="w-[calc(75%-48px)] mx-auto h-px mt-18 bg-argon-400/20" />
+      <div class="w-10/12 max-w-360 mx-auto h-px mt-10 bg-argon-400/20 md:mt-14 xl:mt-18" />
 
-      <div class="grid md:grid-cols-3 w-[75%] mx-auto text-center py-6 divide-x divide-argon-400/20 text-slate-400/80">
+      <div class="grid grid-cols-2 md:grid-cols-3 w-10/12 max-w-360 mx-auto text-center py-4 divide-argon-400/20 text-slate-400/80 md:divide-x md:py-6">
         <div as="div" to="/learn/mining-metrics/current-mining-apy" class="hover:text-argon-600/70 py-5">
-          <div class="text-6xl font-bold">100</div>
+          <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">100</div>
           <div class="mt-2 font-light">Active Mining Seats</div>
         </div>
         <div as="div" to="/learn/vaulting-metrics/active-vaults" class="hover:text-argon-600/70 py-5">
-          <div class="text-6xl font-bold">{{ data.vaulting.count }}</div>
+          <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">{{ data.vaulting.count }}</div>
           <div class="mt-2 font-light">Active Vaults</div>
         </div>
-        <div as="div" to="/learn/vaulting-metrics/current-vaulting-apy" class="hover:text-argon-600/70 py-5">
-          <div class="text-6xl font-bold">{{ numeral(data.vaulting.activeAPY).formatCapped('0,0', 9_999) }}%</div>
+        <div as="div" to="/learn/vaulting-metrics/current-vaulting-apy" class="hidden hover:text-argon-600/70 py-5 md:block">
+          <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">{{ numeral(data.vaulting.activeAPY).formatCapped('0,0', 9_999) }}%</div>
           <div class="mt-2 font-light">Active Bitcoin Txns</div>
         </div>
       </div>
 
-      <div class="mx-12 h-px bg-argon-400/20" />
+      <div class="w-10/12 max-w-360 mx-auto h-px bg-argon-400/20" />
 
-      <div class="grid md:grid-cols-4 w-full text-center py-6 divide-x divide-argon-400/20 text-slate-400/80">
+      <div class="grid grid-cols-2 md:grid-cols-4 w-10/12 max-w-360 mx-auto text-center py-4 divide-argon-400/20 text-slate-400/80 md:divide-x md:py-6">
         <div as="div" to="/learn/mining-metrics/active-mining-seats" class="hover:text-argon-600/70 py-5">
-          <div class="text-6xl font-bold">{{ data.mining.activeSeatCount }}</div>
+          <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">{{ data.mining.activeSeatCount }}</div>
           <div class="mt-2 font-light">Mining APY</div>
         </div>
         <div as="div" to="/learn/mining-metrics/current-mining-apy" class="hover:text-argon-600/70 py-5">
-          <div class="text-6xl font-bold">{{ numeral(data.mining.activeAPY).formatCapped('0,0', 9_999) }}%</div>
+          <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">{{ numeral(data.mining.activeAPY).formatCapped('0,0', 9_999) }}%</div>
           <div class="mt-2 font-light">Treasury APY</div>
         </div>
-        <div as="div" to="/learn/vaulting-metrics/active-vaults" class="hover:text-argon-600/70 py-5">
-          <div class="text-6xl font-bold">{{ data.vaulting.count }}%</div>
+        <div as="div" to="/learn/vaulting-metrics/active-vaults" class="border-t border-argon-400/20 hover:text-argon-600/70 py-5 md:border-t-0">
+          <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">{{ data.vaulting.count }}%</div>
           <div class="mt-2 font-light">Vaulting APY</div>
         </div>
-        <div as="div" to="/learn/vaulting-metrics/current-vaulting-apy" class="hover:text-argon-600/70 py-5">
-          <div class="text-6xl font-bold">{{ numeral(data.vaulting.activeAPY).formatCapped('0,0', 9_999) }}%</div>
+        <div as="div" to="/learn/vaulting-metrics/current-vaulting-apy" class="border-t border-argon-400/20 hover:text-argon-600/70 py-5 md:border-t-0">
+          <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">{{ numeral(data.vaulting.activeAPY).formatCapped('0,0', 9_999) }}%</div>
           <div class="mt-2 font-light">Bitcoin APY</div>
         </div>
       </div>
