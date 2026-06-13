@@ -2,45 +2,45 @@
   <footer class="w-full relative z-100">
 
     <div Colony class="relative">
-      <div class="flex flex-row justify-end relative w-full">
-        <div to="/" class="absolute flex flex-col justify-center left-20 top-2/12">
+      <div class="relative flex min-h-72 w-full justify-end overflow-hidden md:min-h-80 xl:min-h-0">
+        <div class="relative z-10 flex w-full flex-col justify-center px-5 py-10 md:px-10 xl:absolute xl:left-20 xl:top-2/12 xl:w-auto xl:px-0 xl:py-0">
           <router-link to="/" class="w-fit">
             <div>
-              <ArgonOutline class="w-[50%] mb-6" />
+              <ArgonOutline class="mb-4 w-32 md:w-44 xl:mb-6 xl:w-[50%]" />
             </div>
-            <div class="flex flex-col font-serif text-6xl leading-tight">
+            <div class="flex flex-col font-serif text-3xl leading-tight md:text-5xl xl:text-6xl">
               <span>The Stablecoin</span>
               <span>Built to Last for a</span>
               <span>Thousand Years.</span>
             </div>
           </router-link>
         </div>
-        <img src="/cityscape-clean.png" class="relative w-[80%] pointer-events-none" :class="[props.mode === 'light' ? 'ConvertToArgonColor opacity-20' : 'opacity-20']">
+        <img src="/cityscape-clean.png" class="absolute inset-y-0 right-0 h-full w-full object-cover object-right pointer-events-none xl:relative xl:h-auto xl:w-[80%]" :class="[props.mode === 'light' ? 'ConvertToArgonColor opacity-20' : 'opacity-20']">
       </div>
     </div>
 
-    <div NavigationLinks class="flex flex-row px-20 py-10 text-lg">
-      <div class="grow flex flex-col gap-y-2">
+    <div NavigationLinks class="grid grid-cols-1 gap-x-8 gap-y-8 px-5 py-10 text-base md:grid-cols-2 md:px-10 md:text-lg lg:flex lg:flex-row lg:px-20">
+      <div class="flex flex-col gap-y-2 lg:grow">
         <div class="font-bold">Economic Pillars</div>
         <router-link to="/docs/economic-pillars/protected-from-inflation">Protected from Inflation</router-link>
         <router-link to="/docs/economic-pillars/insulated-from-fiat-money">Insulated from Fiat Collapse</router-link>
         <router-link to="/docs/economic-pillars/resistant-to-death-spirals">Immune from Death Spirals</router-link>
       </div>
-      <div class="grow flex flex-col gap-y-2">
+      <div class="flex flex-col gap-y-2 lg:grow">
         <div class="font-bold">The Desktop Apps</div>
         <router-link to="/apps/treasury">Argon Treasury</router-link>
         <router-link to="/apps/operations">Argon Operations</router-link>
       </div>
-      <div class="grow flex flex-col gap-y-2">
+      <div class="flex flex-col gap-y-2 lg:grow">
         <div class="font-bold">More Information</div>
         <router-link to="/the-better-stablecoin">Why It's Better</router-link>
         <router-link to="/launch-plan">Launch Plan</router-link>
         <router-link to="/docs">Documentation</router-link>
       </div>
-      <div class="grow text-right flex flex-col justify-center text-xl font-light">
-        <div class="flex flex-col opacity-80 leading-normal">
-          <span>Join Us In Creating the World’s</span>
-          <span>First Transactional Currency</span>
+      <div class="flex max-w-sm flex-col justify-center text-left text-base font-light md:text-lg lg:max-w-72 lg:grow lg:text-right xl:max-w-none">
+        <div class="opacity-80 leading-normal xl:flex xl:flex-col">
+          <span>Join Us In Creating the World’s </span>
+          <span>First Transactional Currency </span>
           <span>That Remains Stable Over Time</span>
         </div>
         <router-link to="/apps" class="font-bold mt-2">Get Started -></router-link>
