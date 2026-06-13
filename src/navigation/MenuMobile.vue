@@ -3,7 +3,7 @@
     <RouterLink
       Button
       to="/mainnet"
-      class="MobileMenuNetworkButton"
+      class="MobileMenuNetworkButton text-current"
       :Selected="router.currentRoute.value.path.startsWith('/mainnet') || undefined"
     >
       <div class="LoadingPulse rounded-full w-4 h-4 border border-black"></div>
@@ -28,7 +28,7 @@
             <RouterLink
               Button
               to="/mainnet"
-              class="MobileMenuNetworkButton"
+              class="MobileMenuNetworkButton MobileMenuNetworkButton--open text-current"
               :Selected="router.currentRoute.value.path.startsWith('/mainnet') || undefined"
             >
               <div class="LoadingPulse rounded-full w-4 h-4 border border-black"></div>
@@ -123,13 +123,18 @@
 import * as Vue from "vue";
 import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/solid";
 import router from "@/router";
-import DiscordIcon from "@/assets/discord.svg";
-import GithubIcon from "@/assets/github.svg";
 import Logo from "@/assets/logo.svg";
 
 const props = withDefaults(
   defineProps<{
     mode?: 'argon' | 'charcoal' | 'light';
+    color?: {
+      bgHover: string;
+      text: string;
+      textHover: string;
+      statusLightest: string;
+      statusDarkest: string;
+    };
   }>(),
   {
     mode: 'light',
@@ -139,20 +144,33 @@ const props = withDefaults(
 const color = {
   argon: {
     bgHover: '#53085d',
+    text: 'rgba(255, 255, 255, 0.8)',
+    textHover: 'rgba(255, 255, 255, 1)',
     statusLightest: `rgba(255, 255, 255, 0.3)`,
     statusDarkest: `rgba(255, 255, 255, 0.5)`,
   },
   charcoal: {
     bgHover: '#40384F',
+    text: 'rgba(255, 255, 255, 0.8)',
+    textHover: 'rgba(255, 255, 255, 1)',
     statusLightest: `rgba(255, 255, 255, 0.3)`,
     statusDarkest: `rgba(255, 255, 255, 0.5)`,
   },
   light: {
     bgHover: '#e9e2ea',
+    text: '#780F85',
+    textHover: '#53085d',
     statusLightest: 'oklch(0.41 0.2 320)',
     statusDarkest: 'oklch(0.55 0.28 320)',
   },
 }[props.mode];
+
+const menuColor = Vue.computed(() => props.color ?? color);
+const bgHover = Vue.computed(() => menuColor.value.bgHover);
+const text = Vue.computed(() => menuColor.value.text);
+const textHover = Vue.computed(() => menuColor.value.textHover);
+const statusLightest = Vue.computed(() => menuColor.value.statusLightest);
+const statusDarkest = Vue.computed(() => menuColor.value.statusDarkest);
 
 const isOpen = Vue.ref(false);
 
@@ -182,19 +200,29 @@ function toggleMenu() {
 }
 
 .MobileMenuIconButton:hover {
-  background-color: v-bind('color.bgHover');
+  background-color: v-bind(bgHover);
 }
 
 .MobileMenuNetworkButton {
   @apply flex h-10 items-center justify-center gap-2 rounded-lg px-2 no-underline! cursor-pointer;
+  color: v-bind(text);
 }
 
 .MobileMenuNetworkButton:hover {
-  background-color: v-bind('color.bgHover');
+  background-color: v-bind(bgHover);
+  color: v-bind(textHover);
+}
+
+.MobileMenuNetworkButton--open {
+  @apply text-argon-800/80;
+}
+
+.MobileMenuNetworkButton--open:hover {
+  @apply bg-argon-50/80 text-argon-700;
 }
 
 .LoadingPulse {
-  background-color: v-bind('color.statusDarkest');
+  background-color: v-bind(statusDarkest);
   animation: pulse-mobile-network-status 1.5s ease-in-out infinite;
   transform-origin: center bottom;
 }
@@ -202,10 +230,10 @@ function toggleMenu() {
 @keyframes pulse-mobile-network-status {
   0%,
   100% {
-    background: v-bind('color.statusDarkest');
+    background: v-bind(statusDarkest);
   }
   50% {
-    background: v-bind('color.statusLightest');
+    background: v-bind(statusLightest);
   }
 }
 </style>

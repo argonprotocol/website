@@ -52,7 +52,7 @@
         </RouterLink>
       </ul>
       <div class="grow relative"></div>
-      <MenuMobile class="lg:hidden" :mode="props.mode" />
+      <MenuMobile class="lg:hidden" :mode="props.mode" :color="color" />
       <ul class="hidden lg:flex flex-row items-center">
         <li class="whitespace-nowrap text-sm md:text-base flex flex-row justify-end gap-0 md:gap-2 cursor-default">
           <div class="opacity-80 hidden py-1 xl:block">Live On</div>

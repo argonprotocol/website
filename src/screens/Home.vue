@@ -3,93 +3,95 @@
     <div class="absolute top-0 left-0 w-full h-screen bg-[radial-gradient(ellipse_90%_55%_at_50%_-5%,#8a1a9e_0%,transparent_65%)]" />
     <TopBar class="relative z-10" mode="argon" />
 
-    <main class="flex flex-col items-start min-h-screen border-b border-argon-800 relative z-10">
+<!--    <main class="flex flex-col items-start min-h-screen border-b border-argon-800 relative z-10">-->
 
-      <div class="flex flex-row grow w-full overflow-hidden">
-        <div class="flex flex-col px-20 pt-20 pb-24 relative">
-          <router-link as="h1" to="/the-better-stablecoin" class="text-argon-100 opacity-80 text-shadow-sm text-shadow-argon-800 font-light text-lg md:text-3xl tracking-widest uppercase font-serif hover:text-white/90">
-            THE BETTER STABLECOIN
-          </router-link>
+<!--      <div class="grid w-full overflow-hidden lg:grow lg:grid-cols-[minmax(0,50%)_minmax(0,1fr)] lg:grid-rows-[1fr_auto_auto_1fr_auto]">-->
+<!--        <router-link as="h1" to="/the-better-stablecoin" class="order-1 px-5 pt-10 text-center text-argon-100 opacity-80 text-shadow-sm text-shadow-argon-800 font-light text-lg tracking-widest uppercase font-serif hover:text-white/90 md:text-3xl lg:col-start-1 lg:row-start-2 lg:px-10 lg:pt-0 lg:text-left xl:px-14 2xl:px-20">-->
+<!--          THE BETTER STABLECOIN-->
+<!--        </router-link>-->
 
-          <div class="flex flex-col gap-y-10 mt-10 text-2xl md:text-6xl font-serif leading-tight">
-            <router-link to="/docs/economic-pillars/protected-from-inflation" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit hover:text-white">
-              IT'S PROTECTED FROM<br />
-              <span>INFLATION OF THE DOLLAR</span>,
-            </router-link>
+<!--        <div class="order-2 h-80 overflow-hidden w-full relative pointer-events-none md:h-96 lg:col-start-2 lg:row-start-1 lg:row-span-4 lg:h-auto lg:min-h-[620px] lg:-left-5 xl:min-h-[700px] 2xl:min-h-[900px]">-->
+<!--          <DottedGlobe-->
+<!--              :dot-size="4"-->
+<!--              :rotation-speed="0.005"-->
+<!--              :pulse-interval="2600"-->
+<!--              class="absolute top-8 left-1/2 w-80 max-w-[85vw] -translate-x-1/2 pointer-events-none md:top-5 md:w-96 lg:top-12 lg:right-0 lg:left-auto lg:w-[520px] lg:max-w-none lg:translate-x-0 xl:top-14 xl:w-[620px] 2xl:top-16 2xl:w-[720px]"-->
+<!--          />-->
+<!--        </div>-->
 
-            <router-link to="docs/economic-pillars/insulated-from-fiat-money" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit hover:text-white">
-              INSULATED FROM THE<br />
-              <span>COLLAPSE OF FIAT-MONEY</span>,
-            </router-link>
+<!--        <div class="order-3 flex flex-col px-5 pt-8 pb-10 text-center relative md:px-10 lg:col-start-1 lg:row-start-3 lg:px-10 lg:pt-8 lg:pb-0 lg:text-left xl:px-14 xl:pt-10 2xl:px-20">-->
+<!--          <div class="flex flex-col gap-y-6 text-2xl font-serif leading-tight md:text-4xl lg:gap-y-7 lg:text-4xl xl:gap-y-8 xl:text-[2.75rem] 2xl:gap-y-10 2xl:text-6xl">-->
+<!--            <router-link to="/docs/economic-pillars/protected-from-inflation" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit mx-auto hover:text-white lg:mx-0">-->
+<!--              IT'S PROTECTED FROM<br />-->
+<!--              <span>INFLATION OF THE DOLLAR</span>,-->
+<!--            </router-link>-->
 
-            <router-link to="docs/economic-pillars/resistant-to-death-spirals" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit hover:text-white">
-              AND IMMUNE TO<br />
-              <span>CRYPTO DEATH SPIRALS</span>.
-            </router-link>
-          </div>
-        </div>
-        <div class="grow flex flex-col">
-          <div class="grow overflow-hidden w-full relative -left-5">
-            <DottedGlobe
-                :dot-size="4"
-                :rotation-speed="0.005"
-                :pulse-interval="2600"
-                class="absolute top-16 right-0 w-[720px] pointer-events-none"
-            />
-          </div>
-          <div class="h-39 flex flex-col items-end">
-            <div class="mt-1 h-px w-full bg-linear-to-r from-transparent via-20% via-argon-900 to-argon-900" />
-            <div class="h-px w-full bg-linear-to-r from-transparent via-20% via-white/20 to-white/20" />
-            <router-link to="/the-better-stablecoin" class="flex flex-row items-center cursor-pointer group text-white mt-2 mr-20">
-              <div class="bg-argon-800/70 text-argon-100 group-hover:text-white rounded-full border border-argon-900 pl-4 pr-3 py-0.5 font-bold">NEW</div>
-              <div class="ml-3 mr-2 text-2xl whitespace-nowrap text-argon-100 group-hover:text-white">
-                Three Core Reasons Why Argon Is Better
-              </div>
-              <ArrowLongRightIcon class="h-10 text-argon-100 group-hover:text-white" />
-            </router-link>
-          </div>
-        </div>
-      </div>
+<!--            <router-link to="docs/economic-pillars/insulated-from-fiat-money" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit mx-auto hover:text-white lg:mx-0">-->
+<!--              INSULATED FROM THE<br />-->
+<!--              <span>COLLAPSE OF FIAT-MONEY</span>,-->
+<!--            </router-link>-->
 
-      <div class="flex flex-col relative px-20 py-16 bg-[#5B0968] border-t border-argon-900" style="box-shadow: inset 0 1px 0 0 rgba(255,255,255, 0.2);">
-        <div class="flex flex-row items-start">
-          <p class="text-argon-100/80 argon-dark-text-shadow font-light w-10/12 md:w-7/12 text-lg md:text-lg lg:text-2xl leading-relaxed">
-            Argon uses Bitcoin’s pricing volatility to create a new type of decentralized stabilization mechanism.
-            Unlike fiat or fiat-pegged stablecoins, Argon will never lose value. It has the same purchasing power
-            today as it will a hundred years from now. And it has zero
-            centralized dependencies, meaning it can outlast any nation state or world calamity.
-          </p>
-          <div class="grow flex md:flex-col flex-row gap-x-16 gap-y-4 md:ml-10 pl-20 pt-3 text-white/80 font-bold text-xl text-center">
-            <RouterLink to="/apps" class="flex flex-row items-center justify-center whitespace-nowrap grow bg-argon-500 border border-argon-700 rounded-xl md:px-32 py-4 hover:bg-argon-500/70 hover:text-white font-bold" style="box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.3), 1px 1px 3px rgba(0, 0, 0, 0.3)">
-              Get Started
-              <ChevronDoubleRightIcon class="w-5 ml-2 inline-block" />
-            </RouterLink>
-            <RouterLink to="/apps" class="whitespace-nowrap grow border border-argon-200/50 rounded-xl md:px-32 py-4 hover:bg-argon-500/20 hover:text-white font-bold">
-              Documentation
-            </RouterLink>
-          </div>
-        </div>
-      </div>
+<!--            <router-link to="docs/economic-pillars/resistant-to-death-spirals" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit mx-auto hover:text-white lg:mx-0">-->
+<!--              AND IMMUNE TO<br />-->
+<!--              <span>CRYPTO DEATH SPIRALS</span>.-->
+<!--            </router-link>-->
+<!--          </div>-->
+<!--        </div>-->
 
-      <div class="flex flex-col relative w-full bg-[#5B0968] border-t border-argon-900" style="box-shadow: inset 0 1px 0 0 rgba(255,255,255, 0.2);">
-        <div class="relative flex flex-col md:flex-row items-stretch whitespace-nowrap w-full text-white/80 py-3 text-center">
-          <div as="div" to="/learn/currency-metrics/argons-in-circulation" class="md:w-1/3 py-10 hover:bg-black/10 hover:text-white">
-            <div class="text-4xl lg:text-6xl font-bold">{{ microgonToArgonNm(data.microgonsInCirculation).format('0,0') }}</div>
-            <div class="mt-2 font-light">Argon Circulation</div>
-          </div>
-          <div class="DIVIDER-VERTICAL !h-auto self-stretch mx-3 hidden md:block"></div>
-          <div as="div" to="/learn/currency-metrics/argon-to-fiat-exchange-rate" class="md:w-1/3 py-10 hover:bg-black/10 hover:text-white">
-            <div class="text-4xl lg:text-6xl font-bold">₳1.00 -> ${{ data.usdForArgon ? numeral(data.usdForArgon).format('0.00') : '-.--' }}</div>
-            <div class="mt-2 font-light">Argon-to-Dollar Exchange Rate</div>
-          </div>
-          <div class="DIVIDER-VERTICAL !h-auto self-stretch mx-3 hidden md:block"></div>
-          <div as="div" to="/learn/currency-metrics/bitcoin-to-argon-short-value" class="md:w-1/3 py-10 hover:bg-black/10 hover:text-white">
-            <div class="flex flex-row items-center justify-center text-6xl gap-x-3 lg:text-6xl font-bold">43.6 <span class="text-4xl font-semibold">TO</span> 1</div>
-            <div class="mt-2 font-light">Restabilization Leverage</div>
-          </div>
-        </div>
-      </div>
-    </main>
+<!--        <div class="relative z-10 order-4 mx-5 mb-8 flex flex-col items-stretch md:mx-10 lg:col-start-2 lg:row-start-5 lg:mx-0 lg:mb-0 lg:h-32 lg:items-end lg:pr-5 xl:h-36 2xl:-mt-40 2xl:h-39 2xl:pr-10">-->
+<!--          <div class="hidden w-full lg:block">-->
+<!--            <div class="mt-1 h-px w-full bg-linear-to-r from-transparent via-20% via-argon-900 to-argon-900" />-->
+<!--            <div class="h-px w-full bg-linear-to-r from-transparent via-20% via-white/20 to-white/20" />-->
+<!--          </div>-->
+<!--          <router-link to="/the-better-stablecoin" class="flex flex-row items-center justify-center cursor-pointer group text-white lg:mt-2 lg:justify-start 2xl:mt-6">-->
+<!--            <div class="bg-argon-800/70 text-argon-100 group-hover:text-white rounded-full border border-argon-900 pl-4 pr-3 py-0.5 font-bold">NEW</div>-->
+<!--            <div class="ml-3 mr-2 text-base text-argon-100 group-hover:text-white lg:text-xl lg:whitespace-nowrap 2xl:text-2xl">-->
+<!--              Three Core Reasons Why Argon Is Better-->
+<!--            </div>-->
+<!--            <ArrowLongRightIcon class="h-8 shrink-0 text-argon-100 group-hover:text-white lg:h-10" />-->
+<!--          </router-link>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="flex flex-col relative px-5 py-8 bg-[#5B0968] border-t border-argon-900 md:px-10 lg:px-20 lg:py-16" style="box-shadow: inset 0 1px 0 0 rgba(255,255,255, 0.2);">-->
+<!--        <div class="flex flex-col items-stretch lg:flex-row lg:items-start">-->
+<!--          <p class="text-argon-100/80 argon-dark-text-shadow font-light w-full text-base leading-relaxed md:text-lg lg:w-7/12 lg:text-2xl">-->
+<!--            Argon uses Bitcoin’s pricing volatility to create a new type of decentralized stabilization mechanism.-->
+<!--            Unlike fiat or fiat-pegged stablecoins, Argon will never lose value. It has the same purchasing power-->
+<!--            today as it will a hundred years from now. And it has zero-->
+<!--            centralized dependencies, meaning it can outlast any nation state or world calamity.-->
+<!--          </p>-->
+<!--          <div class="grow flex flex-col gap-y-4 pt-6 text-white/80 font-bold text-xl text-center lg:ml-10 lg:pl-20 lg:pt-3">-->
+<!--            <RouterLink to="/apps" class="flex flex-row items-center justify-center whitespace-nowrap grow bg-argon-500 border border-argon-700 rounded-xl py-4 hover:bg-argon-500/70 hover:text-white font-bold lg:px-32" style="box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.3), 1px 1px 3px rgba(0, 0, 0, 0.3)">-->
+<!--              Get Started-->
+<!--              <ChevronDoubleRightIcon class="w-5 ml-2 inline-block" />-->
+<!--            </RouterLink>-->
+<!--            <RouterLink to="/apps" class="whitespace-nowrap grow border border-argon-200/50 rounded-xl py-4 hover:bg-argon-500/20 hover:text-white font-bold lg:px-32">-->
+<!--              Documentation-->
+<!--            </RouterLink>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--      <div class="flex flex-col relative w-full bg-[#5B0968] border-t border-argon-900" style="box-shadow: inset 0 1px 0 0 rgba(255,255,255, 0.2);">-->
+<!--        <div class="relative flex flex-col md:flex-row items-stretch md:whitespace-nowrap w-full text-white/80 py-3 text-center">-->
+<!--          <div as="div" to="/learn/currency-metrics/argons-in-circulation" class="md:w-1/3 py-6 md:py-10 hover:bg-black/10 hover:text-white">-->
+<!--            <div class="text-4xl lg:text-6xl font-bold">{{ microgonToArgonNm(data.microgonsInCirculation).format('0,0') }}</div>-->
+<!--            <div class="mt-2 font-light">Argon Circulation</div>-->
+<!--          </div>-->
+<!--          <div class="DIVIDER-VERTICAL !h-auto self-stretch mx-3 hidden md:block"></div>-->
+<!--          <div as="div" to="/learn/currency-metrics/argon-to-fiat-exchange-rate" class="md:w-1/3 py-6 md:py-10 hover:bg-black/10 hover:text-white">-->
+<!--            <div class="text-4xl lg:text-6xl font-bold">₳1.00 -> ${{ data.usdForArgon ? numeral(data.usdForArgon).format('0.00') : '-.&#45;&#45;' }}</div>-->
+<!--            <div class="mt-2 font-light">Argon-to-Dollar Exchange Rate</div>-->
+<!--          </div>-->
+<!--          <div class="DIVIDER-VERTICAL !h-auto self-stretch mx-3 hidden md:block"></div>-->
+<!--          <div as="div" to="/learn/currency-metrics/bitcoin-to-argon-short-value" class="md:w-1/3 py-6 md:py-10 hover:bg-black/10 hover:text-white">-->
+<!--            <div class="flex flex-row items-center justify-center text-4xl gap-x-3 lg:text-6xl font-bold">43.6 <span class="text-2xl font-semibold lg:text-4xl">TO</span> 1</div>-->
+<!--            <div class="mt-2 font-light">Restabilization Leverage</div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </main>-->
       
     <section class="relative flex flex-col bg-white items-justify justify-center w-full cursor-default text-center border-b border-argon-600/30 shadow-md">
       <h3 class="text-argon-600/60 font-bold text-xl pt-24 px-10 md:px-auto tracking-widest font-serif">
@@ -210,138 +212,138 @@
       </div>
     </section>
 
-    <section class="relative flex flex-col bg-[var(--bg-color)] text-center">
-      <h3 class="text-argon-600/70 font-bold text-xl pt-16 px-10 md:px-auto tracking-widest font-serif">
-        BRIDGELESS & NATIVE
-      </h3>
-      <header class="text-6xl font-serif mt-5 leading-tight">
-        ARGON AVOIDS THE RISK<br />
-        OF CROSS-CHAIN BRIDGING
-      </header>
+<!--    <section class="relative flex flex-col bg-[var(&#45;&#45;bg-color)] text-center">-->
+<!--      <h3 class="text-argon-600/70 font-bold text-xl pt-16 px-10 md:px-auto tracking-widest font-serif">-->
+<!--        BRIDGELESS & NATIVE-->
+<!--      </h3>-->
+<!--      <header class="text-6xl font-serif mt-5 leading-tight">-->
+<!--        ARGON AVOIDS THE RISK<br />-->
+<!--        OF CROSS-CHAIN BRIDGING-->
+<!--      </header>-->
 
-      <div class="flex flex-col items-center w-10/12 max-w-260 mx-auto px-2.5">
-        <p class="text-base md:text-xl text-justify opacity-70 mt-10 leading-relaxed">
-          According to Chainalysis, cross-chain bridges are the single largest source of crypto hacks. Argon sidesteps
-          this risk by integrating cross-chain in a bridgeless capacity. Minting Authorities are empowered to mint/burn
-          argons native to each chain without knowledge of the other chain and without forcing collateral to be exposed
-          across the bridges.  Learn more.
-        </p>
-      </div>
+<!--      <div class="flex flex-col items-center w-10/12 max-w-260 mx-auto px-2.5">-->
+<!--        <p class="text-base md:text-xl text-justify opacity-70 mt-10 leading-relaxed">-->
+<!--          According to Chainalysis, cross-chain bridges are the single largest source of crypto hacks. Argon sidesteps-->
+<!--          this risk by integrating cross-chain in a bridgeless capacity. Minting Authorities are empowered to mint/burn-->
+<!--          argons native to each chain without knowledge of the other chain and without forcing collateral to be exposed-->
+<!--          across the bridges.  Learn more.-->
+<!--        </p>-->
+<!--      </div>-->
 
-      <div class="w-[80%] mx-auto h-px mt-28 bg-argon-400/30" />
+<!--      <div class="w-[80%] mx-auto h-px mt-28 bg-argon-400/30" />-->
 
-      <div class="w-[80%] mx-auto grid grid-cols-3 lg:grid-cols-4 space-y-5 text-center pt-16 pb-2 divide-x divide-argon-400/30 text-argon-600/70">
-        <div class="hover:text-argon-600">
-          <OptimismIcon class="w-12 h-12 inline-block mb-2" />
-          <div class="text-md">Optimism</div>
-        </div>
-        <div class="hover:text-argon-600">
-          <PolygonIcon class="w-12 h-12 inline-block mb-2" />
-          <div class="text-md">Polygon</div>
-        </div>
-        <div class="hover:text-argon-600">
-          <BaseIcon class="w-12 h-12 inline-block mb-2" />
-          <div class="text-md">Base</div>
-        </div>
-        <div class="hover:text-argon-600">
-          <EthereumIcon class="w-12 h-12 inline-block mb-2" />
-          <div class="text-md">Ethereum</div>
-        </div>
-      </div>
+<!--      <div class="w-[80%] mx-auto grid grid-cols-3 lg:grid-cols-4 space-y-5 text-center pt-16 pb-2 divide-x divide-argon-400/30 text-argon-600/70">-->
+<!--        <div class="hover:text-argon-600">-->
+<!--          <OptimismIcon class="w-12 h-12 inline-block mb-2" />-->
+<!--          <div class="text-md">Optimism</div>-->
+<!--        </div>-->
+<!--        <div class="hover:text-argon-600">-->
+<!--          <PolygonIcon class="w-12 h-12 inline-block mb-2" />-->
+<!--          <div class="text-md">Polygon</div>-->
+<!--        </div>-->
+<!--        <div class="hover:text-argon-600">-->
+<!--          <BaseIcon class="w-12 h-12 inline-block mb-2" />-->
+<!--          <div class="text-md">Base</div>-->
+<!--        </div>-->
+<!--        <div class="hover:text-argon-600">-->
+<!--          <EthereumIcon class="w-12 h-12 inline-block mb-2" />-->
+<!--          <div class="text-md">Ethereum</div>-->
+<!--        </div>-->
+<!--      </div>-->
 
-      <div class="mx-12 h-px bg-argon-400/30" />
+<!--      <div class="mx-12 h-px bg-argon-400/30" />-->
 
-      <div class="grid grid-cols-3 lg:grid-cols-5 space-y-5 w-full text-center pt-16 pb-2 divide-x divide-argon-400/30 text-argon-600/70">
-        <div class="opacity-80 hover:opacity-100">
-          <ArbitrumIcon class="w-12 h-12 inline-block mb-2" />
-          <div class="text-md">Arbitrum</div>
-        </div>
-        <div class="opacity-80 hover:opacity-100">
-          <CardanoIcon class="w-12 h-12 inline-block mb-2" />
-          <div class="text-md">Cardano</div>
-        </div>
-        <div class="opacity-80 hover:opacity-100">
-          <PolkadotIcon class="w-12 h-12 inline-block mb-2" />
-          <div class="text-md">Polkadot</div>
-        </div>
-        <div class="opacity-80 hover:opacity-100">
-          <GnosisIcon class="w-12 h-12 inline-block mb-2" />
-          <div class="text-md">Gnosis</div>
-        </div>
-        <div class="opacity-80 hover:opacity-100">
-          <BnbChainIcon class="w-12 h-12 inline-block mb-2" />
-          <div class="text-md">BNB Chain</div>
-        </div>
-      </div>
+<!--      <div class="grid grid-cols-3 lg:grid-cols-5 space-y-5 w-full text-center pt-16 pb-2 divide-x divide-argon-400/30 text-argon-600/70">-->
+<!--        <div class="opacity-80 hover:opacity-100">-->
+<!--          <ArbitrumIcon class="w-12 h-12 inline-block mb-2" />-->
+<!--          <div class="text-md">Arbitrum</div>-->
+<!--        </div>-->
+<!--        <div class="opacity-80 hover:opacity-100">-->
+<!--          <CardanoIcon class="w-12 h-12 inline-block mb-2" />-->
+<!--          <div class="text-md">Cardano</div>-->
+<!--        </div>-->
+<!--        <div class="opacity-80 hover:opacity-100">-->
+<!--          <PolkadotIcon class="w-12 h-12 inline-block mb-2" />-->
+<!--          <div class="text-md">Polkadot</div>-->
+<!--        </div>-->
+<!--        <div class="opacity-80 hover:opacity-100">-->
+<!--          <GnosisIcon class="w-12 h-12 inline-block mb-2" />-->
+<!--          <div class="text-md">Gnosis</div>-->
+<!--        </div>-->
+<!--        <div class="opacity-80 hover:opacity-100">-->
+<!--          <BnbChainIcon class="w-12 h-12 inline-block mb-2" />-->
+<!--          <div class="text-md">BNB Chain</div>-->
+<!--        </div>-->
+<!--      </div>-->
 
-    </section>
+<!--    </section>-->
 
-    <section class="relative flex flex-col bg-white items-center justify-center w-full pb-5 cursor-default text-center border-t border-argon-800/15 border-b border-b-argon-900/70" style="box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);">
-      <h3 class="text-argon-600/70 font-bold text-xl pt-16 px-10 md:px-auto tracking-widest font-serif">
-        LIQUID LOCKING
-      </h3>
-      <header class="text-6xl font-serif mt-5 leading-tight">
-        ARGON TURNS BITCOIN<br />
-        INTO A LOSS-PROTECTED,<br />
-        YIELD-GENERATING ASSET
-      </header>
+<!--    <section class="relative flex flex-col bg-white items-center justify-center w-full pb-5 cursor-default text-center border-t border-argon-800/15 border-b border-b-argon-900/70" style="box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);">-->
+<!--      <h3 class="text-argon-600/70 font-bold text-xl pt-16 px-10 md:px-auto tracking-widest font-serif">-->
+<!--        LIQUID LOCKING-->
+<!--      </h3>-->
+<!--      <header class="text-6xl font-serif mt-5 leading-tight">-->
+<!--        ARGON TURNS BITCOIN<br />-->
+<!--        INTO A LOSS-PROTECTED,<br />-->
+<!--        YIELD-GENERATING ASSET-->
+<!--      </header>-->
 
-      <div class="flex flex-col items-center w-10/12 max-w-260 mx-auto px-2.5">
-        <p class="text-base md:text-xl text-justify opacity-70 mt-10 leading-relaxed">
-          Liquid Locking lets Bitcoin holders unlock stable liquidity without selling their Bitcoin. Argon preserves
-          the locked value, protects against downside volatility, and allows the position to keep earning yield — turning
-          Bitcoin from a passive asset into productive capital.
-        </p>
-      </div>
+<!--      <div class="flex flex-col items-center w-10/12 max-w-260 mx-auto px-2.5">-->
+<!--        <p class="text-base md:text-xl text-justify opacity-70 mt-10 leading-relaxed">-->
+<!--          Liquid Locking lets Bitcoin holders unlock stable liquidity without selling their Bitcoin. Argon preserves-->
+<!--          the locked value, protects against downside volatility, and allows the position to keep earning yield — turning-->
+<!--          Bitcoin from a passive asset into productive capital.-->
+<!--        </p>-->
+<!--      </div>-->
 
-      <div class="my-10">
-        <img src="/bitcoin-flow.png" class="w-full mx-auto max-w-480 opacity-50" />
-      </div>
-    </section>
+<!--      <div class="my-10">-->
+<!--        <img src="/bitcoin-flow.png" class="w-full mx-auto max-w-480 opacity-50" />-->
+<!--      </div>-->
+<!--    </section>-->
 
-    <section HelpUsBootstrap class="text-white">
-      <h3 class="text-argon-100/70 font-bold text-xl pt-16 px-10 md:px-auto tracking-widest font-serif text-center">
-        LAUNCH PLAN
-      </h3>
-      <header class="font-serif mt-5 text-6xl leading-tight text-white text-center uppercase">
-        <span class="text-6xl">Argon's Path to Becoming a</span><br />
-        <span>Global Transactional Currency</span>
-      </header>
+<!--    <section HelpUsBootstrap class="text-white">-->
+<!--      <h3 class="text-argon-100/70 font-bold text-xl pt-16 px-10 md:px-auto tracking-widest font-serif text-center">-->
+<!--        LAUNCH PLAN-->
+<!--      </h3>-->
+<!--      <header class="font-serif mt-5 text-6xl leading-tight text-white text-center uppercase">-->
+<!--        <span class="text-6xl">Argon's Path to Becoming a</span><br />-->
+<!--        <span>Global Transactional Currency</span>-->
+<!--      </header>-->
 
-      <div class="flex flex-col gap-5 w-8/12 mx-auto text-xl mt-12 font-light">
-        <p class="text-justify">
-          We believe the world needs an alternative to inflation-ridden fiat currencies. Every year, fiat quietly erodes
-          the savings of hard-working families while governments continue to accumulate unsustainable debts that threaten
-          to collapse the entire system.
-        </p>
+<!--      <div class="flex flex-col gap-5 w-8/12 mx-auto text-xl mt-12 font-light">-->
+<!--        <p class="text-justify">-->
+<!--          We believe the world needs an alternative to inflation-ridden fiat currencies. Every year, fiat quietly erodes-->
+<!--          the savings of hard-working families while governments continue to accumulate unsustainable debts that threaten-->
+<!--          to collapse the entire system.-->
+<!--        </p>-->
 
-        <p class="text-justify">
-          Argon is designed to break this cycle of inflation, and it's doing it through Bitcoin. Argon's economic model uses the
-          process of endosymbiosis &ndash; the act of minting Argon from Bitcoin &ndash; to consume and convert Bitcoin's 
-          fixed 21M supply into a stable currency. Its incentive structure creates an exponential growth curve that will escalate
-          until it establishes a stablecoin circulation at twice Bitcoin's market value. At that scale, Argon will have
-          achieved the critical mass required to stand as an independent, global currency.
-        </p>
+<!--        <p class="text-justify">-->
+<!--          Argon is designed to break this cycle of inflation, and it's doing it through Bitcoin. Argon's economic model uses the-->
+<!--          process of endosymbiosis &ndash; the act of minting Argon from Bitcoin &ndash; to consume and convert Bitcoin's -->
+<!--          fixed 21M supply into a stable currency. Its incentive structure creates an exponential growth curve that will escalate-->
+<!--          until it establishes a stablecoin circulation at twice Bitcoin's market value. At that scale, Argon will have-->
+<!--          achieved the critical mass required to stand as an independent, global currency.-->
+<!--        </p>-->
 
-        <p class="text-justify">
-          Unlike most other crypto projects, Argon has shown no favoritism to the founders or early adopters. On January
-          15, 2025, Argon launched with zero rewards in its genesis block. Its goal of becoming the world's dominant currency
-          requires a platform that can be fully trusted, fully open, and accessible to everyone. From day one.
-        </p>
+<!--        <p class="text-justify">-->
+<!--          Unlike most other crypto projects, Argon has shown no favoritism to the founders or early adopters. On January-->
+<!--          15, 2025, Argon launched with zero rewards in its genesis block. Its goal of becoming the world's dominant currency-->
+<!--          requires a platform that can be fully trusted, fully open, and accessible to everyone. From day one.-->
+<!--        </p>-->
 
-        <p class="text-justify">
-          Argon's launch is unfolding across six phases. The first two are now complete. The third is underway. You're
-          invited to join us at any point along the journey.
-        </p>
-      </div>
+<!--        <p class="text-justify">-->
+<!--          Argon's launch is unfolding across six phases. The first two are now complete. The third is underway. You're-->
+<!--          invited to join us at any point along the journey.-->
+<!--        </p>-->
+<!--      </div>-->
 
-      <div class="flex flex-col items-center w-8/12 mx-auto mt-12 pb-40">
-        <router-link to="/launch-plan" class="flex flex-row items-center justify-center border border-white/30 hover:shadow-lg text-white rounded-md md:text-2xl w-full px-2 md:px-40 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-600 whitespace-nowrap">
-          <span>Read Our Launch Plan</span>
-        </router-link>
-      </div>
+<!--      <div class="flex flex-col items-center w-8/12 mx-auto mt-12 pb-40">-->
+<!--        <router-link to="/launch-plan" class="flex flex-row items-center justify-center border border-white/30 hover:shadow-lg text-white rounded-md md:text-2xl w-full px-2 md:px-40 py-2 md:py-5 font-bold cursor-pointer hover:bg-argon-600 whitespace-nowrap">-->
+<!--          <span>Read Our Launch Plan</span>-->
+<!--        </router-link>-->
+<!--      </div>-->
 
-    </section>
+<!--    </section>-->
 
     <FooterBar mode="argon" />
   </div>
