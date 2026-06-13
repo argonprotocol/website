@@ -36,7 +36,7 @@
                 MAINNET
               </span>
             </RouterLink>
-            <div Button class="MobileMenuIconButton">
+            <div Button class="MobileMenuIconButton MobileMenuIconButton--open">
               <XMarkIcon @click="toggleMenu" class="w-6 h-6" />
             </div>
           </div>
@@ -201,6 +201,14 @@ function toggleMenu() {
 
 .MobileMenuIconButton:hover {
   background-color: v-bind(bgHover);
+}
+
+.MobileMenuIconButton--open {
+  @apply text-argon-800/80;
+}
+
+.MobileMenuIconButton--open:hover {
+  @apply bg-argon-50/80 text-argon-700;
 }
 
 .MobileMenuNetworkButton {

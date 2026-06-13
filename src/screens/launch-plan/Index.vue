@@ -1,12 +1,12 @@
 <template>
   <MainLayout>
-    <div class="mt-12 md:mt-22 max-w-240 ml-20 text-slate-800">
-      <h1 class="text-argon-600/50 font-bold text-2xl tracking-widest uppercase font-serif">
+    <div class="mt-12 md:mt-22 w-11/12 max-w-340 mx-auto text-slate-800">
+      <h1 class="text-argon-600/50 font-bold text-xl md:text-2xl tracking-widest uppercase font-serif">
         Launch Plan
       </h1>
-      <header class="text-xl md:text-7xl leading-tight font-light font-serif mt-2 whitespace-nowrap">
-        Argon's Path to Becoming a<br />
-        Global Transactional Currency
+      <header class="text-3xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight font-light font-serif mt-2 md:flex flex-row">
+        <span>Argon's Path to Becoming a </span>
+        <span>Global Transactional Currency</span>
       </header>
     </div>
 
@@ -414,15 +414,7 @@
 </template>
 
 <script setup lang="ts">
-import * as Vue from 'vue';
 import MainLayout from "@/navigation/MainLayout.vue";
-
-const selectedPhase = Vue.ref(3);
-
-function selectPhase(phase: number) {
-  selectedPhase.value = phase;
-}
-
 </script>
 
 <style scoped>
@@ -437,14 +429,14 @@ p {
 }
 
 [SplitRow] {
-  @apply flex flex-row items-stretch ml-20;
+  @apply flex flex-col xl:flex-row items-stretch w-11/12 max-w-340 mx-auto;
 
   [SplitLeft] {
-    @apply max-w-240 w-7/12 flex flex-col gap-y-5 text-lg font-light;
+    @apply w-full xl:max-w-240 xl:w-7/12 flex flex-col gap-y-5 text-base md:text-lg font-light;
   }
 
   [SplitRight] {
-    @apply grow flex flex-col justify-center mx-20 pl-20 border-l border-slate-600/20;
+    @apply hidden xl:flex grow flex-col justify-center ml-20 pl-20 border-l border-slate-600/20;
   }
 
   [SplitQuote] {
@@ -453,10 +445,10 @@ p {
 }
 
 [PhaseContainer] {
-  @apply relative mt-10 mb-7;
+  @apply relative mt-8 md:mt-10 mb-7;
 
   [Top] {
-    @apply flex flex-row space-x-3 w-full grow;
+    @apply flex flex-row gap-x-3 md:gap-x-4 w-full grow;
 
     [Header] {
       @apply grow w-full;
@@ -464,18 +456,18 @@ p {
   }
 
   [Calendar] {
-    @apply flex flex-col w-fit uppercase items-center rounded-sm justify-center border border-gray-400 px-2 xl:px-6 py-1 xl:py-2;
+    @apply flex flex-col w-fit uppercase items-center rounded-sm justify-center border border-gray-400 px-2 xl:px-6 py-1 xl:py-2 shrink-0;
 
     [Month] {
-      @apply text-2xl md:text-3xl font-bold;
+      @apply text-xl md:text-3xl font-bold;
     }
 
     [Day] {
-      @apply text-4xl md:text-6xl font-bold;
+      @apply text-3xl md:text-6xl font-bold;
     }
 
     [Year] {
-      @apply text-lg md:text-2xl font-bold;
+      @apply text-base md:text-2xl font-bold;
     }
   }
 
@@ -483,23 +475,23 @@ p {
     @apply grow w-full;
 
     [Number] {
-      @apply uppercase text-lg font-light;
+      @apply uppercase text-sm md:text-lg font-light flex flex-wrap items-center gap-1;
 
       span {
         @apply opacity-60;
       }
 
       span[Completed] {
-        @apply rounded-full bg-slate-900/80 text-white px-2 py-0.5 text-sm ml-1 relative -top-px opacity-100 font-bold;
+        @apply rounded-full bg-slate-900/80 text-white px-2 py-0.5 text-xs md:text-sm md:ml-1 relative -top-px opacity-100 font-bold;
       }
 
       span[Active] {
-        @apply rounded-full bg-argon-700/90 text-white px-2 py-0.5 text-sm ml-1 relative -top-px opacity-100 font-bold;
+        @apply rounded-full bg-argon-700/90 text-white px-2 py-0.5 text-xs md:text-sm md:ml-1 relative -top-px opacity-100 font-bold;
       }
     }
 
     [Title] {
-      @apply text-2xl md:text-4xl font-bold mt-2 md:leading-14 -ml-px relative;
+      @apply text-xl md:text-4xl font-bold mt-2 leading-tight md:leading-14 -ml-px relative;
 
       &:before {
         content: "";
@@ -510,7 +502,7 @@ p {
 }
 
 [EstimatedTimeframe] {
-  @apply text-lg font-light mt-3 py-2 relative;
+  @apply text-base md:text-lg font-light mt-3 py-2 relative;
   &:before {
     content: "";
     @apply absolute w-full h-px left-0 -top-px bg-linear-to-r from-gray-300 from-80% to-transparent;
@@ -521,6 +513,6 @@ p {
   }
 }
 [Content] {
-  @apply flex flex-col gap-5 text-lg;
+  @apply flex flex-col gap-5 text-base md:text-lg;
 }
 </style>
