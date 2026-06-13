@@ -7,7 +7,7 @@
           Argon
         </span>
       </div>
-      <ul class="hidden md:flex flex-row items-center gap-x-4 relative top-0.5">
+      <ul class="hidden lg:flex flex-row items-center gap-x-4 relative top-[0.5px]">
         <RouterLink
           Button
           as="li"
@@ -52,10 +52,10 @@
         </RouterLink>
       </ul>
       <div class="grow relative"></div>
-      <MenuMobile class="md:hidden" />
-      <ul class="hidden md:flex flex-row items-center">
+      <MenuMobile class="lg:hidden" :mode="props.mode" />
+      <ul class="hidden lg:flex flex-row items-center">
         <li class="whitespace-nowrap text-sm md:text-base flex flex-row justify-end gap-0 md:gap-2 cursor-default">
-          <div class="opacity-80 hidden py-1 md:block">Live On</div>
+          <div class="opacity-80 hidden py-1 xl:block">Live On</div>
           <RouterLink
             Button
             to="/mainnet"
@@ -235,4 +235,3 @@ const color = {
   100% { transform: translate3d(-50%, -50%, 0) scale(2.5); opacity: 0; }
 }
 </style>
-

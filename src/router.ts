@@ -9,6 +9,10 @@ const router = createRouter({
       component: HomeView
     },
     {
+      path: '/test',
+      component: () => import('@/screens/Test.vue')
+    },
+    {
       path: '/apps',
       component: () => import('@/screens/apps/Index.vue')
     },
