@@ -1,9 +1,8 @@
 <template>
   <article>
-    <h1>
-      <em>Documentation</em>
-      Welcome to Argon Docs
-    </h1>
+    <DocHeader>
+      Welcome to Argon Documentation
+    </DocHeader>
 
     <h2>Platform Overview</h2>
     <p>
@@ -60,3 +59,6 @@
     </ul>
   </article>
 </template>
+<script setup lang="ts">
+import DocHeader from "@/screens/docs/DocHeader.vue";
+</script>

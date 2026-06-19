@@ -1,9 +1,8 @@
 <template>
   <article>
-    <h1>
-      <em>Economic Pillars</em>
+    <DocHeader>
       Argon Is Resistant to Crypto Death Spirals
-    </h1>
+    </DocHeader>
 
     <div class="font-extralight italic text-4xl leading-12 my-10 mr-10">
       A well-designed currency should function as a self-contained microcosm that
@@ -301,6 +300,7 @@ import bitcoinValues from '../../../../public/data/four-pillars/bitcoin-values.j
 import MinerIcon from '../../../assets/apocalyptic/miner.svg?component';
 import MintingIcon from '../../../assets/four-pillars/minting.svg?component';
 import BurningIcon from '../../../assets/four-pillars/burning.svg?component';
+import DocHeader from "@/screens/docs/DocHeader.vue";
 
 dayjs.extend(utc);
 

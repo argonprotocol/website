@@ -1,9 +1,8 @@
 <template>
   <article>
-    <h1>
-      <em>Economic Pillars</em>
+    <DocHeader>
       Argon Is Insulated from the Collapse of Fiat-Money
-    </h1>
+    </DocHeader>
 
     <div class="font-extralight italic text-4xl leading-12 my-10 mr-28">
       A well-designed currency should exist independent of worldly affairs, fully decoupled from
@@ -805,6 +804,7 @@ import MilitaryIcon from '../../../assets/apocalyptic/military.svg?component';
 import ArrowIcon from '../../../assets/apocalyptic/arrow.svg?component';
 import CircleLogo from '../../../assets/apocalyptic/circle.svg?component';
 import USDCIcon from '../../../assets/apocalyptic/usdc.svg?component';
+import DocHeader from "@/screens/docs/DocHeader.vue";
 
 </script>
 

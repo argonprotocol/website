@@ -1,9 +1,8 @@
 <template>
   <article>
-    <h1>
-      <em>Economic Pillars</em>
+    <DocHeader>
       Argon Is Protected from Government Inflation
-    </h1>
+    </DocHeader>
 
     <div class="font-extralight italic text-4xl leading-12 my-10 mr-28">
       A well-designed currency should preserve value across generations, free from the inflation
@@ -236,6 +235,7 @@ import TimeChart from '../../../components/TimeChart.vue';
 import type { IConsumerPriceIndexRecord } from '@/interfaces/IConsumerPriceIndexRecord';
 import { PopoverRoot, PopoverAnchor, PopoverPortal, PopoverArrow, PopoverContent  } from 'reka-ui';
 import CarIcon from '../../../assets/car.svg?component';
+import DocHeader from "@/screens/docs/DocHeader.vue";
 
 dayjs.extend(utc);
 

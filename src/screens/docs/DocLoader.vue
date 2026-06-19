@@ -24,9 +24,10 @@
             {{ group.title }}
           </RouterLink>
         </template>
+        <div Fade />
       </div>
 
-      <div class="DOCSCONTENT flex-1 max-w-full overflow-auto">
+      <div class="DOCSCONTENT flex-1 max-w-full">
         <div class="mx-3 mt-5 md:mx-32">
           <div class="post mb min-h-screen pt-6">
             <component :is="activePage" v-if="activePage" />
@@ -35,12 +36,14 @@
               <p class="mt-2">This page could not be found.</p>
             </div>
           </div>
-          <p>
+          <div class="relative top-10">
+            <div class="h-px bg-linear-to-r from-slate-300 to-transparent w-full mb-5" />
             <a class="github-edit-link flex flex-row gap-x-2" href="editLink" target="_blank">
               <GithubLogo />
               <span>Edit this page on GitHub</span>
             </a>
-          </p>
+            <div class="h-px bg-linear-to-r from-slate-300 to-transparent w-full mt-5" />
+          </div>
         </div>
       </div>
     </div>
@@ -48,7 +51,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed, defineAsyncComponent, type Component } from 'vue';
+import * as Vue from 'vue';
 import { useRoute } from 'vue-router';
 import toc from './toc.json';
 import MainLayout from '@/navigation/MainLayout.vue';
@@ -56,7 +59,7 @@ import GithubLogo from '@/assets/github.svg?component';
 
 const route = useRoute();
 
-type DocModule = { default: Component };
+type DocModule = { default: Vue.Component };
 type DocLoaderFn = () => Promise<DocModule>;
 
 const pageModules = import.meta.glob<DocModule>('./**/*.vue');
@@ -89,13 +92,13 @@ const moduleLookup = new Map<string, DocLoaderFn>(
     .map(([path, loader]) => [normalizeModulePath(path), loader as DocLoaderFn]),
 );
 
-const activePage = computed(() => {
+const activePage = Vue.computed(() => {
   const docPath = normalizeRoutePath(
     route.params.id as string | undefined,
     route.params.subId as string | undefined,
   );
   const loader = moduleLookup.get(docPath);
-  return loader ? defineAsyncComponent(() => loader().then((m) => m.default)) : null;
+  return loader ? Vue.defineAsyncComponent(() => loader().then((m) => m.default)) : null;
 });
 
 function isSelected(path: unknown) {
@@ -139,7 +142,19 @@ function normalizeCurrentPath(path: string) {
 
 .LEFTBAR {
   box-shadow: 1px 0 0 white;
-  @apply border-slate-300 md:border-r;
+  @apply border-slate-300 md:border-r relative;
+
+  div[Fade] {
+    @apply bg-linear-to-b from-argon-50/50 to-transparent absolute top-full left-0 w-full h-30;
+    &::before {
+      content: "";
+      @apply bg-linear-to-b from-slate-300 to-transparent absolute top-0 -right-px w-px h-full;
+    }
+    &::after {
+      content: "";
+      @apply bg-linear-to-b from-white to-transparent absolute top-0 -right-0.5 w-px h-full;
+    }
+  }
 
   a {
     font-size: 0.9rem;
@@ -154,13 +169,6 @@ function normalizeCurrentPath(path: string) {
 }
 
 .DOCSCONTENT {
-  h1 {
-    @apply font-light font-serif text-5xl;
-    em {
-      @apply block tracking-widest text-md not-italic font-sans uppercase font-semibold opacity-60 mb-2;
-    }
-  }
-
   h2 {
     @apply font-bold text-lg text-slate-900/80 mt-10;
   }

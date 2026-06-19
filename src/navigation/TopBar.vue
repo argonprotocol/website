@@ -48,7 +48,7 @@
           class="text-lg"
           :Selected="router.currentRoute.value.path.startsWith('/docs') || undefined"
         >
-          Docs
+          Documentation
         </RouterLink>
       </ul>
       <div class="grow relative"></div>

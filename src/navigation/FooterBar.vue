@@ -1,5 +1,5 @@
 <template>
-  <footer class="w-full relative z-100">
+  <footer class="w-full relative">
 
     <div Colony class="relative">
       <div class="relative flex min-h-72 w-full justify-end overflow-hidden md:min-h-80 xl:min-h-0">
@@ -21,21 +21,34 @@
 
     <div NavigationLinks class="grid grid-cols-1 gap-x-8 gap-y-8 px-5 py-10 text-base md:grid-cols-2 md:px-10 md:text-lg lg:flex lg:flex-row lg:px-20">
       <div class="flex flex-col gap-y-2 lg:grow">
-        <div class="font-bold">Economic Pillars</div>
-        <router-link to="/docs/economic-pillars/protected-from-inflation">Protected from Inflation</router-link>
-        <router-link to="/docs/economic-pillars/insulated-from-fiat-money">Insulated from Fiat Collapse</router-link>
-        <router-link to="/docs/economic-pillars/resistant-to-death-spirals">Immune from Death Spirals</router-link>
-      </div>
-      <div class="flex flex-col gap-y-2 lg:grow">
         <div class="font-bold">The Desktop Apps</div>
-        <router-link to="/apps/treasury">Argon Treasury</router-link>
-        <router-link to="/apps/operations">Argon Operations</router-link>
+        <div>
+          <router-link to="/apps/treasury">Argon Treasury</router-link>
+        </div>
+        <div>
+          <router-link to="/apps/operations">Argon Operations</router-link>
+        </div>
       </div>
       <div class="flex flex-col gap-y-2 lg:grow">
-        <div class="font-bold">More Information</div>
-        <router-link to="/why-its-better">Why It's Better</router-link>
-        <router-link to="/launch-plan">Launch Plan</router-link>
-        <router-link to="/docs">Documentation</router-link>
+        <div class="font-bold">The Basic Details</div>
+        <div>
+          <router-link to="/why-its-better">Why It's Better</router-link>
+        </div>
+        <div>
+          <router-link to="/launch-plan">Launch Plan</router-link>
+        </div>
+        <div>
+          <router-link to="/docs">Documentation</router-link>
+        </div>
+      </div>
+      <div class="flex flex-col gap-y-2 lg:grow">
+        <div class="font-bold">The Whitepapers</div>
+        <div>
+          <router-link to="/docs/whitepapers/state">State of Stablecoins</router-link>
+        </div>
+        <div>
+          <router-link to="/docs/whitepapers/fundamentals">Stability Fundamentals</router-link>
+        </div>
       </div>
       <div class="flex max-w-sm flex-col justify-center text-left text-base font-light md:text-lg lg:max-w-72 lg:grow lg:text-right xl:max-w-none">
         <div class="opacity-80 leading-normal xl:flex xl:flex-col">

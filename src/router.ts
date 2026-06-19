@@ -38,11 +38,11 @@ const router = createRouter({
     },
     {
       path: '/documentation',
-      component: () => import('@/screens/documentation/Index.vue')
+      component: () => import('@/screens/documentation/OldIndex.vue')
     },
     {
       path: '/documentation/from-uniswap',
-      component: () => import('@/screens/documentation/FromUniswap.vue')
+      component: () => import('@/screens/documentation/OldFromUniswap.vue')
     },
     {
       path: '/mainnet',

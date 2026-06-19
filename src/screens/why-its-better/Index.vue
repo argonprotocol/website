@@ -67,7 +67,7 @@
         <div class="mt-6 md:mt-16 w-full max-w-210 flex flex-col mx-auto px-4 md:px-8 gap-y-8 md:gap-y-12 relative z-20">
           <div>
             <header class="font-serif text-xl md:text-2xl font-bold">
-              Inventing Paper Money
+              Why Paper Money
             </header>
             <p class="mt-1 text-base md:text-xl leading-relaxed font-serif">
               Paper money was invented in 7th century A.D. to solve gold's biggest weakness: large amounts are
@@ -75,10 +75,10 @@
               move, <span class="text-argon-100">slow</span> to transport and <span class="text-argon-100">hard to
               conceal</span> from thieves. The introduction of paper make it <span class="text-argon-100">easier to
               move value</span> across distances, but it brought a new challenge: how could anyone be certain the paper
-              had <span class="text-argon-100">real gold behind it?</span> Governments soon had the answer. They simply
-              <span class="text-argon-100">decreed by fiat</span> that the paper had real value, and they ordered it
-              to be used as the nation's currency. <span class="text-argon-100">Threat of force was used to make it
-              so.</span>
+              had <span class="text-argon-100">real gold behind it?</span> Governments eventually found the answer.
+              They simply <span class="text-argon-100">decreed by fiat</span> that the paper had real value, and they
+              demanded no other currency could be used in the land. <span class="text-argon-100">Threat of force was used
+              to make it so.</span>
             </p>
           </div>
 
@@ -95,6 +95,9 @@
               military campaigns and government programs by simply printing more paper. Unfortunately, <span class="text-argon-100">Yuan's fiat
             currency imploded</span>, and every fiat currency since has eventually followed this same demise.
             </p>
+          </div>
+          <div :ref="setMoveWhenAtEndRef" data-pause="10" class="relative mx-auto w-10 h-10 transition-opacity duration-50">
+            <ChevronDoubleDownIcon class="w-full h-full" />
           </div>
         </div>
       </ScrollOverlay>
@@ -132,8 +135,8 @@
               </header>
               <p class="mt-1 text-base md:text-xl leading-relaxed font-serif">
                 The Web transformed commerce on a global scale, and in the process, it became increasingly clear the
-                <span class="text-argon-100">old monetary order of paper money</span> was no longer the future. Payment
-                systems began rapidly evolving, but the underlying rails of ACH, Wire, SWIFT, and Visa were
+                <span class="text-argon-100">old monetary system of paper money</span> was no longer the future. Payment
+                interfaces were forced to rapidly evolve, but the underlying rails of ACH, Wire, SWIFT, and Visa were
                 <span class="text-argon-100">legacy hacks stacked on top of old fiat paper</span>; these evolutions
                 didn't create a real digital currency, they just added digital plumbing. A new generate of builders soon
                 realized a true digital-first currency could open a wealth of possibilities, such as
@@ -141,11 +144,11 @@
                 <span class="text-argon-100">rich programmability</span>,
                 <span class="text-argon-100">radical transparency</span>,
                 and <span class="text-argon-100">personal autonomy</span>.
-                Projects like DigiCash and E-gold tried in the 1990s, but each failed for the same reason:
+                Projects like DigiCash and E-gold tried in the 1990s, but each failed for similar reasons:
                 <span class="text-argon-100">their currencies were simply IOUs promised by a company</span>, not money
                 itself; and companies can fail, be shut down, or enact dystopian controls. It would take many more years
                 before someone discovered how to create <span class="text-argon-100">a digital currency that held value
-                independent of centralized institutions or promises</span>.
+                independent of centralized institutions</span>.
               </p>
             </div>
 
@@ -155,11 +158,11 @@
               </header>
               <p class="mt-1 text-base md:text-xl leading-relaxed font-serif">
                 Bitcoin was released in 2009, and <span class="text-argon-100">it changed everything</span>. It
-                was the  <span class="text-argon-100">first digital currency that worked</span> without a central power dictating it. No gold
+                was the  <span class="text-argon-100">first digital currency that worked</span> without a central power demanding it. No gold
                 backed its value. No military power enforced its decree. It relied on no nation, bank or other
                 centralized institution. <span class="text-argon-100">An algorithm</span> guaranteed its scarcity,
                 security, and sovereignty. <span class="text-argon-100">No single power could control it, inflate it, or
-                debase it</span>. It was nearly the perfect currency, except it had one critical weakness: the protocol had
+                debase it</span>. It was nearly the perfect currency, except for one critical weakness: the protocol had
                 <span class="text-argon-100">no price stabilization mechanism</span>.
               </p>
             </div>
@@ -171,8 +174,8 @@
               <p class="mt-1 text-base md:text-xl leading-relaxed font-serif">
                 <span class="text-argon-100">A stable currency is paramount for economies to flourish</span> &ndash;
                 it's hard to sign a contract in a currency that could lose half its value by morning &ndash; which is
-                why Bitcoin's lack of a price stabilizer inhibits it from becoming a global medium of exchange.
-                Multiple projects were launched in 2015 to solve this problem. They tried creating a new type of crypto currency that <span class="text-argon-100">
+                why Bitcoin's lack of a price stabilizer inhibits it from becoming a primary medium of exchange.
+                Multiple projects were launched in 2015 to solve this problem. They tried creating a new type of crypto that <span class="text-argon-100">
                 embodied Bitcoin's independence from fiat</span> yet maintained a
                 <span class="text-argon-100">stable value</span>.
                 Over the next several years,
@@ -209,7 +212,7 @@
             <div class="text-lg md:text-2xl w-11/12 max-w-210 mx-auto leading-relaxed font-bold text-center bg-[var(--bg-charcoal)]">
               <div class="text-2xl md:text-3xl font-light uppercase opacity-80 text-argon-100 mt-3 mb-4">The Current State of Money</div>
               The world has gone digital, but the dominant currencies still exist as fiat paper. Bank wire transfers and
-              stablecoins sit atop this paper. A patchwork of bandaids make it somewhat workable, but the global rise of
+              stablecoins sit atop this paper. A patchwork of bandaids make it somewhat workable for now, but the global rise of
               government spending, increased debt, and inflation risk all point to an uncertain future.
             </div>
             <div class="absolute -bottom-10 bg-linear-to-t from-transparent to-[var(--bg-charcoal)] h-10 w-10 z-10" />
@@ -227,7 +230,7 @@
         <ScrollRisk :showBackground="false" ref="inflationRiskRef" header="Inflation" class="z-[70]">
           Inflation is one of the great hidden taxes on society, and the dollar
           has it in spades. Unfortunately, the risk is getting worse, and
-          every stablecoins pegged to it inherits it.
+          every stablecoin pegged to it inherits it.
           <template #stat1>
             <RiskStat title="The Dollar's Loss Due to Inflation" value="88%">
               This is the amount of wealth that has been erased from your wallet since 1971.
@@ -235,7 +238,7 @@
           </template>
           <template #stat2>
             <RiskStat title="Stablecoins Pegged to the Dollar" value="99%">
-              This is the percentage of stablecoins that have inherited all the problems of the dollar.
+              This is the percentage of stablecoins that have fully consumed all the same problems as the dollar.
             </RiskStat>
           </template>
           <template #stat3>
@@ -259,16 +262,102 @@
           <div class="text-2xl md:text-5xl">Argon Is Fully</div>
           <div class="text-4xl md:text-7xl xl:text-8xl mt-2">Protected From Inflation</div>
         </header>
-        <div class="mt-8 md:mt-10 mx-auto px-4 md:px-12 xl:px-20 max-w-300 text-base md:text-xl leading-normal font-serif">
+        <div class="flex flex-col mt-8 md:mt-10 gap-y-10 mx-auto px-4 md:px-12 xl:px-20 max-w-300 text-base md:text-xl leading-normal font-serif">
           <p>
-            Instead of being pegged to a fiat currency like the dollar, Argon uses an argon-numerated Consumer Price Index to ensure a stable purchasing power over time. A single argon will buy you the same amount of goods today as it will 100 years from now.
+            Most currencies are pegged to the dollar, which means they inherit all of the dollar's inflation. Argon
+            takes a different approach. Instead of pegging to a currency, it pegs to a consumer price index of real goods.
+            One argon buys the same basket of groceries today as it will a thousand years from now.
+          </p>
+          <p>
+            When Argon launched on January 15, 2025, one argon exchanged for exactly one dollar. Since then, the dollar
+            has lost value to inflation, but Argon hasn't. Relative to the dollar, one argon is now worth $1.06, a 6%
+            gap in eighteen months. We expect this gap to continue growing.
           </p>
 
-          <header>How Does It Work?</header>
+          <div class="flex flex-row gap-x-4">
+            <div class="w-1/2 flex flex-col bg-white/50 border border-slate-500/50 rounded-lg p-4">
+              <div class="flex flex-row items-center justify-center gap-x-4 font-sans text-5xl font-bold">
+                <span>₳1.00</span>
+                <SwapIcon class="w-8" />
+                <span>$1.00</span>
+              </div>
+              <div class="font-bold text-center">
+                January 15, 2025
+              </div>
+            </div>
+            <div class="w-1/2 flex flex-col bg-white/50 border border-slate-500/50 rounded-lg p-4">
+              <div class="flex flex-row items-center justify-center gap-x-4 font-sans text-5xl font-bold">
+                <span>₳1.00</span>
+                <SwapIcon class="w-8" />
+                <span>$1.06</span>
+              </div>
+              <div class="font-bold text-center">
+                June 16, 2026
+              </div>
+            </div>
+          </div>
+
           <p>
-            Argon’s invented a novel stabilization algorithm that uses an endogenous asset — Bitcoin — The algorithm
-            uses the $2T bitcoin market to apply shorts against the argon. These profit incentives.
+            That 5.9% gain is just eighteen months of inflation. Small percentages don't feel threatening until you zoom
+            out. If the dollar's inflation stays at a modest 3.5% average — no hyperinflation, no crisis, just business
+            as usual — a banana that costs $1.00 today will cost $871 trillion in the year 3025. One argon will still
+            buy the same banana (or, maybe, a different one).
           </p>
+
+          <div class="relative">
+            <BananaIcon class="absolute top-0 right-full h-1/2 -translate-x-5" />
+            <img src="/fully-protected-from-inflation/illustration1.png" />
+            <BananaIcon class="absolute top-0 left-full h-1/2 -scale-x-100 origin-center translate-x-5" />
+          </div>
+
+          <header class="font-bold text-2xl">How It Works</header>
+          <p>
+            It starts with Argon Stabilization’s Vaults. Anyone can lock their bitcoin in an Argon Vault and instantly
+            receive argon stablecoins equal to their bitcoin’s full market value. Doing so creates a massive short
+            against Argon’s target price.
+          </p>
+
+          <div>
+            <img src="/fully-protected-from-inflation/illustration2.png" />
+          </div>
+
+          <p>
+            The peg itself is set by the Argon Inflation Index, an on-chain tracker of real-goods prices that updates
+            continuously. This index what ensures one argon always holds the same purchasing power, regardless of what
+            any government or central bank decides to do with their currency.
+          </p>
+
+          <div>
+            <img src="/fully-protected-from-inflation/illustration3.png" />
+          </div>
+
+          <p>
+            If argon's price ever slips below its target peg, bitcoin holders call their shorts by unlocking their bitcoin.
+            This automatically burns the excess argons, pushing the price back up to target. Conversely, if demand for
+            the argon pushes its price above the target peg, Argon miners are able to mint additional argons and profit
+            from the upside.
+          </p>
+
+          <div>
+            <img src="/fully-protected-from-inflation/illustration4.png" />
+          </div>
+
+          <header class="font-bold text-2xl">Dive Deeper</header>
+          <div class="flex flex-col gap-y-4">
+            <div>
+              <router-link to="/docs/whitepapers/fundamentals">
+                <ArrowRightCircleIcon class="h-6 inline-block -mt-1" />
+                Read our Whitepaper, The Fundamentals for Creating a Stable Crypto Asset
+              </router-link>
+            </div>
+            <div>
+              <router-link to="/docs/bitcoin-locking">
+                <ArrowRightCircleIcon class="h-6 inline-block -mt-1" />
+                Learn About Liquid Locking for Bitcoin
+              </router-link>
+            </div>
+          </div>
+
         </div>
       </ScrollOverlay>
 
@@ -281,10 +370,10 @@
         <Circle :ref="setMoveToCenterRef" data-move-speed="0.5" class="fixed z-20" />
 
         <ScrollRisk :showBackground="false" ref="fiatCollapseRiskRef" header="Fiat Collapse" class="z-[90]">
-          Every fiat in history has eventually collapsed, starting with China's Song dynasty of 1023 A.D.
+          Every fiat in history has eventually collapsed, starting with China's Yuan dynasty of 1260 A.D.
           The dollar has lasted longer than most, but at which point does the inevitable begin?
           <template #stat1>
-            <RiskStat title="Years In Existence" value="1,003 Years">
+            <RiskStat title="Years In Existence" value="766 Years">
               The number of years since fiat has existed as a government run currency in one form or another.
             </RiskStat>
           </template>
@@ -295,12 +384,12 @@
           </template>
           <template #stat3>
             <RiskStat title="Failure Rate" value="100%">
-              Given enough time, every fiat currency in history has ultimately failed and collapsed.
+              It's crazy but given enough time, every fiat currency in history has ultimately failed and collapsed.
             </RiskStat>
           </template>
           <template #stat4>
             <RiskStat title="Stablecoins Dependent On Fiat" value="100%">
-              The percentage of stablecoins that are pegged to the dollar and therefore inherited its flaws.
+              The percentage of stablecoins in the market that are fully tied to the current fiat system and its risks.
             </RiskStat>
           </template>
         </ScrollRisk>
@@ -315,16 +404,47 @@
           <div class="text-4xl md:text-7xl xl:text-8xl mt-2">Insulated From The Collapse of Fiat</div>
         </header>
 
-        <div class="mt-8 md:mt-10 mx-auto px-4 md:px-12 xl:px-20 max-w-300 text-base md:text-xl leading-normal font-serif">
+        <div class="flex flex-col gap-y-10 mt-8 md:mt-10 mx-auto px-4 md:px-12 xl:px-20 max-w-300 text-base md:text-xl leading-normal font-serif">
           <p>
-            Instead of being pegged to a fiat currency like the dollar, Argon uses an argon-numerated Consumer Price Index to ensure a stable purchasing power over time. A single argon will buy you the same amount of goods today as it will 100 years from now.
+            Nearly every stablecoin in existence is pegged to the dollar — which means every stablecoin inherits the
+            dollar's problems. It doesn't matter how decentralized the collateral. If the peg is in dollars, the risk
+            is in dollars. Argon is different. It has no banks, no custodians, no fiat currencies, and no governments
+            in its dependency chain.
           </p>
 
-          <header>How Does It Work?</header>
           <p>
-            Argon’s invented a novel stabilization algorithm that uses an endogenous asset — Bitcoin — The algorithm
-            uses the $2T bitcoin market to apply shorts against the argon. These profit incentives.
+            Argon's only dependency is Bitcoin, the asset that has survived every financial crisis of the last fifteen
+            years without a central authority keeping it alive. Even if every government defaulted, every bank collapsed,
+            and the world’s fiat currency went to zero, Argon would continue to function. The only scenario that puts
+            Argon on shaky territory is if Bitcoin’s price falls more than 97%, a threshold that has never been breached.
           </p>
+
+          <div>
+            <img src="/insulated-from-the-collapse-of-fiat/illustration1.png" />
+          </div>
+
+          <p>
+            Stablecoins are only as strong as their weakest link. If any single layer in that stack fails — a bank
+            collapses, inflation spirals, or a government defaults — everything above it fails too. Argon's chain has
+            only one link. As long as Bitcoin holds above 3% of its current value, Argon holds.
+          </p>
+
+          <header class="font-bold text-2xl">Dive Deeper</header>
+          <div class="flex flex-col gap-y-4">
+            <div>
+              <router-link to="/docs/whitepapers/fundamentals">
+                <ArrowRightCircleIcon class="h-6 inline-block -mt-1" />
+                Read our Whitepaper, On the Stabilization of Collateral-Backed Stablecoins
+              </router-link>
+            </div>
+            <div>
+              <router-link to="/docs/bitcoin-locking">
+                <ArrowRightCircleIcon class="h-6 inline-block -mt-1" />
+                Explore Our Stabilization Analysis Model
+              </router-link>
+            </div>
+          </div>
+
         </div>
       </ScrollOverlay>
 
@@ -337,50 +457,86 @@
         <Circle :ref="setMoveToCenterRef" data-move-speed="0.5" class="fixed z-20" />
 
         <ScrollRisk :showBackground="false" ref="deathSpiralsRiskRef" header="Death Spirals" class="z-[110]">
-          The dollar took decades to lose 88% of its value. TerraUSD took just 72 hours to lose everything. The death spiral is
-          what happens when fiat's slow erosion gains an algorithm.
+          The dollar took decades to lose 88% of its value. TerraUSD's stablecoin took just 72 hours. The death spiral is
+          what happens when fiat's slow erosion gains an unstable algorithm.
           <template #stat1>
-            <RiskStat title="Single Biggest Loss" value="$40B">
-              Terra collapsed in May 2022, wiping out $40 billion and the life savings of thousands of investors.
-            </RiskStat>
-          </template>
-          <template #stat2>
-            <RiskStat title="Historical Failure Rate" value="100%">
+            <RiskStat title="Algorithmic Stablecoin Failures" value="100%">
               Every algorithmic stablecoin has either collapsed entirely or been forced to abandon its peg.
             </RiskStat>
           </template>
+          <template #stat2>
+            <RiskStat title="Single Biggest-Week Loss" value="$40B">
+              Terra collapsed in May 2022, wiping out $40 billion and the life savings of thousands of investors.
+            </RiskStat>
+          </template>
           <template #stat3>
-            <RiskStat title="Capital at Risk" value="$320B">
+            <RiskStat title="Stablecoin Capital at Risk" value="$320B">
               Dollar stablecoins inherit all the risks of fractional reserve banking. See USDC's near collapse in 2023.
             </RiskStat>
           </template>
           <template #stat4>
-            <RiskStat title="Backed by FDIC Insurance" value="$0">
-              The GENIUS act of 2025 confirmed that dollar stablecoins are not protected by FDIC insurance.
+            <RiskStat title="Protected by FDIC Insurance" value="$0">
+              The GENIUS act of 2025 confirmed the fact that dollar stablecoins are not protected by the FDIC.
             </RiskStat>
           </template>
         </ScrollRisk>
         <div ref="deathSpiralsRiskRunwayRef" aria-hidden="true" class="relative z-[110] pointer-events-none" />
       </ScrollGroup>
 
-      <div class="relative z-10 h-[15vh]"></div>
+      <div class="relative z-10 h-[15vh] bg-[var(--bg-charcoal)]"></div>
 
       <ScrollOverlay ref="deathSpiralsOverlayRef" color="argon" class="z-[120] text-black" data-gsap-bg-from="#5E5968" gsap-is-at-or-above-top>
         <header class="w-11/12 max-w-300 mx-auto text-center mt-10 md:mt-20 font-serif uppercase">
           <div class="text-2xl md:text-5xl">Argon Is Fully</div>
-          <div class="text-4xl md:text-7xl xl:text-8xl mt-2">Immune From Death Spirals</div>
+          <div class="text-4xl md:text-7xl xl:text-8xl mt-2">
+            Immune From
+            Crypto Death Spirals
+          </div>
         </header>
 
-        <div class="mt-8 md:mt-10 mx-auto px-4 md:px-12 xl:px-20 max-w-300 text-base md:text-xl leading-normal font-serif">
+        <div class="flex flex-col gap-y-10 mt-8 md:mt-10 mx-auto px-4 md:px-12 xl:px-20 max-w-300 text-base md:text-xl leading-normal font-serif">
           <p>
-            Instead of being pegged to a fiat currency like the dollar, Argon uses an argon-numerated Consumer Price Index to ensure a stable purchasing power over time. A single argon will buy you the same amount of goods today as it will 100 years from now.
+            Every non-argon stablecoin has fallen into one of two traps. The first was custodial collateral — dollars
+            held in banks — which inherits all the fragility of fractional-reserve banking. The second is an algorithmic
+            second token to manage supply, which creates a reflexive loop: when confidence drops, the token sells off,
+            which drops confidence further. TerraUSD wiped out $40 billion this way in three days. Argon uses neither
+            approach.
           </p>
 
-          <header>How Does It Work?</header>
+          <div>
+            <img src="/immune-from-death-spirals/illustration1.png" />
+          </div>
+
           <p>
-            Argon’s invented a novel stabilization algorithm that uses an endogenous asset — Bitcoin — The algorithm
-            uses the $2T bitcoin market to apply shorts against the argon. These profit incentives.
+            Argon's stabilization mechanism uses Bitcoin as a fully exogenous asset with no need for fractional-reserve
+            banking or custodial reserves. In the simulated stress test above, Argon returns to its target within two
+            days with no outside capital required. The dashed line is where TerraUSD and every traditional stablecoin
+            go instead.
           </p>
+
+          <p>
+            There's a second-order effect is worth noting. As Argon grows, its stabilization mechanism creates a natural
+            price floor for Bitcoin. Argon’s Liquid Locking of Bitcoins gives . Bitcoin's total supply of 21 million
+            coins at current prices represents protection capacity for up to $40 trillion in argon value. The bigger
+            Bitcoin gets, the more resilient Argon becomes. And the more resilient Argon becomes, the better Bitcoin
+            looks to hold.
+          </p>
+
+          <header class="font-bold text-2xl">Dive Deeper</header>
+          <div class="flex flex-col gap-y-4">
+            <div>
+              <router-link to="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3899499">
+                <ArrowRightCircleIcon class="h-6 inline-block -mt-1" />
+                Professor Catalini's On the Economic Design of Stablecoins
+              </router-link>
+            </div>
+            <div>
+              <router-link to="/docs/whitepapers/fundamentals">
+                <ArrowRightCircleIcon class="h-6 inline-block -mt-1" />
+                Read our Whitepaper, The Fundamentals for Creating a Stable Crypto Asset
+              </router-link>
+            </div>
+          </div>
         </div>
       </ScrollOverlay>
 
@@ -401,7 +557,7 @@
             </p>
             <p class="border-b border-gray-300/20 pb-12 mt-12">
               We believe the crypto industry will soon begin waking to the risk of fiat-backed stablecoins. As that
-              happens, the massive shift that is already in progress will begin to accelerate.
+              happens, the massive shift that is already in progress will accelerate.
             </p>
           </div>
         </div>
@@ -424,8 +580,9 @@ import DottedLine from './components/DottedLine.vue';
 import Circle from './components/Circle.vue';
 import RiskStat from './components/RiskStat.vue';
 import MacOldIcon from '../../assets/mac-old.svg?component';
-import BankBrokenIcon from '../../assets/bank-broken.svg?component';
-import { ChevronDoubleDownIcon } from "@heroicons/vue/20/solid";
+import BananaIcon from '../../assets/why-its-better/banana.svg?component';
+import SwapIcon from '../../assets/why-its-better/swap.svg?component';
+import { ChevronDoubleDownIcon, ArrowRightCircleIcon } from "@heroicons/vue/20/solid";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -623,10 +780,13 @@ onMounted(async () => {
   const stateOfMoneyEl = getExposedElement(stateOfMoneyRef.value);
   const inflationRisk = getRiskElements(inflationRiskRef.value);
   const inflationOverlayEl = getExposedElement(inflationOverlayRef.value);
+  const inflationOverlayContentEl = getExposedElement(inflationOverlayRef.value, "$contentEl");
   const fiatCollapseRisk = getRiskElements(fiatCollapseRiskRef.value);
   const fiatCollapseOverlayEl = getExposedElement(fiatCollapseOverlayRef.value);
+  const fiatCollapseOverlayContentEl = getExposedElement(fiatCollapseOverlayRef.value, "$contentEl");
   const deathSpiralsRisk = getRiskElements(deathSpiralsRiskRef.value);
   const deathSpiralsOverlayEl = getExposedElement(deathSpiralsOverlayRef.value);
+  const deathSpiralsOverlayContentEl = getExposedElement(deathSpiralsOverlayRef.value, "$contentEl");
 
   if (
     !pageRef.value ||
@@ -648,14 +808,17 @@ onMounted(async () => {
     !inflationRisk ||
     !inflationRiskRunwayRef.value ||
     !inflationOverlayEl ||
+    !inflationOverlayContentEl ||
     !inflationOverlayRunwayRef.value ||
     !fiatCollapseRisk ||
     !fiatCollapseRiskRunwayRef.value ||
     !fiatCollapseOverlayEl ||
+    !fiatCollapseOverlayContentEl ||
     !fiatCollapseOverlayRunwayRef.value ||
     !deathSpiralsRisk ||
     !deathSpiralsRiskRunwayRef.value ||
     !deathSpiralsOverlayEl ||
+    !deathSpiralsOverlayContentEl ||
     !deathSpiralsOverlayRunwayRef.value
   ) {
     return;
@@ -771,6 +934,26 @@ onMounted(async () => {
           },
         },
       );
+
+      if (isFixed()) {
+        const setHiddenAfterContent = (self: ScrollTrigger) => {
+          if (self.isActive || self.progress === 1) {
+            gsap.set(element, { autoAlpha: 0 });
+          }
+        };
+
+        ScrollTrigger.create({
+          trigger: section,
+          start: "bottom 70%",
+          end: "bottom top",
+          invalidateOnRefresh: true,
+          onEnter: () => gsap.set(element, { autoAlpha: 0 }),
+          onEnterBack: () => gsap.set(element, { autoAlpha: 0 }),
+          onLeaveBack: () => gsap.set(element, { autoAlpha: 1 }),
+          onRefresh: setHiddenAfterContent,
+          onUpdate: setHiddenAfterContent,
+        });
+      }
     };
 
     const moveTopWhileScrolling = (
@@ -951,9 +1134,6 @@ onMounted(async () => {
       });
     };
 
-    pinOverlayForRunway(inflationOverlayEl, inflationOverlayRunwayRef);
-    pinOverlayForRunway(fiatCollapseOverlayEl, fiatCollapseOverlayRunwayRef);
-    pinOverlayForRunway(deathSpiralsOverlayEl, deathSpiralsOverlayRunwayRef);
 
     const scenes = [
       {
@@ -1095,6 +1275,27 @@ onMounted(async () => {
       firstThingsSecondContentEl,
       firstThingsSecondRunwayRef,
       firstThingsSecondRef,
+    );
+
+    createScrollableOverlay(
+      inflationOverlayEl,
+      inflationOverlayContentEl,
+      inflationOverlayRunwayRef,
+      inflationOverlayRef,
+    );
+
+    createScrollableOverlay(
+      fiatCollapseOverlayEl,
+      fiatCollapseOverlayContentEl,
+      fiatCollapseOverlayRunwayRef,
+      fiatCollapseOverlayRef,
+    );
+
+    createScrollableOverlay(
+      deathSpiralsOverlayEl,
+      deathSpiralsOverlayContentEl,
+      deathSpiralsOverlayRunwayRef,
+      deathSpiralsOverlayRef,
     );
 
     const createScrollableRiskContent = (

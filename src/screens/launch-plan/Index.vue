@@ -4,7 +4,7 @@
       <h1 class="text-argon-600/50 font-bold text-xl md:text-2xl tracking-widest uppercase font-serif">
         Launch Plan
       </h1>
-      <header class="text-3xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight font-light font-serif mt-2 md:flex flex-row">
+      <header class="text-3xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight font-light font-serif mt-2 md:flex flex-col">
         <span>Argon's Path to Becoming a </span>
         <span>Global Transactional Currency</span>
       </header>

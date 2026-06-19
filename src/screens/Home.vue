@@ -23,7 +23,7 @@
           <div class="flex flex-col gap-y-6 text-2xl font-serif leading-tight md:text-4xl lg:gap-y-7 lg:text-4xl xl:gap-y-8 xl:text-[2.75rem] 2xl:gap-y-10 2xl:text-6xl">
             <router-link to="/docs/economic-pillars/protected-from-inflation" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit mx-auto hover:text-white lg:mx-0">
               IT'S PROTECTED FROM<br />
-              <span>INFLATION OF THE DOLLAR</span>,
+              <span>THE DOLLAR'S INFLATION</span>,
             </router-link>
 
             <router-link to="docs/economic-pillars/insulated-from-fiat-money" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit mx-auto hover:text-white lg:mx-0">
