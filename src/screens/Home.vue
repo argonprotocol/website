@@ -76,18 +76,18 @@
       <div class="flex flex-col relative w-full bg-[#5B0968] border-t border-argon-900" style="box-shadow: inset 0 1px 0 0 rgba(255,255,255, 0.2);">
         <div class="relative flex flex-col md:flex-row items-stretch md:whitespace-nowrap w-full text-white/80 py-3 text-center">
           <div as="div" to="/learn/currency-metrics/argons-in-circulation" class="md:w-1/3 py-6 md:py-10 hover:bg-black/10 hover:text-white">
-            <div class="text-4xl lg:text-6xl font-bold">{{ microgonToArgonNm(data.microgonsInCirculation).format('0,0') }}</div>
-            <div class="mt-2 font-light">Argon Circulation</div>
+            <div class="text-4xl lg:text-6xl font-bold">{{ microgonsInCirculation ? microgonToArgonNm(microgonsInCirculation).format('0,0') : '---,---' }}</div>
+            <div class="mt-2 font-light">Argons In Circulation</div>
           </div>
           <div class="DIVIDER-VERTICAL !h-auto self-stretch mx-3 hidden md:block"></div>
           <div as="div" to="/learn/currency-metrics/argon-to-fiat-exchange-rate" class="md:w-1/3 py-6 md:py-10 hover:bg-black/10 hover:text-white">
-            <div class="text-4xl lg:text-6xl font-bold">₳1.00 -> ${{ data.usdForArgon ? numeral(data.usdForArgon).format('0.00') : '-.--' }}</div>
+            <div class="text-4xl lg:text-6xl font-bold">₳{{ data.usdTargetForArgon ? '1.00' : '-.--' }} -> ${{ data.usdTargetForArgon ? numeral(data.usdTargetForArgon).format('0.00') : '-.--' }}</div>
             <div class="mt-2 font-light">Argon-to-Dollar Exchange Rate</div>
           </div>
           <div class="DIVIDER-VERTICAL !h-auto self-stretch mx-3 hidden md:block"></div>
           <div as="div" to="/learn/currency-metrics/bitcoin-to-argon-short-value" class="md:w-1/3 py-6 md:py-10 hover:bg-black/10 hover:text-white">
-            <div class="flex flex-row items-center justify-center text-4xl gap-x-3 lg:text-6xl font-bold">43.6 <span class="text-2xl font-semibold lg:text-4xl">TO</span> 1</div>
-            <div class="mt-2 font-light">Restabilization Leverage</div>
+            <div class="flex flex-row items-center justify-center text-4xl gap-x-3 lg:text-6xl font-bold">{{ data.restabilizationLeverage || '---' }} <span class="text-2xl font-semibold lg:text-4xl">TO</span> {{ data.restabilizationLeverage ? '1' : '--'}}</div>
+            <div class="mt-2 font-light">Restabilization Capacity</div>
           </div>
         </div>
       </div>
@@ -177,7 +177,7 @@
 
       <div class="grid grid-cols-2 md:grid-cols-3 w-10/12 max-w-360 mx-auto text-center py-4 divide-argon-400/20 text-slate-400/80 md:divide-x md:py-6">
         <div as="div" to="/learn/mining-metrics/current-mining-apy" class="hover:text-argon-600/70 py-5">
-          <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">100</div>
+          <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">{{ data.mining.activeSeatCount }}</div>
           <div class="mt-2 font-light">Active Mining Seats</div>
         </div>
         <div as="div" to="/learn/vaulting-metrics/active-vaults" class="hover:text-argon-600/70 py-5">
@@ -185,7 +185,7 @@
           <div class="mt-2 font-light">Active Vaults</div>
         </div>
         <div as="div" to="/learn/vaulting-metrics/current-vaulting-apy" class="hidden hover:text-argon-600/70 py-5 md:block">
-          <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">{{ numeral(data.vaulting.activeAPY).formatCapped('0,0', 9_999) }}%</div>
+          <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">{{ numeral(data.vaulting.bitcoinTxnCount).format('0,0') }}</div>
           <div class="mt-2 font-light">Active Bitcoin Txns</div>
         </div>
       </div>
@@ -194,20 +194,24 @@
 
       <div class="grid grid-cols-2 md:grid-cols-4 w-10/12 max-w-360 mx-auto text-center py-4 divide-argon-400/20 text-slate-400/80 md:divide-x md:py-6">
         <div as="div" to="/learn/mining-metrics/active-mining-seats" class="hover:text-argon-600/70 py-5">
-          <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">{{ data.mining.activeSeatCount }}</div>
-          <div class="mt-2 font-light">Mining APY</div>
+          <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">{{ numeral(data.miningAPR).formatIfElseCapped('< 1_000', '0,0.[0]', '0,0', 9_999) }}%</div>
+          <div class="mt-2 font-light">Mining APR</div>
         </div>
         <div as="div" to="/learn/mining-metrics/current-mining-apy" class="hover:text-argon-600/70 py-5">
-          <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">{{ numeral(data.mining.activeAPY).formatCapped('0,0', 9_999) }}%</div>
-          <div class="mt-2 font-light">Treasury APY</div>
+          <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">{{
+              numeral(data.bondsAPR).formatIfElseCapped('< 1_000', '0,0.[0]', '0,0', 9_999)
+            }}%</div>
+          <div class="mt-2 font-light">Treasury Bonds APR</div>
         </div>
         <div as="div" to="/learn/vaulting-metrics/active-vaults" class="border-t border-argon-400/20 hover:text-argon-600/70 py-5 md:border-t-0">
-          <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">{{ data.vaulting.count }}%</div>
-          <div class="mt-2 font-light">Vaulting APY</div>
+          <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">{{ numeral(data.vaultingAPR).formatIfElseCapped('< 1_000', '0,0.[0]', '0,0', 9_999) }}%</div>
+          <div class="mt-2 font-light">Vaulting APR</div>
         </div>
         <div as="div" to="/learn/vaulting-metrics/current-vaulting-apy" class="border-t border-argon-400/20 hover:text-argon-600/70 py-5 md:border-t-0">
-          <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">{{ numeral(data.vaulting.activeAPY).formatCapped('0,0', 9_999) }}%</div>
-          <div class="mt-2 font-light">Bitcoin APY</div>
+          <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">{{
+              numeral(data.bitcoinAPR).formatIfElseCapped('< 1_000', '0,0.[0]', '0,0', 9_999)
+            }}%</div>
+          <div class="mt-2 font-light">Locked Bitcoin APR</div>
         </div>
       </div>
     </section>
@@ -375,6 +379,7 @@ import numeral, { microgonToArgonNm } from '@/lib/numeral';
 import Data from "@/lib/Data";
 import DottedGlobe from "@/components/DottedGlobe.vue";
 import { Download } from '@/lib/Download';
+import dayjs from 'dayjs';
 
 const download = new Download();
 const stableUrl = Vue.ref('');
@@ -383,8 +388,36 @@ const appSliderEl = Vue.ref<HTMLElement | null>(null);
 const appSliderPercent = Vue.ref(50);
 const appPreviewPercent = Vue.ref<number | null>(null);
 const isAppSliderDragging = Vue.ref(false);
+const lastBlockAt = Vue.ref(dayjs().startOf('minute'));
+let minuteTimeout: ReturnType<typeof setTimeout> | null = null;
 
 const activeSliderPercent = Vue.computed(() => appPreviewPercent.value ?? appSliderPercent.value);
+
+const minutesElapsed = Vue.computed(() => {
+  const lastUpdatedAt = dayjs(data.value.lastUpdatedAt);
+  if (!lastUpdatedAt.isValid()) {
+    return 0;
+  }
+
+  const minutesSinceLastUpdate = lastBlockAt.value.diff(lastUpdatedAt.startOf('minute'), 'minute');
+  return Math.max(minutesSinceLastUpdate, 0);
+});
+
+const microgonsInCirculation = Vue.computed(() => {
+  return data.value.microgonsInCirculation + BigInt(minutesElapsed.value) * data.value.baseMicrogonsMinedPerBlock;
+});
+
+function scheduleMinuteReset() {
+  const now = Date.now();
+  const msToNextMinute = 60000 - (now % 60000);
+  if (minuteTimeout) {
+    clearTimeout(minuteTimeout);
+  }
+  minuteTimeout = setTimeout(() => {
+    lastBlockAt.value = dayjs().startOf('minute');
+    scheduleMinuteReset();
+  }, msToNextMinute);
+}
 
 function clampSliderPercent(value: number): number {
   return Math.min(100, Math.max(0, value));
@@ -432,6 +465,8 @@ function clearAppPreview(): void {
 }
 
 Vue.onMounted(async () => {
+  lastBlockAt.value = dayjs().startOf('minute');
+  scheduleMinuteReset();
   const [basics, _] = await Promise.all([
     Data.fetchBasics(),
     download.load(),
@@ -441,7 +476,12 @@ Vue.onMounted(async () => {
   stableVersion.value = download.stableVersion;
 });
 
-Vue.onBeforeUnmount(stopAppSliderDrag);
+Vue.onBeforeUnmount(() => {
+  stopAppSliderDrag();
+  if (minuteTimeout) {
+    clearTimeout(minuteTimeout);
+  }
+});
 </script>
 
 <style>

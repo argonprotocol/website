@@ -19,11 +19,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@argonprotocol/apps-core@portal:../apps/core::locator=website2%40workspace%3A.":
+"@argonprotocol/apps-core@portal:../apps/core::locator=argon-website%40workspace%3A.":
   version: 0.0.0-use.local
-  resolution: "@argonprotocol/apps-core@portal:../apps/core::locator=website2%40workspace%3A."
+  resolution: "@argonprotocol/apps-core@portal:../apps/core::locator=argon-website%40workspace%3A."
   dependencies:
-    "@argonprotocol/mainchain": "npm:1.4.5"
+    "@argonprotocol/mainchain": "npm:1.4.7"
     "@polkadot/keyring": "npm:^14.0.3"
     "@polkadot/util": "npm:^14.0.3"
     "@polkadot/util-crypto": "npm:^14.0.3"
@@ -33,9 +33,21 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@argonprotocol/mainchain@npm:1.4.5":
-  version: 1.4.5
-  resolution: "@argonprotocol/mainchain@npm:1.4.5"
+"@argonprotocol/apps-data-generators@portal:../apps/data-generators::locator=argon-website%40workspace%3A.":
+  version: 0.0.0-use.local
+  resolution: "@argonprotocol/apps-data-generators@portal:../apps/data-generators::locator=argon-website%40workspace%3A."
+  dependencies:
+    "@argonprotocol/apps-core": "workspace:*"
+    "@argonprotocol/mainchain": "npm:1.4.7"
+    bignumber.js: "npm:^9.3.1"
+    dayjs: "npm:^1.11.13"
+    zod: "npm:^3.25.55"
+  languageName: node
+  linkType: soft
+
+"@argonprotocol/mainchain@npm:1.4.7":
+  version: 1.4.7
+  resolution: "@argonprotocol/mainchain@npm:1.4.7"
   dependencies:
     "@ethereumjs/block": "npm:^10.1.1"
     "@ethereumjs/mpt": "npm:^10.1.1"
@@ -52,7 +64,7 @@ __metadata:
     bs58check: "npm:^4.0.0"
     camelcase-keys: "npm:^9.1.3"
     viem: "npm:^2.38.5"
-  checksum: 10c0/af162bd17b0f5733468d801a69dc65d66e12d65885d195415dc51ae7e4f854d1a9cd4e075fce8ca233ebc06d162397487654170670f0ab5d57bb5608f4904495
+  checksum: 10c0/63be50158f24fe81225cdda0dde98f187cf09096348d647fa3570175952e0aac27ce9b1b220dedd15e7fec25ac8397c451e227b27c6780e92f42618cfd22ba88
   languageName: node
   linkType: hard
 
@@ -3008,6 +3020,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vue/compiler-core@npm:3.5.38":
+  version: 3.5.38
+  resolution: "@vue/compiler-core@npm:3.5.38"
+  dependencies:
+    "@babel/parser": "npm:^7.29.7"
+    "@vue/shared": "npm:3.5.38"
+    entities: "npm:^7.0.1"
+    estree-walker: "npm:^2.0.2"
+    source-map-js: "npm:^1.2.1"
+  checksum: 10c0/b2adafbed0cb15d22dc7aa875cf1701dd5d56bfdcdf83e2ff8beb75c101f993ed350c053f9e246a20db592d04447b07a7d41229987314ba88fe656977ed0a0fb
+  languageName: node
+  linkType: hard
+
 "@vue/compiler-dom@npm:3.5.35, @vue/compiler-dom@npm:^3.3.4, @vue/compiler-dom@npm:^3.5.0":
   version: 3.5.35
   resolution: "@vue/compiler-dom@npm:3.5.35"
@@ -3015,6 +3040,16 @@ __metadata:
     "@vue/compiler-core": "npm:3.5.35"
     "@vue/shared": "npm:3.5.35"
   checksum: 10c0/491c3f4026824816884e9a6e2d58fd1eaa4686ac5073eb873b2c3241d388f240ea316f3329ed6e84fc8e9e5d548c8780bab566f19f81c1e468355dfb763c2561
+  languageName: node
+  linkType: hard
+
+"@vue/compiler-dom@npm:^3.5.38":
+  version: 3.5.38
+  resolution: "@vue/compiler-dom@npm:3.5.38"
+  dependencies:
+    "@vue/compiler-core": "npm:3.5.38"
+    "@vue/shared": "npm:3.5.38"
+  checksum: 10c0/ed16a0beeba511581d89c08a70b5dfd3f4732e02ea7483a9bc6e8e3149249522d60a86a03502dab23f1b341765deb6227ea8f48daae7adeaa9881173a0b3a869
   languageName: node
   linkType: hard
 
@@ -3204,6 +3239,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@vue/shared@npm:3.5.38":
+  version: 3.5.38
+  resolution: "@vue/shared@npm:3.5.38"
+  checksum: 10c0/42c6b2118d5632920d97f06c4883ac611f300e5158cbdef6c2b87962c4b8b89121c726cc2ff6fe1894a2266370c91c1664d0956026d27874491b2c4a213af8e8
+  languageName: node
+  linkType: hard
+
 "@vue/test-utils@npm:^2.4.6":
   version: 2.4.11
   resolution: "@vue/test-utils@npm:2.4.11"
@@ -3390,6 +3432,67 @@ __metadata:
   checksum: 10c0/23b8a4ce14e18fb854693b95351e286b771d23d8844057ed2e7d083cd3e708376c3323707ec6a24365f7d7eda3ca00327fe04092e29e551499ec4c8b7bfac868
   languageName: node
   linkType: hard
+
+"argon-website@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "argon-website@workspace:."
+  dependencies:
+    "@argonprotocol/apps-core": "npm:^0.0.1"
+    "@argonprotocol/apps-data-generators": "npm:^0.0.1"
+    "@argonprotocol/mainchain": "npm:1.4.7"
+    "@chenfengyuan/vue-countdown": "npm:2"
+    "@heroicons/vue": "npm:^2.1.5"
+    "@rushstack/eslint-patch": "npm:^1.8.0"
+    "@tailwindcss/vite": "npm:^4.1.12"
+    "@tsconfig/node20": "npm:^20.1.4"
+    "@types/d3": "npm:^7"
+    "@types/d3-geo": "npm:^3"
+    "@types/jsdom": "npm:^21.1.7"
+    "@types/node": "npm:^20.14.5"
+    "@types/numeral": "npm:^2"
+    "@types/pako": "npm:^2"
+    "@types/topojson-client": "npm:^3"
+    "@vitejs/plugin-vue": "npm:^5.0.5"
+    "@vue/compiler-dom": "npm:^3.5.38"
+    "@vue/eslint-config-prettier": "npm:^9.0.0"
+    "@vue/eslint-config-typescript": "npm:^13.0.0"
+    "@vue/test-utils": "npm:^2.4.6"
+    "@vue/tsconfig": "npm:^0.5.1"
+    autoprefixer: "npm:^10.4.19"
+    bignumber.js: "npm:^9.3.1"
+    chart.js: "npm:^4.5.1"
+    cobe: "npm:^2.0.1"
+    d3: "npm:^7.9.0"
+    d3-geo: "npm:^3.1.1"
+    dayjs: "npm:^1.11.13"
+    eslint: "npm:^8.57.0"
+    eslint-plugin-vue: "npm:^9.23.0"
+    gh-pages: "npm:^6.3.0"
+    gsap: "npm:^3.15.0"
+    jsdom: "npm:^24.1.0"
+    npm-run-all2: "npm:^6.2.0"
+    numeral: "npm:^2.0.6"
+    pako: "npm:^2.1.0"
+    pinia: "npm:^2.1.7"
+    postcss: "npm:^8.4.40"
+    prettier: "npm:^3.2.5"
+    reka-ui: "npm:^2.6.1"
+    sass: "npm:^1.83.4"
+    tailwind-merge: "npm:^3.3.1"
+    tailwindcss: "npm:^4.1.12"
+    topojson-client: "npm:^3.1.0"
+    tsx: "npm:^4.20.5"
+    typescript: "npm:~5.4.0"
+    vite: "npm:^5.3.1"
+    vite-plugin-vue-devtools: "npm:^7.3.1"
+    vite-svg-loader: "npm:^5.1.0"
+    vitest: "npm:^1.6.0"
+    vue: "npm:^3.4.29"
+    vue-router: "npm:^4.3.3"
+    vue-tsc: "npm:^2.0.21"
+    world-atlas: "npm:^2.0.2"
+  languageName: unknown
+  linkType: soft
 
 "argparse@npm:^2.0.1":
   version: 2.0.1
@@ -8008,65 +8111,6 @@ __metadata:
   checksum: 10c0/228d8cb6d270c23b0720cb2d95c579202db3aaf8f633b4e9dd94ec2000a04e7e6e43b76a94509cdb30479bd00ae253ab2371a2da9f81446cc313f89a4213a2c4
   languageName: node
   linkType: hard
-
-"website2@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "website2@workspace:."
-  dependencies:
-    "@argonprotocol/apps-core": "npm:^0.0.1"
-    "@argonprotocol/mainchain": "npm:1.4.5"
-    "@chenfengyuan/vue-countdown": "npm:2"
-    "@heroicons/vue": "npm:^2.1.5"
-    "@rushstack/eslint-patch": "npm:^1.8.0"
-    "@tailwindcss/vite": "npm:^4.1.12"
-    "@tsconfig/node20": "npm:^20.1.4"
-    "@types/d3": "npm:^7"
-    "@types/d3-geo": "npm:^3"
-    "@types/jsdom": "npm:^21.1.7"
-    "@types/node": "npm:^20.14.5"
-    "@types/numeral": "npm:^2"
-    "@types/pako": "npm:^2"
-    "@types/topojson-client": "npm:^3"
-    "@vitejs/plugin-vue": "npm:^5.0.5"
-    "@vue/eslint-config-prettier": "npm:^9.0.0"
-    "@vue/eslint-config-typescript": "npm:^13.0.0"
-    "@vue/test-utils": "npm:^2.4.6"
-    "@vue/tsconfig": "npm:^0.5.1"
-    autoprefixer: "npm:^10.4.19"
-    bignumber.js: "npm:^9.3.1"
-    chart.js: "npm:^4.5.1"
-    cobe: "npm:^2.0.1"
-    d3: "npm:^7.9.0"
-    d3-geo: "npm:^3.1.1"
-    dayjs: "npm:^1.11.13"
-    eslint: "npm:^8.57.0"
-    eslint-plugin-vue: "npm:^9.23.0"
-    gh-pages: "npm:^6.3.0"
-    gsap: "npm:^3.15.0"
-    jsdom: "npm:^24.1.0"
-    npm-run-all2: "npm:^6.2.0"
-    numeral: "npm:^2.0.6"
-    pako: "npm:^2.1.0"
-    pinia: "npm:^2.1.7"
-    postcss: "npm:^8.4.40"
-    prettier: "npm:^3.2.5"
-    reka-ui: "npm:^2.6.1"
-    sass: "npm:^1.83.4"
-    tailwind-merge: "npm:^3.3.1"
-    tailwindcss: "npm:^4.1.12"
-    topojson-client: "npm:^3.1.0"
-    tsx: "npm:^4.20.5"
-    typescript: "npm:~5.4.0"
-    vite: "npm:^5.3.1"
-    vite-plugin-vue-devtools: "npm:^7.3.1"
-    vite-svg-loader: "npm:^5.1.0"
-    vitest: "npm:^1.6.0"
-    vue: "npm:^3.4.29"
-    vue-router: "npm:^4.3.3"
-    vue-tsc: "npm:^2.0.21"
-    world-atlas: "npm:^2.0.2"
-  languageName: unknown
-  linkType: soft
 
 "whatwg-encoding@npm:^3.1.1":
   version: 3.1.1

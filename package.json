@@ -1,5 +1,5 @@
 {
-  "name": "website2",
+  "name": "argon-website",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -20,11 +20,14 @@
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "update-data": "tsx data-generators/all.ts"
+    "-update-data": "yarn update-data:apps && tsx data-generators/all.ts",
+    "update-data": "tsx data-generators/all.ts",
+    "update-data:apps": "cd ../apps && tsx data-generators/all.ts"
   },
   "dependencies": {
     "@argonprotocol/apps-core": "^0.0.1",
-    "@argonprotocol/mainchain": "1.4.5",
+    "@argonprotocol/apps-data-generators": "^0.0.1",
+    "@argonprotocol/mainchain": "1.4.7",
     "@chenfengyuan/vue-countdown": "2",
     "@heroicons/vue": "^2.1.5",
     "bignumber.js": "^9.3.1",
@@ -55,6 +58,7 @@
     "@types/pako": "^2",
     "@types/topojson-client": "^3",
     "@vitejs/plugin-vue": "^5.0.5",
+    "@vue/compiler-dom": "^3.5.38",
     "@vue/eslint-config-prettier": "^9.0.0",
     "@vue/eslint-config-typescript": "^13.0.0",
     "@vue/test-utils": "^2.4.6",
@@ -79,7 +83,8 @@
     "vue-tsc": "^2.0.21"
   },
   "resolutions": {
-    "@argonprotocol/apps-core": "portal:../apps/core"
+    "@argonprotocol/apps-core": "portal:../apps/core",
+    "@argonprotocol/apps-data-generators": "portal:../apps/data-generators"
   },
   "packageManager": "yarn@4.9.1+sha512.f95ce356460e05be48d66401c1ae64ef84d163dd689964962c6888a9810865e39097a5e9de748876c2e0bf89b232d583c33982773e9903ae7a76257270986538"
 }

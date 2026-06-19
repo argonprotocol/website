@@ -216,6 +216,16 @@ function toggleMenu() {
   color: v-bind(text);
 }
 
+@media (max-width: 360px) {
+  .MobileMenuNetworkButton {
+    @apply px-3;
+  }
+
+  .MobileMenuNetworkButton span {
+    @apply hidden;
+  }
+}
+
 .MobileMenuNetworkButton:hover {
   background-color: v-bind(bgHover);
   color: v-bind(textHover);
