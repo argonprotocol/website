@@ -33,6 +33,10 @@ const router = createRouter({
       component: () => import('@/screens/launch-plan/Index.vue')
     },
     {
+      path: '/secret-plan',
+      redirect: '/launch-plan'
+    },
+    {
       path: '/docs/:id?/:subId?',
       beforeEnter(to) {
         if (!to.params.id) return '/docs/whitepapers';
