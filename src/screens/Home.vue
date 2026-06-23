@@ -230,7 +230,7 @@
           According to Chainalysis, cross-chain bridges are the single largest source of crypto hacks. Argon sidesteps
           this risk by integrating cross-chain in a bridgeless capacity. Minting Authorities are empowered to mint/burn
           argons native to each chain without knowledge of the other chain and without forcing collateral to be exposed
-          across the bridges.  Learn more.
+          across the bridges.
         </p>
       </div>
 
