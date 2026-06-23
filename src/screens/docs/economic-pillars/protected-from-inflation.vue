@@ -1,9 +1,8 @@
 <template>
-  <article>
-    <DocHeader>
-      Argon Is Protected from Government Inflation
-    </DocHeader>
-
+  <DocHeader>
+    Argon Is Protected from Government Inflation
+  </DocHeader>
+  <DocContent>
     <div class="font-extralight italic text-4xl leading-12 my-10 mr-28">
       A well-designed currency should preserve value across generations, free from the inflation
       and unchecked over-printing that has destroyed every form of fiat money throughout history.
@@ -193,37 +192,16 @@
     </TimeChart>
 
     <h3 class="text-2xl font-bold mt-14">
-      Learn More About the Argon
+      In Conclusion
     </h3>
 
     <p>
       Argon has similar properties to gold in that both can hold a stable value over thousands of years. The big
       difference is that gold is heavy to move, hard to divide, and impossible to transmit digitally. Argon
-      retains long-term durability while being portable, divisible, and natively digital. For more information, check
-      out Argon's other core properties:
+      retains long-term durability while being portable, divisible, and natively digital.
     </p>
 
-    <ul class="list-disc list-outside space-y-4 pl-6">
-      <li class="pl-2">
-        <RouterLink to="/why-its-better/indifferent-to-catastrophe" class="font-bold">Indifferent to Catastrophe</RouterLink>
-        <div class="mt-1">
-          Argon works regardless of banking collapses or government bond failures.
-        </div>
-      </li>
-      <li class="pl-2">
-        <RouterLink to="/why-its-better/intrinsic-price-stabilization" class="font-bold">Intrinsic Price Stabilization</RouterLink>
-        <div class="mt-1">
-          Argon creates economic balance between the growth of currency and its stabilization
-        </div>
-      </li>
-      <li class="pl-2">
-        <RouterLink to="/why-its-better/immune-from-death-spirals" class="font-bold">Immune from Death Spirals</RouterLink>
-        <div class="mt-1">
-          Argon solves the core problem inherent in previous algorithmic stablecoins.
-        </div>
-      </li>
-    </ul>
-  </article>
+  </DocContent>
 </template>
 
 <script setup lang="ts">
@@ -236,6 +214,7 @@ import type { IConsumerPriceIndexRecord } from '@/interfaces/IConsumerPriceIndex
 import { PopoverRoot, PopoverAnchor, PopoverPortal, PopoverArrow, PopoverContent  } from 'reka-ui';
 import CarIcon from '../../../assets/car.svg?component';
 import DocHeader from "@/screens/docs/DocHeader.vue";
+import DocContent from "@/screens/docs/DocContent.vue";
 
 dayjs.extend(utc);
 

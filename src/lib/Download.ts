@@ -5,6 +5,11 @@ export enum OsName {
   unknown = 'unknown',
 }
 
+export enum AppName {
+  Operations = 'Operations',
+  Treasury = 'Treasury',
+}
+
 export class Download {
   public stableVersion!: string;
   public experimentalVersion = '1.0.0-rc1';
@@ -34,18 +39,22 @@ export class Download {
     this.isLoaded = true;
   }
 
-  public get currentUrl() {
-    return this.urlFor(this.currentOsName, false);
+  public get operationsUrl() {
+    return this.urlFor(AppName.Operations, this.currentOsName, false);
   }
 
-  public urlFor(osName: OsName, isExperimental: boolean) {
+  public get treasuryUrl() {
+    return this.urlFor(AppName.Treasury, this.currentOsName, false);
+  }
+
+  public urlFor(appName: AppName, osName: OsName, isExperimental: boolean) {
     if (!this.isLoaded) throw new Error('download.load() must be called first');
     const suffix = this.fileNameSuffix(osName);
     const version = isExperimental ? this.experimentalVersion : this.stableVersion;
-    return `https://github.com/argonprotocol/apps/releases/download/v${version}/Argon.Operations_${version}_${suffix}`;
+    return `https://github.com/argonprotocol/apps/releases/download/v${version}/Argon.${appName}_${version}_${suffix}`;
   }
 
-  private fileNameSuffix(osName: OsName, isDebug: boolean = true) {
+  private fileNameSuffix(osName: OsName, isDebug: boolean = false) {
     if (osName === 'mac') {
       return `universal${isDebug ? '-debug' : ''}.dmg`;
     } else if (osName === 'windows') {

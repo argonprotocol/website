@@ -97,7 +97,7 @@
           </div>
 
           <div StatWrapper class="col-span-1 sm:col-span-2 flex flex-col h-full border-b border-slate-400/50">
-            <span>{{ data.vaulting.argonBurnCapacity ? numeral(data.vaulting.argonBurnCapacity).format('0,0'): '---' }}</span>
+            <span>{{ data.restabilizationLeverage || '---' }} <span class="text-xl font-semibold lg:text-2xl">TO</span> {{ data.restabilizationLeverage ? '1' : '--'}}</span>
             <label>Argon Restabilization <span class="hidden md:inline">Capacity</span></label>
           </div>
 

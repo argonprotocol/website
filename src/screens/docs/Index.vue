@@ -1,9 +1,9 @@
 <template>
-  <article>
-    <DocHeader>
-      Welcome to Argon Documentation
-    </DocHeader>
+  <DocHeader>
+    Welcome to Argon Documentation
+  </DocHeader>
 
+  <DocContent>
     <h2>Platform Overview</h2>
     <p>
       Argon is a decentralized stable-asset network with two primary operational domains: mining and vaulting.
@@ -28,25 +28,6 @@
       If you already understand operations, jump directly to capital management and modeling.
     </p>
 
-    <h2>Documentation Map</h2>
-    <p>
-      The docs are organized by execution order and decision depth:
-    </p>
-    <ul>
-      <li><strong>The Desktop Apps</strong>: installation context, app selection, and baseline setup.</li>
-      <li><strong>Capital Management</strong>: portfolio scope, allocation workflow, and reporting structure.</li>
-      <li><strong>Mining Operations</strong>: seat auctions, rewards, and ongoing mining responsibilities.</li>
-      <li><strong>Vaulting Operations</strong>: lock servicing, treasury mechanics, and vault operator duties.</li>
-      <li><strong>Ambassador Program</strong>: step-by-step runbook for first complete operator cycle.</li>
-      <li><strong>Whitepapers</strong>: design rationale and stability framework references.</li>
-      <li><strong>Engine Modeling</strong>: model assumptions and scenario analysis references.</li>
-    </ul>
-
-    <h2>Conventions and Terminology</h2>
-    <p>
-      These docs use direct procedural language. “Must” indicates a required step for a successful workflow.
-      “Should” indicates a recommended control or best practice. “May” indicates an optional path.
-    </p>
     <p>
       Key terms used throughout:
     </p>
@@ -57,8 +38,9 @@
       <li><strong>Argon / Argonot</strong>: the network currency and governance-aligned token used in operations.</li>
       <li><strong>Liquid Lock</strong>: a Bitcoin lock workflow that interacts with vault and stabilization flows.</li>
     </ul>
-  </article>
+  </DocContent>
 </template>
 <script setup lang="ts">
 import DocHeader from "@/screens/docs/DocHeader.vue";
+import DocContent from "@/screens/docs/DocContent.vue";
 </script>

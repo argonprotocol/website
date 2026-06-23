@@ -1,8 +1,8 @@
 <template>
-  <article>
-    <h1>Argon Operations</h1>
-
-    <h2>Overview</h2>
+  <DocHeader>
+    The Operations App
+  </DocHeader>
+  <DocContent>
     <p>
       Argon Operations is the execution environment for mining and vaulting participants. It is designed for operators
       who need to run repeatable workflows with clear state visibility and local control.
@@ -72,5 +72,9 @@
     <p>
       The objective is consistency, not constant manual intervention.
     </p>
-  </article>
+  </DocContent>
 </template>
+<script setup lang="ts">
+import DocContent from "@/screens/docs/DocContent.vue";
+import DocHeader from "@/screens/docs/DocHeader.vue";
+</script>

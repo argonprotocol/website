@@ -1,10 +1,10 @@
 <template>
-  <article>
-    <DocHeader>
-      The Fundamentals for
-      Creating a Stable Crypto Asset
-    </DocHeader>
+  <DocHeader>
+    The Fundamentals for
+    Creating a Stable Crypto Asset
+  </DocHeader>
 
+  <DocContent>
     <div>
       By Caleb Clark & Blake Byrnes
     </div>
@@ -230,13 +230,12 @@
     <div>
       <router-link to="/the-fundamentals-for-creating-a-stable-crypto-asset.pdf" class="block py-5 w-full border border-argon-600 text-center text-2xl text-argon-600 cursor-pointer rounded-lg hover:bg-argon-100/20">Download Full Whitepaper</router-link>
     </div>
-  </article>
-
+  </DocContent>
 </template>
 
 <script setup lang="ts">
 import DocHeader from '@/screens/docs/DocHeader.vue';
-
+import DocContent from "@/screens/docs/DocContent.vue";
 </script>
 
 <style scoped>

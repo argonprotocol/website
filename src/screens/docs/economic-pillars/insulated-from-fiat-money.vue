@@ -1,9 +1,8 @@
 <template>
-  <article>
-    <DocHeader>
-      Argon Is Insulated from the Collapse of Fiat-Money
-    </DocHeader>
-
+  <DocHeader>
+    Argon Is Insulated from the Collapse of Fiat-Money
+  </DocHeader>
+  <DocContent>
     <div class="font-extralight italic text-4xl leading-12 my-10 mr-28">
       A well-designed currency should exist independent of worldly affairs, fully decoupled from
       any single nation state, banking institution, or other fallible entity.
@@ -754,38 +753,13 @@
       </tbody>
     </table>
 
-    <h3 class="text-2xl font-bold mt-14">
-      Learn More About the Argon
-    </h3>
-
     <p>
       Argon is build to last for a thousand years. Each layer of its stack supports a decentralized collection of independent
       actors. This redundancy across software, geography, and entities removes any single points of failure. Localized collapse
       might degrade convenience, but it can't destroy Argon's capacity to function. For more information, check
       out Argon's other core properties:
     </p>
-
-    <ul class="list-disc list-outside space-y-4 pl-6">
-      <li class="pl-2">
-        <RouterLink to="/why-its-better/resistant-to-inflation" class="font-bold">Resistant to Inflation</RouterLink>
-        <div class="mt-1">
-          Argon allows you to build wealth without worrying about the cost of time eroding it
-        </div>
-      </li>
-      <li class="pl-2">
-        <RouterLink to="/why-its-better/intrinsic-price-stabilization" class="font-bold">Intrinsic Price Stabilization</RouterLink>
-        <div class="mt-1">
-          Argon creates economic balance between the growth of currency and its stabilization
-        </div>
-      </li>
-      <li class="pl-2">
-        <RouterLink to="/why-its-better/immune-from-death-spirals" class="font-bold">Immune from Death Spirals</RouterLink>
-        <div class="mt-1">
-          Argon solves the core problem inherent in previous algorithmic stablecoins.
-        </div>
-      </li>
-    </ul>
-  </article>
+  </DocContent>
 </template>
 
 <script setup lang="ts">
@@ -805,6 +779,7 @@ import ArrowIcon from '../../../assets/apocalyptic/arrow.svg?component';
 import CircleLogo from '../../../assets/apocalyptic/circle.svg?component';
 import USDCIcon from '../../../assets/apocalyptic/usdc.svg?component';
 import DocHeader from "@/screens/docs/DocHeader.vue";
+import DocContent from "@/screens/docs/DocContent.vue";
 
 </script>
 

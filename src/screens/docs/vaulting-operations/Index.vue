@@ -1,163 +1,166 @@
 <template>
-  <h1>
-    <em>Vaulting Operations</em>
+  <DocHeader>
     Overview of Vaulting
-  </h1>
+  </DocHeader>
 
-  <div v-if="isLoaded" class="flex flex-col grow relative w-full overflow-y-auto py-5">
-    <p>
-      In many ways vaulting is the flip side of the mining process.
-      Miners bring new stablecoins into existence, and Vaulters provide services to stabilize those stablecoins. Miners buy mining seats at auction, and vaulters
-      collect all the revenue generated from those auctions.
-    </p>
+  <DocContent>
+    <div v-if="isLoaded" class="flex flex-col grow relative w-full overflow-y-auto py-5">
+      <p>
+        In many ways vaulting is the flip side of the mining process.
+        Miners bring new stablecoins into existence, and Vaulters provide services to stabilize those stablecoins. Miners buy mining seats at auction, and vaulters
+        collect all the revenue generated from those auctions.
+      </p>
 
-    <p>
-      Just like the mining side, there is no third-party company, authority, or server helping to run
-      this app. However, unlike the mining side, no mining machine is required to operate a vault. Everything runs directly from this app on your local machine.
-    </p>
+      <p>
+        Just like the mining side, there is no third-party company, authority, or server helping to run
+        this app. However, unlike the mining side, no mining machine is required to operate a vault. Everything runs directly from this app on your local machine.
+      </p>
 
-    <p>Below is a brief overview of how it all works.</p>
+      <p>Below is a brief overview of how it all works.</p>
 
-    <ul>
-      <li>
-        <header>The Purpose of Vaults</header>
-        Vaults stabilize the Argon stablecoin by attracting Bitcoin Liquid Locks, which create financial "shorts" against the Argon. These "shorts" provide a profit incentive to burn away unwanted Argons from the system, in turn stabilizing the price of Argon.
-        <div class="border border-dashed border-gray-400/50 p-3 my-4 font-medium text-sm italic! rounded"><strong>> Unwanted Argons</strong> If the price of the Argon is below its target ($1), then there's too much supply. The extra supply is thus "unwanted" and its removal will stabilize the price.</div>
-      </li>
+      <ul>
+        <li>
+          <header>The Purpose of Vaults</header>
+          Vaults stabilize the Argon stablecoin by attracting Bitcoin Liquid Locks, which create financial "shorts" against the Argon. These "shorts" provide a profit incentive to burn away unwanted Argons from the system, in turn stabilizing the price of Argon.
+          <div class="border border-dashed border-gray-400/50 p-3 my-4 font-medium text-sm italic! rounded"><strong>> Unwanted Argons</strong> If the price of the Argon is below its target ($1), then there's too much supply. The extra supply is thus "unwanted" and its removal will stabilize the price.</div>
+        </li>
 
-      <li>
-        <header>Attracting Bitcoin to Vaults</header>
-        Vaults are able to attract new Bitcoin Liquid Locks by providing two key services:
-        <ol class="list-decimal">
-          <li>Provide securitization guarantees for Bitcoin locks.</li>
-          <li>Provide instant liquidity to new Bitcoin locks, even with depressed Argon prices.</li>
-        </ol>
-      </li>
+        <li>
+          <header>Attracting Bitcoin to Vaults</header>
+          Vaults are able to attract new Bitcoin Liquid Locks by providing two key services:
+          <ol class="list-decimal">
+            <li>Provide securitization guarantees for Bitcoin locks.</li>
+            <li>Provide instant liquidity to new Bitcoin locks, even with depressed Argon prices.</li>
+          </ol>
+        </li>
 
-      <li>
-        <header>Benefits of Liquid Locking for Bitcoin</header>
-        When a Bitcoin is locked into a network Vault, the system will trade the owner the equivalent market value in Argons on a one-year loan.
-        This deal allows Bitcoiners to continue holding their assets while gaining full "market-value" in liquidity.
-        <br/><br/>
-        Bitcoin holders have one year to unlock by <strong>burning</strong> the loan-value of the Bitcoin. The deal is always favorable to the holder:<br/>
-        - If the market value of Bitcoin falls, they can re-lock and pocket the difference.<br/>
-        - If the market value of Bitcoin rises, they only owe the original lock price, so they net the increased Bitcoin value.<br/>
-        - If the market value of Argon falls, first movers are given a discounted price to unlock their Bitcoin.<br/><br/>
-        The important part of this last item is that the further the Argon price falls, the bigger discount
-        for the Bitcoin holder to unlock and the <span class="font-medium">MORE</span> of the unwanted Argons are burned away.
-        <table class="text-slate-800/50">
-          <thead>
-          <tr>
-            <th>BTC Lock Price</th>
-            <th>Current BTC Price</th>
-            <th>Argon Price/Target</th>
-            <th>Holder Gain</th>
-            <th>Argons Burned</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td>$90,000</td>
-            <td>$100,000 (+$10,000)</td>
-            <td>1.0</td>
-            <td>+$10,000 in BTC</td>
-            <td>₳90,000</td>
-          </tr>
-          <tr>
-            <td>$100,000</td>
-            <td>$90,000 (-$10,000)</td>
-            <td>1.0</td>
-            <td>+$10,000 in Argons</td>
-            <td>₳90,000</td>
-          </tr>
-          <tr>
-            <td>$100,000</td>
-            <td>$100,000 (+$0)</td>
-            <td>0.8</td>
-            <td>+$20,000 (price of Argons $80,000)</td>
-            <td>₳{{  microgonToArgonNm(BigInt(Math.floor(100_000 * 1e6 *  (((0.5618 * 0.8) + 0.3944) / 0.8)))).format('0,') }}</td>
-          </tr>
-          </tbody>
-        </table>
-      </li>
-      <li>
-        <header>Vault Revenue Streams</header>
-        Each Vault sets the security fees for locking Bitcoin into it (you can set a base fee and a percentage fee). Once Bitcoin is locked into a vault, the vault can then participate in the Network Treasury.
-        <table class="text-slate-800/50">
-          <thead>
-          <tr>
-            <th></th>
-            <th>Fee Settings</th>
-            <th>Bitcoin Lock Value</th>
-            <th>Fee Revenue</th>
-            <th>Treasury Revenue</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr v-for="(vault, index) in vaults" :key="vault.vaultId">
-            <td class="text-left">#{{ index+1  }}</td>
-            <td class="text-left">${{ microgonToArgonNm(vault.bitcoinBaseFee).format('0,0.00') }} + {{numeral(vault.bitcoinAnnualPercentRate * 100).format('0,[0.0]')}}%</td>
-            <td class="text-left">${{ microgonToArgonNm(vault.activatedSecuritization).format('0,0.00') }}</td>
-            <td class="text-left">${{ microgonToArgonNm(vault.feeRevenue).format('0,0.00') }}</td>
-            <td class="text-left">${{ microgonToArgonNm(vault.poolEarnings).format('0,0.00') }}</td>
-          </tr>
-          <tr v-if="vaults.length === 0">
-            <td colspan="5">Loading...</td>
-          </tr>
-          </tbody>
-        </table>
-      </li>
+        <li>
+          <header>Benefits of Liquid Locking for Bitcoin</header>
+          When a Bitcoin is locked into a network Vault, the system will trade the owner the equivalent market value in Argons on a one-year loan.
+          This deal allows Bitcoiners to continue holding their assets while gaining full "market-value" in liquidity.
+          <br/><br/>
+          Bitcoin holders have one year to unlock by <strong>burning</strong> the loan-value of the Bitcoin. The deal is always favorable to the holder:<br/>
+          - If the market value of Bitcoin falls, they can re-lock and pocket the difference.<br/>
+          - If the market value of Bitcoin rises, they only owe the original lock price, so they net the increased Bitcoin value.<br/>
+          - If the market value of Argon falls, first movers are given a discounted price to unlock their Bitcoin.<br/><br/>
+          The important part of this last item is that the further the Argon price falls, the bigger discount
+          for the Bitcoin holder to unlock and the <span class="font-medium">MORE</span> of the unwanted Argons are burned away.
+          <table class="text-slate-800/50">
+            <thead>
+            <tr>
+              <th>BTC Lock Price</th>
+              <th>Current BTC Price</th>
+              <th>Argon Price/Target</th>
+              <th>Holder Gain</th>
+              <th>Argons Burned</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>$90,000</td>
+              <td>$100,000 (+$10,000)</td>
+              <td>1.0</td>
+              <td>+$10,000 in BTC</td>
+              <td>₳90,000</td>
+            </tr>
+            <tr>
+              <td>$100,000</td>
+              <td>$90,000 (-$10,000)</td>
+              <td>1.0</td>
+              <td>+$10,000 in Argons</td>
+              <td>₳90,000</td>
+            </tr>
+            <tr>
+              <td>$100,000</td>
+              <td>$100,000 (+$0)</td>
+              <td>0.8</td>
+              <td>+$20,000 (price of Argons $80,000)</td>
+              <td>₳{{  microgonToArgonNm(BigInt(Math.floor(100_000 * 1e6 *  (((0.5618 * 0.8) + 0.3944) / 0.8)))).format('0,') }}</td>
+            </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>
+          <header>Vault Revenue Streams</header>
+          Each Vault sets the security fees for locking Bitcoin into it (you can set a base fee and a percentage fee). Once Bitcoin is locked into a vault, the vault can then participate in the Network Treasury.
+          <table class="text-slate-800/50">
+            <thead>
+            <tr>
+              <th></th>
+              <th>Fee Settings</th>
+              <th>Bitcoin Lock Value</th>
+              <th>Fee Revenue</th>
+              <th>Treasury Revenue</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(vault, index) in vaults" :key="vault.vaultId">
+              <td class="text-left">#{{ index+1  }}</td>
+              <td class="text-left">${{ microgonToArgonNm(vault.bitcoinBaseFee).format('0,0.00') }} + {{numeral(vault.bitcoinAnnualPercentRate * 100).format('0,[0.0]')}}%</td>
+              <td class="text-left">${{ microgonToArgonNm(vault.activatedSecuritization).format('0,0.00') }}</td>
+              <td class="text-left">${{ microgonToArgonNm(vault.feeRevenue).format('0,0.00') }}</td>
+              <td class="text-left">${{ microgonToArgonNm(vault.poolEarnings).format('0,0.00') }}</td>
+            </tr>
+            <tr v-if="vaults.length === 0">
+              <td colspan="5">Loading...</td>
+            </tr>
+            </tbody>
+          </table>
+        </li>
 
-      <li>
-        <header>The Network Treasury</header>
-        The Network Treasury is funded by the mining auction revenue generated every day (frame). The revenue from each frame goes into a Treasury Pool and used to pay out Liquid Locks when minting is not immediately available..<br/><br/>
+        <li>
+          <header>The Network Treasury</header>
+          The Network Treasury is funded by the mining auction revenue generated every day (frame). The revenue from each frame goes into a Treasury Pool and used to pay out Liquid Locks when minting is not immediately available..<br/><br/>
 
-        A Vault can raise capital to match up to 1/10th of their locked bitcoin for each pool. This raised capital is returned at the end of the epoch, or once Bitcoins are minted (whichever is sooner). The Treasury pool is distributed as follows:<br/><br/>
-        - 20% of the capital is burned to prevent inflation.<br/>
-        - 80% is distributed to Vaults pro-rata based on how much they have contributed to the Treasury Pools.<br/>
-        - The distribution might be used for short-term loans to the network to provide instant liquidity for Bitcoin locks.<br/>
-        <table class="text-slate-800/50">
-          <thead>
-          <tr>
-            <th>Frame #</th>
-            <th>Mining Auction Revenue</th>
-            <th>Treasury Pool Capital</th>
-            <th>Burned (20%)</th>
-            <th>Vault Earnings (80%)</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr v-for="pool in treasuryPools" :key="pool.frameId">
-            <td class="text-left">{{ pool.frameId }}</td>
-            <td>${{ microgonToArgonNm(pool.auctionCapitalRaised).format('0,0.00') }}</td>
-            <td>${{ microgonToArgonNm(pool.treasuryPoolCapital).format('0,0.00') }}</td>
-            <td>${{ microgonToArgonNm(pool.burned).format('0,0.00') }}</td>
-            <td>${{ microgonToArgonNm(pool.earnings).format('0,0.00') }}</td>
-          </tr>
-          </tbody>
-        </table>
-      </li>
+          A Vault can raise capital to match up to 1/10th of their locked bitcoin for each pool. This raised capital is returned at the end of the epoch, or once Bitcoins are minted (whichever is sooner). The Treasury pool is distributed as follows:<br/><br/>
+          - 20% of the capital is burned to prevent inflation.<br/>
+          - 80% is distributed to Vaults pro-rata based on how much they have contributed to the Treasury Pools.<br/>
+          - The distribution might be used for short-term loans to the network to provide instant liquidity for Bitcoin locks.<br/>
+          <table class="text-slate-800/50">
+            <thead>
+            <tr>
+              <th>Frame #</th>
+              <th>Mining Auction Revenue</th>
+              <th>Treasury Pool Capital</th>
+              <th>Burned (20%)</th>
+              <th>Vault Earnings (80%)</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="pool in treasuryPools" :key="pool.frameId">
+              <td class="text-left">{{ pool.frameId }}</td>
+              <td>${{ microgonToArgonNm(pool.auctionCapitalRaised).format('0,0.00') }}</td>
+              <td>${{ microgonToArgonNm(pool.treasuryPoolCapital).format('0,0.00') }}</td>
+              <td>${{ microgonToArgonNm(pool.burned).format('0,0.00') }}</td>
+              <td>${{ microgonToArgonNm(pool.earnings).format('0,0.00') }}</td>
+            </tr>
+            </tbody>
+          </table>
+        </li>
 
 
-      <li>
-        <header>Vault Responsibilities</header>
-        When you activate a vault, you create a keypair that is used to secure your half of any Bitcoins locked into your vault. The process to create new locks is automated and doesn't require any work beyond setup. However, you are the only owner of the keypair that can unlock Bitcoins in your vault, so you must:
-        <br/><br/>
-        - Preserve and backup your security keys that can unlock Bitcoin Liquid Locks<br/>
-        - Respond to unlock requests within 10 days<br/>
-      </li>
-      <li>
-        <header>Kick-starting Your Vault with BTC</header>
-        You can kickstart your vault by directly depositing an initial bitcoin transaction into it (skipping any fees). Once your Bitcoin is verified, you can start earning a share of the Treasury Pools.
-      </li>
-    </ul>
-  </div>
-  <div v-else>Loading...</div>
+        <li>
+          <header>Vault Responsibilities</header>
+          When you activate a vault, you create a keypair that is used to secure your half of any Bitcoins locked into your vault. The process to create new locks is automated and doesn't require any work beyond setup. However, you are the only owner of the keypair that can unlock Bitcoins in your vault, so you must:
+          <br/><br/>
+          - Preserve and backup your security keys that can unlock Bitcoin Liquid Locks<br/>
+          - Respond to unlock requests within 10 days<br/>
+        </li>
+        <li>
+          <header>Kick-starting Your Vault with BTC</header>
+          You can kickstart your vault by directly depositing an initial bitcoin transaction into it (skipping any fees). Once your Bitcoin is verified, you can start earning a share of the Treasury Pools.
+        </li>
+      </ul>
+    </div>
+    <div v-else>Loading...</div>
+  </DocContent>
 </template>
 
 <script setup lang="ts">
 import * as Vue from 'vue';
 import numeral, { microgonToArgonNm, micronotToArgonotNm } from '@/lib/numeral';
+import DocHeader from "@/screens/docs/DocHeader.vue";
+import DocContent from "@/screens/docs/DocContent.vue";
 
 const isLoaded = Vue.ref(false);
 

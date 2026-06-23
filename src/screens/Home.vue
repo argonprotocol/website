@@ -20,7 +20,7 @@
         </div>
 
         <div class="order-3 flex flex-col px-5 pt-8 pb-10 text-center relative md:px-10 lg:col-start-1 lg:row-start-3 lg:px-10 lg:pt-8 lg:pb-0 lg:text-left xl:px-14 xl:pt-10 2xl:px-20">
-          <div class="flex flex-col gap-y-6 text-2xl font-serif leading-tight md:text-4xl lg:gap-y-7 lg:text-4xl xl:gap-y-8 xl:text-[2.75rem] 2xl:gap-y-10 2xl:text-6xl">
+          <div class="flex flex-col gap-y-6 text-2xl font-serif leading-tight md:text-4xl lg:gap-y-7 lg:text-4xl xl:gap-y-8 xl:text-[2.75rem] 2xl:gap-y-10 2xl:text-[3.25rem]">
             <router-link to="/docs/economic-pillars/protected-from-inflation" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit mx-auto hover:text-white lg:mx-0">
               IT'S PROTECTED FROM<br />
               <span>THE DOLLAR'S INFLATION</span>,
@@ -32,8 +32,8 @@
             </router-link>
 
             <router-link to="docs/economic-pillars/resistant-to-death-spirals" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit mx-auto hover:text-white lg:mx-0">
-              AND IMMUNE TO<br />
-              <span>CRYPTO DEATH SPIRALS</span>.
+              AND DESIGNED TO RECOVER<br />
+              <span>FROM DEATH SPIRALS</span>.
             </router-link>
           </div>
         </div>
@@ -66,7 +66,7 @@
               Get Started
               <ChevronDoubleRightIcon class="w-5 ml-2 inline-block" />
             </RouterLink>
-            <RouterLink to="/apps" class="whitespace-nowrap grow border border-argon-200/50 rounded-xl py-4 hover:bg-argon-500/20 hover:text-white font-bold lg:px-32">
+            <RouterLink to="/docs" class="whitespace-nowrap grow border border-argon-200/50 rounded-xl py-4 hover:bg-argon-500/20 hover:text-white font-bold lg:px-32">
               Documentation
             </RouterLink>
           </div>
@@ -140,19 +140,19 @@
       <div class="flex flex-col items-center w-10/12 max-w-260 mx-auto md:mt-0 px-2.5">
         <div class="flex flex-col gap-3 w-full md:flex-row md:gap-x-4">
           <a
-              :href="stableUrl"
-              class="w-full flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-lg text-base px-2 py-3 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap md:w-1/2 md:py-4 md:text-xl xl:py-5 xl:text-2xl"
-              style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
-              @mouseenter="previewApp('operations')"
-              @mouseleave="clearAppPreview"
-              @focus="previewApp('operations')"
-              @blur="clearAppPreview"
+            :href="operationsUrl"
+            class="w-full flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-lg text-base px-2 py-3 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap md:w-1/2 md:py-4 md:text-xl xl:py-5 xl:text-2xl"
+            style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
+            @mouseenter="previewApp('operations')"
+            @mouseleave="clearAppPreview"
+            @focus="previewApp('operations')"
+            @blur="clearAppPreview"
           >
             <ArgonotLogo class="w-8 h-8 relative -top-0.5 inline-block md:w-10 md:h-10" />
             <span>Download Operations</span>
           </a>
           <a
-            :href="stableUrl"
+            :href="treasuryUrl"
             class="w-full flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-lg text-base px-2 py-3 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap md:w-1/2 md:py-4 md:text-xl xl:py-5 xl:text-2xl"
             style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
             @mouseenter="previewApp('treasury')"
@@ -382,7 +382,9 @@ import { Download } from '@/lib/Download';
 import dayjs from 'dayjs';
 
 const download = new Download();
-const stableUrl = Vue.ref('');
+const operationsUrl = Vue.ref('');
+const treasuryUrl = Vue.ref('');
+
 const stableVersion = Vue.ref('');
 const appSliderEl = Vue.ref<HTMLElement | null>(null);
 const appSliderPercent = Vue.ref(50);
@@ -472,7 +474,8 @@ Vue.onMounted(async () => {
     download.load(),
   ]);
   data.value = basics;
-  stableUrl.value = download.currentUrl;
+  operationsUrl.value = download.operationsUrl;
+  treasuryUrl.value = download.treasuryUrl;
   stableVersion.value = download.stableVersion;
 });
 

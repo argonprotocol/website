@@ -1,9 +1,8 @@
 <template>
-  <article>
-    <DocHeader>
-      Argon Is Resistant to Crypto Death Spirals
-    </DocHeader>
-
+  <DocHeader>
+    Argon Is Resistant to Crypto Death Spirals
+  </DocHeader>
+  <DocContent>
     <div class="font-extralight italic text-4xl leading-12 my-10 mr-10">
       A well-designed currency should function as a self-contained microcosm that
       maintains equilibrium regardless of external pressures or demands.
@@ -252,39 +251,7 @@
     <p>
       Do a deeper dive by reading our The Fundamentals for Creating a Stable Crypto Asset whitepaper.
     </p>
-
-    <h3 class="text-2xl font-bold mt-14">
-      Learn More About the Argon
-    </h3>
-
-    <p>
-      Argon has similar properties to gold in that both can hold a stable value over thousands of years. The big
-      difference is that gold is heavy to move, hard to divide, and impossible to transmit digitally. Argon
-      retains long-term durability while being portable, divisible, and natively digital. For more information, check
-      out Argon's other core properties:
-    </p>
-
-    <ul class="list-disc list-outside space-y-4 pl-6">
-      <li class="pl-2">
-        <RouterLink to="/why-its-better/indifferent-to-catastrophe" class="font-bold">Indifferent to Catastrophe</RouterLink>
-        <div class="mt-1">
-          Argon works regardless of banking collapses or government bond failures.
-        </div>
-      </li>
-      <li class="pl-2">
-        <RouterLink to="/why-its-better/resistant-to-inflation" class="font-bold">Resistant to Inflation</RouterLink>
-        <div class="mt-1">
-          Argon allows you to build wealth without worrying about the cost of time eroding it
-        </div>
-      </li>
-      <li class="pl-2">
-        <RouterLink to="/why-its-better/immune-from-death-spirals" class="font-bold">Immune from Death Spirals</RouterLink>
-        <div class="mt-1">
-          Argon solves the core problem inherent in previous algorithmic stablecoins.
-        </div>
-      </li>
-    </ul>
-  </article>
+  </DocContent>
 </template>
 
 <script setup lang="ts">
@@ -301,6 +268,7 @@ import MinerIcon from '../../../assets/apocalyptic/miner.svg?component';
 import MintingIcon from '../../../assets/four-pillars/minting.svg?component';
 import BurningIcon from '../../../assets/four-pillars/burning.svg?component';
 import DocHeader from "@/screens/docs/DocHeader.vue";
+import DocContent from "@/screens/docs/DocContent.vue";
 
 dayjs.extend(utc);
 

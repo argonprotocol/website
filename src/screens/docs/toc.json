@@ -1,29 +1,25 @@
 [
   {
-    "title": "Welcome Overview",
-    "link": "/"
-  },
-  {
-    "title": "Economic Pillars",
-    "base": "/economic-pillars",
+    "title": "Getting Started",
+    "base": "/",
     "items": [
       {
-        "title": "Protected from Inflation",
-        "link": "/protected-from-inflation"
+        "title": "Welcome Overview",
+        "link": "/"
       },
       {
-        "title": "Insulated from Fiat Money",
-        "link": "/insulated-from-fiat-money"
+        "title": "Frequent Questions",
+        "link": "/getting-started/frequent-questions"
       },
       {
-        "title": "Resistant to Death Spirals",
-        "link": "/resistant-to-death-spirals"
+        "title": "Common Terms",
+        "link": "/getting-started/common-terms"
       }
     ]
   },
   {
     "title": "The Desktop Apps",
-    "base": "/operations",
+    "base": "/desktop-apps",
     "items": [
       {
         "title": "Overview",
@@ -106,34 +102,24 @@
       {
         "title": "Overview",
         "link": "/"
+      }
+    ]
+  },
+  {
+    "title": "Economic Pillars",
+    "base": "/economic-pillars",
+    "items": [
+      {
+        "title": "Protected from Inflation",
+        "link": "/protected-from-inflation"
       },
       {
-        "title": "Bootstrap to Node",
-        "link": "/bootstrap-to-node"
+        "title": "Insulated from Fiat Money",
+        "link": "/insulated-from-fiat-money"
       },
       {
-        "title": "Transfer from Uniswap",
-        "link": "/transfer-from-uniswap"
-      },
-      {
-        "title": "Activate Vault",
-        "link": "/activate-vault"
-      },
-      {
-        "title": "Liquid Lock Bitcoin",
-        "link": "/liquid-lock"
-      },
-      {
-        "title": "Acquire Bonds",
-        "link": "/acquire-bonds"
-      },
-      {
-        "title": "Win a Mining Seat",
-        "link": "/win-first-mining-seat"
-      },
-      {
-        "title": "Win More Mining Seats",
-        "link": "/win-more-mining-seats"
+        "title": "Resistant to Death Spirals",
+        "link": "/resistant-to-death-spirals"
       }
     ]
   },

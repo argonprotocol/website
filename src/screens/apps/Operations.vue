@@ -17,7 +17,7 @@
         </p>
 
         <div class="flex flex-col md:flex-row items-center justify-center gap-3 md:gap-5 mt-10 md:mt-14">
-          <a :href="stableUrl" class="flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-md md:text-xl xl:text-2xl w-full md:w-7/12 px-2 py-2 md:py-3 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);">
+          <a :href="operationsUrl" class="flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-md md:text-xl xl:text-2xl w-full md:w-7/12 px-2 py-2 md:py-3 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap" style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);">
             <MacIcon v-if="osName === OsName.mac" class="w-7 h-7 relative -top-0.5 inline-block" />
             <WindowsIcon v-else-if="osName === OsName.windows" class="w-7 h-7 relative inline-block" />
             <span>Download Operations for MacOS</span>
@@ -103,13 +103,13 @@ import MainLayout from "@/navigation/MainLayout.vue";
 import MacIcon from '../../assets/os/mac.svg?component';
 import LinuxIcon from '../../assets/os/linux.svg?component';
 import WindowsIcon from '../../assets/os/windows.svg?component';
-import { ArrowDownIcon } from "@heroicons/vue/24/solid";
-import { Download, OsName } from "@/lib/Download";
+import {ArrowDownIcon} from "@heroicons/vue/24/solid";
+import {AppName, Download, OsName} from "@/lib/Download";
 
 const download = new Download();
 const osName = Vue.ref(download.currentOsName);
 
-const stableUrl = Vue.ref('');
+const operationsUrl = Vue.ref('');
 const stableVersion = Vue.ref('');
 
 const urls = Vue.ref({
@@ -123,12 +123,12 @@ const urls = Vue.ref({
 Vue.onMounted(async () => {
   await download.load();
   stableVersion.value = download.stableVersion;
-  stableUrl.value = download.currentUrl;
+  operationsUrl.value = download.operationsUrl;
   urls.value = {
     stable: {
-      windows: download.urlFor(OsName.windows, false),
-      mac: download.urlFor(OsName.mac, false),
-      linux: download.urlFor(OsName.linux, false),
+      windows: download.urlFor(AppName.Operations, OsName.windows, false),
+      mac: download.urlFor(AppName.Operations, OsName.mac, false),
+      linux: download.urlFor(AppName.Operations, OsName.linux, false),
     }
   };
 });

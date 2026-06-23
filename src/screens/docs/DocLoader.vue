@@ -1,14 +1,19 @@
 <template>
   <MainLayout>
     <div class="flex flex-col-reverse items-stretch pb-10 md:flex-row min-h-screen">
-      <div class="LEFTBAR md:pr-12 pl-6 pt-5 bg-argon-50/50 ">
-        <template v-if="toc" v-for="(group, i1) in toc" :key="`title-${i1}`">
+      <div
+        id="docs-leftbar"
+        class="LEFTBAR"
+        :class="{ 'translate-x-0': isLeftbarOpen, '-translate-x-full': !isLeftbarOpen }"
+      >
+        <template v-if="docsToc" v-for="(group, i1) in docsToc" :key="`title-${i1}`">
           <template v-if="group.items">
             <h3 class="mt-5 whitespace-nowrap font-semibold uppercase tracking-widest text-argon-900/40">{{ group.title }}</h3>
             <template v-for="(item, i2) in group.items" :key="`title-${i1}-${i2}`">
               <RouterLink
                 :class="{ isSelected: isSelected(resolveDocPath(group.base, item.link)) }"
                 class="block whitespace-nowrap pl-5"
+                @click="closeLeftbar"
                 :to="resolveDocPath(group.base, item.link)"
               >
                 {{ item.title }}
@@ -19,6 +24,7 @@
               v-else
               class="block whitespace-nowrap pl-2"
               :class="{ isSelected: isSelected(group.link) }"
+              @click="closeLeftbar"
               :to="cleanPath(group.link)"
           >
             {{ group.title }}
@@ -26,10 +32,17 @@
         </template>
         <div Fade />
       </div>
+      <button
+        v-if="isLeftbarOpen"
+        aria-label="Close documentation menu"
+        class="fixed inset-0 z-40 bg-slate-950/30 md:hidden"
+        type="button"
+        @click="closeLeftbar"
+      />
 
       <div class="DOCSCONTENT flex-1 max-w-full">
-        <div class="mx-3 mt-5 md:mx-32">
-          <div class="post mb min-h-screen pt-6">
+        <div class="md:mt-5 md:mx-32">
+          <div class="post mb min-h-screen md:pt-6">
             <component :is="activePage" v-if="activePage" />
             <div v-else class="py-6">
               <h2 class="text-xl font-semibold">Documentation</h2>
@@ -58,6 +71,35 @@ import MainLayout from '@/navigation/MainLayout.vue';
 import GithubLogo from '@/assets/github.svg?component';
 
 const route = useRoute();
+const isLeftbarOpen = Vue.ref(false);
+
+type TocItem = {
+  title: string;
+  link: string;
+};
+
+type TocGroup = {
+  title: string;
+  base?: string;
+  link?: string;
+  items?: TocItem[];
+};
+
+const docsToc = toc as TocGroup[];
+
+const closeLeftbar = () => {
+  isLeftbarOpen.value = false;
+};
+
+Vue.provide('docsLeftbar', {
+  isOpen: Vue.readonly(isLeftbarOpen),
+  toggle: () => {
+    isLeftbarOpen.value = !isLeftbarOpen.value;
+  },
+  close: closeLeftbar,
+});
+
+Vue.watch(() => route.fullPath, closeLeftbar);
 
 type DocModule = { default: Vue.Component };
 type DocLoaderFn = () => Promise<DocModule>;
@@ -65,11 +107,7 @@ type DocLoaderFn = () => Promise<DocModule>;
 const pageModules = import.meta.glob<DocModule>('./**/*.vue');
 
 function normalizeRoutePath(id?: string, subId?: string): string {
-  const sectionAliases: Record<string, string> = {
-    'operational-certification': 'ambassador-program',
-  };
-  const rawSection = String(id ?? '').trim().toLowerCase();
-  const section = sectionAliases[rawSection] ?? rawSection;
+  const section = String(id ?? '').trim().toLowerCase();
   const rawPage = String(subId ?? (section ? 'index' : '')).trim().toLowerCase();
   const page = rawPage === 'overview' ? 'index' : rawPage;
 
@@ -142,7 +180,7 @@ function normalizeCurrentPath(path: string) {
 
 .LEFTBAR {
   box-shadow: 1px 0 0 white;
-  @apply border-slate-300 md:border-r relative;
+  @apply fixed inset-y-0 left-0 z-50 w-80 max-w-[85vw] overflow-x-hidden overflow-y-auto border-r border-slate-300 bg-argon-50 pl-6 pr-8 py-5 transition-transform duration-200 ease-out md:relative md:inset-auto md:z-auto md:w-auto md:max-w-none md:translate-x-0 md:overflow-visible md:pr-12 md:bg-argon-50/50;
 
   div[Fade] {
     @apply bg-linear-to-b from-argon-50/50 to-transparent absolute top-full left-0 w-full h-30;

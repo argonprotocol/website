@@ -57,12 +57,16 @@
         <ol type="a" class="list-[lower-alpha] list-inside pl-5 space-y-3">
           <li><a href="https://app.uniswap.org">Go to app.uniswap.org</a>, and click the Connect button in the top right
             to add your Metamask wallet.</li>
-          <li>Navigate to Uniswap's <a href="https://app.uniswap.org/swap">Swap page</a> to buy your Argons. Select USDC as your
-          Sell token and type your desired amount. Select Argon as your Buy token, however you want find it in the official
-          list as its still too early in the launch. You'll need to put Argon's official Ethereum address to find it:
-            0x6A9143639D8b70D50b031fFaD55d4CC65EA55155</li>
-          <li>Use the same swap process for buying your Argonots. The only difference is the Ethereum address:
-            0x64cbd3aa07d427e385cb55330406508718e55f01</li>
+          <li>
+            Navigate to Uniswap's <a href="https://app.uniswap.org/swap">Swap page</a> to buy your Argons. Select USDC as your
+            Sell token and type your desired amount. Select Argon as your Buy token, however you want find it in the official
+            list as its still too early in the launch. You'll need to put Argon's official Ethereum address to find it:
+            0xf3d6b714dc93bc6c44bc766cc92f4a0d99344932
+          </li>
+          <li>
+            Use the same swap process for buying your Argonots. The only difference is the Ethereum address:
+            0x6b93a120829558c18f8cd54a96e8024ef973ce52
+          </li>
         </ol>
       </section>
 

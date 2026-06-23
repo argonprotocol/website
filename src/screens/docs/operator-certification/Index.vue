@@ -1,13 +1,13 @@
 <template>
   <DocHeader>
-    Liquid Locking for Bitcoin Model
+    Operator Certification
   </DocHeader>
   <DocContent>
     <h2>Overview</h2>
-    <h2>Variables and Parameters</h2>
-    <h2>Equation Set</h2>
-    <h2>Simulation Workflow</h2>
-    <h2>Result Interpretation</h2>
+    <h2>Prerequisites</h2>
+    <h2>Required Task Sequence</h2>
+    <h2>Completion Criteria</h2>
+    <h2>Evidence and Audit Trail</h2>
   </DocContent>
 </template>
 <script setup lang="ts">

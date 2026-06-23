@@ -13,7 +13,7 @@
             <slot name="header" />
             <div class="absolute w-full h-10 left-0 -bottom-10 bg-linear-to-b from-[#3C3844] to-transparent" />
           </div>
-          <div ref="contentRef" class="relative grow flex flex-col z-20">
+          <div ref="contentRef" class="relative grow flex flex-col z-20 w-full min-w-0">
             <slot
               :setFadeWhenLeavingRef="setFadeWhenLeavingRef"
               :setMoveWhenLeavingRef="setMoveWhenLeavingRef"

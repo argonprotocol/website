@@ -196,23 +196,23 @@
           </div>
           <div Goal>
             The goal of Phase Three is to build a growing community of backend miners and vaulters who can help us
-            bootstrap the circulation of Argon stablecoins from one million to hundreds of millions.
+            bootstrap the circulation and stability of Argon stablecoins.
           </div>
         </div>
     </div>
     <div SplitRow>
       <div SplitLeft Content>
         <p>
-          This phase marks the critical inflection point where we will begin scaling Argon into a major stablecoin. It also
-          coincides with the first launch of Argon Operations, our desktop management app designed for Windows, Linux, and macOS
-          users.
+          This phase marks the critical inflection point where we will begin intentionally scaling Argon's circulation. It
+          also coincides with the first launch of Argon Operations, our desktop management app designed for Windows,
+          Linux, and macOS users.
         </p>
 
         <p>
           No efforts will be made during this phase to recruit general users into the Argon ecosystem or even to
           encourage typical stablecoin usage. Instead, we will focus on building a broad community of miners and
-          vaulters. Our goal is to end this phase with an Argon's circulation of around 200-300 million. This will
-          provide an economic mass large enough to support meaningful market activity without unhealthy price volatility.
+          vaulters. Our goal is to end this phase with an Argon's circulation of 2-3 million. This will
+          provide an economic mass large enough to support meaningful free-market activity for mining and vaulting.
         </p>
 
         <p><strong class="font-bold">We're looking for three roles</strong>, hopefully with a lot of cross-over between them:</p>
@@ -221,7 +221,7 @@
           <li class="list-['-'] ml-3 pl-3">
             <strong class="font-bold">Argon Miners</strong>. These are individuals with an extra desktop, laptop, or cloud
             machine they can dedicate to Argon mining. Little technical experience is required, but the compute
-            resources must be available 24/7. Miners will collectively earn the minting rewards of the 200M-300M
+            resources must be available 24/7. Miners will collectively earn the minting rewards of the 2M-3M
             argons that we expect to be minted during this phase. An initial amount of argons/argonots are required
             to secure the initial mining seats desired.
           </li>
@@ -242,14 +242,13 @@
         </ul>
 
         <p>
-          We hope to have around a thousand individuals participating by the end of Phase Three. They will be spread
-          among mining, vaulting and bitcoin liquid-locking. Together they will form the foundation of
+          The community from Phase Three will form the foundation of
           Argon's economic engine as we move into Phase Four.
         </p>
       </div>
       <div SplitRight>
         <div SplitQuote>
-          "This phase marks the critical inflection point where we will begin scaling Argon into a major stablecoin."
+          "This phase marks the critical inflection point where we will begin scaling Argon into a growing stablecoin."
         </div>
       </div>
     </div>
@@ -265,14 +264,14 @@
           <div Header>
             <h2>
               <div Number>PHASE FOUR</div>
-              <div Title>Activate General Consumer Usage</div>
+              <div Title>Activate Broader Economic Involvement</div>
             </h2>
-            <div EstimatedTimeframe><span class="hidden md:inline">Estimated </span>Timeframe: ~6 months</div>
+            <div EstimatedTimeframe><span class="hidden md:inline">Estimated </span>Timeframe: ~12 months</div>
           </div>
         </div>
         <div Goal>
-          The goal of Phase Four is broaden the umbrella so that general consumers can become involved in the Argon
-          without needing to run a mining node or manage a vault.
+          The goal of Phase Four is to broaden the umbrella so that individuals without an engineering background can
+          become involved in the Argon ecosystem without needing to run mining nodes or manage vaults.
         </div>
       </div>
     </div>
@@ -282,28 +281,28 @@
 
         <p>
           We'll continue our efforts from Phase Three, working to build a robust community of miners and vaulters.
-          In addition, we'll launch Argon Bankless, our desktop/mobile app for the broader consumer market.
+          In addition, we'll launch Argon Desktop, a broader version of Argon Operations.
         </p>
 
         <p>
-          Argon Bankless will be a free, open-source, and decentralized app that makes it easy for anyone to get
+          Argon Desktop will be a free, open-source, and decentralized app that makes it easy for anyone to get
           involved in the Argon ecosystem without needing to run mining or vaulting nodes. It will assist in
-          managing argon/argonot assets, liquid-locking their bitcoins, and investing in the treasury funds of
+          managing argon/argonot assets, liquid-locking their bitcoins, and investing in the treasury bonds of
           network vaults. It will also bring Argon's Localchain functionality into a simple point-click interface.
           Localchain is Argon's P2P payment network, which allows users to send and receive fast/free payments
           directly between devices. It also supports micro-payments between AI agents through MCP hooks.
         </p>
 
         <p>
-          Although the Bankless app will facilitate p2p payment functionality, we expect Argon's primary focus
-          to remain on Bitcoin price-hedging for the duration of this phase. One of the core properties of Bitcoin
-          price-hedging is the argons used as securitization. This will consume most of the new argons being minted
-          into circulation, at least for the first trillion in circulation.
+          Although the Desktop app will facilitate p2p payment functionality, we expect Argon's primary focus
+          to remain on Bitcoin liquid locking for the duration of this phase. One of the core properties of Bitcoin
+          liquid locking is the way it uses argons as securitization. This will consume most of the new argons being minted
+          into circulation, at least for the duration of this phase.
         </p>
       </div>
       <div SplitRight>
         <div SplitQuote>
-          "We expect Argon's primary focus to remain on Bitcoin price-hedging."
+          "We expect Argon's primary focus to remain on Bitcoin liquid locking."
         </div>
       </div>
     </div>
@@ -312,7 +311,7 @@
       <div SplitLeft PhaseContainer>
         <div Top>
           <div Calendar>
-            <div Month>Feb</div>
+            <div Month>Aug</div>
             <div Day>--</div>
             <div Year>2027</div>
           </div>
@@ -321,7 +320,7 @@
               <div Number>PHASE FIVE</div>
               <div Title>Enable Fractional Seat Ownership</div>
             </h2>
-            <div EstimatedTimeframe><span class="hidden md:inline">Estimated </span>Timeframe: ~3 months</div>
+            <div EstimatedTimeframe><span class="hidden md:inline">Estimated </span>Timeframe: ~5 months</div>
           </div>
         </div>
         <div Goal>
@@ -364,9 +363,9 @@
       <div SplitLeft PhaseContainer>
         <div Top>
           <div Calendar>
-            <div Month>May</div>
+            <div Month>Jan</div>
             <div Day>--</div>
-            <div Year>2027</div>
+            <div Year>2028</div>
           </div>
           <div Header>
             <h2>

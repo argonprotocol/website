@@ -1,8 +1,8 @@
 <template>
-  <article>
-    <h1>Argon Capital</h1>
-
-    <h2>Overview</h2>
+  <DocHeader>
+    The Treasury App
+  </DocHeader>
+  <DocContent>
     <p>
       Argon Capital focuses on planning and managing participation from a capital perspective. It is intended for users
       who need to define allocation strategy, monitor exposure, and evaluate performance across operational positions.
@@ -72,5 +72,9 @@
     <p>
       Capital management quality is determined by process discipline, not by a single high-return period.
     </p>
-  </article>
+  </DocContent>
 </template>
+<script setup lang="ts">
+import DocContent from "@/screens/docs/DocContent.vue";
+import DocHeader from "@/screens/docs/DocHeader.vue";
+</script>

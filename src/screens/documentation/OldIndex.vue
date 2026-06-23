@@ -60,7 +60,6 @@
 <script setup lang="ts">
 import MainLayout from '../../navigation/MainLayout.vue';
 import FooterBar from '../../navigation/FooterBar.vue';
-import LEARN from '../../assets/LEARN.svg?component';
 </script>
 
 <style scoped>

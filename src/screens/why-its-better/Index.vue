@@ -70,14 +70,14 @@
               Why Paper Money
             </header>
             <p class="mt-1 text-base md:text-xl leading-relaxed font-serif">
-              Paper money was invented in 7th century A.D. to solve gold's biggest weakness: large amounts are
+              Paper money was invented in the 7th century A.D. to solve gold's biggest weakness: large amounts are
               <span class="text-argon-100">heavy</span> to
               move, <span class="text-argon-100">slow</span> to transport and <span class="text-argon-100">hard to
-              conceal</span> from thieves. The introduction of paper make it <span class="text-argon-100">easier to
+              conceal</span> from thieves. The introduction of paper made it <span class="text-argon-100">easier to
               move value</span> across distances, but it brought a new challenge: how could anyone be certain the paper
               had <span class="text-argon-100">real gold behind it?</span> Governments eventually found the answer.
               They simply <span class="text-argon-100">decreed by fiat</span> that the paper had real value, and they
-              demanded no other currency could be used in the land. <span class="text-argon-100">Threat of force was used
+              demanded that no other currency could be used in the land. <span class="text-argon-100">The threat of force was used
               to make it so.</span>
             </p>
           </div>
@@ -89,8 +89,8 @@
             <p class="mt-1 text-base md:text-xl leading-relaxed font-serif">
               Fiat is by definition "<em class="italic">an absolute command issued by decree.</em>"
               Fiat money has no intrinsic value; <span class="text-argon-100">it is money only because a government
-            decrees it so</span>, and it contains a hidden superpower. Whoever controls the minting, controls unlimited
-              resources, at least for a while. The Yuan dynasty of 13th century China was the first to harness this power,
+            decrees it so</span>, and it contains a hidden superpower. Whoever controls the minting controls unlimited
+              resources, at least for a while. The Yuan dynasty of 13th-century China was the first to harness this power,
               but not the last. <span class="text-argon-100">No longer constrained by gold's limited supply</span>, the leaders financed their
               military campaigns and government programs by simply printing more paper. Unfortunately, <span class="text-argon-100">Yuan's fiat
             currency imploded</span>, and every fiat currency since has eventually followed this same demise.
@@ -113,7 +113,7 @@
           <div class="text-lg md:text-2xl w-11/12 max-w-200 mx-auto leading-relaxed font-bold">
             <MacOldIcon class="w-16 md:w-20 mx-auto mb-2 text-argon-100/90" />
             <div class="text-2xl md:text-3xl uppercase mt-3 mb-6 text-argon-100/90 font-light">{ <span class="relative top-1">Hello World</span> }</div>
-            1989 was a pivotal moment in civilization. Tim Bernes-Lee invented the Web, and its emergence heralded
+            1989 was a pivotal moment in civilization. Tim Berners-Lee invented the Web, and its emergence heralded
             a new age where everything would soon become digital: retail, finance, photos, music, social...
           </div>
         </div>
@@ -138,7 +138,7 @@
                 <span class="text-argon-100">old monetary system of paper money</span> was no longer the future. Payment
                 interfaces were forced to rapidly evolve, but the underlying rails of ACH, Wire, SWIFT, and Visa were
                 <span class="text-argon-100">legacy hacks stacked on top of old fiat paper</span>; these evolutions
-                didn't create a real digital currency, they just added digital plumbing. A new generate of builders soon
+                didn't create a real digital currency, they just added digital plumbing. A new generation of builders soon
                 realized a true digital-first currency could open a wealth of possibilities, such as
                 <span class="text-argon-100">instant transfers</span>,
                 <span class="text-argon-100">rich programmability</span>,
@@ -158,7 +158,7 @@
               </header>
               <p class="mt-1 text-base md:text-xl leading-relaxed font-serif">
                 Bitcoin was released in 2009, and <span class="text-argon-100">it changed everything</span>. It
-                was the  <span class="text-argon-100">first digital currency that worked</span> without a central power demanding it. No gold
+                was the <span class="text-argon-100">first digital currency that worked</span> without a central power demanding it. No gold
                 backed its value. No military power enforced its decree. It relied on no nation, bank or other
                 centralized institution. <span class="text-argon-100">An algorithm</span> guaranteed its scarcity,
                 security, and sovereignty. <span class="text-argon-100">No single power could control it, inflate it, or
@@ -175,10 +175,9 @@
                 <span class="text-argon-100">A stable currency is paramount for economies to flourish</span> &ndash;
                 it's hard to sign a contract in a currency that could lose half its value by morning &ndash; which is
                 why Bitcoin's lack of a price stabilizer inhibits it from becoming a primary medium of exchange.
-                Multiple projects were launched in 2015 to solve this problem. They tried creating a new type of crypto that <span class="text-argon-100">
-                embodied Bitcoin's independence from fiat</span> yet maintained a
-                <span class="text-argon-100">stable value</span>.
-                Over the next several years,
+                Multiple projects were launched in 2015 to solve this problem. They tried creating a new type of crypto
+                (stablecoins) that <span class="text-argon-100">embodied Bitcoin's independence from fiat</span> yet
+                maintained a <span class="text-argon-100">stable value</span>. Over the next several years,
                 <span class="text-argon-100">every project failed</span> &ndash; the task was harder than it seemed.
                 Ten years later, over <span class="text-argon-100">$320B is now sitting in stablecoins</span>,
                 yet none are decentralized. They simply exist as digital IOUs for the fiat dollar. As a result,
@@ -212,7 +211,7 @@
             <div class="text-lg md:text-2xl w-11/12 max-w-210 mx-auto leading-relaxed font-bold text-center bg-[var(--bg-charcoal)]">
               <div class="text-2xl md:text-3xl font-light uppercase opacity-80 text-argon-100 mt-3 mb-4">The Current State of Money</div>
               The world has gone digital, but the dominant currencies still exist as fiat paper. Bank wire transfers and
-              stablecoins sit atop this paper. A patchwork of bandaids make it somewhat workable for now, but the global rise of
+              stablecoins sit atop this paper. A patchwork of bandaids makes it somewhat workable for now, but the global rise of
               government spending, increased debt, and inflation risk all point to an uncertain future.
             </div>
             <div class="absolute -bottom-10 bg-linear-to-t from-transparent to-[var(--bg-charcoal)] h-10 w-10 z-10" />
@@ -262,7 +261,7 @@
           <div class="text-2xl md:text-5xl">Argon Is Fully</div>
           <div class="text-4xl md:text-7xl xl:text-8xl mt-2">Protected From Inflation</div>
         </header>
-        <div class="flex flex-col mt-8 md:mt-10 gap-y-10 mx-auto px-4 md:px-12 xl:px-20 max-w-300 text-base md:text-xl leading-normal font-serif">
+        <div class="flex flex-col w-full mt-8 md:mt-10 gap-y-10 mx-auto px-4 md:px-12 xl:px-20 max-w-300 text-base md:text-xl leading-normal font-serif">
           <p>
             Most currencies are pegged to the dollar, which means they inherit all of the dollar's inflation. Argon
             takes a different approach. Instead of pegging to a currency, it pegs to a consumer price index of real goods.
@@ -274,21 +273,21 @@
             gap in eighteen months. We expect this gap to continue growing.
           </p>
 
-          <div class="flex flex-row gap-x-4">
-            <div class="w-1/2 flex flex-col bg-white/50 border border-slate-500/50 rounded-lg p-4">
-              <div class="flex flex-row items-center justify-center gap-x-4 font-sans text-5xl font-bold">
+          <div class="flex flex-col sm:flex-row gap-4">
+            <div class="w-full sm:w-1/2 flex flex-col bg-white/50 border border-slate-500/50 rounded-lg p-4">
+              <div class="flex flex-row items-center justify-center gap-x-3 md:gap-x-4 font-sans text-3xl md:text-5xl font-bold">
                 <span>₳1.00</span>
-                <SwapIcon class="w-8" />
+                <SwapIcon class="w-6 md:w-8 shrink-0" />
                 <span>$1.00</span>
               </div>
               <div class="font-bold text-center">
                 January 15, 2025
               </div>
             </div>
-            <div class="w-1/2 flex flex-col bg-white/50 border border-slate-500/50 rounded-lg p-4">
-              <div class="flex flex-row items-center justify-center gap-x-4 font-sans text-5xl font-bold">
+            <div class="w-full sm:w-1/2 flex flex-col bg-white/50 border border-slate-500/50 rounded-lg p-4">
+              <div class="flex flex-row items-center justify-center gap-x-3 md:gap-x-4 font-sans text-3xl md:text-5xl font-bold">
                 <span>₳1.00</span>
-                <SwapIcon class="w-8" />
+                <SwapIcon class="w-6 md:w-8 shrink-0" />
                 <span>$1.06</span>
               </div>
               <div class="font-bold text-center">
@@ -305,9 +304,9 @@
           </p>
 
           <div class="relative">
-            <BananaIcon class="absolute top-0 right-full h-1/2 -translate-x-5" />
-            <img src="/fully-protected-from-inflation/illustration1.png" />
-            <BananaIcon class="absolute top-0 left-full h-1/2 -scale-x-100 origin-center translate-x-5" />
+            <BananaIcon class="hidden lg:block absolute top-0 right-full h-1/2 -translate-x-5" />
+            <img class="w-full max-w-full" src="/fully-protected-from-inflation/illustration1.png" />
+            <BananaIcon class="hidden lg:block absolute top-0 left-full h-1/2 -scale-x-100 origin-center translate-x-5" />
           </div>
 
           <header class="font-bold text-2xl">How It Works</header>
@@ -318,28 +317,28 @@
           </p>
 
           <div>
-            <img src="/fully-protected-from-inflation/illustration2.png" />
+            <img class="w-full max-w-full" src="/fully-protected-from-inflation/illustration2.png" />
           </div>
 
           <p>
             The peg itself is set by the Argon Inflation Index, an on-chain tracker of real-goods prices that updates
-            continuously. This index what ensures one argon always holds the same purchasing power, regardless of what
+            continuously. This index ensures one argon always holds the same purchasing power, regardless of what
             any government or central bank decides to do with their currency.
           </p>
 
           <div>
-            <img src="/fully-protected-from-inflation/illustration3.png" />
+            <img class="w-full max-w-full" src="/fully-protected-from-inflation/illustration3.png" />
           </div>
 
           <p>
             If argon's price ever slips below its target peg, bitcoin holders call their shorts by unlocking their bitcoin.
             This automatically burns the excess argons, pushing the price back up to target. Conversely, if demand for
-            the argon pushes its price above the target peg, Argon miners are able to mint additional argons and profit
+            argon pushes its price above the target peg, Argon miners are able to mint additional argons and profit
             from the upside.
           </p>
 
           <div>
-            <img src="/fully-protected-from-inflation/illustration4.png" />
+            <img class="w-full max-w-full" src="/fully-protected-from-inflation/illustration4.png" />
           </div>
 
           <header class="font-bold text-2xl">Dive Deeper</header>
@@ -370,11 +369,11 @@
         <Circle :ref="setMoveToCenterRef" data-move-speed="0.5" class="fixed z-20" />
 
         <ScrollRisk :showBackground="false" ref="fiatCollapseRiskRef" header="Fiat Collapse" class="z-[90]">
-          Every fiat in history has eventually collapsed, starting with China's Yuan dynasty of 1260 A.D.
+          Every fiat currency in history has eventually collapsed, starting with China's Yuan dynasty of 1260 A.D.
           The dollar has lasted longer than most, but at which point does the inevitable begin?
           <template #stat1>
             <RiskStat title="Years In Existence" value="766 Years">
-              The number of years since fiat has existed as a government run currency in one form or another.
+              The number of years since fiat has existed as a government-run currency in one form or another.
             </RiskStat>
           </template>
           <template #stat2>
@@ -384,7 +383,7 @@
           </template>
           <template #stat3>
             <RiskStat title="Failure Rate" value="100%">
-              It's crazy but given enough time, every fiat currency in history has ultimately failed and collapsed.
+              It's crazy, but given enough time, every fiat currency in history has ultimately failed and collapsed.
             </RiskStat>
           </template>
           <template #stat4>
@@ -404,7 +403,7 @@
           <div class="text-4xl md:text-7xl xl:text-8xl mt-2">Insulated From The Collapse of Fiat</div>
         </header>
 
-        <div class="flex flex-col gap-y-10 mt-8 md:mt-10 mx-auto px-4 md:px-12 xl:px-20 max-w-300 text-base md:text-xl leading-normal font-serif">
+        <div class="flex flex-col w-full gap-y-10 mt-8 md:mt-10 mx-auto px-4 md:px-12 xl:px-20 max-w-300 text-base md:text-xl leading-normal font-serif">
           <p>
             Nearly every stablecoin in existence is pegged to the dollar — which means every stablecoin inherits the
             dollar's problems. It doesn't matter how decentralized the collateral. If the peg is in dollars, the risk
@@ -420,7 +419,7 @@
           </p>
 
           <div>
-            <img src="/insulated-from-the-collapse-of-fiat/illustration1.png" />
+            <img class="w-full max-w-full" src="/insulated-from-the-collapse-of-fiat/illustration1.png" />
           </div>
 
           <p>
@@ -476,7 +475,7 @@
           </template>
           <template #stat4>
             <RiskStat title="Protected by FDIC Insurance" value="$0">
-              The GENIUS act of 2025 confirmed the fact that dollar stablecoins are not protected by the FDIC.
+              The GENIUS Act of 2025 confirmed the fact that dollar stablecoins are not protected by the FDIC.
             </RiskStat>
           </template>
         </ScrollRisk>
@@ -494,9 +493,9 @@
           </div>
         </header>
 
-        <div class="flex flex-col gap-y-10 mt-8 md:mt-10 mx-auto px-4 md:px-12 xl:px-20 max-w-300 text-base md:text-xl leading-normal font-serif">
+        <div class="flex flex-col w-full gap-y-10 mt-8 md:mt-10 mx-auto px-4 md:px-12 xl:px-20 max-w-300 text-base md:text-xl leading-normal font-serif">
           <p>
-            Every non-argon stablecoin has fallen into one of two traps. The first was custodial collateral — dollars
+            Every non-Argon stablecoin has fallen into one of two traps. The first was custodial collateral — dollars
             held in banks — which inherits all the fragility of fractional-reserve banking. The second is an algorithmic
             second token to manage supply, which creates a reflexive loop: when confidence drops, the token sells off,
             which drops confidence further. TerraUSD wiped out $40 billion this way in three days. Argon uses neither
@@ -504,7 +503,7 @@
           </p>
 
           <div>
-            <img src="/immune-from-death-spirals/illustration1.png" />
+            <img class="w-full max-w-full" src="/immune-from-death-spirals/illustration1.png" />
           </div>
 
           <p>
@@ -515,11 +514,11 @@
           </p>
 
           <p>
-            There's a second-order effect is worth noting. As Argon grows, its stabilization mechanism creates a natural
-            price floor for Bitcoin. Argon’s Liquid Locking of Bitcoins gives . Bitcoin's total supply of 21 million
-            coins at current prices represents protection capacity for up to $40 trillion in argon value. The bigger
+            There's a second-order effect worth noting. As Argon grows, its stabilization mechanism creates a natural
+            price floor for Bitcoin. Argon’s Liquid Locking of Bitcoin means the total supply of 21 million
+            coins, at current prices, represents protection capacity for up to $40 trillion in argon value. The bigger
             Bitcoin gets, the more resilient Argon becomes. And the more resilient Argon becomes, the better Bitcoin
-            looks to hold.
+            looks as a long-term holding.
           </p>
 
           <header class="font-bold text-2xl">Dive Deeper</header>
@@ -556,7 +555,7 @@
               insulated from the collapse of fiat money, and immune to death spirals.
             </p>
             <p class="border-b border-gray-300/20 pb-12 mt-12">
-              We believe the crypto industry will soon begin waking to the risk of fiat-backed stablecoins. As that
+              We believe the crypto industry will soon begin waking up to the risks of fiat-backed stablecoins. As that
               happens, the massive shift that is already in progress will accelerate.
             </p>
           </div>

@@ -1,10 +1,16 @@
 <template>
-  <article>
-    <h1>Engine Modeling</h1>
+  <DocHeader>
+    Overview
+  </DocHeader>
+  <DocContent>
     <h2>Overview</h2>
     <h2>Model Inputs</h2>
     <h2>Model Outputs</h2>
     <h2>Assumptions and Limitations</h2>
     <h2>Scenario Library</h2>
-  </article>
+  </DocContent>
 </template>
+<script setup lang="ts">
+import DocContent from "@/screens/docs/DocContent.vue";
+import DocHeader from "@/screens/docs/DocHeader.vue";
+</script>

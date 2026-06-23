@@ -42,14 +42,14 @@
         >
           Launch Plan
         </RouterLink>
-        <RouterLink
-          Button
-          to="/docs"
-          class="text-lg"
-          :Selected="router.currentRoute.value.path.startsWith('/docs') || undefined"
-        >
-          Documentation
-        </RouterLink>
+<!--        <RouterLink-->
+<!--          Button-->
+<!--          to="/docs"-->
+<!--          class="text-lg"-->
+<!--          :Selected="router.currentRoute.value.path.startsWith('/docs') || undefined"-->
+<!--        >-->
+<!--          Docs-->
+<!--        </RouterLink>-->
       </ul>
       <div class="grow relative"></div>
       <MenuMobile class="lg:hidden" :mode="props.mode" :color="color" />
@@ -107,6 +107,7 @@ const color = {
     bgTransparent: 'rgba(120, 15, 133, 0)',
     bgHover: '#53085d',
     bg: '#780F85',
+    bgMobile: '#780F85',
     text: 'rgba(255, 255, 255, 0.8)',
     textHover: 'rgba(255, 255, 255, 1)',
     line: 'rgba(0, 0, 0, 0.5)',
@@ -119,6 +120,7 @@ const color = {
     bgTransparent: 'rgba(120, 15, 133, 0)',
     bgHover: '#40384F',
     bg: bgCharcoal,
+    bgMobile: bgCharcoal,
     text: 'rgba(255, 255, 255, 0.8)',
     textHover: 'rgba(255, 255, 255, 1)',
     line: 'rgba(0, 0, 0, 1)',
@@ -131,6 +133,7 @@ const color = {
     bgTransparent: 'rgba(249, 242, 250, 0)',
     bgHover: '#e9e2ea',
     bg: 'rgb(249, 242, 250)',
+    bgMobile: 'white',
     text: '#780F85',
     textHover: '#53085d',
     line: 'rgba(0, 0, 0, 0.15)',
@@ -151,7 +154,7 @@ const color = {
   }
 
   [BarWrapper] {
-    @apply bg-[v-bind(color.bg)] text-[v-bind(color.text)];
+    @apply bg-[v-bind(color.bgMobile)] md:bg-[v-bind(color.bg)] text-[v-bind(color.text)];
     border-bottom: 1px solid v-bind('color.line');
     box-shadow: 0 1px 0 0 v-bind('color.lineShadow');
   }
@@ -167,14 +170,6 @@ const color = {
     &[Selected] {
       @apply bg-[v-bind(color.bgHover)] text-[v-bind(color.textHover)];
     }
-  }
-
-  [LogoBgBlock] {
-    @apply bg-[v-bind(color.bg)];
-  }
-
-  [MiddleBgBlock] {
-    background: linear-gradient(to right, v-bind('color.bgTransparent') 0%, v-bind('color.bg') 30%, v-bind('color.bg') 70%, v-bind('color.bgTransparent') 100%);
   }
 
   [NetworkStatusWrapper] {

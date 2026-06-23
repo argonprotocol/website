@@ -8,14 +8,14 @@
         <div v-if="showBackground" class="absolute top-0 bottom-0 left-1/2 w-px -translate-x-1/2 border-r-2 border-dashed border-gray-300" />
       </div>
       <div class="flex flex-col">
-        <header ref="headerRef" class="relative bg-[var(--bg-charcoal)] text-center text-slate-100 z-30">
-          <div class="absolute -top-12 bg-linear-to-b from-transparent to-[var(--bg-charcoal)] to-70% h-12 w-full z-10" />
-          <div class="text-2xl md:text-5xl">THE RISK OF</div>
-          <div class="text-5xl md:text-7xl xl:text-[8rem] leading-none uppercase">{{ props.header }}</div>
-          <div class="absolute -bottom-3 bg-linear-to-b from-[var(--bg-charcoal)] to-transparent h-3 w-full z-10" />
+        <header ref="headerRef" class="relative bg-[var(--bg-charcoal)] text-center text-slate-100 z-30 px-4">
+          <div class="absolute -top-12 left-0 bg-linear-to-b from-transparent to-[var(--bg-charcoal)] to-70% h-12 w-full z-10" />
+          <div class="text-xl sm:text-2xl md:text-5xl leading-tight">THE RISK OF</div>
+          <div class="text-4xl sm:text-5xl md:text-7xl xl:text-[8rem] leading-tight md:leading-none uppercase">{{ props.header }}</div>
+          <div class="absolute -bottom-3 left-0 bg-linear-to-b from-[var(--bg-charcoal)] to-transparent h-3 w-full z-10" />
         </header>
 
-        <div ref="contentRef" class="bg-[var(--bg-charcoal)] pt-3 pb-1 relative z-20">
+        <div ref="contentRef" class="bg-[var(--bg-charcoal)] pt-5 md:pt-3 pb-1 relative z-20">
           <p ref="bodyRef" class="bg-[var(--bg-charcoal)] z-30 mx-auto max-w-270 px-4 md:px-8 text-center text-base md:text-2xl leading-normal text-[#f0b7f3]">
             <slot />
           </p>

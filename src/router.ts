@@ -21,8 +21,12 @@ const router = createRouter({
       component: () => import('@/screens/apps/Treasury.vue')
     },
     {
-      path: '/operations-invite/:inviteCode',
+      path: '/operations-invite/:inviteEnvelope',
       component: () => import('@/screens/OperationsInvite.vue')
+    },
+    {
+      path: '/treasury-invite/:inviteEnvelope',
+      component: () => import('@/screens/TreasuryInvite.vue')
     },
     {
       path: '/launch-plan',

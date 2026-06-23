@@ -1,8 +1,8 @@
 <template>
-  <article>
-    <h1>The Desktop Apps</h1>
-
-    <h2>Overview</h2>
+  <DocHeader>
+    Overview
+  </DocHeader>
+  <DocContent>
     <p>
       Argon currently provides desktop applications for users who want to run network participation workflows from a
       local machine. The apps focus on practical execution: configuration, monitoring, and repeated operational tasks
@@ -77,5 +77,9 @@
       Many users operate both paths. If you are new, start with Operations setup and Ambassador Program tasks, then expand
       into Capital once your operating baseline is stable.
     </p>
-  </article>
+  </DocContent>
 </template>
+<script setup lang="ts">
+import DocContent from "@/screens/docs/DocContent.vue";
+import DocHeader from "@/screens/docs/DocHeader.vue";
+</script>
