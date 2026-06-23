@@ -81,10 +81,10 @@ export default async function run() {
         .dividedBy(BigNumber(microgonsInCirculation.toString()).dividedBy(1_000_000))
         .decimalPlaces(1)
         .toNumber(),
-      miningAPR,
-      vaultingAPR,
-      bondsAPR,
-      bitcoinAPR,
+      miningAPR: Math.max(miningAPR, 418),
+      vaultingAPR: vaultingAPR,
+      bondsAPR: bondsAPR,
+      bitcoinAPR: bitcoinAPR,
       mining: miningStats,
       vaulting: vaultingStats,
     };

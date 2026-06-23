@@ -20,9 +20,9 @@
     "type-check": "vue-tsc --build --force",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
-    "-update-data": "yarn update-data:apps && tsx data-generators/all.ts",
-    "update-data": "tsx data-generators/all.ts",
-    "update-data:apps": "cd ../apps && tsx data-generators/all.ts"
+    "update-data:apps": "cd ../apps && tsx data-generators/all.ts",
+    "update-data:local": "tsx data-generators/all.ts",
+    "update-data:all": "yarn update-data:apps && tsx data-generators/all.ts"
   },
   "dependencies": {
     "@argonprotocol/apps-core": "^0.0.1",
