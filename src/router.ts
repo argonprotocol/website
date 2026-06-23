@@ -34,6 +34,9 @@ const router = createRouter({
     },
     {
       path: '/docs/:id?/:subId?',
+      beforeEnter(to) {
+        if (!to.params.id) return '/docs/whitepapers';
+      },
       component: () => import('@/screens/docs/DocLoader.vue')
     },
     {

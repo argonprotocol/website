@@ -66,8 +66,8 @@
               Get Started
               <ChevronDoubleRightIcon class="w-5 ml-2 inline-block" />
             </RouterLink>
-            <RouterLink to="/docs" class="whitespace-nowrap grow border border-argon-200/50 rounded-xl py-4 hover:bg-argon-500/20 hover:text-white font-bold lg:px-32">
-              Documentation
+            <RouterLink to="/docs/whitepapers" class="whitespace-nowrap grow border border-argon-200/50 rounded-xl py-4 hover:bg-argon-500/20 hover:text-white font-bold lg:px-32">
+              Whitepapers
             </RouterLink>
           </div>
         </div>
