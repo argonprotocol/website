@@ -3,11 +3,13 @@
     Overview
   </DocHeader>
   <DocContent>
-    <h2>Overview</h2>
-    <h2>Reading Order</h2>
-    <h2>Core Claims and Definitions</h2>
-    <h2>Model Assumptions</h2>
-    <h2>How to Use These Papers</h2>
+    <p>
+      Argon has two whitepapers that explain the core principles of its design:
+    </p>
+    <ul>
+      <li><router-link to="/docs/whitepapers/state">On the Stabilization of Collateral Backed Stablecoins</router-link></li>
+      <li><router-link to="/docs/whitepapers/fundamentals">The Fundamentals for Creating a Stable Crypto Asset</router-link></li>
+    </ul>
   </DocContent>
 </template>
 <script setup lang="ts">

@@ -37,9 +37,9 @@
         <div>
           <router-link to="/launch-plan">Launch Plan</router-link>
         </div>
-        <div>
-          <router-link to="/docs">Docs</router-link>
-        </div>
+<!--        <div>-->
+<!--          <router-link to="/docs">Docs</router-link>-->
+<!--        </div>-->
       </div>
       <div class="flex flex-col gap-y-2 lg:grow">
         <div class="font-bold">The Whitepapers</div>

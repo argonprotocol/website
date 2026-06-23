@@ -1,37 +1,37 @@
 <template>
   <MainLayout>
     <div class="flex flex-col-reverse items-stretch pb-10 md:flex-row min-h-screen">
-      <div
-        id="docs-leftbar"
-        class="LEFTBAR"
-        :class="{ 'translate-x-0': isLeftbarOpen, '-translate-x-full': !isLeftbarOpen }"
-      >
-        <template v-if="docsToc" v-for="(group, i1) in docsToc" :key="`title-${i1}`">
-          <template v-if="group.items">
-            <h3 class="mt-5 whitespace-nowrap font-semibold uppercase tracking-widest text-argon-900/40">{{ group.title }}</h3>
-            <template v-for="(item, i2) in group.items" :key="`title-${i1}-${i2}`">
-              <RouterLink
-                :class="{ isSelected: isSelected(resolveDocPath(group.base, item.link)) }"
-                class="block whitespace-nowrap pl-5"
-                @click="closeLeftbar"
-                :to="resolveDocPath(group.base, item.link)"
-              >
-                {{ item.title }}
-              </RouterLink>
-            </template>
-          </template>
-          <RouterLink
-              v-else
-              class="block whitespace-nowrap pl-2"
-              :class="{ isSelected: isSelected(group.link) }"
-              @click="closeLeftbar"
-              :to="cleanPath(group.link)"
-          >
-            {{ group.title }}
-          </RouterLink>
-        </template>
-        <div Fade />
-      </div>
+<!--      <div-->
+<!--        id="docs-leftbar"-->
+<!--        class="LEFTBAR"-->
+<!--        :class="{ 'translate-x-0': isLeftbarOpen, '-translate-x-full': !isLeftbarOpen }"-->
+<!--      >-->
+<!--        <template v-if="docsToc" v-for="(group, i1) in docsToc" :key="`title-${i1}`">-->
+<!--          <template v-if="group.items">-->
+<!--            <h3 class="mt-5 whitespace-nowrap font-semibold uppercase tracking-widest text-argon-900/40">{{ group.title }}</h3>-->
+<!--            <template v-for="(item, i2) in group.items" :key="`title-${i1}-${i2}`">-->
+<!--              <RouterLink-->
+<!--                :class="{ isSelected: isSelected(resolveDocPath(group.base, item.link)) }"-->
+<!--                class="block whitespace-nowrap pl-5"-->
+<!--                @click="closeLeftbar"-->
+<!--                :to="resolveDocPath(group.base, item.link)"-->
+<!--              >-->
+<!--                {{ item.title }}-->
+<!--              </RouterLink>-->
+<!--            </template>-->
+<!--          </template>-->
+<!--          <RouterLink-->
+<!--              v-else-->
+<!--              class="block whitespace-nowrap pl-2"-->
+<!--              :class="{ isSelected: isSelected(group.link) }"-->
+<!--              @click="closeLeftbar"-->
+<!--              :to="cleanPath(group.link)"-->
+<!--          >-->
+<!--            {{ group.title }}-->
+<!--          </RouterLink>-->
+<!--        </template>-->
+<!--        <div Fade />-->
+<!--      </div>-->
       <button
         v-if="isLeftbarOpen"
         aria-label="Close documentation menu"

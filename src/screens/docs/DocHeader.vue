@@ -13,10 +13,10 @@
             <LeftbarIcon class="w-4 h-4 mr-2" />
             <span>{{ breadcrumb.title }}</span>
           </button>
-          <RouterLink class="DOCS_DESKTOP_LINK" :to="breadcrumb.link">
+          <div class="DOCS_DESKTOP_LINK" :to="breadcrumb.link">
             <LeftbarIcon class="w-4 h-4 mr-2" />
             <span>{{ breadcrumb.title }}</span>
-          </RouterLink>
+          </div>
         </template>
         <template v-else>
           <RouterLink :to="breadcrumb.link">{{ breadcrumb.title }}</RouterLink>

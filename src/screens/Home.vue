@@ -21,17 +21,17 @@
 
         <div class="order-3 flex flex-col px-5 pt-8 pb-10 text-center relative md:px-10 lg:col-start-1 lg:row-start-3 lg:px-10 lg:pt-8 lg:pb-0 lg:text-left xl:px-14 xl:pt-10 2xl:px-20">
           <div class="flex flex-col gap-y-6 text-2xl font-serif leading-tight md:text-4xl lg:gap-y-7 lg:text-4xl xl:gap-y-8 xl:text-[2.75rem] 2xl:gap-y-10 2xl:text-[3.25rem]">
-            <router-link to="/docs/economic-pillars/protected-from-inflation" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit mx-auto hover:text-white lg:mx-0">
+            <router-link to="/why-its-better" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit mx-auto hover:text-white lg:mx-0">
               IT'S PROTECTED FROM<br />
               <span>THE DOLLAR'S INFLATION</span>,
             </router-link>
 
-            <router-link to="docs/economic-pillars/insulated-from-fiat-money" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit mx-auto hover:text-white lg:mx-0">
+            <router-link to="/why-its-better" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit mx-auto hover:text-white lg:mx-0">
               INSULATED FROM THE<br />
               <span>COLLAPSE OF FIAT-MONEY</span>,
             </router-link>
 
-            <router-link to="docs/economic-pillars/resistant-to-death-spirals" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit mx-auto hover:text-white lg:mx-0">
+            <router-link to="/why-its-better" class="hover:underline decoration-1 decoration-argon-100 text-white/85 w-fit mx-auto hover:text-white lg:mx-0">
               AND DESIGNED TO RECOVER<br />
               <span>FROM DEATH SPIRALS</span>.
             </router-link>
