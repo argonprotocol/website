@@ -49,14 +49,14 @@
               <p class="mt-2">This page could not be found.</p>
             </div>
           </div>
-          <div class="relative top-10">
-            <div class="h-px bg-linear-to-r from-slate-300 to-transparent w-full mb-5" />
-            <a class="github-edit-link flex flex-row gap-x-2" href="editLink" target="_blank">
-              <GithubLogo />
-              <span>Edit this page on GitHub</span>
-            </a>
-            <div class="h-px bg-linear-to-r from-slate-300 to-transparent w-full mt-5" />
-          </div>
+<!--          <div class="relative top-10">-->
+<!--            <div class="h-px bg-linear-to-r from-slate-300 to-transparent w-full mb-5" />-->
+<!--            <a class="github-edit-link flex flex-row gap-x-2" href="editLink" target="_blank">-->
+<!--              <GithubLogo />-->
+<!--              <span>Edit this page on GitHub</span>-->
+<!--            </a>-->
+<!--            <div class="h-px bg-linear-to-r from-slate-300 to-transparent w-full mt-5" />-->
+<!--          </div>-->
         </div>
       </div>
     </div>

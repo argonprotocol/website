@@ -13,16 +13,16 @@
     <div SplitRow class="mt-6 md:mt-12">
       <div SplitLeft>
         <p>
-          Bootstrapping a new decentralized currency into a functional medium-of-exchange is a difficult
+          Bootstrapping a new decentralized currency into a functional medium of exchange is a difficult
           go-to-market problem. Unlike fiat currencies, which governments
           can mandate by force, a decentralized currency lives or dies by voluntary adoption. And voluntary adoption
-          requires solving the chicken and egg problem: no one uses a currency that no one else uses.
+          requires solving the chicken-and-egg problem: no one uses a currency that no one else uses.
         </p>
 
         <p>
-          To be clear, USDC, Tether, DAI, and every other stablecoin that is pegged to the US dollar is not a new
-          currency. These stablecoins are simply a digital form of the US dollar. Argon, meanwhile, is a completely
-          new form of currency with its own unit of measurement and unconnected from any existing fiat currency.
+          To be clear, USDC, Tether, DAI, and every other stablecoin pegged to the US dollar are not new
+          currencies. These stablecoins are simply digital forms of the US dollar. Argon, meanwhile, is a completely
+          new form of currency with its own unit of measurement and no connection to any existing fiat currency.
         </p>
 
         <p>
@@ -62,7 +62,7 @@
         </div>
         <div Goal>
           The goal of Phase One is to create enough tokens to bootstrap the network into existence without
-          awarding tokens to premediated individuals.
+          awarding tokens to preselected individuals.
         </div>
       </div>
     </div>
@@ -71,8 +71,8 @@
       <div SplitLeft Content>
         <p>
           Unlike almost all other crypto projects, Argon decided no pre-mined favoritism
-          should be given to its founders or early adopters. On January 15, 2025, Argon will launch with zero rewards in its genesis block.
-          To ensure a fair distribution, it's introducing a two-step proof-of-work process that employs two different consensus mechanisms,
+          should be given to its founders or early adopters. On January 15, 2025, Argon launched with zero rewards in its genesis block.
+          To ensure a fair distribution, it introduced a two-step proof-of-work process that employs two different consensus mechanisms,
           in order to give everyone an equal chance to earn early rewards.
         </p>
 
@@ -88,7 +88,7 @@
         <p>
           Once ~10,000 argons are minted into existence, Argon will transition into its second phase-one launch step.
           From this point forward, active miners will be determined through auctions. Participants are required to bid
-          argons for the right to secure a mining seat. Winners are selected based on highest bid. The winning mining seats
+          argons for the right to secure a mining seat. Winners are selected based on the highest bid. The winning mining seats
           are allowed to mine for a set duration of ten frames (equivalent to ten 24-hour days). This system creates
           a transparent, market-based method for allocating mining power.
         </p>
@@ -158,7 +158,7 @@
           </li>
           <li>
             Create a Network Treasury to pre-fund bitcoin liquidity even if Argon's price is below target. This solves the
-            last remaining black swan event identified in our 2nd whitepaper.
+            last remaining black swan event identified in our second whitepaper.
           </li>
           <li>
             Improve the distribution of mining rights and block rewards in order to make mining and vaulting profits more predictable.
@@ -209,26 +209,26 @@
         </p>
 
         <p>
-          No efforts will be made during this phase to recruit general users into the Argon ecosystem or even to
+          No effort will be made during this phase to recruit general users into the Argon ecosystem or even to
           encourage typical stablecoin usage. Instead, we will focus on building a broad community of miners and
-          vaulters. Our goal is to end this phase with an Argon's circulation of 2-3 million. This will
+          vaulters. Our goal is to end this phase with Argon's circulation at 2-3 million. This will
           provide an economic mass large enough to support meaningful free-market activity for mining and vaulting.
         </p>
 
-        <p><strong class="font-bold">We're looking for three roles</strong>, hopefully with a lot of cross-over between them:</p>
+        <p><strong class="font-bold">We're looking for three roles</strong>, hopefully with a lot of crossover between them:</p>
 
         <ul class="font-light font-serif">
           <li class="list-['-'] ml-3 pl-3">
             <strong class="font-bold">Argon Miners</strong>. These are individuals with an extra desktop, laptop, or cloud
             machine they can dedicate to Argon mining. Little technical experience is required, but the compute
             resources must be available 24/7. Miners will collectively earn the minting rewards of the 2M-3M
-            argons that we expect to be minted during this phase. An initial amount of argons/argonots are required
+            argons that we expect to be minted during this phase. An initial amount of argons/argonots is required
             to secure the initial mining seats desired.
           </li>
 
           <li class="list-['-'] ml-3 pl-3 mt-5">
             <strong class="font-bold">Argon Vaulters</strong>. These are individuals with an extra desktop or laptop who are
-            able to spend a few minutes every couple days to manage bitcoin locking/unlocking. Very little
+            able to spend a few minutes every couple of days to manage bitcoin locking/unlocking. Very little
             technical or crypto experience is required. Vaulters collectively earn the auction
             bidding fees paid by mining seats. Their primary role is to help stabilize the growing circulation of
             argons being produced by the miners.
@@ -288,13 +288,13 @@
           Argon Desktop will be a free, open-source, and decentralized app that makes it easy for anyone to get
           involved in the Argon ecosystem without needing to run mining or vaulting nodes. It will assist in
           managing argon/argonot assets, liquid-locking their bitcoins, and investing in the treasury bonds of
-          network vaults. It will also bring Argon's Localchain functionality into a simple point-click interface.
-          Localchain is Argon's P2P payment network, which allows users to send and receive fast/free payments
-          directly between devices. It also supports micro-payments between AI agents through MCP hooks.
+          network vaults. It will also bring Argon's Localchain functionality into a simple point-and-click interface.
+          Localchain is Argon's P2P payment network, which allows users to send and receive fast, free payments
+          directly between devices. It also supports micropayments between AI agents through MCP hooks.
         </p>
 
         <p>
-          Although the Desktop app will facilitate p2p payment functionality, we expect Argon's primary focus
+          Although the Desktop app will facilitate P2P payment functionality, we expect Argon's primary focus
           to remain on Bitcoin liquid locking for the duration of this phase. One of the core properties of Bitcoin
           liquid locking is the way it uses argons as securitization. This will consume most of the new argons being minted
           into circulation, at least for the duration of this phase.
@@ -341,7 +341,7 @@
 
         <p>
           For example, Argon's auctions are forever capped at 144 mining seats per day. If Argon's circulation grows
-          by $1B in a given year (see Ethena, USDC, Tether, DAI, FDUSD, etc), the minimum cost for a single seat would
+          by $1B in a given year (see Ethena, USDC, Tether, DAI, FDUSD, etc.), the minimum cost for a single seat would
           easily surpass $19k. Similarly, if circulation grows by $100B in a given year, the minimum cost is $1.9M.
         </p>
 
@@ -377,7 +377,7 @@
         </div>
         <div Goal>
           The goal of Phase Six is to open Argon's ability to delegate currency control to local Notaries,
-          whether they be offgrid communities or sovereign nation states.
+          whether they are off-grid communities or sovereign nation-states.
         </div>
       </div>
     </div>
@@ -385,19 +385,19 @@
     <div SplitRow>
       <div SplitLeft Content>
         <p>
-          One of the more fascinating properties of Argon's technical design is its p2p Localchain. It allows
-          individuals to move argons into local networks that can settle transactions without requiring signoff from
+          One of the more fascinating properties of Argon's technical design is its P2P Localchain. It allows
+          individuals to move argons into local networks that can settle transactions without requiring sign-off from
           the broader network. This means an apocalyptic event, or simply an off-the-grid weekend trip with buddies,
-          does not shutdown your ability to conduct commerce. These localchains can reconnect back to the mainchain
-          at any point over the following months, years or even decades with no loss of value.
+          does not shut down your ability to conduct commerce. These localchains can reconnect back to the mainchain
+          at any point over the following months, years, or even decades with no loss of value.
         </p>
 
         <p>
-          Similarly, individuals can move their argons into nation-wide networks, which we're calling Sovereign Notaries.
-          These Sovereign Notaries can implements their own governance rules, which opens up fascinating possibilities.
+          Similarly, individuals can move their argons into nationwide networks, which we're calling Sovereign Notaries.
+          These Sovereign Notaries can implement their own governance rules, which opens up fascinating possibilities.
         </p>
         <p>
-          For example, nation states can create Argon-derived
+          For example, nation-states can create Argon-derived
           local currencies that implement custom taxation, regulatory oversight, or other governance mechanisms specific
           to their jurisdiction. Regardless of the laws within each Sovereign Notary, Argon's mainchain
           and underlying Argon value will remain free and durable for a thousand years or longer.
@@ -405,7 +405,7 @@
       </div>
       <div SplitRight>
         <div SplitQuote>
-          "An apocalyptic event... does not shutdown your ability to conduct commerce."
+          "An apocalyptic event... does not shut down your ability to conduct commerce."
         </div>
       </div>
     </div>
