@@ -1,1 +1,0 @@
-import o from"./DocHeader-SKMtFnTm.js";import n from"./DocContent-Dpo9Z54d.js";import{d as r,c as a,e as t,w as s,T as m,o as u,f as c}from"./index-CMxmy-bm.js";const _=r({__name:"frequent-questions",setup(f){return(l,e)=>(u(),a(m,null,[t(o,null,{default:s(()=>[...e[0]||(e[0]=[c(" Frequent Questions ",-1)])]),_:1}),t(n)],64))}});export{_ as default};
