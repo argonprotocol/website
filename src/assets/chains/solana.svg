@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 102 84" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>solana</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="coins(1)" transform="translate(-13, -22)" fill="currentColor" fill-rule="nonzero">
+            <path d="M93.94,42.63 L13.78,42.63 L34.06,22.41 L114.22,22.41 L93.94,42.63 Z M93.94,105.59 L13.78,105.59 L34.06,85.38 L114.22,85.38 M34.06,74.11 L114.22,74.11 L93.94,53.89 L13.78,53.89" id="solana"></path>
+        </g>
+    </g>
+</svg>

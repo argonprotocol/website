@@ -46,6 +46,52 @@
       </div>
 
       <div class="mt-3">
+        <div StatWrapper class="min-h-20 mb-3 pb-7! pt-0! text-left px-6!">
+          <table class="NetworkTable w-full -mt-2">
+            <template v-for="network of networks">
+              <thead>
+                <tr>
+                  <th colspan="4" class="text-left text-lg pt-7! opacity-50">{{ network.name }} Cross-Chain Integration</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr v-for="token of network.tokens">
+                  <td ChainIcon><component :is="network.icon" /></td>
+                  <td TokenName><strong>{{ token.name }}</strong> ({{ token.symbol }})</td>
+                  <td AddressToCopy>
+                    <CopyToClipboard :content="token.address">
+                      <div class="flex min-w-0 flex-row items-center">
+                        <span class="min-w-0 font-mono lg:hidden">{{ shortenAddress(token.address) }}</span>
+                        <span class="hidden min-w-0 font-mono lg:inline">{{ token.address }}</span>
+                        <CopyIcon class="h-5 ml-2" />
+                      </div>
+                      <template #copying>
+                        <div class="absolute top-0 left-0 w-full h-full flex min-w-0 flex-row items-center">
+                          <span class="min-w-0 font-mono lg:hidden">{{ shortenAddress(token.address) }}</span>
+                          <span class="hidden min-w-0 font-mono lg:inline">{{ token.address }}</span>
+                          <CopyIcon class="h-5 ml-2" />
+                        </div>
+                      </template>
+                    </CopyToClipboard>
+                  </td>
+                  <td Links>
+                    <a target="_blank" :href="`https://etherscan.io/address/${token.address}`">Etherscan</a>
+                    <a target="_blank" :href="`https://dexscreener.com/ethereum/${token.pairAddress}`">DexScreener</a>
+                    <a target="_blank" :href="`https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=${token.address}`">Uniswap</a>
+                  </td>
+                </tr>
+                <tr v-if="!network.tokens.length">
+                  <td ChainIcon><component :is="network.icon" /></td>
+                  <td colspan="3">
+                    <strong>Coming soon</strong>.
+                    <span class="italic">Any token on {{ network.name }} that purports to be Argon/Argonot
+                    is a fraud.</span>
+                  </td>
+                </tr>
+              </tbody>
+            </template>
+          </table>
+        </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 w-full grow gap-3 sm:gap-x-3.5">
 
           <div StatWrapper class="col-span-1 xl:col-span-2 flex flex-col h-full border-b border-slate-400/50">
@@ -170,6 +216,11 @@ import Data, { NetworkName } from "@/lib/Data";
 import {defaultBasicsRecord, type IBasicsRecord} from "@/interfaces/IBasicsRecord";
 import router from "@/router";
 import CountupClock from "@/components/CountupClock.vue";
+import EthereumIcon from '../assets/chains/ethereum.svg?component';
+import SolanaIcon from '../assets/chains/solana.svg?component';
+import BaseIcon from '../assets/chains/base.svg?component';
+import CopyToClipboard from "@/components/CopyToClipboard.vue";
+import CopyIcon from '../assets/copy.svg?component';
 
 const chainName = Vue.ref<NetworkName>(extractChainName(router.currentRoute.value.path));
 const data = Vue.ref<IBasicsRecord>(defaultBasicsRecord);
@@ -179,6 +230,37 @@ const lastBlockSecondsElapsed = Vue.ref(0);
 const isLastBlockProgressHidden = Vue.ref(false);
 let minuteTimeout: ReturnType<typeof setTimeout> | null = null;
 let progressRevealTimeout: ReturnType<typeof setTimeout> | null = null;
+
+const networks = [
+  {
+    name: 'Ethereum',
+    icon: Vue.markRaw(EthereumIcon),
+    tokens: [
+      {
+        name: 'Argon',
+        symbol: 'ARGN',
+        address: '0xf3d6b714dc93bc6c44bc766cc92f4a0d99344932',
+        pairAddress: '0x05f3e1c9b15f93f2a5494b381b2bb623796318d5',
+      },
+      {
+        name: 'Argonot',
+        symbol: 'ARGNOT',
+        address: '0x6b93a120829558c18f8cd54a96e8024ef973ce52',
+        pairAddress: '0xc38194e22061c066ce131a11e020d8dbe8d5390bb2cf4bc7538db77312c0719b',
+      }
+    ]
+  },
+  {
+    name: 'Solana',
+    icon: Vue.markRaw(SolanaIcon),
+    tokens: [],
+  },
+  {
+    name: 'Base',
+    icon: Vue.markRaw(BaseIcon),
+    tokens: [],
+  }
+];
 
 const minutesElapsed = Vue.computed(() => {
   const lastUpdatedAt = dayjs(data.value.lastUpdatedAt);
@@ -257,6 +339,13 @@ function extractChainName(str: string): NetworkName {
 
 function titleize(str: string): string {
   return str.replace(/\b\w/g, char => char.toUpperCase());
+}
+
+function shortenAddress(address: string): string {
+  if (address.length <= 11) {
+    return address;
+  }
+  return `${address.slice(0, 4)}...${address.slice(-4)}`;
 }
 
 async function loadData() {
@@ -338,4 +427,93 @@ Vue.onUnmounted(() => {
     backface-visibility: hidden;
   }
 }
+
+td, th {
+  @apply border-b border-slate-400/30;
+}
+th {
+  @apply pb-2;
+}
+td {
+  @apply py-3;
+}
+td[ChainIcon] {
+  @apply pr-2;
+  svg {
+    @apply w-4;
+  }
+}
+td[TokenName] {
+  @apply w-full;
+  strong {
+    @apply font-bold;
+  }
+}
+td[AddressToCopy] {
+  @apply pr-3;
+}
+td[Links] {
+  @apply flex flex-row flex-wrap items-center justify-end gap-1.5 sm:flex-nowrap;
+  a {
+    @apply bg-slate-600/60 text-white rounded-full no-underline px-3 py-0.5 hover:bg-argon-600/60 hover:text-white;
+  }
+}
+
+@media (max-width: 639px) {
+  .NetworkTable,
+  .NetworkTable thead,
+  .NetworkTable tbody,
+  .NetworkTable tr,
+  .NetworkTable th,
+  .NetworkTable td {
+    @apply block w-full;
+  }
+
+  .NetworkTable {
+    @apply border-separate border-spacing-y-3;
+  }
+
+  .NetworkTable thead tr {
+    @apply px-1 pt-2;
+  }
+
+  .NetworkTable tbody tr {
+    @apply grid grid-cols-[auto_1fr] items-start gap-x-3 rounded-md border border-slate-400/30 bg-white/60 p-3;
+  }
+
+  .NetworkTable th,
+  .NetworkTable td {
+    @apply border-b-0;
+  }
+
+  .NetworkTable th {
+    @apply pb-0;
+  }
+
+  .NetworkTable td {
+    @apply py-0;
+  }
+
+  td[ChainIcon] {
+    @apply pr-0 pt-1;
+  }
+
+  td[TokenName] {
+    @apply w-auto;
+  }
+
+  td[AddressToCopy],
+  td[Links] {
+    @apply col-span-2 mt-3 pr-0;
+  }
+
+  td[Links] {
+    @apply flex justify-start;
+  }
+
+  td:not([ChainIcon]):not([TokenName]):not([AddressToCopy]):not([Links]) {
+    @apply col-start-2;
+  }
+}
+
 </style>
