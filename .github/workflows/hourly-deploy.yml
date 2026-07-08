@@ -52,7 +52,7 @@ jobs:
           YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
 
       - name: Update data
-        run: yarn update-data
+        run: yarn update-data:local
         working-directory: website
         env:
           NODE_PATH: ${{ github.workspace }}/website/node_modules
