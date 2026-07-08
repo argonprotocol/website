@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "@argonprotocol/apps-core": "^0.0.1",
-    "@argonprotocol/mainchain": "1.4.7",
+    "@argonprotocol/mainchain": "1.4.9-dev.8c77b923",
     "@chenfengyuan/vue-countdown": "2",
     "@heroicons/vue": "^2.1.5",
     "bignumber.js": "^9.3.1",

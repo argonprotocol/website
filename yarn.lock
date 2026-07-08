@@ -23,7 +23,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@argonprotocol/apps-core@portal:../apps/core::locator=argon-website%40workspace%3A."
   dependencies:
-    "@argonprotocol/mainchain": "npm:1.4.7"
+    "@argonprotocol/mainchain": "npm:1.4.9-dev.8c77b923"
     "@polkadot/keyring": "npm:^14.0.3"
     "@polkadot/util": "npm:^14.0.3"
     "@polkadot/util-crypto": "npm:^14.0.3"
@@ -33,21 +33,9 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@argonprotocol/apps-data-generators@portal:../apps/data-generators::locator=argon-website%40workspace%3A.":
-  version: 0.0.0-use.local
-  resolution: "@argonprotocol/apps-data-generators@portal:../apps/data-generators::locator=argon-website%40workspace%3A."
-  dependencies:
-    "@argonprotocol/apps-core": "workspace:*"
-    "@argonprotocol/mainchain": "npm:1.4.7"
-    bignumber.js: "npm:^9.3.1"
-    dayjs: "npm:^1.11.13"
-    zod: "npm:^3.25.55"
-  languageName: node
-  linkType: soft
-
-"@argonprotocol/mainchain@npm:1.4.7":
-  version: 1.4.7
-  resolution: "@argonprotocol/mainchain@npm:1.4.7"
+"@argonprotocol/mainchain@npm:1.4.9-dev.8c77b923":
+  version: 1.4.9-dev.8c77b923
+  resolution: "@argonprotocol/mainchain@npm:1.4.9-dev.8c77b923"
   dependencies:
     "@ethereumjs/block": "npm:^10.1.1"
     "@ethereumjs/mpt": "npm:^10.1.1"
@@ -64,7 +52,7 @@ __metadata:
     bs58check: "npm:^4.0.0"
     camelcase-keys: "npm:^9.1.3"
     viem: "npm:^2.38.5"
-  checksum: 10c0/63be50158f24fe81225cdda0dde98f187cf09096348d647fa3570175952e0aac27ce9b1b220dedd15e7fec25ac8397c451e227b27c6780e92f42618cfd22ba88
+  checksum: 10c0/0ce5893a9fc4b3ec4031304846c8c0cc7e52b56204fc3d538ef3fac0f30cab03091034145257753737b64d11bb1934152cc775154ee735abf6bdc18c854fe607
   languageName: node
   linkType: hard
 
@@ -3438,8 +3426,7 @@ __metadata:
   resolution: "argon-website@workspace:."
   dependencies:
     "@argonprotocol/apps-core": "npm:^0.0.1"
-    "@argonprotocol/apps-data-generators": "npm:^0.0.1"
-    "@argonprotocol/mainchain": "npm:1.4.7"
+    "@argonprotocol/mainchain": "npm:1.4.9-dev.8c77b923"
     "@chenfengyuan/vue-countdown": "npm:2"
     "@heroicons/vue": "npm:^2.1.5"
     "@rushstack/eslint-patch": "npm:^1.8.0"
