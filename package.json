@@ -21,12 +21,13 @@
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "format": "prettier --write src/",
     "update-data:apps": "cd ../apps && tsx data-generators/all.ts",
-    "update-data:local": "tsx data-generators/all.ts",
+    "update-data:bitcoin": "cd ../apps && tsx data-generators/bitcoin.ts",
+    "update-data:local": "yarn update-data:bitcoin && tsx data-generators/all.ts",
     "update-data:all": "yarn update-data:apps && tsx data-generators/all.ts"
   },
   "dependencies": {
     "@argonprotocol/apps-core": "^0.0.1",
-    "@argonprotocol/mainchain": "1.4.9-dev.8c77b923",
+    "@argonprotocol/mainchain": "1.4.9",
     "@chenfengyuan/vue-countdown": "2",
     "@heroicons/vue": "^2.1.5",
     "bignumber.js": "^9.3.1",
