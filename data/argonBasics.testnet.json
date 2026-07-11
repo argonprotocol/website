@@ -1,10 +1,10 @@
 {
-  "lastUpdatedAt": "2026-07-11T10:34:49.443Z",
-  "currentBlockNumber": 865018,
-  "baseMicrogonsMinedPerBlock": "3660750n",
+  "lastUpdatedAt": "2026-07-11T12:06:33.379Z",
+  "currentBlockNumber": 865110,
+  "baseMicrogonsMinedPerBlock": "3666750n",
   "baseMicronotsMinedPerBlock": "3672750n",
-  "microgonsInCirculation": "1204169205251n",
-  "micronotsInCirculation": "1563796607885n",
+  "microgonsInCirculation": "1204504422251n",
+  "micronotsInCirculation": "1564134500885n",
   "usdForArgon": 1.047,
   "usdTargetForArgon": 1.049,
   "usdForArgonot": 0.157,
@@ -17,7 +17,7 @@
   "mining": {
     "activeSeatCount": 100,
     "activeBidCosts": 0,
-    "activeBlockRewards": 82020.27549911465
+    "activeBlockRewards": 82154.68519482046
   },
   "vaulting": {
     "count": 19,
