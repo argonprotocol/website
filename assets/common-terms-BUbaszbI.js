@@ -1,0 +1,1 @@
+import t from"./DocHeader-C4D6NZZO.js";import r from"./DocContent-BTd1rKX7.js";import{d as m,c as n,e as o,w as a,W as s,o as c,f as l}from"./index-BN-0Y_6D.js";const i=m({__name:"common-terms",setup(p){return(f,e)=>(c(),n(s,null,[o(t,null,{default:a(()=>[...e[0]||(e[0]=[l(" Common Terms ",-1)])]),_:1}),o(r)],64))}});export{i as default};
