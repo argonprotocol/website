@@ -92,15 +92,20 @@
             </template>
           </table>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 w-full grow gap-3 sm:gap-x-3.5">
+        <div StatWrapper class="w-full flex flex-col h-full border-b border-slate-400/50">
+          <span class="text-5xl! sm:text-5xl! md:text-6xl! ">${{ data.totalMarketValueUsd ? numeral(data.totalMarketValueUsd).format('0,0') : '---' }}</span>
+          <label>Current Global Market Value of Network</label>
+        </div>
+
+        <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 w-full grow gap-3 sm:gap-x-3.5">
 
           <div StatWrapper class="col-span-1 xl:col-span-2 flex flex-col h-full border-b border-slate-400/50">
-            <span class="text-5xl! sm:text-6xl! md:text-7xl! text-argon-600">{{ data.miningAPR ? numeral(data.miningAPR).formatCapped('0,0', 9_999) : '---' }}%</span>
+            <span class="text-5xl! sm:text-5xl! md:text-6xl! ">{{ data.miningAPR ? numeral(data.miningAPR).formatCapped('0,0', 9_999) : '---' }}%</span>
             <label>Current Mining APR</label>
           </div>
 
           <div StatWrapper class="col-span-1 xl:col-span-2 flex flex-col h-full border-b border-slate-400/50">
-            <span class="text-5xl! sm:text-6xl! md:text-7xl! text-argon-600">
+            <span class="text-5xl! sm:text-5xl! md:text-6xl! ">
               {{ data.vaultingAPR ? numeral(data.vaultingAPR).formatIfElseCapped('< 1_000', '0,0.[0]', '0,0', 9_999) : '---' }}%
             </span>
             <label>Current Vaulting APR</label>
@@ -149,14 +154,16 @@
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
             <span>
-              ${{ data.mining.activeBidCosts ? numeral(data.mining.activeBidCosts).format('0,0.00') : '---' }}
+              ${{ data.mining.activeBidCostsUsd ? numeral(data.mining.activeBidCostsUsd).format('0,0.00') : '---' }}
             </span>
             <label>Cost of Mining Seats</label>
           </div>
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
             <span>
-              ${{ data.mining.activeBlockRewards ? numeral(data.mining.activeBlockRewards).format('0,0.00') : '---' }}
+              ${{
+                data.mining.activeBlockRewardsUsd ? numeral(data.mining.activeBlockRewardsUsd).format('0,0.00') : '---'
+              }}
             </span>
             <label>Revenue from Mining Seats</label>
           </div>

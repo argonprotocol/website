@@ -176,7 +176,7 @@
           <section class="mx-auto w-full max-w-4xl px-1 py-9 md:px-2 md:py-14">
             <div class="space-y-6 text-lg leading-8 text-slate-800 md:space-y-7 md:text-[1.2rem] md:leading-[2.2rem]">
               <h2 class="my-5 text-center font-serif text-3xl md:my-6 md:text-4xl" id="instructions">
-                <span class="border-b border-slate-600/20 px-0 pb-4 sm:px-10 md:px-20 md:pb-5 inline-block">Installing the Argon Treasury App</span>
+                <span class="border-b border-slate-600/20 px-0 pb-4 sm:px-10 md:px-20 md:pb-5 inline-block">Installing the Argon Treasury</span>
               </h2>
               <p class="mt-10 font-serif md:mt-12">
                 Argon is an inflation-resistant, fiat-independent stablecoin. This app is how you access its

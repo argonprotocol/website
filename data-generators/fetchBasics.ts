@@ -77,6 +77,7 @@ export default async function run() {
       usdTargetForArgon: (priceIndexModel.argonUsdTargetPrice || BigNumber(0)).toNumber() || 1,
       usdForArgonot: (priceIndexModel.argonotUsdPrice || BigNumber(0)).toNumber() || 1,
       usdForBtc: (priceIndexModel.btcUsdPrice || BigNumber(0)).toNumber() || 80_000,
+      totalMarketValueUsd: await loadTotalEconomicValue(currency),
       restabilizationLeverage: BigNumber(vaultingStats.argonBurnCapacity)
         .dividedBy(BigNumber(microgonsInCirculation.toString()).dividedBy(1_000_000))
         .decimalPlaces(1)
@@ -96,6 +97,18 @@ export default async function run() {
 
 // FUNCTIONS
 
+async function loadTotalEconomicValue(currency: Currency): Promise<number> {
+  await currency.load();
+  const [microgonsInCirculation, micronotsInCirculation] = await Promise.all([
+    currency.fetchMicrogonsInCirculation(),
+    currency.fetchMicronotsInCirculation(),
+  ]);
+
+  const microgonValueOfArgonots = currency.convertMicronotTo(micronotsInCirculation, UnitOfMeasurement.Microgon);
+
+  return currency.convertMicrogonTo(microgonsInCirculation + microgonValueOfArgonots, UnitOfMeasurement.USD);
+}
+
 async function fetchMiningStats(chain: 'testnet' | 'mainnet', currency: Currency): Promise<[number, IBasicsRecordMining]> {
   const mainchainClients = getMainchainClients(chain);
   const mining = new Mining(mainchainClients);
@@ -106,8 +119,8 @@ async function fetchMiningStats(chain: 'testnet' | 'mainnet', currency: Currency
 
   return [miningAPR, {
     activeSeatCount: miningStats.activeSeatCount,
-    activeBidCosts: currency.convertMicrogonTo(miningStats.activeBidCosts, UnitOfMeasurement.USD),
-    activeBlockRewards: currency.convertMicrogonTo(miningStats.activeBlockRewards, UnitOfMeasurement.USD),
+    activeBidCostsUsd: currency.convertMicrogonTo(miningStats.activeBidCosts, UnitOfMeasurement.USD),
+    activeBlockRewardsUsd: currency.convertMicrogonTo(miningStats.activeBlockRewards, UnitOfMeasurement.USD),
   }];
 }
 

@@ -1,7 +1,7 @@
 export interface IBasicsRecordMining {
   activeSeatCount: number;
-  activeBidCosts: number;
-  activeBlockRewards: number;
+  activeBidCostsUsd: number;
+  activeBlockRewardsUsd: number;
 }
 
 export interface IBasicsRecordVaulting {
@@ -24,6 +24,7 @@ export interface IBasicsRecord {
   usdTargetForArgon: number;
   usdForArgonot: number;
   usdForBtc: number;
+  totalMarketValueUsd: number;
   restabilizationLeverage: number;
   miningAPR: number;
   vaultingAPR: number;
@@ -44,6 +45,7 @@ export const defaultBasicsRecord: IBasicsRecord = {
   usdTargetForArgon: 0,
   usdForArgonot: 0,
   usdForBtc: 0,
+  totalMarketValueUsd: 0,
   restabilizationLeverage: 0,
   miningAPR: 0,
   vaultingAPR: 0,
@@ -51,8 +53,8 @@ export const defaultBasicsRecord: IBasicsRecord = {
   bitcoinAPR: 0,
   mining: {
     activeSeatCount: 0,
-    activeBidCosts: 0,
-    activeBlockRewards: 0,
+    activeBidCostsUsd: 0,
+    activeBlockRewardsUsd: 0,
   },
   vaulting: {
     count: 0,
