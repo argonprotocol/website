@@ -1,0 +1,1 @@
+import t from"./DocHeader-r-drY6SR.js";import n from"./DocContent-CN6K3dw3.js";import{d as r,c as a,e as o,w as m,W as s,o as c,f as l}from"./index-DAiFRwXT.js";const _=r({__name:"Index",setup(p){return(d,e)=>(c(),a(s,null,[o(t,null,{default:m(()=>[...e[0]||(e[0]=[l(" Welcome to Argon Documentation ",-1)])]),_:1}),o(n)],64))}});export{_ as default};
