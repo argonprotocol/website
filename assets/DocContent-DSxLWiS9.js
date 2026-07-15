@@ -1,1 +1,0 @@
-import{_ as o,o as t,c as s,C as c}from"./index-DsB2LJc0.js";const n={},r={class:"DocContent Component"};function a(e,_){return t(),s("div",r,[c(e.$slots,"default",{},void 0,!0)])}const l=o(n,[["render",a],["__scopeId","data-v-ab4863b1"],["__file","/Users/calebclark/Projects/Argon/website/src/screens/docs/DocContent.vue"]]);export{l as default};
