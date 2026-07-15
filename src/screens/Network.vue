@@ -84,7 +84,7 @@
                   <td ChainIcon><component :is="network.icon" /></td>
                   <td colspan="3">
                     <strong>Coming soon</strong>.
-                    <span class="italic">Any token on {{ network.name }} that purports to be Argon/Argonot
+                    <span class="italic">In the meantime, any token on {{ network.name }} that purports to be Argon/Argonot
                     is a fraud.</span>
                   </td>
                 </tr>
@@ -100,7 +100,7 @@
         <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 w-full grow gap-3 sm:gap-x-3.5">
 
           <div StatWrapper class="col-span-1 xl:col-span-2 flex flex-col h-full border-b border-slate-400/50">
-            <span class="text-5xl! sm:text-5xl! md:text-6xl! ">{{ data.miningAPR ? numeral(data.miningAPR).formatCapped('0,0', 9_999) : '---' }}%</span>
+            <span class="text-5xl! sm:text-5xl! md:text-6xl! ">{{ data.miningAPR ? numeral(data.miningAPR).formatCapped('0,0.[0]', 9_999) : '---' }}%</span>
             <label>Current Mining APR</label>
           </div>
 
