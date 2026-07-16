@@ -75,7 +75,7 @@
                     </CopyToClipboard>
                   </td>
                   <td Links>
-                    <a target="_blank" :href="`https://etherscan.io/address/${token.address}`">Etherscan</a>
+                    <a target="_blank" :href="`https://etherscan.io/token/${token.address}`">Etherscan</a>
                     <a target="_blank" :href="`https://dexscreener.com/ethereum/${token.pairAddress}`">DexScreener</a>
                     <a target="_blank" :href="`https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=${token.address}`">Uniswap</a>
                   </td>
@@ -252,7 +252,7 @@ const networks = [
       {
         name: 'Argonot',
         symbol: 'ARGNOT',
-        address: '0x6b93a120829558c18f8cd54a96e8024ef973ce52',
+        address: '0x6B93a120829558C18f8CD54a96E8024EF973cE52',
         pairAddress: '0xc38194e22061c066ce131a11e020d8dbe8d5390bb2cf4bc7538db77312c0719b',
       }
     ]
