@@ -1,0 +1,1 @@
+import{_ as o,o as t,c as n,G as c}from"./index-C3ZLXIxq.js";const s={},a={class:"DocContent Component"};function r(e,d){return t(),n("div",a,[c(e.$slots,"default",{},void 0,!0)])}const f=o(s,[["render",r],["__scopeId","data-v-44d6e84a"]]);export{f as default};
