@@ -23,7 +23,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@argonprotocol/apps-core@portal:../apps/core::locator=argon-website%40workspace%3A."
   dependencies:
-    "@argonprotocol/mainchain": "npm:1.4.9"
+    "@argonprotocol/mainchain": "npm:1.4.10"
     "@polkadot/keyring": "npm:^14.0.3"
     "@polkadot/util": "npm:^14.0.3"
     "@polkadot/util-crypto": "npm:^14.0.3"
@@ -33,9 +33,9 @@ __metadata:
   languageName: node
   linkType: soft
 
-"@argonprotocol/mainchain@npm:1.4.9":
-  version: 1.4.9
-  resolution: "@argonprotocol/mainchain@npm:1.4.9"
+"@argonprotocol/mainchain@npm:1.4.10":
+  version: 1.4.10
+  resolution: "@argonprotocol/mainchain@npm:1.4.10"
   dependencies:
     "@ethereumjs/block": "npm:^10.1.1"
     "@ethereumjs/mpt": "npm:^10.1.1"
@@ -52,7 +52,7 @@ __metadata:
     bs58check: "npm:^4.0.0"
     camelcase-keys: "npm:^9.1.3"
     viem: "npm:^2.38.5"
-  checksum: 10c0/da8e19b1e739a5692c1508753825479194c3a9fdcb384ed04e46b427404e8b9293fbe8769eb20c2119d894266c7e0f6ecc51443c086b3647b6ed2ec88c722b34
+  checksum: 10c0/88f0b94eab96a0d49315d559161d410be117a71c1487b182cd9abd666565e7354ecc36bc329f548baa7259f3d77f4520750d9f0e9d70f408089a63fb9094872f
   languageName: node
   linkType: hard
 
@@ -3426,7 +3426,7 @@ __metadata:
   resolution: "argon-website@workspace:."
   dependencies:
     "@argonprotocol/apps-core": "npm:^0.0.1"
-    "@argonprotocol/mainchain": "npm:1.4.9"
+    "@argonprotocol/mainchain": "npm:1.4.10"
     "@chenfengyuan/vue-countdown": "npm:2"
     "@heroicons/vue": "npm:^2.1.5"
     "@rushstack/eslint-patch": "npm:^1.8.0"
