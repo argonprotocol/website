@@ -28,9 +28,10 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = Path.dirname(__filename);
 
 export default async function run() {
+  const now = dayjs.utc();
   const bitcoinPrices = new BitcoinPrices().getDateRange(
-    dayjs.utc().subtract(1, 'year').format('YYYY-MM-DD'),
-    dayjs.utc().format('YYYY-MM-DD'),
+    now.subtract(1, 'year').format('YYYY-MM-DD'),
+    now.format('YYYY-MM-DD'),
   );
   const bitcoinAPR = calculateBitcoinRatchetReturn({
     prices: bitcoinPrices,
