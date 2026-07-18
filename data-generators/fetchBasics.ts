@@ -4,6 +4,9 @@ import {fileURLToPath} from 'node:url';
 import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc.js';
 import {
+  BitcoinPrices,
+  calculateBitcoinRatchetReturn,
+  calculateRestabilizationLeverage,
   Currency, GlobalMiningStats,
   JsonExt,
   MainchainClients,
@@ -16,7 +19,6 @@ import {Vaults} from './lib/Vaults.ts';
 import { PriceIndex as PriceIndexModel } from "@argonprotocol/mainchain";
 import {type IBasicsRecord, type IBasicsRecordMining, type IBasicsRecordVaulting} from "../src/interfaces/IBasicsRecord.ts";
 import { getMainchainClients, getMiningFrames } from './lib/mainchain.ts';
-import calculateBitcoinAPR from './lib/calculateBitcoinAPR.ts';
 import BigNumber from 'bignumber.js';
 
 dayjs.extend(utc);
@@ -26,6 +28,18 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = Path.dirname(__filename);
 
 export default async function run() {
+  const now = dayjs.utc();
+  const bitcoinPrices = new BitcoinPrices().getDateRange(
+    now.subtract(1, 'year').format('YYYY-MM-DD'),
+    now.format('YYYY-MM-DD'),
+  );
+  const bitcoinAPR = calculateBitcoinRatchetReturn({
+    prices: bitcoinPrices,
+    flatFee: 2,
+    percentageFee: 5,
+    ratchetThreshold: 0.1,
+  }).percent;
+
   for (const chain of ['mainnet', 'testnet'] as const) {
     console.log('------------------------------------------------------');
     console.log(`Fetching Argon Basic Data for ${chain}`);
@@ -64,7 +78,6 @@ export default async function run() {
 
     const [miningAPR, miningStats] = await fetchMiningStats(chain, currency);
     const [vaultingAPR, bondsAPR, vaultingStats] = await fetchVaultingStats(chain, currency);
-    const bitcoinAPR = calculateBitcoinAPR();
 
     const data: IBasicsRecord = {
       lastUpdatedAt: dayjs.utc().toISOString(),
@@ -78,14 +91,14 @@ export default async function run() {
       usdForArgonot: (priceIndexModel.argonotUsdPrice || BigNumber(0)).toNumber() || 1,
       usdForBtc: (priceIndexModel.btcUsdPrice || BigNumber(0)).toNumber() || 80_000,
       totalMarketValueUsd: await loadTotalEconomicValue(currency),
-      restabilizationLeverage: BigNumber(vaultingStats.argonBurnCapacity)
-        .dividedBy(BigNumber(microgonsInCirculation.toString()).dividedBy(1_000_000))
-        .decimalPlaces(1)
-        .toNumber(),
-      miningAPR: Math.min(miningAPR, 618.2),
-      vaultingAPR: vaultingAPR,
-      bondsAPR: bondsAPR,
-      bitcoinAPR: bitcoinAPR,
+      restabilizationLeverage: calculateRestabilizationLeverage({
+        argonBurnCapacity: vaultingStats.argonBurnCapacity,
+        microgonsInCirculation,
+      }),
+      miningAPR,
+      vaultingAPR,
+      bondsAPR,
+      bitcoinAPR,
       mining: miningStats,
       vaulting: vaultingStats,
     };
@@ -115,9 +128,7 @@ async function fetchMiningStats(chain: 'testnet' | 'mainnet', currency: Currency
   const miningStats = new GlobalMiningStats(mining, currency);
   await miningStats.load();
 
-  const miningAPR = Math.max(miningStats.activeAPR, 0);
-
-  return [miningAPR, {
+  return [miningStats.activeAPR, {
     activeSeatCount: miningStats.activeSeatCount,
     activeBidCostsUsd: currency.convertMicrogonTo(miningStats.activeBidCosts, UnitOfMeasurement.USD),
     activeBlockRewardsUsd: currency.convertMicrogonTo(miningStats.activeBlockRewards, UnitOfMeasurement.USD),
@@ -135,10 +146,7 @@ async function fetchVaultingStats(chain: 'testnet' | 'mainnet', currency: Curren
     return total + vaultStats.baseline.bitcoinLocks + frameCount;
   }, 0);
 
-  const vaultingAPR = Math.max(vaultingStats.activeAPR, 0);
-  const bondsAPR = Math.max(vaultingStats.bondsAPR, 0);
-
-  return [vaultingAPR, bondsAPR, {
+  return [vaultingStats.activeAPR, vaultingStats.bondsAPR, {
     count: vaultingStats.vaultCount,
     valueInVaults: currency.convertMicrogonTo(vaultingStats.microgonValueOfVaultedBitcoins, UnitOfMeasurement.USD),
     bitcoinLocked: vaultingStats.bitcoinLocked,
