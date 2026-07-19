@@ -21,12 +21,9 @@
 
     <div NavigationLinks class="grid grid-cols-1 gap-x-8 gap-y-8 px-5 py-10 text-base md:grid-cols-2 md:px-10 md:text-lg lg:flex lg:flex-row lg:px-20">
       <div class="flex flex-col gap-y-2 lg:grow">
-        <div class="font-bold">The Desktop Apps</div>
+        <div class="font-bold">Argon Apps</div>
         <div>
-          <router-link to="/apps/treasury">Argon Treasury</router-link>
-        </div>
-        <div>
-          <router-link to="/apps/operations">Argon Operations</router-link>
+          <router-link to="/desktop-app">Desktop</router-link>
         </div>
       </div>
       <div class="flex flex-col gap-y-2 lg:grow">

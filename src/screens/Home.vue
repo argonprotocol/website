@@ -62,7 +62,7 @@
             centralized dependencies, meaning it can outlast any nation state or world calamity.
           </p>
           <div class="grow flex flex-col gap-y-4 pt-6 text-white/80 font-bold text-xl text-center lg:ml-10 lg:pl-20 lg:pt-3">
-            <RouterLink to="/apps" class="flex flex-row items-center justify-center whitespace-nowrap grow bg-argon-500 border border-argon-700 rounded-xl py-4 hover:bg-argon-500/70 hover:text-white font-bold lg:px-32" style="box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.3), 1px 1px 3px rgba(0, 0, 0, 0.3)">
+            <RouterLink to="/desktop-app" class="flex flex-row items-center justify-center whitespace-nowrap grow bg-argon-500 border border-argon-700 rounded-xl py-4 hover:bg-argon-500/70 hover:text-white font-bold lg:px-32" style="box-shadow: inset 1px 1px 3px rgba(255, 255, 255, 0.3), 1px 1px 3px rgba(0, 0, 0, 0.3)">
               Get Started
               <ChevronDoubleRightIcon class="w-5 ml-2 inline-block" />
             </RouterLink>
