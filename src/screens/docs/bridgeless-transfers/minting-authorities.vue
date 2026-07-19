@@ -1,13 +1,9 @@
 <template>
   <DocHeader>
-    Operator Certification
+    Minting Authorities
   </DocHeader>
   <DocContent>
-    <h2>Overview</h2>
-    <h2>Prerequisites</h2>
-    <h2>Required Task Sequence</h2>
-    <h2>Completion Criteria</h2>
-    <h2>Evidence and Audit Trail</h2>
+    <p>Coming Soon!</p>
   </DocContent>
 </template>
 <script setup lang="ts">

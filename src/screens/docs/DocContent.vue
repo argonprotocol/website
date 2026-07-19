@@ -1,5 +1,5 @@
 <template>
-  <div class="DocContent Component">
+  <div class="DocContent Component mt-5">
     <slot />
   </div>
 </template>

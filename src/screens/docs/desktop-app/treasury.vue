@@ -1,6 +1,6 @@
 <template>
   <DocHeader>
-    The Treasury App
+    The Treasury Extension
   </DocHeader>
   <DocContent>
     <p>Coming Soon!</p>

@@ -255,7 +255,7 @@ Vue.onMounted(async () => {
 
   try {
     await download.load();
-    downloadUrl.value = download.operationsUrl;
+    downloadUrl.value = download.downloadUrl;
   } catch {
     downloadUrl.value = '/desktop-apps';
   }

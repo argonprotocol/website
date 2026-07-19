@@ -1,6 +1,6 @@
 <template>
   <DocHeader>
-    The Operations App
+    The Operations Extension
   </DocHeader>
   <DocContent>
     <p>Coming Soon!</p>

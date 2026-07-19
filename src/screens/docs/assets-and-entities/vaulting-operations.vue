@@ -1,6 +1,6 @@
 <template>
   <DocHeader>
-    Overview of Vaulting
+    Vaulting Operations
   </DocHeader>
 
   <DocContent>

@@ -102,74 +102,27 @@
         LITTLE MORE THAN A LAPTOP
       </header>
 
-      <div
-        ref="appSliderEl"
-        class="AppPreviewSlider relative opacity-70 w-10/12 aspect-[16/10] max-h-100 max-w-260 mx-auto mt-8 overflow-hidden touch-none select-none md:mt-10 lg:mt-12"
-        :class="{ 'is-dragging': isAppSliderDragging }"
-        role="slider"
-        aria-label="Compare Operations and Treasury app previews"
-        aria-valuemin="0"
-        aria-valuemax="100"
-        :aria-valuenow="Math.round(activeSliderPercent)"
-        tabindex="0"
-        @pointerdown="startAppSliderDrag"
-        @keydown.left.prevent="nudgeAppSlider(-5)"
-        @keydown.right.prevent="nudgeAppSlider(5)"
-        @keydown.home.prevent="setAppSliderPercent(0)"
-        @keydown.end.prevent="setAppSliderPercent(100)"
-      >
-        <img src="/app-treasury.png" alt="Argon Treasury App" class="w-full h-full object-cover object-top pointer-events-none" draggable="false" />
-        <div
-          class="absolute inset-0 pointer-events-none"
-          :style="{ clipPath: `inset(0 ${100 - activeSliderPercent}% 0 0)` }"
-        >
-          <img src="/app-operations.png" alt="Argon Operations App" class="w-full h-full object-cover object-top" draggable="false" />
-        </div>
-        <div
-          class="AppPreviewSlider__divider absolute top-1 bottom-0 pointer-events-none"
-          :style="{ left: `${activeSliderPercent}%` }"
-        >
-          <div class="AppPreviewSlider__handle">
-            <span>&lsaquo;</span>
-            <span>&rsaquo;</span>
-          </div>
-        </div>
-        <div class="absolute left-0 bottom-0 w-full h-1/2 z-10" style="background: linear-gradient(to bottom, var(--bg-transparent) 0%, white 100%)" />
-      </div>
+      <img
+        src="/app-desktop.png"
+        alt="Argon Desktop App"
+        class="opacity-70 w-10/12 aspect-[16/10] max-h-100 max-w-260 mx-auto mt-8 object-cover object-top md:mt-10 lg:mt-12"
+      />
 
-      <div class="flex flex-col items-center w-10/12 max-w-260 mx-auto md:mt-0 px-2.5">
-        <div class="flex flex-col gap-3 w-full md:flex-row md:gap-x-4">
-          <a
-            :href="operationsUrl"
-            class="w-full flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-lg text-base px-2 py-3 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap md:w-1/2 md:py-4 md:text-xl xl:py-5 xl:text-2xl"
-            style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
-            @mouseenter="previewApp('operations')"
-            @mouseleave="clearAppPreview"
-            @focus="previewApp('operations')"
-            @blur="clearAppPreview"
-          >
-            <ArgonotLogo class="w-8 h-8 relative -top-0.5 inline-block md:w-10 md:h-10" />
-            <span>Download Operations</span>
-          </a>
-          <a
-            :href="treasuryUrl"
-            class="w-full flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-lg text-base px-2 py-3 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap md:w-1/2 md:py-4 md:text-xl xl:py-5 xl:text-2xl"
-            style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
-            @mouseenter="previewApp('treasury')"
-            @mouseleave="clearAppPreview"
-            @focus="previewApp('treasury')"
-            @blur="clearAppPreview"
-          >
-            <ArgonLogo class="w-8 h-8 relative inline-block md:w-10 md:h-10" />
-            <span>Download Treasury</span>
-          </a>
-        </div>
+      <div class="relative flex flex-col items-center w-10/12 max-w-260 mx-auto md:mt-0 px-2.5 z-10">
+        <div class="absolute -top-20 left-0 w-full h-20 bg-linear-to-b from-transparent to-50% to-white z-0" />
+        <a
+          :href="downloadUrl"
+          class="relative w-full flex flex-row items-center justify-center gap-3 bg-argon-button border border-argon-800 text-white rounded-lg text-base px-2 py-3 font-bold cursor-pointer hover:bg-argon-button-hover whitespace-nowrap md:py-4 md:text-xl xl:py-5 xl:text-2xl"
+          style="box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.5), 1px 1px 0 rgba(255, 255, 255, 1);"
+        >
+          <ArgonLogo class="w-8 h-8 relative inline-block md:w-10 md:h-10" />
+          <span>Download Argon Desktop v{{ download.stableVersion }}</span>
+        </a>
 
-        <p class="text-base md:text-lg xl:text-xl text-left md:text-justify opacity-70 mt-8 md:mt-12 xl:mt-16 leading-relaxed">
-          Unlike most crypto networks, you can become a key player in Argon’s ecosystem without needing millions of
-          dollars and complex systems. The Operations app makes it easy to start mining and vaulting without the need
-          for expensive ASIC mining rigs or specialized cloud machines. The Treasury app gives you full access to all of
-          the network's yield-bearing assets.
+        <p class="text-base md:text-lg xl:text-xl text-left md:text-justify opacity-70 mt-8 md:mt-10 xl:mt-12 leading-relaxed">
+          Unlike most crypto networks, Argon doesn't require specialized hardware to mine. Argon Desktop runs on any
+          modern laptop that uses Windows, Mac or Linux. The app makes it easy to create vaults, win mining seats, and
+          access the network's yield-bearing assets.
         </p>
       </div>
 
@@ -372,7 +325,6 @@ import PolkadotIcon from '../assets/chains/polkadot.svg?component';
 import GnosisIcon from '../assets/chains/gnosis.svg?component';
 import BnbChainIcon from '../assets/chains/bnbchain.svg?component';
 import ArgonLogo from '../assets/logo.svg?component';
-import ArgonotLogo from '../assets/argonot.svg?component';
 import FooterBar from '../navigation/FooterBar.vue';
 import TopBar from '../navigation/TopBar.vue';
 import numeral, { microgonToArgonNm } from '@/lib/numeral';
@@ -382,18 +334,9 @@ import { Download } from '@/lib/Download';
 import dayjs from 'dayjs';
 
 const download = new Download();
-const operationsUrl = Vue.ref('');
-const treasuryUrl = Vue.ref('');
-
-const stableVersion = Vue.ref('');
-const appSliderEl = Vue.ref<HTMLElement | null>(null);
-const appSliderPercent = Vue.ref(50);
-const appPreviewPercent = Vue.ref<number | null>(null);
-const isAppSliderDragging = Vue.ref(false);
+const downloadUrl = Vue.ref('');
 const lastBlockAt = Vue.ref(dayjs().startOf('minute'));
 let minuteTimeout: ReturnType<typeof setTimeout> | null = null;
-
-const activeSliderPercent = Vue.computed(() => appPreviewPercent.value ?? appSliderPercent.value);
 
 const minutesElapsed = Vue.computed(() => {
   const lastUpdatedAt = dayjs(data.value.lastUpdatedAt);
@@ -421,51 +364,6 @@ function scheduleMinuteReset() {
   }, msToNextMinute);
 }
 
-function clampSliderPercent(value: number): number {
-  return Math.min(100, Math.max(0, value));
-}
-
-function setAppSliderPercent(value: number): void {
-  appPreviewPercent.value = null;
-  appSliderPercent.value = clampSliderPercent(value);
-}
-
-function nudgeAppSlider(amount: number): void {
-  setAppSliderPercent(appSliderPercent.value + amount);
-}
-
-function updateAppSliderFromPointer(event: PointerEvent): void {
-  if (!appSliderEl.value) return;
-
-  const bounds = appSliderEl.value.getBoundingClientRect();
-  const percent = ((event.clientX - bounds.left) / bounds.width) * 100;
-  setAppSliderPercent(percent);
-}
-
-function stopAppSliderDrag(): void {
-  isAppSliderDragging.value = false;
-  window.removeEventListener('pointermove', updateAppSliderFromPointer);
-  window.removeEventListener('pointerup', stopAppSliderDrag);
-  window.removeEventListener('pointercancel', stopAppSliderDrag);
-}
-
-function startAppSliderDrag(event: PointerEvent): void {
-  event.preventDefault();
-  isAppSliderDragging.value = true;
-  updateAppSliderFromPointer(event);
-  window.addEventListener('pointermove', updateAppSliderFromPointer);
-  window.addEventListener('pointerup', stopAppSliderDrag);
-  window.addEventListener('pointercancel', stopAppSliderDrag);
-}
-
-function previewApp(app: 'operations' | 'treasury'): void {
-  appPreviewPercent.value = app === 'operations' ? 100 : 0;
-}
-
-function clearAppPreview(): void {
-  appPreviewPercent.value = null;
-}
-
 Vue.onMounted(async () => {
   lastBlockAt.value = dayjs().startOf('minute');
   scheduleMinuteReset();
@@ -474,13 +372,10 @@ Vue.onMounted(async () => {
     download.load(),
   ]);
   data.value = basics;
-  operationsUrl.value = download.operationsUrl;
-  treasuryUrl.value = download.treasuryUrl;
-  stableVersion.value = download.stableVersion;
+  downloadUrl.value = download.downloadUrl;
 });
 
 Vue.onBeforeUnmount(() => {
-  stopAppSliderDrag();
   if (minuteTimeout) {
     clearTimeout(minuteTimeout);
   }
@@ -498,54 +393,6 @@ Vue.onBeforeUnmount(() => {
 
   [HelpUsBootstrap] {
     background: linear-gradient(to bottom, #A428B3, #780F85);
-  }
-
-  .AppPreviewSlider {
-    cursor: ew-resize;
-  }
-
-  .AppPreviewSlider > img,
-  .AppPreviewSlider > div:not(.AppPreviewSlider__divider) {
-    transition: clip-path 180ms ease;
-  }
-
-  .AppPreviewSlider.is-dragging > div:not(.AppPreviewSlider__divider),
-  .AppPreviewSlider.is-dragging .AppPreviewSlider__divider {
-    transition: none;
-  }
-
-  .AppPreviewSlider__divider {
-    @apply rounded-full border border-argon-400/60;
-    width: 7px;
-    background: rgba(255, 255, 255, 0.5);
-    box-shadow: 0 0 18px rgba(112, 15, 130, 0.55);
-    transform: translateX(-50%);
-    transition: left 180ms ease;
-    z-index: 2;
-  }
-
-  .AppPreviewSlider__handle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    width: 46px;
-    height: 46px;
-    color: #70108a;
-    font-size: 40px;
-    font-weight: 700;
-    line-height: 1;
-    background: rgba(255, 255, 255, 0.92);
-    border: 3px solid #70108a;
-    border-radius: 9999px;
-    box-shadow: 0 8px 30px rgba(112, 15, 130, 0.3);
-    transform: translate(-50%, -50%);
-    span {
-      @apply leading-none relative top-[-2.5px] font-light;
-    }
   }
 
   --line-dark: rgba(15, 1, 17, 0.7);

@@ -9,16 +9,8 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/apps',
-      component: () => import('@/screens/apps/Index.vue')
-    },
-    {
-      path: '/apps/operations',
-      component: () => import('@/screens/apps/Operations.vue')
-    },
-    {
-      path: '/apps/treasury',
-      component: () => import('@/screens/apps/Treasury.vue')
+      path: '/desktop-app',
+      component: () => import('@/screens/desktop-app/Index.vue')
     },
     {
       path: '/invite/:inviteEnvelope',
@@ -66,6 +58,10 @@ const router = createRouter({
     {
       path: '/why-its-better',
       component: () => import('@/screens/why-its-better/Index.vue')
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      component: () => import('@/screens/NotFound.vue')
     },
   ],
   scrollBehavior(to, from, savedPosition) {

@@ -11,20 +11,11 @@
         <RouterLink
           Button
           as="li"
-          to="/apps/operations"
+          to="/desktop-app"
           class="text-lg"
-          :Selected="router.currentRoute.value.path.startsWith('/apps/operations') || undefined"
+          :Selected="router.currentRoute.value.path.startsWith('/desktop-app') || undefined"
         >
-          Operations
-        </RouterLink>
-        <RouterLink
-            Button
-            as="li"
-            to="/apps/treasury"
-            class="text-lg"
-            :Selected="router.currentRoute.value.path.startsWith('/apps/treasury') || undefined"
-        >
-          Treasury
+          Desktop App
         </RouterLink>
         <RouterLink
             Button
@@ -42,14 +33,14 @@
         >
           Launch Plan
         </RouterLink>
-<!--        <RouterLink-->
-<!--          Button-->
-<!--          to="/docs"-->
-<!--          class="text-lg"-->
-<!--          :Selected="router.currentRoute.value.path.startsWith('/docs') || undefined"-->
-<!--        >-->
-<!--          Docs-->
-<!--        </RouterLink>-->
+        <RouterLink
+          Button
+          to="/docs"
+          class="text-lg"
+          :Selected="router.currentRoute.value.path.startsWith('/docs') || undefined"
+        >
+          Docs
+        </RouterLink>
       </ul>
       <div class="grow relative"></div>
       <MenuMobile class="lg:hidden" :mode="props.mode" :color="color" />

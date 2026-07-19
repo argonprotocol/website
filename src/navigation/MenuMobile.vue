@@ -53,20 +53,11 @@
           <div class="h-px bg-gray-200 my-1" />
           <RouterLink
             Button
-            to="/apps/operations"
+            to="/desktop-app"
             class="text-base py-2 block"
-            :Selected="router.currentRoute.value.path.startsWith('/apps/operations') || undefined"
+            :Selected="router.currentRoute.value.path.startsWith('/desktop-app') || undefined"
           >
-            Operations
-          </RouterLink>
-          <div class="h-px bg-gray-200 my-1" />
-          <RouterLink
-            Button
-            to="/apps/treasury"
-            class="text-base py-2 block"
-            :Selected="router.currentRoute.value.path.startsWith('/apps/treasury') || undefined"
-          >
-            Treasury
+            Desktop App
           </RouterLink>
           <div class="h-px bg-gray-200 my-1" />
           <RouterLink

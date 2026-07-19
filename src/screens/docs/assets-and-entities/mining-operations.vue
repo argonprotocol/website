@@ -1,6 +1,6 @@
 <template>
   <DocHeader>
-    Overview of Mining Operations
+    Mining Operations
   </DocHeader>
   <DocContent>
     <div v-if="isLoaded" ref="dialogPanelContent" class="flex flex-col grow relative w-full overflow-y-auto py-5">

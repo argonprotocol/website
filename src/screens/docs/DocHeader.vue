@@ -62,7 +62,7 @@ const breadcrumbs = Vue.computed(() => {
 
   return [
     {
-      title: 'Docs',
+      title: 'Documentation',
       link: '/docs',
       isRoot: true,
     },
@@ -82,7 +82,7 @@ const breadcrumbs = Vue.computed(() => {
 @import "../../main.css";
 
 ol {
-  @apply flex flex-row list-none py-0 px-4 m-0 bg-argon-200/10 border-b border-argon-200/50 md:border-b-0 md:bg-none;
+  @apply relative flex flex-row list-none py-0 px-4 m-0 bg-argon-200/10 border-b border-argon-200/50 md:border-b-0 md:bg-transparent;
 }
 
 ol li {
@@ -111,7 +111,7 @@ ol a {
 }
 
 h1 {
-  @apply font-light font-serif mt-5 md:mt-0 text-4xl md:text-5xl leading-snug px-4;
+  @apply font-light font-serif mt-5 md:mt-1 text-4xl md:text-5xl leading-snug px-4;
 }
 
 </style>

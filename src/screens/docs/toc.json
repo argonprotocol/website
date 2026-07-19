@@ -4,7 +4,7 @@
     "base": "/",
     "items": [
       {
-        "title": "Welcome Overview",
+        "title": "Welcome",
         "link": "/"
       },
       {
@@ -18,20 +18,28 @@
     ]
   },
   {
-    "title": "The Desktop Apps",
-    "base": "/desktop-apps",
+    "title": "The Desktop App",
+    "base": "/desktop-app",
     "items": [
       {
         "title": "Overview",
         "link": "/"
       },
       {
-        "title": "Argon Operations",
+        "title": "Treasury Extension",
+        "link": "/treasury"
+      },
+      {
+        "title": "Operations Extension",
         "link": "/operations"
       },
       {
-        "title": "Argon Treasury",
-        "link": "/treasury"
+        "title": "Access and Upgrades",
+        "link": "/access-and-upgrades"
+      },
+      {
+        "title": "Self-Custody Risks",
+        "link": "/self-custody-risks"
       }
     ]
   },
@@ -40,68 +48,46 @@
     "base": "bridgeless-transfers",
     "items": [
       {
-        "title": "Overview",
+        "title": "How It Works",
         "link": "/"
+      },
+      {
+        "title": "Global Issuance Council",
+        "link": "/global-issuance-council"
+      },
+      {
+        "title": "Minting Authorities",
+        "link": "/minting-authorities"
       }
     ]
   },
   {
-    "title": "Bitcoin Locking",
-    "base": "/bitcoin-locking",
+    "title": "Assets and Entities",
+    "base": "/assets-and-entities",
     "items": [
       {
-        "title": "Overview",
-        "link": "/"
-      }
-    ]
-  },
-  {
-    "title": "Argon Bonds",
-    "base": "/argon-bonds",
-    "items": [
+        "title": "Bitcoin Locks",
+        "link": "/bitcoin-locks"
+      },
       {
-        "title": "Overview",
-        "link": "/"
-      }
-    ]
-  },
-  {
-    "title": "Stable Swaps",
-    "base": "/stable-swaps",
-    "items": [
+        "title": "Argon(ot) Bonds",
+        "link": "/argon-ot-bonds"
+      },
       {
-        "title": "Overview",
-        "link": "/"
-      }
-    ]
-  },
-  {
-    "title": "Mining Operations",
-    "base": "/mining-operations",
-    "items": [
+        "title": "Stable Swaps",
+        "link": "/stable-swaps"
+      },
       {
-        "title": "Overview",
-        "link": "/"
-      }
-    ]
-  },
-  {
-    "title": "Vaulting Operations",
-    "base": "/vaulting-operations",
-    "items": [
+        "title": "Mining Operations",
+        "link": "/mining-operations"
+      },
       {
-        "title": "Overview",
-        "link": "/"
-      }
-    ]
-  },
-  {
-    "title": "Operator Certification",
-    "base": "/operator-certification",
-    "items": [
+        "title": "Vaulting Operations",
+        "link": "/vaulting-operations"
+      },
       {
-        "title": "Overview",
-        "link": "/"
+        "title": "Upstream Nodes",
+        "link": "/upstream-nodes"
       }
     ]
   },
@@ -110,16 +96,16 @@
     "base": "/economic-pillars",
     "items": [
       {
-        "title": "Protected from Inflation",
-        "link": "/protected-from-inflation"
+        "title": "Protection from Inflation",
+        "link": "/protection-from-inflation"
       },
       {
-        "title": "Insulated from Fiat Money",
-        "link": "/insulated-from-fiat-money"
+        "title": "Insulation from Fiat Money",
+        "link": "/insulation-from-fiat-money"
       },
       {
-        "title": "Resistant to Death Spirals",
-        "link": "/resistant-to-death-spirals"
+        "title": "Recovery from Death Spirals",
+        "link": "/recovery-from-death-spirals"
       }
     ]
   },

@@ -6,8 +6,7 @@ export enum OsName {
 }
 
 export enum AppName {
-  Operations = 'Operations',
-  Treasury = 'Treasury',
+  Desktop = 'Desktop',
 }
 
 export class Download {
@@ -33,18 +32,14 @@ export class Download {
   }
 
   public async load() {
-    const response = await fetch('https://raw.githubusercontent.com/argonprotocol/apps/refs/heads/main/release-channels/operations-stable.json');
+    const response = await fetch('https://raw.githubusercontent.com/argonprotocol/apps/refs/heads/main/release-channels/desktop-stable.json');
     const data = await response.json();
     this.stableVersion = data.version;
     this.isLoaded = true;
   }
 
-  public get operationsUrl() {
-    return this.urlFor(AppName.Operations, this.currentOsName, false);
-  }
-
-  public get treasuryUrl() {
-    return this.urlFor(AppName.Treasury, this.currentOsName, false);
+  public get downloadUrl() {
+    return this.urlFor(AppName.Desktop, this.currentOsName, false);
   }
 
   public urlFor(appName: AppName, osName: OsName, isExperimental: boolean) {
