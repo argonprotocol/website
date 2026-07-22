@@ -165,7 +165,7 @@
     </div>
 
     <div>
-      <router-link to="/on-the-stabilization-of-collateral-backed-stablecoins.pdf" class="block py-5 w-full border border-argon-600 text-center text-2xl text-argon-600 cursor-pointer rounded-lg hover:bg-argon-100/20">Download Full Whitepaper</router-link>
+      <a href="/on-the-stabilization-of-collateral-backed-stablecoins.pdf" class="block py-5 w-full border border-argon-600 text-center text-2xl text-argon-600 cursor-pointer rounded-lg hover:bg-argon-100/20">Download Full Whitepaper</a>
     </div>
   </DocContent>
 </template>
