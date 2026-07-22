@@ -41,14 +41,14 @@
         >
           Docs
         </RouterLink>
-        <RouterLink
-            Button
-            to="/updates"
-            class="text-lg"
-            :Selected="router.currentRoute.value.path.startsWith('/updates') || undefined"
-        >
-          Updates
-        </RouterLink>
+<!--        <RouterLink-->
+<!--            Button-->
+<!--            to="/updates"-->
+<!--            class="text-lg"-->
+<!--            :Selected="router.currentRoute.value.path.startsWith('/updates') || undefined"-->
+<!--        >-->
+<!--          Updates-->
+<!--        </RouterLink>-->
       </ul>
       <div class="grow relative"></div>
       <MenuMobile class="lg:hidden" :mode="props.mode" :color="color" />
