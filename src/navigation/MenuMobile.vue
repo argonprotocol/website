@@ -86,6 +86,15 @@
           >
             Docs
           </RouterLink>
+          <div class="h-px bg-gray-200 my-1" />
+          <RouterLink
+            Button
+            to="/updates"
+            class="text-base py-2 block"
+            :Selected="router.currentRoute.value.path.startsWith('/updates') || undefined"
+          >
+            Updates
+          </RouterLink>
           <div class="h-px bg-gray-400 my-1" />
           <a
             Button

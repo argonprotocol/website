@@ -7,7 +7,7 @@
           Argon
         </span>
       </div>
-      <ul class="hidden lg:flex flex-row items-center gap-x-4 relative top-[0.5px]">
+      <ul class="hidden lg:flex flex-row items-center gap-x-3 relative top-[0.5px]">
         <RouterLink
           Button
           as="li"
@@ -40,6 +40,14 @@
           :Selected="router.currentRoute.value.path.startsWith('/docs') || undefined"
         >
           Docs
+        </RouterLink>
+        <RouterLink
+            Button
+            to="/updates"
+            class="text-lg"
+            :Selected="router.currentRoute.value.path.startsWith('/updates') || undefined"
+        >
+          Updates
         </RouterLink>
       </ul>
       <div class="grow relative"></div>

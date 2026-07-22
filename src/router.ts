@@ -29,6 +29,14 @@ const router = createRouter({
       component: () => import('@/screens/launch-plan/Index.vue')
     },
     {
+      path: '/updates',
+      component: () => import('@/screens/updates/Index.vue')
+    },
+    {
+      path: '/updates/:slug',
+      component: () => import('@/screens/updates/Article.vue')
+    },
+    {
       path: '/secret-plan',
       redirect: '/launch-plan'
     },

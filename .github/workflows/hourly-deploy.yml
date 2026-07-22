@@ -1,15 +1,15 @@
-name: Hourly data update + production deploy
+name: Data and updates refresh + production deploy
 
 on:
   schedule:
-    - cron: "18 * * * *"
+    - cron: "3,18,33,48 * * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: hourly-deploy
+  group: scheduled-production-deploy
   cancel-in-progress: false
 
 jobs:
@@ -52,7 +52,7 @@ jobs:
           YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
 
       - name: Update data
-        run: yarn update-data:local
+        run: yarn update-data:local && yarn update-data:updates
         working-directory: website
         env:
           NODE_PATH: ${{ github.workspace }}/website/node_modules
