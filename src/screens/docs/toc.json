@@ -58,6 +58,14 @@
       {
         "title": "Minting Authorities",
         "link": "/minting-authorities"
+      },
+      {
+        "title": "Connect a MetaMask Wallet",
+        "link": "/metamask-wallet"
+      },
+      {
+        "title": "Connect a Uniswap Wallet",
+        "link": "/uniswap-wallet"
       }
     ]
   },

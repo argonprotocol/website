@@ -208,7 +208,7 @@ function normalizeCurrentPath(path: string) {
 
 .DOCSCONTENT {
   h2 {
-    @apply font-bold text-lg text-slate-900/80 mt-10;
+    @apply font-bold text-2xl text-slate-900/80 mt-10;
   }
 
   header {
@@ -217,7 +217,7 @@ function normalizeCurrentPath(path: string) {
 
   ul > li,
   p {
-    @apply mb-4;
+    @apply mb-4 text-md;
   }
 
   ol > li {
