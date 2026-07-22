@@ -1,1 +1,0 @@
-import{h as t,o,c as n,B as c}from"./index-CbZ4fMXB.js";const s={},r={class:"DocContent Component mt-5"};function a(e,d){return o(),n("div",r,[c(e.$slots,"default",{},void 0,!0)])}const f=t(s,[["render",a],["__scopeId","data-v-01446c13"]]);export{f as default};

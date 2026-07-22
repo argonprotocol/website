@@ -1,0 +1,1 @@
+function e(t){return`/updates/${encodeURIComponent(t.id)}`}async function a(){const t=await fetch("/data/updates.json");if(!t.ok)throw new Error(`Updates request failed with status ${t.status}`);return t.json()}function n(t){return new Intl.DateTimeFormat("en-US",{month:"short",day:"numeric",year:"numeric"}).format(new Date(t))}export{n as f,a as l,e as u};
