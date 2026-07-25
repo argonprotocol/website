@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { XMLParser } from 'fast-xml-parser';
@@ -6,6 +6,10 @@ import sanitizeHtml from 'sanitize-html';
 
 const DEFAULT_FEED_URL = 'https://clarkbyrnes.substack.com/feed';
 const OUTPUT_PATH = resolve(dirname(fileURLToPath(import.meta.url)), '../public/data/updates.json');
+const REQUEST_HEADERS = {
+  Accept: 'application/rss+xml, application/xml;q=0.9, text/xml;q=0.8',
+  'User-Agent': 'ArgonProtocolWebsite/1.0 (+https://argonprotocol.org)',
+};
 
 export interface SubstackUpdate {
   id: string;
@@ -151,17 +155,43 @@ export function parseSubstackFeed(xml: string, generatedAt = new Date()): Substa
   };
 }
 
-export default async function fetchSubstackUpdates(): Promise<SubstackUpdatesFeed> {
-  const feedUrl = process.env.SUBSTACK_FEED_URL || DEFAULT_FEED_URL;
-  const response = await fetch(feedUrl);
+async function loadExistingFeed(error: unknown, outputPath: string): Promise<SubstackUpdatesFeed> {
+  try {
+    const feed = JSON.parse(await readFile(outputPath, 'utf8')) as SubstackUpdatesFeed;
+    if (!feed.publication || !Array.isArray(feed.items)) {
+      throw new Error('Existing Substack data is invalid.');
+    }
+    console.warn(
+      `Unable to refresh the Substack feed; keeping existing data from ${feed.generatedAt}.`,
+      error,
+    );
+    return feed;
+  } catch {
+    throw error;
+  }
+}
+
+export default async function fetchSubstackUpdates(
+  feedUrl = process.env.SUBSTACK_FEED_URL || DEFAULT_FEED_URL,
+  outputPath = OUTPUT_PATH,
+): Promise<SubstackUpdatesFeed> {
+  let response: Response;
+  try {
+    response = await fetch(feedUrl, { headers: REQUEST_HEADERS });
+  } catch (error) {
+    return loadExistingFeed(error, outputPath);
+  }
   if (!response.ok) {
-    throw new Error(`Substack RSS request failed with ${response.status} ${response.statusText}`);
+    return loadExistingFeed(
+      new Error(`Substack RSS request failed with ${response.status} ${response.statusText}`),
+      outputPath,
+    );
   }
 
   const feed = parseSubstackFeed(await response.text());
-  await mkdir(dirname(OUTPUT_PATH), { recursive: true });
-  await writeFile(OUTPUT_PATH, `${JSON.stringify(feed, null, 2)}\n`, 'utf8');
-  console.log(`Saved ${feed.items.length} Argon updates to ${OUTPUT_PATH}`);
+  await mkdir(dirname(outputPath), { recursive: true });
+  await writeFile(outputPath, `${JSON.stringify(feed, null, 2)}\n`, 'utf8');
+  console.log(`Saved ${feed.items.length} Argon updates to ${outputPath}`);
   return feed;
 }
 

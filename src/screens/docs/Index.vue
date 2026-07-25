@@ -1,6 +1,6 @@
 <template>
   <DocHeader>
-    Welcome to Argon Documentation
+    Welcome to Argon
   </DocHeader>
 
   <DocContent>
