@@ -14,15 +14,17 @@ const router = createRouter({
     },
     {
       path: '/invite/:inviteEnvelope',
+      beforeEnter(to) {
+        const inviteEnvelope = to.params.inviteEnvelope;
+        if (
+          typeof inviteEnvelope !== 'string' ||
+          inviteEnvelope.length > 1024 ||
+          !/^[A-Za-z0-9_.:-]+$/.test(inviteEnvelope)
+        ) {
+          return '/invalid-invite';
+        }
+      },
       component: () => import('@/screens/Invite.vue')
-    },
-    {
-      path: '/operations-invite/:inviteEnvelope',
-      component: () => import('@/screens/OperationsInvite.vue')
-    },
-    {
-      path: '/treasury-invite/:inviteEnvelope',
-      component: () => import('@/screens/TreasuryInvite.vue')
     },
     {
       path: '/launch-plan',
