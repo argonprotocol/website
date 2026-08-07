@@ -64,6 +64,7 @@
         Zero rights reserved.
       </p>
       <div class="flex flex-row gap-x-3">
+        <a href="https://x.com/ulixeeprotocol/"target="_blank"><XIcon class="w-[21px] hover:text-white mx-auto mr-1 relative top-[2px]" /></a>
         <a href="https://clarkbyrnes.substack.com/"target="_blank"><SubstackIcon class="w-[21px] hover:text-white mx-auto mr-1 relative top-[2px]" /></a>
         <a href="https://discord.gg/xDwwDgCYr9" target="_blank"><DiscordIcon class="relative top-[1px] w-6 h-6 hover:text-white mx-auto" /></a>
         <a href="https://github.com/argonprotocol/mainchain"target="_blank"><GithubIcon class="relative top-[1px] w-6 h-6 hover:text-white mx-auto" /></a>
@@ -73,11 +74,11 @@
 </template>
 
 <script setup lang="ts">
-import * as Vue from 'vue';
 import GithubIcon from '../assets/github.svg';
 import DiscordIcon from '../assets/discord.svg';
 import SubstackIcon from '../assets/substack.svg';
 import ArgonOutline from '../assets/argon-outline.svg';
+import XIcon from '../assets/x.svg';
 
 const props = withDefaults(
     defineProps<{
