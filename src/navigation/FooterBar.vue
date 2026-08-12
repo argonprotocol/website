@@ -63,11 +63,11 @@
         <span class="hidden md:inline lg:hidden">Open source.</span>
         Zero rights reserved.
       </p>
-      <div class="flex flex-row gap-x-3">
-        <a href="https://x.com/ulixeeprotocol/"target="_blank"><XIcon class="w-[21px] hover:text-white mx-auto mr-1 relative top-[2px]" /></a>
-        <a href="https://clarkbyrnes.substack.com/"target="_blank"><SubstackIcon class="w-[21px] hover:text-white mx-auto mr-1 relative top-[2px]" /></a>
-        <a href="https://discord.gg/xDwwDgCYr9" target="_blank"><DiscordIcon class="relative top-[1px] w-6 h-6 hover:text-white mx-auto" /></a>
-        <a href="https://github.com/argonprotocol/mainchain"target="_blank"><GithubIcon class="relative top-[1px] w-6 h-6 hover:text-white mx-auto" /></a>
+      <div Icons class="flex flex-row gap-x-3">
+        <a href="https://x.com/theargonnetwork/"target="_blank"><XIcon class="w-[19px]  mx-auto mr-1 relative top-[2px]" /></a>
+        <a href="https://clarkbyrnes.substack.com/"target="_blank"><SubstackIcon class="w-[21px]  mx-auto mr-1 relative top-[2px]" /></a>
+        <a href="https://discord.gg/xDwwDgCYr9" target="_blank"><DiscordIcon class="relative top-[1px] w-6 h-6  mx-auto" /></a>
+        <a href="https://github.com/argonprotocol/mainchain"target="_blank"><GithubIcon class="relative top-[1px] w-6 h-6  mx-auto" /></a>
       </div>
     </div>
   </footer>
@@ -163,5 +163,9 @@ img.ConvertToArgonColor {
 
 footer a {
   @apply text-[v-bind(color.text)]! no-underline! hover:text-[v-bind(color.textHover)]!;
+}
+
+[Icons] a {
+  @apply hover:text-[v-bind(color.textHover)]!;
 }
 </style>

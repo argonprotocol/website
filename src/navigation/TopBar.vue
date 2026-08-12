@@ -75,8 +75,15 @@
           </a>
         </li>
         <li Button>
+          <a href="https://x.com/theargonnetwork/"target="_blank">
+            <div class="w-6 h-6 flex flex-row items-center justify-center">
+              <XIcon class="w-4.5 h-4.5"/>
+            </div>
+          </a>
+        </li>
+        <li Button>
           <a href="https://github.com/argonprotocol/mainchain" target="_blank">
-            <GithubIcon class="w-6 h-6" />
+            <GithubIcon class="w-6 h-6 relative top-0.5" />
           </a>
         </li>
       </ul>
@@ -90,6 +97,7 @@ import Logo from '../assets/logo.svg';
 import DiscordIcon from '../assets/discord.svg';
 import GithubIcon from '../assets/github.svg';
 import MenuMobile from "@/navigation/MenuMobile.vue";
+import XIcon from "@/assets/x.svg";
 
 const props = withDefaults(
   defineProps<{

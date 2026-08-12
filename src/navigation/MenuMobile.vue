@@ -97,6 +97,15 @@
           </RouterLink>
           <div class="h-px bg-gray-400 my-1" />
           <a
+              Button
+              href="https://x.com/theargonnetwork/"
+              target="_blank"
+              class="flex flex-row justify-start text-base items-center gap-2 py-2"
+          >
+            <span>Join Us on X</span>
+          </a>
+          <div class="h-px bg-gray-200 my-1" />
+          <a
             Button
             href="https://discord.gg/xDwwDgCYr9"
             target="_blank"
@@ -124,6 +133,7 @@ import * as Vue from "vue";
 import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/solid";
 import router from "@/router";
 import Logo from "@/assets/logo.svg";
+import XIcon from "@/assets/x.svg";
 
 const props = withDefaults(
   defineProps<{
