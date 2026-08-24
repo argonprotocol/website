@@ -1,31 +1,31 @@
 {
-  "lastUpdatedAt": "2026-08-24T05:13:15.111Z",
-  "currentBlockNumber": 881668,
+  "lastUpdatedAt": "2026-08-24T05:54:59.198Z",
+  "currentBlockNumber": 881709,
   "baseMicrogonsMinedPerBlock": "5508900n",
   "baseMicronotsMinedPerBlock": "3750000n",
-  "microgonsInCirculation": "1932240698529n",
-  "micronotsInCirculation": "1959514172497n",
+  "microgonsInCirculation": "1932439202554n",
+  "micronotsInCirculation": "1959667922497n",
   "usdForArgon": 1.06,
   "usdTargetForArgon": 1.058,
-  "usdForArgonot": 5.519,
-  "usdForBtc": 77028.974,
-  "totalMarketValueUsd": 12858877.065184478,
+  "usdForArgonot": 5.52,
+  "usdForBtc": 77040.412,
+  "totalMarketValueUsd": 12861894.926122988,
   "restabilizationLeverage": 26.8,
-  "miningAPR": 1535.9520220065297,
+  "miningAPR": 1536.093886837481,
   "vaultingAPR": 6768.86847066731,
   "bondsAPR": 0,
   "bitcoinAPR": 29.91,
   "mining": {
     "activeSeatCount": 489,
     "activeBidCostsUsd": 136320.67576617762,
-    "activeBlockRewardsUsd": 371691.9655324547
+    "activeBlockRewardsUsd": 371745.9553058204
   },
   "vaulting": {
     "count": 34,
-    "valueInVaults": 136875.85798351423,
+    "valueInVaults": 136896.18262255087,
     "bitcoinLocked": 1.77693881,
     "bitcoinTxnCount": 42,
     "epochEarnings": 183083.482196494,
-    "argonBurnCapacity": 51827715.123398505
+    "argonBurnCapacity": 51835410.99919059
   }
 }
