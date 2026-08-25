@@ -1,6 +1,6 @@
 <template>
   <MainLayout>
-    <div ref="docsLayoutRef" class="flex flex-col-reverse items-stretch pb-10 md:flex-row min-h-screen">
+    <div ref="docsLayoutRef" class="flex min-h-screen flex-col-reverse items-stretch pb-10 xl:flex-row">
       <div
         ref="leftbarWrapperRef"
         id="docs-leftbar"
@@ -46,13 +46,13 @@
       <button
         v-if="isLeftbarOpen"
         aria-label="Close documentation menu"
-        class="fixed inset-0 z-40 bg-slate-950/30 md:hidden"
+        class="fixed inset-0 z-40 bg-slate-950/30 xl:hidden"
         type="button"
         @click="closeLeftbar"
       />
 
       <div class="DOCSCONTENT flex-1 max-w-full">
-        <div class="md:mt-5 md:mx-32">
+        <div class="xl:mx-32 xl:mt-5">
           <div class="post mb min-h-screen md:pt-6">
             <component :is="activePage" v-if="activePage" />
             <div v-else class="py-6">
@@ -101,7 +101,7 @@ const syncLeftbarScroll = () => {
   const leftbar = leftbarRef.value;
   if (!layout || !leftbarWrapper || !leftbar) return;
 
-  if (window.matchMedia('(max-width: 767px)').matches) {
+  if (window.matchMedia('(max-width: 1279px)').matches) {
     leftbarWrapper.style.height = '';
     return;
   }
@@ -286,7 +286,7 @@ function normalizeCurrentPath(path: string) {
 @import "../../main.css";
 
 .LEFTBARWRAPPER {
-  @apply fixed inset-y-0 left-0 z-50 w-80 max-w-[85vw] transition-transform duration-200 ease-out md:sticky md:top-0 md:h-[calc(100vh-69px)] md:inset-x-auto md:z-auto md:w-auto md:max-w-none md:translate-x-0 md:self-start;
+  @apply fixed inset-y-0 left-0 z-50 w-80 max-w-[85vw] transition-transform duration-200 ease-out xl:sticky xl:top-0 xl:h-[calc(100vh-69px)] xl:inset-x-auto xl:z-auto xl:w-auto xl:max-w-none xl:translate-x-0 xl:self-start;
 }
 
 .LEFTBAR {
@@ -295,7 +295,7 @@ function normalizeCurrentPath(path: string) {
 
 .LEFTBARCONTENT {
   box-shadow: 1px 0 0 white;
-  @apply min-h-full border-r border-slate-300 bg-argon-50 pl-6 pr-8 py-5 md:pr-12 md:bg-argon-50/50;
+  @apply min-h-full border-r border-slate-300 bg-argon-50 pl-6 pr-8 py-5 xl:pr-12 xl:bg-argon-50/50;
 }
 
 .LEFTBAR {
@@ -312,7 +312,7 @@ function normalizeCurrentPath(path: string) {
 }
 
 [Fade] {
-  @apply absolute top-full left-0 hidden h-30 w-full bg-linear-to-b from-argon-50/50 to-transparent md:block;
+  @apply absolute top-full left-0 hidden h-30 w-full bg-linear-to-b from-argon-50/50 to-transparent xl:block;
 
   &::before {
     content: "";
@@ -376,6 +376,6 @@ function normalizeCurrentPath(path: string) {
 }
 
 .RIGHTBAR {
-  @apply min-w-80;
+  @apply hidden min-w-80 xl:block;
 }
 </style>
