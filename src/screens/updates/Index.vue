@@ -2,13 +2,9 @@
   <div class="Updates Screen min-h-screen bg-[var(--bg-color)] text-slate-800">
     <TopBar mode="light" />
 
-    <main class="mx-auto w-full max-w-6xl px-5 pb-20 pt-14 md:px-10 md:pt-20 lg:px-12 lg:pt-24">
+    <main class="mx-auto w-full max-w-6xl px-5 pb-20 pt-14 md:px-10 md:pt-16 lg:px-12 lg:pt-20">
       <header>
-        <div class="text-sm font-bold uppercase tracking-[0.16em] text-argon-700">Argon Updates</div>
-        <h1 class="mt-4 font-serif text-4xl leading-tight text-black md:text-6xl">The latest from Argon</h1>
-        <p class="mt-3 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
-          Network releases, desktop app updates, protocol changes, and community announcements.
-        </p>
+        <h1 class="text-sm font-bold uppercase tracking-[0.16em] text-argon-700">Featured update</h1>
       </header>
 
       <div v-if="isLoading" class="mt-12 rounded-xl border border-argon-200/60 bg-white/40 p-8 text-slate-500">
@@ -26,24 +22,23 @@
       <template v-else>
         <RouterLink
           :to="updatePath(featuredArticle)"
-          class="group mt-10 block rounded-xl border border-argon-200/70 bg-white/40 p-7 no-underline! transition-colors hover:border-argon-400/70 hover:bg-white/65 md:mt-12 md:p-9"
+          class="group mt-3 block no-underline! md:mt-4"
         >
-          <div class="flex flex-wrap items-center gap-4 text-xs font-bold uppercase tracking-[0.08em]">
-            <span class="rounded-md bg-argon-100 px-2.5 py-1 text-argon-700">Latest</span>
-            <span class="text-slate-500">{{ formatUpdateDate(featuredArticle.publishedAt) }}</span>
-          </div>
-          <h2 class="mt-4 font-serif text-3xl leading-tight text-slate-900 group-hover:text-argon-800 md:text-4xl">
+          <h2 class="max-w-4xl font-serif text-4xl leading-tight text-slate-900 group-hover:text-argon-800 md:text-6xl">
             {{ featuredArticle.title }}
           </h2>
+          <time class="mt-3 block text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
+            {{ formatUpdateDate(featuredArticle.publishedAt) }}
+          </time>
           <p class="mt-3 max-w-3xl text-base leading-relaxed text-slate-600 md:text-lg">
             {{ featuredArticle.summary }}
           </p>
           <div class="mt-4 font-semibold text-argon-700">Read update&nbsp; →</div>
         </RouterLink>
 
-        <section class="mt-12 md:mt-16">
+        <section class="mt-16 md:mt-20">
           <div class="flex flex-col gap-5 border-b border-argon-200/60 pb-5 md:flex-row md:items-end md:justify-between">
-            <h2 class="font-serif text-3xl text-slate-900">Latest updates</h2>
+            <h2 class="font-serif text-3xl text-slate-900">More Updates</h2>
             <div v-if="availableCategories.length" class="flex flex-wrap gap-2" aria-label="Filter updates by category">
               <button
                 v-for="category in ['All', ...availableCategories]"
@@ -65,14 +60,11 @@
               v-for="article in listArticles"
               :key="article.id"
               :to="updatePath(article)"
-              class="group grid gap-3 border-b border-argon-200/60 py-6 no-underline! md:grid-cols-[120px_130px_1fr_auto] md:items-start md:gap-5"
+              class="group grid gap-3 border-b border-argon-200/60 py-6 no-underline! md:grid-cols-[120px_1fr_auto] md:items-start md:gap-5"
             >
               <time class="text-xs font-semibold uppercase tracking-[0.08em] text-slate-500">
                 {{ formatUpdateDate(article.publishedAt) }}
               </time>
-              <div class="text-xs font-bold uppercase tracking-[0.08em] text-argon-700">
-                {{ article.categories[0] || 'Update' }}
-              </div>
               <div>
                 <h3 class="font-serif text-2xl leading-tight text-slate-900 group-hover:text-argon-800">
                   {{ article.title }}
@@ -116,7 +108,7 @@ import * as Vue from 'vue';
 import TopBar from '@/navigation/TopBar.vue';
 import { formatUpdateDate, loadUpdates, updatePath, type UpdatesFeed } from '@/lib/Updates';
 
-const SUBSTACK_URL = 'https://clarkbyrnes.substack.com';
+const SUBSTACK_URL = 'https://argonnetwork.substack.com';
 const feed = Vue.ref<UpdatesFeed>();
 const isLoading = Vue.ref(true);
 const error = Vue.ref<unknown>();

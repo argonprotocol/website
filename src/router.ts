@@ -42,18 +42,7 @@ const router = createRouter({
     },
     {
       path: '/docs/:id?/:subId?',
-      beforeEnter(to) {
-        if (!to.params.id) return '/docs/whitepapers';
-      },
       component: () => import('@/screens/docs/DocLoader.vue')
-    },
-    {
-      path: '/documentation',
-      component: () => import('@/screens/documentation/OldIndex.vue')
-    },
-    {
-      path: '/documentation/from-uniswap',
-      component: () => import('@/screens/documentation/OldFromUniswap.vue')
     },
     {
       path: '/mainnet',

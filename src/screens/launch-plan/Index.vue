@@ -103,7 +103,7 @@
 
         <p>
           For a post-mortem summary of Phase One, see our
-          <a href="https://clarkbyrnes.substack.com/p/argon-learnings-from-epoch-one">Learnings</a>
+          <a href="https://argonnetwork.substack.com/p/argon-learnings-from-epoch-one">Learnings</a>
           blog post.
         </p>
       </div>

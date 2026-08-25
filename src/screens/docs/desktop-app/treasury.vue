@@ -1,81 +1,157 @@
 <template>
-  <DocHeader>
-    The Treasury Extension
-  </DocHeader>
+  <DocHeader>Treasury (Level Two)</DocHeader>
+
   <DocContent>
-    <p>Coming Soon!</p>
-<!--    <p>-->
-<!--      Argon Capital focuses on planning and managing participation from a capital perspective. It is intended for users-->
-<!--      who need to define allocation strategy, monitor exposure, and evaluate performance across operational positions.-->
-<!--    </p>-->
-<!--    <p>-->
-<!--      This app complements Operations by translating activity into portfolio-level decisions.-->
-<!--    </p>-->
+    <p>
+      Treasury is the second level of Argon Desktop. It adds the tools for
+      putting Bitcoin, ARGN, and ARGNOT into protocol-defined positions without
+      requiring you to operate mining or vaulting infrastructure.
+    </p>
 
-<!--    <h2>What the App Manages</h2>-->
-<!--    <p>-->
-<!--      Capital workflows generally cover:-->
-<!--    </p>-->
-<!--    <ul>-->
-<!--      <li>Allocation planning across mining, vaulting, and related positions.</li>-->
-<!--      <li>Position sizing and rebalancing decisions.</li>-->
-<!--      <li>Performance monitoring by strategy segment.</li>-->
-<!--      <li>Capital-at-risk tracking and scenario review.</li>-->
-<!--      <li>Decision support for scaling up or reducing participation.</li>-->
-<!--    </ul>-->
-<!--    <p>-->
-<!--      Capital views should be treated as a decision layer; execution still depends on clean operational state.-->
-<!--    </p>-->
+    <p>
+      Treasury is unlocked through an invitation from an existing Operator. The
+      invitation connects the app to a sponsor and adds three sections to the
+      sidebar: Bitcoin Locks, Argon Bonds, and Argonot Stakes. All
+      <router-link to="/docs/desktop-app/basic-functionality"
+        >Basic Functionality</router-link
+      >, including Stable Swaps, remains available.
+    </p>
 
-<!--    <h2>Setup Requirements</h2>-->
-<!--    <p>-->
-<!--      Before using Capital workflows, define baseline controls:-->
-<!--    </p>-->
-<!--    <ul>-->
-<!--      <li>Target allocations by strategy bucket.</li>-->
-<!--      <li>Maximum exposure per workflow type.</li>-->
-<!--      <li>Rebalance cadence and trigger thresholds.</li>-->
-<!--      <li>Data review cadence (daily, weekly, frame-based).</li>-->
-<!--      <li>Escalation criteria for adverse performance or volatility.</li>-->
-<!--    </ul>-->
-<!--    <p>-->
-<!--      Capital strategy should reference current operational capacity. Do not allocate beyond what can be executed and-->
-<!--      monitored reliably.-->
-<!--    </p>-->
+    <VideoLoop src="/videos/testing.webm" class="mb-10" />
 
-<!--    <h2>Core Workflows</h2>-->
-<!--    <p>-->
-<!--      A standard operating cycle is:-->
-<!--    </p>-->
-<!--    <ol>-->
-<!--      <li>Set or update target allocation policy.</li>-->
-<!--      <li>Map policy to active and planned operational positions.</li>-->
-<!--      <li>Execute required changes through the Operations path.</li>-->
-<!--      <li>Measure realized results and variance against targets.</li>-->
-<!--      <li>Rebalance based on predefined thresholds.</li>-->
-<!--    </ol>-->
-<!--    <p>-->
-<!--      Keep decisions rule-based where possible. Rule-based rebalancing reduces emotional responses to short-term market-->
-<!--      conditions.-->
-<!--    </p>-->
+    <h2>Unlocking Treasury</h2>
+    <p>
+      A Treasury access code is a one-use invitation created by an Operator. It
+      identifies the sponsor, the sponsor's vault, and the
+      <router-link to="/docs/assets-and-entities/upstream-nodes"
+        >Upstream Node</router-link
+      >
+      that will provide the app's supported network services. The app previews
+      this information before you accept the invitation.
+    </p>
 
-<!--    <h2>Risk and Controls</h2>-->
-<!--    <p>-->
-<!--      Minimum control set for capital participants:-->
-<!--    </p>-->
-<!--    <ul>-->
-<!--      <li>Use explicit position limits and stop conditions.</li>-->
-<!--      <li>Separate operating capital from reserve capital.</li>-->
-<!--      <li>Review concentration risk across strategies and time windows.</li>-->
-<!--      <li>Log major allocation decisions and rationale.</li>-->
-<!--      <li>Perform periodic recovery checks for key and account access.</li>-->
-<!--    </ul>-->
-<!--    <p>-->
-<!--      Capital management quality is determined by process discipline, not by a single high-return period.-->
-<!--    </p>-->
+    <p>
+      Accepting a code establishes the sponsored connection and unlocks the
+      Treasury interface. It does not move funds, create a position, share your
+      recovery phrase, or give the sponsor authority over your wallet. Each
+      Treasury transaction remains a separate action that you approve.
+    </p>
+
+    <p>
+      See
+      <router-link to="/docs/desktop-app/access-codes"
+        >Access and Upgrades</router-link
+      >
+      for the invitation and sponsorship process.
+    </p>
+
+    <h2>Bitcoin Locks</h2>
+    <p>
+      The Bitcoin Locks section guides you through selecting a vault and moving
+      Bitcoin into a native multisig shared by you and that vault. A Lock can
+      use zero or more insurance, depending on how much downside protection you
+      want to arrange.
+    </p>
+
+    <p>
+      Locking Bitcoin does not automatically create ARGN. After the Bitcoin is
+      locked, you can separately create a Liquid against it when you want
+      spendable ARGN. Argon Desktop tracks the Lock, any Liquid, its current
+      protection, and the actions needed when you are ready to release the
+      Bitcoin.
+    </p>
+
+    <p>
+      Read
+      <router-link to="/docs/assets-and-entities/bitcoin-locks"
+        >Bitcoin Locks</router-link
+      >
+      and
+      <router-link to="/docs/assets-and-entities/bitcoin-liquids"
+        >Bitcoin Liquids</router-link
+      >
+      for the rules behind the two stages.
+    </p>
+
+    <h2>Argon Bonds</h2>
+    <p>
+      The Argon Bonds section shows vaults with available bond capacity and the
+      share of eligible vault revenue each one offers. Purchasing a Bond commits
+      a whole number of ARGN to the selected vault's capital pool. The position
+      then earns according to the protocol's frame and distribution rules.
+    </p>
+
+    <p>
+      Argon Desktop keeps each position visible after purchase, including its
+      principal, earnings, current state, and release timing. Releasing a Bond
+      stops its future participation and begins the protocol-defined period
+      before the ARGN becomes spendable again. See
+      <router-link to="/docs/assets-and-entities/argon-bonds"
+        >Argon Bonds</router-link
+      >
+      for the complete lifecycle.
+    </p>
+
+    <h2>Argonot Stakes</h2>
+    <p>
+      Argonot Stakes commit ARGNOT through a mining operation and receive a
+      proportional share of the Stake allocation from mining bids. The ARGNOT
+      remains in a protocol-controlled position rather than becoming the miner's
+      property.
+    </p>
+
+    <p>
+      The app shows available capacity, the mining operation associated with a
+      position, accumulated distributions, and the position's release state.
+      Read
+      <router-link to="/docs/assets-and-entities/argonot-stakes"
+        >Argonot Stakes</router-link
+      >
+      for participation, earnings, and release rules.
+    </p>
+
+    <h2>Tracking Treasury Positions</h2>
+    <p>
+      Treasury positions are reflected throughout the app. The sidebar shows
+      their current value, the Profits menu brings their returns together, and
+      the Internal App Wallet distinguishes immediately usable ARGN from value
+      committed to active or releasing positions.
+    </p>
+
+    <p>
+      Each activity also has its own dashboard. These screens preserve the
+      position history and surface actions that are currently available, such as
+      creating another position or beginning a release. Network values and
+      estimated returns can change while a position is active.
+    </p>
+
+    <h2>Treasury Certification</h2>
+    <p>
+      Unlocking Treasury also adds Treasury Certification to the top navigation.
+      Certification is a practical checklist covering wallet recovery, Bitcoin
+      Locks, qualifying inbound ARGN transfers, and active Argon Bonds. Argon
+      Desktop reads the relevant account activity and keeps the checklist up to
+      date.
+    </p>
+
+    <p>
+      Completing the checklist makes you eligible to request an Operations
+      upgrade from your sponsor. It does not automatically make you an Operator
+      or require the sponsor to approve the request. Continue to
+      <router-link to="/docs/desktop-app/treasury-certification"
+        >Treasury Certification</router-link
+      >
+      for the requirements and
+      <router-link to="/docs/desktop-app/operations"
+        >Operations (Level Three)</router-link
+      >
+      for what the next level adds.
+    </p>
   </DocContent>
 </template>
+
 <script setup lang="ts">
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
+import VideoLoop from "@/components/VideoLoop.vue";
 </script>

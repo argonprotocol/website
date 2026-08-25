@@ -22,7 +22,7 @@
     "format": "prettier --write src/",
     "update-data:apps": "cd ../apps && tsx data-generators/all.ts",
     "update-data:bitcoin": "cd ../apps && tsx data-generators/bitcoin.ts",
-    "update-data:updates": "tsx data-generators/fetchSubstackUpdates.ts",
+    "update-data:substack": "tsx data-generators/fetchSubstackUpdates.ts",
     "update-data:local": "yarn update-data:bitcoin && tsx data-generators/all.ts",
     "update-data:all": "yarn update-data:apps && tsx data-generators/all.ts"
   },

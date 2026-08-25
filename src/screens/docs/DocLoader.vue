@@ -1,35 +1,46 @@
 <template>
   <MainLayout>
-    <div class="flex flex-col-reverse items-stretch pb-10 md:flex-row min-h-screen">
+    <div ref="docsLayoutRef" class="flex flex-col-reverse items-stretch pb-10 md:flex-row min-h-screen">
       <div
+        ref="leftbarWrapperRef"
         id="docs-leftbar"
-        class="LEFTBAR"
+        class="LEFTBARWRAPPER"
         :class="{ 'translate-x-0': isLeftbarOpen, '-translate-x-full': !isLeftbarOpen }"
       >
-        <template v-if="docsToc" v-for="(group, i1) in docsToc" :key="`title-${i1}`">
-          <template v-if="group.items">
-            <h3 class="mt-5 whitespace-nowrap font-semibold uppercase tracking-widest text-argon-900/40">{{ group.title }}</h3>
-            <template v-for="(item, i2) in group.items" :key="`title-${i1}-${i2}`">
+        <div ref="leftbarRef" class="LEFTBAR">
+          <div class="LEFTBARCONTENT">
+            <template v-if="docsToc" v-for="(group, i1) in docsToc" :key="`title-${i1}`">
+              <template v-if="group.items">
+                <h3 class="mt-5 whitespace-nowrap font-semibold uppercase tracking-widest text-argon-900/40">{{ group.title }}</h3>
+                <template v-for="(item, i2) in group.items" :key="`title-${i1}-${i2}`">
+                  <RouterLink
+                    :class="{ isSelected: isSelected(resolveDocPath(group.base, item.link)) }"
+                    class="block whitespace-nowrap pl-5"
+                    @click="handleLeftbarNavigation"
+                    :to="resolveDocPath(group.base, item.link)"
+                  >
+                    <template v-if="Array.isArray(item.title)">
+                      <span>{{ item.title[0] }}</span>
+                      <span class="opacity-50 ml-1">({{ item.title[1] }})</span>
+                    </template>
+                    <template v-else>
+                      {{ item.title }}
+                    </template>
+                  </RouterLink>
+                </template>
+              </template>
               <RouterLink
-                :class="{ isSelected: isSelected(resolveDocPath(group.base, item.link)) }"
-                class="block whitespace-nowrap pl-5"
-                @click="closeLeftbar"
-                :to="resolveDocPath(group.base, item.link)"
+                  v-else
+                  class="block whitespace-nowrap pl-2"
+                  :class="{ isSelected: isSelected(group.link) }"
+                  @click="handleLeftbarNavigation"
+                  :to="cleanPath(group.link)"
               >
-                {{ item.title }}
+                {{ group.title }}
               </RouterLink>
             </template>
-          </template>
-          <RouterLink
-              v-else
-              class="block whitespace-nowrap pl-2"
-              :class="{ isSelected: isSelected(group.link) }"
-              @click="closeLeftbar"
-              :to="cleanPath(group.link)"
-          >
-            {{ group.title }}
-          </RouterLink>
-        </template>
+          </div>
+        </div>
         <div Fade />
       </div>
       <button
@@ -59,6 +70,9 @@
 <!--          </div>-->
         </div>
       </div>
+      <div class="RIGHTBAR">
+
+      </div>
     </div>
   </MainLayout>
 </template>
@@ -72,6 +86,94 @@ import GithubLogo from '@/assets/github.svg?component';
 
 const route = useRoute();
 const isLeftbarOpen = Vue.ref(false);
+const docsLayoutRef = Vue.ref<HTMLElement | null>(null);
+const leftbarWrapperRef = Vue.ref<HTMLElement | null>(null);
+const leftbarRef = Vue.ref<HTMLElement | null>(null);
+let scrollFrame: number | undefined;
+let layoutResizeObserver: ResizeObserver | undefined;
+let preservedLeftbarScrollTop: number | undefined;
+
+const syncLeftbarScroll = () => {
+  scrollFrame = undefined;
+
+  const layout = docsLayoutRef.value;
+  const leftbarWrapper = leftbarWrapperRef.value;
+  const leftbar = leftbarRef.value;
+  if (!layout || !leftbarWrapper || !leftbar) return;
+
+  if (window.matchMedia('(max-width: 767px)').matches) {
+    leftbarWrapper.style.height = '';
+    return;
+  }
+
+  const leftbarTop = Math.max(0, leftbarWrapper.getBoundingClientRect().top);
+  leftbarWrapper.style.height = `${window.innerHeight - leftbarTop}px`;
+
+  const layoutTop = window.scrollY + layout.getBoundingClientRect().top;
+  const scrollStart = Math.max(0, layoutTop - 69);
+  const scrollEnd = Math.max(scrollStart, layoutTop + layout.offsetHeight - window.innerHeight);
+  const pageScrollRange = scrollEnd - scrollStart;
+  const pageProgress = pageScrollRange > 0
+    ? Math.min(1, Math.max(0, (window.scrollY - scrollStart) / pageScrollRange))
+    : 0;
+  const leftbarScrollRange = leftbar.scrollHeight - leftbar.clientHeight;
+  const proportionalScrollTop = pageProgress * Math.max(0, leftbarScrollRange);
+
+  if (
+    preservedLeftbarScrollTop !== undefined
+    && proportionalScrollTop < preservedLeftbarScrollTop
+  ) {
+    leftbar.scrollTop = preservedLeftbarScrollTop;
+    return;
+  }
+
+  preservedLeftbarScrollTop = undefined;
+  leftbar.scrollTop = proportionalScrollTop;
+};
+
+const requestLeftbarSync = () => {
+  if (scrollFrame !== undefined) return;
+  scrollFrame = window.requestAnimationFrame(syncLeftbarScroll);
+};
+
+const resumeLeftbarSync = (event: Event) => {
+  const eventTarget = event.target;
+  if (eventTarget instanceof Node && leftbarRef.value?.contains(eventTarget)) return;
+
+  if (preservedLeftbarScrollTop !== undefined) {
+    preservedLeftbarScrollTop = leftbarRef.value?.scrollTop;
+  }
+};
+
+const resumeLeftbarSyncFromKeyboard = (event: KeyboardEvent) => {
+  if (!['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' '].includes(event.key)) return;
+  resumeLeftbarSync(event);
+};
+
+Vue.onMounted(() => {
+  window.addEventListener('scroll', requestLeftbarSync, { passive: true });
+  window.addEventListener('resize', requestLeftbarSync);
+  window.addEventListener('wheel', resumeLeftbarSync, { passive: true });
+  window.addEventListener('touchmove', resumeLeftbarSync, { passive: true });
+  window.addEventListener('keydown', resumeLeftbarSyncFromKeyboard);
+
+  if (docsLayoutRef.value) {
+    layoutResizeObserver = new ResizeObserver(requestLeftbarSync);
+    layoutResizeObserver.observe(docsLayoutRef.value);
+  }
+
+  requestLeftbarSync();
+});
+
+Vue.onBeforeUnmount(() => {
+  window.removeEventListener('scroll', requestLeftbarSync);
+  window.removeEventListener('resize', requestLeftbarSync);
+  window.removeEventListener('wheel', resumeLeftbarSync);
+  window.removeEventListener('touchmove', resumeLeftbarSync);
+  window.removeEventListener('keydown', resumeLeftbarSyncFromKeyboard);
+  layoutResizeObserver?.disconnect();
+  if (scrollFrame !== undefined) window.cancelAnimationFrame(scrollFrame);
+});
 
 type TocItem = {
   title: string;
@@ -89,6 +191,11 @@ const docsToc = toc as TocGroup[];
 
 const closeLeftbar = () => {
   isLeftbarOpen.value = false;
+};
+
+const handleLeftbarNavigation = () => {
+  preservedLeftbarScrollTop = leftbarRef.value?.scrollTop;
+  closeLeftbar();
 };
 
 Vue.provide('docsLeftbar', {
@@ -111,7 +218,7 @@ function normalizeRoutePath(id?: string, subId?: string): string {
   const rawPage = String(subId ?? (section ? 'index' : '')).trim().toLowerCase();
   const page = rawPage === 'overview' ? 'index' : rawPage;
 
-  if (!section) return 'index';
+  if (!section) return 'getting-started';
   if (!page || page === 'index') return section;
   return `${section}/${page}`;
 }
@@ -178,22 +285,20 @@ function normalizeCurrentPath(path: string) {
 <style>
 @import "../../main.css";
 
+.LEFTBARWRAPPER {
+  @apply fixed inset-y-0 left-0 z-50 w-80 max-w-[85vw] transition-transform duration-200 ease-out md:sticky md:top-0 md:h-[calc(100vh-69px)] md:inset-x-auto md:z-auto md:w-auto md:max-w-none md:translate-x-0 md:self-start;
+}
+
 .LEFTBAR {
+  @apply h-full overflow-x-hidden overflow-y-auto;
+}
+
+.LEFTBARCONTENT {
   box-shadow: 1px 0 0 white;
-  @apply fixed inset-y-0 left-0 z-50 w-80 max-w-[85vw] overflow-x-hidden overflow-y-auto border-r border-slate-300 bg-argon-50 pl-6 pr-8 py-5 transition-transform duration-200 ease-out md:relative md:inset-auto md:z-auto md:w-auto md:max-w-none md:translate-x-0 md:overflow-visible md:pr-12 md:bg-argon-50/50;
+  @apply min-h-full border-r border-slate-300 bg-argon-50 pl-6 pr-8 py-5 md:pr-12 md:bg-argon-50/50;
+}
 
-  div[Fade] {
-    @apply bg-linear-to-b from-argon-50/50 to-transparent absolute top-full left-0 w-full h-30;
-    &::before {
-      content: "";
-      @apply bg-linear-to-b from-slate-300 to-transparent absolute top-0 -right-px w-px h-full;
-    }
-    &::after {
-      content: "";
-      @apply bg-linear-to-b from-white to-transparent absolute top-0 -right-0.5 w-px h-full;
-    }
-  }
-
+.LEFTBAR {
   a {
     font-size: 1rem;
     margin-top: 5px;
@@ -206,9 +311,26 @@ function normalizeCurrentPath(path: string) {
   }
 }
 
+[Fade] {
+  @apply absolute top-full left-0 hidden h-30 w-full bg-linear-to-b from-argon-50/50 to-transparent md:block;
+
+  &::before {
+    content: "";
+    @apply absolute top-0 -right-px h-full w-px bg-linear-to-b from-slate-300 to-transparent;
+  }
+  &::after {
+    content: "";
+    @apply absolute top-0 -right-0.5 h-full w-px bg-linear-to-b from-white to-transparent;
+  }
+}
+
 .DOCSCONTENT {
   h2 {
-    @apply font-bold text-2xl text-slate-900/80 mt-10;
+    @apply text-4xl text-slate-900 mt-7 mb-4 font-serif;
+  }
+
+  h3 {
+    @apply text-2xl text-slate-900/80 mt-7 mb-4 font-serif;
   }
 
   header {
@@ -217,15 +339,18 @@ function normalizeCurrentPath(path: string) {
 
   ul > li,
   p {
-    @apply mb-4 text-md;
+    @apply mb-4 text-base leading-relaxed;
+    & > header {
+      @apply mt-0;
+    }
   }
 
   ol > li {
-    @apply mt-2;
+    @apply mt-2 text-base leading-relaxed;
   }
 
   ol {
-    @apply ml-6;
+    @apply mb-4 ml-6;
   }
 
   table {
@@ -248,5 +373,9 @@ function normalizeCurrentPath(path: string) {
       @apply text-left;
     }
   }
+}
+
+.RIGHTBAR {
+  @apply min-w-80;
 }
 </style>

@@ -12,8 +12,38 @@
         "link": "/getting-started/frequent-questions"
       },
       {
-        "title": "Common Terms",
-        "link": "/getting-started/common-terms"
+        "title": "Common Terminology",
+        "link": "/getting-started/common-terminology"
+      }
+    ]
+  },
+  {
+    "title": "System Design",
+    "base": "/system-design",
+    "items": [
+      {
+        "title": "How It Works",
+        "link": "/how-it-works"
+      },
+      {
+        "title": "Stability Algorithms",
+        "link": "/stability-algorithms"
+      },
+      {
+        "title": "Economic Drivers",
+        "link": "/economic-drivers"
+      },
+      {
+        "title": "Exponential Triggers",
+        "link": "/exponential-triggers"
+      },
+      {
+        "title": "Tokenomics of Argon",
+        "link": "/tokenomics-of-argon"
+      },
+      {
+        "title": "Tokenomics of Argonot",
+        "link": "/tokenomics-of-argonot"
       }
     ]
   },
@@ -26,20 +56,32 @@
         "link": "/"
       },
       {
-        "title": "Treasury Extension",
-        "link": "/treasury"
-      },
-      {
-        "title": "Operations Extension",
-        "link": "/operations"
+        "title": "Self-Custody Risks",
+        "link": "/self-custody-risks"
       },
       {
         "title": "Access and Upgrades",
-        "link": "/access-and-upgrades"
+        "link": "/access-codes"
       },
       {
-        "title": "Self-Custody Risks",
-        "link": "/self-custody-risks"
+        "title": ["Basic Functionality", "Level One"],
+        "link": "/basic-functionality"
+      },
+      {
+        "title": ["Treasury", "Level Two"],
+        "link": "/treasury"
+      },
+      {
+        "title": ["Operations", "Level Three"],
+        "link": "/operations"
+      },
+      {
+        "title": "Treasury Certification",
+        "link": "/treasury-certification"
+      },
+      {
+        "title": "Operator Certification",
+        "link": "/operations-certification"
       }
     ]
   },
@@ -48,24 +90,28 @@
     "base": "bridgeless-transfers",
     "items": [
       {
-        "title": "How It Works",
+        "title": "Overview",
         "link": "/"
+      },
+      {
+        "title": "Open a Transfer Portal",
+        "link": "/open-a-transfer-portal"
+      },
+      {
+        "title": "Connect MetaMask Wallet",
+        "link": "/connect-metamask-wallet"
+      },
+      {
+        "title": "Connect Uniswap Wallet",
+        "link": "/connect-uniswap-wallet"
+      },
+      {
+        "title": "Localized Minting Authorities",
+        "link": "/localized-minting-authorities"
       },
       {
         "title": "Global Issuance Council",
         "link": "/global-issuance-council"
-      },
-      {
-        "title": "Minting Authorities",
-        "link": "/minting-authorities"
-      },
-      {
-        "title": "Connect a MetaMask Wallet",
-        "link": "/metamask-wallet"
-      },
-      {
-        "title": "Connect a Uniswap Wallet",
-        "link": "/uniswap-wallet"
       }
     ]
   },
@@ -74,12 +120,31 @@
     "base": "/assets-and-entities",
     "items": [
       {
+        "title": "Argons",
+        "link": "/argon-stablecoins"
+      },      {
+        "title": "Argon Bonds",
+        "link": "/argon-bonds"
+      },
+      {
+        "title": "Argonots",
+        "link": "/argonot-tokens"
+      },
+      {
+        "title": "Argonot Stakes",
+        "link": "/argonot-stakes"
+      },
+      {
+        "title": "Bitcoins",
+        "link": "/bitcoins"
+      },
+      {
         "title": "Bitcoin Locks",
         "link": "/bitcoin-locks"
       },
       {
-        "title": "Argon(ot) Bonds",
-        "link": "/argon-ot-bonds"
+        "title": "Bitcoin Liquids",
+        "link": "/bitcoin-liquids"
       },
       {
         "title": "Stable Swaps",
@@ -96,6 +161,10 @@
       {
         "title": "Upstream Nodes",
         "link": "/upstream-nodes"
+      },
+      {
+        "title": "Operational Rewards Pool",
+        "link": "/operational-rewards-pool"
       }
     ]
   },
@@ -122,15 +191,11 @@
     "base": "/whitepapers",
     "items": [
       {
-        "title": "Overview",
-        "link": "/"
-      },
-      {
         "title": "State of Stablecoins",
         "link": "/state"
       },
       {
-        "title": "Stability Fundamentals",
+        "title": "Fundamentals of Stability",
         "link": "/fundamentals"
       }
     ]
@@ -139,10 +204,6 @@
     "title": "Engine Modeling",
     "base": "/engine-modeling",
     "items": [
-      {
-        "title": "Overview",
-        "link": "/"
-      },
       {
         "title": "LLB",
         "link": "/llb"

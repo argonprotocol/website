@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { XMLParser } from 'fast-xml-parser';
 import sanitizeHtml from 'sanitize-html';
 
-const DEFAULT_FEED_URL = 'https://clarkbyrnes.substack.com/feed';
+const DEFAULT_FEED_URL = 'https://argonnetwork.substack.com/feed';
 const OUTPUT_PATH = resolve(dirname(fileURLToPath(import.meta.url)), '../public/data/updates.json');
 const REQUEST_HEADERS = {
   Accept: 'application/rss+xml, application/xml;q=0.9, text/xml;q=0.8',
@@ -123,10 +123,6 @@ export function parseSubstackFeed(xml: string, generatedAt = new Date()): Substa
       const rawContent = text(item['content:encoded']);
       const fullContent = stripHtml(rawContent);
       const categories = asArray(item.category).map(text).filter(Boolean);
-      const searchable = `${title} ${description} ${fullContent} ${categories.join(' ')}`;
-
-      // This publication also covers Ulixee. Only surface posts connected to Argon.
-      if (!/\bargon(?:ot|s)?\b/i.test(searchable)) return null;
 
       const publishedAt = new Date(text(item.pubDate));
       if (!url || !title || Number.isNaN(publishedAt.valueOf())) return null;
@@ -177,7 +173,9 @@ export default async function fetchSubstackUpdates(
 ): Promise<SubstackUpdatesFeed> {
   let response: Response;
   try {
-    response = await fetch(feedUrl, { headers: REQUEST_HEADERS });
+    const requestUrl = new URL(feedUrl);
+    requestUrl.searchParams.set('refresh', Date.now().toString());
+    response = await fetch(requestUrl, { headers: REQUEST_HEADERS });
   } catch (error) {
     return loadExistingFeed(error, outputPath);
   }
@@ -191,7 +189,7 @@ export default async function fetchSubstackUpdates(
   const feed = parseSubstackFeed(await response.text());
   await mkdir(dirname(outputPath), { recursive: true });
   await writeFile(outputPath, `${JSON.stringify(feed, null, 2)}\n`, 'utf8');
-  console.log(`Saved ${feed.items.length} Argon updates to ${outputPath}`);
+  console.log(`Saved ${feed.items.length} Substack updates to ${outputPath}`);
   return feed;
 }
 

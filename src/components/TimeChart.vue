@@ -1,5 +1,9 @@
 <template>
-  <div ref="$el" class="TimeChart Component relative min-h-[400px] w-full flex flex-row">
+  <div
+    ref="$el"
+    class="TimeChart Component relative w-full flex flex-row"
+    :style="{ height: `${chartHeight}px`, minHeight: `${chartHeight}px` }"
+  >
     <!-- Y-axis labels container -->
     <div class="absolute top-0 left-0 h-full -translate-x-full flex flex-col justify-between" :style="{ paddingBottom: xAxisHeight + 'px' }">
       <div ref="yAxisLabelsRef" class="y-axis-labels border-r border-gray-600"></div>
@@ -17,7 +21,12 @@
       </div>
 
       <!-- X-axis labels container -->
-      <div XAxisLabels ref="xAxisLabelsRef" class="absolute bottom-0 right-0 w-full flex flex-row justify-between x-axis-labels"></div>
+      <div
+        v-show="showXAxisLabels"
+        XAxisLabels
+        ref="xAxisLabelsRef"
+        class="absolute bottom-0 right-0 w-full flex flex-row justify-between x-axis-labels"
+      ></div>
     </div>
   </div>
 </template>
@@ -36,7 +45,12 @@ const props = defineProps<{
   xTimeUnit?: string;
   maxYAxisValue?: number;
   fmtYAxisLabel?: (y: number) => string;
+  height?: number;
+  showXAxisLabels?: boolean;
 }>();
+
+const chartHeight = Vue.computed(() => props.height ?? 400);
+const showXAxisLabels = Vue.computed(() => props.showXAxisLabels ?? true);
 
 const $el = Vue.ref<HTMLDivElement | null>(null);
 
@@ -44,7 +58,7 @@ const yAxisLabelsRef = Vue.ref<HTMLDivElement | null>(null);
 const xAxisLabelsRef = Vue.ref<HTMLDivElement | null>(null);
 const chartSvgRef = Vue.ref<SVGSVGElement | null>(null);
 const yAxisWidth = Vue.ref(60); // Dynamic width for y-axis labels
-const xAxisHeight = Vue.ref(25); // Height for x-axis labels
+const xAxisHeight = Vue.computed(() => showXAxisLabels.value ? 25 : 0);
 
 const chartPointsBySeries = Vue.ref<{x: string, y: number}[][]>([]);
 let chartSvg: d3.Selection<SVGSVGElement, unknown, null, undefined> | null = null;
@@ -52,8 +66,7 @@ let xScale: d3.ScaleTime<number, number> | null = null;
 let yScale: d3.ScaleLinear<number, number> | null = null;
 let resizeObserver: ResizeObserver | null = null;
 
-const margin = { top: 0, right: 0, bottom: xAxisHeight.value, left: 1 }; // No left margin since labels are separate
-const height = 400;
+const margin = Vue.computed(() => ({ top: 0, right: 0, bottom: xAxisHeight.value, left: 1 }));
 
 // Computed properties for reusable calculations
 const dateRange = Vue.computed(() => {
@@ -272,13 +285,14 @@ function createTooltipCircles() {
       .style('opacity', 0)
       .on('mouseover', function(event, d) {
         d3.select(this).style('opacity', 1);
-        
+
+        const formattedValue = props.fmtYAxisLabel ? props.fmtYAxisLabel(d.y) : Math.round(d.y).toString();
         const tooltip = d3.select(`.chart-tooltip-${seriesIndex}`);
         const year = dayjs.utc(d.x).year();
         
         tooltip.html(`
           <div><strong>${year} A.D.</strong></div>
-          <div>Value: ${Math.round(d.y)}%</div>
+          <div>Value: ${formattedValue}</div>
         `)
         .style('opacity', 1);
       })
@@ -307,7 +321,7 @@ function createHorizontalGridLines() {
     .append('line')
     .attr('class', 'y-grid')
     .attr('x1', 0)
-    .attr('x2', chartSvgRef.value!.clientWidth - margin.right)
+    .attr('x2', chartSvgRef.value!.clientWidth - margin.value.right)
     .attr('y1', (d) => yScale!(d))
     .attr('y2', (d) => yScale!(d))
     .attr('stroke', (d) => d === 0 ? '#000' : '#ccc')
@@ -332,14 +346,14 @@ function renderChart() {
   
   yScale = d3.scaleLinear()
     .domain([0, maxValue])
-    .range([height - margin.bottom, margin.top]);
+    .range([chartHeight.value - margin.value.bottom, margin.value.top]);
 
   // Create scales
   const { startDate, endDate } = dateRange.value;
   
   xScale = d3.scaleTime()
     .domain([startDate, endDate])
-    .range([margin.left, chartWidth - margin.right]);
+    .range([margin.value.left, chartWidth - margin.value.right]);
 
   // Clear existing chart content
   d3.select(chartSvgRef.value).selectAll("*").remove();
@@ -347,7 +361,7 @@ function renderChart() {
   // Create chart SVG
   chartSvg = d3.select(chartSvgRef.value)
     .attr("width", chartWidth)
-    .attr("height", height);
+    .attr("height", chartHeight.value);
 
   // Create x-axis with dynamic tick values based on starting date and data
   const tickValues = generateTickValues().map(date => dayjs.utc(date).startOf('year').toDate());
@@ -382,8 +396,8 @@ function renderChart() {
     .attr('class', 'grid-line')
     .attr('x1', (d) => xScale!(dayjs.utc(d).toDate()))
     .attr('x2', (d) => xScale!(dayjs.utc(d).toDate()))
-    .attr('y1', margin.top)
-    .attr('y2', height - margin.bottom + 100)
+    .attr('y1', margin.value.top)
+    .attr('y2', chartHeight.value - margin.value.bottom + 100)
     .attr('stroke', '#ccc')
     .attr('stroke-width', 1)
     .attr('opacity', 0.5);
@@ -446,7 +460,7 @@ function updateChartPoints(newPointsBySeries: {x: string, y: number}[][]) {
     // Recalculate y-scale based on new data
     const maxValue = maxYValue.value;
     yScale!.domain([0, maxValue]);
-    yScale!.range([height - margin.bottom, margin.top]);
+    yScale!.range([chartHeight.value - margin.value.bottom, margin.value.top]);
     
     // Update y-axis and x-axis labels as divs
     renderYAxisLabels();
@@ -477,16 +491,12 @@ function updateChartPoints(newPointsBySeries: {x: string, y: number}[][]) {
 }
 
 function getChartPointCoordinates(seriesIndex: number, pointIndex: number): { x: number; y: number; } | null {
-  console.log('getChartPointCoordinates: ', seriesIndex, pointIndex);
   if (!xScale || !yScale || seriesIndex < 0 || seriesIndex >= chartPointsBySeries.value.length) {
-    console.log('getChartPointCoordinates: invalid series index');
     return null;
   }
   
   const seriesPoints = chartPointsBySeries.value[seriesIndex];
-  console.log('seriesPoints: ', seriesPoints);
   if (!seriesPoints || pointIndex < 0 || pointIndex >= seriesPoints.length) {
-    console.log('getChartPointCoordinates: invalid point index');
     return null;
   }
   
@@ -510,6 +520,17 @@ Vue.watch(() => props.series, (newSeries) => {
     updateChartPoints(newPointsBySeries);
   }
 }, { immediate: true });
+
+Vue.watch([chartHeight, xAxisHeight], () => {
+  void Vue.nextTick(() => {
+    if (!chartSvgRef.value) return;
+
+    renderChart();
+    if (chartPointsBySeries.value.some(series => series.length > 0)) {
+      updateChartPoints(chartPointsBySeries.value);
+    }
+  });
+});
 
 Vue.onMounted(() => {
   renderChart();

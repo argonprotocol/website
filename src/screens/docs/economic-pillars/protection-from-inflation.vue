@@ -108,23 +108,7 @@
     </p>
 
     <div class="text-sm opacity-90 italic mb-2 mt-8">Argon's Value Is Permanently Stable</div>
-    <TimeChart ref="thousandArgonChartRef" :series="[{ color: 'oklch(0.48 0.24 320)', points: thousandArgonPoints }]" :startingDate="startingDate.format('2025-09-15')" :maxYAxisValue="200" :fmtYAxisLabel="(x: number) => `${x}%`" class="mt-3 mb-10">
-      <PopoverRoot :open="true">
-        <PopoverAnchor asChild>
-          <CarIcon
-              class="absolute -translate-y-full w-20 transition-transform duration-75 ease-out"
-              :style="{ top: `${thousandArgonCoordinates?.y}px`, left: `${carPosition}%`, transform: `translateX(${-carPosition}%)` }"
-          />
-        </PopoverAnchor>
-        <PopoverPortal>
-          <PopoverContent side="top" align="start" :alignOffset="-5 + -(carPosition*1.4)" :avoidCollisions="false" class="bg-white text-black/80 p-2 rounded-md border border-black/30 shadow-lg">
-            ₳100 buys you the same today<br />
-            as it will 1,000 years from now
-            <PopoverArrow :width="24" :height="12" class="fill-white stroke-gray-400/50 shadow-2xl -mt-px" />
-          </PopoverContent>
-        </PopoverPortal>
-      </PopoverRoot>
-    </TimeChart>
+    <ArgonStableChart class="mt-3 mb-10" />
 
     <h3 class="text-2xl font-bold mt-14">
       A Tale of Two Diverging Currencies
@@ -210,9 +194,9 @@ import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc.js';
 import BigNumber from 'bignumber.js';
 import TimeChart from '../../../components/TimeChart.vue';
+import ArgonStableChart from '@/components/ArgonStableChart.vue';
 import type { IConsumerPriceIndexRecord } from '@/interfaces/IConsumerPriceIndexRecord';
 import { PopoverRoot, PopoverAnchor, PopoverPortal, PopoverArrow, PopoverContent  } from 'reka-ui';
-import CarIcon from '../../../assets/car.svg?component';
 import DocHeader from "@/screens/docs/DocHeader.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 
@@ -224,7 +208,6 @@ const thousandDollarPoints = Vue.ref<{ x: string, y: number }[]>([]);
 const thousandArgonPoints = Vue.ref<{ x: string, y: number }[]>([]);
 
 const devaluationChartRef = Vue.ref<InstanceType<typeof TimeChart> | null>(null);
-const thousandArgonChartRef = Vue.ref<InstanceType<typeof TimeChart> | null>(null);
 const thousandCombinedChartRef = Vue.ref<InstanceType<typeof TimeChart> | null>(null);
 
 const thousandArgonCoordinates = Vue.ref<{ x: number, y: number } | null | undefined>(null);
@@ -233,9 +216,6 @@ const devaluationCoordinates2 = Vue.ref<{ x: number, y: number } | null | undefi
 const devaluationCoordinates3 = Vue.ref<{ x: number, y: number } | null | undefined>(null);
 
 const startingDate = dayjs.utc();
-
-// Car scroll animation state
-const carPosition = Vue.ref(0); // 0 to 100 percentage
 
 // Generate data immediately
 const maxDate = dayjs.utc().add(1000, 'year');
@@ -276,49 +256,8 @@ fetch('/data/consumerPriceIndex.json').then(response => response.json()).then(da
     devaluationCoordinates1.value = devaluationChartRef.value?.getChartPointCoordinates(0, 0);
     devaluationCoordinates2.value = thousandCombinedChartRef.value?.getChartPointCoordinates(0, 100);
     devaluationCoordinates3.value = devaluationChartRef.value?.getChartPointCoordinates(0, devaluationPoints.value.length - 1);
-    thousandArgonCoordinates.value = thousandArgonChartRef.value?.getChartPointCoordinates(0, thousandArgonPoints.value.length - 1);
+    thousandArgonCoordinates.value = thousandCombinedChartRef.value?.getChartPointCoordinates(1, thousandArgonPoints.value.length - 1);
   }, 0);
-});
-
-// Scroll handler for car animation
-const handleScroll = () => {
-  if (!thousandArgonChartRef.value) return;
-
-  const chartElement = thousandArgonChartRef.value.$el;
-  const rect = chartElement.getBoundingClientRect();
-  const windowHeight = window.innerHeight;
-
-  // Calculate scroll progress based on chart visibility
-  const chartTop = rect.top;
-
-  const startThreshold = windowHeight * 0.5;
-  const endThreshold = windowHeight * 0.15;
-
-  let progress = 0;
-
-  // Calculate progress based on chart position relative to thresholds
-  if (chartTop <= startThreshold && chartTop >= endThreshold) {
-    // Chart is in the animation range
-    const animationRange = startThreshold - endThreshold;
-    const currentPosition = startThreshold - chartTop;
-    progress = Math.max(0, Math.min(1, currentPosition / animationRange));
-  } else if (chartTop > startThreshold) {
-    progress = 0;
-  } else if (chartTop < endThreshold) {
-    progress = 1;
-  }
-
-  // Convert to percentage and update car position
-  carPosition.value = progress * 100;
-};
-
-Vue.onMounted(() => {
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  setTimeout(() => handleScroll());
-});
-
-Vue.onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
 });
 
 </script>

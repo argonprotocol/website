@@ -58,7 +58,11 @@ function cleanDocPath(path: unknown) {
 
 const breadcrumbs = Vue.computed(() => {
   const parentFolder = cleanDocPath(route.params.id);
-  const parentGroup = (toc as TocGroup[]).find((group) => cleanDocPath(group.base) === parentFolder);
+  const parentGroup = (toc as TocGroup[]).find((group) => {
+    const groupFolder = cleanDocPath(group.base);
+    return groupFolder === parentFolder || (!groupFolder && parentFolder === 'getting-started');
+  });
+  const parentLink = cleanDocPath(parentGroup?.base);
 
   return [
     {
@@ -69,7 +73,7 @@ const breadcrumbs = Vue.computed(() => {
     ...(parentGroup && parentFolder
       ? [{
         title: parentGroup.title,
-        link: `/docs/${parentFolder}`,
+        link: parentLink ? `/docs/${parentLink}` : '/docs',
         isRoot: false,
       }]
       : []),

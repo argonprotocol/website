@@ -1,7 +1,11 @@
 export interface IBasicsRecordMining {
   activeSeatCount: number;
+  nextEpochSeatCount: number;
   activeBidCostsUsd: number;
   activeBlockRewardsUsd: number;
+  currentMicronotsForBid: bigint;
+  baseMicrogonRewardsPerBlock: bigint,
+  baseMicronotRewardsPerBlock: bigint
 }
 
 export interface IBasicsRecordVaulting {
@@ -16,6 +20,7 @@ export interface IBasicsRecordVaulting {
 export interface IBasicsRecord {
   lastUpdatedAt: string;
   currentBlockNumber: number;
+  activeArgonotStakes: number;
   baseMicrogonsMinedPerBlock: bigint;
   baseMicronotsMinedPerBlock: bigint;
   microgonsInCirculation: bigint;
@@ -26,6 +31,7 @@ export interface IBasicsRecord {
   usdForBtc: number;
   totalMarketValueUsd: number;
   restabilizationLeverage: number;
+  miningTDR: number;
   miningAPR: number;
   vaultingAPR: number;
   bondsAPR: number;
@@ -37,6 +43,7 @@ export interface IBasicsRecord {
 export const defaultBasicsRecord: IBasicsRecord = {
   lastUpdatedAt: '',
   currentBlockNumber: 0,
+  activeArgonotStakes: 0,
   baseMicrogonsMinedPerBlock: 0n,
   baseMicronotsMinedPerBlock: 0n,
   microgonsInCirculation: 0n,
@@ -47,14 +54,19 @@ export const defaultBasicsRecord: IBasicsRecord = {
   usdForBtc: 0,
   totalMarketValueUsd: 0,
   restabilizationLeverage: 0,
+  miningTDR: 0,
   miningAPR: 0,
   vaultingAPR: 0,
   bondsAPR: 0,
   bitcoinAPR: 0,
   mining: {
     activeSeatCount: 0,
+    nextEpochSeatCount: 0,
     activeBidCostsUsd: 0,
     activeBlockRewardsUsd: 0,
+    currentMicronotsForBid: 0n,
+    baseMicrogonRewardsPerBlock: 0n,
+    baseMicronotRewardsPerBlock: 0n
   },
   vaulting: {
     count: 0,

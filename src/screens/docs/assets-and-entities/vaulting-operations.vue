@@ -1,256 +1,289 @@
 <template>
-  <DocHeader>
-    Vaulting Operations
-  </DocHeader>
+  <DocHeader>Vaulting Operations</DocHeader>
 
   <DocContent>
-    <div v-if="isLoaded" class="flex flex-col grow relative w-full overflow-y-auto py-5">
-      <p>
-        In many ways vaulting is the flip side of the mining process.
-        Miners bring new stablecoins into existence, and Vaulters provide services to stabilize those stablecoins. Miners buy mining seats at auction, and vaulters
-        collect all the revenue generated from those auctions.
+    <p>
+      A Stabilization Vault is an operator-run service that combines committed
+      ARGN capital with Bitcoin cosigning infrastructure. A vault can provide
+      insurance for
+      <router-link to="/docs/assets-and-entities/bitcoin-locks"
+        >Bitcoin Locks</router-link
+      >, support liquidity supplied through
+      <router-link to="/docs/assets-and-entities/argon-bonds"
+        >Argon Bonds</router-link
+      >, and optionally operate as a
+      <router-link to="/docs/bridgeless-transfers/localized-minting-authorities"
+        >Localized Minting Authority</router-link
+      >.
+    </p>
+
+    <p>
+      These are separate capabilities, not stages every vault must complete. The
+      operator chooses which services to offer, commits the required capital,
+      sets the vault's commercial terms, and runs the machine that performs its
+      time-sensitive duties.
+    </p>
+
+    <aside
+      class="my-8 rounded-lg border border-argon-200 bg-white/40 px-5 py-4"
+    >
+      <strong class="mb-1 block"
+        >A vault does not take custody of Bitcoin</strong
+      >
+      <p class="m-0">
+        Bitcoin is sent to an owner-and-vault multisig address on the Bitcoin
+        network. The operator controls the vault cosigning key, but cannot move
+        the Bitcoin without a valid second signature or the applicable timelock
+        path.
       </p>
+    </aside>
 
-      <p>
-        Just like the mining side, there is no third-party company, authority, or server helping to run
-        this app. However, unlike the mining side, no mining machine is required to operate a vault. Everything runs directly from this app on your local machine.
+    <h2>What a Vault Provides</h2>
+
+    <h3>Bitcoin Cosigning and Insurance</h3>
+    <p>
+      A vault supplies one of the public keys used to create a Bitcoin Lock and
+      cosigns valid release transactions. The Lock owner can select zero or more
+      insurance when creating the Lock. Locking Bitcoin by itself does not issue
+      ARGN, whether or not insurance was selected.
+    </p>
+
+    <p>
+      Insurance is ARGN capital committed by the vault. It backs defined risks
+      involving the operator's Bitcoin cosigning responsibilities and is held
+      while the Lock requires coverage. A vault can charge a flat fee plus an
+      annualized rate for this service.
+    </p>
+
+    <h3>Liquidity Through Argon Bonds</h3>
+    <p>
+      Argon Bonds supply ARGN capital to the protocol through a selected vault.
+      That capital helps the network provide liquidity for
+      <router-link to="/docs/assets-and-entities/bitcoin-liquids"
+        >Bitcoin Liquids</router-link
+      >. Bond principal remains under protocol control and is not transferred to
+      the vault operator.
+    </p>
+
+    <p>
+      A vault sets the percentage of its eligible mining-bid revenue offered to
+      bondholders. Its supported bond capacity and revenue participation depend
+      on the value of the Bitcoin it is actively insuring. A vault cannot earn
+      against unsupported bond capital simply by attracting more bonds.
+    </p>
+
+    <h3>Localized Minting Authority</h3>
+    <p>
+      A vault can separately commit
+      <router-link to="/docs/assets-and-entities/argonot-tokens"
+        >ARGNOT</router-link
+      >
+      and bond-backed ARGN to support transfers between Argon and an external
+      network. Committing ARGNOT to a vault does not activate this service by
+      itself; the operator must complete the minting-authority process.
+    </p>
+
+    <p>
+      When part of the commitment is assigned to an active transfer, that
+      capital becomes encumbered until the obligation is resolved. Failure to
+      fulfill the obligation can cause the protocol to burn the capital that
+      backed it.
+    </p>
+
+    <h2>Vault Capital and Insurance Capacity</h2>
+    <p>
+      The operator chooses how much ARGN to commit and how to allocate it
+      between Bitcoin insurance and Treasury participation. Capital committed to
+      active obligations is held by the protocol and cannot be withdrawn or
+      reused at the same time.
+    </p>
+
+    <p>
+      The vault also selects an <strong>insurance ratio</strong> from 1× to 2×.
+      This ratio determines how much operator capital the protocol reserves for
+      each amount of insurance promised to a Bitcoin Lock.
+    </p>
+
+    <section
+      class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-5"
+    >
+      <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">
+        Insurance Capital
+      </div>
+      <div
+        class="my-4 overflow-x-auto rounded-md border border-argon-200 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-xl text-slate-800 sm:text-2xl"
+      >
+        Reserved ARGN = Lock insurance × Vault insurance ratio
+      </div>
+      <p class="m-0 text-sm text-slate-600">
+        Insuring ₳100 reserves ₳100 at 1×, ₳150 at 1.5×, or ₳200 at 2×. A higher
+        ratio places more capital behind each insured amount, but leaves less
+        capacity for additional Locks.
       </p>
+    </section>
 
-      <p>Below is a brief overview of how it all works.</p>
+    <p>
+      The protocol schedules committed capital for release as the obligations it
+      supports end. Increasing the commitment adds capacity, while a request to
+      reduce it can release only the portion no longer required by Locks,
+      Liquids, bonds, or crosschain obligations.
+    </p>
 
-      <ul>
-        <li>
-          <header>The Purpose of Vaults</header>
-          Vaults stabilize the Argon stablecoin by attracting Bitcoin Liquid Locks, which create financial "shorts" against the Argon. These "shorts" provide a profit incentive to burn away unwanted Argons from the system, in turn stabilizing the price of Argon.
-          <div class="border border-dashed border-gray-400/50 p-3 my-4 font-medium text-sm italic! rounded"><strong>> Unwanted Argons</strong> If the price of the Argon is below its target ($1), then there's too much supply. The extra supply is thus "unwanted" and its removal will stabilize the price.</div>
-        </li>
+    <h2>How Vault Revenue Works</h2>
+    <p>A vault can earn ARGN from two primary sources:</p>
 
-        <li>
-          <header>Attracting Bitcoin to Vaults</header>
-          Vaults are able to attract new Bitcoin Liquid Locks by providing two key services:
-          <ol class="list-decimal">
-            <li>Provide securitization guarantees for Bitcoin locks.</li>
-            <li>Provide instant liquidity to new Bitcoin locks, even with depressed Argon prices.</li>
-          </ol>
-        </li>
+    <ul>
+      <li>
+        <strong>Bitcoin service fees</strong> paid for its insurance capital and
+        cosigning service.
+      </li>
+      <li>
+        <strong>Mining-bid revenue</strong> assigned to the vault after its
+        bondholders receive the revenue share attached to their positions.
+      </li>
+    </ul>
 
-        <li>
-          <header>Benefits of Liquid Locking for Bitcoin</header>
-          When a Bitcoin is locked into a network Vault, the system will trade the owner the equivalent market value in Argons on a one-year loan.
-          This deal allows Bitcoiners to continue holding their assets while gaining full "market-value" in liquidity.
-          <br/><br/>
-          Bitcoin holders have one year to unlock by <strong>burning</strong> the loan-value of the Bitcoin. The deal is always favorable to the holder:<br/>
-          - If the market value of Bitcoin falls, they can re-lock and pocket the difference.<br/>
-          - If the market value of Bitcoin rises, they only owe the original lock price, so they net the increased Bitcoin value.<br/>
-          - If the market value of Argon falls, first movers are given a discounted price to unlock their Bitcoin.<br/><br/>
-          The important part of this last item is that the further the Argon price falls, the bigger discount
-          for the Bitcoin holder to unlock and the <span class="font-medium">MORE</span> of the unwanted Argons are burned away.
-          <table class="text-slate-800/50">
-            <thead>
-            <tr>
-              <th>BTC Lock Price</th>
-              <th>Current BTC Price</th>
-              <th>Argon Price/Target</th>
-              <th>Holder Gain</th>
-              <th>Argons Burned</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-              <td>$90,000</td>
-              <td>$100,000 (+$10,000)</td>
-              <td>1.0</td>
-              <td>+$10,000 in BTC</td>
-              <td>₳90,000</td>
-            </tr>
-            <tr>
-              <td>$100,000</td>
-              <td>$90,000 (-$10,000)</td>
-              <td>1.0</td>
-              <td>+$10,000 in Argons</td>
-              <td>₳90,000</td>
-            </tr>
-            <tr>
-              <td>$100,000</td>
-              <td>$100,000 (+$0)</td>
-              <td>0.8</td>
-              <td>+$20,000 (price of Argons $80,000)</td>
-              <td>₳{{  microgonToArgonNm(BigInt(Math.floor(100_000 * 1e6 *  (((0.5618 * 0.8) + 0.3944) / 0.8)))).format('0,') }}</td>
-            </tr>
-            </tbody>
-          </table>
-        </li>
-        <li>
-          <header>Vault Revenue Streams</header>
-          Each Vault sets the security fees for locking Bitcoin into it (you can set a base fee and a percentage fee). Once Bitcoin is locked into a vault, the vault can then participate in the Network Treasury.
-          <table class="text-slate-800/50">
-            <thead>
-            <tr>
-              <th></th>
-              <th>Fee Settings</th>
-              <th>Bitcoin Lock Value</th>
-              <th>Fee Revenue</th>
-              <th>Treasury Revenue</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="(vault, index) in vaults" :key="vault.vaultId">
-              <td class="text-left">#{{ index+1  }}</td>
-              <td class="text-left">${{ microgonToArgonNm(vault.bitcoinBaseFee).format('0,0.00') }} + {{numeral(vault.bitcoinAnnualPercentRate * 100).format('0,[0.0]')}}%</td>
-              <td class="text-left">${{ microgonToArgonNm(vault.activatedSecuritization).format('0,0.00') }}</td>
-              <td class="text-left">${{ microgonToArgonNm(vault.feeRevenue).format('0,0.00') }}</td>
-              <td class="text-left">${{ microgonToArgonNm(vault.poolEarnings).format('0,0.00') }}</td>
-            </tr>
-            <tr v-if="vaults.length === 0">
-              <td colspan="5">Loading...</td>
-            </tr>
-            </tbody>
-          </table>
-        </li>
+    <p>
+      At each frame distribution, the protocol first allocates mining-bid
+      revenue to the Operational Rewards Pool and
+      <router-link to="/docs/assets-and-entities/argonot-stakes"
+        >Argonot Stakes</router-link
+      >. The remaining distributable revenue is assigned among qualifying vaults
+      according to eligible bond capital. See
+      <router-link to="/docs/assets-and-entities/mining-operations"
+        >Mining Operations</router-link
+      >
+      for where the bid pool comes from and Argon Bonds for the bondholder
+      distribution rules.
+    </p>
 
-        <li>
-          <header>The Network Treasury</header>
-          The Network Treasury is funded by the mining auction revenue generated every day (frame). The revenue from each frame goes into a Treasury Pool and used to pay out Liquid Locks when minting is not immediately available..<br/><br/>
+    <p>
+      Vault earnings are held pending collection. The operator must resolve
+      required cosigning work and collect the revenue within the protocol's
+      collection window. Revenue left uncollected after that window is burned.
+    </p>
 
-          A Vault can raise capital to match up to 1/10th of their locked bitcoin for each pool. This raised capital is returned at the end of the epoch, or once Bitcoins are minted (whichever is sooner). The Treasury pool is distributed as follows:<br/><br/>
-          - 20% of the capital is burned to prevent inflation.<br/>
-          - 80% is distributed to Vaults pro-rata based on how much they have contributed to the Treasury Pools.<br/>
-          - The distribution might be used for short-term loans to the network to provide instant liquidity for Bitcoin locks.<br/>
-          <table class="text-slate-800/50">
-            <thead>
-            <tr>
-              <th>Frame #</th>
-              <th>Mining Auction Revenue</th>
-              <th>Treasury Pool Capital</th>
-              <th>Burned (20%)</th>
-              <th>Vault Earnings (80%)</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr v-for="pool in treasuryPools" :key="pool.frameId">
-              <td class="text-left">{{ pool.frameId }}</td>
-              <td>${{ microgonToArgonNm(pool.auctionCapitalRaised).format('0,0.00') }}</td>
-              <td>${{ microgonToArgonNm(pool.treasuryPoolCapital).format('0,0.00') }}</td>
-              <td>${{ microgonToArgonNm(pool.burned).format('0,0.00') }}</td>
-              <td>${{ microgonToArgonNm(pool.earnings).format('0,0.00') }}</td>
-            </tr>
-            </tbody>
-          </table>
-        </li>
+    <h2>Core Operating Rules</h2>
 
+    <section
+      class="my-8 overflow-hidden rounded-lg border border-slate-300 bg-white/40"
+    >
+      <header
+        class="border-b border-slate-300 bg-slate-100/70 px-5 py-3 text-sm font-bold tracking-wide text-slate-600 uppercase"
+      >
+        Current Protocol Requirements
+      </header>
+      <dl class="m-0">
+        <div class="border-b border-slate-300 px-5 py-4 md:flex md:gap-6">
+          <dt class="font-bold text-slate-800 md:w-48 md:shrink-0">
+            Operator account
+          </dt>
+          <dd class="m-0 mt-1 text-slate-600 md:mt-0">
+            An eligible Operational Account can operate one Stabilization Vault.
+          </dd>
+        </div>
+        <div class="border-b border-slate-300 px-5 py-4 md:flex md:gap-6">
+          <dt class="font-bold text-slate-800 md:w-48 md:shrink-0">
+            Minimum capital
+          </dt>
+          <dd class="m-0 mt-1 text-slate-600 md:mt-0">
+            Operations access currently requires at least 2,000 ARGN in vault
+            capital.
+          </dd>
+        </div>
+        <div class="border-b border-slate-300 px-5 py-4 md:flex md:gap-6">
+          <dt class="font-bold text-slate-800 md:w-48 md:shrink-0">
+            Minimum hold
+          </dt>
+          <dd class="m-0 mt-1 text-slate-600 md:mt-0">
+            The 2,000 ARGN operational minimum remains unavailable for the first
+            year after the vault opens, even if the vault closes.
+          </dd>
+        </div>
+        <div class="border-b border-slate-300 px-5 py-4 md:flex md:gap-6">
+          <dt class="font-bold text-slate-800 md:w-48 md:shrink-0">
+            Insurance ratio
+          </dt>
+          <dd class="m-0 mt-1 text-slate-600 md:mt-0">
+            A vault must use a ratio between 1× and 2×.
+          </dd>
+        </div>
+        <div class="px-5 py-4 md:flex md:gap-6">
+          <dt class="font-bold text-slate-800 md:w-48 md:shrink-0">
+            Action windows
+          </dt>
+          <dd class="m-0 mt-1 text-slate-600 md:mt-0">
+            Valid Bitcoin release requests and uncollected revenue have
+            ten-frame deadlines, approximately ten days.
+          </dd>
+        </div>
+      </dl>
+    </section>
 
-        <li>
-          <header>Vault Responsibilities</header>
-          When you activate a vault, you create a keypair that is used to secure your half of any Bitcoins locked into your vault. The process to create new locks is automated and doesn't require any work beyond setup. However, you are the only owner of the keypair that can unlock Bitcoins in your vault, so you must:
-          <br/><br/>
-          - Preserve and backup your security keys that can unlock Bitcoin Liquid Locks<br/>
-          - Respond to unlock requests within 10 days<br/>
-        </li>
-        <li>
-          <header>Kick-starting Your Vault with BTC</header>
-          You can kickstart your vault by directly depositing an initial bitcoin transaction into it (skipping any fees). Once your Bitcoin is verified, you can start earning a share of the Treasury Pools.
-        </li>
-      </ul>
-    </div>
-    <div v-else>Loading...</div>
+    <h2>Operator Responsibilities</h2>
+    <p>
+      The operator must keep its connected machine, vault software, and keys
+      available. The vault service monitors onchain work, cosigns valid Bitcoin
+      releases, and prepares revenue collection, but automation does not move
+      those responsibilities to Argon or another custodian.
+    </p>
+
+    <p>
+      A vault must clear pending Bitcoin cosigns and overdue external-service
+      duties before collecting revenue. If a covered vault failure causes a
+      defined loss, the protocol can use applicable insurance capital to
+      compensate the beneficiary and burn the remaining amount required by the
+      failure rules.
+    </p>
+
+    <p>
+      Closing a vault stops it from accepting new Bitcoin Locks and new bond
+      positions. It does not cancel existing obligations. The protocol releases
+      the operator's capital only as the Locks and other commitments it supports
+      are completed.
+    </p>
+
+    <h2>Using Argon Desktop</h2>
+    <p>
+      Vaulting is managed from the
+      <router-link to="/docs/desktop-app/operations"
+        >Operations level</router-link
+      >
+      of Argon Desktop. Setup connects a compatible local or cloud machine,
+      confirms the vault's capital allocation, insurance ratio, Bitcoin fees,
+      and bondholder revenue share, and funds the operational wallet with ARGN
+      plus any optional ARGNOT commitment.
+    </p>
+
+    <p>
+      After launch, the Vaulting dashboard tracks capital utilization, Bitcoin
+      Locks, bond capital, revenue, return to date, and pending operator
+      actions. The operator remains responsible for machine health, sufficient
+      capital, configuration, and secure backups of the vault's Bitcoin and
+      account keys.
+    </p>
+
+    <aside
+      class="my-8 rounded-lg border border-amber-300 bg-amber-50/60 px-5 py-4"
+    >
+      <strong class="mb-2 block text-lg text-amber-900"
+        >Capital Can Be Lost</strong
+      >
+      <p class="m-0! text-amber-900/80">
+        Vaulting revenue is not guaranteed. Bitcoin demand, bond participation,
+        mining bids, fee settings, asset prices, capital utilization, and
+        operator availability all affect results. Missed duties can also cause
+        revenue or committed capital to be burned. Review
+        <router-link to="/docs/desktop-app/operations-certification"
+          >Operator Certification</router-link
+        >
+        before opening a vault.
+      </p>
+    </aside>
   </DocContent>
 </template>
 
 <script setup lang="ts">
-import * as Vue from 'vue';
-import numeral, { microgonToArgonNm, micronotToArgonotNm } from '@/lib/numeral';
-import DocHeader from "@/screens/docs/DocHeader.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
-
-const isLoaded = Vue.ref(false);
-
-const vaults = Vue.ref<
-    {
-      vaultId: number;
-      operatorAccountId: string;
-      bitcoinBaseFee: bigint;
-      bitcoinAnnualPercentRate: number;
-      activatedSecuritization: bigint;
-      feeRevenue: bigint;
-      poolEarnings: bigint;
-      apy: number;
-    }[]
->([]);
-
-const treasuryPools = Vue.ref<
-    {
-      frameId: number;
-      auctionCapitalRaised: bigint;
-      treasuryPoolCapital: bigint;
-      burned: bigint;
-      earnings: bigint;
-    }[]
->([]);
-
-// async function loadVaults() {
-//   await vaultStore.load();
-//   await vaultStore.updateRevenue();
-//
-//   const nextVaults = [];
-//   for (const vault of Object.values(vaultStore.vaultsById)) {
-//     const { terms } = vault;
-//     const apy = vaultStore.calculateVaultApy(vault.vaultId);
-//     nextVaults.push({
-//       vaultId: vault.vaultId,
-//       operatorAccountId: vault.operatorAccountId,
-//       bitcoinAnnualPercentRate: terms.bitcoinAnnualPercentRate.toNumber(),
-//       activatedSecuritization: vault.activatedSecuritization(),
-//       bitcoinBaseFee: terms.bitcoinBaseFee,
-//       poolEarnings: vaultStore.treasuryPoolEarnings(vault.vaultId),
-//       feeRevenue: vaultStore.getTotalFeeRevenue(vault.vaultId),
-//       apy,
-//     });
-//   }
-//   if (vaultStore.stats === null) return;
-//
-//   const oldestFrame = vaultStore.stats!.synchedToFrame - 10;
-//   const statsByFrame: {
-//     [frameId: number]: {
-//       frameId: number;
-//       auctionCapitalRaised: bigint;
-//       treasuryPoolCapital: bigint;
-//       earnings: bigint;
-//       burned: bigint;
-//     };
-//   } = {};
-//   for (const vault of Object.values(vaultStore.stats!.vaultsById)) {
-//     for (const { frameId, treasuryPool } of Object.values(vault.changesByFrame)) {
-//       if (frameId < oldestFrame) break;
-//       statsByFrame[frameId] ??= {
-//         frameId: frameId,
-//         auctionCapitalRaised: 0n,
-//         treasuryPoolCapital: 0n,
-//         burned: 0n,
-//         earnings: 0n,
-//       };
-//       const auctionPool = (treasuryPool.totalEarnings * 120n) / 100n;
-//       statsByFrame[frameId].auctionCapitalRaised += auctionPool;
-//       statsByFrame[frameId].treasuryPoolCapital += treasuryPool.externalCapital + treasuryPool.vaultCapital;
-//       statsByFrame[frameId].burned += auctionPool - treasuryPool.totalEarnings;
-//       statsByFrame[frameId].earnings += treasuryPool.totalEarnings;
-//     }
-//   }
-//   treasuryPools.value = Object.values(statsByFrame);
-//   treasuryPools.value.sort((a, b) => b.frameId - a.frameId);
-//   if (treasuryPools.value.length > 10) treasuryPools.value.length = 10;
-//   nextVaults.sort((a, b) => Number(b.activatedSecuritization - a.activatedSecuritization));
-//   vaults.value = nextVaults;
-// }
-
-Vue.onMounted(async () => {
-  // void loadVaults();
-
-  isLoaded.value = true;
-});
+import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>
-
-<style scoped>
-@import "../../../main.css";
-
-
-</style>

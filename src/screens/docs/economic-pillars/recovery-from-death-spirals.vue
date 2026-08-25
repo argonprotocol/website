@@ -230,7 +230,7 @@
 
     <div class="text-sm opacity-90 italic mb-2 mt-8">The Volatile Price Swings of Bitcoin</div>
 
-    <BitcoinVolatilityChart :markers="bitcoinMarkers" startingDate="2025-05-23" :minYAxisValue="98_000" :maxYAxisValue="125_000" :fmtYAxisLabel="(value) => `$${value/1_000}k`" :series="[{ color: '#968200FF', points: bitcoinValues }]" class="mb-5">
+    <BitcoinPriceHistoryChart :markers="bitcoinMarkers" startingDate="2025-05-23" :minYAxisValue="98_000" :maxYAxisValue="125_000" :fmtYAxisLabel="(value) => `$${value/1_000}k`" :series="[{ color: '#968200FF', points: bitcoinValues }]" class="mb-5">
       <template #marker="props">
         <div
             @mouseover="handleMouseOver($event, props)"
@@ -240,7 +240,7 @@
         >
         </div>
       </template>
-    </BitcoinVolatilityChart>
+    </BitcoinPriceHistoryChart>
 
     <p>We use Bitcoin as a fully exogenous profit incentive.</p>
 
@@ -259,7 +259,7 @@ import dayjs from 'dayjs';
 import utc from 'dayjs/plugin/utc.js';
 import numeral from 'numeral';
 import StabilityChart from '../../../components/StabilityChart.vue';
-import BitcoinVolatilityChart from '../../../components/BitcoinVolatilityChart.vue';
+import BitcoinPriceHistoryChart from '../../../components/BitcoinPriceHistoryChart.vue';
 import goldValues from '../../../../public/data/four-pillars/gold-values.json';
 import fiatValues from '../../../../public/data/four-pillars/fiat-values.json';
 import argonValues from '../../../../public/data/four-pillars/argon-values.json';

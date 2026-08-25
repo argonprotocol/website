@@ -12,7 +12,7 @@ afterEach(async () => {
 });
 
 describe('parseSubstackFeed', () => {
-  it('normalizes and sorts Argon articles while excluding unrelated posts', () => {
+  it('normalizes and sorts every published article', () => {
     const feed = parseSubstackFeed(
       `<?xml version="1.0" encoding="UTF-8"?>
       <rss xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
@@ -52,9 +52,9 @@ describe('parseSubstackFeed', () => {
     expect(feed.publication).toBe('Clark & Byrnes');
     expect(feed.subscribeUrl).toBe('https://example.substack.com/subscribe');
     expect(feed.generatedAt).toBe('2026-06-04T00:00:00.000Z');
-    expect(feed.items.map(item => item.id)).toEqual(['newest', 'older']);
-    expect(feed.items[0].contentHtml).toBe('<p>Read the <strong>full release</strong>.</p>');
-    expect(feed.items[1]).toMatchObject({
+    expect(feed.items.map(item => item.id)).toEqual(['unrelated', 'newest', 'older']);
+    expect(feed.items[1].contentHtml).toBe('<p>Read the <strong>full release</strong>.</p>');
+    expect(feed.items[2]).toMatchObject({
       summary: 'An Argon announcement.',
       author: 'Caleb',
       imageUrl: 'https://example.com/older.png',
@@ -84,8 +84,8 @@ describe('fetchSubstackUpdates', () => {
     const outputPath = join(directory, 'updates.json');
     const existingFeed = {
       publication: 'Clark & Byrnes',
-      publicationUrl: 'https://clarkbyrnes.substack.com',
-      subscribeUrl: 'https://clarkbyrnes.substack.com/subscribe',
+      publicationUrl: 'https://argonnetwork.substack.com',
+      subscribeUrl: 'https://argonnetwork.substack.com/subscribe',
       generatedAt: '2026-07-22T02:33:36.184Z',
       items: [],
     };
