@@ -84,8 +84,8 @@
       Argon Desktop is self-custodial. A recovery phrase is the last line of
       defense if the computer fails or the local app data is lost. The sponsor
       and Upstream Node do not receive a copy. Review
-      <router-link to="/docs/desktop-app/self-custody-risks"
-        >Self-Custody Risks</router-link
+      <DocLink to="/docs/desktop-app/self-custody-risks"
+        >Self-Custody Risks</DocLink
       >
       before committing assets.
     </p>
@@ -93,13 +93,13 @@
     <h3>Bitcoin Locks</h3>
     <p>
       A
-      <router-link to="/docs/assets-and-entities/bitcoin-locks"
-        >Bitcoin Lock</router-link
+      <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+        >Bitcoin Lock</DocLink
       >
       moves Bitcoin into an owner-and-vault multisig. It can have zero or more
       insurance. Locking Bitcoin does not by itself issue ARGN; creating a
-      <router-link to="/docs/assets-and-entities/bitcoin-liquids"
-        >Bitcoin Liquid</router-link
+      <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
+        >Bitcoin Liquid</DocLink
       >
       is a separate action.
     </p>
@@ -114,8 +114,8 @@
     <h3>Argon Bonds</h3>
     <p>
       The member must maintain enough active
-      <router-link to="/docs/assets-and-entities/argon-bonds"
-        >Argon Bond</router-link
+      <DocLink to="/docs/assets-and-entities/argon-bonds"
+        >Argon Bond</DocLink
       >
       principal. A position that is Releasing no longer counts as active
       certification principal.
@@ -153,12 +153,12 @@
 
     <p>
       See
-      <router-link to="/docs/desktop-app/access-codes"
-        >Access and Upgrades</router-link
+      <DocLink to="/docs/desktop-app/access-codes"
+        >Access and Upgrades</DocLink
       >
       for the sponsor-approval process and
-      <router-link to="/docs/desktop-app/operations-certification"
-        >Operator Certification</router-link
+      <DocLink to="/docs/desktop-app/operations-certification"
+        >Operator Certification</DocLink
       >
       for what follows after registration.
     </p>
@@ -166,6 +166,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

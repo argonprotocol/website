@@ -12,8 +12,8 @@
       Treasury is unlocked through an invitation from an existing Operator. The
       invitation connects the app to a sponsor and adds three sections to the
       sidebar: Bitcoin Locks, Argon Bonds, and Argonot Stakes. All
-      <router-link to="/docs/desktop-app/basic-functionality"
-        >Basic Functionality</router-link
+      <DocLink to="/docs/desktop-app/basic-functionality"
+        >Basic Functionality</DocLink
       >, including Stable Swaps, remains available.
     </p>
 
@@ -23,8 +23,8 @@
     <p>
       A Treasury access code is a one-use invitation created by an Operator. It
       identifies the sponsor, the sponsor's vault, and the
-      <router-link to="/docs/assets-and-entities/upstream-nodes"
-        >Upstream Node</router-link
+      <DocLink to="/docs/assets-and-entities/upstream-nodes"
+        >Upstream Node</DocLink
       >
       that will provide the app's supported network services. The app previews
       this information before you accept the invitation.
@@ -39,8 +39,8 @@
 
     <p>
       See
-      <router-link to="/docs/desktop-app/access-codes"
-        >Access and Upgrades</router-link
+      <DocLink to="/docs/desktop-app/access-codes"
+        >Access and Upgrades</DocLink
       >
       for the invitation and sponsorship process.
     </p>
@@ -63,12 +63,12 @@
 
     <p>
       Read
-      <router-link to="/docs/assets-and-entities/bitcoin-locks"
-        >Bitcoin Locks</router-link
+      <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+        >Bitcoin Locks</DocLink
       >
       and
-      <router-link to="/docs/assets-and-entities/bitcoin-liquids"
-        >Bitcoin Liquids</router-link
+      <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
+        >Bitcoin Liquids</DocLink
       >
       for the rules behind the two stages.
     </p>
@@ -86,8 +86,8 @@
       principal, earnings, current state, and release timing. Releasing a Bond
       stops its future participation and begins the protocol-defined period
       before the ARGN becomes spendable again. See
-      <router-link to="/docs/assets-and-entities/argon-bonds"
-        >Argon Bonds</router-link
+      <DocLink to="/docs/assets-and-entities/argon-bonds"
+        >Argon Bonds</DocLink
       >
       for the complete lifecycle.
     </p>
@@ -104,8 +104,8 @@
       The app shows available capacity, the mining operation associated with a
       position, accumulated distributions, and the position's release state.
       Read
-      <router-link to="/docs/assets-and-entities/argonot-stakes"
-        >Argonot Stakes</router-link
+      <DocLink to="/docs/assets-and-entities/argonot-stakes"
+        >Argonot Stakes</DocLink
       >
       for participation, earnings, and release rules.
     </p>
@@ -138,12 +138,12 @@
       Completing the checklist makes you eligible to request an Operations
       upgrade from your sponsor. It does not automatically make you an Operator
       or require the sponsor to approve the request. Continue to
-      <router-link to="/docs/desktop-app/treasury-certification"
-        >Treasury Certification</router-link
+      <DocLink to="/docs/desktop-app/treasury-certification"
+        >Treasury Certification</DocLink
       >
       for the requirements and
-      <router-link to="/docs/desktop-app/operations"
-        >Operations (Level Three)</router-link
+      <DocLink to="/docs/desktop-app/operations"
+        >Operations (Level Three)</DocLink
       >
       for what the next level adds.
     </p>
@@ -151,6 +151,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 import VideoLoop from "@/components/VideoLoop.vue";

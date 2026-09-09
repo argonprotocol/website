@@ -5,8 +5,8 @@
     <p>
       The <strong>Global Issuance Council</strong> is a capital-weighted group of
       vault operators that authorizes shared gateway updates for
-      <router-link to="/docs/bridgeless-transfers"
-        >Bridgeless Transfers</router-link
+      <DocLink to="/docs/bridgeless-transfers"
+        >Bridgeless Transfers</DocLink
       >. Its signatures keep Argon and supported external networks aligned on
       which authorities may underwrite external issuance.
     </p>
@@ -58,9 +58,9 @@
 
     <p>
       The council does not sign individual user transfers. That work belongs to
-      <router-link
+      <DocLink
         to="/docs/bridgeless-transfers/localized-minting-authorities"
-        >Localized Minting Authorities</router-link
+        >Localized Minting Authorities</DocLink
       >, which select specific Argon-to-Ethereum requests and place collateral
       behind them.
     </p>
@@ -81,14 +81,14 @@
     <ul>
       <li>
         eligible ARGN committed to the operator's
-        <router-link to="/docs/assets-and-entities/vaulting-operations"
-          >vault</router-link
+        <DocLink to="/docs/assets-and-entities/vaulting-operations"
+          >vault</DocLink
         >; and
       </li>
       <li>
         committed
-        <router-link to="/docs/assets-and-entities/argonot-tokens"
-          >ARGNOT</router-link
+        <DocLink to="/docs/assets-and-entities/argonot-tokens"
+          >ARGNOT</DocLink
         >
         converted to an ARGN value using the protocol-defined value recorded
         for that council.
@@ -230,6 +230,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

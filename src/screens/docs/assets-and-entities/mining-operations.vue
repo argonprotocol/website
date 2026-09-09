@@ -54,8 +54,8 @@
     <p>
       Each incoming cohort has a set number of seats. An eligible operator
       enters the auction by providing mining authority keys, an
-      <router-link to="/docs/assets-and-entities/argon-stablecoins"
-        >ARGN</router-link
+      <DocLink to="/docs/assets-and-entities/argon-stablecoins"
+        >ARGN</DocLink
       >
       bid, and the required ARGNOT collateral. While bidding is open, the
       protocol maintains a ranked list containing the highest bids for the
@@ -108,8 +108,8 @@
         </div>
         <p class="mt-2 mb-0 text-sm text-slate-600">
           The required
-          <router-link to="/docs/assets-and-entities/argonot-tokens"
-            >ARGNOT</router-link
+          <DocLink to="/docs/assets-and-entities/argonot-tokens"
+            >ARGNOT</DocLink
           >
           is held by the protocol. It remains the funding account's property and
           becomes spendable again when it no longer supports a bid or seat.
@@ -145,8 +145,8 @@
     <p>
       The requirement can therefore change even when bids remain similar,
       because the ARGN value of ARGNOT also changes. In the planned
-      <router-link to="/docs/assets-and-entities/argonot-stakes"
-        >Argonot Stakes</router-link
+      <DocLink to="/docs/assets-and-entities/argonot-stakes"
+        >Argonot Stakes</DocLink
       >
       model, holders will be able to supply this operating capital through a
       mining operation while the protocol retains control of the committed
@@ -193,34 +193,34 @@
     <p>
       ARGN block issuance can change with the stablecoin's supply needs, while
       ARGNOT follows its own issuance schedule. See
-      <router-link to="/docs/system-design/tokenomics-of-argon"
-        >Tokenomics of Argon</router-link
+      <DocLink to="/docs/system-design/tokenomics-of-argon"
+        >Tokenomics of Argon</DocLink
       >
       and
-      <router-link to="/docs/system-design/tokenomics-of-argonot"
-        >Tokenomics of Argonot</router-link
+      <DocLink to="/docs/system-design/tokenomics-of-argonot"
+        >Tokenomics of Argonot</DocLink
       >
       for those rules.
     </p>
     <p>
       Winning bids flow into the mining-bid pool rather than directly to block
       producers. The protocol distributes that revenue among
-      <router-link to="/docs/assets-and-entities/argonot-stakes"
-        >Argonot Stakes</router-link
+      <DocLink to="/docs/assets-and-entities/argonot-stakes"
+        >Argonot Stakes</DocLink
       >,
-      <router-link to="/docs/assets-and-entities/operational-rewards-pool"
-        >the Expansion Rewards Pool</router-link
+      <DocLink to="/docs/assets-and-entities/operational-rewards-pool"
+        >the Expansion Rewards Pool</DocLink
       >, and stabilization capital supplied through vaults and
-      <router-link to="/docs/assets-and-entities/argon-bonds"
-        >Argon Bonds</router-link
+      <DocLink to="/docs/assets-and-entities/argon-bonds"
+        >Argon Bonds</DocLink
       >.
     </p>
 
     <h2>Using Argon Desktop</h2>
     <p>
       Mining is managed from the
-      <router-link to="/docs/desktop-app/operations"
-        >Operations level</router-link
+      <DocLink to="/docs/desktop-app/operations"
+        >Operations level</DocLink
       >
       of Argon Desktop. The setup workflow connects a compatible local or cloud
       machine, installs the mining software, confirms the operator's bidding
@@ -245,8 +245,8 @@
         Automation does not make a mining return predictable. Auction prices,
         block assignments, token prices, network issuance, transaction volume,
         and machine availability can all change an operation's results. Review
-        <router-link to="/docs/desktop-app/operations-certification"
-          >Operator Certification</router-link
+        <DocLink to="/docs/desktop-app/operations-certification"
+          >Operator Certification</DocLink
         >
         before committing operational capital.
       </p>
@@ -255,6 +255,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

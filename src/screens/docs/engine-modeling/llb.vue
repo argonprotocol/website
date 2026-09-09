@@ -43,12 +43,12 @@
         LLB was created when locking Bitcoin and receiving ARGN were described
         together as “Liquid Locking.” Argon now treats these as separate
         actions: a
-        <router-link to="/docs/assets-and-entities/bitcoin-locks"
-          >Bitcoin Lock</router-link
+        <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+          >Bitcoin Lock</DocLink
         >
         secures the BTC, while an optional
-        <router-link to="/docs/assets-and-entities/bitcoin-liquids"
-          >Bitcoin Liquid</router-link
+        <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
+          >Bitcoin Liquid</DocLink
         >
         creates the ARGN position.
       </p>
@@ -103,8 +103,8 @@
       Use the model to develop intuition about the relationship between Bitcoin
       volatility, ARGN price movements, and supply contraction. For the broader
       system-level stress test, continue to the
-      <router-link to="/docs/engine-modeling/sam"
-        >Stabilization Analysis Model</router-link
+      <DocLink to="/docs/engine-modeling/sam"
+        >Stabilization Analysis Model</DocLink
       >. You can also
       <a
         href="https://github.com/argonprotocol/llb"
@@ -117,6 +117,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

@@ -21,15 +21,15 @@
     </p>
     <ol>
       <li>
-        Begin with an <router-link to="/docs/getting-started/how-it-works">Overview of the System Design</router-link>
+        Begin with an <DocLink to="/docs/system-design">Overview of the System Design</DocLink>
         for an understanding of the network’s major components and the roles they play.
       </li>
       <li>
-        Read <router-link to="/docs/getting-started/economic-model">Economic Drivers</router-link> to understand how
+        Read <DocLink to="/docs/system-design/economic-drivers">Economic Drivers</DocLink> to understand how
         value and incentives move between stablecoin users, custodians, miners, and vault operators.
       </li>
       <li>
-        Visit the <router-link to="/docs/desktop-app">Argon Desktop overview</router-link> to learn how users interact
+        Visit the <DocLink to="/docs/desktop-app">Argon Desktop overview</DocLink> to learn how users interact
         with the network from their own computers.
       </li>
     </ol>
@@ -39,7 +39,7 @@
       Argon Desktop does not rely on a centralized company or database. It's a self-custodial system where you control
       your own keys and approve your own transactions. This also means you're responsibility for backups, security, and
       recovery. Before moving or managing funds, please
-      <router-link to="/docs/desktop-app/self-custody-risks">review the risks</router-link>.
+      <DocLink to="/docs/desktop-app/self-custody-risks">review the risks</DocLink>.
     </p>
 
     <h2>Who Are You?</h2>
@@ -53,16 +53,16 @@
         preserve its purchasing power over time.
         <ul class="ml-4">
           <li class="mb-1!">
-            <router-link to="/docs/desktop-app">Argon Desktop overview</router-link>
+            <DocLink to="/docs/desktop-app">Argon Desktop overview</DocLink>
           </li>
           <li class="mb-1!">
-            <router-link to="/docs/bridgeless-transfers/open-a-transfer-portal">Open a Transfer Portal</router-link>
+            <DocLink to="/docs/bridgeless-transfers/initiate-a-transfer">Open a Transfer Portal</DocLink>
           </li>
           <li class="mb-1!">
-            <router-link to="/docs/desktop-app/self-custody-risks">Self-Custody Risks</router-link>
+            <DocLink to="/docs/desktop-app/self-custody-risks">Self-Custody Risks</DocLink>
           </li>
           <li class="mb-1!">
-            <router-link to="/docs/assets-and-entities/stable-swaps">Stable Swaps</router-link>
+            <DocLink to="/docs/assets-and-entities/stable-swaps">Stable Swaps</DocLink>
           </li>
         </ul>
       </li>
@@ -71,16 +71,16 @@
         help finance the network’s mining and vaulting activity.
         <ul class="ml-4">
           <li class="mb-1!">
-            <router-link to="/docs/desktop-app/treasury">Treasury</router-link>
+            <DocLink to="/docs/desktop-app/treasury">Treasury</DocLink>
           </li>
           <li class="mb-1!">
-            <router-link to="/docs/assets-and-entities/bitcoin-liquids">Bitcoin Liquids</router-link>
+            <DocLink to="/docs/assets-and-entities/bitcoin-liquids">Bitcoin Liquids</DocLink>
           </li>
           <li class="mb-1!">
-            <router-link to="/docs/assets-and-entities/argon-bonds">Argon Bonds</router-link>
+            <DocLink to="/docs/assets-and-entities/argon-bonds">Argon Bonds</DocLink>
           </li>
           <li class="mb-1!">
-            <router-link to="/docs/assets-and-entities/argonot-stakes">Argonot Stakes</router-link>
+            <DocLink to="/docs/assets-and-entities/argonot-stakes">Argonot Stakes</DocLink>
           </li>
         </ul>
       </li>
@@ -89,21 +89,21 @@
         participating in bridgeless issuance.
         <ul class="ml-4">
           <li class="mb-1!">
-            <router-link to="/docs/desktop-app/operations">Operations</router-link>
+            <DocLink to="/docs/desktop-app/operations">Operations</DocLink>
           </li>
           <li class="mb-1!">
-            <router-link to="/docs/assets-and-entities/mining-operations">Mining Operations</router-link>
+            <DocLink to="/docs/assets-and-entities/mining-operations">Mining Operations</DocLink>
           </li>
           <li class="mb-1!">
-            <router-link to="/docs/assets-and-entities/vaulting-operations">Vaulting Operations</router-link>
+            <DocLink to="/docs/assets-and-entities/vaulting-operations">Vaulting Operations</DocLink>
           </li>
           <li class="mb-1!">
-            <router-link to="/docs/bridgeless-transfers/global-issuance-council">
+            <DocLink to="/docs/bridgeless-transfers/global-issuance-council">
               Global Issuance Council
-            </router-link>
+            </DocLink>
           </li>
           <li class="mb-1!">
-            <router-link to="/docs/bridgeless-transfers/minting-authorities">Minting Authorities</router-link>
+            <DocLink to="/docs/bridgeless-transfers/remote-minting-authorities">Minting Authorities</DocLink>
           </li>
         </ul>
       </li>
@@ -116,6 +116,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 </script>

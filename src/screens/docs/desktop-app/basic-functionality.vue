@@ -27,8 +27,8 @@
       Creating an account also creates its recovery credentials locally. Argon
       does not keep a copy, and an Operator cannot recover the account for you.
       Record the recovery phrase before moving significant assets. See
-      <router-link to="/docs/desktop-app/self-custody-risks"
-        >Self-Custody Risks</router-link
+      <DocLink to="/docs/desktop-app/self-custody-risks"
+        >Self-Custody Risks</DocLink
       >
       for the responsibilities that come with controlling the account.
     </p>
@@ -68,8 +68,8 @@
       Argon Desktop records completed and pending activity in its transaction
       history. Onchain transactions can also be followed using their network
       details. For the crosschain process, continue to
-      <router-link to="/docs/bridgeless-transfers"
-        >Bridgeless Transfers</router-link
+      <DocLink to="/docs/bridgeless-transfers"
+        >Bridgeless Transfers</DocLink
       >.
     </p>
 
@@ -86,8 +86,8 @@
       relevant direction and amount before you authorize the trade with a funded
       Ethereum wallet. The decision to trade remains yours, and market
       conditions can change before a transaction completes. Read
-      <router-link to="/docs/assets-and-entities/stable-swaps"
-        >Stable Swaps</router-link
+      <DocLink to="/docs/assets-and-entities/stable-swaps"
+        >Stable Swaps</DocLink
       >
       for the underlying stabilization role.
     </p>
@@ -115,14 +115,14 @@
 
     <p>
       An existing Operator can invite you to
-      <router-link to="/docs/desktop-app/treasury"
-        >Treasury (Level Two)</router-link
+      <DocLink to="/docs/desktop-app/treasury"
+        >Treasury (Level Two)</DocLink
       >. Treasury Certification can then make you eligible to request
-      <router-link to="/docs/desktop-app/operations"
-        >Operations (Level Three)</router-link
+      <DocLink to="/docs/desktop-app/operations"
+        >Operations (Level Three)</DocLink
       >. Read
-      <router-link to="/docs/desktop-app/access-codes"
-        >Access and Upgrades</router-link
+      <DocLink to="/docs/desktop-app/access-codes"
+        >Access and Upgrades</DocLink
       >
       for the complete progression.
     </p>
@@ -130,6 +130,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

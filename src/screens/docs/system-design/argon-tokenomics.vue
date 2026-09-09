@@ -104,8 +104,8 @@
 
     <p>
       See
-      <router-link to="/docs/system-design/stability-algorithms"
-        >Stability Algorithms</router-link
+      <DocLink to="/docs/system-design/stability-algorithms"
+        >Stability Algorithms</DocLink
       >
       for the rules that translate market prices into supply incentives.
     </p>
@@ -113,6 +113,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 </script>

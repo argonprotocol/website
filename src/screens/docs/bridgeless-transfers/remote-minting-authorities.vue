@@ -38,8 +38,8 @@
     <h2>Why the Authority Is Localized</h2>
     <p>
       Each authority belongs to a specific
-      <router-link to="/docs/assets-and-entities/vaulting-operations"
-        >vault operator</router-link
+      <DocLink to="/docs/assets-and-entities/vaulting-operations"
+        >vault operator</DocLink
       >
       and is registered for a specific destination network. It signs only the
       individual transfer requests that the operator chooses to fund. It cannot
@@ -49,8 +49,8 @@
 
     <p>
       This separates local transfer authorization from the
-      <router-link to="/docs/bridgeless-transfers/global-issuance-council"
-        >Global Issuance Council</router-link
+      <DocLink to="/docs/bridgeless-transfers/global-issuance-council"
+        >Global Issuance Council</DocLink
       >. The council approves shared gateway changes, including the activation
       and deactivation of authorities, but it does not approve individual user
       transfers.
@@ -64,16 +64,16 @@
     <ul>
       <li>
         <strong>Bond-backed ARGN</strong> associated with active
-        <router-link to="/docs/assets-and-entities/argon-bonds"
-          >Argon Bonds</router-link
+        <DocLink to="/docs/assets-and-entities/argon-bonds"
+          >Argon Bonds</DocLink
         >
         in the operator's vault account.
       </li>
       <li>
         <strong>Committed ARGNOT</strong> that the operator has explicitly made
         available for minting-authority work. See
-        <router-link to="/docs/assets-and-entities/argonot-tokens"
-          >Argonot Tokens</router-link
+        <DocLink to="/docs/assets-and-entities/argonot-tokens"
+          >Argonot Tokens</DocLink
         >.
       </li>
     </ul>
@@ -200,14 +200,15 @@
 
     <p>
       For the complete user-transfer lifecycle, return to
-      <router-link to="/docs/bridgeless-transfers"
-        >How Bridgeless Transfers Work</router-link
+      <DocLink to="/docs/bridgeless-transfers"
+        >How Bridgeless Transfers Work</DocLink
       >.
     </p>
   </DocContent>
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

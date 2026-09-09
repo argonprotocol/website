@@ -12,8 +12,8 @@
     <p>
       The Lock is the custody and security layer for the Bitcoin. It is separate
       from a
-      <router-link to="/docs/assets-and-entities/bitcoin-liquids"
-        >Bitcoin Liquid</router-link
+      <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
+        >Bitcoin Liquid</DocLink
       >, which is the optional financial position used to receive ARGN against
       the locked BTC.
     </p>
@@ -35,8 +35,8 @@
     <p>
       Before Bitcoin is deposited, the App Wallet combines an owner key with a
       key supplied by a
-      <router-link to="/docs/assets-and-entities/vaulting-operations"
-        >Stabilization Vault</router-link
+      <DocLink to="/docs/assets-and-entities/vaulting-operations"
+        >Stabilization Vault</DocLink
       >. These keys define the Bitcoin script and funding address for the Lock.
       The Bitcoin is sent directly to that address and never leaves the Bitcoin
       network.
@@ -186,10 +186,10 @@
     <p>
       Once confirmed, the wallet tracks the Lock's BTC amount, UTXO, vault,
       insurance, Liquid status, and release state. See
-      <router-link to="/docs/assets-and-entities/bitcoins">Bitcoin</router-link>
+      <DocLink to="/docs/assets-and-entities/bitcoins">Bitcoin</DocLink>
       for the asset overview or
-      <router-link to="/docs/assets-and-entities/bitcoin-liquids"
-        >Bitcoin Liquids</router-link
+      <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
+        >Bitcoin Liquids</DocLink
       >
       for the separate ARGN position.
     </p>
@@ -197,6 +197,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

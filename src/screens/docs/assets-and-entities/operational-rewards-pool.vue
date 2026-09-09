@@ -42,12 +42,12 @@
 
     <p>
       See
-      <router-link to="/docs/assets-and-entities/mining-operations"
-        >Mining Operations</router-link
+      <DocLink to="/docs/assets-and-entities/mining-operations"
+        >Mining Operations</DocLink
       >
       for how seat auctions create this revenue and
-      <router-link to="/docs/assets-and-entities/argon-bonds"
-        >Argon Bonds</router-link
+      <DocLink to="/docs/assets-and-entities/argon-bonds"
+        >Argon Bonds</DocLink
       >
       for the rest of the bid-pool distribution.
     </p>
@@ -123,8 +123,8 @@
     <p>
       The upgrade code permits another eligible member to register as an
       operator; it is not part of the ARGN payment. See
-      <router-link to="/docs/desktop-app/access-codes"
-        >Access and Upgrades</router-link
+      <DocLink to="/docs/desktop-app/access-codes"
+        >Access and Upgrades</DocLink
       >
       for how codes are earned and consumed.
     </p>
@@ -213,6 +213,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

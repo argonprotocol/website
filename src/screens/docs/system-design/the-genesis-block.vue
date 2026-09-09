@@ -23,13 +23,14 @@
     </p>
 
     <p>
-      For more background, read <router-link to="/updates/argon-is-live">Argon Is Live</router-link>
+      For more background, read <DocLink to="/updates/argon-is-live">Argon Is Live</DocLink>
       for the story of Argon's first block.
     </p>
   </DocContent>
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import * as Vue from "vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 import DocContent from "@/screens/docs/DocContent.vue";

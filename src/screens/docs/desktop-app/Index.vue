@@ -29,8 +29,8 @@
     <p>
       An upgrade adds capabilities; it does not replace your installation or
       transfer control of your account. See
-      <router-link to="/docs/desktop-app/access-codes"
-        >Access and Upgrades</router-link
+      <DocLink to="/docs/desktop-app/access-codes"
+        >Access and Upgrades</DocLink
       >
       for the invitation, sponsorship, and certification process.
     </p>
@@ -40,15 +40,15 @@
       Basic provides the wallet and network tools available to every user. You
       can create or import an Argon account, connect Ethereum wallets, view
       balances and transaction history, move supported assets, use
-      <router-link to="/docs/assets-and-entities/stable-swaps"
-        >Stable Swaps</router-link
+      <DocLink to="/docs/assets-and-entities/stable-swaps"
+        >Stable Swaps</DocLink
       >, and follow the network's current economics.
     </p>
 
     <p>
       Basic does not require an invitation or a sponsoring Operator. Continue to
-      <router-link to="/docs/desktop-app/basic-functionality"
-        >Basic Functionality</router-link
+      <DocLink to="/docs/desktop-app/basic-functionality"
+        >Basic Functionality</DocLink
       >
       for a closer look at these tools.
     </p>
@@ -57,14 +57,14 @@
     <p>
       Treasury adds the network's capital-participation tools. Its navigation
       includes
-      <router-link to="/docs/assets-and-entities/bitcoin-locks"
-        >Bitcoin Locks</router-link
+      <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+        >Bitcoin Locks</DocLink
       >,
-      <router-link to="/docs/assets-and-entities/argon-bonds"
-        >Argon Bonds</router-link
+      <DocLink to="/docs/assets-and-entities/argon-bonds"
+        >Argon Bonds</DocLink
       >,
-      <router-link to="/docs/assets-and-entities/argonot-stakes"
-        >Argonot Stakes</router-link
+      <DocLink to="/docs/assets-and-entities/argonot-stakes"
+        >Argonot Stakes</DocLink
       >. These sections let a member put assets to work without operating the
       network's mining and vaulting infrastructure.
     </p>
@@ -72,8 +72,8 @@
     <p>
       A Treasury member is connected to a sponsoring Operator and that
       Operator's
-      <router-link to="/docs/assets-and-entities/upstream-nodes"
-        >Upstream Node</router-link
+      <DocLink to="/docs/assets-and-entities/upstream-nodes"
+        >Upstream Node</DocLink
       >. The connection provides access to supported services, but it does not
       give the Operator authority over the member's wallet.
     </p>
@@ -82,11 +82,11 @@
     <p>
       Operations adds the tools needed to help run the network. Operators can
       compete for
-      <router-link to="/docs/assets-and-entities/mining-operations"
-        >Mining Operations</router-link
+      <DocLink to="/docs/assets-and-entities/mining-operations"
+        >Mining Operations</DocLink
       >, establish and manage
-      <router-link to="/docs/assets-and-entities/vaulting-operations"
-        >Vaulting Operations</router-link
+      <DocLink to="/docs/assets-and-entities/vaulting-operations"
+        >Vaulting Operations</DocLink
       >, and onboard new members. Operators who take on eligible crosschain
       roles also receive the corresponding authorization and transfer tools.
     </p>
@@ -138,8 +138,8 @@
 
     <p>
       Read
-      <router-link to="/docs/desktop-app/self-custody-risks"
-        >Self-Custody Risks</router-link
+      <DocLink to="/docs/desktop-app/self-custody-risks"
+        >Self-Custody Risks</DocLink
       >
       before funding an account or beginning a position.
     </p>
@@ -147,7 +147,7 @@
     <h2>Getting Started</h2>
     <ol class="ml-6 list-decimal">
       <li>
-        <router-link to="/desktop-app">Download Argon Desktop</router-link> for
+        <DocLink to="/desktop-app">Download Argon Desktop</DocLink> for
         your operating system.
       </li>
       <li>
@@ -162,6 +162,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 import VideoLoop from "@/components/VideoLoop.vue";

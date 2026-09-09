@@ -5,8 +5,8 @@
     <p>
       Argon (ARGN) is the transactional currency of the Argon network. It is
       designed to hold stable purchasing power over time while remaining
-      <router-link to="/docs/desktop-app/self-custody-risks"
-        >self-custodied</router-link
+      <DocLink to="/docs/desktop-app/self-custody-risks"
+        >self-custodied</DocLink
       >
       and independent of banks, custodians, and fiat reserves. It is represented
       by the symbol ₳, and each Argon can be divided into one million microgons.
@@ -25,8 +25,8 @@
       price-responsive issuance stops and Bitcoin unlocking creates an incentive
       to burn Argons. These mechanisms change supply through the voluntary
       actions of independent network participants. The
-      <router-link to="/docs/system-design/stability-algorithms"
-        >Stability Algorithms</router-link
+      <DocLink to="/docs/system-design/stability-algorithms"
+        >Stability Algorithms</DocLink
       >
       page explains this process in detail.
     </p>
@@ -51,25 +51,25 @@
       <li>
         <strong>Mining bids.</strong> Mining operators bid Argons for the right
         to occupy mining seats and produce blocks. See
-        <router-link to="/docs/assets-and-entities/mining-operations"
-          >Mining Operations</router-link
+        <DocLink to="/docs/assets-and-entities/mining-operations"
+          >Mining Operations</DocLink
         >.
       </li>
       <li>
         <strong>Argon Bonds.</strong> Holders can commit Argons to
-        <router-link to="/docs/assets-and-entities/argon-bonds"
-          >Treasury bonds</router-link
+        <DocLink to="/docs/assets-and-entities/argon-bonds"
+          >Treasury bonds</DocLink
         >
         that supply liquidity for
-        <router-link to="/docs/assets-and-entities/bitcoin-locks"
-          >Bitcoin Locks</router-link
+        <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+          >Bitcoin Locks</DocLink
         >
         and share in network revenue.
       </li>
       <li>
         <strong>Vault securitization.</strong>
-        <router-link to="/docs/assets-and-entities/vaulting-operations"
-          >Vault operators</router-link
+        <DocLink to="/docs/assets-and-entities/vaulting-operations"
+          >Vault operators</DocLink
         >
         commit Argons as capital that secures their participation in the
         network.
@@ -77,16 +77,16 @@
       <li>
         <strong>Bitcoin unlocking.</strong> A holder burns the required number
         of Argons to release funded Bitcoin from a
-        <router-link to="/docs/assets-and-entities/bitcoin-locks"
-          >lock</router-link
+        <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+          >lock</DocLink
         >.
       </li>
       <li>
         <strong>Crosschain use.</strong> Argons can be transferred to supported
         external networks through Argon's
-        <router-link
+        <DocLink
           to="/docs/bridgeless-transfers/localized-minting-authorities"
-          >minting-authority system</router-link
+          >minting-authority system</DocLink
         >. Moving ARGN between networks changes where it is represented; it does
         not create a separate supply.
       </li>
@@ -101,12 +101,12 @@
     <h2>Learn More</h2>
     <p>
       See
-      <router-link to="/docs/system-design/tokenomics-of-argon"
-        >Tokenomics of Argon</router-link
+      <DocLink to="/docs/system-design/tokenomics-of-argon"
+        >Tokenomics of Argon</DocLink
       >
       for the issuance and supply rules, or
-      <router-link to="/docs/system-design/stability-algorithms"
-        >Stability Algorithms</router-link
+      <DocLink to="/docs/system-design/stability-algorithms"
+        >Stability Algorithms</DocLink
       >
       for a detailed explanation of the target price and expansion and
       contraction mechanisms.
@@ -114,6 +114,7 @@
   </DocContent>
 </template>
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

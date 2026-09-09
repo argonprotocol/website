@@ -1,4 +1,4 @@
-import { mkdtemp, rm, writeFile } from 'node:fs/promises';
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
@@ -8,6 +8,7 @@ const temporaryDirectories: string[] = [];
 
 afterEach(async () => {
   vi.restoreAllMocks();
+  vi.unstubAllGlobals();
   await Promise.all(temporaryDirectories.splice(0).map(path => rm(path, { recursive: true })));
 });
 
@@ -114,4 +115,79 @@ describe('fetchSubstackUpdates', () => {
       join(directory, 'missing.json'),
     )).rejects.toThrow('network unavailable');
   });
+});
+
+const archiveRss = `<rss><channel><title>Argon Network</title>
+  <link>https://example.com</link><item><title>Newest</title>
+  <link>https://example.com/p/post-0</link>
+  <pubDate>Tue, 02 Jun 2026 12:00:00 GMT</pubDate>
+  </item></channel></rss>`;
+
+function mockArchive(failure?: string) {
+  return vi.fn(async (input: URL) => {
+    const url = new URL(input);
+    if (url.pathname === '/feed') return new Response(archiveRss);
+    if (url.pathname === '/api/v1/archive') {
+      const offset = Number(url.searchParams.get('offset'));
+      if (offset && failure === 'archive') return new Response('', { status: 503 });
+      if (offset && failure === 'malformed') return Response.json({ error: 'bad response' });
+      if (offset && failure === 'repeated') {
+        return Response.json(Array.from({ length: 20 }, (_, i) => ({ slug: `post-${i}` })));
+      }
+      const slugs = offset === 0
+        ? Array.from({ length: 20 }, (_, i) => `post-${i}`)
+        : offset === 20 ? ['post-19', 'argon-is-live'] : [];
+      return Response.json(slugs.map(slug => ({ slug })));
+    }
+    const slug = url.pathname.split('/').at(-1);
+    if (slug === 'argon-is-live' && failure === 'article') return new Response('', { status: 404 });
+    return Response.json({
+      slug,
+      title: slug === 'argon-is-live' ? 'Argon Is Live' : 'Release',
+      post_date: slug === 'argon-is-live' ? '2025-01-16T01:48:38Z' : '2026-06-02T12:00:00Z',
+      canonical_url: `https://example.com/p/${slug}`,
+      description: 'An <b>update.</b>',
+      body_html: failure === 'content' ? null : '<p>Full article</p><script>bad()</script>',
+      publishedBylines: [{ name: 'Caleb' }],
+      postTags: [{ name: 'Network' }],
+      cover_image: 'https://example.com/image.png',
+    });
+  });
+}
+
+describe('Substack archive refresh', () => {
+  it('paginates past RSS, deduplicates posts, and fetches sanitized full content', async () => {
+    const directory = await mkdtemp(join(tmpdir(), 'argon-substack-'));
+    temporaryDirectories.push(directory);
+    const outputPath = join(directory, 'updates.json');
+    const fetch = mockArchive();
+    vi.stubGlobal('fetch', fetch);
+    const feed = await fetchSubstackUpdates('https://example.com/feed', outputPath);
+    expect(feed.items).toHaveLength(21);
+    expect(feed.items.at(-1)).toMatchObject({
+      id: 'argon-is-live', title: 'Argon Is Live', author: 'Caleb',
+      summary: 'An update.', categories: ['Network'],
+      imageUrl: 'https://example.com/image.png', contentHtml: '<p>Full article</p>',
+    });
+    const urls = fetch.mock.calls.map(([url]) => new URL(url));
+    expect(urls.filter(url => url.pathname === '/api/v1/archive')
+      .map(url => url.searchParams.get('offset'))).toEqual(['0', '20', '22']);
+    expect(urls.filter(url => url.pathname === '/api/v1/posts/post-19')).toHaveLength(1);
+    expect(JSON.parse(await readFile(outputPath, 'utf8'))).toEqual(feed);
+  });
+
+  it.each(['archive', 'article', 'malformed', 'repeated', 'content'])(
+    'leaves the saved file untouched on %s failure', async failure => {
+      const directory = await mkdtemp(join(tmpdir(), 'argon-substack-'));
+      temporaryDirectories.push(directory);
+      const outputPath = join(directory, 'updates.json');
+      const existing = { publication: 'Argon Network', items: [{ id: 'saved' }] };
+      const saved = JSON.stringify(existing);
+      await writeFile(outputPath, saved);
+      vi.stubGlobal('fetch', mockArchive(failure));
+      vi.spyOn(console, 'warn').mockImplementation(() => undefined);
+      await expect(fetchSubstackUpdates('https://example.com/feed', outputPath)).resolves.toEqual(existing);
+      expect(await readFile(outputPath, 'utf8')).toBe(saved);
+    },
+  );
 });

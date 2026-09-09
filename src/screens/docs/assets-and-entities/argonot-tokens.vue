@@ -5,8 +5,8 @@
     <p>
       Argonot (ARGNOT) is a native token used to capitalize and participate in
       the Argon network. It is separate from the
-      <router-link to="/docs/assets-and-entities/argon-stablecoins"
-        >ARGN stablecoin</router-link
+      <DocLink to="/docs/assets-and-entities/argon-stablecoins"
+        >ARGN stablecoin</DocLink
       >, has no target price, and can rise or fall in market value. Each ARGNOT
       can be divided into one million micronots.
     </p>
@@ -36,8 +36,8 @@
     <p>
       A mining operator must commit the required amount of ARGNOT before bidding
       for a
-      <router-link to="/docs/assets-and-entities/mining-operations"
-        >mining seat</router-link
+      <DocLink to="/docs/assets-and-entities/mining-operations"
+        >mining seat</DocLink
       >. The bid itself is made in ARGN; the ARGNOT is separate collateral that
       the protocol places on hold while it is needed for bidding or an active
       seat.
@@ -52,8 +52,8 @@
     <h3>Argonot Stakes</h3>
     <p>
       A holder can commit ARGNOT to an
-      <router-link to="/docs/assets-and-entities/argonot-stakes"
-        >Argonot Stake</router-link
+      <DocLink to="/docs/assets-and-entities/argonot-stakes"
+        >Argonot Stake</DocLink
       >. Active stakes receive a proportional share of the ARGN revenue that the
       protocol allocates from mining auctions. Simply holding liquid ARGNOT does
       not produce these earnings; the holder must create a stake position.
@@ -62,12 +62,12 @@
     <h3>Vault and Minting-Authority Collateral</h3>
     <p>
       A
-      <router-link to="/docs/assets-and-entities/vaulting-operations"
-        >vault operator</router-link
+      <DocLink to="/docs/assets-and-entities/vaulting-operations"
+        >vault operator</DocLink
       >
       can commit ARGNOT to support the vault's work as a
-      <router-link to="/docs/bridgeless-transfers/localized-minting-authorities"
-        >Localized Minting Authority</router-link
+      <DocLink to="/docs/bridgeless-transfers/localized-minting-authorities"
+        >Localized Minting Authority</DocLink
       >. The protocol holds the committed tokens and can assign part of them to
       active crosschain obligations. Collateral assigned to an obligation cannot
       be released until that obligation is resolved, and it can be burned if the
@@ -125,8 +125,8 @@
       New ARGNOT enters circulation through mining rewards. Its issuance follows
       a protocol-defined schedule and does not expand or contract in response to
       ARGN's target price. See
-      <router-link to="/docs/system-design/tokenomics-of-argonot"
-        >Tokenomics of Argonot</router-link
+      <DocLink to="/docs/system-design/tokenomics-of-argonot"
+        >Tokenomics of Argonot</DocLink
       >
       for the reward schedule and supply rules.
     </p>
@@ -143,6 +143,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

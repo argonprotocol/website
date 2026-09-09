@@ -4,8 +4,8 @@
   <DocContent>
     <p>
       Argonot Stakes are onchain, yield-bearing positions that supply
-      <router-link to="/docs/assets-and-entities/argonot-tokens"
-        >ARGNOT</router-link
+      <DocLink to="/docs/assets-and-entities/argonot-tokens"
+        >ARGNOT</DocLink
       >
       capital to mining operations. Each Stake is created by committing one
       ARGNOT through a miner, with the ARGNOT held by the protocol until the
@@ -56,8 +56,8 @@
     <h2>Why Miners Use Stakes</h2>
     <p>
       Every
-      <router-link to="/docs/assets-and-entities/mining-operations"
-        >mining seat</router-link
+      <DocLink to="/docs/assets-and-entities/mining-operations"
+        >mining seat</DocLink
       >
       requires ARGNOT collateral in addition to an ARGN bid. Argonot Stakes let
       holders supply this operating capital through a miner rather than
@@ -66,8 +66,8 @@
 
     <p>
       This creates a relationship similar to the one between
-      <router-link to="/docs/assets-and-entities/argon-bonds"
-        >Argon Bonds</router-link
+      <DocLink to="/docs/assets-and-entities/argon-bonds"
+        >Argon Bonds</DocLink
       >
       and Stabilization Vaults: Bonds supply ARGN capital through a vault, while
       Stakes supply ARGNOT capital through a miner. In both cases, the protocol
@@ -232,8 +232,8 @@
       The dashboard tracks each position's ARGNOT principal, distributed ARGN
       income, return to date, associated miner, and release status. Because
       positions are independent, each one must be released separately. See
-      <router-link to="/docs/desktop-app/treasury"
-        >Accessing Treasury</router-link
+      <DocLink to="/docs/desktop-app/treasury"
+        >Accessing Treasury</DocLink
       >
       for the features available at the Treasury level.
     </p>
@@ -241,6 +241,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

@@ -222,8 +222,8 @@
 
     <p>
       Learn more about
-      <router-link to="/docs/assets-and-entities/mining-operations"
-        >Mining Operations</router-link
+      <DocLink to="/docs/assets-and-entities/mining-operations"
+        >Mining Operations</DocLink
       >.
     </p>
 
@@ -389,8 +389,8 @@
       the contraction it needs. The amount of active locked
       Bitcoin therefore determines how much potential burn capacity is
       available. Read more about
-      <router-link to="/docs/assets-and-entities/bitcoin-locks">Bitcoin Locks</router-link>
-      and <router-link to="/docs/assets-and-entities/bitcoin-locks">Liquids</router-link>.
+      <DocLink to="/docs/assets-and-entities/bitcoin-locks">Bitcoin Locks</DocLink>
+      and <DocLink to="/docs/assets-and-entities/bitcoin-locks">Liquids</DocLink>.
     </p>
 
     <h3>The Purpose of Stable Swaps</h3>
@@ -402,8 +402,8 @@
       and present rapid arbitrage opportunities between chains. This allows small deviations to
       rapidly correct without waiting on the Bitcoin unlock process to reduce circulation. Learn
       more about
-      <router-link to="/docs/assets-and-entities/stable-swaps"
-        >Stable Swaps</router-link
+      <DocLink to="/docs/assets-and-entities/stable-swaps"
+        >Stable Swaps</DocLink
       >.
     </p>
 
@@ -425,7 +425,7 @@
     <h3>The Continuous Burn of the Sidechain</h3>
     <p>
       Bitcoin unlocking is not the only way Argons leave circulation.
-      Argon's <router-link to="/docs/assets-and-entities/sidechain">Sidechain</router-link>
+      Argon's <DocLink to="/docs/assets-and-entities/sidechain">Sidechain</DocLink>
       operates as a fast, inexpensive micro-payment
       settlement layer. Payments on this Sidechain create transaction
       taxes, and these taxes are burned when the transaction settles on
@@ -489,11 +489,11 @@
 
     <p>
       For the wider context, see
-      <router-link to="/docs/system-design/how-it-works"
-        >How Argon Works</router-link
+      <DocLink to="/docs/system-design/how-it-works"
+        >How Argon Works</DocLink
       > and
-      <router-link to="/docs/economic-pillars/recovery-from-death-spirals"
-        >Recovery from Death Spirals</router-link
+      <DocLink to="/docs/economic-pillars/recovery-from-death-spirals"
+        >Recovery from Death Spirals</DocLink
       >.
     </p>
 
@@ -501,6 +501,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import * as Vue from "vue";
 import dayjs from "dayjs";
 import DocHeader from "@/screens/docs/DocHeader.vue";

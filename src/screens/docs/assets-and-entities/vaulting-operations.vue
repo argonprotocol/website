@@ -6,14 +6,14 @@
       A Stabilization Vault is an operator-run service that combines committed
       ARGN capital with Bitcoin cosigning infrastructure. A vault can provide
       insurance for
-      <router-link to="/docs/assets-and-entities/bitcoin-locks"
-        >Bitcoin Locks</router-link
+      <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+        >Bitcoin Locks</DocLink
       >, support liquidity supplied through
-      <router-link to="/docs/assets-and-entities/argon-bonds"
-        >Argon Bonds</router-link
+      <DocLink to="/docs/assets-and-entities/argon-bonds"
+        >Argon Bonds</DocLink
       >, and optionally operate as a
-      <router-link to="/docs/bridgeless-transfers/localized-minting-authorities"
-        >Localized Minting Authority</router-link
+      <DocLink to="/docs/bridgeless-transfers/localized-minting-authorities"
+        >Localized Minting Authority</DocLink
       >.
     </p>
 
@@ -59,8 +59,8 @@
     <p>
       Argon Bonds supply ARGN capital to the protocol through a selected vault.
       That capital helps the network provide liquidity for
-      <router-link to="/docs/assets-and-entities/bitcoin-liquids"
-        >Bitcoin Liquids</router-link
+      <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
+        >Bitcoin Liquids</DocLink
       >. Bond principal remains under protocol control and is not transferred to
       the vault operator.
     </p>
@@ -75,8 +75,8 @@
     <h3>Localized Minting Authority</h3>
     <p>
       A vault can separately commit
-      <router-link to="/docs/assets-and-entities/argonot-tokens"
-        >ARGNOT</router-link
+      <DocLink to="/docs/assets-and-entities/argonot-tokens"
+        >ARGNOT</DocLink
       >
       and bond-backed ARGN to support transfers between Argon and an external
       network. Committing ARGNOT to a vault does not activate this service by
@@ -146,13 +146,13 @@
     <p>
       At each frame distribution, the protocol first allocates mining-bid
       revenue to the Expansion Rewards Pool and
-      <router-link to="/docs/assets-and-entities/argonot-stakes"
-        >Argonot Stakes</router-link
+      <DocLink to="/docs/assets-and-entities/argonot-stakes"
+        >Argonot Stakes</DocLink
       >. The protocol then calculates how much of the remaining distributable
       revenue each qualifying vault can earn from its committed capital and the
       utilization of its available capacity. See
-      <router-link to="/docs/assets-and-entities/mining-operations"
-        >Mining Operations</router-link
+      <DocLink to="/docs/assets-and-entities/mining-operations"
+        >Mining Operations</DocLink
       >
       for where the bid pool comes from and Argon Bonds for the bondholder
       distribution rules.
@@ -424,8 +424,8 @@
     <h2>Using Argon Desktop</h2>
     <p>
       Vaulting is managed from the
-      <router-link to="/docs/desktop-app/operations"
-        >Operations level</router-link
+      <DocLink to="/docs/desktop-app/operations"
+        >Operations level</DocLink
       >
       of Argon Desktop. Setup connects a compatible local or cloud machine,
       confirms the vault's capital allocation, insurance ratio, Bitcoin fees,
@@ -452,8 +452,8 @@
         mining bids, fee settings, asset prices, capital utilization, and
         operator availability all affect results. Missed duties can also cause
         revenue or committed capital to be burned. Review
-        <router-link to="/docs/desktop-app/operations-certification"
-          >Operator Certification</router-link
+        <DocLink to="/docs/desktop-app/operations-certification"
+          >Operator Certification</DocLink
         >
         before opening a vault.
       </p>
@@ -462,6 +462,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

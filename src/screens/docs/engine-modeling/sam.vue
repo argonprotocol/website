@@ -96,11 +96,11 @@
       SAM is most useful for asking “what if?” Change one assumption, rerun the
       shock, and compare the shape and source of the response. For a closer look
       at the historical Bitcoin-owner model, open
-      <router-link to="/docs/engine-modeling/llb"
-        >Liquid Locking for Bitcoin</router-link
+      <DocLink to="/docs/engine-modeling/llb"
+        >Liquid Locking for Bitcoin</DocLink
       >. For the current conceptual explanation, read
-      <router-link to="/docs/system-design/stability-algorithms"
-        >Stability Algorithms</router-link
+      <DocLink to="/docs/system-design/stability-algorithms"
+        >Stability Algorithms</DocLink
       >.
     </p>
 
@@ -117,6 +117,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

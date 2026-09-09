@@ -5,8 +5,8 @@
     <p>
       Argon Bonds are onchain, yield-bearing positions that earn a share of
       Stabilization Vault revenue. Each bond is created by committing one
-      <router-link to="/docs/assets-and-entities/argon-stablecoins"
-        >ARGN</router-link
+      <DocLink to="/docs/assets-and-entities/argon-stablecoins"
+        >ARGN</DocLink
       >
       to a vault, with the ARGN held by the protocol until the position is
       released.
@@ -59,12 +59,12 @@
 
     <h2>Why Vaults Use Bonds</h2>
     <p>
-      <router-link to="/docs/assets-and-entities/vaulting-operations"
-        >Stabilization Vaults</router-link
+      <DocLink to="/docs/assets-and-entities/vaulting-operations"
+        >Stabilization Vaults</DocLink
       >
       support the network's
-      <router-link to="/docs/assets-and-entities/bitcoin-locks"
-        >Bitcoin Locks</router-link
+      <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+        >Bitcoin Locks</DocLink
       >. Their Treasury pools need ARGN capital to provide liquidity for those
       locks. Argon Bonds let other holders participate in supplying that
       capital.
@@ -118,8 +118,8 @@
         >
           <div class="text-3xl font-bold text-argon-700">10%</div>
           <div class="mt-2 font-bold text-slate-700">
-            <router-link to="/docs/assets-and-entities/argonot-stakes"
-              >Argonot Stakes</router-link
+            <DocLink to="/docs/assets-and-entities/argonot-stakes"
+              >Argonot Stakes</DocLink
             >
           </div>
         </div>
@@ -254,8 +254,8 @@
       The bond dashboard tracks each position's principal, distributed income,
       return to date, vault, and release status. Because positions are
       independent, each one must be released separately. See
-      <router-link to="/docs/desktop-app/treasury"
-        >Accessing Treasury</router-link
+      <DocLink to="/docs/desktop-app/treasury"
+        >Accessing Treasury</DocLink
       >
       for the features that become available at the Treasury level.
     </p>
@@ -263,6 +263,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

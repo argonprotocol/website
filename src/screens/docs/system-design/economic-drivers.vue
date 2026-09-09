@@ -15,7 +15,7 @@
     <p>
       These mechanisms reward participants who operate network infrastructure and commit capital
       to the system. Because no organization or founding entity received pre-mined tokens in
-      <router-link to="/docs/system-design/the-genesis-block">the genesis block</router-link>,
+      <DocLink to="/docs/system-design/the-genesis-block">the genesis block</DocLink>,
       rewards are distributed through participation rather than an initial allocation. Costs
       incurred by one participant often become revenue for another, creating a connected,
       closed-loop economic model.
@@ -85,9 +85,9 @@
     <p>
       Bitcoin remains native to the Bitcoin network, but its value is integrated
       into Argon's economic system through
-      <router-link to="/docs/assets-and-entities/bitcoin-locks">Bitcoin Locks</router-link>
+      <DocLink to="/docs/assets-and-entities/bitcoin-locks">Bitcoin Locks</DocLink>
       and
-      <router-link to="/docs/assets-and-entities/bitcoin-locks">Liquids</router-link>.
+      <DocLink to="/docs/assets-and-entities/bitcoin-locks">Liquids</DocLink>.
       Bitcoins locked inside the Argon ecosystem gain liquidity and downside-hedging opportunities,
       while vaults gain service revenue and Argon Bond capacity.
     </p>
@@ -127,7 +127,7 @@
     <p>
       The following calculator starts with the network's current pricing. Adjust
       the sliders to control expected return, growth in ARGN circulation, and ARGNOT's market
-      price. Go to <router-link to="/docs/assets-and-entities/mining-operations">Mining Operations</router-link>
+      price. Go to <DocLink to="/docs/assets-and-entities/mining-operations">Mining Operations</DocLink>
       to better understand the details of how the bidding and mining process works.
     </p>
 
@@ -170,8 +170,8 @@
 
     <p>
       Read
-      <router-link to="/docs/assets-and-entities/mining-operations"
-        >Mining Operations</router-link
+      <DocLink to="/docs/assets-and-entities/mining-operations"
+        >Mining Operations</DocLink
       >
       for the auction, cohort, and block-production rules behind the model.
     </p>
@@ -190,7 +190,7 @@
         </dt>
         <dd class="m-0 mt-2 sm:mt-0">
           <strong class="block text-lg">
-            <router-link to="/docs/assets-and-entities">Stabilization Vaults</router-link>
+            <DocLink to="/docs/assets-and-entities">Stabilization Vaults</DocLink>
           </strong>
           Allocated among qualifying vaults according to their amount of securitization. The range is based
           on each vault's locked Bitcoins, securitized Argonots, and bonds generated.
@@ -202,8 +202,8 @@
         </dt>
         <dd class="m-0 mt-2 sm:mt-0">
           <strong class="block text-lg">
-            <router-link to="/docs/assets-and-entities/operational-rewards-pool"
-            >Expansion Rewards Pool</router-link
+            <DocLink to="/docs/assets-and-entities/operational-rewards-pool"
+            >Expansion Rewards Pool</DocLink
             >
           </strong>
           This is an experimental fund meant to support the growth of the network. The
@@ -216,8 +216,8 @@
         </dt>
         <dd class="m-0 mt-2 sm:mt-0">
           <strong class="block text-lg">
-            <router-link to="/docs/assets-and-entities/argonot-stakes"
-            >Argonot Stakes</router-link
+            <DocLink to="/docs/assets-and-entities/argonot-stakes"
+            >Argonot Stakes</DocLink
             >
           </strong>
           Distributed proportionally among the ARGNOT positions supplying
@@ -231,8 +231,8 @@
         </dt>
         <dd class="m-0 mt-2 sm:mt-0">
           <strong class="block text-lg">
-            <router-link to="/docs/assets-and-entities/argonot-stakes"
-            >Argon Bonds</router-link
+            <DocLink to="/docs/assets-and-entities/argonot-stakes"
+            >Argon Bonds</DocLink
             >
           </strong>
           Distributed proportionally among the ARGN positions supplying
@@ -246,7 +246,7 @@
         </dt>
         <dd class="m-0 mt-2 sm:mt-0">
           <strong class="block text-lg">
-            <router-link to="/docs/assets-and-entities">Bitcoin Liquids</router-link>
+            <DocLink to="/docs/assets-and-entities">Bitcoin Liquids</DocLink>
           </strong>
           Distributed proportionally among the BTC positions supplying short positions against
           the ARGN token. The higher range is based on Profit Surges gifted by upstream operators.
@@ -328,7 +328,7 @@
 
     <p>
       Read
-      <router-link to="/docs/assets-and-entities/argonot-stakes">Argonot Stakes</router-link>
+      <DocLink to="/docs/assets-and-entities/argonot-stakes">Argonot Stakes</DocLink>
       for position sizes, miner selection, revenue distributions, and release
       rules.
     </p>
@@ -464,8 +464,8 @@
 
     <p>
       Read
-      <router-link to="/docs/assets-and-entities/vaulting-operations"
-        >Vaulting Operations</router-link
+      <DocLink to="/docs/assets-and-entities/vaulting-operations"
+        >Vaulting Operations</DocLink
       >
       for the complete revenue formula, capital requirements, insurance rules,
       and ongoing operator responsibilities.
@@ -542,8 +542,8 @@
 
     <p>
       Read
-      <router-link to="/docs/assets-and-entities/argon-bonds"
-        >Argon Bonds</router-link
+      <DocLink to="/docs/assets-and-entities/argon-bonds"
+        >Argon Bonds</DocLink
       >
       for position capacity, earnings, and release rules.
     </p>
@@ -634,12 +634,12 @@
       earn service fees from the Lock, and insured Bitcoin expands the eligible
       bond capacity that determines how mining-bid revenue reaches Vaults and
       Bond holders. Explore
-      <router-link to="/docs/assets-and-entities/bitcoin-locks"
-        >Bitcoin Locks</router-link
+      <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+        >Bitcoin Locks</DocLink
       >
       and
-      <router-link to="/docs/assets-and-entities/bitcoin-liquids"
-        >Bitcoin Liquids</router-link
+      <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
+        >Bitcoin Liquids</DocLink
       >
       for the two parts of this position.
     </p>
@@ -669,6 +669,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import * as Vue from "vue";
 import numeral from "@/lib/numeral";
 import DocHeader from "@/screens/docs/DocHeader.vue";

@@ -18,8 +18,8 @@
     <h2>Receiving Operations Access</h2>
     <p>
       A Treasury member can request an Operations upgrade after completing
-      <router-link to="/docs/desktop-app/treasury-certification"
-        >Treasury Certification</router-link
+      <DocLink to="/docs/desktop-app/treasury-certification"
+        >Treasury Certification</DocLink
       >. The sponsoring Operator reviews the request and must use an available
       Operations upgrade code to approve it.
     </p>
@@ -35,8 +35,8 @@
     <p>
       Registration unlocks the Operations interface, but the new Operator is not
       yet certified. See
-      <router-link to="/docs/desktop-app/access-codes"
-        >Access and Upgrades</router-link
+      <DocLink to="/docs/desktop-app/access-codes"
+        >Access and Upgrades</DocLink
       >
       for the approval sequence.
     </p>
@@ -54,8 +54,8 @@
       The operational server performs recurring network work, while Argon
       Desktop remains the interface for setup, monitoring, and decisions that
       require your approval. It also becomes the Operator's
-      <router-link to="/docs/assets-and-entities/upstream-nodes"
-        >Upstream Node</router-link
+      <DocLink to="/docs/assets-and-entities/upstream-nodes"
+        >Upstream Node</DocLink
       >
       for sponsored members.
     </p>
@@ -73,8 +73,8 @@
       active seats, completed terms, block rewards, and the assets associated
       with the operation. One Operator can fund multiple mining accounts and
       compete for multiple seats. Read
-      <router-link to="/docs/assets-and-entities/mining-operations"
-        >Mining Operations</router-link
+      <DocLink to="/docs/assets-and-entities/mining-operations"
+        >Mining Operations</DocLink
       >
       for the auction and seat rules.
     </p>
@@ -91,8 +91,8 @@
       The Vaulting dashboard surfaces the ongoing work that requires attention,
       including Bitcoin cosigning, capital changes, settings, revenue
       collection, and vault health. Read
-      <router-link to="/docs/assets-and-entities/vaulting-operations"
-        >Vaulting Operations</router-link
+      <DocLink to="/docs/assets-and-entities/vaulting-operations"
+        >Vaulting Operations</DocLink
       >
       for the service and capital requirements.
     </p>
@@ -109,8 +109,8 @@
     <p>
       The onboarding dashboard also tracks qualifying certifications, referral
       progress, and rewards that are ready to claim. See
-      <router-link to="/docs/assets-and-entities/operational-rewards-pool"
-        >Expansion Rewards Pool</router-link
+      <DocLink to="/docs/assets-and-entities/operational-rewards-pool"
+        >Expansion Rewards Pool</DocLink
       >
       for the funding and eligibility rules.
     </p>
@@ -126,12 +126,12 @@
 
     <p>
       Continue to
-      <router-link to="/docs/bridgeless-transfers/localized-minting-authorities"
-        >Localized Minting Authorities</router-link
+      <DocLink to="/docs/bridgeless-transfers/localized-minting-authorities"
+        >Localized Minting Authorities</DocLink
       >
       and
-      <router-link to="/docs/bridgeless-transfers/global-issuance-council"
-        >Global Issuance Council</router-link
+      <DocLink to="/docs/bridgeless-transfers/global-issuance-council"
+        >Global Issuance Council</DocLink
       >
       for those responsibilities.
     </p>
@@ -147,8 +147,8 @@
     <p>
       Certification establishes full Operator status, makes the first upgrade
       code available, and records the applicable onboarding rewards. Read
-      <router-link to="/docs/desktop-app/operations-certification"
-        >Operator Certification</router-link
+      <DocLink to="/docs/desktop-app/operations-certification"
+        >Operator Certification</DocLink
       >
       for the current requirements and activation results.
     </p>
@@ -171,6 +171,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

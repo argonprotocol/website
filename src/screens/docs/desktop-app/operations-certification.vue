@@ -108,8 +108,8 @@
 
     <p>
       See
-      <router-link to="/docs/assets-and-entities/vaulting-operations"
-        >Vaulting Operations</router-link
+      <DocLink to="/docs/assets-and-entities/vaulting-operations"
+        >Vaulting Operations</DocLink
       >
       for the service, capital, and availability requirements.
     </p>
@@ -124,8 +124,8 @@
 
     <p>
       See
-      <router-link to="/docs/assets-and-entities/mining-operations"
-        >Mining Operations</router-link
+      <DocLink to="/docs/assets-and-entities/mining-operations"
+        >Mining Operations</DocLink
       >
       for seat auctions, terms, collateral, and operating responsibilities.
     </p>
@@ -199,12 +199,12 @@
       After activation, Member Onboarding becomes available for invitations,
       Operations upgrade approvals, upgrade-code tracking, and reward claims.
       See
-      <router-link to="/docs/desktop-app/access-codes"
-        >Access and Upgrades</router-link
+      <DocLink to="/docs/desktop-app/access-codes"
+        >Access and Upgrades</DocLink
       >
       and
-      <router-link to="/docs/assets-and-entities/operational-rewards-pool"
-        >Expansion Rewards Pool</router-link
+      <DocLink to="/docs/assets-and-entities/operational-rewards-pool"
+        >Expansion Rewards Pool</DocLink
       >
       for those rules.
     </p>
@@ -226,6 +226,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

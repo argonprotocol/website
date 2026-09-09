@@ -13,8 +13,8 @@
         stablecoin. Its value follows the cost of real goods rather than
         a fixed amount of fiat currency. “Argon” can also refer to the network
         itself.
-        <router-link to="/docs/assets-and-entities/argons"
-          >Learn more about Argons.</router-link
+        <DocLink to="/docs/assets-and-entities/argons"
+          >Learn more about Argons.</DocLink
         >
       </li>
       <li>
@@ -22,8 +22,8 @@
         capitalize parts of the network. Miners commit Argonots when bidding for
         mining seats, and vault operators use them as part of vault
         securitization. Argonots can also be placed into yield-bearing stakes.
-        <router-link to="/docs/assets-and-entities/argonots"
-          >Learn more about Argonots.</router-link
+        <DocLink to="/docs/assets-and-entities/argonots"
+          >Learn more about Argonots.</DocLink
         >
       </li>
       <li>
@@ -31,24 +31,24 @@
         through an on-chain vault arrangement. The owner receives the Bitcoin’s
         market value in liquid Argons while retaining a defined path to release
         the Bitcoin.
-        <router-link to="/docs/assets-and-entities/bitcoin-locks"
-          >Learn more about Bitcoin Locks.</router-link
+        <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+          >Learn more about Bitcoin Locks.</DocLink
         >
       </li>
       <li>
         <strong>Argon Bond.</strong> A yield-bearing position that lends
         Argons to a vault. Bondholders receive a share of the vault’s
         stabilization revenue, subject to the bond’s onchain terms.
-        <router-link to="/docs/assets-and-entities/argon-bonds"
-          >Learn more about Argon Bonds.</router-link
+        <DocLink to="/docs/assets-and-entities/argon-bonds"
+          >Learn more about Argon Bonds.</DocLink
         >
       </li>
       <li>
         <strong>Argonot Stake.</strong> A yield-bearing position that lends
         Argonots to a miner. Stakeholders receive a share of mining-auction
         revenue, subject to the stake’s onchain terms.
-        <router-link to="/docs/assets-and-entities/argonot-stakes"
-          >Learn more about Argonot Stakes.</router-link
+        <DocLink to="/docs/assets-and-entities/argonot-stakes"
+          >Learn more about Argonot Stakes.</DocLink
         >
       </li>
     </ul>
@@ -72,8 +72,8 @@
       <li>
         <strong>Mining Auction.</strong> The open bidding process that selects
         the miners for an upcoming seat term.
-        <router-link to="/docs/assets-and-entities/mining-operations"
-          >Learn more about mining.</router-link
+        <DocLink to="/docs/assets-and-entities/mining-operations"
+          >Learn more about mining.</DocLink
         >
       </li>
       <li>
@@ -93,8 +93,8 @@
         <strong>Stabilization Vault.</strong> An onchain operation that supports
         Bitcoin Locks and deploys capital into Treasury. A vault operator sets
         its available capacity, fees, and capital-allocation rules.
-        <router-link to="/docs/assets-and-entities/vaulting-operations"
-          >Learn more about vaulting.</router-link
+        <DocLink to="/docs/assets-and-entities/vaulting-operations"
+          >Learn more about vaulting.</DocLink
         >
       </li>
       <li>
@@ -126,8 +126,8 @@
         <strong>Wallet.</strong> The keys and addresses used to hold assets and
         approve transactions. Argon Desktop is self-custodial: the network does
         not keep a password or recovery copy of your keys.
-        <router-link to="/docs/desktop-app/self-custody-risks"
-          >Review the self-custody risks.</router-link
+        <DocLink to="/docs/desktop-app/self-custody-risks"
+          >Review the self-custody risks.</DocLink
         >
       </li>
       <li>
@@ -150,6 +150,7 @@
   </DocContent>
 </template>
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 </script>

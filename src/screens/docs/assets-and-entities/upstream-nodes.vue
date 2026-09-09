@@ -78,8 +78,8 @@
 
     <p>
       See
-      <router-link to="/docs/desktop-app/access-codes"
-        >Access and Upgrades</router-link
+      <DocLink to="/docs/desktop-app/access-codes"
+        >Access and Upgrades</DocLink
       >
       for the complete path from Basic to Treasury and Operations.
     </p>
@@ -102,12 +102,12 @@
       </li>
       <li>
         Access to the sponsor's Stabilization Vault for
-        <router-link to="/docs/assets-and-entities/bitcoin-locks"
-          >Bitcoin Locks</router-link
+        <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+          >Bitcoin Locks</DocLink
         >
         and
-        <router-link to="/docs/assets-and-entities/argon-bonds"
-          >Argon Bonds</router-link
+        <DocLink to="/docs/assets-and-entities/argon-bonds"
+          >Argon Bonds</DocLink
         >.
       </li>
       <li>
@@ -208,8 +208,8 @@
       A sponsor may earn an upgrade code or an operational reward when a
       downstream member becomes a certified operator. Those events are defined
       by the protocol, not by the server connection itself. See
-      <router-link to="/docs/assets-and-entities/operational-rewards-pool"
-        >Expansion Rewards Pool</router-link
+      <DocLink to="/docs/assets-and-entities/operational-rewards-pool"
+        >Expansion Rewards Pool</DocLink
       >
       for the economic rules.
     </p>
@@ -231,6 +231,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

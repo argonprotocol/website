@@ -19,7 +19,7 @@
           </div>
         </template>
         <template v-else>
-          <RouterLink :to="breadcrumb.link">{{ breadcrumb.title }}</RouterLink>
+          <DocLink :to="breadcrumb.link">{{ breadcrumb.title }}</DocLink>
         </template>
       </li>
     </ol>
@@ -30,6 +30,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import * as Vue from 'vue';
 import { useRoute } from 'vue-router';
 import LeftbarIcon from '@/assets/leftbar.svg?component';

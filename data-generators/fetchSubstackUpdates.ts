@@ -167,26 +167,93 @@ async function loadExistingFeed(error: unknown, outputPath: string): Promise<Sub
   }
 }
 
+interface ArchivePost {
+  slug: string;
+  title: string;
+  post_date: string;
+  canonical_url: string;
+  description?: string;
+  subtitle?: string;
+  cover_image?: string;
+  body_html?: string;
+  publishedBylines?: { name: string }[];
+  postTags?: { name: string }[];
+}
+
+async function requestSubstack(url: URL, accept: string): Promise<Response> {
+  url.searchParams.set('refresh', Date.now().toString());
+  const response = await fetch(url, {
+    headers: { ...REQUEST_HEADERS, Accept: accept },
+    signal: AbortSignal.timeout(30_000),
+  });
+  if (!response.ok) {
+    throw new Error(`Substack request failed with ${response.status} ${response.statusText}`);
+  }
+  return response;
+}
+
+async function fetchArchive(feed: SubstackUpdatesFeed, origin: string): Promise<SubstackUpdate[]> {
+  const posts = new Map<string, ArchivePost>();
+  let offset = 0;
+  while (true) {
+    const url = new URL('/api/v1/archive', origin);
+    url.searchParams.set('sort', 'new');
+    url.searchParams.set('offset', String(offset));
+    url.searchParams.set('limit', '20');
+    const page: unknown = await (await requestSubstack(url, 'application/json')).json();
+    if (!Array.isArray(page)) throw new Error('Invalid Substack archive response.');
+    if (!page.length) break;
+    const previousSize = posts.size;
+    for (const post of page) {
+      if (!post || typeof post.slug !== 'string' || !post.slug) {
+        throw new Error('Substack archive post is missing its slug.');
+      }
+      posts.set(post.slug, post);
+    }
+    if (posts.size === previousSize) throw new Error('Substack archive pagination made no progress.');
+    offset += page.length;
+  }
+  if (!posts.size || feed.items.some(item => !posts.has(item.id))) {
+    throw new Error('Substack archive is missing articles from the RSS feed.');
+  }
+
+  const items: SubstackUpdate[] = [];
+  for (const slug of posts.keys()) {
+    const url = new URL(`/api/v1/posts/${encodeURIComponent(slug)}`, origin);
+    const post: ArchivePost = await (await requestSubstack(url, 'application/json')).json();
+    if (!post || post.slug !== slug || !post.title || !post.canonical_url ||
+        !Number.isFinite(Date.parse(post.post_date)) || typeof post.body_html !== 'string') {
+      throw new Error(`Invalid or missing Substack article content: ${slug}`);
+    }
+    items.push({
+      id: slug,
+      title: stripHtml(post.title),
+      summary: stripHtml(post.description || post.subtitle || '') || stripHtml(post.body_html).slice(0, 220),
+      url: post.canonical_url,
+      publishedAt: new Date(post.post_date).toISOString(),
+      author: (post.publishedBylines || []).map(byline => byline.name).join(', '),
+      imageUrl: post.cover_image || undefined,
+      categories: (post.postTags || []).map(tag => tag.name),
+      contentHtml: sanitizeArticleHtml(post.body_html),
+    });
+  }
+  return items.sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
+}
+
 export default async function fetchSubstackUpdates(
   feedUrl = process.env.SUBSTACK_FEED_URL || DEFAULT_FEED_URL,
   outputPath = OUTPUT_PATH,
 ): Promise<SubstackUpdatesFeed> {
-  let response: Response;
+  let feed: SubstackUpdatesFeed;
   try {
     const requestUrl = new URL(feedUrl);
-    requestUrl.searchParams.set('refresh', Date.now().toString());
-    response = await fetch(requestUrl, { headers: REQUEST_HEADERS });
+    const response = await requestSubstack(requestUrl, REQUEST_HEADERS.Accept);
+    feed = parseSubstackFeed(await response.text());
+    feed.items = await fetchArchive(feed, requestUrl.origin);
   } catch (error) {
     return loadExistingFeed(error, outputPath);
   }
-  if (!response.ok) {
-    return loadExistingFeed(
-      new Error(`Substack RSS request failed with ${response.status} ${response.statusText}`),
-      outputPath,
-    );
-  }
 
-  const feed = parseSubstackFeed(await response.text());
   await mkdir(dirname(outputPath), { recursive: true });
   await writeFile(outputPath, `${JSON.stringify(feed, null, 2)}\n`, 'utf8');
   console.log(`Saved ${feed.items.length} Substack updates to ${outputPath}`);

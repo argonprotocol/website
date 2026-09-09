@@ -11,8 +11,8 @@
 
     <p>
       Moving Bitcoin into your App Wallet places it into a
-      <router-link to="/docs/assets-and-entities/bitcoin-locks"
-        >Bitcoin Lock</router-link
+      <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+        >Bitcoin Lock</DocLink
       >. The Lock is a multisig custody arrangement between you and a vault
       cosigner. It secures the Bitcoin inside the wallet, but it does not by
       itself create or distribute Argon stablecoins.
@@ -33,8 +33,8 @@
           The Custody
         </div>
         <div class="mt-2 text-xl font-bold text-slate-800">
-          <router-link to="/docs/assets-and-entities/bitcoin-locks"
-            >Bitcoin Lock</router-link
+          <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+            >Bitcoin Lock</DocLink
           >
         </div>
         <p class="mt-2 mb-0 text-sm text-slate-600">
@@ -46,8 +46,8 @@
           The Position
         </div>
         <div class="mt-2 text-xl font-bold text-slate-800">
-          <router-link to="/docs/assets-and-entities/bitcoin-liquids"
-            >Bitcoin Liquid</router-link
+          <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
+            >Bitcoin Liquid</DocLink
           >
         </div>
         <p class="mt-2 mb-0 text-sm text-slate-600">
@@ -68,8 +68,8 @@
 
     <p>
       Your recovery phrase controls the owner's side of the Lock. The selected
-      <router-link to="/docs/assets-and-entities/vaulting-operations"
-        >Stabilization Vault</router-link
+      <DocLink to="/docs/assets-and-entities/vaulting-operations"
+        >Stabilization Vault</DocLink
       >
       supplies the second signing key. During the normal Lock term, neither side
       can independently spend the Bitcoin.
@@ -89,8 +89,8 @@
       <p class="m-0">
         Funding a Bitcoin Lock only moves Bitcoin into the App Wallet's custody
         arrangement. To receive
-        <router-link to="/docs/assets-and-entities/argon-stablecoins"
-          >Argon stablecoins</router-link
+        <DocLink to="/docs/assets-and-entities/argon-stablecoins"
+          >Argon stablecoins</DocLink
         >, the owner must separately create a Bitcoin Liquid against an eligible
         Lock.
       </p>
@@ -123,12 +123,12 @@
 
     <p>
       See
-      <router-link to="/docs/assets-and-entities/bitcoin-locks"
-        >Bitcoin Locks</router-link
+      <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+        >Bitcoin Locks</DocLink
       >
       for custody, insurance, and release rules, or
-      <router-link to="/docs/assets-and-entities/bitcoin-liquids"
-        >Bitcoin Liquids</router-link
+      <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
+        >Bitcoin Liquids</DocLink
       >
       for the process of receiving ARGN against locked Bitcoin.
     </p>
@@ -136,6 +136,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

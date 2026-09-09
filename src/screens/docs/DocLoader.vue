@@ -13,8 +13,8 @@
               <template v-if="group.items">
                 <h3 class="mt-5 whitespace-nowrap font-semibold uppercase tracking-widest text-argon-900/40">{{ group.title }}</h3>
                 <template v-for="(item, i2) in group.items" :key="`title-${i1}-${i2}`">
-                  <RouterLink
-                    :class="{ isSelected: isSelected(resolveDocPath(group.base, item.link)) }"
+                  <DocLink
+                    :class="{ isSelected: isDocLinkActive(resolveDocPath(group.base, item.link)) && isSelected(resolveDocPath(group.base, item.link)) }"
                     class="block whitespace-nowrap pl-5"
                     @click="closeLeftbar"
                     :to="resolveDocPath(group.base, item.link)"
@@ -26,10 +26,10 @@
                     <template v-else>
                       {{ item.title }}
                     </template>
-                  </RouterLink>
+                  </DocLink>
                 </template>
               </template>
-              <RouterLink
+              <DocLink
                   v-else
                   class="block whitespace-nowrap pl-2"
                   :class="{ isSelected: isSelected(group.link) }"
@@ -37,7 +37,7 @@
                   :to="cleanPath(group.link)"
               >
                 {{ group.title }}
-              </RouterLink>
+              </DocLink>
             </template>
           </div>
         </div>
@@ -81,6 +81,8 @@
 <script setup lang="ts">
 import * as Vue from 'vue';
 import { useRoute } from 'vue-router';
+import DocLink from './DocLink.vue';
+import { isDocLinkActive } from './docLinkState';
 import toc from './toc.json';
 import MainLayout from '@/navigation/MainLayout.vue';
 import GithubLogo from '@/assets/github.svg?component';
@@ -117,8 +119,9 @@ Vue.onBeforeUnmount(() => {
 });
 
 type TocItem = {
-  title: string;
+  title: string | string[];
   link: string;
+  isActive: boolean;
 };
 
 type TocGroup = {

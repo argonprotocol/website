@@ -62,14 +62,14 @@
     <p>
       Argon's Desktop app helps users participate in these yield-bearing instruments
       while the mainchain enforces the underlying asset rules and distributions. Explore
-      <router-link to="/docs/assets-and-entities/bitcoin-locks"
-        >Bitcoin Locks</router-link
+      <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+        >Bitcoin Locks</DocLink
       >,
-      <router-link to="/docs/assets-and-entities/argon-bonds"
-        >Argon Bonds</router-link
+      <DocLink to="/docs/assets-and-entities/argon-bonds"
+        >Argon Bonds</DocLink
       >,
-      <router-link to="/docs/assets-and-entities/argonot-stakes"
-        >Argonot Stakes</router-link
+      <DocLink to="/docs/assets-and-entities/argonot-stakes"
+        >Argonot Stakes</DocLink
       >.
     </p>
 
@@ -101,12 +101,12 @@
     <p>
       The goal is to let supply respond in either direction without relying on a
       company or central issuer. Read more about
-      <router-link to="/docs/economic-pillars/recovery-from-death-spirals"
-        >Argon’s recovery mechanisms</router-link
+      <DocLink to="/docs/economic-pillars/recovery-from-death-spirals"
+        >Argon’s recovery mechanisms</DocLink
       >
       or the
-      <router-link to="/docs/whitepapers/fundamentals"
-        >stability fundamentals whitepaper</router-link
+      <DocLink to="/docs/whitepapers/fundamentals"
+        >stability fundamentals whitepaper</DocLink
       >.
     </p>
 
@@ -123,12 +123,12 @@
       capital and infrastructure. The operators are compensated through protocol rewards,
       auction distributions, and service fees rather than by a central company.
       Explore
-      <router-link to="/docs/assets-and-entities/mining-operations"
-        >mining operations</router-link
+      <DocLink to="/docs/assets-and-entities/mining-operations"
+        >mining operations</DocLink
       >
       and
-      <router-link to="/docs/assets-and-entities/vaulting-operations"
-        >vaulting operations</router-link
+      <DocLink to="/docs/assets-and-entities/vaulting-operations"
+        >vaulting operations</DocLink
       >.
     </p>
 
@@ -144,8 +144,8 @@
     <p>
       Argon is a stablecoin where “stable” refers to stable purchasing power
       over time not simply a fixed amount of dollars. Learn why this distinction
-      matters in <router-link to="/docs/economic-pillars/protection-from-inflation"
-      >Protection from Inflation</router-link
+      matters in <DocLink to="/docs/economic-pillars/protection-from-inflation"
+      >Protection from Inflation</DocLink
       >.
     </p>
     <p>
@@ -153,12 +153,12 @@
       guarantee that every market will always trade at target. Prices can diverge,
       responses take time, and participation depends on real people finding the
       available incentives worthwhile. Learn more in
-      <router-link to="/docs/economic-pillars/protection-from-inflation"
-        >Protection from Inflation</router-link
+      <DocLink to="/docs/economic-pillars/protection-from-inflation"
+        >Protection from Inflation</DocLink
       >
       and
-      <router-link to="/docs/economic-pillars/insulation-from-fiat-money"
-        >Insulation from Fiat Money</router-link
+      <DocLink to="/docs/economic-pillars/insulation-from-fiat-money"
+        >Insulation from Fiat Money</DocLink
       >.
     </p>
 
@@ -172,19 +172,19 @@
     <p>
       The “Massive Short” is the collective effect of many individual Bitcoin Locks. Each lock
       behaves like a short position against Argon. When the Argon trades below target, Bitcoins
-      becomes cheaper to unlock. At the same time, the unlocking formula increases the number
+      become cheaper to unlock. At the same time, the unlocking formula increases the number
       of Argons that must be burned in the unlock. Bitcoin holders can therefore unlock at a discount while
       substantially increasing the number of Argons that would normally be removed from circulation.
       This helps bring supply and demand back toward balance.
     </p>
     <p>
      Learn more about
-      <router-link to="/docs/assets-and-entities/bitcoin-locks"
-        >Bitcoin Locks</router-link
+      <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+        >Bitcoin Locks</DocLink
       >
       and
-      <router-link to="/docs/economic-pillars/recovery-from-death-spirals"
-        >recovery from death spirals</router-link
+      <DocLink to="/docs/economic-pillars/recovery-from-death-spirals"
+        >recovery from death spirals</DocLink
       >.
     </p>
 
@@ -193,8 +193,8 @@
       Argons and Argonots can seamlessly move between the Argon Network and any supported external
       network without requiring a traditional cross-chain bridge. Instead of requiring a centralized
       party or a complicated dance between chains, Argon's bridgeless innovation allows transfers to
-      be <router-link to="/docs/bridgeless-transfers/from-argon-to-remote">directly executed the
-      requesting user</router-link>.
+      be <DocLink to="/docs/bridgeless-transfers/from-argon-to-remote">directly executed by the
+      requesting user</DocLink>.
     </p>
 
     <h2>8. The Global Issuance Council</h2>
@@ -209,8 +209,8 @@
       The council coordinates a narrowly defined cross-chain function; it does
       not set Argon’s market price or discretionary monetary policy. Learn more
       about the
-      <router-link to="/docs/bridgeless-transfers/global-issuance-council"
-        >Global Issuance Council</router-link
+      <DocLink to="/docs/bridgeless-transfers/global-issuance-council"
+        >Global Issuance Council</DocLink
       >.
     </p>
 
@@ -249,6 +249,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 </script>

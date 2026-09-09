@@ -68,14 +68,15 @@
     </p>
 
     <p>
-      See <router-link to="/docs/system-design/economic-drivers">Economic Drivers</router-link> for the individual
-      returns and <router-link to="/docs/system-design/stabilization-algorithms">Stabilization Algorithms</router-link>
+      See <DocLink to="/docs/system-design/economic-drivers">Economic Drivers</DocLink> for the individual
+      returns and <DocLink to="/docs/system-design/stabilization-algorithms">Stabilization Algorithms</DocLink>
       for supply rules.
     </p>
   </DocContent>
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import GrowthSimulator from "@/components/simulators/GrowthSimulator.vue";

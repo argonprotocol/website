@@ -5,8 +5,8 @@
       These answers cover the questions most people have when they first
       encounter Argon or open Argon Desktop. For definitions of individual
       concepts, see
-      <router-link to="/docs/getting-started/common-terminology"
-        >Common Terminology</router-link
+      <DocLink to="/docs/getting-started/common-terminology"
+        >Common Terminology</DocLink
       >.
     </p>
 
@@ -18,12 +18,12 @@
         Argon instead creates stable purchasing power using a Consumer Price
         Index based on the cost of real goods. As those costs change, Argon’s
         target value changes with them. Learn more about
-        <router-link to="/docs/assets-and-entities/argons"
-          >Argons</router-link
+        <DocLink to="/docs/assets-and-entities/argons"
+          >Argons</DocLink
         >
         and
-        <router-link to="/docs/system-design/argon-tokenomics"
-          >Argon tokenomics</router-link
+        <DocLink to="/docs/system-design/argon-tokenomics"
+          >Argon tokenomics</DocLink
         >.
       </p>
     </article>
@@ -47,12 +47,12 @@
         do not represent company shares or a claim on a company. Their market
         value is determined by supply and demand rather than a stable
         purchasing-power target.
-        <router-link to="/docs/assets-and-entities/argonots"
-          >Learn more about Argonots</router-link
+        <DocLink to="/docs/assets-and-entities/argonots"
+          >Learn more about Argonots</DocLink
         >
         and
-        <router-link to="/docs/system-design/argonot-tokenomics"
-          >Argonot tokenomics</router-link
+        <DocLink to="/docs/system-design/argonot-tokenomics"
+          >Argonot tokenomics</DocLink
         >.
       </p>
     </article>
@@ -77,8 +77,8 @@
         No. You can create or import a self-custodial account and use the basic
         wallet features without an invite. However, an access code is required to
         activate the Treasury level.
-        <router-link to="/docs/desktop-app/access-codes"
-          >Learn more about access and upgrades.</router-link
+        <DocLink to="/docs/desktop-app/access-codes"
+          >Learn more about access and upgrades.</DocLink
         >
       </p>
     </article>
@@ -86,11 +86,11 @@
     <article>
       <header>What Is the Difference Between Treasury and Operations?</header>
       <p>
-        <router-link to="/docs/desktop-app/treasury">Treasury</router-link> is
+        <DocLink to="/docs/desktop-app/treasury">Treasury</DocLink> is
         where members deploy assets through features such as Bitcoin Locks,
         Argon Bonds, and Argonot Stakes. Stable Swaps remain available as
-        <router-link to="/docs/desktop-app/basic-functionality">Basic Functionality</router-link>.
-        <router-link to="/docs/desktop-app/operations">Becoming an Operator</router-link>
+        <DocLink to="/docs/desktop-app/basic-functionality">Basic Functionality</DocLink>.
+        <DocLink to="/docs/desktop-app/operations">Becoming an Operator</DocLink>
         requires much deeper involvement. Operators are responsible for running
         network infrastructure, including mining and Stabilization Vaults.
       </p>
@@ -113,8 +113,8 @@
         You do. Argon Desktop is self-custodial software: it creates or imports
         keys on your device and uses them to approve transactions. Argon does
         not keep a password or recovery copy that can restore your wallet.
-        <router-link to="/docs/desktop-app/self-custody-risks"
-          >Review the self-custody risks.</router-link
+        <DocLink to="/docs/desktop-app/self-custody-risks"
+          >Review the self-custody risks.</DocLink
         >
       </p>
     </article>
@@ -149,8 +149,8 @@
         machines, while mining seats are allocated through recurring auctions.
         Operators are still responsible for reliable compute, storage,
         networking, and uptime.
-        <router-link to="/docs/assets-and-entities/mining-operations"
-          >Learn more about mining.</router-link
+        <DocLink to="/docs/assets-and-entities/mining-operations"
+          >Learn more about mining.</DocLink
         >
       </p>
     </article>
@@ -197,6 +197,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 </script>

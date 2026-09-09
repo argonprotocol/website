@@ -25,8 +25,8 @@
     <p>
       Anyone can create or import a self-custodial account and use Argon
       Desktop's
-      <router-link to="/docs/desktop-app/basic-functionality"
-        >Basic functionality</router-link
+      <DocLink to="/docs/desktop-app/basic-functionality"
+        >Basic functionality</DocLink
       >
       without an invitation. This includes viewing balances and managing normal
       wallet transactions.
@@ -48,18 +48,18 @@
     <p>
       The inviting operator becomes the member's sponsor, and the operator's
       server becomes the member's
-      <router-link to="/docs/assets-and-entities/upstream-nodes"
-        >Upstream Node</router-link
+      <DocLink to="/docs/assets-and-entities/upstream-nodes"
+        >Upstream Node</DocLink
       >. The invitation also identifies the sponsor's vault and any optional
       Bitcoin Lock fee waiver included with the invitation.
     </p>
 
     <p>
       Accepting the code unlocks the
-      <router-link to="/docs/desktop-app/treasury">Treasury level</router-link>
+      <DocLink to="/docs/desktop-app/treasury">Treasury level</DocLink>
       of the app. It does not automatically commit assets or begin
-      <router-link to="/docs/desktop-app/treasury-certification"
-        >Treasury Certification</router-link
+      <DocLink to="/docs/desktop-app/treasury-certification"
+        >Treasury Certification</DocLink
       >. The member chooses each Treasury action separately.
     </p>
 
@@ -83,8 +83,8 @@
       Registration links the new operator's operational, vault, and mining
       accounts and records the sponsoring operator as its upstream operator. The
       new operator can then set up the infrastructure needed to complete
-      <router-link to="/docs/desktop-app/operations-certification"
-        >Operator Certification</router-link
+      <DocLink to="/docs/desktop-app/operations-certification"
+        >Operator Certification</DocLink
       >.
     </p>
 
@@ -181,8 +181,8 @@
       Certification and sponsorship rewards are earned only at the final
       certification event—not when an invitation is created, accepted, or
       approved. See
-      <router-link to="/docs/assets-and-entities/operational-rewards-pool"
-        >Expansion Rewards Pool</router-link
+      <DocLink to="/docs/assets-and-entities/operational-rewards-pool"
+        >Expansion Rewards Pool</DocLink
       >
       for the current reward rules.
     </p>
@@ -190,6 +190,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

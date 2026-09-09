@@ -5,15 +5,18 @@
     "items": [
       {
         "title": "Welcome",
-        "link": "/"
+        "link": "/",
+        "isActive": true
       },
       {
         "title": "Frequent Questions",
-        "link": "/getting-started/frequent-questions"
+        "link": "/getting-started/frequent-questions",
+        "isActive": true
       },
       {
         "title": "Common Terminology",
-        "link": "/getting-started/common-terminology"
+        "link": "/getting-started/common-terminology",
+        "isActive": true
       }
     ]
   },
@@ -23,34 +26,42 @@
     "items": [
       {
         "title": "Architectural Basics",
-        "link": "/"
+        "link": "/",
+        "isActive": true
       },
       {
         "title": "Stabilization Algorithms",
-        "link": "/stabilization-algorithms"
+        "link": "/stabilization-algorithms",
+        "isActive": true
       },
       {
         "title": "Economic Drivers",
-        "link": "/economic-drivers"
+        "link": "/economic-drivers",
+        "isActive": true
       },
       {
         "title": "Growth Simulator",
-        "link": "/growth-simulator"
+        "link": "/growth-simulator",
+        "isActive": true
       },      {
         "title": "Death-Spiral Simulator",
-        "link": "/death-spiral-simulator"
+        "link": "/death-spiral-simulator",
+        "isActive": true
       },
       {
         "title": "Argon Tokenomics",
-        "link": "/argon-tokenomics"
+        "link": "/argon-tokenomics",
+        "isActive": true
       },
       {
         "title": "Argonot Tokenomics",
-        "link": "/argonot-tokenomics"
+        "link": "/argonot-tokenomics",
+        "isActive": true
       },
       {
         "title": "The Genesis Block",
-        "link": "/the-genesis-block"
+        "link": "/the-genesis-block",
+        "isActive": true
       }
     ]
   },
@@ -60,39 +71,48 @@
     "items": [
       {
         "title": "Overview",
-        "link": "/"
+        "link": "/",
+        "isActive": false
       },
       {
         "title": "Internal Wallet",
-        "link": "/internal-wallet"
+        "link": "/internal-wallet",
+        "isActive": false
       },
       {
         "title": "Self-Custody Risks",
-        "link": "/self-custody-risks"
+        "link": "/self-custody-risks",
+        "isActive": false
       },
       {
         "title": "Access and Upgrades",
-        "link": "/access-codes"
+        "link": "/access-codes",
+        "isActive": false
       },
       {
         "title": ["Basic Functionality", "Level One"],
-        "link": "/basic-functionality"
+        "link": "/basic-functionality",
+        "isActive": false
       },
       {
         "title": ["Treasury", "Level Two"],
-        "link": "/treasury"
+        "link": "/treasury",
+        "isActive": false
       },
       {
         "title": ["Operations", "Level Three"],
-        "link": "/operations"
+        "link": "/operations",
+        "isActive": false
       },
       {
         "title": "Treasury Certification",
-        "link": "/treasury-certification"
+        "link": "/treasury-certification",
+        "isActive": false
       },
       {
         "title": "Operator Certification",
-        "link": "/operations-certification"
+        "link": "/operations-certification",
+        "isActive": false
       }
     ]
   },
@@ -102,39 +122,48 @@
     "items": [
       {
         "title": "How It Works",
-        "link": "/"
+        "link": "/",
+        "isActive": false
       },
       {
         "title": "Initiate a Transfer",
-        "link": "/initiate-a-transfer"
+        "link": "/initiate-a-transfer",
+        "isActive": false
       },
       {
         "title": "Connectors",
-        "link": "/connectors"
+        "link": "/connectors",
+        "isActive": false
       },
       {
         "title": "Connect a MetaMask Wallet",
-        "link": "/connect-metamask-wallet"
+        "link": "/connect-metamask-wallet",
+        "isActive": false
       },
       {
         "title": "Connect a Uniswap Wallet",
-        "link": "/connect-uniswap-wallet"
+        "link": "/connect-uniswap-wallet",
+        "isActive": false
       },
       {
         "title": "From Argon to Remote",
-        "link": "/from-argon-to-remote"
+        "link": "/from-argon-to-remote",
+        "isActive": false
       },
       {
         "title": "From Remote to Argon",
-        "link": "/from-remote-to-argon"
+        "link": "/from-remote-to-argon",
+        "isActive": false
       },
       {
         "title": "Remote Minting Authorities",
-        "link": "/remote-minting-authorities"
+        "link": "/remote-minting-authorities",
+        "isActive": false
       },
       {
         "title": "Global Issuance Council",
-        "link": "/global-issuance-council"
+        "link": "/global-issuance-council",
+        "isActive": false
       }
     ]
   },
@@ -144,58 +173,72 @@
     "items": [
       {
         "title": "Argons",
-        "link": "/argon-stablecoins"
+        "link": "/argon-stablecoins",
+        "isActive": false
       },      {
         "title": "Argon Bonds",
-        "link": "/argon-bonds"
+        "link": "/argon-bonds",
+        "isActive": false
       },
       {
         "title": "Argonots",
-        "link": "/argonot-tokens"
+        "link": "/argonot-tokens",
+        "isActive": false
       },
       {
         "title": "Argonot Stakes",
-        "link": "/argonot-stakes"
+        "link": "/argonot-stakes",
+        "isActive": false
       },
       {
         "title": "Bitcoins",
-        "link": "/bitcoins"
+        "link": "/bitcoins",
+        "isActive": false
       },
       {
         "title": "Bitcoin Locks",
-        "link": "/bitcoin-locks"
+        "link": "/bitcoin-locks",
+        "isActive": false
       },
       {
         "title": "Bitcoin Liquids",
-        "link": "/bitcoin-liquids"
+        "link": "/bitcoin-liquids",
+        "isActive": false
       },
       {
         "title": "Stable Swaps",
-        "link": "/stable-swaps"
+        "link": "/stable-swaps",
+        "isActive": false
       },
       {
         "title": "Mining Operations",
-        "link": "/mining-operations"
+        "link": "/mining-operations",
+        "isActive": false
       },
       {
         "title": "Vaulting Operations",
-        "link": "/vaulting-operations"
+        "link": "/vaulting-operations",
+        "isActive": false
       },
       {
         "title": "Upstream Nodes",
-        "link": "/upstream-nodes"
+        "link": "/upstream-nodes",
+        "isActive": false
       },
       {
         "title": "Expansion Rewards Pool",
-        "link": "/operational-rewards-pool"
+        "link": "/operational-rewards-pool",
+        "isActive": false
       },
       {
         "title": "Mainchain",
-        "link": "/mainchain"
+        "link": "/mainchain",
+        "isActive": false
       },
       {
         "title": "Sidechain",
-        "link": "/sidechain"
+        "link": "/sidechain",
+        "isActive": false
       }
     ]
   },
@@ -205,15 +248,18 @@
     "items": [
       {
         "title": "Protection from Inflation",
-        "link": "/protection-from-inflation"
+        "link": "/protection-from-inflation",
+        "isActive": true
       },
       {
         "title": "Insulation from Fiat Money",
-        "link": "/insulation-from-fiat-money"
+        "link": "/insulation-from-fiat-money",
+        "isActive": true
       },
       {
         "title": "Recovery from Death Spirals",
-        "link": "/recovery-from-death-spirals"
+        "link": "/recovery-from-death-spirals",
+        "isActive": true
       }
     ]
   },
@@ -223,11 +269,13 @@
     "items": [
       {
         "title": "Liquid Locking for Bitcoin",
-        "link": "/llb"
+        "link": "/llb",
+        "isActive": false
       },
       {
         "title": "Stabilization Analysis Model",
-        "link": "/sam"
+        "link": "/sam",
+        "isActive": false
       }
     ]
   },
@@ -237,11 +285,13 @@
     "items": [
       {
         "title": "State of Stablecoins",
-        "link": "/state"
+        "link": "/state",
+        "isActive": true
       },
       {
         "title": "Fundamentals of Stability",
-        "link": "/fundamentals"
+        "link": "/fundamentals",
+        "isActive": true
       }
     ]
   }

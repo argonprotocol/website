@@ -20,12 +20,12 @@
       You need an Ethereum wallet containing the tokens you want to transfer.
       The wallet also needs enough ETH to pay any Ethereum network fees. Argon
       Desktop can import a
-      <router-link to="/docs/bridgeless-transfers/connect-metamask-wallet"
-        >MetaMask account</router-link
+      <DocLink to="/docs/bridgeless-transfers/connect-metamask-wallet"
+        >MetaMask account</DocLink
       >
       using its private key or a
-      <router-link to="/docs/bridgeless-transfers/connect-uniswap-wallet"
-        >Uniswap Wallet account</router-link
+      <DocLink to="/docs/bridgeless-transfers/connect-uniswap-wallet"
+        >Uniswap Wallet account</DocLink
       >
       using its recovery phrase.
     </p>
@@ -104,14 +104,15 @@
 
     <p>
       For the protocol behind these steps, see
-      <router-link to="/docs/bridgeless-transfers"
-        >How Bridgeless Transfers Work</router-link
+      <DocLink to="/docs/bridgeless-transfers"
+        >How Bridgeless Transfers Work</DocLink
       >.
     </p>
   </DocContent>
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

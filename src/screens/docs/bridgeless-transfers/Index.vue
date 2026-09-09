@@ -4,12 +4,12 @@
   <DocContent>
     <p>
       Bridgeless Transfers move
-      <router-link to="/docs/assets-and-entities/argon-stablecoins"
-        >ARGN</router-link
+      <DocLink to="/docs/assets-and-entities/argon-stablecoins"
+        >ARGN</DocLink
       >
       and
-      <router-link to="/docs/assets-and-entities/argonot-tokens"
-        >ARGNOT</router-link
+      <DocLink to="/docs/assets-and-entities/argonot-tokens"
+        >ARGNOT</DocLink
       >
       between Argon and supported external networks without depositing them
       into a conventional bridge reserve. The tokens are removed from the
@@ -114,12 +114,12 @@
     <p>
       Argon Desktop encrypts imported wallet secrets on the device and uses
       them to sign the required Ethereum transactions. Learn how to
-      <router-link to="/docs/bridgeless-transfers/connect-metamask-wallet"
-        >import a MetaMask account</router-link
+      <DocLink to="/docs/bridgeless-transfers/connect-metamask-wallet"
+        >import a MetaMask account</DocLink
       >
       using its private key or
-      <router-link to="/docs/bridgeless-transfers/connect-uniswap-wallet"
-        >import a Uniswap Wallet account</router-link
+      <DocLink to="/docs/bridgeless-transfers/connect-uniswap-wallet"
+        >import a Uniswap Wallet account</DocLink
       >
       using its recovery phrase.
     </p>
@@ -132,8 +132,8 @@
         Bitcoin also appears as a connector in the wallet interface, but it
         does not use the ARGN and ARGNOT transfer process described here. Its
         channel is used to fund Bitcoin network addresses and create
-        <router-link to="/docs/assets-and-entities/bitcoin-locks"
-          >Bitcoin Locks</router-link
+        <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+          >Bitcoin Locks</DocLink
         >.
       </p>
     </aside>
@@ -146,18 +146,18 @@
 
     <ul>
       <li>
-        <router-link
+        <DocLink
           to="/docs/bridgeless-transfers/localized-minting-authorities"
-          >Localized Minting Authorities</router-link
+          >Localized Minting Authorities</DocLink
         >
         commit collateral and authorize individual transfers from Argon to an
         external network.
       </li>
       <li>
         The
-        <router-link
+        <DocLink
           to="/docs/bridgeless-transfers/global-issuance-council"
-          >Global Issuance Council</router-link
+          >Global Issuance Council</DocLink
         >
         approves shared gateway changes, including authority activations,
         authority deactivations, and council rotations. It does not approve
@@ -176,8 +176,8 @@
 
     <p>
       Continue to
-      <router-link to="/docs/bridgeless-transfers/open-a-transfer-portal"
-        >Open a Transfer Portal</router-link
+      <DocLink to="/docs/bridgeless-transfers/open-a-transfer-portal"
+        >Open a Transfer Portal</DocLink
       >
       for the user workflow.
     </p>
@@ -185,6 +185,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>

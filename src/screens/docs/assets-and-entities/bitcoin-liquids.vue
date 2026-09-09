@@ -4,8 +4,8 @@
   <DocContent>
     <p>
       A Bitcoin Liquid is an onchain financial position that lets the owner of a
-      <router-link to="/docs/assets-and-entities/bitcoin-locks"
-        >Bitcoin Lock</router-link
+      <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+        >Bitcoin Lock</DocLink
       >
       receive Argon stablecoins against part of the locked Bitcoin's value. The
       Liquid does not move the Bitcoin, replace it with a wrapped token, or
@@ -90,13 +90,13 @@
     <h2>Where the Argons Come From</h2>
     <p>
       Creating a Liquid records the amount of
-      <router-link to="/docs/assets-and-entities/argon-stablecoins"
-        >ARGN</router-link
+      <DocLink to="/docs/assets-and-entities/argon-stablecoins"
+        >ARGN</DocLink
       >
       the position is eligible to receive. Available Treasury capital can supply
       this liquidity, including capital contributed through
-      <router-link to="/docs/assets-and-entities/argon-bonds"
-        >Argon Bonds</router-link
+      <DocLink to="/docs/assets-and-entities/argon-bonds"
+        >Argon Bonds</DocLink
       >. Any remaining amount follows the protocol's controlled issuance rules.
     </p>
 
@@ -104,8 +104,8 @@
       This means a Liquid is not permission to mint an unlimited number of
       Argons. Distribution remains constrained by the Lock's Bitcoin value,
       insurance, Treasury liquidity, and the network's issuance limits. See
-      <router-link to="/docs/system-design/stability-algorithms"
-        >Stability Algorithms</router-link
+      <DocLink to="/docs/system-design/stability-algorithms"
+        >Stability Algorithms</DocLink
       >
       for the system-wide issuance controls.
     </p>
@@ -220,6 +220,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 </script>
