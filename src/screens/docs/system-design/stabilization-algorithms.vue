@@ -260,7 +260,7 @@
 
     <h3>Targeted Burning of Unused Vault Revenue</h3>
     <p>
-      Argo has several mechanisms for providing a continuous burn of circulation regardless of
+      Argon has several mechanisms for providing a continuous burn of circulation regardless of
       whether the price is at target. One way is when vaults earn revenue from mining auctions. The amount
       of money earned by a vault is determined by a number of factors, such as the amount of BTC locked, the
       amount of Argonots in securitization, etc. Instead of redistributing unused revenue, the
