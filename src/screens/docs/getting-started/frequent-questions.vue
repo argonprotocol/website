@@ -17,9 +17,9 @@
         A dollar-pegged stablecoin aims to mirror the value of U.S. dollars.
         Argon instead creates stable purchasing power using a Consumer Price
         Index based on the cost of real goods. As those costs change, Argon’s
-        target value changes with them.
+        target value changes with them. Learn more about
         <router-link to="/docs/assets-and-entities/argons"
-          >Learn more about Argons</router-link
+          >Argons</router-link
         >
         and
         <router-link to="/docs/system-design/argon-tokenomics"
@@ -31,8 +31,8 @@
     <article>
       <header>Is an Argon Expected to Increase in Value?</header>
       <p>
-        Argon is designed to preserve purchasing power, not behave like a
-        speculative asset. Its market price can still move above or below its
+        No. Argon (ARGN) is designed to preserve purchasing power, not behave like a
+        speculative asset. However, its market price can still move above or below its
         target, and the protocol’s stabilization mechanisms do not guarantee a
         particular future price. Holding Argons should not be treated as a
         promise of investment gains.
@@ -42,8 +42,8 @@
     <article>
       <header>How Is an Argonot Different From an Argon?</header>
       <p>
-        Argon (ARGN) is the network’s stablecoin. Argonot (ARGNOT) is a separate
-        token used in mining, vault securitization, and Argonot Stakes. Argonots
+        Argonot (ARGNOT) is a separate
+        token from the Argon. It is used in mining, vault securitization, and Argonot Stakes. Argonots
         do not represent company shares or a claim on a company. Their market
         value is determined by supply and demand rather than a stable
         purchasing-power target.
@@ -74,11 +74,9 @@
     <article>
       <header>Do I Need an Invite or Access Code to Use Argon Desktop?</header>
       <p>
-        You can create or import a self-custodial account and use the basic
-        wallet features without an invite. However, an access code from an
-        existing operator is required to activate the Treasury level. Moving
-        from Treasury into Operations requires completing Treasury certification
-        and getting approval from your sponsoring operator.
+        No. You can create or import a self-custodial account and use the basic
+        wallet features without an invite. However, an access code is required to
+        activate the Treasury level.
         <router-link to="/docs/desktop-app/access-codes"
           >Learn more about access and upgrades.</router-link
         >
@@ -92,7 +90,7 @@
         where members deploy assets through features such as Bitcoin Locks,
         Argon Bonds, and Argonot Stakes. Stable Swaps remain available as
         <router-link to="/docs/desktop-app/basic-functionality">Basic Functionality</router-link>.
-        <router-link to="/docs/desktop-app/operations">Operations</router-link>
+        <router-link to="/docs/desktop-app/operations">Becoming an Operator</router-link>
         requires much deeper involvement. Operators are responsible for running
         network infrastructure, including mining and Stabilization Vaults.
       </p>
@@ -101,11 +99,11 @@
     <article>
       <header>Why Are Certification and Operator Sponsorship Required?</header>
       <p>
-        Treasury and Operations involve self-custodied assets and, for
+        Treasury and Operations involve self-custodial assets and, for
         operators, live network infrastructure. Certification introduces the
-        required concepts through practical activities. Sponsorship connects a
-        new member with an experienced operator who can guide the process and
-        assist in the journey.
+        required concepts through practical activities. In addition, getting
+        sponsored connects a new member with an experienced operator who can
+        guide the process and assist in the journey.
       </p>
     </article>
 
@@ -114,8 +112,7 @@
       <p>
         You do. Argon Desktop is self-custodial software: it creates or imports
         keys on your device and uses them to approve transactions. Argon does
-        not keep a password or recovery copy that can restore your wallet for
-        you.
+        not keep a password or recovery copy that can restore your wallet.
         <router-link to="/docs/desktop-app/self-custody-risks"
           >Review the self-custody risks.</router-link
         >
@@ -123,7 +120,7 @@
     </article>
 
     <article>
-      <header>How Do I Recover My Account on Another Computer?</header>
+      <header>How Do I Recover My Account?</header>
       <p>
         First, make sure you save your 12-word recovery phrase. Record the words
         in the exact order, keep them private, and store them offline if
@@ -137,7 +134,7 @@
     <article>
       <header>Do I Need a Cloud Machine?</header>
       <p>
-        Not for basic wallet or Treasury activity. A continuously available
+        Not for basic wallet or Treasury activities. A continuously available
         machine is needed when you run mining, vaulting, or member-onboarding
         services. Argon Desktop can configure a supported cloud provider,
         connect a compatible custom server, or use a suitable local computer.
@@ -159,7 +156,7 @@
     </article>
 
     <article>
-      <header>Are the Returns Shown in Argon Desktop Guaranteed?</header>
+      <header>Are the Financial Numbers in Argon Desktop Guaranteed?</header>
       <p>
         No. APR, APY, projected earnings, mining rewards, utilization, auction
         costs, token prices, and network fees can all change. Numbers shown in
@@ -171,10 +168,10 @@
 
     <article>
       <header>
-        Do the Returns Estimate How Many Dollars I Will Earn?
+        Do the Returns Estimates Show How Many Dollars I Will Earn?
       </header>
       <p>
-        No. Return percentages in Argon Desktop and throughout this website
+        No. The return percentages in Argon Desktop and throughout this website
         measure Argon-denominated yield: they estimate
         how many additional Argons an amount of Argons may earn. Argon is not
         pegged to the U.S. dollar, and its return calculations do not assume a
@@ -189,8 +186,8 @@
     <article>
       <header>Can I Participate in More Than One Role?</header>
       <p>
-        Yes. The roles are not exclusive. A wallet user can later join Treasury,
-        a Treasury member can become an operator, and an operator may mine, run
+        Yes. The roles are not exclusive. A wallet user can join Treasury,
+        a Treasury member can become an Operator, and an Operator may mine, run
         a vault, onboard members, or deploy personal capital. Each activity has
         its own requirements and risks. The system is designed to encourage
         starting with a small role and expanding over time.

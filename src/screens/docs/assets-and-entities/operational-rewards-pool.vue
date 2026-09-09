@@ -1,9 +1,9 @@
 <template>
-  <DocHeader>Operational Rewards Pool</DocHeader>
+  <DocHeader>Expansion Rewards Pool</DocHeader>
 
   <DocContent>
     <p>
-      The Operational Rewards Pool is the share of mining-seat bid revenue set
+      The Expansion Rewards Pool is the share of mining-seat bid revenue set
       aside to help qualified members become network operators. It funds
       protocol-defined certification and referral rewards rather than paying a
       standing return to operators or Upstream Nodes.
@@ -20,7 +20,7 @@
       Operators compete for mining seats by bidding ARGN. Winning bids enter the
       mining-bid pool. Before the remaining bid revenue is distributed to
       Argonot Stakes and qualifying Stabilization Vaults, the protocol assigns
-      20% to Operational Rewards.
+      20% to Expansion Rewards Pool.
     </p>
 
     <section
@@ -32,7 +32,7 @@
       <div
         class="my-4 overflow-x-auto rounded-md border border-argon-200 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-xl text-slate-800 sm:text-2xl"
       >
-        Operational Rewards Pool = 20% of winning mining bids
+        Expansion Rewards Pool = 20% of winning mining bids
       </div>
       <p class="m-0 text-sm text-slate-600">
         This is a share of bid revenue paid by winning miners. It is not a share
@@ -54,7 +54,7 @@
 
     <h2>When Rewards Are Earned</h2>
     <p>
-      Operational rewards are tied to completed Operator Certification. No
+      Expansion Rewards Pool are tied to completed Operator Certification. No
       reward is earned merely because an operator creates an invitation, a
       member accepts an access code, or a sponsor approves Operations access.
     </p>
@@ -168,7 +168,7 @@
 
     <h2>Unused Funds</h2>
     <p>
-      The Operational Rewards allocation is not a general-purpose protocol
+      The Expansion Rewards Pool allocation is not a general-purpose protocol
       budget and is not distributed pro rata among operators. Within the
       economic model, the 20% share either funds qualifying onboarding rewards
       or is burned when it is not used for those rewards.

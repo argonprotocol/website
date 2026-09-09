@@ -10,6 +10,7 @@ export interface IBasicsRecordMining {
 
 export interface IBasicsRecordVaulting {
   count: number;
+  eligibleBondCapital: number;
   valueInVaults: number;
   bitcoinLocked: number;
   bitcoinTxnCount: number;
@@ -23,7 +24,11 @@ export interface IBasicsRecord {
   activeArgonotStakes: number;
   baseMicrogonsMinedPerBlock: bigint;
   baseMicronotsMinedPerBlock: bigint;
-  microgonsInCirculation: bigint;
+  microgonsInCirculation: {
+    fromBitcoin: bigint;
+    fromMining: bigint;
+    total: bigint;
+  };
   micronotsInCirculation: bigint;
   usdForArgon: number;
   usdTargetForArgon: number;
@@ -46,7 +51,11 @@ export const defaultBasicsRecord: IBasicsRecord = {
   activeArgonotStakes: 0,
   baseMicrogonsMinedPerBlock: 0n,
   baseMicronotsMinedPerBlock: 0n,
-  microgonsInCirculation: 0n,
+  microgonsInCirculation: {
+    fromBitcoin: 0n,
+    fromMining: 0n,
+    total: 0n,
+  },
   micronotsInCirculation: 0n,
   usdForArgon: 0,
   usdTargetForArgon: 0,
@@ -70,6 +79,7 @@ export const defaultBasicsRecord: IBasicsRecord = {
   },
   vaulting: {
     count: 0,
+    eligibleBondCapital: 0,
     valueInVaults: 0,
     bitcoinLocked: 0,
     bitcoinTxnCount: 0,

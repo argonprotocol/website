@@ -209,7 +209,7 @@
         >Argonot Stakes</router-link
       >,
       <router-link to="/docs/assets-and-entities/operational-rewards-pool"
-        >the Operational Rewards Pool</router-link
+        >the Expansion Rewards Pool</router-link
       >, and stabilization capital supplied through vaults and
       <router-link to="/docs/assets-and-entities/argon-bonds"
         >Argon Bonds</router-link

@@ -1,12 +1,12 @@
 <template>
-  <DocHeader>How Argon Works</DocHeader>
+  <DocHeader>Architectural Basics</DocHeader>
   <DocContent>
     <p>
       Argon is a decentralized stablecoin designed to preserve purchasing power
       over time. Its target value follows the cost of real goods, while its
       market price is set by people trading Argons. When those two prices move
       apart, the protocol creates incentives for independent participants to
-      adjust the currency supply.
+      bring it back to target.
     </p>
 
     <img
@@ -24,7 +24,7 @@
 
     <h2>The System at a Glance</h2>
     <p>Argon's basic feedback loop works like this:</p>
-    <ol>
+    <ol class="list-disc">
       <li>
         Trading markets reveal what buyers and sellers currently think an Argon
         is worth.
@@ -49,20 +49,19 @@
     <p>
       No single participant sets the price or decides how many Argons should
       exist. Market prices, protocol rules, and voluntary economic activity work
-      together to move supply toward demand.
+      together to balance supply and demand.
     </p>
 
     <h2>1. Treasury</h2>
     <p>
       Treasury is the network’s capital and revenue-distribution system. It
-      connects capital providers with the mining and vaulting activity needed to
-      operate and stabilize Argon. In return, participants can access Bitcoin
+      connects capital providers with the mining and vaulting activities needed to
+      create and stabilize the Argon. In return, participants can access Bitcoin
       Locks, Argon Bonds, and Argonot Stakes.
     </p>
     <p>
-      “Treasury” also names the level of Argon Desktop where members use these
-      features. The Desktop interface helps people participate, while the
-      mainchain enforces the underlying asset rules and distributions. Explore
+      Argon's Desktop app helps users participate in these yield-bearing instruments
+      while the mainchain enforces the underlying asset rules and distributions. Explore
       <router-link to="/docs/assets-and-entities/bitcoin-locks"
         >Bitcoin Locks</router-link
       >,
@@ -76,11 +75,13 @@
 
     <h2>2. Stabilization Algorithms</h2>
     <p>
-      The stabilization algorithms compare Argon’s market price with its target
-      price and adjust the rewards available to participants. They do not
-      command anyone to buy, sell, mint, or burn. They simply make it economically
-      attractive for the market to help close the price gap.
+      Argon's stabilization algorithms compare the stablecoin's market price with its target
+      price and adjusts the monetary rewards as needed to maintain balance. The system does not
+      require anyone to buy, sell, mint, or burn. It simply creates an economically
+      attractive environment for the market to help close the price gap.
     </p>
+
+    <p>The system is always in one of three positions:</p>
     <ul>
       <li>
         <strong>Above target:</strong> when demand is outpacing the available supply,
@@ -92,13 +93,14 @@
         of releasing Bitcoin Locks encourage holders to acquire and burn Argons,
         thereby removing them from circulation.
       </li>
+      <li>
+        <strong>At Target: </strong> when supply and demand are in equilibrium. Nothing
+        needs to change. The market is as it should be.
+      </li>
     </ul>
     <p>
       The goal is to let supply respond in either direction without relying on a
-      company or central issuer. Stable Swaps are available through
-      <router-link to="/docs/desktop-app/basic-functionality">Basic Functionality</router-link>
-      and help users identify market trades that can move ARGN back toward its
-      target. Read more about
+      company or central issuer. Read more about
       <router-link to="/docs/economic-pillars/recovery-from-death-spirals"
         >Argon’s recovery mechanisms</router-link
       >
@@ -112,13 +114,13 @@
     <p>
       Operations is the work performed by miners and vault operators. Miners
       process transactions, produce blocks, and expand the supply when the
-      protocol makes additional issuance available. Vault operators maintain the
+      protocol allows additional issuance. Vault operators maintain the
       infrastructure and security keys that support Bitcoin Locks. They also participate in
       Treasury and help create the conditions for excess Argons to be burned.
     </p>
     <p>
       These roles are performed by independent operators who commit their own
-      capital and infrastructure. They are compensated through protocol rewards,
+      capital and infrastructure. The operators are compensated through protocol rewards,
       auction distributions, and service fees rather than by a central company.
       Explore
       <router-link to="/docs/assets-and-entities/mining-operations"
@@ -132,30 +134,25 @@
 
     <h2>4. Consumer Price Index Target</h2>
     <p>
-      The Consumer Price Index provides the reference point for stabilization.
+      Argon's Consumer Price Index provides the reference point for stabilization.
       Instead of targeting a permanent exchange rate with the U.S. dollar, Argon
-      tracks any fluctuation in the measured cost of real goods. If those costs rise,
-      Argon’s target price rises as well.
-    </p>
-    <p>
-      This means “stable” refers to purchasing power, not to a fixed dollar
-      price. Learn why the distinction matters in
-      <router-link to="/docs/economic-pillars/protection-from-inflation"
-        >Protection from Inflation</router-link
-      >.
+      tracks the fluctuation in the measured cost of real goods. If those costs rise,
+      Argon’s target price adjusts with it.
     </p>
 
     <h2>5. Stabilized Currency</h2>
     <p>
-      The intended result of Argon's feedback loop is a currency whose supply can
-      expand and contract as demand changes. Expanding supply can relieve upward
-      price pressure; contracting supply can relieve downward price pressure.
+      Argon is a stablecoin where “stable” refers to stable purchasing power
+      over time not simply a fixed amount of dollars. Learn why this distinction
+      matters in <router-link to="/docs/economic-pillars/protection-from-inflation"
+      >Protection from Inflation</router-link
+      >.
     </p>
     <p>
-      Stabilization is a protocol objective, not a guarantee that every market
-      will always trade at target. Prices can diverge, responses take time,
-      and participation depends on real people finding the available incentives
-      worthwhile. Learn more in
+      It's important to remember that stabilization is a protocol objective, not a
+      guarantee that every market will always trade at target. Prices can diverge,
+      responses take time, and participation depends on real people finding the
+      available incentives worthwhile. Learn more in
       <router-link to="/docs/economic-pillars/protection-from-inflation"
         >Protection from Inflation</router-link
       >
@@ -167,17 +164,17 @@
 
     <h2>6. The Massive Short</h2>
     <p>
-      A Bitcoin holder can place their Bitcoin into a Liquid Lock position and receive its
-      market value in the form of Argon stablecoins. Releasing this same Bitcoin requires
+      Bitcoin holders can place their Bitcoin into Liquid Lock positions and receive
+      full market value in the form of Argon stablecoins. Releasing this same Bitcoin requires
       Argons to be burned. The exact amount is detailed in the lock’s on-chain terms. Each lock
       therefore creates a potential future source of demand for Argons.
     </p>
     <p>
       The “Massive Short” is the collective effect of many individual Bitcoin Locks. Each lock
-      behaves like a short position against Argon because the Bitcoin becomes cheaper to unlock
-      when Argon trades below target. At the same time, the unlocking formula increases the number
-      of Argons that must be burned. Bitcoin holders can therefore unlock at a discount while
-      removing a substantially greater number of Argons from circulation than would normally be required.
+      behaves like a short position against Argon. When the Argon trades below target, Bitcoins
+      becomes cheaper to unlock. At the same time, the unlocking formula increases the number
+      of Argons that must be burned in the unlock. Bitcoin holders can therefore unlock at a discount while
+      substantially increasing the number of Argons that would normally be removed from circulation.
       This helps bring supply and demand back toward balance.
     </p>
     <p>
@@ -195,22 +192,21 @@
     <p>
       Argons and Argonots can seamlessly move between the Argon Network and any supported external
       network without requiring a traditional cross-chain bridge. Instead of requiring a centralized
-      party or a complicated dance between the chains, Argon's bridgeless innovation allows transfer requests
-      to be directly handled by a decentralized
-      <router-link to="/docs/bridgeless-transfers/global-issuance-council">Global Issuance Council</router-link>
-      and <router-link to="/docs/bridgeless-transfers/localized-minting-authorities">Localized Minting Authorities</router-link>.
+      party or a complicated dance between chains, Argon's bridgeless innovation allows transfers to
+      be <router-link to="/docs/bridgeless-transfers/from-argon-to-remote">directly executed the
+      requesting user</router-link>.
     </p>
 
     <h2>8. The Global Issuance Council</h2>
     <p>
-      The Global Issuance Council coordinates the governance side of bridgeless
-      issuance. Council members approve changes that external gateways must
+      The Global Issuance Council coordinates the governance side of cross-chain
+      transfers. Council members approve changes that external gateways must
       recognize, including changes involving the authority set and council
       membership. Those approvals keep the Argon mainchain and supported
-      external networks aligned on who may authorize issuance.
+      external networks aligned.
     </p>
     <p>
-      The council coordinates a narrowly defined crosschain function; it does
+      The council coordinates a narrowly defined cross-chain function; it does
       not set Argon’s market price or discretionary monetary policy. Learn more
       about the
       <router-link to="/docs/bridgeless-transfers/global-issuance-council"
@@ -221,9 +217,9 @@
     <h2>9. Trading Markets</h2>
     <p>
       The world is filled with trading exchanges, both centralized and decentralized.
-      The prices produced by those markets provide the observable signal that
-      the stabilization system responds to. Markets do not decide the protocol
-      response; they simply reveal the imbalance that makes one response more
+      The prices produced by those markets provide the observable signals the
+      stabilization system responds to. Markets do not decide the response; they
+      simply reveal the imbalance that makes one stabilization response more
       profitable than another.
     </p>
     <p>
@@ -235,7 +231,7 @@
 
     <h2>Putting the Pieces Together</h2>
     <p>
-      Argon begins with a target price and a market price. A gap
+      Argon begins with a target price and a market price. Any gap
       between them activates economic opportunities for miners, Bitcoin holders,
       vault operators, and Treasury participants. Their actions alter the
       circulating supply, which changes market conditions and feeds a new price

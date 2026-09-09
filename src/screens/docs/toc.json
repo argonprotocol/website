@@ -22,28 +22,35 @@
     "base": "/system-design",
     "items": [
       {
-        "title": "How It Works",
-        "link": "/how-it-works"
+        "title": "Architectural Basics",
+        "link": "/"
       },
       {
-        "title": "Stability Algorithms",
-        "link": "/stability-algorithms"
+        "title": "Stabilization Algorithms",
+        "link": "/stabilization-algorithms"
       },
       {
         "title": "Economic Drivers",
         "link": "/economic-drivers"
       },
       {
-        "title": "Exponential Triggers",
-        "link": "/exponential-triggers"
+        "title": "Growth Simulator",
+        "link": "/growth-simulator"
+      },      {
+        "title": "Death-Spiral Simulator",
+        "link": "/death-spiral-simulator"
       },
       {
-        "title": "Tokenomics of Argon",
-        "link": "/tokenomics-of-argon"
+        "title": "Argon Tokenomics",
+        "link": "/argon-tokenomics"
       },
       {
-        "title": "Tokenomics of Argonot",
-        "link": "/tokenomics-of-argonot"
+        "title": "Argonot Tokenomics",
+        "link": "/argonot-tokenomics"
+      },
+      {
+        "title": "The Genesis Block",
+        "link": "/the-genesis-block"
       }
     ]
   },
@@ -54,6 +61,10 @@
       {
         "title": "Overview",
         "link": "/"
+      },
+      {
+        "title": "Internal Wallet",
+        "link": "/internal-wallet"
       },
       {
         "title": "Self-Custody Risks",
@@ -90,24 +101,36 @@
     "base": "bridgeless-transfers",
     "items": [
       {
-        "title": "Overview",
+        "title": "How It Works",
         "link": "/"
       },
       {
-        "title": "Open a Transfer Portal",
-        "link": "/open-a-transfer-portal"
+        "title": "Initiate a Transfer",
+        "link": "/initiate-a-transfer"
       },
       {
-        "title": "Connect MetaMask Wallet",
+        "title": "Connectors",
+        "link": "/connectors"
+      },
+      {
+        "title": "Connect a MetaMask Wallet",
         "link": "/connect-metamask-wallet"
       },
       {
-        "title": "Connect Uniswap Wallet",
+        "title": "Connect a Uniswap Wallet",
         "link": "/connect-uniswap-wallet"
       },
       {
-        "title": "Localized Minting Authorities",
-        "link": "/localized-minting-authorities"
+        "title": "From Argon to Remote",
+        "link": "/from-argon-to-remote"
+      },
+      {
+        "title": "From Remote to Argon",
+        "link": "/from-remote-to-argon"
+      },
+      {
+        "title": "Remote Minting Authorities",
+        "link": "/remote-minting-authorities"
       },
       {
         "title": "Global Issuance Council",
@@ -163,8 +186,16 @@
         "link": "/upstream-nodes"
       },
       {
-        "title": "Operational Rewards Pool",
+        "title": "Expansion Rewards Pool",
         "link": "/operational-rewards-pool"
+      },
+      {
+        "title": "Mainchain",
+        "link": "/mainchain"
+      },
+      {
+        "title": "Sidechain",
+        "link": "/sidechain"
       }
     ]
   },

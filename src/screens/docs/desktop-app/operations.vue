@@ -110,7 +110,7 @@
       The onboarding dashboard also tracks qualifying certifications, referral
       progress, and rewards that are ready to claim. See
       <router-link to="/docs/assets-and-entities/operational-rewards-pool"
-        >Operational Rewards Pool</router-link
+        >Expansion Rewards Pool</router-link
       >
       for the funding and eligibility rules.
     </p>

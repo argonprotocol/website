@@ -107,7 +107,7 @@
         >
           <div class="text-3xl font-bold text-slate-700">20%</div>
           <div class="mt-2 font-bold text-slate-700">
-            Operational Rewards Pool
+            Expansion Rewards Pool
           </div>
           <div class="mt-1 text-sm text-slate-500">
             Funds onboarding rewards; unused funds are burned

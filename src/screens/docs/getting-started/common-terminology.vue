@@ -10,8 +10,8 @@
     <ul>
       <li>
         <strong>Argon (ARGN).</strong> The network’s inflation-resistant
-        stablecoin. Its target value follows the cost of real goods rather than
-        a fixed amount of a fiat currency. “Argon” can also refer to the network
+        stablecoin. Its value follows the cost of real goods rather than
+        a fixed amount of fiat currency. “Argon” can also refer to the network
         itself.
         <router-link to="/docs/assets-and-entities/argons"
           >Learn more about Argons.</router-link
@@ -27,8 +27,8 @@
         >
       </li>
       <li>
-        <strong>Bitcoin Lock or Liquid Lock.</strong> A Bitcoin position held
-        through an onchain vault arrangement. The owner receives the Bitcoin’s
+        <strong>Bitcoin Lock or Liquid Lock.</strong> A Bitcoin multisig position held
+        through an on-chain vault arrangement. The owner receives the Bitcoin’s
         market value in liquid Argons while retaining a defined path to release
         the Bitcoin.
         <router-link to="/docs/assets-and-entities/bitcoin-locks"
@@ -36,7 +36,7 @@
         >
       </li>
       <li>
-        <strong>Argon Bond.</strong> A yield-bearing position that supplies
+        <strong>Argon Bond.</strong> A yield-bearing position that lends
         Argons to a vault. Bondholders receive a share of the vault’s
         stabilization revenue, subject to the bond’s onchain terms.
         <router-link to="/docs/assets-and-entities/argon-bonds"
@@ -44,7 +44,7 @@
         >
       </li>
       <li>
-        <strong>Argonot Stake.</strong> A yield-bearing position that supplies
+        <strong>Argonot Stake.</strong> A yield-bearing position that lends
         Argonots to a miner. Stakeholders receive a share of mining-auction
         revenue, subject to the stake’s onchain terms.
         <router-link to="/docs/assets-and-entities/argonot-stakes"
@@ -61,13 +61,13 @@
         rewards assigned to it.
       </li>
       <li>
-        <strong>Frame.</strong> The network’s roughly 24-hour operating period.
+        <strong>Frame.</strong> The network’s roughly 24-hour operating cycle.
         Mining auctions, seat terms, and Treasury activity are organized around
         numbered frames.
       </li>
       <li>
         <strong>Mining Seat.</strong> The right to participate in block mining
-        for a fixed term. Seats are awarded through recurring mining auctions.
+        for a fixed term of ten frames. Seats are awarded through recurring mining auctions.
       </li>
       <li>
         <strong>Mining Auction.</strong> The open bidding process that selects
@@ -82,7 +82,7 @@
         when their term begins.
       </li>
       <li>
-        <strong>Bidding Bot.</strong> The automated service in Argon Desktop
+        <strong>Bidding Bot.</strong> An automated service in Argon Desktop
         that submits and adjusts mining bids using rules set by the operator.
       </li>
     </ul>
@@ -111,7 +111,7 @@
         <strong>Treasury.</strong> The network system that puts mining-auction
         revenue and contributed capital to work in stabilization activities.
         Argon Desktop’s Treasury features include Bitcoin Locks, Argon Bonds,
-        and Argonot Stakes. Stable Swaps are part of Basic Functionality.
+        and Argonot Stakes.
       </li>
       <li>
         <strong>Cosigning.</strong> A vault operator’s approval of a valid
@@ -137,8 +137,8 @@
       </li>
       <li>
         <strong>Certification.</strong> The guided learning process used to
-        prepare members for Treasury or Operations access. It introduces the
-        required concepts and records completed activities.
+        prepare members for Treasury or Operations access. It introduces
+        required concepts and guides the user through structured activities.
       </li>
       <li>
         <strong>Member Onboarding.</strong> The process through which an

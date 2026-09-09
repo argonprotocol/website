@@ -209,7 +209,7 @@
       downstream member becomes a certified operator. Those events are defined
       by the protocol, not by the server connection itself. See
       <router-link to="/docs/assets-and-entities/operational-rewards-pool"
-        >Operational Rewards Pool</router-link
+        >Expansion Rewards Pool</router-link
       >
       for the economic rules.
     </p>

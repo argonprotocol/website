@@ -1,5 +1,7 @@
 import numeralOriginal, { Numeral } from 'numeral';
+import BigNumber from 'bignumber.js';
 import { microgonToArgon, micronotToArgonot } from './currencyUtils';
+import Data from './Data';
 
 // Extend the Numeral interface to include our custom method
 declare module 'numeral' {
@@ -62,6 +64,11 @@ export function microgonToArgonNm(this: void, microgons: bigint): Numeral {
 
 export function micronotToArgonotNm(this: void, micronots: bigint): Numeral {
   return numeral(micronotToArgonot(micronots));
+}
+
+export function usdToArgonNm(this: void, usdValue: number): Numeral {
+  const argons = BigNumber(usdValue).dividedBy(Data.basics.usdForArgon).toNumber();
+  return numeral(argons);
 }
 
 function chooseIfElseFormat(condition: ICondition, ifFormat: string, elseFormat: string, value: number) {

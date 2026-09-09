@@ -145,17 +145,195 @@
 
     <p>
       At each frame distribution, the protocol first allocates mining-bid
-      revenue to the Operational Rewards Pool and
+      revenue to the Expansion Rewards Pool and
       <router-link to="/docs/assets-and-entities/argonot-stakes"
         >Argonot Stakes</router-link
-      >. The remaining distributable revenue is assigned among qualifying vaults
-      according to eligible bond capital. See
+      >. The protocol then calculates how much of the remaining distributable
+      revenue each qualifying vault can earn from its committed capital and the
+      utilization of its available capacity. See
       <router-link to="/docs/assets-and-entities/mining-operations"
         >Mining Operations</router-link
       >
       for where the bid pool comes from and Argon Bonds for the bondholder
       distribution rules.
     </p>
+
+    <h3>How the Protocol Calculates a Vault's Revenue</h3>
+
+    <p>
+      A vault does not earn the maximum share merely by existing or committing
+      capital. Its revenue depends on how much capacity it provides and how much
+      of that capacity is actively used. The protocol performs the calculation
+      in ARGN through the following steps.
+    </p>
+
+    <h4>1. Establish the Network's Desired Bitcoin Space</h4>
+
+    <p>
+      The protocol begins with a network-wide target for Bitcoin capacity. It
+      compares the ARGN created through Bitcoin activity with a percentage of
+      the ARGN created through mining, then uses whichever amount is greater.
+    </p>
+
+    <section
+      class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-5"
+    >
+      <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">
+        Desired Bitcoin Space
+      </div>
+      <div
+        class="my-4 overflow-x-auto rounded-md border border-argon-200 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl"
+      >
+        Desired Bitcoin Space = Greater of (ARGN from Bitcoin) or (ARGN from
+        mining × current Bitcoin-capacity rate)
+      </div>
+      <p class="m-0 text-sm text-slate-600">
+        The Bitcoin-capacity rate is currently 15%. It is a protocol parameter
+        and may be adjusted as Bitcoin demand and network conditions evolve.
+        Each calculation uses the rate active for that distribution period.
+      </p>
+    </section>
+
+    <h4>2. Measure the Vault's Contribution</h4>
+
+    <p>
+      The vault's initial ARGN securitization is compared with the network's
+      desired Bitcoin space. This produces a <strong>vault factor</strong> that
+      measures how much of the target the vault supports. The factor is capped
+      at 100%, so committing more than the full network target cannot give one
+      vault more than the maximum allocation.
+    </p>
+
+    <div
+      class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl"
+    >
+      Vault Factor = Initial ARGN securitization ÷ Desired Bitcoin Space
+    </div>
+
+    <h4>3. Measure How Fully the Vault Is Used</h4>
+
+    <p>
+      Bitcoin utilization is the gate for the vault's performance. The protocol
+      compares the market value of Bitcoin locked in the vault with its available
+      Bitcoin capacity. Every additional amount of locked Bitcoin contributes
+      proportionally to the vault's core utilization.
+    </p>
+
+    <p>
+      Bitcoin supplies 90% of the core utilization score. Purchased bond space
+      supplies the remaining 10%, but only in proportion to Bitcoin utilization.
+      Bonds therefore cannot improve a vault's return when no Bitcoin is locked.
+    </p>
+
+    <div
+      class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl"
+    >
+      Core Utilization = Bitcoin Utilization × (90% + 10% × Bond Utilization)
+    </div>
+
+    <p>
+      For example, a vault at 50% Bitcoin utilization receives 50% of the
+      available Bitcoin component. A vault at 100% Bitcoin utilization receives
+      the full Bitcoin component and can unlock the final 10% through purchased
+      bonds.
+    </p>
+
+    <h4>4. Add ARGNOT Securitization</h4>
+
+    <p>
+      ARGNOT securitization is calculated separately from core utilization. It
+      can add value equal to as much as twice the vault's initial ARGN
+      securitization. The protocol increases eligible profit in proportion to
+      this added capital, preventing ARGNOT from diluting the operator's return.
+    </p>
+
+    <div
+      class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl"
+    >
+      Capital Multiplier = Total Operator Capital ÷ Initial ARGN Securitization
+    </div>
+
+    <p>
+      ARGNOT can also increase the operator's return by up to 29%, relative to
+      the return without ARGNOT. This bonus is multiplied by Bitcoin utilization
+      so ARGNOT provides no return bonus when no Bitcoin is locked and
+      reaches its full effect only when the Bitcoin capacity is full.
+    </p>
+
+    <div
+      class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl"
+    >
+      ARGNOT Bonus = 1 + (29% × ARGNOT Utilization × Bitcoin Utilization)
+    </div>
+
+    <h4>5. Place the Vault Between Its Minimum and Maximum</h4>
+
+    <p>
+      A qualifying vault begins with a core profit rate of 1%. Its core
+      utilization moves it toward the core maximum. The core maximum reserves
+      enough room for the ARGNOT capital multiplier and bonus, ensuring that a
+      fully utilized vault does not exceed the total maximum profit rate of 57%.
+    </p>
+
+    <p>
+      The 65% vaulting allocation includes a maximum 57% operator share, the
+      standard 5% Bond share, and the standard 3% Bitcoin Liquid share. If the
+      vault offers bondholders more than 5%
+      or Bitcoin Liquids more than 3%, the additional percentage comes out of
+      the vault operator's maximum. The 1% core minimum does not decrease.
+    </p>
+
+    <div
+      class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl"
+    >
+      Core Maximum = Adjusted Maximum ÷ 3 ÷ 1.29
+    </div>
+
+    <div
+      class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl"
+    >
+      Core Profit Rate = 1% + Core Utilization × (Core Maximum − 1%)
+    </div>
+
+    <h4>6. Calculate Profit and Return</h4>
+
+    <p>
+      Finally, the protocol applies the vault factor and profit rate to the ARGN
+      supplied through mining-seat auctions. This produces the vault's profit
+      for the ten-day period.
+    </p>
+
+    <div
+      class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl"
+    >
+      Ten-Day Profit = Mining Auction Revenue × Vault Factor × Core Profit Rate
+      × Capital Multiplier × ARGNOT Bonus
+    </div>
+
+    <p>
+      The operator's ten-day return compares this profit with the value of the
+      capital the operator initially committed: its ARGN securitization plus
+      its ARGNOT securitization, both valued in ARGN.
+    </p>
+
+    <div
+      class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl"
+    >
+      Ten-Day Return = Ten-Day Profit ÷ Operator Capital Invested
+    </div>
+
+    <aside
+      class="my-8 rounded-lg border border-argon-200 bg-white/40 px-5 py-4"
+    >
+      <strong class="mb-1 block">In plain language</strong>
+      <p class="m-0">
+        Larger vaults can qualify for more revenue, but they earn their best
+        return only when people fill their Bitcoin capacity. ARGNOT adds a bonus
+        after Bitcoin is present, while bonds provide a smaller final increase.
+        Offering investors an above-standard revenue share reduces the portion
+        retained by the vault operator.
+      </p>
+    </aside>
 
     <p>
       Vault earnings are held pending collection. The operator must resolve

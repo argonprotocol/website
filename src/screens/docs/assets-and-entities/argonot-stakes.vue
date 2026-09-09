@@ -115,7 +115,7 @@
     <h2>System-Wide Stake Capacity</h2>
     <p>
       The protocol limits how much of the ARGNOT supply can participate in
-      Stakes at once. New positions cannot increase the active total beyond 40%
+      Stakes at once. New positions cannot increase the active total beyond 60%
       of all issued ARGNOT.
     </p>
 
@@ -128,7 +128,7 @@
       <div
         class="my-4 overflow-x-auto rounded-md border border-slate-300 bg-slate-50/70 px-4 py-5 text-center font-['Latin_Modern_Math'] text-xl text-slate-800 sm:text-2xl"
       >
-        Active Stakes ≤ 40% of circulating ARGNOT
+        Active Stakes ≤ 60% of circulating ARGNOT
       </div>
       <p class="m-0 text-sm text-slate-600">
         Capacity grows as new ARGNOT enters circulation and becomes available

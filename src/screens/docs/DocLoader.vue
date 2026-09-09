@@ -1,13 +1,12 @@
 <template>
   <MainLayout>
-    <div ref="docsLayoutRef" class="flex min-h-screen flex-col-reverse items-stretch pb-10 xl:flex-row">
+    <div class="flex min-h-screen flex-col-reverse items-stretch pb-10 xl:flex-row">
       <div
-        ref="leftbarWrapperRef"
         id="docs-leftbar"
         class="LEFTBARWRAPPER"
         :class="{ 'translate-x-0': isLeftbarOpen, '-translate-x-full': !isLeftbarOpen }"
       >
-        <div ref="leftbarRef" class="LEFTBAR">
+        <div class="LEFTBAR">
           <div class="LEFTBARCONTENT">
             <template v-if="docsToc" v-for="(group, i1) in docsToc" :key="`title-${i1}`">
               <template v-if="group.items">
@@ -16,7 +15,7 @@
                   <RouterLink
                     :class="{ isSelected: isSelected(resolveDocPath(group.base, item.link)) }"
                     class="block whitespace-nowrap pl-5"
-                    @click="handleLeftbarNavigation"
+                    @click="closeLeftbar"
                     :to="resolveDocPath(group.base, item.link)"
                   >
                     <template v-if="Array.isArray(item.title)">
@@ -33,7 +32,7 @@
                   v-else
                   class="block whitespace-nowrap pl-2"
                   :class="{ isSelected: isSelected(group.link) }"
-                  @click="handleLeftbarNavigation"
+                  @click="closeLeftbar"
                   :to="cleanPath(group.link)"
               >
                 {{ group.title }}
@@ -51,9 +50,9 @@
         @click="closeLeftbar"
       />
 
-      <div class="DOCSCONTENT flex-1 max-w-full">
-        <div class="xl:mx-32 xl:mt-5">
-          <div class="post mb min-h-screen md:pt-6">
+      <div class="DOCSCONTENT min-w-0 flex-1 max-w-full">
+        <div class="max-w-[52rem] xl:mx-32 xl:mt-5">
+          <div class="post mb min-h-screen xl:pt-6">
             <component :is="activePage" v-if="activePage" />
             <div v-else class="py-6">
               <h2 class="text-xl font-semibold">Documentation</h2>
@@ -86,94 +85,6 @@ import GithubLogo from '@/assets/github.svg?component';
 
 const route = useRoute();
 const isLeftbarOpen = Vue.ref(false);
-const docsLayoutRef = Vue.ref<HTMLElement | null>(null);
-const leftbarWrapperRef = Vue.ref<HTMLElement | null>(null);
-const leftbarRef = Vue.ref<HTMLElement | null>(null);
-let scrollFrame: number | undefined;
-let layoutResizeObserver: ResizeObserver | undefined;
-let preservedLeftbarScrollTop: number | undefined;
-
-const syncLeftbarScroll = () => {
-  scrollFrame = undefined;
-
-  const layout = docsLayoutRef.value;
-  const leftbarWrapper = leftbarWrapperRef.value;
-  const leftbar = leftbarRef.value;
-  if (!layout || !leftbarWrapper || !leftbar) return;
-
-  if (window.matchMedia('(max-width: 1279px)').matches) {
-    leftbarWrapper.style.height = '';
-    return;
-  }
-
-  const leftbarTop = Math.max(0, leftbarWrapper.getBoundingClientRect().top);
-  leftbarWrapper.style.height = `${window.innerHeight - leftbarTop}px`;
-
-  const layoutTop = window.scrollY + layout.getBoundingClientRect().top;
-  const scrollStart = Math.max(0, layoutTop - 69);
-  const scrollEnd = Math.max(scrollStart, layoutTop + layout.offsetHeight - window.innerHeight);
-  const pageScrollRange = scrollEnd - scrollStart;
-  const pageProgress = pageScrollRange > 0
-    ? Math.min(1, Math.max(0, (window.scrollY - scrollStart) / pageScrollRange))
-    : 0;
-  const leftbarScrollRange = leftbar.scrollHeight - leftbar.clientHeight;
-  const proportionalScrollTop = pageProgress * Math.max(0, leftbarScrollRange);
-
-  if (
-    preservedLeftbarScrollTop !== undefined
-    && proportionalScrollTop < preservedLeftbarScrollTop
-  ) {
-    leftbar.scrollTop = preservedLeftbarScrollTop;
-    return;
-  }
-
-  preservedLeftbarScrollTop = undefined;
-  leftbar.scrollTop = proportionalScrollTop;
-};
-
-const requestLeftbarSync = () => {
-  if (scrollFrame !== undefined) return;
-  scrollFrame = window.requestAnimationFrame(syncLeftbarScroll);
-};
-
-const resumeLeftbarSync = (event: Event) => {
-  const eventTarget = event.target;
-  if (eventTarget instanceof Node && leftbarRef.value?.contains(eventTarget)) return;
-
-  if (preservedLeftbarScrollTop !== undefined) {
-    preservedLeftbarScrollTop = leftbarRef.value?.scrollTop;
-  }
-};
-
-const resumeLeftbarSyncFromKeyboard = (event: KeyboardEvent) => {
-  if (!['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' '].includes(event.key)) return;
-  resumeLeftbarSync(event);
-};
-
-Vue.onMounted(() => {
-  window.addEventListener('scroll', requestLeftbarSync, { passive: true });
-  window.addEventListener('resize', requestLeftbarSync);
-  window.addEventListener('wheel', resumeLeftbarSync, { passive: true });
-  window.addEventListener('touchmove', resumeLeftbarSync, { passive: true });
-  window.addEventListener('keydown', resumeLeftbarSyncFromKeyboard);
-
-  if (docsLayoutRef.value) {
-    layoutResizeObserver = new ResizeObserver(requestLeftbarSync);
-    layoutResizeObserver.observe(docsLayoutRef.value);
-  }
-
-  requestLeftbarSync();
-});
-
-Vue.onBeforeUnmount(() => {
-  window.removeEventListener('scroll', requestLeftbarSync);
-  window.removeEventListener('resize', requestLeftbarSync);
-  window.removeEventListener('wheel', resumeLeftbarSync);
-  window.removeEventListener('touchmove', resumeLeftbarSync);
-  window.removeEventListener('keydown', resumeLeftbarSyncFromKeyboard);
-  layoutResizeObserver?.disconnect();
-  if (scrollFrame !== undefined) window.cancelAnimationFrame(scrollFrame);
-});
 
 type TocItem = {
   title: string;
@@ -191,11 +102,6 @@ const docsToc = toc as TocGroup[];
 
 const closeLeftbar = () => {
   isLeftbarOpen.value = false;
-};
-
-const handleLeftbarNavigation = () => {
-  preservedLeftbarScrollTop = leftbarRef.value?.scrollTop;
-  closeLeftbar();
 };
 
 Vue.provide('docsLeftbar', {
@@ -290,7 +196,7 @@ function normalizeCurrentPath(path: string) {
 }
 
 .LEFTBAR {
-  @apply h-full overflow-x-hidden overflow-y-auto;
+  @apply h-full overflow-x-hidden overflow-y-auto overscroll-y-contain;
 }
 
 .LEFTBARCONTENT {
@@ -330,7 +236,11 @@ function normalizeCurrentPath(path: string) {
   }
 
   h3 {
-    @apply text-2xl text-slate-900/80 mt-7 mb-4 font-serif;
+    @apply text-[26px] text-slate-900/80 mt-7 mb-4 font-serif;
+  }
+
+  h4 {
+    @apply text-xl text-slate-900/80 mt-5 mb-2 font-serif;
   }
 
   header {
@@ -376,6 +286,6 @@ function normalizeCurrentPath(path: string) {
 }
 
 .RIGHTBAR {
-  @apply hidden min-w-80 xl:block;
+  @apply hidden;
 }
 </style>

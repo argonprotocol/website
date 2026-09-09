@@ -182,7 +182,7 @@
       certification event—not when an invitation is created, accepted, or
       approved. See
       <router-link to="/docs/assets-and-entities/operational-rewards-pool"
-        >Operational Rewards Pool</router-link
+        >Expansion Rewards Pool</router-link
       >
       for the current reward rules.
     </p>

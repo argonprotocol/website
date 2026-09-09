@@ -167,7 +167,7 @@
         </div>
         <div class="border-b border-slate-300 px-5 py-4 md:flex md:gap-6">
           <dt class="font-bold text-slate-800 md:w-52 md:shrink-0">
-            Operational rewards
+            Expansion rewards pool
           </dt>
           <dd class="m-0 mt-1 text-slate-600 md:mt-0">
             The protocol records the new operator's certification reward and,
@@ -204,7 +204,7 @@
       >
       and
       <router-link to="/docs/assets-and-entities/operational-rewards-pool"
-        >Operational Rewards Pool</router-link
+        >Expansion Rewards Pool</router-link
       >
       for those rules.
     </p>

@@ -36,7 +36,7 @@
       </li>
     </ul>
 
-    <h2>Review Actions Carefully</h2>
+    <h2>Review Your Actions Carefully</h2>
     <p>
       Blockchain transactions generally cannot be canceled or reversed after
       confirmation. Some Argon actions may also lock funds or create obligations
@@ -46,20 +46,6 @@
       Before confirming an action, verify the account, network, asset, amount,
       recipient address, fees, and any applicable lock period or other terms. Do
       not proceed if the information appears incomplete, stale, or unexpected.
-    </p>
-
-    <h2>Software and External Services</h2>
-    <p>
-      Argon Desktop is open-source software and may contain bugs. Some features
-      also depend on blockchains, RPC providers, indexers, cross-chain transfer
-      systems, and third-party services. These systems may be delayed, return
-      incomplete information, change, or become unavailable.
-    </p>
-    <p>
-      Before moving or locking funds, confirm that Argon Desktop is connected to
-      the intended network and displaying current information. Consider
-      independently verifying high-value actions with a block explorer or
-      another trusted source.
     </p>
 
     <h2>Community Support and Diagnostic Data</h2>
@@ -74,6 +60,20 @@
       Wallet mnemonic files are excluded by default unless you deliberately
       include them. Treat any package containing recovery information as
       sensitive wallet access data, and never post it publicly.
+    </p>
+
+    <h2>External Services</h2>
+    <p>
+      Argon Desktop is open-source software and may contain bugs. Some features
+      also depend on blockchains, RPC providers, indexers, cross-chain transfer
+      systems, and third-party services. These systems may be delayed, return
+      incomplete information, change, or become unavailable.
+    </p>
+    <p>
+      Before moving or locking funds, confirm that Argon Desktop is connected to
+      the intended network and displaying current information. Consider
+      independently verifying high-value actions with a block explorer or
+      another trusted source.
     </p>
 
     <h2>Software License</h2>

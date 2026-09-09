@@ -156,5 +156,5 @@ body #gtlyTrial1736952351985container {
 }
 
 a:not([class*="text-"]) {
-  @apply text-argon-800/70 hover:text-argon-600 underline decoration-dashed hover:decoration-solid;
+  @apply text-argon-800/70 hover:text-argon-600 underline decoration-argon-800/20 hover:decoration-argon-800/70;
 }
