@@ -2,6 +2,7 @@
   <MainLayout>
     <div class="flex min-h-screen flex-col-reverse items-stretch pb-10 xl:flex-row">
       <div
+        ref="leftbarWrapperRef"
         id="docs-leftbar"
         class="LEFTBARWRAPPER"
         :class="{ 'translate-x-0': isLeftbarOpen, '-translate-x-full': !isLeftbarOpen }"
@@ -40,6 +41,7 @@
             </template>
           </div>
         </div>
+        <div v-if="isLeftbarBottomVisible" class="LEFTBARTEXTFADE" aria-hidden="true" />
         <div Fade />
       </div>
       <button
@@ -85,6 +87,34 @@ import GithubLogo from '@/assets/github.svg?component';
 
 const route = useRoute();
 const isLeftbarOpen = Vue.ref(false);
+const leftbarWrapperRef = Vue.ref<HTMLElement | null>(null);
+const isLeftbarBottomVisible = Vue.ref(false);
+
+function updateLeftbarHeight() {
+  const wrapper = leftbarWrapperRef.value;
+  if (!wrapper) return;
+
+  if (window.matchMedia('(max-width: 1279px)').matches) {
+    wrapper.style.height = '';
+    isLeftbarBottomVisible.value = false;
+    return;
+  }
+
+  const visibleTop = Math.max(0, wrapper.getBoundingClientRect().top);
+  wrapper.style.height = `${Math.max(0, window.innerHeight - visibleTop)}px`;
+  isLeftbarBottomVisible.value = wrapper.getBoundingClientRect().bottom < window.innerHeight - 1;
+}
+
+Vue.onMounted(() => {
+  updateLeftbarHeight();
+  window.addEventListener('scroll', updateLeftbarHeight, { passive: true });
+  window.addEventListener('resize', updateLeftbarHeight);
+});
+
+Vue.onBeforeUnmount(() => {
+  window.removeEventListener('scroll', updateLeftbarHeight);
+  window.removeEventListener('resize', updateLeftbarHeight);
+});
 
 type TocItem = {
   title: string;
@@ -201,7 +231,12 @@ function normalizeCurrentPath(path: string) {
 
 .LEFTBARCONTENT {
   box-shadow: 1px 0 0 white;
-  @apply min-h-full border-r border-slate-300 bg-argon-50 pl-6 pr-8 py-5 xl:pr-12 xl:bg-argon-50/50;
+  @apply min-h-full border-r border-slate-300 bg-argon-50 pl-6 pr-8 py-5 xl:pb-24 xl:pr-12 xl:bg-argon-50/50;
+}
+
+.LEFTBARTEXTFADE {
+  @apply pointer-events-none absolute bottom-0 left-0 right-px hidden h-20 xl:block;
+  background: linear-gradient(to top, color-mix(in oklab, var(--color-argon-50) 50%, var(--bg-color)), transparent);
 }
 
 .LEFTBAR {

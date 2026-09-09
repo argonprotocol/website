@@ -218,6 +218,20 @@
     ]
   },
   {
+    "title": "Engine Modeling",
+    "base": "/engine-modeling",
+    "items": [
+      {
+        "title": "Liquid Locking for Bitcoin",
+        "link": "/llb"
+      },
+      {
+        "title": "Stabilization Analysis Model",
+        "link": "/sam"
+      }
+    ]
+  },
+  {
     "title": "Whitepapers",
     "base": "/whitepapers",
     "items": [
@@ -228,20 +242,6 @@
       {
         "title": "Fundamentals of Stability",
         "link": "/fundamentals"
-      }
-    ]
-  },
-  {
-    "title": "Engine Modeling",
-    "base": "/engine-modeling",
-    "items": [
-      {
-        "title": "LLB",
-        "link": "/llb"
-      },
-      {
-        "title": "SAM",
-        "link": "/sam"
       }
     ]
   }
