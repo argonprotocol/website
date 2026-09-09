@@ -48,74 +48,16 @@
     </p>
 
     <div class="my-8 w-full max-w-full overflow-hidden rounded-lg border border-gray-400 bg-white/30 px-5 pt-6">
-      <math
-        display="block"
-        class="mx-auto text-lg sm:text-xl"
-      >
-        <mtable rowspacing="1.25em" columnalign="right center left">
-          <mtr>
-            <mtd><mi>ΔC</mi></mtd>
-            <mtd><mo>=</mo></mtd>
-            <mtd>
-              <mi>clamp</mi>
-              <mo>(</mo>
-              <msub><mi>C</mi><mi>new</mi></msub>
-              <mo>−</mo>
-              <msub><mi>C</mi><mi>previous</mi></msub>
-              <mo>,</mo>
-              <mn>−0.7092</mn>
-              <mo>,</mo>
-              <mn>1.2429</mn>
-              <mo>)</mo>
-            </mtd>
-          </mtr>
-
-          <mtr>
-            <mtd>
-              <msub><mi>C</mi><mi>smooth</mi></msub>
-            </mtd>
-            <mtd><mo>=</mo></mtd>
-            <mtd>
-              <msub><mi>C</mi><mi>previous</mi></msub>
-              <mo>+</mo>
-              <mfrac>
-                <mrow><mi>min</mi><mo>(</mo><mi>e</mi><mo>,</mo><mi>D</mi><mo>)</mo></mrow>
-                <mi>D</mi>
-              </mfrac>
-              <mo>×</mo>
-              <mi>ΔC</mi>
-            </mtd>
-          </mtr>
-
-          <mtr>
-            <mtd><msup><mi>T</mi><mo>*</mo></msup></mtd>
-            <mtd><mo>=</mo></mtd>
-            <mtd>
-              <mtext>$1.00</mtext>
-              <mo>×</mo>
-              <mfrac>
-                <msub><mi>C</mi><mi>smooth</mi></msub>
-                <mn>315.605</mn>
-              </mfrac>
-            </mtd>
-          </mtr>
-
-          <mtr>
-            <mtd><mi>T</mi></mtd>
-            <mtd><mo>=</mo></mtd>
-            <mtd>
-              <msub><mi>truncate</mi><mn>3 decimals</mn></msub>
-              <mo>(</mo>
-              <mi>rate-limit</mi>
-              <mo>(</mo>
-              <msup><mi>T</mi><mo>*</mo></msup>
-              <mo>)</mo>
-              <mo>)</mo>
-            </mtd>
-          </mtr>
-
-        </mtable>
-      </math>
+      <MathFormula
+        label="Target price calculation"
+        class="text-base sm:text-lg"
+        source="\begin{aligned}
+          \Delta C &= \operatorname{clamp}(C_{\mathrm{new}} - C_{\mathrm{previous}}, -0.7092, 1.2429) \\[1em]
+          C_{\mathrm{smooth}} &= C_{\mathrm{previous}} + \frac{\min(e, D)}{D} \times \Delta C \\[1em]
+          T^{*} &= \$1.00 \times \frac{C_{\mathrm{smooth}}}{315.605} \\[1em]
+          T &= \operatorname{truncate}_{\text{3 decimals}}\bigl(\operatorname{rate-limit}(T^{*})\bigr)
+        \end{aligned}"
+      />
 
       <p class="mt-6 mb-0 text-sm text-slate-600">
         C is the U.S. Consumer Price Index, ΔC is its bounded monthly change,
@@ -131,38 +73,14 @@
     </p>
 
     <div class="my-8 w-full max-w-full overflow-hidden rounded-lg border border-gray-400 bg-white/30 px-5 pt-6">
-      <math display="block" class="mx-auto text-lg sm:text-xl">
-        <mtable columnalign="right center left">
-          <mtr>
-            <mtd><mtext>Argon CPI</mtext></mtd>
-            <mtd><mo>=</mo></mtd>
-            <mtd>
-              <mrow>
-                <mo>{</mo>
-                <mtable columnalign="left left" columnspacing="1em">
-                  <mtr>
-                    <mtd><mn>0</mn></mtd>
-                    <mtd>
-                      <mtext>if </mtext>
-                      <mo>|</mo><mi>M</mi><mo>−</mo><mi>T</mi><mo>|</mo>
-                      <mo>&lt;</mo>
-                      <mtext>$0.001</mtext>
-                    </mtd>
-                  </mtr>
-                  <mtr>
-                    <mtd>
-                      <mfrac><mi>T</mi><mi>M</mi></mfrac>
-                      <mo>−</mo>
-                      <mn>1</mn>
-                    </mtd>
-                    <mtd><mtext>otherwise</mtext></mtd>
-                  </mtr>
-                </mtable>
-              </mrow>
-            </mtd>
-          </mtr>
-        </mtable>
-      </math>
+      <MathFormula
+        label="Argon CPI calculation"
+        class="text-base sm:text-lg"
+        source="\text{Argon CPI} = \begin{cases}
+          0 &amp; \text{if } |M - T| &lt; \$0.001 \\[0.6em]
+          \dfrac{T}{M} - 1 &amp; \text{otherwise}
+        \end{cases}"
+      />
 
       <p class="mt-6 mb-0 text-sm text-slate-600">
         T is Argon’s target price, and M is Argon’s market price.
@@ -271,88 +189,21 @@
       of Argons required is based on the following formula:
     </p>
 
-    <div
-      class="my-8 w-full max-w-full overflow-hidden rounded-lg border border-gray-400 bg-white/30 px-3 pt-6 sm:px-5"
-    >
-      <math
-        display="block"
-        class="mx-auto text-[10px] sm:text-lg"
-        aria-label="Complete Bitcoin unlocking formula"
-      >
-        <mtable rowspacing="1em" columnalign="right center left">
-          <mtr>
-            <mtd><mi>r</mi></mtd>
-            <mtd><mo>=</mo></mtd>
-            <mtd>
-              <mfrac>
-                <msub><mi>A</mi><mi>c</mi></msub>
-                <msub><mi>A</mi><mi>t</mi></msub>
-              </mfrac>
-            </mtd>
-          </mtr>
-          <mtr>
-            <mtd><mi>b</mi></mtd>
-            <mtd><mo>=</mo></mtd>
-            <mtd>
-              <mi>min</mi>
-              <mo>(</mo>
-              <msub><mi>B</mi><mi>c</mi></msub>
-              <mo>,</mo>
-              <msub><mi>B</mi><mi>v</mi></msub>
-              <mo>)</mo>
-            </mtd>
-          </mtr>
-          <mtr>
-            <mtd><mi>U</mi><mo>(</mo><mi>r</mi><mo>,</mo><mi>b</mi><mo>)</mo></mtd>
-            <mtd><mo>=</mo></mtd>
-            <mtd>
-              <mrow>
-                <mo>{</mo>
-                <mtable columnalign="left left" columnspacing="1em" rowspacing="0.65em">
-                  <mtr>
-                    <mtd><mi>b</mi></mtd>
-                    <mtd><mtext>if </mtext><mi>r</mi><mo>≥</mo><mn>1</mn></mtd>
-                  </mtr>
-                  <mtr>
-                    <mtd>
-                      <mi>b</mi>
-                      <mo>(</mo>
-                      <mn>20</mn><msup><mi>r</mi><mn>2</mn></msup>
-                      <mo>−</mo><mn>38</mn><mi>r</mi>
-                      <mo>+</mo><mn>19</mn>
-                      <mo>)</mo>
-                    </mtd>
-                    <mtd>
-                      <mtext>if </mtext><mn>0.90</mn><mo>≤</mo><mi>r</mi><mo>&lt;</mo><mn>1</mn>
-                    </mtd>
-                  </mtr>
-                  <mtr>
-                    <mtd>
-                      <mi>b</mi>
-                      <mo>(</mo>
-                      <mfrac>
-                        <mrow><mn>0.5618</mn><mi>r</mi><mo>+</mo><mn>0.3944</mn></mrow>
-                        <mi>r</mi>
-                      </mfrac>
-                      <mo>)</mo>
-                    </mtd>
-                    <mtd>
-                      <mtext>if </mtext><mn>0.01</mn><mo>≤</mo><mi>r</mi><mo>&lt;</mo><mn>0.90</mn>
-                    </mtd>
-                  </mtr>
-                  <mtr>
-                    <mtd>
-                      <mfrac><mi>b</mi><mi>r</mi></mfrac>
-                      <mo>(</mo><mn>0.576</mn><mi>r</mi><mo>+</mo><mn>0.4</mn><mo>)</mo>
-                    </mtd>
-                    <mtd><mtext>if </mtext><mi>r</mi><mo>&lt;</mo><mn>0.01</mn></mtd>
-                  </mtr>
-                </mtable>
-              </mrow>
-            </mtd>
-          </mtr>
-        </mtable>
-      </math>
+    <div class="my-8 w-full max-w-full overflow-hidden rounded-lg border border-gray-400 bg-white/30 px-3 pt-6 sm:px-5">
+      <MathFormula
+        label="Complete Bitcoin unlocking formula"
+        class="text-base sm:text-lg"
+        source="\begin{aligned}
+          r &= \frac{A_c}{A_t} \\[1em]
+          b &= \min(B_c, B_v) \\[1em]
+          U(r,b) &= \begin{cases}
+            b &amp; \text{if } r \ge 1 \\[0.6em]
+            b(20r^2 - 38r + 19) &amp; \text{if } 0.90 \le r &lt; 1 \\[0.6em]
+            b\left(\dfrac{0.5618r + 0.3944}{r}\right) &amp; \text{if } 0.01 \le r &lt; 0.90 \\[0.6em]
+            \dfrac{b}{r}(0.576r + 0.4) &amp; \text{if } r &lt; 0.01
+          \end{cases}
+        \end{aligned}"
+      />
 
       <p class="mt-6 mb-0 text-sm text-slate-600">
         U is the number of Argons required to unlock the Bitcoin. A<sub>c</sub>
@@ -364,7 +215,7 @@
 
     <ul>
       <li>
-        When Argon is at or above target, the multiplier is one, and the lock uses its normal
+        When Argon is at or above target, the multiplier is at a value of one, and the lock uses its normal
         target-denominated redemption amount.
       </li>
       <li>
@@ -407,30 +258,30 @@
       >.
     </p>
 
-    <h3>Targeted Burning of Mining Auction Revenue</h3>
+    <h3>Targeted Burning of Unused Vault Revenue</h3>
     <p>
-      Mining-auction revenue is distributed according to the network’s need for Bitcoin capacity.
-      When locked Bitcoin is below the Desired Bitcoin Space, the unused portion of the vaulting
-      allocation is burned rather than redistributed. Based on network data last updated
+      Argo has several mechanisms for providing a continuous burn of circulation regardless of
+      whether the price is at target. One way is when vaults earn revenue from mining auctions. The amount
+      of money earned by a vault is determined by a number of factors, such as the amount of BTC locked, the
+      amount of Argonots in securitization, etc. Instead of redistributing unused revenue, the
+      network simply burns it from circulation. Based on network data last updated
       {{ dayjs(data.lastUpdatedAt).format('MMMM D, YYYY') }}, approximately
       {{ Math.round(bitcoinCapacityFilledPercent) }}% of the desired BTC amount is locked, resulting
-      in roughly {{ Math.round(targetedBurnPercent) }}% of total auction revenue being targeted for
-      burning. If the 20% Expansion Rewards allocation also goes unused, approximately
-      {{ Math.round(totalPotentialBurnPercent) }}% of the auction pool would be removed from
-      circulation every ten days. Of course, the amount burned fluctuates with demand for mining seats.
-      Stronger competition produces larger winning bids and a larger burn, while weaker competition
-      produces a smaller auction pool and less burning.
+      in only {{ Math.round(100-targetedBurnPercent) }}% of total auction revenue being distributed. That allows
+      the network to burn {{ Math.round(targetedBurnPercent) }}%. Of course, the actual amount burned will continually
+      fluctuate. Stronger competition produces larger winning bids and a larger burn, while weaker
+      competition produces a smaller auction pool and less burning.
     </p>
 
     <h3>The Continuous Burn of the Sidechain</h3>
     <p>
-      Bitcoin unlocking is not the only way Argons leave circulation.
-      Argon's <DocLink to="/docs/assets-and-entities/sidechain">Sidechain</DocLink>
+      The second continuous burn mechanism is Argon's
+      <DocLink to="/docs/assets-and-entities/sidechain">Sidechain</DocLink>. The Sidechain
       operates as a fast, inexpensive micro-payment
       settlement layer. Payments on this Sidechain create transaction
       taxes, and these taxes are burned when the transaction settles on
-      the mainchain. This provides a continuing supply sink as the payment
-      network is used.
+      the mainchain. This provides a continual supply sink as the payments
+      network grows.
     </p>
 
     <h2>Guardrails and Timing</h2>
@@ -501,6 +352,7 @@
 </template>
 
 <script setup lang="ts">
+import MathFormula from "@/components/MathFormula.vue";
 import DocLink from "@/screens/docs/DocLink.vue";
 import * as Vue from "vue";
 import dayjs from "dayjs";
@@ -530,9 +382,5 @@ const bitcoinCapacityFilledPercent = Vue.computed(() => (
 
 const targetedBurnPercent = Vue.computed(() => (
   VAULTING_ALLOCATION_PERCENT * (1 - bitcoinCapacityFilledPercent.value / 100)
-));
-
-const totalPotentialBurnPercent = Vue.computed(() => (
-  targetedBurnPercent.value + EXPANSION_REWARDS_ALLOCATION_PERCENT
 ));
 </script>
