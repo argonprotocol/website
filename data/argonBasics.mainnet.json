@@ -1,42 +1,42 @@
 {
-  "lastUpdatedAt": "2026-09-10T13:14:39.938Z",
-  "currentBlockNumber": 906629,
+  "lastUpdatedAt": "2026-09-10T13:40:10.246Z",
+  "currentBlockNumber": 906655,
   "activeArgonotStakes": 406623,
-  "baseMicrogonsMinedPerBlock": "8815305n",
+  "baseMicrogonsMinedPerBlock": "9056008n",
   "baseMicronotsMinedPerBlock": "3750000n",
   "microgonsInCirculation": {
-    "fromBitcoin": "152332793826n",
-    "fromMining": "2271855316112n",
-    "total": "2424188109938n"
+    "fromBitcoin": "157562196174n",
+    "fromMining": "2278293412450n",
+    "total": "2435855608624n"
   },
-  "micronotsInCirculation": "2053117922497n",
+  "micronotsInCirculation": "2053215422497n",
   "usdForArgon": 1.061,
   "usdTargetForArgon": 1.058,
-  "usdForArgonot": 4.406,
-  "usdForBtc": 76856.105,
-  "totalMarketValueUsd": 11375825.890933886,
-  "restabilizationLeverage": 27.2,
-  "miningTDR": 21.35,
-  "miningAPR": 779.1325842716508,
+  "usdForArgonot": 4.343,
+  "usdForBtc": 76993.014,
+  "totalMarketValueUsd": 11259245.554989055,
+  "restabilizationLeverage": 27.1,
+  "miningTDR": 18.44,
+  "miningAPR": 673.0183325033822,
   "vaultingAPR": 1544.35820967892,
   "bondsAPR": 774.0601403125829,
   "bitcoinAPR": 40.5,
   "mining": {
     "activeSeatCount": 307,
     "nextEpochSeatCount": 246,
-    "activeBidCostsUsd": 219527.40168793424,
-    "activeBlockRewardsUsd": 359265.63195437053,
-    "currentMicronotsForBid": "406637798n",
-    "baseMicrogonRewardsPerBlock": "7964544n",
+    "activeBidCostsUsd": 231318.63911491897,
+    "activeBlockRewardsUsd": 359864.2986767586,
+    "currentMicronotsForBid": "373415978n",
+    "baseMicrogonRewardsPerBlock": "8227140n",
     "baseMicronotRewardsPerBlock": "3749999n"
   },
   "vaulting": {
     "count": 39,
     "eligibleBondCapital": 106688,
-    "valueInVaults": 174137.16338069297,
+    "valueInVaults": 174447.36573813003,
     "bitcoinLocked": 2.26575437,
     "bitcoinTxnCount": 95,
     "epochEarnings": 99097.07983461334,
-    "argonBurnCapacity": 65936618.984907284
+    "argonBurnCapacity": 66054076.36306517
   }
 }
