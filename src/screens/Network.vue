@@ -4,7 +4,7 @@
 
       <p v-if="chainName === NetworkName.mainnet" class="md:text-lg font-light font-serif leading-normal text-center">
         Mainnet is Argon's live production network. It went live on January 15, 2025, and it holds all the assets
-        of the Argon ecosystem. <router-link to="/apps">Download our simple desktop app</router-link> for
+        of the Argon ecosystem. <router-link to="/desktop-app">Download our simple desktop app</router-link> for
         the easiest way to manage mining and vaulting efforts.
       </p>
       <p v-else class="md:text-lg font-light font-serif leading-normal text-center">

@@ -53,7 +53,7 @@
           <span>First Transactional Currency </span>
           <span>That Remains Stable Over Time</span>
         </div>
-        <router-link to="/apps" class="font-bold mt-2">Get Started -></router-link>
+        <router-link to="/desktop-app" class="font-bold mt-2">Get Started -></router-link>
       </div>
     </div>
 
