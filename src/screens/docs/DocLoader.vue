@@ -176,6 +176,7 @@ Vue.watch(() => route.fullPath, closeLeftbar);
 type DocModule = { default: Vue.Component };
 type DocLoaderFn = () => Promise<DocModule>;
 
+// The active-docs-only Vite plugin replaces this glob with active TOC imports in production builds.
 const pageModules = import.meta.glob<DocModule>('./**/*.vue');
 
 function normalizeRoutePath(id?: string, subId?: string): string {
