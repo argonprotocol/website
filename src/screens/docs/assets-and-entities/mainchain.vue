@@ -1,13 +1,10 @@
 <template>
   <DocHeader>
-    Overview
+    Mainchain
   </DocHeader>
+
   <DocContent>
-    <h2>Overview</h2>
-    <h2>Model Inputs</h2>
-    <h2>Model Outputs</h2>
-    <h2>Assumptions and Limitations</h2>
-    <h2>Scenario Library</h2>
+    Coming soon!
   </DocContent>
 </template>
 <script setup lang="ts">

@@ -19,7 +19,7 @@
           </div>
         </template>
         <template v-else>
-          <RouterLink :to="breadcrumb.link">{{ breadcrumb.title }}</RouterLink>
+          <DocLink :to="breadcrumb.link">{{ breadcrumb.title }}</DocLink>
         </template>
       </li>
     </ol>
@@ -30,6 +30,7 @@
 </template>
 
 <script setup lang="ts">
+import DocLink from "@/screens/docs/DocLink.vue";
 import * as Vue from 'vue';
 import { useRoute } from 'vue-router';
 import LeftbarIcon from '@/assets/leftbar.svg?component';
@@ -58,7 +59,11 @@ function cleanDocPath(path: unknown) {
 
 const breadcrumbs = Vue.computed(() => {
   const parentFolder = cleanDocPath(route.params.id);
-  const parentGroup = (toc as TocGroup[]).find((group) => cleanDocPath(group.base) === parentFolder);
+  const parentGroup = (toc as TocGroup[]).find((group) => {
+    const groupFolder = cleanDocPath(group.base);
+    return groupFolder === parentFolder || (!groupFolder && parentFolder === 'getting-started');
+  });
+  const parentLink = cleanDocPath(parentGroup?.base);
 
   return [
     {
@@ -69,7 +74,7 @@ const breadcrumbs = Vue.computed(() => {
     ...(parentGroup && parentFolder
       ? [{
         title: parentGroup.title,
-        link: `/docs/${parentFolder}`,
+        link: parentLink ? `/docs/${parentLink}` : '/docs',
         isRoot: false,
       }]
       : []),
@@ -82,7 +87,7 @@ const breadcrumbs = Vue.computed(() => {
 @import "../../main.css";
 
 ol {
-  @apply relative flex flex-row list-none py-0 px-4 m-0 bg-argon-200/10 border-b border-argon-200/50 md:border-b-0 md:bg-transparent;
+  @apply relative flex flex-row list-none py-0 px-4 m-0 bg-argon-200/10 border-b border-argon-200/50 xl:border-b-0 xl:bg-transparent;
 }
 
 ol li {
@@ -103,15 +108,15 @@ ol a {
 }
 
 .DOCS_MENU_TRIGGER {
-  @apply -mx-2 cursor-pointer appearance-none rounded-md border-0 bg-transparent px-2 py-1 text-inherit uppercase hover:bg-argon-200/25 focus-visible:bg-argon-200/25 focus-visible:outline-none md:hidden;
+  @apply -mx-2 cursor-pointer appearance-none rounded-md border-0 bg-transparent px-2 py-1 text-inherit uppercase hover:bg-argon-200/25 focus-visible:bg-argon-200/25 focus-visible:outline-none xl:hidden;
 }
 
 .DOCS_DESKTOP_LINK {
-  @apply hidden md:flex;
+  @apply hidden xl:flex;
 }
 
 h1 {
-  @apply font-light font-serif mt-5 md:mt-1 text-4xl md:text-5xl leading-snug px-4;
+  @apply font-light font-serif mt-5 xl:mt-1 text-4xl md:text-5xl leading-snug px-4;
 }
 
 </style>

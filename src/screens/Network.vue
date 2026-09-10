@@ -280,7 +280,7 @@ const minutesElapsed = Vue.computed(() => {
 });
 
 const microgonsInCirculation = Vue.computed(() => {
-  return data.value.microgonsInCirculation + BigInt(minutesElapsed.value) * data.value.baseMicrogonsMinedPerBlock;
+  return data.value.microgonsInCirculation.total + BigInt(minutesElapsed.value) * data.value.baseMicrogonsMinedPerBlock;
 });
 
 const micronotsInCirculation = Vue.computed(() => {
@@ -356,7 +356,7 @@ function shortenAddress(address: string): string {
 }
 
 async function loadData() {
-  data.value = await Data.fetchBasics(chainName.value);
+  data.value = await Data.fetchBasics();
 }
 
 Vue.watch(() => router.currentRoute, async () => {

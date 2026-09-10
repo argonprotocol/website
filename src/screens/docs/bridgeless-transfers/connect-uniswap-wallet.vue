@@ -128,14 +128,14 @@
 <script setup lang="ts">
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
-import connectWalletImage from "./images/argon-desktop.png";
-import mnemonicWalletImage from "./images/argon-desktop-connect-mnemonic.png";
-import selectAccountImage from "./images/argon-desktop-select-account.png";
-import uniswapStepA from "./images/uniswap-step-a.png";
-import uniswapStepB from "./images/uniswap-step-b.png";
-import uniswapStepC from "./images/uniswap-step-c.png";
-import uniswapStepD from "./images/uniswap-step-d.png";
-import uniswapStepE from "./images/uniswap-step-e.png";
+import connectWalletImage from "../desktop-app/images/argon-desktop.png";
+import mnemonicWalletImage from "../desktop-app/images/argon-desktop-connect-mnemonic.png";
+import selectAccountImage from "../desktop-app/images/argon-desktop-select-account.png";
+import uniswapStepA from "../desktop-app/images/uniswap-step-a.png";
+import uniswapStepB from "../desktop-app/images/uniswap-step-b.png";
+import uniswapStepC from "../desktop-app/images/uniswap-step-c.png";
+import uniswapStepD from "../desktop-app/images/uniswap-step-d.png";
+import uniswapStepE from "../desktop-app/images/uniswap-step-e.png";
 </script>
 
 <style scoped>

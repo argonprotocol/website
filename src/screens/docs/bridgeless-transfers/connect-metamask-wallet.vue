@@ -124,13 +124,13 @@
 <script setup lang="ts">
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
-import connectWalletImage from "./images/argon-desktop.png";
-import importWalletImage from "./images/argon-desktop-connect-private-key.png";
-import metamaskStepA from "./images/metamask-step-a.png";
-import metamaskStepBC from "./images/metamask-step-b-c.png";
-import metamaskStepD from "./images/metamask-step-d.png";
-import metamaskStepE from "./images/metamask-step-e.png";
-import metamaskStepF from "./images/metamask-step-f.png";
+import connectWalletImage from "../desktop-app/images/argon-desktop.png";
+import importWalletImage from "../desktop-app/images/argon-desktop-connect-private-key.png";
+import metamaskStepA from "../desktop-app/images/metamask-step-a.png";
+import metamaskStepBC from "../desktop-app/images/metamask-step-b-c.png";
+import metamaskStepD from "../desktop-app/images/metamask-step-d.png";
+import metamaskStepE from "../desktop-app/images/metamask-step-e.png";
+import metamaskStepF from "../desktop-app/images/metamask-step-f.png";
 </script>
 
 <style scoped>

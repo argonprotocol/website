@@ -1,48 +1,64 @@
 <template>
   <MainLayout>
-    <div class="flex flex-col-reverse items-stretch pb-10 md:flex-row min-h-screen">
+    <div class="flex min-h-screen flex-col-reverse items-stretch pb-10 xl:flex-row">
       <div
+        ref="leftbarWrapperRef"
         id="docs-leftbar"
-        class="LEFTBAR"
+        class="LEFTBARWRAPPER"
         :class="{ 'translate-x-0': isLeftbarOpen, '-translate-x-full': !isLeftbarOpen }"
       >
-        <template v-if="docsToc" v-for="(group, i1) in docsToc" :key="`title-${i1}`">
-          <template v-if="group.items">
-            <h3 class="mt-5 whitespace-nowrap font-semibold uppercase tracking-widest text-argon-900/40">{{ group.title }}</h3>
-            <template v-for="(item, i2) in group.items" :key="`title-${i1}-${i2}`">
-              <RouterLink
-                :class="{ isSelected: isSelected(resolveDocPath(group.base, item.link)) }"
-                class="block whitespace-nowrap pl-5"
-                @click="closeLeftbar"
-                :to="resolveDocPath(group.base, item.link)"
+        <div class="LEFTBAR" @wheel="revealLeftbarTop">
+          <div class="LEFTBARCONTENT">
+            <template v-if="docsToc" v-for="(group, i1) in docsToc" :key="`title-${i1}`">
+              <template v-if="group.items">
+                <h3 class="mt-5 whitespace-nowrap font-semibold uppercase tracking-widest text-argon-900/40">{{ group.title }}</h3>
+                <template v-for="(item, i2) in group.items" :key="`title-${i1}-${i2}`">
+                  <DocLink
+                    :class="{ isSelected: isDocLinkActive(resolveDocPath(group.base, item.link)) && isSelected(resolveDocPath(group.base, item.link)) }"
+                    class="block whitespace-nowrap pl-5"
+                    @click="closeLeftbar"
+                    @mouseenter="prefetchPage(resolveDocPath(group.base, item.link))"
+                    @focusin="prefetchPage(resolveDocPath(group.base, item.link))"
+                    :to="resolveDocPath(group.base, item.link)"
+                  >
+                    <template v-if="Array.isArray(item.title)">
+                      <span>{{ item.title[0] }}</span>
+                      <span class="opacity-50 ml-1">({{ item.title[1] }})</span>
+                    </template>
+                    <template v-else>
+                      {{ item.title }}
+                    </template>
+                  </DocLink>
+                </template>
+              </template>
+              <DocLink
+                  v-else
+                  class="block whitespace-nowrap pl-2"
+                  :class="{ isSelected: isSelected(group.link) }"
+                  @click="closeLeftbar"
+                  @mouseenter="prefetchPage(cleanPath(group.link))"
+                  @focusin="prefetchPage(cleanPath(group.link))"
+                  :to="cleanPath(group.link)"
               >
-                {{ item.title }}
-              </RouterLink>
+                {{ group.title }}
+              </DocLink>
             </template>
-          </template>
-          <RouterLink
-              v-else
-              class="block whitespace-nowrap pl-2"
-              :class="{ isSelected: isSelected(group.link) }"
-              @click="closeLeftbar"
-              :to="cleanPath(group.link)"
-          >
-            {{ group.title }}
-          </RouterLink>
-        </template>
+          </div>
+        </div>
+        <div v-if="isLeftbarBottomVisible" class="LEFTBARTEXTFADE" aria-hidden="true" />
         <div Fade />
       </div>
       <button
         v-if="isLeftbarOpen"
         aria-label="Close documentation menu"
-        class="fixed inset-0 z-40 bg-slate-950/30 md:hidden"
+        class="fixed inset-0 z-40 bg-slate-950/30 xl:hidden"
         type="button"
         @click="closeLeftbar"
       />
 
-      <div class="DOCSCONTENT flex-1 max-w-full">
-        <div class="md:mt-5 md:mx-32">
-          <div class="post mb min-h-screen md:pt-6">
+      <div class="DOCSCONTENT min-w-0 flex-1 max-w-full">
+        <div class="max-w-[52rem] xl:mx-32 xl:mt-5">
+          <div class="post mb min-h-screen xl:pt-6">
             <component :is="activePage" v-if="activePage" />
             <div v-else class="py-6">
               <h2 class="text-xl font-semibold">Documentation</h2>
@@ -59,6 +75,9 @@
 <!--          </div>-->
         </div>
       </div>
+      <div class="RIGHTBAR">
+
+      </div>
     </div>
   </MainLayout>
 </template>
@@ -66,16 +85,69 @@
 <script setup lang="ts">
 import * as Vue from 'vue';
 import { useRoute } from 'vue-router';
+import DocLink from './DocLink.vue';
+import { isDocLinkActive } from './docLinkState';
 import toc from './toc.json';
 import MainLayout from '@/navigation/MainLayout.vue';
 import GithubLogo from '@/assets/github.svg?component';
 
 const route = useRoute();
 const isLeftbarOpen = Vue.ref(false);
+const leftbarWrapperRef = Vue.ref<HTMLElement | null>(null);
+const isLeftbarBottomVisible = Vue.ref(false);
+
+function revealLeftbarTop(event: WheelEvent) {
+  const wrapper = leftbarWrapperRef.value;
+  const leftbar = event.currentTarget as HTMLElement;
+  if (!wrapper || event.deltaY >= 0 || event.ctrlKey || !event.cancelable) return;
+  if (window.matchMedia('(max-width: 1279px)').matches) return;
+
+  const hiddenHeight = Math.max(0, -wrapper.getBoundingClientRect().top);
+  if (hiddenHeight === 0) return;
+
+  const unit = event.deltaMode === WheelEvent.DOM_DELTA_LINE
+    ? 16
+    : event.deltaMode === WheelEvent.DOM_DELTA_PAGE
+      ? window.innerHeight
+      : 1;
+  const requestedDelta = event.deltaY * unit;
+  const pageDelta = Math.max(requestedDelta, -hiddenHeight);
+
+  event.preventDefault();
+  window.scrollBy({ top: pageDelta, behavior: 'instant' });
+  leftbar.scrollTop += requestedDelta - pageDelta;
+}
+
+function updateLeftbarHeight() {
+  const wrapper = leftbarWrapperRef.value;
+  if (!wrapper) return;
+
+  if (window.matchMedia('(max-width: 1279px)').matches) {
+    wrapper.style.height = '';
+    isLeftbarBottomVisible.value = false;
+    return;
+  }
+
+  const visibleTop = Math.max(0, wrapper.getBoundingClientRect().top);
+  wrapper.style.height = `${Math.max(0, window.innerHeight - visibleTop)}px`;
+  isLeftbarBottomVisible.value = wrapper.getBoundingClientRect().bottom < window.innerHeight - 1;
+}
+
+Vue.onMounted(() => {
+  updateLeftbarHeight();
+  window.addEventListener('scroll', updateLeftbarHeight, { passive: true });
+  window.addEventListener('resize', updateLeftbarHeight);
+});
+
+Vue.onBeforeUnmount(() => {
+  window.removeEventListener('scroll', updateLeftbarHeight);
+  window.removeEventListener('resize', updateLeftbarHeight);
+});
 
 type TocItem = {
-  title: string;
+  title: string | string[];
   link: string;
+  isActive: boolean;
 };
 
 type TocGroup = {
@@ -111,7 +183,7 @@ function normalizeRoutePath(id?: string, subId?: string): string {
   const rawPage = String(subId ?? (section ? 'index' : '')).trim().toLowerCase();
   const page = rawPage === 'overview' ? 'index' : rawPage;
 
-  if (!section) return 'index';
+  if (!section) return 'getting-started';
   if (!page || page === 'index') return section;
   return `${section}/${page}`;
 }
@@ -130,13 +202,103 @@ const moduleLookup = new Map<string, DocLoaderFn>(
     .map(([path, loader]) => [normalizeModulePath(path), loader as DocLoaderFn]),
 );
 
+const pagePromises = new Map<string, Promise<Vue.Component>>();
+const resolvedPages = new Map<string, Vue.Component>();
+const asyncPages = new Map<string, Vue.Component>();
+
+function loadPage(docPath: string): Promise<Vue.Component> {
+  const cached = pagePromises.get(docPath);
+  if (cached) return cached;
+
+  const promise = moduleLookup.get(docPath)!()
+    .then((module) => {
+      resolvedPages.set(docPath, module.default);
+      return module.default;
+    })
+    .catch((error) => {
+      pagePromises.delete(docPath);
+      throw error;
+    });
+  pagePromises.set(docPath, promise);
+  return promise;
+}
+
+function prefetchPage(path: string) {
+  if (!isDocLinkActive(path)) return;
+  const [id, subId] = path.replace(/^\/docs\/?/, '').split('/');
+  const docPath = normalizeRoutePath(id, subId);
+  if (!moduleLookup.has(docPath)) return;
+  void loadPage(docPath).catch(() => {
+    // A speculative failure must not prevent a later navigation from retrying.
+  });
+}
+
+const activeDocPath = Vue.computed(() => normalizeRoutePath(
+  route.params.id as string | undefined,
+  route.params.subId as string | undefined,
+));
+
 const activePage = Vue.computed(() => {
-  const docPath = normalizeRoutePath(
-    route.params.id as string | undefined,
-    route.params.subId as string | undefined,
-  );
-  const loader = moduleLookup.get(docPath);
-  return loader ? Vue.defineAsyncComponent(() => loader().then((m) => m.default)) : null;
+  const docPath = activeDocPath.value;
+  if (!moduleLookup.has(docPath)) return null;
+  const resolved = resolvedPages.get(docPath);
+  if (resolved) return resolved;
+  if (!asyncPages.has(docPath)) {
+    asyncPages.set(docPath, Vue.defineAsyncComponent(() => loadPage(docPath)));
+  }
+  return asyncPages.get(docPath);
+});
+
+const backgroundPaths = [...new Set(docsToc.flatMap((group) => group.items
+  ? group.items.map((item) => resolveDocPath(group.base, item.link))
+  : [cleanPath(group.link)]))]
+  .filter((path) => isDocLinkActive(path))
+  .map((path) => {
+    const [id, subId] = path.replace(/^\/docs\/?/, '').split('/');
+    return normalizeRoutePath(id, subId);
+  })
+  .filter((path) => moduleLookup.has(path));
+
+let stopWarming: (() => void) | undefined;
+
+Vue.onMounted(() => {
+  stopWarming = Vue.watch(activeDocPath, async (docPath, _previous, onCleanup) => {
+    let cancelled = false;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    onCleanup(() => {
+      cancelled = true;
+      clearTimeout(timer);
+    });
+
+    if (!moduleLookup.has(docPath)) return;
+    try {
+      await loadPage(docPath);
+    } catch {
+      return;
+    }
+    await Vue.nextTick();
+    if (cancelled) return;
+
+    const pending = backgroundPaths.filter((path) => path !== docPath && !resolvedPages.has(path));
+
+    async function warmNextPage() {
+      if (cancelled) return;
+      const path = pending.shift();
+      if (!path) return;
+      try {
+        await loadPage(path);
+      } catch {
+        // Leave failed imports available for an explicit navigation to retry.
+      }
+      if (!cancelled) timer = setTimeout(warmNextPage, 250);
+    }
+
+    timer = setTimeout(warmNextPage, 250);
+  }, { immediate: true });
+});
+
+Vue.onBeforeUnmount(() => {
+  stopWarming?.();
 });
 
 function isSelected(path: unknown) {
@@ -178,22 +340,25 @@ function normalizeCurrentPath(path: string) {
 <style>
 @import "../../main.css";
 
+.LEFTBARWRAPPER {
+  @apply fixed inset-y-0 left-0 z-50 w-80 max-w-[85vw] transition-transform duration-200 ease-out xl:sticky xl:top-0 xl:h-[calc(100vh-69px)] xl:inset-x-auto xl:z-auto xl:w-auto xl:max-w-none xl:translate-x-0 xl:self-start;
+}
+
 .LEFTBAR {
+  @apply h-full overflow-x-hidden overflow-y-auto overscroll-y-contain;
+}
+
+.LEFTBARCONTENT {
   box-shadow: 1px 0 0 white;
-  @apply fixed inset-y-0 left-0 z-50 w-80 max-w-[85vw] overflow-x-hidden overflow-y-auto border-r border-slate-300 bg-argon-50 pl-6 pr-8 py-5 transition-transform duration-200 ease-out md:relative md:inset-auto md:z-auto md:w-auto md:max-w-none md:translate-x-0 md:overflow-visible md:pr-12 md:bg-argon-50/50;
+  @apply min-h-full border-r border-slate-300 bg-argon-50 pl-6 pr-8 py-5 xl:pb-24 xl:pr-12 xl:bg-argon-50/50;
+}
 
-  div[Fade] {
-    @apply bg-linear-to-b from-argon-50/50 to-transparent absolute top-full left-0 w-full h-30;
-    &::before {
-      content: "";
-      @apply bg-linear-to-b from-slate-300 to-transparent absolute top-0 -right-px w-px h-full;
-    }
-    &::after {
-      content: "";
-      @apply bg-linear-to-b from-white to-transparent absolute top-0 -right-0.5 w-px h-full;
-    }
-  }
+.LEFTBARTEXTFADE {
+  @apply pointer-events-none absolute bottom-0 left-0 right-px hidden h-20 xl:block;
+  background: linear-gradient(to top, color-mix(in oklab, var(--color-argon-50) 50%, var(--bg-color)), transparent);
+}
 
+.LEFTBAR {
   a {
     font-size: 1rem;
     margin-top: 5px;
@@ -206,9 +371,30 @@ function normalizeCurrentPath(path: string) {
   }
 }
 
+[Fade] {
+  @apply absolute top-full left-0 hidden h-30 w-full bg-linear-to-b from-argon-50/50 to-transparent xl:block;
+
+  &::before {
+    content: "";
+    @apply absolute top-0 -right-px h-full w-px bg-linear-to-b from-slate-300 to-transparent;
+  }
+  &::after {
+    content: "";
+    @apply absolute top-0 -right-0.5 h-full w-px bg-linear-to-b from-white to-transparent;
+  }
+}
+
 .DOCSCONTENT {
   h2 {
-    @apply font-bold text-2xl text-slate-900/80 mt-10;
+    @apply text-4xl text-slate-900 mt-7 mb-4 font-serif;
+  }
+
+  h3 {
+    @apply text-[26px] text-slate-900/80 mt-7 mb-4 font-serif;
+  }
+
+  h4 {
+    @apply text-xl text-slate-900/80 mt-5 mb-2 font-serif;
   }
 
   header {
@@ -217,15 +403,18 @@ function normalizeCurrentPath(path: string) {
 
   ul > li,
   p {
-    @apply mb-4 text-md;
+    @apply mb-4 text-base leading-relaxed;
+    & > header {
+      @apply mt-0;
+    }
   }
 
   ol > li {
-    @apply mt-2;
+    @apply mt-2 text-base leading-relaxed;
   }
 
   ol {
-    @apply ml-6;
+    @apply mb-4 ml-6;
   }
 
   table {
@@ -248,5 +437,9 @@ function normalizeCurrentPath(path: string) {
       @apply text-left;
     }
   }
+}
+
+.RIGHTBAR {
+  @apply hidden;
 }
 </style>

@@ -16,7 +16,6 @@ import {
   GlobalVaultingStats
 } from '@argonprotocol/apps-core';
 import {Vaults} from './lib/Vaults.ts';
-import { PriceIndex as PriceIndexModel } from "@argonprotocol/mainchain";
 import {type IBasicsRecord, type IBasicsRecordMining, type IBasicsRecordVaulting} from "../src/interfaces/IBasicsRecord.ts";
 import { getMainchainClients, getMiningFrames } from './lib/mainchain.ts';
 import BigNumber from 'bignumber.js';
@@ -61,7 +60,8 @@ export default async function run() {
     const currency = new Currency(mainchainClients);
     const mining = new Mining(mainchainClients);
 
-    const currentBlockNumber = (await api.query.system.number()).toNumber();
+    const activeArgonotStakes = await api.query.treasury.totalActiveArgonotBonds();
+    const currentBlockNumber = await api.query.system.number();
     const currentTick = await mining.fetchCurrentTick(api as any);
     const currentFrameId = (await mining.fetchNextFrameId(api as any)) - 1;
     const baseMicrogonsMinedPerBlock = await mining.fetchMicrogonsPerBlockForMiner(api as any, currentFrameId);
@@ -70,18 +70,28 @@ export default async function run() {
       currentTick + 1,
       api as any,
     );
-    const microgonsInCirculation = await currency.fetchMicrogonsInCirculation();
+    const [bitcoinMicrogons, miningMicrogons] = await Promise.all([
+      api.query.mint.mintedBitcoinMicrogons(),
+      api.query.mint.mintedMiningMicrogons(),
+    ]);
+    const fromBitcoin = BigInt(bitcoinMicrogons.toString());
+    const fromMining = BigInt(miningMicrogons.toString());
+    const microgonsInCirculation = {
+      fromBitcoin,
+      fromMining,
+      total: fromBitcoin + fromMining,
+    };
     const micronotsInCirculation = await currency.fetchMicronotsInCirculation();
 
-    const priceIndexModel = new PriceIndexModel();
-    await priceIndexModel.load(api as any);
+    const priceIndexModel = await currency.fetchPriceIndex(api);
 
-    const [miningAPR, miningStats] = await fetchMiningStats(chain, currency);
+    const [miningTDR, miningAPR, miningStats] = await fetchMiningStats(chain, currency);
     const [vaultingAPR, bondsAPR, vaultingStats] = await fetchVaultingStats(chain, currency);
 
     const data: IBasicsRecord = {
       lastUpdatedAt: dayjs.utc().toISOString(),
       currentBlockNumber,
+      activeArgonotStakes,
       baseMicrogonsMinedPerBlock,
       baseMicronotsMinedPerBlock,
       microgonsInCirculation: microgonsInCirculation,
@@ -93,8 +103,9 @@ export default async function run() {
       totalMarketValueUsd: await loadTotalEconomicValue(currency),
       restabilizationLeverage: calculateRestabilizationLeverage({
         argonBurnCapacity: vaultingStats.argonBurnCapacity,
-        microgonsInCirculation,
+        microgonsInCirculation: microgonsInCirculation.total,
       }),
+      miningTDR,
       miningAPR,
       vaultingAPR,
       bondsAPR,
@@ -122,16 +133,24 @@ async function loadTotalEconomicValue(currency: Currency): Promise<number> {
   return currency.convertMicrogonTo(microgonsInCirculation + microgonValueOfArgonots, UnitOfMeasurement.USD);
 }
 
-async function fetchMiningStats(chain: 'testnet' | 'mainnet', currency: Currency): Promise<[number, IBasicsRecordMining]> {
+async function fetchMiningStats(chain: 'testnet' | 'mainnet', currency: Currency): Promise<[number, number, IBasicsRecordMining]> {
   const mainchainClients = getMainchainClients(chain);
   const mining = new Mining(mainchainClients);
   const miningStats = new GlobalMiningStats(mining, currency);
   await miningStats.load();
+  const [currentMicronotsForBid, nextEpochSeatCount] = await Promise.all([
+    mining.fetchCurrentMicronotsForBid(),
+    mining.getNextEpochMaxMiners(),
+  ]);
 
-  return [miningStats.activeAPR, {
+  return [miningStats.activeTDR, miningStats.activeAPR, {
     activeSeatCount: miningStats.activeSeatCount,
+    nextEpochSeatCount,
     activeBidCostsUsd: currency.convertMicrogonTo(miningStats.activeBidCosts, UnitOfMeasurement.USD),
     activeBlockRewardsUsd: currency.convertMicrogonTo(miningStats.activeBlockRewards, UnitOfMeasurement.USD),
+    currentMicronotsForBid,
+    baseMicrogonRewardsPerBlock: miningStats.baseMicrogonRewardsPerBlock,
+    baseMicronotRewardsPerBlock: miningStats.baseMicronotRewardsPerBlock,
   }];
 }
 
@@ -145,9 +164,19 @@ async function fetchVaultingStats(chain: 'testnet' | 'mainnet', currency: Curren
     const frameCount = vaultStats.changesByFrame.reduce((sum, frame) => sum + frame.bitcoinLocksCreated, 0);
     return total + vaultStats.baseline.bitcoinLocks + frameCount;
   }, 0);
+  const latestCompletedFrameId = vaults.stats?.synchedToFrame;
+  const eligibleBondCapitalMicrogons = Object.values(vaults.stats?.vaultsById ?? {}).reduce(
+    (total, vaultStats) => {
+      const latestFrame = vaultStats.changesByFrame.find(frame => frame.frameId === latestCompletedFrameId);
+      if (!latestFrame) return total;
+      return total + latestFrame.treasuryPool.externalCapital + latestFrame.treasuryPool.vaultCapital;
+    },
+    0n,
+  );
 
-  return [vaultingStats.activeAPR, vaultingStats.bondsAPR, {
+  return [vaultingStats.activeAPR, vaultingStats.argonBondsAPR, {
     count: vaultingStats.vaultCount,
+    eligibleBondCapital: BigNumber(eligibleBondCapitalMicrogons.toString()).dividedBy(1_000_000).toNumber(),
     valueInVaults: currency.convertMicrogonTo(vaultingStats.microgonValueOfVaultedBitcoins, UnitOfMeasurement.USD),
     bitcoinLocked: vaultingStats.bitcoinLocked,
     bitcoinTxnCount,

@@ -3,7 +3,7 @@
     <TopBar mode="light" />
 
     <main class="mx-auto w-full max-w-4xl px-5 pb-20 pt-12 md:px-10 md:pt-20">
-      <RouterLink to="/updates" class="text-sm font-bold uppercase tracking-[0.12em] no-underline!">
+      <RouterLink to="/updates" class="text-sm font-bold uppercase tracking-[0.12em] no-underline! text-argon-600">
         ← All updates
       </RouterLink>
 
@@ -15,49 +15,38 @@
         <RouterLink to="/updates" class="mt-4 inline-block font-semibold">Return to Updates →</RouterLink>
       </div>
 
-      <article v-else class="mt-10">
+      <article v-else class="mt-2">
         <header class="border-b border-argon-200/70 pb-8">
-          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-bold uppercase tracking-[0.08em]">
-            <span class="text-argon-700">{{ article.categories[0] || 'Argon update' }}</span>
+          <h1 class="mt-1 font-serif text-4xl leading-tight text-black md:text-6xl">{{ article.title }}</h1>
+          <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-sm mt-5 uppercase tracking-[0.08em]">
+            <span v-if="article.categories[0]" class="text-argon-700">{{ article.categories[0] }}</span>
             <time class="text-slate-500">{{ formatUpdateDate(article.publishedAt) }}</time>
             <span v-if="article.author" class="text-slate-500">By {{ article.author }}</span>
           </div>
-          <h1 class="mt-4 font-serif text-4xl leading-tight text-black md:text-6xl">{{ article.title }}</h1>
           <p v-if="article.summary" class="mt-5 text-lg leading-relaxed text-slate-600 md:text-xl">
             {{ article.summary }}
           </p>
-          <img
-            v-if="article.imageUrl"
-            :src="article.imageUrl"
-            :alt="article.title"
-            class="mx-auto mt-8 max-h-96 w-full rounded-xl border border-argon-200/60 bg-white/50 object-contain p-4 md:p-8"
-          />
         </header>
 
         <div class="ArticleBody" v-html="article.contentHtml" />
 
         <footer class="mt-14 border-t border-argon-200/70 pt-7">
-          <p class="text-sm text-slate-500">
-            Originally published by {{ feed?.publication || 'Argon' }}.
-            <a :href="article.url" target="_blank" rel="noopener">View the original on Substack →</a>
-          </p>
-
           <nav class="mt-8 grid gap-4 sm:grid-cols-2" aria-label="More updates">
+            <RouterLink
+                v-if="nextArticle"
+                :to="updatePath(nextArticle)"
+                class="text-left no-underline!"
+            >
+              <span class="block text-xs font-bold uppercase tracking-wider text-slate-500">← Previous</span>
+              <span class="mt-1 block font-serif text-lg text-slate-900">{{ nextArticle.title }}</span>
+            </RouterLink>
             <RouterLink
               v-if="previousArticle"
               :to="updatePath(previousArticle)"
-              class="rounded-lg border border-argon-200/70 bg-white/30 p-4 no-underline! hover:bg-white/60"
+              class="text-right no-underline!"
             >
-              <span class="block text-xs font-bold uppercase tracking-wider text-slate-500">Newer</span>
-              <span class="mt-1 block font-serif text-lg text-slate-900">← {{ previousArticle.title }}</span>
-            </RouterLink>
-            <RouterLink
-              v-if="nextArticle"
-              :to="updatePath(nextArticle)"
-              class="rounded-lg border border-argon-200/70 bg-white/30 p-4 text-right no-underline! hover:bg-white/60 sm:col-start-2"
-            >
-              <span class="block text-xs font-bold uppercase tracking-wider text-slate-500">Older</span>
-              <span class="mt-1 block font-serif text-lg text-slate-900">{{ nextArticle.title }} →</span>
+              <span class="block text-xs font-bold uppercase tracking-wider text-slate-500">Next →</span>
+              <span class="mt-1 block font-serif text-lg text-slate-900">{{ previousArticle.title }}</span>
             </RouterLink>
           </nav>
 
@@ -93,7 +82,7 @@ import {
   type UpdatesFeed,
 } from '@/lib/Updates';
 
-const SUBSTACK_URL = 'https://clarkbyrnes.substack.com';
+const SUBSTACK_URL = 'https://argonnetwork.substack.com';
 const route = useRoute();
 const feed = Vue.ref<UpdatesFeed>();
 const isLoading = Vue.ref(true);

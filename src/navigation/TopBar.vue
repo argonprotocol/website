@@ -41,14 +41,14 @@
         >
           Docs
         </RouterLink>
-<!--        <RouterLink-->
-<!--            Button-->
-<!--            to="/updates"-->
-<!--            class="text-lg"-->
-<!--            :Selected="router.currentRoute.value.path.startsWith('/updates') || undefined"-->
-<!--        >-->
-<!--          Updates-->
-<!--        </RouterLink>-->
+        <RouterLink
+            Button
+            to="/updates"
+            class="text-lg"
+            :Selected="router.currentRoute.value.path.startsWith('/updates') || undefined"
+        >
+          Updates
+        </RouterLink>
       </ul>
       <div class="grow relative"></div>
       <MenuMobile class="lg:hidden" :mode="props.mode" :color="color" />
@@ -70,12 +70,12 @@
           </RouterLink>
         </li>
         <li Button>
-          <a href="https://discord.gg/xDwwDgCYr9" target="_blank">
+          <a href="https://discord.gg/argonnetwork" target="_blank">
             <DiscordIcon class="w-6 h-6" />
           </a>
         </li>
         <li Button>
-          <a href="https://x.com/theargonnetwork/"target="_blank">
+          <a href="https://x.com/argonnetwork/"target="_blank">
             <div class="w-6 h-6 flex flex-row items-center justify-center">
               <XIcon class="w-4.5 h-4.5"/>
             </div>

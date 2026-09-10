@@ -98,7 +98,7 @@
           <div class="h-px bg-gray-400 my-1" />
           <a
               Button
-              href="https://x.com/theargonnetwork/"
+              href="https://x.com/argonnetwork/"
               target="_blank"
               class="flex flex-row justify-start text-base items-center gap-2 py-2"
           >
@@ -107,7 +107,7 @@
           <div class="h-px bg-gray-200 my-1" />
           <a
             Button
-            href="https://discord.gg/xDwwDgCYr9"
+            href="https://discord.gg/argonnetwork"
             target="_blank"
             class="flex flex-row justify-start text-base items-center gap-2 py-2"
           >

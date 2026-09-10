@@ -1,12 +1,11 @@
 <template>
-  <DocHeader>
-    Argon(ot) Bonds
-  </DocHeader>
+  <DocHeader>From Argon to Remote</DocHeader>
 
   <DocContent>
-    Coming soon!
+    <p>Coming Soon!</p>
   </DocContent>
 </template>
+
 <script setup lang="ts">
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
