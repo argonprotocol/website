@@ -97,7 +97,7 @@
 
       <div class="mt-10 text-center text-slate-600">
         Join the conversation on
-        <a href="https://discord.gg/xDwwDgCYr9" target="_blank" rel="noopener" class="font-semibold">Discord</a>.
+        <a href="https://discord.gg/argonnetwork" target="_blank" rel="noopener" class="font-semibold">Discord</a>.
       </div>
     </main>
   </div>

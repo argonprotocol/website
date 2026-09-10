@@ -70,12 +70,12 @@
           </RouterLink>
         </li>
         <li Button>
-          <a href="https://discord.gg/xDwwDgCYr9" target="_blank">
+          <a href="https://discord.gg/argonnetwork" target="_blank">
             <DiscordIcon class="w-6 h-6" />
           </a>
         </li>
         <li Button>
-          <a href="https://x.com/theargonnetwork/"target="_blank">
+          <a href="https://x.com/argonnetwork/"target="_blank">
             <div class="w-6 h-6 flex flex-row items-center justify-center">
               <XIcon class="w-4.5 h-4.5"/>
             </div>

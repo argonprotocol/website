@@ -21,6 +21,12 @@ export interface SubstackUpdate {
   imageUrl?: string;
   categories: string[];
   contentHtml: string;
+  archiveMetadata?: {
+    title: string;
+    summary: string;
+    tags: string[];
+    wordCount: number;
+  };
 }
 
 export interface SubstackUpdatesFeed {
@@ -178,6 +184,18 @@ interface ArchivePost {
   body_html?: string;
   publishedBylines?: { name: string }[];
   postTags?: { name: string }[];
+  wordcount?: number;
+}
+
+function archiveMetadata(post: ArchivePost | undefined): SubstackUpdate['archiveMetadata'] {
+  if (!post || typeof post.title !== 'string' || !Array.isArray(post.postTags) ||
+      typeof post.wordcount !== 'number' || !Number.isFinite(post.wordcount)) return undefined;
+  return {
+    title: stripHtml(post.title),
+    summary: stripHtml(post.description || post.subtitle || ''),
+    tags: [...new Set(post.postTags.map(tag => tag.name))].sort(),
+    wordCount: post.wordcount,
+  };
 }
 
 interface RequestTiming {
@@ -217,10 +235,12 @@ async function requestSubstack(url: URL, accept: string, timing: RequestTiming):
   }
 }
 
-async function fetchArchive(feed: SubstackUpdatesFeed, origin: string, timing: RequestTiming): Promise<SubstackUpdate[]> {
+async function fetchArchive(feed: SubstackUpdatesFeed, origin: string, timing: RequestTiming, existingItems: SubstackUpdate[]): Promise<SubstackUpdate[]> {
   const posts = new Map<string, ArchivePost>();
   let offset = 0;
+  let pageNumber = 1;
   while (true) {
+    console.log(`Loading Substack archive page ${pageNumber}…`);
     const url = new URL('/api/v1/archive', origin);
     url.searchParams.set('sort', 'new');
     url.searchParams.set('offset', String(offset));
@@ -237,15 +257,33 @@ async function fetchArchive(feed: SubstackUpdatesFeed, origin: string, timing: R
     }
     if (posts.size === previousSize) throw new Error('Substack archive pagination made no progress.');
     offset += page.length;
+    pageNumber++;
   }
   if (!posts.size) {
     throw new Error('Substack archive did not contain any articles.');
   }
 
   // Archive pagination can skip recent posts that are still present in RSS.
-  const slugs = new Set([...posts.keys(), ...feed.items.map(item => item.id)]);
+  const existing = new Map(existingItems.map(item => [item.id, item]));
+  const slugs = new Set([...posts.keys(), ...feed.items.map(item => item.id), ...existing.keys()]);
+  console.log(`Checking ${slugs.size} articles for tag, title, summary, or word count changes…`);
   const items: SubstackUpdate[] = [];
+  let loaded = 0;
+  let unchanged = 0;
+  let retained = 0;
   for (const slug of slugs) {
+    const cached = existing.get(slug);
+    const metadata = archiveMetadata(posts.get(slug));
+    const title = posts.get(slug)?.title || feed.items.find(item => item.id === slug)?.title || cached?.title || slug;
+    if (cached && (!metadata || (cached.archiveMetadata &&
+        JSON.stringify(metadata) === JSON.stringify(cached.archiveMetadata)))) {
+      if (metadata) unchanged++;
+      else retained++;
+      console.log(`[${items.length + 1}/${slugs.size}] ${metadata ? 'Unchanged' : 'Keeping cached (archive metadata unavailable)'}: ${stripHtml(title)}`);
+      items.push(cached);
+      continue;
+    }
+    console.log(`[${items.length + 1}/${slugs.size}] Loading ${stripHtml(title)}…`);
     const url = new URL(`/api/v1/posts/${encodeURIComponent(slug)}`, origin);
     const post: ArchivePost = await (await requestSubstack(url, 'application/json', timing)).json();
     if (!post || post.slug !== slug || !post.title || !post.canonical_url ||
@@ -262,8 +300,11 @@ async function fetchArchive(feed: SubstackUpdatesFeed, origin: string, timing: R
       imageUrl: post.cover_image || undefined,
       categories: (post.postTags || []).map(tag => tag.name),
       contentHtml: sanitizeArticleHtml(post.body_html),
+      archiveMetadata: metadata,
     });
+    loaded++;
   }
+  console.log(`Articles: ${loaded} loaded, ${unchanged} unchanged, ${retained} kept without archive metadata.`);
   return items.sort((a, b) => Date.parse(b.publishedAt) - Date.parse(a.publishedAt));
 }
 
@@ -274,10 +315,22 @@ export default async function fetchSubstackUpdates(
   let feed: SubstackUpdatesFeed;
   const timing: RequestTiming = { nextRequestAt: 0 };
   try {
+    let existingItems: SubstackUpdate[] = [];
+    try {
+      const existing = JSON.parse(await readFile(outputPath, 'utf8')) as SubstackUpdatesFeed;
+      if (Array.isArray(existing.items)) {
+        existingItems = existing.items.filter(item => item && typeof item.id === 'string' &&
+          typeof item.title === 'string' && typeof item.contentHtml === 'string' && Array.isArray(item.categories));
+      }
+    } catch (error) {
+      if (!(error instanceof SyntaxError) && (error as NodeJS.ErrnoException).code !== 'ENOENT') throw error;
+    }
     const requestUrl = new URL(feedUrl);
+    console.log('Loading Substack RSS feed…');
     const response = await requestSubstack(requestUrl, REQUEST_HEADERS.Accept, timing);
     feed = parseSubstackFeed(await response.text());
-    feed.items = await fetchArchive(feed, requestUrl.origin, timing);
+    console.log(`Found ${feed.items.length} articles in RSS. Checking the full archive…`);
+    feed.items = await fetchArchive(feed, requestUrl.origin, timing, existingItems);
   } catch (error) {
     return loadExistingFeed(error, outputPath);
   }

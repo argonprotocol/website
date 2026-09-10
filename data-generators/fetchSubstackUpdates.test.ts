@@ -173,6 +173,68 @@ function mockArchive(failure?: string) {
 }
 
 describe('Substack archive refresh', () => {
+  it('retains cached articles omitted from both RSS and the archive', async () => {
+    const directory = await mkdtemp(join(tmpdir(), 'argon-substack-'));
+    temporaryDirectories.push(directory);
+    const outputPath = join(directory, 'updates.json');
+    const cached = {
+      id: 'omitted', title: 'Older article', contentHtml: '<p>Saved content</p>',
+      categories: ['Milestones'], publishedAt: '2025-01-01T00:00:00Z',
+    };
+    await writeFile(outputPath, JSON.stringify({ publication: 'Argon Network', items: [cached] }));
+    const fetch = mockArchive();
+    vi.stubGlobal('fetch', fetch);
+    const result = await fetchSubstackUpdates('https://example.com/feed', outputPath);
+    expect(result.items).toHaveLength(22);
+    expect(result.items.find(item => item.id === 'omitted')).toEqual(cached);
+    expect(fetch.mock.calls.some(([url]) => url.pathname === '/api/v1/posts/omitted')).toBe(false);
+  });
+
+  it.each(['unchanged', 'title', 'summary', 'tags', 'wordcount', 'tag order', 'body only', 'missing metadata', 'missing baseline'])(
+    'reuses cached content according to archive metadata: %s', async change => {
+      const directory = await mkdtemp(join(tmpdir(), 'argon-substack-'));
+      temporaryDirectories.push(directory);
+      const outputPath = join(directory, 'updates.json');
+      const post = {
+        slug: 'post-0', title: 'Original title', description: 'Original summary', wordcount: 2,
+        postTags: [{ name: 'Milestones' }, { name: 'Deep Dives' }],
+        canonical_url: 'https://example.com/p/post-0', post_date: '2026-06-02T12:00:00Z',
+        body_html: '<p>Original content</p>',
+      };
+      let secondRun = false;
+      const fetch = vi.fn(async (input: URL) => {
+        if (input.pathname === '/feed') return new Response(archiveRss);
+        if (input.pathname === '/api/v1/archive') {
+          return Response.json(Number(input.searchParams.get('offset')) ? [] : [{
+            ...post, wordcount: secondRun && change === 'missing metadata' ? undefined : post.wordcount,
+          }]);
+        }
+        return Response.json(post);
+      });
+      vi.stubGlobal('fetch', fetch);
+      const initial = await fetchSubstackUpdates('https://example.com/feed', outputPath);
+      expect(initial.items[0].archiveMetadata?.wordCount).toBe(2);
+      if (change === 'missing baseline') {
+        delete initial.items[0].archiveMetadata;
+        await writeFile(outputPath, JSON.stringify(initial));
+      }
+      if (change === 'title') post.title = 'Changed title';
+      if (change === 'summary') post.description = 'Changed summary';
+      if (change === 'tags') post.postTags = [{ name: 'Releases' }];
+      if (change === 'wordcount') post.wordcount = 3;
+      if (change === 'tag order') post.postTags.reverse();
+      post.body_html = '<p>Updated content</p>';
+      secondRun = true;
+      fetch.mockClear();
+      const result = await fetchSubstackUpdates('https://example.com/feed', outputPath);
+      const shouldReload = ['title', 'summary', 'tags', 'wordcount', 'missing baseline'].includes(change);
+      const articleRequests = fetch.mock.calls.filter(([url]) => url.pathname.startsWith('/api/v1/posts/'));
+      expect(articleRequests).toHaveLength(shouldReload ? 1 : 0);
+      expect(result.items[0].contentHtml).toBe(shouldReload ? '<p>Updated content</p>' : '<p>Original content</p>');
+      expect(JSON.parse(await readFile(outputPath, 'utf8'))).toEqual(result);
+    },
+  );
+
   it.each(['seconds', 'date', 'missing', 'invalid'])(
     'paces requests and recovers from an article rate limit with %s Retry-After', async mode => {
       const directory = await mkdtemp(join(tmpdir(), 'argon-substack-'));
