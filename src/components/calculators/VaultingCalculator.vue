@@ -26,7 +26,7 @@
         <div class="relative z-10 overflow-hidden pt-1 w-full">
           <div class="grid w-full grid-cols-3! items-stretch gap-2 rounded-b-lg border-t border-gray-600 bg-gray-800 p-2 sm:gap-3 sm:p-3" style="box-shadow: 0 -1px 2px rgba(0,0,0,1)">
             <div class="min-w-0 rounded-md bg-white/5 px-2 py-2 sm:px-4 sm:py-3">
-              <div class="mt-1 whitespace-nowrap text-xl font-bold sm:text-3xl">
+              <div class="mt-1 whitespace-nowrap text-2xl font-bold sm:text-4xl">
                 ₳{{ usdToArgonNm(capitalInvestedInUsd).format('0,0') }}
               </div>
               <div class="mt-1 text-[13px] leading-tight text-white/60 uppercase">
@@ -44,7 +44,7 @@
             </div>
 
             <div class="min-w-0 rounded-md bg-white/5 px-2 py-2 text-right sm:px-4 sm:py-3">
-              <div class="mt-1 whitespace-nowrap text-xl font-bold sm:text-3xl">
+              <div class="mt-1 whitespace-nowrap text-2xl font-bold sm:text-4xl">
                 {{ numeral(vaultAPY).format('0,0.[00]') }}%
               </div>
               <div class="mt-1 text-[13px] leading-tight text-white/60 uppercase">
@@ -850,7 +850,7 @@ Vue.onUnmounted(() => {
 @import "../../main.css";
 
 footer .font-bold,
-.calculator-network-stats > div,
+.calculator-network-stats > div.font-bold,
 div[Output],
 .slider-value-indicator,
 .slider-endpoints {
@@ -883,7 +883,7 @@ section {
   @apply pt-4 pl-[180px];
 
   > div {
-    @apply border-t border-gray-500/50 pt-1;
+    @apply border-t border-gray-500/50 pt-1 text-sm;
   }
 }
 

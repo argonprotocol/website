@@ -35,7 +35,7 @@
             </div>
 
             <div class="min-w-0 rounded-md bg-white/5 px-2 py-2 text-right sm:px-4 sm:py-3">
-              <div class="mt-1 whitespace-nowrap text-xl font-bold sm:text-3xl">
+              <div class="mt-1 whitespace-nowrap text-2xl font-bold sm:text-4xl">
                 {{ numeral(expectedBondAPY).format('0,0.[00]') }}%
               </div>
               <div class="mt-1 text-[13px] uppercase leading-tight text-white/50">
@@ -551,7 +551,7 @@ Vue.onUnmounted(() => {
 @import "../../main.css";
 
 footer .font-bold,
-.calculator-network-stats > div,
+.calculator-network-stats > div.font-bold,
 div[Output],
 .slider-value-indicator,
 .slider-endpoints {
@@ -584,7 +584,7 @@ section {
   @apply pt-4 pl-[180px];
 
   > div {
-    @apply border-t border-gray-500/50 pt-1;
+    @apply border-t border-gray-500/50 pt-1 text-sm;
   }
 }
 

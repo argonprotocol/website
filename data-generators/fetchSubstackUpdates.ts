@@ -180,19 +180,44 @@ interface ArchivePost {
   postTags?: { name: string }[];
 }
 
-async function requestSubstack(url: URL, accept: string): Promise<Response> {
-  url.searchParams.set('refresh', Date.now().toString());
-  const response = await fetch(url, {
-    headers: { ...REQUEST_HEADERS, Accept: accept },
-    signal: AbortSignal.timeout(30_000),
-  });
-  if (!response.ok) {
-    throw new Error(`Substack request failed with ${response.status} ${response.statusText}`);
-  }
-  return response;
+interface RequestTiming {
+  nextRequestAt: number;
 }
 
-async function fetchArchive(feed: SubstackUpdatesFeed, origin: string): Promise<SubstackUpdate[]> {
+async function requestSubstack(url: URL, accept: string, timing: RequestTiming): Promise<Response> {
+  url.searchParams.set('refresh', Date.now().toString());
+  for (let attempt = 0; ; attempt++) {
+    while (timing.nextRequestAt > Date.now()) {
+      await new Promise(resolve => setTimeout(resolve, Math.min(timing.nextRequestAt - Date.now(), 60_000)));
+    }
+    timing.nextRequestAt = Date.now() + 1_000;
+    const response = await fetch(url, {
+      headers: { ...REQUEST_HEADERS, Accept: accept },
+      signal: AbortSignal.timeout(30_000),
+    });
+    if (response.status === 429 && attempt < 3) {
+      const retryAfter = response.headers.get('Retry-After');
+      const retryDelay = retryAfter?.trim()
+        ? /^\d+(\.\d+)?$/.test(retryAfter.trim())
+          ? Number(retryAfter) * 1_000
+          : Date.parse(retryAfter) - Date.now()
+        : NaN;
+      const backoff = Number.isFinite(retryDelay) && retryDelay >= 0
+        ? retryDelay
+        : 5_000 * 2 ** attempt;
+      timing.nextRequestAt = Math.max(timing.nextRequestAt, Date.now() + backoff);
+      await response.body?.cancel();
+      console.warn(`Substack rate limit reached; retry ${attempt + 1}/3 in ${Math.ceil((timing.nextRequestAt - Date.now()) / 1_000)} seconds.`);
+      continue;
+    }
+    if (!response.ok) {
+      throw new Error(`Substack request failed with ${response.status} ${response.statusText}`);
+    }
+    return response;
+  }
+}
+
+async function fetchArchive(feed: SubstackUpdatesFeed, origin: string, timing: RequestTiming): Promise<SubstackUpdate[]> {
   const posts = new Map<string, ArchivePost>();
   let offset = 0;
   while (true) {
@@ -200,7 +225,7 @@ async function fetchArchive(feed: SubstackUpdatesFeed, origin: string): Promise<
     url.searchParams.set('sort', 'new');
     url.searchParams.set('offset', String(offset));
     url.searchParams.set('limit', '20');
-    const page: unknown = await (await requestSubstack(url, 'application/json')).json();
+    const page: unknown = await (await requestSubstack(url, 'application/json', timing)).json();
     if (!Array.isArray(page)) throw new Error('Invalid Substack archive response.');
     if (!page.length) break;
     const previousSize = posts.size;
@@ -213,14 +238,16 @@ async function fetchArchive(feed: SubstackUpdatesFeed, origin: string): Promise<
     if (posts.size === previousSize) throw new Error('Substack archive pagination made no progress.');
     offset += page.length;
   }
-  if (!posts.size || feed.items.some(item => !posts.has(item.id))) {
-    throw new Error('Substack archive is missing articles from the RSS feed.');
+  if (!posts.size) {
+    throw new Error('Substack archive did not contain any articles.');
   }
 
+  // Archive pagination can skip recent posts that are still present in RSS.
+  const slugs = new Set([...posts.keys(), ...feed.items.map(item => item.id)]);
   const items: SubstackUpdate[] = [];
-  for (const slug of posts.keys()) {
+  for (const slug of slugs) {
     const url = new URL(`/api/v1/posts/${encodeURIComponent(slug)}`, origin);
-    const post: ArchivePost = await (await requestSubstack(url, 'application/json')).json();
+    const post: ArchivePost = await (await requestSubstack(url, 'application/json', timing)).json();
     if (!post || post.slug !== slug || !post.title || !post.canonical_url ||
         !Number.isFinite(Date.parse(post.post_date)) || typeof post.body_html !== 'string') {
       throw new Error(`Invalid or missing Substack article content: ${slug}`);
@@ -245,11 +272,12 @@ export default async function fetchSubstackUpdates(
   outputPath = OUTPUT_PATH,
 ): Promise<SubstackUpdatesFeed> {
   let feed: SubstackUpdatesFeed;
+  const timing: RequestTiming = { nextRequestAt: 0 };
   try {
     const requestUrl = new URL(feedUrl);
-    const response = await requestSubstack(requestUrl, REQUEST_HEADERS.Accept);
+    const response = await requestSubstack(requestUrl, REQUEST_HEADERS.Accept, timing);
     feed = parseSubstackFeed(await response.text());
-    feed.items = await fetchArchive(feed, requestUrl.origin);
+    feed.items = await fetchArchive(feed, requestUrl.origin, timing);
   } catch (error) {
     return loadExistingFeed(error, outputPath);
   }

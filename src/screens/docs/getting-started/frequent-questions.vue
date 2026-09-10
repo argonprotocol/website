@@ -23,7 +23,7 @@
         >
         and
         <DocLink to="/docs/system-design/argon-tokenomics"
-          >Argon tokenomics</DocLink
+          >Argon Tokenomics</DocLink
         >.
       </p>
     </article>
@@ -52,7 +52,7 @@
         >
         and
         <DocLink to="/docs/system-design/argonot-tokenomics"
-          >Argonot tokenomics</DocLink
+          >Argonot Tokenomics</DocLink
         >.
       </p>
     </article>

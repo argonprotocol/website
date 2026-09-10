@@ -4,6 +4,7 @@ import { createMemoryHistory, createRouter } from 'vue-router';
 import toc from './toc.json';
 import { isDocLinkActive } from './docLinkState';
 import DocLink from './DocLink.vue';
+import { TooltipTrigger } from 'reka-ui';
 
 const settings = vi.hoisted(() => ({ override: false }));
 
@@ -70,14 +71,45 @@ describe('DocLink', () => {
     expect(anchor.attributes('href')).toBeUndefined();
     expect(anchor.attributes('aria-disabled')).toBe('true');
     expect(anchor.attributes('tabindex')).toBe('-1');
-    expect(anchor.classes()).toEqual(expect.arrayContaining(['opacity-50', 'pointer-events-none', 'article-link']));
-    expect(anchor.attributes('title')).toBe('Destination');
+    expect(anchor.classes()).toEqual(expect.arrayContaining(['opacity-50', 'article-link']));
+    expect(anchor.classes()).not.toContain('pointer-events-none');
+    expect(anchor.attributes('title')).toBeUndefined();
     expect(anchor.get('strong').text()).toBe('Read more');
     await anchor.trigger('click');
     await anchor.trigger('keydown', { key: 'Enter' });
     expect(router.currentRoute.value.path).toBe('/docs');
     expect(wrapper.emitted('click')).toBeUndefined();
     wrapper.unmount();
+  });
+
+  it('shows a cursor-following tooltip on hover and dismisses it on leave', async () => {
+    vi.stubGlobal('ResizeObserver', class {
+      observe() {
+      }
+
+      unobserve() {
+      }
+
+      disconnect() {
+      }
+    });
+    const { wrapper } = await mountLink('/docs/desktop-app');
+    try {
+      const anchor = wrapper.get('a');
+      await anchor.trigger('pointermove', { pointerType: 'mouse', clientX: 40, clientY: 60 });
+      await vi.waitFor(() => {
+        expect(document.querySelector('[role="tooltip"]')?.textContent).toContain('Coming Soon');
+      });
+      const trigger = wrapper.getComponent(TooltipTrigger);
+      expect(trigger.props('reference')?.getBoundingClientRect()).toMatchObject({ x: 40, y: 60 });
+      await anchor.trigger('pointermove', { pointerType: 'mouse', clientX: 80, clientY: 90 });
+      expect(trigger.props('reference')?.getBoundingClientRect()).toMatchObject({ x: 80, y: 90 });
+      await anchor.trigger('pointerleave');
+      await vi.waitFor(() => expect(document.querySelector('[role="tooltip"]')).toBeNull());
+    } finally {
+      wrapper.unmount();
+      vi.unstubAllGlobals();
+    }
   });
 
   it.each([

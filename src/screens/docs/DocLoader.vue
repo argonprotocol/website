@@ -7,7 +7,7 @@
         class="LEFTBARWRAPPER"
         :class="{ 'translate-x-0': isLeftbarOpen, '-translate-x-full': !isLeftbarOpen }"
       >
-        <div class="LEFTBAR">
+        <div class="LEFTBAR" @wheel="revealLeftbarTop">
           <div class="LEFTBARCONTENT">
             <template v-if="docsToc" v-for="(group, i1) in docsToc" :key="`title-${i1}`">
               <template v-if="group.items">
@@ -17,6 +17,8 @@
                     :class="{ isSelected: isDocLinkActive(resolveDocPath(group.base, item.link)) && isSelected(resolveDocPath(group.base, item.link)) }"
                     class="block whitespace-nowrap pl-5"
                     @click="closeLeftbar"
+                    @mouseenter="prefetchPage(resolveDocPath(group.base, item.link))"
+                    @focusin="prefetchPage(resolveDocPath(group.base, item.link))"
                     :to="resolveDocPath(group.base, item.link)"
                   >
                     <template v-if="Array.isArray(item.title)">
@@ -34,6 +36,8 @@
                   class="block whitespace-nowrap pl-2"
                   :class="{ isSelected: isSelected(group.link) }"
                   @click="closeLeftbar"
+                  @mouseenter="prefetchPage(cleanPath(group.link))"
+                  @focusin="prefetchPage(cleanPath(group.link))"
                   :to="cleanPath(group.link)"
               >
                 {{ group.title }}
@@ -91,6 +95,28 @@ const route = useRoute();
 const isLeftbarOpen = Vue.ref(false);
 const leftbarWrapperRef = Vue.ref<HTMLElement | null>(null);
 const isLeftbarBottomVisible = Vue.ref(false);
+
+function revealLeftbarTop(event: WheelEvent) {
+  const wrapper = leftbarWrapperRef.value;
+  const leftbar = event.currentTarget as HTMLElement;
+  if (!wrapper || event.deltaY >= 0 || event.ctrlKey || !event.cancelable) return;
+  if (window.matchMedia('(max-width: 1279px)').matches) return;
+
+  const hiddenHeight = Math.max(0, -wrapper.getBoundingClientRect().top);
+  if (hiddenHeight === 0) return;
+
+  const unit = event.deltaMode === WheelEvent.DOM_DELTA_LINE
+    ? 16
+    : event.deltaMode === WheelEvent.DOM_DELTA_PAGE
+      ? window.innerHeight
+      : 1;
+  const requestedDelta = event.deltaY * unit;
+  const pageDelta = Math.max(requestedDelta, -hiddenHeight);
+
+  event.preventDefault();
+  window.scrollBy({ top: pageDelta, behavior: 'instant' });
+  leftbar.scrollTop += requestedDelta - pageDelta;
+}
 
 function updateLeftbarHeight() {
   const wrapper = leftbarWrapperRef.value;
@@ -176,13 +202,103 @@ const moduleLookup = new Map<string, DocLoaderFn>(
     .map(([path, loader]) => [normalizeModulePath(path), loader as DocLoaderFn]),
 );
 
+const pagePromises = new Map<string, Promise<Vue.Component>>();
+const resolvedPages = new Map<string, Vue.Component>();
+const asyncPages = new Map<string, Vue.Component>();
+
+function loadPage(docPath: string): Promise<Vue.Component> {
+  const cached = pagePromises.get(docPath);
+  if (cached) return cached;
+
+  const promise = moduleLookup.get(docPath)!()
+    .then((module) => {
+      resolvedPages.set(docPath, module.default);
+      return module.default;
+    })
+    .catch((error) => {
+      pagePromises.delete(docPath);
+      throw error;
+    });
+  pagePromises.set(docPath, promise);
+  return promise;
+}
+
+function prefetchPage(path: string) {
+  if (!isDocLinkActive(path)) return;
+  const [id, subId] = path.replace(/^\/docs\/?/, '').split('/');
+  const docPath = normalizeRoutePath(id, subId);
+  if (!moduleLookup.has(docPath)) return;
+  void loadPage(docPath).catch(() => {
+    // A speculative failure must not prevent a later navigation from retrying.
+  });
+}
+
+const activeDocPath = Vue.computed(() => normalizeRoutePath(
+  route.params.id as string | undefined,
+  route.params.subId as string | undefined,
+));
+
 const activePage = Vue.computed(() => {
-  const docPath = normalizeRoutePath(
-    route.params.id as string | undefined,
-    route.params.subId as string | undefined,
-  );
-  const loader = moduleLookup.get(docPath);
-  return loader ? Vue.defineAsyncComponent(() => loader().then((m) => m.default)) : null;
+  const docPath = activeDocPath.value;
+  if (!moduleLookup.has(docPath)) return null;
+  const resolved = resolvedPages.get(docPath);
+  if (resolved) return resolved;
+  if (!asyncPages.has(docPath)) {
+    asyncPages.set(docPath, Vue.defineAsyncComponent(() => loadPage(docPath)));
+  }
+  return asyncPages.get(docPath);
+});
+
+const backgroundPaths = [...new Set(docsToc.flatMap((group) => group.items
+  ? group.items.map((item) => resolveDocPath(group.base, item.link))
+  : [cleanPath(group.link)]))]
+  .filter((path) => isDocLinkActive(path))
+  .map((path) => {
+    const [id, subId] = path.replace(/^\/docs\/?/, '').split('/');
+    return normalizeRoutePath(id, subId);
+  })
+  .filter((path) => moduleLookup.has(path));
+
+let stopWarming: (() => void) | undefined;
+
+Vue.onMounted(() => {
+  stopWarming = Vue.watch(activeDocPath, async (docPath, _previous, onCleanup) => {
+    let cancelled = false;
+    let timer: ReturnType<typeof setTimeout> | undefined;
+    onCleanup(() => {
+      cancelled = true;
+      clearTimeout(timer);
+    });
+
+    if (!moduleLookup.has(docPath)) return;
+    try {
+      await loadPage(docPath);
+    } catch {
+      return;
+    }
+    await Vue.nextTick();
+    if (cancelled) return;
+
+    const pending = backgroundPaths.filter((path) => path !== docPath && !resolvedPages.has(path));
+
+    async function warmNextPage() {
+      if (cancelled) return;
+      const path = pending.shift();
+      if (!path) return;
+      try {
+        await loadPage(path);
+      } catch {
+        // Leave failed imports available for an explicit navigation to retry.
+      }
+      if (!cancelled) timer = setTimeout(warmNextPage, 250);
+    }
+
+    timer = setTimeout(warmNextPage, 250);
+  }, { immediate: true });
+});
+
+Vue.onBeforeUnmount(() => {
+  stopWarming?.();
 });
 
 function isSelected(path: unknown) {

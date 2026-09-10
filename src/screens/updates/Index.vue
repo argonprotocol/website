@@ -41,7 +41,7 @@
             <h2 class="font-serif text-3xl text-slate-900">More Updates</h2>
             <div v-if="availableCategories.length" class="flex flex-wrap gap-2" aria-label="Filter updates by category">
               <button
-                v-for="category in ['All', ...availableCategories]"
+                v-for="category in ['all', ...availableCategories]"
                 :key="category"
                 type="button"
                 class="rounded-md border px-3 py-1.5 text-sm font-semibold transition-colors"
@@ -50,7 +50,7 @@
                   : 'border-argon-200 bg-white/30 text-argon-700 hover:border-argon-400 hover:bg-white/60'"
                 @click="selectedCategory = category"
               >
-                {{ category }}
+                {{ category === 'all' ? 'All' : category }}
               </button>
             </div>
           </div>
@@ -112,7 +112,7 @@ const SUBSTACK_URL = 'https://argonnetwork.substack.com';
 const feed = Vue.ref<UpdatesFeed>();
 const isLoading = Vue.ref(true);
 const error = Vue.ref<unknown>();
-const selectedCategory = Vue.ref('All');
+const selectedCategory = Vue.ref('all');
 
 const featuredArticle = Vue.computed(() => feed.value?.items[0]);
 const availableCategories = Vue.computed(() =>
@@ -120,7 +120,7 @@ const availableCategories = Vue.computed(() =>
 );
 const listArticles = Vue.computed(() => {
   const remaining = feed.value?.items.slice(1) ?? [];
-  if (selectedCategory.value === 'All') return remaining;
+  if (selectedCategory.value === 'all') return remaining;
   return remaining.filter(article => article.categories.includes(selectedCategory.value));
 });
 

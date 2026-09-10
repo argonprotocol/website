@@ -107,13 +107,70 @@
     </p>
 
     <ul class="list-disc ml-10">
-      <li>Mining operators bid ARGN and ARGNOT for Mining Seats. 15% of the revenue from those mining auctions is distributed to Argonot Stakes and 65% is distributed to Vaults, Bonds, and Bitcoin Liquids.</li>
+      <li>
+        Mining operators bid ARGN and ARGNOT for Mining Seats. 1-57% of the revenue from
+        mining auctions is distributed to Vaults, 15-21% is distributed to Argonot Stakes,
+        5-7% to Bonds, and 3-5% to Bitcoin Liquids.
+      </li>
       <li>Vaults use ARGN and ARGNOT to securitize Bitcoins. Their earnings from mining auctions are then shared with their Bond holders.</li>
       <li>Argon Bonds contribute liquidity to Bitcoins locked in Vaults, and in return, they earn a share of the Vault's revenue.</li>
       <li>Argonot Stakes let holders lease their tokens to Mining and Vaulting in return for a proportional share of of mining seat auction revenue.</li>
       <li>Bitcoins temporarily lock into Argon's Vaults and in exchange receive their full-market value as a unencumbered stablecoin loan.</li>
       <li>The yield-bearing properties of Argonot Stakes, Argon Bonds, and Vault securitization creates increased demand cycles within trading markets.</li>
     </ul>
+
+    <h3>The Two Primary Entities</h3>
+
+    <p>
+      Mining and Vaulting provide the infrastructure at the center of Argon's economy.
+      Miners operate the Argon blockchain, while vault operators connect it to Bitcoin.
+      Mining-seat auctions link the two by funding the operators and capital providers
+      that support the ecosystem.
+    </p>
+
+    <p>
+      <strong>Mining</strong> keeps the network running and distributes newly issued
+      ARGN and ARGNOT. Operators pay ARGN for a mining seat and commit ARGNOT to qualify
+      for access. In return, they produce blocks and earn mining rewards. Their seat
+      payments become a source of revenue for the rest of the ecosystem.
+    </p>
+
+    <p>
+      <strong>Vaulting</strong> brings Bitcoin into Argon's stabilization system.
+      Operators commit capital to insure Bitcoin Locks and run the infrastructure
+      needed to cosign Bitcoin transactions. Their vaults support Bitcoin liquidity
+      and Argon Bonds, earning mining-auction revenue and service fees for that work.
+    </p>
+
+    <h3>The Three Supporting Entities</h3>
+
+    <p>
+      Stakes, Bonds, and Liquids let token holders participate without running mining
+      or vaulting infrastructure themselves. Each connects a different asset to the
+      network's operations and receives a share of mining-auction revenue in return.
+    </p>
+
+    <p>
+      <strong>Argonot Stakes</strong> connect ARGNOT holders to mining operators.
+      Holders commit their tokens to supply the operating capital miners need to
+      qualify for seats. In return, Stakes earn ARGN from mining-auction revenue,
+      allowing holders to put ARGNOT to work without operating a miner.
+    </p>
+
+    <p>
+      <strong>Argon Bonds</strong> connect ARGN holders to Stabilization Vaults.
+      Holders commit stablecoins to supply liquidity for Bitcoin secured by a vault.
+      In return, Bonds receive a share of the vault's eligible mining-auction revenue.
+      Locked Bitcoin determines the capacity available for this participation.
+    </p>
+
+    <p>
+      <strong>Bitcoin Liquids</strong> connect Bitcoin holders to Argon's stablecoin
+      economy. A holder locks native BTC through a vault and opens a Liquid to access
+      spendable ARGN while retaining exposure to Bitcoin. Liquids also receive a share
+      of mining-auction revenue, and their closing rules help remove ARGN from
+      circulation as part of the network's stabilization process.
+    </p>
 
     <h2>Mining</h2>
     <p>

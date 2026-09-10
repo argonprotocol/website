@@ -73,16 +73,16 @@ const dateRange = Vue.computed(() => {
   const startDate = props.startingDate ? dayjs.utc(props.startingDate).toDate() : dayjs.utc('1933-01-01').toDate();
   const startYear = dayjs.utc(startDate).year();
   
-  let endYear = 2030;
+  let endTimestamp = dayjs.utc('2030-01-01').valueOf();
   if (chartPointsBySeries.value.length > 0) {
-    const allYears = chartPointsBySeries.value.flat().map(p => dayjs.utc(p.x).year());
-    if (allYears.length > 0) {
-      const maxDataYear = Math.max(...allYears);
-      endYear = Math.max(2030, maxDataYear);
+    const allTimestamps = chartPointsBySeries.value.flat().map(p => dayjs.utc(p.x).valueOf());
+    if (allTimestamps.length > 0) {
+      endTimestamp = Math.max(endTimestamp, ...allTimestamps);
     }
   }
   
-  const endDate = dayjs.utc(`${endYear}-01-01`).toDate();
+  const endDate = new Date(endTimestamp);
+  const endYear = dayjs.utc(endDate).year();
   return { startDate, endDate, startYear, endYear };
 });
 

@@ -801,7 +801,7 @@ Vue.onUnmounted(() => {
 @import "../../main.css";
 
 footer .font-bold,
-.calculator-network-stats > div,
+.calculator-network-stats > div.font-bold,
 div[Output],
 .slider-value-indicator,
 .slider-endpoints {
@@ -834,7 +834,7 @@ section {
   @apply pt-4 pl-[180px];
 
   > div {
-    @apply border-t border-gray-500/50 pt-1;
+    @apply border-t border-gray-500/50 pt-1 text-sm;
   }
 }
 

@@ -2,9 +2,9 @@
   <TimeChart
     ref="chartRef"
     :series="series"
-    :startingDate="axisStartingDate"
+    :startingDate="startingDate.format('YYYY-MM-DD')"
     :maxYAxisValue="200"
-    :fmtYAxisLabel="formatPercentage"
+    :fmtYAxisLabel="(value: number) => `${value}%`"
     :height="props.height"
     :showXAxisLabels="true"
   >
@@ -27,8 +27,8 @@
           :avoidCollisions="false"
           class="rounded-md border border-black/30 bg-white p-2 text-black/80 shadow-lg"
         >
-          ₳100 buys you the same today<br />
-          as it will 1,000 years from now
+          The goal: the same purchasing power<br />
+          for ₳100 across 1,000 years
           <PopoverArrow :width="24" :height="12" class="-mt-px fill-white stroke-gray-400/50 shadow-2xl" />
         </PopoverContent>
       </PopoverPortal>
@@ -50,18 +50,17 @@ const props = defineProps<{
   height?: number;
 }>();
 
-const axisStartingDate = '2025-09-15';
 const chartRef = Vue.ref<InstanceType<typeof TimeChart> | null>(null);
 const argonCoordinates = Vue.ref<{ x: number; y: number } | null>(null);
 const carPosition = Vue.ref(0);
 let resizeObserver: ResizeObserver | null = null;
 
 const argonPoints: { x: string; y: number }[] = [];
-const startingDate = dayjs.utc();
+const startingDate = dayjs.utc('2025-01-15');
 const maxDate = startingDate.add(1000, 'year');
 let currentDate = startingDate;
 
-while (currentDate.isBefore(maxDate)) {
+while (!currentDate.isAfter(maxDate)) {
   argonPoints.push({
     x: currentDate.format('YYYY-MM-DD'),
     y: 100,
@@ -70,7 +69,6 @@ while (currentDate.isBefore(maxDate)) {
 }
 
 const series = [{ color: 'oklch(0.48 0.24 320)', points: argonPoints }];
-const formatPercentage = (value: number) => `${value}%`;
 
 function updateCoordinates() {
   const chart = chartRef.value;
