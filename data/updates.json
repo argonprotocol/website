@@ -2,8 +2,20 @@
   "publication": "Argon Network",
   "publicationUrl": "https://argonnetwork.substack.com",
   "subscribeUrl": "https://argonnetwork.substack.com/subscribe",
-  "generatedAt": "2026-09-10T03:33:14.143Z",
+  "generatedAt": "2026-09-10T13:09:25.289Z",
   "items": [
+    {
+      "id": "phase-one-of-docs-has-been-released",
+      "title": "Phase One of Docs Has Been Released",
+      "summary": "This first wave of documentation has been released describing Argon’s basic architecture and economics.",
+      "url": "https://argonnetwork.substack.com/p/phase-one-of-docs-has-been-released",
+      "publishedAt": "2026-09-10T13:09:05.369Z",
+      "author": "Caleb Clark",
+      "categories": [
+        "Milestones"
+      ],
+      "contentHtml": "<p>It’s been too long in coming! We’re excited to release the first pages of documentation:</p><p><a href=\"https://argon.network/docs\" rel=\"noopener noreferrer\">https://argon.network/docs</a></p><p>This first tranche details how the network fits together, how capital moves between participants, and how its stabilization mechanisms respond to changes in supply and demand.</p><ul><li><p><strong>The architecture.</strong> How mining, vaulting, Treasury, Bitcoin, and trading markets connect into one system.</p></li><li><p><strong>The stabilization algorithms.</strong> How Argon’s purchasing-power target is calculated, how supply expands when its price rises above target, and how Bitcoin unlocking creates incentives to buy and burn Argons when it falls below.</p></li><li><p><strong>The economic drivers.</strong> How mining-seat auctions fund other network participants, and how Stakes, Bonds, and Bitcoin Liquids connect capital to network operations.</p></li><li><p><strong>The tokens and their origins.</strong> The different roles of Argons and Argonots, their issuance rules, and why neither token was pre-mined or allocated to insiders at genesis.</p></li><li><p><strong>The economic foundations.</strong> The reasoning behind Argon’s approach to inflation, independence from fiat money, and recovery from death spirals, alongside the whitepapers that develop these ideas.</p></li></ul><p>The release also includes interactive calculators and two simulators. The Growth Simulator lets you step through the relationship between mining competition, vault revenue, Bitcoin locking, and issuance. The Death-Spiral Simulator explores how buying and burning Argons to unlock Bitcoin could help restore balance after a severe price decline.</p><p>These tools make the mechanics easier to explore. You can adjust assumptions and see how the outcomes change. They illustrate the system’s behavior under those assumptions; they are not forecasts of returns or recovery times.</p><p>If you’re new to Argon, start with Architectural Basics, then read Economic Drivers. The frequent questions and terminology pages provide additional context along the way.</p><p>This is the first phase. Detailed guides for Argon Desktop, bridgeless transfers, individual assets, and network operations will follow. Several pages in this release also describe the upcoming Mainnet v1.5 changes and are marked accordingly.</p><p>Explore the docs, try the simulators, and let us know which explanations need more detail. We will be releasing more documentation over the new few days.</p>"
+    },
     {
       "id": "v237-of-argon-desktop-app-was-released",
       "title": "Desktop v2.3.7 Released",
