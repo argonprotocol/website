@@ -21,25 +21,28 @@
 
     <div NavigationLinks class="grid grid-cols-1 gap-x-8 gap-y-8 px-5 py-10 text-base md:grid-cols-2 md:px-10 md:text-lg lg:flex lg:flex-row lg:px-20">
       <div class="flex flex-col gap-y-2 lg:grow">
-        <div class="font-bold">Argon Apps</div>
+        <div class="font-bold">Core Components</div>
         <div>
-          <router-link to="/desktop-app">Desktop</router-link>
+          <router-link to="/desktop-app">Desktop App</router-link>
+        </div>
+        <div>
+          <router-link to="/mainnet">Mainnet Chain</router-link>
         </div>
       </div>
       <div class="flex flex-col gap-y-2 lg:grow">
-        <div class="font-bold">The Basic Details</div>
+        <div class="font-bold">Basic Details</div>
         <div>
           <router-link to="/why-its-better">Why It's Better</router-link>
         </div>
         <div>
           <router-link to="/launch-plan">Launch Plan</router-link>
         </div>
-<!--        <div>-->
-<!--          <router-link to="/docs">Docs</router-link>-->
-<!--        </div>-->
+        <div>
+          <router-link to="/docs">Documentation</router-link>
+        </div>
       </div>
       <div class="flex flex-col gap-y-2 lg:grow">
-        <div class="font-bold">The Whitepapers</div>
+        <div class="font-bold">Whitepapers</div>
         <div>
           <router-link to="/docs/whitepapers/state">State of Stablecoins</router-link>
         </div>

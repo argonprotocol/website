@@ -55,31 +55,65 @@
                 </tr>
               </thead>
               <tbody>
-                <tr v-for="token of network.tokens">
-                  <td ChainIcon><component :is="network.icon" /></td>
-                  <td TokenName><strong>{{ token.name }}</strong> ({{ token.symbol }})</td>
-                  <td AddressToCopy>
-                    <CopyToClipboard :content="token.address">
-                      <div class="flex min-w-0 flex-row items-center">
-                        <span class="min-w-0 font-mono lg:hidden">{{ shortenAddress(token.address) }}</span>
-                        <span class="hidden min-w-0 font-mono lg:inline">{{ token.address }}</span>
-                        <CopyIcon class="h-5 ml-2" />
-                      </div>
-                      <template #copying>
-                        <div class="absolute top-0 left-0 w-full h-full flex min-w-0 flex-row items-center">
+                <template v-for="token of network.tokens" :key="token.address">
+                  <tr>
+                    <td ChainIcon><component :is="network.icon" /></td>
+                    <td TokenName>
+                      <div><strong>{{ token.name }} Ethereum Contract</strong> ({{ token.symbol }})</div>
+                    </td>
+                    <td AddressToCopy>
+                      <CopyToClipboard :content="token.address">
+                        <div class="flex min-w-0 flex-row items-center cursor-pointer">
                           <span class="min-w-0 font-mono lg:hidden">{{ shortenAddress(token.address) }}</span>
                           <span class="hidden min-w-0 font-mono lg:inline">{{ token.address }}</span>
                           <CopyIcon class="h-5 ml-2" />
                         </div>
-                      </template>
-                    </CopyToClipboard>
-                  </td>
-                  <td Links>
-                    <a target="_blank" :href="`https://etherscan.io/token/${token.address}`">Etherscan</a>
-                    <a target="_blank" :href="`https://dexscreener.com/ethereum/${token.pairAddress}`">DexScreener</a>
-                    <a target="_blank" :href="`https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=${token.address}`">Uniswap</a>
-                  </td>
-                </tr>
+                        <template #copying>
+                          <div class="absolute top-0 left-0 w-full h-full flex min-w-0 flex-row items-center cursor-pointer">
+                            <span class="min-w-0 font-mono lg:hidden">{{ shortenAddress(token.address) }}</span>
+                            <span class="hidden min-w-0 font-mono lg:inline">{{ token.address }}</span>
+                            <CopyIcon class="h-5 ml-2" />
+                          </div>
+                        </template>
+                      </CopyToClipboard>
+                    </td>
+                    <td Links>
+                      <div>
+                        <a target="_blank" rel="noopener noreferrer" :href="`https://etherscan.io/token/${token.address}`">Etherscan</a>
+                        <a v-if="token.coingecko" target="_blank" rel="noopener noreferrer" :href="token.coingecko">CoinGecko</a>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr v-if="token.pool" class="opacity-70">
+                    <td ChainIcon style="border-top-style: hidden"></td>
+                    <td TokenName>
+                      <div>{{ token.pool.pair }} Uniswap V3 Pool ({{ token.pool.fee }})</div>
+                    </td>
+                    <td AddressToCopy>
+                      <CopyToClipboard :content="token.pool.address">
+                        <div class="flex min-w-0 flex-row items-center cursor-pointer">
+                          <span class="min-w-0 font-mono lg:hidden">{{ shortenAddress(token.pool.address) }}</span>
+                          <span class="hidden min-w-0 font-mono lg:inline">{{ token.pool.address }}</span>
+                          <CopyIcon class="h-5 ml-2" />
+                        </div>
+                        <template #copying>
+                          <div class="absolute top-0 left-0 w-full h-full flex min-w-0 flex-row items-center cursor-pointer">
+                            <span class="min-w-0 font-mono lg:hidden">{{ shortenAddress(token.address) }}</span>
+                            <span class="hidden min-w-0 font-mono lg:inline">{{ token.address }}</span>
+                            <CopyIcon class="h-5 ml-2" />
+                          </div>
+                        </template>
+                      </CopyToClipboard>
+                    </td>
+                    <td Links>
+                      <div>
+                        <a target="_blank" rel="noopener noreferrer" :href="`https://dexscreener.com/ethereum/${token.pool.address}`">DexScreener</a>
+                        <a target="_blank" rel="noopener noreferrer" :href="`https://www.geckoterminal.com/eth/pools/${token.pool.address}`">GeckoTerminal</a>
+                        <a target="_blank" rel="noopener noreferrer" :href="`https://app.uniswap.org/#/swap?inputCurrency=ETH&outputCurrency=${token.address}`">Uniswap</a>
+                      </div>
+                    </td>
+                  </tr>
+                </template>
                 <tr v-if="!network.tokens.length">
                   <td ChainIcon><component :is="network.icon" /></td>
                   <td colspan="3">
@@ -88,9 +122,23 @@
                     is a fraud.</span>
                   </td>
                 </tr>
+
               </tbody>
             </template>
           </table>
+          <p v-if="chainName === NetworkName.mainnet" class="mt-4 text-sm font-light opacity-70">
+            Ethereum · Chain ID 1 · Always copy addresses from this page.
+            Verified against
+            <a
+              class="underline hover:text-argon-700"
+              href="https://github.com/argonprotocol/mainchain/blob/main/chains/ethereum/deploy/mainnet/deployment-manifest.json"
+              target="_blank"
+              rel="noopener noreferrer"
+            >deployment-manifest.json</a>
+            (generated 2026-06-10).
+            USDC:
+            <span class="font-mono">0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48</span>
+          </p>
         </div>
         <div StatWrapper class="w-full flex flex-col h-full border-b border-slate-400/50">
           <span class="text-5xl! sm:text-5xl! md:text-6xl! ">${{ data.totalMarketValueUsd ? numeral(data.totalMarketValueUsd).format('0,0') : '---' }}</span>
@@ -204,7 +252,40 @@
           </div>
         </div>
 
-        <p class="font-light mt-10 text-center">Documentation for connecting and using Argon's {{ titleize(chainName) }} can be <a href="https://github.com/argonprotocol/mainchain">found on our Github repo</a>.</p>
+        <div v-if="networks.some(network => network.deprecated?.length)" StatWrapper class="mt-5 min-h-20 pb-7! pt-0! text-left px-6!">
+          <table class="NetworkTable w-full">
+            <template v-for="network of networks" :key="network.name">
+              <tbody v-if="network.deprecated?.length">
+                <tr>
+                  <th colspan="4" class="text-left text-base pt-7! text-red-800/80">Deprecated Addresses (do not use)</th>
+                </tr>
+                <tr v-for="item of network.deprecated" :key="item.address">
+                  <td ChainIcon><component :is="network.icon" /></td>
+                  <td TokenName>
+                    <div><strong>{{ item.symbol.replace('(old)', '') }} Ethereum Contract (old)</strong></div>
+                    <div class="text-sm font-light opacity-70">{{ item.notes }}</div>
+                  </td>
+                  <td AddressToCopy>
+                    <CopyToClipboard :content="item.address">
+                      <div class="flex min-w-0 flex-row items-center">
+                        <span class="min-w-0 font-mono lg:hidden">{{ shortenAddress(item.address) }}</span>
+                        <span class="hidden min-w-0 font-mono lg:inline">{{ item.address }}</span>
+                        <CopyIcon class="h-5 ml-2" />
+                      </div>
+                    </CopyToClipboard>
+                  </td>
+                  <td Links>
+                    <div>
+                      <a target="_blank" rel="noopener noreferrer" :href="`https://etherscan.io/address/${item.address}`">Etherscan</a>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </template>
+          </table>
+        </div>
+
+        <p class="font-light mt-10">Documentation for connecting and using Argon's {{ titleize(chainName) }} can be <a href="https://github.com/argonprotocol/mainchain">found on our Github repo</a>.</p>
       </div>
     </div>
   </MainLayout>
@@ -246,16 +327,42 @@ const networks = [
       {
         name: 'Argon',
         symbol: 'ARGN',
-        address: '0xf3d6b714dc93bc6c44bc766cc92f4a0d99344932',
-        pairAddress: '0x05f3e1c9b15f93f2a5494b381b2bb623796318d5',
+        address: '0xf3D6b714dc93bc6C44bc766cc92F4A0D99344932',
+        decimals: 18,
+        coingecko: 'https://www.coingecko.com/en/coins/argon',
+        pool: {
+          pair: 'ARGN / USDC',
+          version: 'Uniswap V3',
+          fee: '0.05%',
+          address: '0x05F3e1C9B15f93F2a5494B381b2Bb623796318D5',
+        },
       },
       {
         name: 'Argonot',
         symbol: 'ARGNOT',
         address: '0x6B93a120829558C18f8CD54a96E8024EF973cE52',
-        pairAddress: '0xc38194e22061c066ce131a11e020d8dbe8d5390bb2cf4bc7538db77312c0719b',
-      }
-    ]
+        decimals: 18,
+        coingecko: 'https://www.coingecko.com/en/coins/argonot',
+        pool: {
+          pair: 'ARGNOT / USDC',
+          version: 'Uniswap V3',
+          fee: '0.3%',
+          address: '0xA867Bd045a2f3F4Bc597582e12447a6190740545',
+        },
+      },
+    ],
+    deprecated: [
+      {
+        symbol: 'ARGN (old)',
+        address: '0x6A9143639D8b70D50b031fFaD55d4CC65EA55155',
+        notes: 'Superseded. Empty / unusable Uniswap liquidity.',
+      },
+      {
+        symbol: 'ARGNOT (old)',
+        address: '0x64cbd3aa07d427e385cb55330406508718e55f01',
+        notes: 'Superseded. Empty / unusable Uniswap liquidity.',
+      },
+    ],
   },
   {
     name: 'Solana',
@@ -266,7 +373,7 @@ const networks = [
     name: 'Base',
     icon: Vue.markRaw(BaseIcon),
     tokens: [],
-  }
+  },
 ];
 
 const minutesElapsed = Vue.computed(() => {
@@ -460,7 +567,10 @@ td[AddressToCopy] {
   @apply pr-3;
 }
 td[Links] {
-  @apply flex flex-row flex-wrap items-center justify-end gap-1.5 sm:flex-nowrap;
+  @apply align-middle;
+  > div {
+    @apply flex flex-row flex-wrap items-center justify-start gap-1.5 sm:flex-nowrap;
+  }
   a {
     @apply bg-slate-600/60 text-white rounded-full no-underline px-3 py-0.5 hover:bg-argon-600/60 hover:text-white;
   }
@@ -514,8 +624,8 @@ td[Links] {
     @apply col-span-2 mt-3 pr-0;
   }
 
-  td[Links] {
-    @apply flex justify-start;
+  td[Links] > div {
+    @apply justify-start;
   }
 
   td:not([ChainIcon]):not([TokenName]):not([AddressToCopy]):not([Links]) {
