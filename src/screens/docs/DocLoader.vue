@@ -7,8 +7,8 @@
         class="LEFTBARWRAPPER"
         :class="{ 'translate-x-0': isLeftbarOpen, '-translate-x-full': !isLeftbarOpen }"
       >
-        <div class="LEFTBAR" @wheel="revealLeftbarTop">
-          <div class="LEFTBARCONTENT">
+        <div ref="leftbarRef" class="LEFTBAR" @wheel="revealLeftbarTop" @scroll.passive="updateLeftbarScrollCue">
+          <div ref="leftbarContentRef" class="LEFTBARCONTENT">
             <template v-if="docsToc" v-for="(group, i1) in docsToc" :key="`title-${i1}`">
               <template v-if="group.items">
                 <h3 class="mt-5 whitespace-nowrap font-semibold uppercase tracking-widest text-argon-900/40">{{ group.title }}</h3>
@@ -46,6 +46,11 @@
           </div>
         </div>
         <div v-if="isLeftbarBottomVisible" class="LEFTBARTEXTFADE" aria-hidden="true" />
+        <div v-if="canScrollLeftbarDown" class="LEFTBARSCROLLCUE" aria-hidden="true">
+          <svg class="LEFTBARSCROLLARROWS" width="28" height="32" viewBox="0 0 28 32" fill="none">
+            <path d="m6 9 8 7 8-7M6 18l8 7 8-7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </div>
         <div Fade />
       </div>
       <button
@@ -94,7 +99,16 @@ import GithubLogo from '@/assets/github.svg?component';
 const route = useRoute();
 const isLeftbarOpen = Vue.ref(false);
 const leftbarWrapperRef = Vue.ref<HTMLElement | null>(null);
+const leftbarRef = Vue.ref<HTMLElement | null>(null);
+const leftbarContentRef = Vue.ref<HTMLElement | null>(null);
 const isLeftbarBottomVisible = Vue.ref(false);
+const canScrollLeftbarDown = Vue.ref(false);
+let leftbarResizeObserver: ResizeObserver | undefined;
+
+function updateLeftbarScrollCue() {
+  const leftbar = leftbarRef.value;
+  canScrollLeftbarDown.value = !!leftbar && leftbar.scrollHeight - leftbar.clientHeight - leftbar.scrollTop > 2;
+}
 
 function revealLeftbarTop(event: WheelEvent) {
   const wrapper = leftbarWrapperRef.value;
@@ -125,21 +139,27 @@ function updateLeftbarHeight() {
   if (window.matchMedia('(max-width: 1279px)').matches) {
     wrapper.style.height = '';
     isLeftbarBottomVisible.value = false;
+    updateLeftbarScrollCue();
     return;
   }
 
   const visibleTop = Math.max(0, wrapper.getBoundingClientRect().top);
   wrapper.style.height = `${Math.max(0, window.innerHeight - visibleTop)}px`;
   isLeftbarBottomVisible.value = wrapper.getBoundingClientRect().bottom < window.innerHeight - 1;
+  updateLeftbarScrollCue();
 }
 
 Vue.onMounted(() => {
   updateLeftbarHeight();
+  leftbarResizeObserver = new ResizeObserver(updateLeftbarScrollCue);
+  if (leftbarRef.value) leftbarResizeObserver.observe(leftbarRef.value);
+  if (leftbarContentRef.value) leftbarResizeObserver.observe(leftbarContentRef.value);
   window.addEventListener('scroll', updateLeftbarHeight, { passive: true });
   window.addEventListener('resize', updateLeftbarHeight);
 });
 
 Vue.onBeforeUnmount(() => {
+  leftbarResizeObserver?.disconnect();
   window.removeEventListener('scroll', updateLeftbarHeight);
   window.removeEventListener('resize', updateLeftbarHeight);
 });
@@ -346,7 +366,7 @@ function normalizeCurrentPath(path: string) {
 }
 
 .LEFTBAR {
-  @apply h-full overflow-x-hidden overflow-y-auto overscroll-y-contain;
+  @apply h-full overflow-x-hidden overflow-y-auto overscroll-y-contain xl:overscroll-y-auto;
 }
 
 .LEFTBARCONTENT {
@@ -357,6 +377,32 @@ function normalizeCurrentPath(path: string) {
 .LEFTBARTEXTFADE {
   @apply pointer-events-none absolute bottom-0 left-0 right-px hidden h-20 xl:block;
   background: linear-gradient(to top, color-mix(in oklab, var(--color-argon-50) 50%, var(--bg-color)), transparent);
+}
+
+.LEFTBARSCROLLCUE {
+  @apply pointer-events-none absolute bottom-0 left-0 right-px flex h-24 items-end justify-center pb-3 text-argon-600;
+  background: linear-gradient(to top, var(--color-argon-50) 52px, transparent);
+}
+
+.LEFTBARSCROLLARROWS {
+  animation: leftbar-scroll-hint 1.8s ease-in-out infinite;
+}
+
+@keyframes leftbar-scroll-hint {
+  0%, 100% {
+    transform: translateY(-3px);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(3px);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .LEFTBARSCROLLARROWS {
+    animation: none;
+  }
 }
 
 .LEFTBAR {

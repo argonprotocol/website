@@ -270,12 +270,12 @@
       {
         "title": "Liquid Locking for Bitcoin",
         "link": "/llb",
-        "isActive": false
+        "isActive": true
       },
       {
         "title": "Stabilization Analysis Model",
         "link": "/sam",
-        "isActive": false
+        "isActive": true
       }
     ]
   },
