@@ -267,9 +267,10 @@ import dayjs, {Dayjs} from 'dayjs';
 import duration from 'dayjs/plugin/duration';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import utc from 'dayjs/plugin/utc';
+import { InviteEnvelope } from '@argonprotocol/apps-core';
 import TopBar from '@/navigation/TopBar.vue';
 import { Download } from '@/lib/Download';
-import { InviteEnvelope } from "@/lib/InviteEnvelope";
+import { fetchInvitePreview } from '@/lib/InvitePreview';
 import CountdownClock from '../components/CountdownClock.vue';
 import numeral from '@/lib/numeral';
 import FooterBar from "@/navigation/FooterBar.vue";
@@ -311,14 +312,16 @@ async function loadData() {
 }
 
 async function fetchInvite() {
-  console.log('FETCHING INVITE')
-  const { host, port, inviteCode } = InviteEnvelope.decode(inviteEnvelope.value);
-  if (!host || !port || !inviteCode) return;
+  const { host, port, inviteCode, hasError, isEmpty } = InviteEnvelope.decode(inviteEnvelope.value);
+  if (hasError || isEmpty || !host || !port || !inviteCode) {
+    isInvalid.value = true;
+    return;
+  }
 
   try {
-    console.log('FETCHING ', host, port, inviteCode);
-    const response = await fetch(`https://${host}:${port}/invites/${encodeURIComponent(inviteCode)}/preview`);
-    const invite = await response.json();
+    const { response, data: invite } = await fetchInvitePreview({
+      endpoint: { host, port, inviteCode },
+    });
     if (!response.ok) {
       if (invite.code === 'ALREADY_USED') {
         isAlreadyUsed.value = true;
@@ -343,6 +346,12 @@ Vue.onMounted(async () => {
     now.value = dayjs();
   }, 1000);
 
+  await fetchInvite();
+  if (isInvalid.value || isAlreadyUsed.value || isExpired.value) {
+    isLoading.value = false;
+    return;
+  }
+
   await loadData();
 
   try {
@@ -352,7 +361,6 @@ Vue.onMounted(async () => {
     downloadUrl.value = '/apps/treasury';
   }
 
-  await fetchInvite();
   isLoading.value = false;
 });
 
