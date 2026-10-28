@@ -2,7 +2,7 @@
   <DocHeader>Stabilization Algorithms</DocHeader>
   <DocContent>
     <aside class="mb-4 rounded-lg border border-amber-300 px-4 py-2 text-amber-950 font-bold">
-      NOTE: This page documents the upcoming release of Argon Mainnet v1.5.
+      NOTE: Some parts of this page documents the upcoming release of Argon Mainnet v1.6.
     </aside>
 
     <p>
@@ -244,17 +244,17 @@
       and <DocLink to="/docs/assets-and-entities/bitcoin-locks">Liquids</DocLink>.
     </p>
 
-    <h3>The Purpose of Stable Swaps</h3>
+    <h3>The Purpose of Market Stabilizers</h3>
     <p>
       Bitcoin Liquid Locking ensures that Argon is guaranteed to eventually return to target,
       however there is no guarantee on timeframe. Latency will naturally occur between price
-      deviation, Bitcoin unlocking, and circulation reduction. This is where Stable Swaps comes
+      deviation, Bitcoin unlocking, and circulation reduction. This is where Market Stabilizers comes
       into play. Argon Desktop provides simple Uniswap monitoring tools to create market alerts
       and present rapid arbitrage opportunities between chains. This allows small deviations to
       rapidly correct without waiting on the Bitcoin unlock process to reduce circulation. Learn
       more about
       <DocLink to="/docs/assets-and-entities/stable-swaps"
-        >Stable Swaps</DocLink
+        >Market Stabilizers</DocLink
       >.
     </p>
 
@@ -363,7 +363,7 @@ import { microgonToArgon } from "@/lib/currencyUtils";
 
 const BITCOIN_CAPACITY_RATE = 0.15;
 const VAULTING_ALLOCATION_PERCENT = 65;
-const EXPANSION_REWARDS_ALLOCATION_PERCENT = 20;
+const AMBASSADOR_REWARDS_ALLOCATION_PERCENT = 20;
 
 const data = Vue.ref(Data.basics);
 

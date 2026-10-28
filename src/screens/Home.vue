@@ -154,7 +154,7 @@
           <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">{{
               numeral(data.bondsAPR).formatIfElseCapped('< 1_000', '0,0.[0]', '0,0', 9_999)
             }}%</div>
-          <div class="mt-2 font-light">Treasury Bonds APR</div>
+          <div class="mt-2 font-light">Argon Bonds APR</div>
         </div>
         <div as="div" to="/learn/vaulting-metrics/active-vaults" class="border-t border-argon-400/20 hover:text-argon-600/70 py-5 md:border-t-0">
           <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">{{ numeral(data.vaultingAPR).formatIfElseCapped('< 1_000', '0,0.[0]', '0,0', 9_999) }}%</div>
@@ -164,7 +164,7 @@
           <div class="text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl font-bold">{{
               numeral(data.bitcoinAPR).formatIfElseCapped('< 1_000', '0,0.[0]', '0,0', 9_999)
             }}%</div>
-          <div class="mt-2 font-light">Locked Bitcoin APR</div>
+          <div class="mt-2 font-light">Bitcoin Liquids APR</div>
         </div>
       </div>
     </section>

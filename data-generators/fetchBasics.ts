@@ -61,6 +61,12 @@ export default async function run() {
     const mining = new Mining(mainchainClients);
 
     const activeArgonotStakes = await api.query.treasury.totalActiveArgonotBonds();
+    const treasuryReservesAccount = api.consts.treasury.treasuryReservesAccount;
+    if (!treasuryReservesAccount) {
+      throw new Error(`Treasury reserves account is unavailable on ${chain}`);
+    }
+    const treasuryReserves = await api.query.system.account(treasuryReservesAccount.toString());
+    const treasuryRewardsPoolMicrogons = BigInt(treasuryReserves.data.free.toString());
     const currentBlockNumber = await api.query.system.number();
     const currentTick = await mining.fetchCurrentTick(api as any);
     const currentFrameId = (await mining.fetchNextFrameId(api as any)) - 1;
@@ -70,12 +76,16 @@ export default async function run() {
       currentTick + 1,
       api as any,
     );
-    const [bitcoinMicrogons, miningMicrogons] = await Promise.all([
+    const [bitcoinMicrogons, miningMicrogons, totalMicrogons] = await Promise.all([
       api.query.mint.mintedBitcoinMicrogons(),
       api.query.mint.mintedMiningMicrogons(),
+      currency.fetchMicrogonsInCirculation(api),
     ]);
     const fromBitcoin = BigInt(bitcoinMicrogons.toString());
-    const fromMining = BigInt(miningMicrogons.toString());
+    // Newer runtimes no longer expose a separate mining circulation counter.
+    const fromMining = miningMicrogons == null
+      ? BigInt(totalMicrogons.toString()) - fromBitcoin
+      : BigInt(miningMicrogons.toString());
     const microgonsInCirculation = {
       fromBitcoin,
       fromMining,
@@ -92,6 +102,7 @@ export default async function run() {
       lastUpdatedAt: dayjs.utc().toISOString(),
       currentBlockNumber,
       activeArgonotStakes,
+      treasuryRewardsPoolMicrogons,
       baseMicrogonsMinedPerBlock,
       baseMicronotsMinedPerBlock,
       microgonsInCirculation: microgonsInCirculation,

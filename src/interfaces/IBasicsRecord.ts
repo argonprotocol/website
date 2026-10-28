@@ -22,6 +22,7 @@ export interface IBasicsRecord {
   lastUpdatedAt: string;
   currentBlockNumber: number;
   activeArgonotStakes: number;
+  treasuryRewardsPoolMicrogons: bigint;
   baseMicrogonsMinedPerBlock: bigint;
   baseMicronotsMinedPerBlock: bigint;
   microgonsInCirculation: {
@@ -49,6 +50,7 @@ export const defaultBasicsRecord: IBasicsRecord = {
   lastUpdatedAt: '',
   currentBlockNumber: 0,
   activeArgonotStakes: 0,
+  treasuryRewardsPoolMicrogons: 0n,
   baseMicrogonsMinedPerBlock: 0n,
   baseMicronotsMinedPerBlock: 0n,
   microgonsInCirculation: {

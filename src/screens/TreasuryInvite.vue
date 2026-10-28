@@ -134,7 +134,7 @@
                 <div class="absolute left-[37.5%] -top-2 -bottom-2 hidden w-2 grow -translate-x-1/2 md:block" :style="{ backgroundColor: lineColor }" />
                 <div class="relative bg-[#FCECFE] px-2 py-3 md:w-1/4">
                   <div class="text-3xl font-bold md:text-5xl">{{ numeral(data.bitcoinAPR).formatIfElseCapped('< 1_000', '0,0.[0]', '0,0', 9_999) }}%</div>
-                  <div class="text-sm md:text-base">Locked Bitcoin APR</div>
+                  <div class="text-sm md:text-base">Bitcoin Liquids APR</div>
                 </div>
                 <div class="absolute left-[62.5%] -top-2 -bottom-2 hidden w-2 grow -translate-x-1/2 md:block" :style="{ backgroundColor: lineColor }" />
                 <div class="relative bg-[#FCECFE] px-2 py-3 md:w-1/4">
@@ -144,7 +144,7 @@
                 <div class="absolute left-[87.5%] -top-2 -bottom-2 hidden w-2 grow md:block" :style="{ backgroundColor: lineColor }" />
                 <div class="relative bg-[#FCECFE] px-2 py-3 md:w-1/4">
                   <div class="text-3xl font-bold md:text-5xl">13.9%</div>
-                  <div class="text-sm md:text-base">Stable Swaps APR</div>
+                  <div class="text-sm md:text-base">Market Stabilizers APR</div>
                 </div>
                 <div class="absolute left-[12.5%] -bottom-2 hidden h-2 w-[75%] grow  md:block" :style="{ backgroundColor: lineColor }" />
               </div>
@@ -179,7 +179,7 @@
               </h2>
               <p class="mt-10 font-serif md:mt-12">
                 Argon is an inflation-resistant, fiat-independent stablecoin. This app is how you access its
-                yield-generating instruments. Savings, bonds, bitcoin locks, and stable swaps are all available.
+                yield-generating instruments. Savings, bonds, bitcoin locks, and market stabilizers are all available.
                 Each instrument has different risk and return profiles. Access is invite-only, which
                 means being invited by an existing member is the only way in.
               </p>

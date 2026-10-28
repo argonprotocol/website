@@ -3,225 +3,104 @@
 
   <DocContent>
     <p>
-      Operator Certification is the final activation process for a registered
-      Operational Account. It requires the new operator to establish both sides
-      of an operation: a Stabilization Vault with committed insurance capital
-      and a mining operation that has successfully earned mining seats.
+      Operator Certification introduces you to running Argon’s mining and
+      vaulting infrastructure through a guided checklist of practical
+      activities. You create and fund a Stabilization Vault, earn mining seats,
+      and complete the qualifying transfer requirement.
     </p>
 
     <p>
-      Receiving Operations access and becoming certified are separate events.
-      Sponsor approval allows the account to register and begin setting up
-      Operations. Certification occurs only after the account meets the protocol
-      requirements and completes activation.
+      Completing the process establishes your status as a certified Operator and
+      makes you eligible for certification rewards under the protocol’s rules.
     </p>
 
-    <aside
-      class="my-8 rounded-lg border border-argon-200 bg-white/40 px-5 py-4"
-    >
-      <strong class="mb-1 block">Registered is not yet certified</strong>
-      <p class="m-0">
-        A registered operator can build the infrastructure needed for
-        certification, but it does not receive certification rewards, sponsor
-        upgrade codes, or fully certified status until activation succeeds.
-      </p>
-    </aside>
+    <VideoLoop src="/videos/desktop-app-overview.webm" class="mt-8 mb-10">
+      <li>Open the Operator Certification checklist</li>
+      <li>Complete qualifying Uniswap transfers</li>
+      <li>Create and fund a Stabilization Vault</li>
+      <li>Earn two qualifying mining seats</li>
+      <li>Finalize certification</li>
+      <li>View rewards and the first upgrade code</li>
+    </VideoLoop>
 
-    <h2>Operational Account Registration</h2>
     <p>
-      Registration creates a linked account set consisting of an Operational
-      Account, a vault account, and a mining account. Each account proves its
-      association with the Operational Account. The registration also includes
-      the signed access proof created by the sponsoring operator.
+      After your Operations upgrade is approved and your Operational Account is
+      registered, open the certification checklist to view your progress and
+      begin each guided workflow. See <DocLink to="/docs/desktop-app/access-codes">Access and Upgrades</DocLink> for the access process.
     </p>
 
+    <h2>Requirements</h2>
+
     <p>
-      The protocol verifies that the access proof was signed for the exact new
-      Operational Account, confirms that the sponsor is registered, and consumes
-      one of the sponsor's available Operations upgrade codes. It then records
-      the sponsor as the new account's upstream operator.
+      Mining and Vaulting require server software that stays online, sufficient
+      operating capital, secure keys, and ongoing attention to protocol duties.
+      The checklist guides you through the initial requirements. After
+      certification, you remain responsible for maintaining your infrastructure
+      and fulfilling those duties.
     </p>
 
-    <h2>Current Certification Requirements</h2>
+    <h3>Transfer at Least 3,000 ARGN from Uniswap</h3>
+
     <p>
-      After registration, the operator must satisfy all three operational
-      requirements. The values below are current protocol settings and can
-      change.
+      Complete a cumulative total of at least 3,000 ARGN in qualifying inbound
+      transfers through the supported Uniswap transfer workflow. Qualifying
+      transfers during Treasury Certification also count toward this total. See
+      <DocLink to="/docs/bridgeless-transfers">Bridgeless Transfers</DocLink> for transfer instructions.
     </p>
 
-    <section
-      class="my-8 overflow-hidden rounded-lg border border-slate-300 bg-white/40"
-    >
-      <header
-        class="border-b border-slate-300 bg-slate-100/70 px-5 py-3 text-sm font-bold tracking-wide text-slate-600 uppercase"
-      >
-        Activation Requirements
-      </header>
-      <dl class="m-0">
-        <div class="border-b border-slate-300 px-5 py-4 md:flex md:gap-6">
-          <dt class="font-bold text-slate-800 md:w-52 md:shrink-0">
-            ARGN transferred in
-          </dt>
-          <dd class="m-0 mt-1 text-slate-600 md:mt-0">
-            At least 3,000 ARGN in cumulative qualifying transfers through the
-            supported Uniswap path across the linked operational, vault, and
-            mining accounts. This is a total requirement, not 3,000 ARGN in
-            addition to the Treasury minimum.
-          </dd>
-        </div>
-        <div class="border-b border-slate-300 px-5 py-4 md:flex md:gap-6">
-          <dt class="font-bold text-slate-800 md:w-52 md:shrink-0">
-            Vault insurance capital
-          </dt>
-          <dd class="m-0 mt-1 text-slate-600 md:mt-0">
-            A Stabilization Vault with at least 2,000 ARGN committed as operator
-            insurance capital.
-          </dd>
-        </div>
-        <div class="px-5 py-4 md:flex md:gap-6">
-          <dt class="font-bold text-slate-800 md:w-52 md:shrink-0">
-            Mining seats
-          </dt>
-          <dd class="m-0 mt-1 text-slate-600 md:mt-0">
-            At least two mining seats earned through the seat-auction process.
-          </dd>
-        </div>
-      </dl>
-    </section>
+    <h3>Create and Fund a Stabilization Vault</h3>
 
     <p>
-      As with Treasury Certification, the transfer requirement is enforced while
-      the supported crosschain transfer system is active. The protocol can waive
-      that requirement if transfer tracking is unavailable.
-    </p>
-
-    <h2>Building the Operation</h2>
-
-    <h3>Open a Stabilization Vault</h3>
-    <p>
-      The operator creates a vault, commits the required ARGN, configures its
-      insurance terms, and connects the machine that will perform its ongoing
-      work. The vault can support Bitcoin Locks and Argon Bonds, but
-      certification depends on the operator's committed insurance capital—not on
-      member deposits.
+      Create a Stabilization Vault and commit at least 2,500 ARGN in vault
+      securitization capital. Connect the server that will perform the vault’s
+      ongoing work.
     </p>
 
     <p>
-      See
-      <DocLink to="/docs/assets-and-entities/vaulting-operations"
-        >Vaulting Operations</DocLink
-      >
-      for the service, capital, and availability requirements.
+      See <DocLink to="/docs/assets-and-entities/vaulting-operations">Vaulting Operations</DocLink> for setup instructions, capital requirements, withdrawal
+      restrictions, and operating responsibilities.
     </p>
 
-    <h3>Win Mining Seats</h3>
+    <h3>Win Two Mining Seats</h3>
+
     <p>
-      The mining account enters seat auctions with ARGN bids, mining authority
-      keys, and the required ARGNOT collateral. Certification counts seats the
-      operation earns; configuring a miner or submitting a losing bid is not
-      sufficient.
+      Earn at least two qualifying mining seats through the seat-auction
+      process. Configuring a miner or submitting a bid does not complete this
+      requirement; the bid must win a qualifying seat.
     </p>
 
     <p>
-      See
-      <DocLink to="/docs/assets-and-entities/mining-operations"
-        >Mining Operations</DocLink
-      >
-      for seat auctions, terms, collateral, and operating responsibilities.
+      See <DocLink to="/docs/assets-and-entities/mining-operations">Mining Operations</DocLink> for seat auctions, terms, collateral, and operating
+      responsibilities.
     </p>
 
-    <h2>Activation</h2>
-    <p>
-      Meeting the requirements makes the account eligible, but does not change
-      its status automatically. Activation is a separate transaction submitted
-      from one of the linked accounts. The protocol checks the current
-      requirements again before certifying the Operational Account.
-    </p>
+    <h2>Finalize Your Certification</h2>
 
-    <section
-      class="my-8 overflow-hidden rounded-lg border border-slate-300 bg-white/40"
-    >
-      <header
-        class="border-b border-slate-300 bg-slate-100/70 px-5 py-3 text-sm font-bold tracking-wide text-slate-600 uppercase"
-      >
-        Activation Results
-      </header>
-      <dl class="m-0">
-        <div class="border-b border-slate-300 px-5 py-4 md:flex md:gap-6">
-          <dt class="font-bold text-slate-800 md:w-52 md:shrink-0">
-            Certified status
-          </dt>
-          <dd class="m-0 mt-1 text-slate-600 md:mt-0">
-            The protocol marks the Operational Account as operationally
-            certified.
-          </dd>
-        </div>
-        <div class="border-b border-slate-300 px-5 py-4 md:flex md:gap-6">
-          <dt class="font-bold text-slate-800 md:w-52 md:shrink-0">
-            First upgrade code
-          </dt>
-          <dd class="m-0 mt-1 text-slate-600 md:mt-0">
-            One Operations upgrade code becomes available so the new operator
-            can sponsor a future operator.
-          </dd>
-        </div>
-        <div class="border-b border-slate-300 px-5 py-4 md:flex md:gap-6">
-          <dt class="font-bold text-slate-800 md:w-52 md:shrink-0">
-            Expansion rewards pool
-          </dt>
-          <dd class="m-0 mt-1 text-slate-600 md:mt-0">
-            The protocol records the new operator's certification reward and,
-            when eligible, the certified upstream operator's reward and referral
-            progress.
-          </dd>
-        </div>
-        <div class="px-5 py-4 md:flex md:gap-6">
-          <dt class="font-bold text-slate-800 md:w-52 md:shrink-0">
-            One-year capital hold
-          </dt>
-          <dd class="m-0 mt-1 text-slate-600 md:mt-0">
-            The 2,000 ARGN vault minimum cannot be released for one year after
-            activation, even if the vault closes during that period.
-          </dd>
-        </div>
-      </dl>
-    </section>
-
-    <h2>Using Argon Desktop</h2>
     <p>
-      After Operations access is approved, the certification menu guides the
-      operator through the qualifying transfer, vault setup, and mining-seat
-      requirements. Progress that comes from the protocol updates as linked
-      account activity is finalized.
+      When all requirements are complete, follow the checklist’s final step to
+      register your certification onchain.
     </p>
 
     <p>
-      After activation, Member Onboarding becomes available for invitations,
-      Operations upgrade approvals, upgrade-code tracking, and reward claims.
-      See
-      <DocLink to="/docs/desktop-app/access-codes"
-        >Access and Upgrades</DocLink
-      >
-      and
-      <DocLink to="/docs/assets-and-entities/operational-rewards-pool"
-        >Expansion Rewards Pool</DocLink
-      >
-      for those rules.
+      The protocol checks your eligibility again when certification is
+      finalized. Keep the required Treasury positions and vault capital in place
+      until that step is complete.
     </p>
 
-    <aside
-      class="my-8 rounded-lg border border-amber-300 bg-amber-50/60 px-5 py-4"
-    >
-      <strong class="mb-2 block text-lg text-amber-900"
-        >Certification Begins the Responsibility</strong
-      >
-      <p class="m-0! text-amber-900/80">
-        Activation is not the end of an operator's work. Mining and vaulting
-        require available machines, protected keys, adequate capital, and timely
-        responses to protocol duties. Missed duties and poor operating decisions
-        can reduce revenue or place committed capital at risk.
-      </p>
-    </aside>
+    <p>
+      Certification also provides your first Operations upgrade code.
+    </p>
+
+    <h2>Certification Rewards</h2>
+
+    <p>
+      When Operator Certification is finalized, the protocol records your
+      certification reward and any eligible reward for your sponsoring Operator.
+    </p>
+
+    <p>
+      See <DocLink to="/docs/assets-and-entities/ambassador-rewards">Ambassador Rewards</DocLink> for reward amounts, eligibility, and collection rules.
+    </p>
   </DocContent>
 </template>
 
@@ -229,4 +108,5 @@
 import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
+import VideoLoop from "@/components/VideoLoop.vue";
 </script>

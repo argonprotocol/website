@@ -78,8 +78,9 @@
     <h2>Where Stake Earnings Come From</h2>
     <p>
       Mining operators compete for seats by bidding ARGN. At the end of each
-      frame, the protocol allocates 10% of the full mining-bid pool to active
-      Argonot Stakes.
+      frame, the protocol allocates 15% of the full mining-bid pool to active
+      Argonot Stakes by default. Mining Operators can grant Profit Surges that
+      increase this allocation to as much as 21%.
     </p>
 
     <section
@@ -91,11 +92,12 @@
       <div
         class="my-4 overflow-x-auto rounded-md border border-argon-200 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-xl text-slate-800 sm:text-2xl"
       >
-        Mining-bid revenue × 10% = Revenue for active Stakes
+        Mining-bid revenue × 15–21% = Revenue for active Stakes
       </div>
       <p class="m-0 text-sm text-slate-600">
-        The amount changes from frame to frame because mining bids and the
-        amount of participating stake capital both change.
+        The default allocation is 15%; increases up to 21% depend on Profit
+        Surges granted by Mining Operators. Earnings per Stake also change as
+        mining bids and the amount of participating stake capital change.
       </p>
     </section>
 
@@ -219,23 +221,6 @@
       This protection does not protect ARGNOT's market value, guarantee a level
       of earnings, or remove any protocol-defined risks disclosed in the
       position's terms.
-    </p>
-
-    <h2>Using Argon Desktop</h2>
-    <p>
-      Argon Desktop manages these positions under
-      <strong>Argonot Stakes</strong>. Choose a miner, review the available
-      capacity and projected return, select the number of Stakes, and submit the
-      position from your Internal App Wallet.
-    </p>
-    <p>
-      The dashboard tracks each position's ARGNOT principal, distributed ARGN
-      income, return to date, associated miner, and release status. Because
-      positions are independent, each one must be released separately. See
-      <DocLink to="/docs/desktop-app/treasury"
-        >Accessing Treasury</DocLink
-      >
-      for the features available at the Treasury level.
     </p>
   </DocContent>
 </template>

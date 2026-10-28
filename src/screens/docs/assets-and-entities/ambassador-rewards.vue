@@ -1,10 +1,10 @@
 <template>
-  <DocHeader>Expansion Rewards Pool</DocHeader>
+  <DocHeader>Ambassador Rewards</DocHeader>
 
   <DocContent>
     <p>
-      The Expansion Rewards Pool is the share of mining-seat bid revenue set
-      aside to help qualified members become network operators. It funds
+      Ambassador Rewards are funded by a share of mining-seat bid revenue set
+      aside to help qualified members become network operators. This pool funds
       protocol-defined certification and referral rewards rather than paying a
       standing return to operators or Upstream Nodes.
     </p>
@@ -20,19 +20,19 @@
       Operators compete for mining seats by bidding ARGN. Winning bids enter the
       mining-bid pool. Before the remaining bid revenue is distributed to
       Argonot Stakes and qualifying Stabilization Vaults, the protocol assigns
-      20% to Expansion Rewards Pool.
+      20% to Ambassador Rewards.
     </p>
 
     <section
       class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-5"
     >
       <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">
-        Operational Allocation
+        Ambassador Rewards Allocation
       </div>
       <div
         class="my-4 overflow-x-auto rounded-md border border-argon-200 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-xl text-slate-800 sm:text-2xl"
       >
-        Expansion Rewards Pool = 20% of winning mining bids
+        Ambassador Rewards = 20% of winning mining bids
       </div>
       <p class="m-0 text-sm text-slate-600">
         This is a share of bid revenue paid by winning miners. It is not a share
@@ -54,7 +54,7 @@
 
     <h2>When Rewards Are Earned</h2>
     <p>
-      Expansion Rewards Pool are tied to completed Operator Certification. No
+      Ambassador Rewards are tied to completed Operator Certification. No
       reward is earned merely because an operator creates an invitation, a
       member accepts an access code, or a sponsor approves Operations access.
     </p>
@@ -110,7 +110,7 @@
       certified, but they remain separate protocol records:
     </p>
 
-    <ul>
+    <ul class="list-disc pl-5">
       <li>The new operator earns its certification reward.</li>
       <li>The certified upstream operator earns a matching reward.</li>
       <li>The upstream operator's successful-certification count increases.</li>
@@ -168,7 +168,7 @@
 
     <h2>Unused Funds</h2>
     <p>
-      The Expansion Rewards Pool allocation is not a general-purpose protocol
+      The Ambassador Rewards allocation is not a general-purpose protocol
       budget and is not distributed pro rata among operators. Within the
       economic model, the 20% share either funds qualifying onboarding rewards
       or is burned when it is not used for those rewards.
@@ -179,21 +179,6 @@
       An Upstream Node earns no automatic share. Its operator earns a specific
       reward only when a sponsored downstream account completes the required
       certification event.
-    </p>
-
-    <h2>Using Argon Desktop</h2>
-    <p>
-      A certified operator's Member Onboarding dashboard displays total rewards
-      earned, rewards still unclaimed, available Operations upgrade codes,
-      pending invitations, and active members. The operator can claim an
-      available reward balance from that area.
-    </p>
-
-    <p>
-      Member Onboarding also shows public certification progress for sponsored
-      members. That visibility helps an operator guide a member, but it does not
-      allow the operator to complete the member's transactions or certification
-      requirements.
     </p>
 
     <aside

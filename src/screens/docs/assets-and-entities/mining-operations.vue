@@ -57,26 +57,180 @@
       <DocLink to="/docs/assets-and-entities/argon-stablecoins"
         >ARGN</DocLink
       >
-      bid, and the required ARGNOT collateral. While bidding is open, the
-      protocol maintains a ranked list containing the highest bids for the
-      available seats.
+      bid, and the required ARGNOT collateral. Bids are queued in batches based
+      on the block in which they are submitted. Each batch settles five blocks
+      later and updates the winning list for that cohort.
+    </p>
+
+    <h3>Fixed and Automatic Bids</h3>
+    <p>
+      Operators can choose a fixed price or authorize the protocol to bid
+      automatically within a range. Public bids and maxima use increments of
+      0.01 ARGN, and a maximum must be at least as large as its public bid.
+    </p>
+
+    <section class="my-8 grid gap-3 md:grid-cols-2">
+      <div class="rounded-lg border border-slate-300 bg-white/40 p-5">
+        <div class="text-lg font-bold text-slate-800">Fixed Bid</div>
+        <p class="mt-2 mb-0 text-sm text-slate-600">
+          Submit a public bid without a maximum commitment. If accepted into the
+          winning list, the miner pays exactly that amount. It is also the
+          miner's maximum for competing with other bids.
+        </p>
+      </div>
+      <div class="rounded-lg border border-argon-200 bg-argon-50/40 p-5">
+        <div class="text-lg font-bold text-argon-700">Automatic Bid</div>
+        <p class="mt-2 mb-0 text-sm text-slate-600">
+          Submit a public bid and a cryptographic commitment to a chosen
+          maximum. After that maximum is disclosed, the protocol can increase
+          the winning price as competition requires, up to the funded maximum.
+        </p>
+      </div>
+    </section>
+
+    <h3>From Submission to Settlement</h3>
+    <p>
+      Automatic bidding uses two calls: <code>bid</code> submits the public bid
+      and commitment, and <code>bid_max</code> discloses the maximum. If the
+      initial bid is included in block B, the sequence is:
+    </p>
+
+    <ol class="my-8 ml-0! grid list-none gap-3 p-0 md:grid-cols-3">
+      <li class="m-0 rounded-lg border border-slate-300 bg-white/40 p-5">
+        <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">Block B</div>
+        <div class="mt-2 text-lg font-bold text-slate-800">Submit</div>
+        <p class="mt-2 mb-0 text-sm text-slate-600">
+          The public bid enters a pending batch. For an automatic bid, include
+          the maximum's hash and keep the maximum and its random salt private
+          until this transaction is included.
+        </p>
+      </li>
+      <li class="m-0 rounded-lg border border-slate-300 bg-white/40 p-5">
+        <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">Blocks B+1–B+5</div>
+        <div class="mt-2 text-lg font-bold text-slate-800">Disclose</div>
+        <p class="mt-2 mb-0 text-sm text-slate-600">
+          The funding account submits the maximum and salt for the same mining
+          account. They must match the original commitment. The fifth block is
+          included in the disclosure window.
+        </p>
+      </li>
+      <li class="m-0 rounded-lg border border-slate-300 bg-white/40 p-5">
+        <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">End of B+5</div>
+        <div class="mt-2 text-lg font-bold text-slate-800">Settle</div>
+        <p class="mt-2 mb-0 text-sm text-slate-600">
+          All bids submitted in B settle together, including fixed bids and
+          bids whose maxima were never disclosed. The protocol selects winners
+          and collects their winning prices.
+        </p>
+      </li>
+    </ol>
+
+    <p>
+      The commitment binds the maximum to the original public bid, accounts,
+      authority keys, chain, and target frame. Automatic bids should specify the
+      target frame explicitly so a transaction is rejected if the auction has
+      changed. In the Node.js SDK, the disclosure call is named
+      <code>miningSlot.bidMax</code>.
     </p>
     <p>
-      Once the list is full, a new bid is accepted only if it ranks above the
-      current lowest bid. The displaced operator's ARGN is returned, and any
-      ARGNOT that is not supporting an active seat is released. An operator can
-      increase an accepted bid during the auction, but cannot reduce it.
+      A successful submission confirms that a bid was queued. The
+      <code>SlotBidderAdded</code> event confirms its acceptance into the winning
+      list after settlement. Later batches can still displace it before the
+      auction ends.
+    </p>
+
+    <h3>How Bids Compete</h3>
+    <p>
+      While seats remain available, a public bid can be zero. Once the winning
+      list is full, a new public bid must strictly exceed the lowest funded
+      maximum among current winners. Exceeding only the lowest price already
+      paid is insufficient, even if the new bid commits to a much higher
+      maximum.
     </p>
     <p>
-      The auction closes unpredictably during its protocol-defined closing
-      window. The bids in the ranked list at that moment win. Their cohort joins
-      the active miner set at the next frame boundary, when its ten-frame term
-      begins.
+      This entry requirement is checked at submission and again at settlement.
+      All bids submitted in the same block face the same settlement cutoff.
+      Earlier submission blocks settle first and can raise the cutoff for later
+      batches, so a queued bid can become ineligible before it settles.
     </p>
     <p>
-      <strong>Example:</strong> If the incoming cohort has 10 seats, the auction
-      retains the 10 highest bids. A new bid that enters the top 10 displaces
-      bid number 10.
+      Among eligible bids, the highest funded maxima take the available seats.
+      At equal maxima, fixed bids take priority over automatic bids; remaining
+      ties follow original submission order. The order in which maxima are
+      disclosed does not change that priority.
+    </p>
+
+    <h3>What an Automatic Bid Pays</h3>
+    <p>
+      When eligible bids outnumber seats, an automatic winner pays one increment
+      above the highest losing funded maximum, capped at its own maximum and
+      never below its public bid or previously accepted price. If all eligible
+      bids fit, it pays its public bid or previously accepted price, whichever
+      is higher. Fixed winners pay their stated bids.
+    </p>
+    <p>
+      An accepted automatic bid stays in competition as later batches settle.
+      Its price can rise without another transaction from the operator, provided
+      the funding account still covers the increase. Accepted prices cannot
+      decrease. Raising an existing offer requires a maximum above its previous
+      maximum.
+    </p>
+
+    <section class="my-8 overflow-hidden rounded-lg border border-argon-200 bg-argon-50/40">
+      <div class="px-5 pt-5">
+        <div class="text-lg font-bold text-argon-700">Example: Winning Below the Maximum</div>
+        <p class="mt-2 text-sm text-slate-600">
+          A cohort has 10 available seats. In one block, nine miners submit fixed
+          bids of 2,000 ARGN, and two more submit the automatic bids below. All
+          bids remain funded and both maxima are disclosed on time.
+        </p>
+      </div>
+      <div class="overflow-x-auto px-5">
+        <table class="w-full text-left text-sm">
+          <caption class="pb-2 text-left text-slate-600">Bid amounts and winning prices in ARGN</caption>
+          <thead>
+            <tr>
+              <th scope="col">Miner</th>
+              <th scope="col">Public bid</th>
+              <th scope="col">Maximum</th>
+              <th scope="col">Result</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">A</th>
+              <td>1,000</td>
+              <td>1,500</td>
+              <td>Wins at 1,400.01</td>
+            </tr>
+            <tr>
+              <th scope="row">B</th>
+              <td>1,000</td>
+              <td>1,400</td>
+              <td>No seat; no bid payment</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="m-0! px-5 pb-5 text-sm text-slate-600">
+        The nine fixed bidders take nine seats at 2,000 ARGN each. Miner A takes
+        the tenth by paying 0.01 ARGN above Miner B's maximum. Its remaining
+        99.99 ARGN of bidding capacity stays in the funding account and can
+        support later price increases during this auction.
+      </p>
+    </section>
+
+    <h3>Closing the Auction</h3>
+    <p>
+      New submissions can close unpredictably during the protocol-defined
+      closing window. They also close early enough to allow pending batches to
+      settle before cohort activation. Bids already queued retain their full
+      five-block disclosure window even after submissions close.
+    </p>
+    <p>
+      The cohort activates only after pending batches have settled and the
+      protocol's settlement buffer has elapsed. The remaining winners then
+      begin their ten-frame mining term at the frame boundary.
     </p>
 
     <h2>ARGN Bids and ARGNOT Collateral</h2>
@@ -92,11 +246,12 @@
           ARGN Bid
         </div>
         <div class="mt-2 text-lg font-bold text-slate-800">
-          Competitive and spendable
+          Paid when accepted
         </div>
         <p class="mt-2 mb-0 text-sm text-slate-600">
-          The ARGN amount determines auction rank. It is returned if the bid is
-          displaced, but paid into the mining-bid pool if the seat is won.
+          The accepted winning price is transferred to the mining-bid pool at
+          settlement. Later price increases collect the difference. If the bid
+          is displaced, the amount paid is returned to its funding account.
         </p>
       </div>
       <div class="rounded-lg border border-slate-300 bg-white/40 p-5">
@@ -116,6 +271,27 @@
         </p>
       </div>
     </section>
+
+    <h3>Keeping the Maximum Funded</h3>
+    <p>
+      The funding account must cover the public bid at submission and the full
+      maximum when disclosing it. Funding is checked again at settlement, and
+      an existing paid bid counts toward the funds needed to replace it.
+    </p>
+    <p>
+      The full ARGN maximum is not placed on hold. Only the accepted price is
+      collected, so the operator must keep enough spendable ARGN available for
+      automatic increases. Spending that balance reduces an accepted bid's
+      ability to compete up to its stated maximum. Several miners funded by the
+      same account share its available balance.
+    </p>
+    <p>
+      A missing, invalid, late, or unfunded maximum does not automatically cancel
+      the public bid. It still competes at its public amount if funded and
+      eligible. A losing submission releases any extra ARGNOT held for that
+      submission; collateral still supporting an active seat or accepted bid
+      remains held.
+    </p>
 
     <h3>How the Collateral Requirement Changes</h3>
     <p>
@@ -208,49 +384,12 @@
       <DocLink to="/docs/assets-and-entities/argonot-stakes"
         >Argonot Stakes</DocLink
       >,
-      <DocLink to="/docs/assets-and-entities/operational-rewards-pool"
-        >the Expansion Rewards Pool</DocLink
-      >, and stabilization capital supplied through vaults and
+      <DocLink to="/docs/assets-and-entities/ambassador-rewards">Ambassador Rewards</DocLink>,
+      and stabilization capital supplied through vaults and
       <DocLink to="/docs/assets-and-entities/argon-bonds"
         >Argon Bonds</DocLink
       >.
     </p>
-
-    <h2>Using Argon Desktop</h2>
-    <p>
-      Mining is managed from the
-      <DocLink to="/docs/desktop-app/operations"
-        >Operations level</DocLink
-      >
-      of Argon Desktop. The setup workflow connects a compatible local or cloud
-      machine, installs the mining software, confirms the operator's bidding
-      rules, and funds the mining wallet with ARGN and ARGNOT.
-    </p>
-    <p>
-      The bidding bot applies the operator's capital commitment, starting bid,
-      maximum bid, and rebidding rules. It can place and increase bids and seek
-      continuation seats, but the operator remains responsible for its strategy,
-      available capital, server health, and keys. The Mining dashboard then
-      tracks auction position, active and upcoming seats, rewards, and return to
-      date.
-    </p>
-
-    <aside
-      class="my-8 rounded-lg border border-amber-300 bg-amber-50/60 px-5 py-4"
-    >
-      <strong class="block mb-2 text-lg text-amber-900"
-        >Operating Responsibility</strong
-      >
-      <p class="m-0! text-amber-900/80">
-        Automation does not make a mining return predictable. Auction prices,
-        block assignments, token prices, network issuance, transaction volume,
-        and machine availability can all change an operation's results. Review
-        <DocLink to="/docs/desktop-app/operations-certification"
-          >Operator Certification</DocLink
-        >
-        before committing operational capital.
-      </p>
-    </aside>
   </DocContent>
 </template>
 

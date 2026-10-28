@@ -3,128 +3,105 @@
 
   <DocContent>
     <p>
-      Basic is the first level of Argon Desktop and is available to everyone. It
-      provides the self-custodial wallet, transfer, market, and network tools
-      needed to begin using Argon. No invitation or sponsoring Operator is
-      required.
+      Basic is the first level of Argon Desktop and is available to
+      everyone. You can manage your wallet, transfer supported assets, view
+      network activity, and use Market Stabilizers. No invitation or
+      Operator sponsorship is required.
+    </p>
+
+    <VideoLoop src="/videos/desktop-app-overview.webm" class="mt-8 mb-10">
+      <li>Account Overview</li>
+      <li>Internal Wallet</li>
+      <li>Network Economics</li>
+      <li>Market Stabilizers</li>
+      <li>Upgrade to Treasury</li>
+    </VideoLoop>
+
+    <p>
+      When you first open Argon Desktop, you can create a new account or
+      import an existing account. This account is used by the app's
+      internal wallet.
     </p>
 
     <p>
-      Basic is not a limited demonstration mode. You control a real Argon
-      account, can connect supported external wallets, and authorize your own
-      transactions. Treasury and Operations add new forms of participation to
-      this same foundation.
-    </p>
-
-    <h2>Start with an Argon Account</h2>
-    <p>
-      When Argon Desktop opens for the first time, you can create a new Argon
-      account or import one using its recovery phrase. The account created or
-      imported here becomes the Internal App Wallet shown throughout the app.
-    </p>
-
-    <p>
-      Creating an account also creates its recovery credentials locally. Argon
-      does not keep a copy, and an Operator cannot recover the account for you.
-      Record the recovery phrase before moving significant assets. See
-      <DocLink to="/docs/desktop-app/self-custody-risks"
-        >Self-Custody Risks</DocLink
-      >
-      for the responsibilities that come with controlling the account.
+      If you create a new account, the app generates its recovery
+      credentials locally. Record your recovery phrase and verify your
+      backup before funding the wallet. Argon does not keep a copy, and an
+      Operator cannot recover the account for you. Read
+      <DocLink to="/docs/desktop-app/self-custody-risks">Self-Custody Risks</DocLink>
+      for guidance on protecting your wallet.
     </p>
 
     <h2>Account Overview</h2>
+
     <p>
-      Account Overview is the home screen. It shows the value held in the
-      Internal App Wallet and any connected Ethereum wallets. It also separates
-      immediately usable ARGN from value currently committed to positions or
-      awaiting completion.
+      Account Overview is the app’s home screen. It shows the value of
+      assets in your internal wallet and connected Ethereum wallets. It also
+      distinguishes argons available to spend from argons committed to
+      positions or involved in pending transactions.
     </p>
 
     <p>
-      The purchasing-power indicators at the top of the screen provide context
-      for ARGN's current target, its performance relative to the selected
-      currency, and the network's available restabilization capacity. These
-      indicators describe the network; they do not change which assets are
-      available to spend.
+      The purchasing-power indicators show Argon’s current target value, how
+      its purchasing power compares with your selected currency, and the
+      network’s capacity to respond to price deviations.
     </p>
 
     <h2>Wallets and Transfers</h2>
+
     <p>
-      Selecting a wallet opens its ARGN, ARGNOT, and other supported token
-      balances. From the wallet interface you can send assets to another Argon
-      address, receive assets using an address or QR code, and move supported
-      tokens between the Argon and Ethereum networks.
+      Open a wallet to view its supported balances. From your internal
+      wallet, you can send ARGN and ARGNOT to another Argon address or share
+      your address or QR code to receive them. Ethereum connectors let you
+      transfer supported tokens between Argon and Ethereum.
     </p>
 
     <p>
-      Ethereum wallets can be created inside Argon Desktop or connected from a
-      supported external wallet. Connecting a wallet lets the app display its
-      supported balances and prepare transfers, but it does not give Argon
-      Desktop permission to move assets without the required authorization.
+      See
+      <DocLink to="/docs/desktop-app/internal-wallet">Internal Wallet</DocLink>
+      for sending and receiving instructions, network fees, and
+      pending-transfer guidance.
     </p>
 
     <p>
-      Argon Desktop records completed and pending activity in its transaction
-      history. Onchain transactions can also be followed using their network
-      details. For the crosschain process, continue to
-      <DocLink to="/docs/bridgeless-transfers"
-        >Bridgeless Transfers</DocLink
-      >.
-    </p>
-
-    <h2>Stable Swaps</h2>
-    <p>
-      Stable Swaps are part of Basic Functionality. They do not require a
-      Treasury invitation. The Stable Swaps screen compares ARGN's market price
-      on supported exchanges with its current purchasing-power target and
-      identifies trades that can help close a price gap.
-    </p>
-
-    <p>
-      When a supported opportunity is available, Argon Desktop calculates the
-      relevant direction and amount before you authorize the trade with a funded
-      Ethereum wallet. The decision to trade remains yours, and market
-      conditions can change before a transaction completes. Read
-      <DocLink to="/docs/assets-and-entities/stable-swaps"
-        >Stable Swaps</DocLink
-      >
-      for the underlying stabilization role.
+      You can connect an external Ethereum wallet directly into the app
+      which allows you to view remote balances and initiate transfers. See
+      <DocLink to="/docs/bridgeless-transfers">Bridgeless Transfers</DocLink>.
     </p>
 
     <h2>Network Economics</h2>
+
     <p>
-      Network Economics is a public view of Argon's current activity. It brings
-      together measures such as asset prices, circulation, mining and vaulting
-      participation, Bitcoin in vaults, seat costs, and modeled annual returns.
-      You do not need Treasury or Operations access to follow these conditions.
+      Network Economics helps you understand current asset prices, token
+      circulation, mining and vaulting activity, Bitcoin held in vaults,
+      mining-seat costs, estimated annual returns, and more. It is available
+      at every access level. Estimated returns do not guarantee future
+      results.
+    </p>
+
+    <h2>Market Stabilizers</h2>
+
+    <p>
+      Market Stabilizers help you earn yield through Uniswap trading
+      activity. In addition to the standard fees that Uniswap gives, the Argon Network
+      allows you to earn a portion of daily mining revenue on these same Uniswap
+      liquidity positions.
     </p>
 
     <p>
-      These figures summarize current network data. They are useful for
-      understanding the system and evaluating possible activities, but they are
-      not promises of future prices or returns.
+      Also, whenever Argon deviates from its target price, the Argon Network
+      activates Stabilizer Buy positions that allow you to earn a portion of
+      vaulting revenues.
     </p>
 
-    <h2>Moving Beyond Basic</h2>
-    <p>
-      Basic does not include Bitcoin Locks, Argon Bonds, Argonot Stakes, Mining,
-      Vaulting, or Member Onboarding. Those activities appear when the
-      corresponding access level is unlocked.
-    </p>
+    <h2>Beyond Basic</h2>
 
     <p>
-      An existing Operator can invite you to
-      <DocLink to="/docs/desktop-app/treasury"
-        >Treasury (Level Two)</DocLink
-      >. Treasury Certification can then make you eligible to request
-      <DocLink to="/docs/desktop-app/operations"
-        >Operations (Level Three)</DocLink
-      >. Read
-      <DocLink to="/docs/desktop-app/access-codes"
-        >Access and Upgrades</DocLink
-      >
-      for the complete progression.
+      You can gain access to even more Argon features by upgrading to
+      <DocLink to="/docs/desktop-app/treasury">Treasury (Level Two)</DocLink>.
+      All you need is an invite from a network Operator. Treasury unlocks
+      Desktop with a number of additional yield-bearing instruments such as Bitcoin
+      Liquids, Argon Bonds, and Argonot Stakes.
     </p>
   </DocContent>
 </template>
@@ -133,4 +110,5 @@
 import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
+import VideoLoop from "@/components/VideoLoop.vue";
 </script>

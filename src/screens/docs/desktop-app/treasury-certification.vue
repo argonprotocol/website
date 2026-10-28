@@ -3,164 +3,93 @@
 
   <DocContent>
     <p>
-      Treasury Certification is a practical checklist that prepares a member to
-      request access to Operations. It confirms that the member has secured
-      their wallet and used the principal Treasury activities that support an
-      Operational Account.
+      Treasury Certification introduces you to the components of Treasury
+      through a guided checklist of practical activities. It helps you learn how
+      to use Treasury’s features and manage your positions. Completing
+      certification also makes you eligible to request Operations access.
+    </p>
+
+    <VideoLoop src="/videos/desktop-app-overview.webm" class="mt-8 mb-10">
+      <li>Recovery phrase backup</li>
+      <li>Qualifying Uniswap transfer</li>
+      <li>Qualifying Bitcoin Liquid activity</li>
+      <li>Active Argon Bonds</li>
+      <li>Operations upgrade request</li>
+    </VideoLoop>
+
+    <h2>Requirements</h2>
+
+    <p>
+      Open Treasury Certification from the app’s top bar to view your progress.
+      Select an item to open its guided workflow.
+    </p>
+
+    <h3>Back Up Your Recovery Phrase</h3>
+
+    <p>
+      Saving your wallet’s recovery phrase is a critical first step to using
+      Argon Desktop. This phrase lets you restore your account if your computer
+      fails or the app’s local data is lost. This step is completed locally in
+      Argon Desktop and is not published onchain. Read <DocLink to="/docs/desktop-app/self-custody-risks">Self-Custody Risks</DocLink> before
+      funding your wallet.
+    </p>
+
+    <h3>Transfer at Least 250 ARGN from Uniswap</h3>
+
+    <p>
+      Transfer a cumulative total of at least 250 ARGN through the supported
+      Uniswap transfer workflow. You can meet this requirement through multiple
+      qualifying inbound transfers. Transfers between Argon accounts do not
+      count.
     </p>
 
     <p>
-      Certification does not transfer custody, promise a return, or make the
-      member an operator. It establishes eligibility to request the next access
-      level from the member's sponsoring operator.
+      See <DocLink to="/docs/bridgeless-transfers">Bridgeless Transfers</DocLink> for transfer instructions.
     </p>
 
-    <h2>Current Certification Requirements</h2>
-    <p>
-      Argon Desktop reads the current protocol settings and tracks the member's
-      progress. The current checklist contains one local wallet-safety step and
-      three financial participation requirements.
-    </p>
-
-    <section
-      class="my-8 overflow-hidden rounded-lg border border-slate-300 bg-white/40"
-    >
-      <header
-        class="border-b border-slate-300 bg-slate-100/70 px-5 py-3 text-sm font-bold tracking-wide text-slate-600 uppercase"
-      >
-        Treasury Checklist
-      </header>
-      <dl class="m-0">
-        <div class="border-b border-slate-300 px-5 py-4 md:flex md:gap-6">
-          <dt class="font-bold text-slate-800 md:w-52 md:shrink-0">
-            Back up the wallet
-          </dt>
-          <dd class="m-0 mt-1 text-slate-600 md:mt-0">
-            Record and verify the wallet's recovery phrase. This safety step is
-            completed locally in Argon Desktop and is not published onchain.
-          </dd>
-        </div>
-        <div class="border-b border-slate-300 px-5 py-4 md:flex md:gap-6">
-          <dt class="font-bold text-slate-800 md:w-52 md:shrink-0">
-            Lock Bitcoin
-          </dt>
-          <dd class="m-0 mt-1 text-slate-600 md:mt-0">
-            Complete Bitcoin Locks with a combined value of at least 500 ARGN.
-            Because Bitcoin's ARGN value can change, Argon Desktop may suggest
-            locking more than the minimum.
-          </dd>
-        </div>
-        <div class="border-b border-slate-300 px-5 py-4 md:flex md:gap-6">
-          <dt class="font-bold text-slate-800 md:w-52 md:shrink-0">
-            Transfer ARGN in
-          </dt>
-          <dd class="m-0 mt-1 text-slate-600 md:mt-0">
-            Transfer a cumulative total of at least 250 ARGN into the member's
-            linked accounts through the supported Uniswap transfer path.
-          </dd>
-        </div>
-        <div class="px-5 py-4 md:flex md:gap-6">
-          <dt class="font-bold text-slate-800 md:w-52 md:shrink-0">
-            Hold Argon Bonds
-          </dt>
-          <dd class="m-0 mt-1 text-slate-600 md:mt-0">
-            Maintain active Argon Bond principal of at least 200 ARGN.
-          </dd>
-        </div>
-      </dl>
-    </section>
+    <h3>Create Bitcoin Liquids Worth at Least ₳2,500</h3>
 
     <p>
-      The transfer requirement is enforced while the supported crosschain
-      transfer system is active. If protocol transfer tracking is unavailable,
-      that requirement can be temporarily waived by the protocol rather than
-      blocking every registration.
-    </p>
-
-    <h2>What Each Activity Demonstrates</h2>
-
-    <h3>Wallet Recovery</h3>
-    <p>
-      Argon Desktop is self-custodial. A recovery phrase is the last line of
-      defense if the computer fails or the local app data is lost. The sponsor
-      and Upstream Node do not receive a copy. Review
-      <DocLink to="/docs/desktop-app/self-custody-risks"
-        >Self-Custody Risks</DocLink
-      >
-      before committing assets.
-    </p>
-
-    <h3>Bitcoin Locks</h3>
-    <p>
-      A
-      <DocLink to="/docs/assets-and-entities/bitcoin-locks"
-        >Bitcoin Lock</DocLink
-      >
-      moves Bitcoin into an owner-and-vault multisig. It can have zero or more
-      insurance. Locking Bitcoin does not by itself issue ARGN; creating a
-      <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
-        >Bitcoin Liquid</DocLink
-      >
-      is a separate action.
-    </p>
-
-    <h3>ARGN Transfers</h3>
-    <p>
-      Only qualifying inbound ARGN transfers through the supported Uniswap path
-      count toward this requirement. An ordinary transfer between Argon accounts
-      does not create new qualifying transfer history.
-    </p>
-
-    <h3>Argon Bonds</h3>
-    <p>
-      The member must maintain enough active
-      <DocLink to="/docs/assets-and-entities/argon-bonds"
-        >Argon Bond</DocLink
-      >
-      principal. A position that is Releasing no longer counts as active
-      certification principal.
-    </p>
-
-    <h2>How Progress Is Recorded</h2>
-    <p>
-      Argon Desktop displays Treasury Certification in the top navigation. The
-      checklist shows completed, underway, and unfinished requirements, and an
-      unfinished item can open the relevant guided workflow.
+      Create qualifying Bitcoin Liquids totaling at least ₳2,500. The amount of
+      BTC that totals ₳2,500 can change as Bitcoin’s price fluctuates in the
+      market.
     </p>
 
     <p>
-      The wallet-backup step is recorded locally. Bitcoin, transfer, and bond
-      progress comes from public protocol activity associated with the member's
-      account. The sponsoring operator can see this public certification
-      progress through Member Onboarding, but cannot see the member's recovery
-      phrase or private keys.
+      See <DocLink to="/docs/assets-and-entities/bitcoin-locks">Bitcoin Locks</DocLink> and <DocLink to="/docs/assets-and-entities/bitcoin-liquids">Bitcoin Liquids</DocLink> for details.
     </p>
 
-    <h2>Requesting an Operations Upgrade</h2>
+    <h3>Maintain 2,500 Active Argon Bonds</h3>
+
     <p>
-      When the checklist is complete, Argon Desktop allows the member to send an
-      Operations upgrade request to the sponsor. The sponsor must have an
-      available upgrade code and must choose to approve the request. Completion
-      therefore creates eligibility, not guaranteed access.
+      Maintain active <DocLink to="/docs/assets-and-entities/argon-bonds">Argon Bond</DocLink> positions with a combined principal of at
+      least 2,500 ARGN. Positions that are being released do not count toward
+      this requirement.
     </p>
 
     <p>
-      The protocol checks the financial minimums again when the Operational
-      Account registers. Bitcoin value or active bond principal that falls below
-      its minimum before registration can make the account ineligible even if
-      Argon Desktop previously showed that step as complete.
+      See <DocLink to="/docs/assets-and-entities/argon-bonds">Argon Bonds</DocLink> for details.
+    </p>
+
+    <h2>Request an Operations Upgrade</h2>
+
+    <p>
+      When your checklist is complete, you can request Operations access from
+      your sponsoring Operator. Approval remains your sponsor’s decision and
+      requires an available Operations upgrade code.
     </p>
 
     <p>
-      See
-      <DocLink to="/docs/desktop-app/access-codes"
-        >Access and Upgrades</DocLink
-      >
-      for the sponsor-approval process and
-      <DocLink to="/docs/desktop-app/operations-certification"
-        >Operator Certification</DocLink
-      >
-      for what follows after registration.
+      The protocol checks the financial requirements again when you register
+      your Operational Account. If your qualifying Bitcoin value or active Bond
+      principal has fallen below the required minimum, you may need to restore
+      your eligibility before registration—even if the checklist previously
+      showed the requirement as complete.
+    </p>
+
+    <p>
+      See <DocLink to="/docs/desktop-app/access-codes">Access and Upgrades</DocLink> for the sponsor-approval process and <DocLink to="/docs/desktop-app/operations-certification">Operator Certification</DocLink> for
+      the requirements that follow registration.
     </p>
   </DocContent>
 </template>
@@ -169,4 +98,5 @@
 import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
+import VideoLoop from "@/components/VideoLoop.vue";
 </script>

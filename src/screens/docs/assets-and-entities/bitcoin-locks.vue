@@ -63,40 +63,40 @@
       account password—determine which signatures can spend the UTXO.
     </p>
 
-    <h2>Bitcoin Insurance</h2>
+    <h2>Cosigner Guarantee</h2>
     <p>
-      A Lock can be created with any supported amount of
-      <strong>insurance</strong>, including zero. Insurance is ARGN capital that
+      A Lock can be created with a <strong>Cosigner Guarantee</strong> of any
+      supported amount, including zero. The guarantee is ARGN capital that
       the vault commits to the Lock so the protocol has funds available for
-      covered failures involving the vault or its cosigning responsibilities.
+      defined failures involving the vault or its cosigning responsibilities.
     </p>
 
     <section
       class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-5"
     >
       <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">
-        Insurance Coverage
+        Guarantee Amount
       </div>
       <div
         class="my-4 overflow-x-auto rounded-md border border-argon-200 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-xl text-slate-800 sm:text-2xl"
       >
-        Lock insurance = ARGN capital committed by the vault
+        Cosigner Guarantee = ARGN capital committed by the vault
       </div>
       <p class="m-0 text-sm text-slate-600">
-        Insurance is denominated in ARGN value. It is not additional Bitcoin and
+        The guarantee is denominated in ARGN value. It is not additional Bitcoin and
         is not paid to the Lock owner when the Lock is created.
       </p>
     </section>
 
     <p>
-      The chosen amount cannot exceed the vault's available insurance capacity.
-      Vaults charge an insurance fee for the capital and cosigning service they
-      provide, so a larger insured amount can cost more than an uninsured or
-      partially insured Lock.
+      The chosen amount cannot exceed the vault's available guarantee capacity.
+      Vaults charge a fee for the capital and cosigning service they
+      provide, so a larger guarantee can cost more than a Lock with a smaller
+      guarantee or none.
     </p>
 
     <p>
-      Insurance covers defined vault risks. It does not protect against changes
+      The guarantee covers defined vault risks. It does not protect against changes
       in Bitcoin's market price, guarantee the value of ARGN, or replace the
       owner's responsibility to protect the recovery phrase and approve the
       correct transactions.
@@ -114,7 +114,7 @@
           <strong class="text-lg">Create a Channel</strong>
         </div>
         <p class="mt-3 mb-0 text-sm text-slate-600">
-          Choose a vault cosigner and an insurance amount. The App Wallet
+          Choose a vault cosigner and a Cosigner Guarantee amount. The App Wallet
           creates the multisig funding address.
         </p>
       </li>
@@ -140,7 +140,7 @@
           <strong class="text-lg">Hold or Create a Liquid</strong>
         </div>
         <p class="mt-3 mb-0 text-sm text-slate-600">
-          Leave the BTC locked without creating ARGN, or use available insurance
+          Leave the BTC locked without creating ARGN, or use the available guarantee
           to create a separate Bitcoin Liquid.
         </p>
       </li>
@@ -174,25 +174,6 @@
       keep the BTC in the Lock or request its release separately.
     </p>
 
-    <h2>Using Argon Desktop</h2>
-    <p>
-      Open the App Wallet's Bitcoin connector and choose
-      <strong>Create Bitcoin Channel</strong>. Review the vault cosigner, select
-      the desired insurance, and create the channel. The App Wallet will provide
-      a Bitcoin address and track funding from the mempool through final
-      confirmation.
-    </p>
-
-    <p>
-      Once confirmed, the wallet tracks the Lock's BTC amount, UTXO, vault,
-      insurance, Liquid status, and release state. See
-      <DocLink to="/docs/assets-and-entities/bitcoins">Bitcoin</DocLink>
-      for the asset overview or
-      <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
-        >Bitcoin Liquids</DocLink
-      >
-      for the separate ARGN position.
-    </p>
   </DocContent>
 </template>
 

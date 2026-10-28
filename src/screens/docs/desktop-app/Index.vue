@@ -3,137 +3,73 @@
 
   <DocContent>
     <p>
-      Argon Desktop is a self-custodial application for holding, moving, and
-      using assets across the Argon economy. It combines wallet activity,
-      yield-bearing positions, and network operations in one interface that runs
+      Argon Desktop is a self-custodial app for managing assets and participating
+      in the Argon economy. It brings wallet tools,
+      yield-bearing positions, and network operations into one interface. It runs
       on macOS, Windows, and Linux.
     </p>
 
-    <p>
-      The app does not create an account with the Argon team or take custody of
-      your assets. You control your wallet keys and approve each transaction. As
-      you gain access to additional parts of the network, the same app adds the
-      tools appropriate to your level of participation.
-    </p>
-
-    <VideoLoop src="/videos/desktop-app-overview.webm" class="mb-10" />
-
-    <h2>One App That Grows With You</h2>
-    <p>
-      Argon Desktop has three levels: Basic, Treasury, and Operations. Everyone
-      begins with Basic. An invitation from an existing Operator can unlock
-      Treasury, and a Treasury member who completes certification can request an
-      upgrade to Operations.
-    </p>
-
-    <p>
-      An upgrade adds capabilities; it does not replace your installation or
-      transfer control of your account. See
-      <DocLink to="/docs/desktop-app/access-codes"
-        >Access and Upgrades</DocLink
-      >
-      for the invitation, sponsorship, and certification process.
-    </p>
-
-    <h3>Basic</h3>
-    <p>
-      Basic provides the wallet and network tools available to every user. You
-      can create or import an Argon account, connect Ethereum wallets, view
-      balances and transaction history, move supported assets, use
-      <DocLink to="/docs/assets-and-entities/stable-swaps"
-        >Stable Swaps</DocLink
-      >, and follow the network's current economics.
-    </p>
-
-    <p>
-      Basic does not require an invitation or a sponsoring Operator. Continue to
-      <DocLink to="/docs/desktop-app/basic-functionality"
-        >Basic Functionality</DocLink
-      >
-      for a closer look at these tools.
-    </p>
-
-    <h3>Treasury</h3>
-    <p>
-      Treasury adds the network's capital-participation tools. Its navigation
-      includes
-      <DocLink to="/docs/assets-and-entities/bitcoin-locks"
-        >Bitcoin Locks</DocLink
-      >,
-      <DocLink to="/docs/assets-and-entities/argon-bonds"
-        >Argon Bonds</DocLink
-      >,
-      <DocLink to="/docs/assets-and-entities/argonot-stakes"
-        >Argonot Stakes</DocLink
-      >. These sections let a member put assets to work without operating the
-      network's mining and vaulting infrastructure.
-    </p>
-
-    <p>
-      A Treasury member is connected to a sponsoring Operator and that
-      Operator's
-      <DocLink to="/docs/assets-and-entities/upstream-nodes"
-        >Upstream Node</DocLink
-      >. The connection provides access to supported services, but it does not
-      give the Operator authority over the member's wallet.
-    </p>
-
-    <h3>Operations</h3>
-    <p>
-      Operations adds the tools needed to help run the network. Operators can
-      compete for
-      <DocLink to="/docs/assets-and-entities/mining-operations"
-        >Mining Operations</DocLink
-      >, establish and manage
-      <DocLink to="/docs/assets-and-entities/vaulting-operations"
-        >Vaulting Operations</DocLink
-      >, and onboard new members. Operators who take on eligible crosschain
-      roles also receive the corresponding authorization and transfer tools.
-    </p>
-
-    <p>
-      Argon Desktop guides server setup, displays operational status, and
-      organizes recurring workflows. The Operator still chooses how much capital
-      to commit, which services to offer, and which transactions to approve.
-    </p>
+    <VideoLoop src="/videos/desktop-app-overview.webm" class="mt-8 mb-14">
+      <li>Welcome Screen</li>
+      <li>Account Overview</li>
+      <li>Account Overview -- Highlight leftbar</li>
+      <li>Account Overview -- Highlight topbar</li>
+      <li>Request Treasury Access</li>
+    </VideoLoop>
 
     <h2>How the App Is Organized</h2>
     <p>
-      The Account Overview is the starting point. It brings together your Argon
-      and connected Ethereum wallets, current balances, available funds, and
-      purchasing-power information.
+      The left sidebar is organized by access level. Basic tools are always
+      visible. Treasury and Operations sections appear when you unlock those
+      levels. You can open your internal wallet from anywhere by selecting the
+      wallet summary at the bottom of the sidebar.
     </p>
 
     <p>
-      The left sidebar is divided by access level. Basic tools are always
-      visible. Treasury and Operations sections appear when those levels are
-      unlocked, keeping the interface focused on the activities available to
-      you. The wallet summary at the bottom of the sidebar provides a consistent
-      way to open a wallet from anywhere in the app.
+      The top bar shows your certification progress, sponsor and server
+      connections, portfolio value, and returns. It also provides access to
+      currency display options and account settings.
+    </p>
+
+    <h2>Three Levels of Access</h2>
+    <p>
+      <strong>Basic</strong> is available to everyone as soon as they download the
+      app. It includes the core wallet and network tools needed to get started.
     </p>
 
     <p>
-      The top of the window contains the controls that apply across activities:
-      certification progress, sponsor and server connections, portfolio value,
-      returns, currency display, and account settings. The main workspace then
-      changes with the activity selected from the sidebar.
-    </p>
-
-    <h2>Self-Custody with Connected Services</h2>
-    <p>
-      Argon Desktop keeps signing authority on your computer. Recovery
-      credentials are not sent to a sponsor, Upstream Node, or Argon-operated
-      account system. When a workflow requires an onchain action, the app shows
-      the transaction for you to authorize with the appropriate local account.
+      <strong>Treasury</strong> requires an invitation from an existing Operator.
+      It provides access to the network's yield-bearing assets, including
+      <DocLink to="/docs/assets-and-entities/bitcoin-liquids">Bitcoin Liquids</DocLink>,
+      <DocLink to="/docs/assets-and-entities/argon-bonds">Argon Bonds</DocLink>, and
+      <DocLink to="/docs/assets-and-entities/argonot-stakes">Argonot Stakes</DocLink>.
     </p>
 
     <p>
-      Self-custody does not mean the app works in isolation. It reads the
-      blockchains and services needed to show current balances, prices,
-      positions, and network activity. Treasury members connect to an Upstream
-      Node, while Operators can use Argon Desktop to configure and monitor their
-      own operational server. Those connections provide data and services
-      without replacing your control of the underlying accounts.
+      <strong>Operations</strong> is the app's highest access level and requires
+      approval from an existing Operator. Operators can compete for
+      <DocLink to="/docs/assets-and-entities/mining-operations"
+        >Mining Seats</DocLink
+      >, establish and manage
+      <DocLink to="/docs/assets-and-entities/vaulting-operations"
+        >Vaults</DocLink
+      >, and onboard new members.
+    </p>
+
+    <h2>Self-Custody</h2>
+    <p>
+      Argon Desktop manages your wallet locally on your computer, and you retain
+      control of your signing keys. Your recovery credentials are never sent to
+      an Upstream Node or third-party account. Only you can authorize transactions
+      from your accounts.
+    </p>
+
+    <p>
+      The app connects to blockchains and external services to display current
+      balances, prices, positions, and network activity. Treasury members connect
+      to an Upstream Node. Operators can also configure and monitor their own
+      operational server through the app. These connections provide data and
+      services while you retain control of your accounts.
     </p>
 
     <p>
@@ -141,7 +77,7 @@
       <DocLink to="/docs/desktop-app/self-custody-risks"
         >Self-Custody Risks</DocLink
       >
-      before funding an account or beginning a position.
+      before funding your account or opening a position.
     </p>
 
     <h2>Getting Started</h2>
@@ -151,11 +87,11 @@
         your operating system.
       </li>
       <li>
-        Create a new Argon account or import an account you already control.
+        Create a new Argon account or import an existing one.
       </li>
       <li>
-        Begin with the Account Overview and Basic tools, then explore Treasury
-        or Operations if you decide to pursue a higher participation level.
+        Start with Account Overview and the Basic tools. Request Treasury or
+        Operations access when you're ready.
       </li>
     </ol>
   </DocContent>

@@ -288,8 +288,8 @@
           Argon Desktop will be a free, open-source, and decentralized app that makes it easy for anyone to get
           involved in the Argon ecosystem without needing to run mining or vaulting nodes. It will assist in
           managing argon/argonot assets, liquid-locking their bitcoins, and investing in the treasury bonds of
-          network vaults. It will also bring Argon's Localchain functionality into a simple point-and-click interface.
-          Localchain is Argon's P2P payment network, which allows users to send and receive fast, free payments
+          network vaults. It will also bring Argon's Sidechain functionality into a simple point-and-click interface.
+          Sidechain is Argon's P2P payment network, which allows users to send and receive fast, free payments
           directly between devices. It also supports micropayments between AI agents through MCP hooks.
         </p>
 
@@ -385,10 +385,10 @@
     <div SplitRow>
       <div SplitLeft Content>
         <p>
-          One of the more fascinating properties of Argon's technical design is its P2P Localchain. It allows
+          One of the more fascinating properties of Argon's technical design is its P2P Sidechain. It allows
           individuals to move argons into local networks that can settle transactions without requiring sign-off from
           the broader network. This means an apocalyptic event, or simply an off-the-grid weekend trip with buddies,
-          does not shut down your ability to conduct commerce. These localchains can reconnect back to the mainchain
+          does not shut down your ability to conduct commerce. These Sidechains can reconnect back to the mainchain
           at any point over the following months, years, or even decades with no loss of value.
         </p>
 

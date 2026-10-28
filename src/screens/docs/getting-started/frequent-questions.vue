@@ -88,7 +88,7 @@
       <p>
         <DocLink to="/docs/desktop-app/treasury">Treasury</DocLink> is
         where members deploy assets through features such as Bitcoin Locks,
-        Argon Bonds, and Argonot Stakes. Stable Swaps remain available as
+        Argon Bonds, and Argonot Stakes. Market Stabilizers remain available as
         <DocLink to="/docs/desktop-app/basic-functionality">Basic Functionality</DocLink>.
         <DocLink to="/docs/desktop-app/operations">Becoming an Operator</DocLink>
         requires much deeper involvement. Operators are responsible for running

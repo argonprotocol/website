@@ -53,8 +53,8 @@
 
     <p>
       A bond's underlying argons are never transferred to the vault operator for
-      them to control. Unlike traditional bonds, an ordinary Argon Bond position
-      cannot default because of a vault operator's failure to repay.
+      them to control. Unlike traditional bonds, a Argon Bond position
+      cannot default becaUSE A vault operator has no ability to take the funds or refuse repayment.
     </p>
 
     <h2>Why Vaults Use Bonds</h2>
@@ -65,14 +65,14 @@
       support the network's
       <DocLink to="/docs/assets-and-entities/bitcoin-locks"
         >Bitcoin Locks</DocLink
-      >. Their Treasury pools need ARGN capital to provide liquidity for those
-      locks. Argon Bonds let other holders participate in supplying that
+      >. These vaults need ARGN capital to provide liquidity for the locks.
+      Argon Bonds let the broader community participate in supplying this
       capital.
     </p>
 
     <p>
       A vault cannot accept an unlimited number of bonds. Its available bond
-      space is tied to its securitization and Bitcoin security. The protocol
+      space is tied to its securitization capital. The protocol
       reviews this backing at every frame boundary and counts only the supported
       portion of its bonds when allocating revenue.
     </p>
@@ -96,62 +96,43 @@
 
     <h2>Where Bond Earnings Come From</h2>
     <p>
-      At the end of each frame, the network divides its mining-bid revenue among
-      three destinations:
+      Bond earnings come from the ARGN paid by miners in winning mining-seat
+      bids. A portion of that revenue flows through Stabilization Vaults to
+      eligible Bond positions at the end of each frame.
     </p>
 
-    <section class="my-8 overflow-hidden rounded-lg border border-slate-300">
-      <div class="grid sm:grid-cols-10">
-        <div
-          class="border-b border-slate-300 bg-slate-100/70 p-5 sm:col-span-2 sm:border-r sm:border-b-0"
-        >
-          <div class="text-3xl font-bold text-slate-700">20%</div>
-          <div class="mt-2 font-bold text-slate-700">
-            Expansion Rewards Pool
-          </div>
-          <div class="mt-1 text-sm text-slate-500">
-            Funds onboarding rewards; unused funds are burned
-          </div>
-        </div>
-        <div
-          class="border-b border-slate-300 bg-argon-50/60 p-5 sm:col-span-1 sm:border-r sm:border-b-0"
-        >
-          <div class="text-3xl font-bold text-argon-700">10%</div>
-          <div class="mt-2 font-bold text-slate-700">
-            <DocLink to="/docs/assets-and-entities/argonot-stakes"
-              >Argonot Stakes</DocLink
-            >
-          </div>
-        </div>
-        <div class="bg-argon-100/50 p-5 sm:col-span-7">
-          <div class="text-3xl font-bold text-argon-700">70%</div>
-          <div class="mt-2 font-bold text-slate-700">
-            Stabilization Vaults and Argon Bonds
-          </div>
-          <div class="mt-1 text-sm text-slate-500">
-            Distributed according to eligible bond capital
-          </div>
-        </div>
+    <section class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-5">
+      <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">
+        Bond Revenue Share
       </div>
+      <div class="my-3 text-3xl font-bold text-argon-700">5%–7%</div>
+      <p class="m-0 text-sm text-slate-600">
+        Bonds receive 5% of eligible vaulting revenue by default. A vault
+        operator can offer as much as 7% to attract Bond capital. Every
+        additional percentage point comes out of the operator's share.
+      </p>
     </section>
 
     <p>
-      Revenue is distributed to Stabilization Vaults according to their pro-rata
-      share of eligible bonds. If a vault and its users hold 10% of the
-      network's eligible bonds, that vault receives 10% of the revenue available
-      to vaults. The amount fluctuates with each frame's bidding volume.
+      Each position earns according to the revenue-sharing terms offered when
+      it was created. Revenue eligibility is tied to the ARGN market value of
+      Bitcoin secured by the vault, so adding Bonds alone does not create an
+      unlimited claim on mining-bid revenue.
     </p>
 
     <p>
-      The chain pays external Argon Bond holders before paying the vault
-      operator. Each bondholder receives the percentage offered by the vault
-      when the position was opened, including any approved bonus. The vault
-      receives the remainder.
+      The amount available to Bonds changes with mining-seat bids. ARGNOT's
+      market price and growth in ARGN circulation can increase the value a
+      mining seat produces, supporting larger bids. A lower expected return
+      for miners also allows them to bid more, while a higher expected return
+      leaves less revenue available for distribution.
     </p>
 
     <p>
       Earnings are paid in ARGN after each participating frame. They do not
-      increase the bond principal or compound automatically.
+      increase the bond principal or compound automatically. See
+      <DocLink to="/docs/system-design/economic-drivers">Economic Drivers</DocLink>
+      for the Bond return model and the factors that affect it.
     </p>
 
     <h2>The Life of a Bond Position</h2>
@@ -236,29 +217,6 @@
       of financial return.
     </p>
 
-    <h2>Using Argon Desktop</h2>
-    <p>
-      Argon Desktop manages these positions under <strong>Argon Bonds</strong>.
-      Open the purchase flow, select a vault, review its available capacity,
-      choose the number of bonds, and submit the onchain purchase from your
-      Internal App Wallet.
-    </p>
-
-    <div
-      class="my-8 flex aspect-video items-center justify-center rounded-lg border border-dashed border-slate-400 bg-slate-100/50 px-6 text-center text-slate-500"
-    >
-      Silent Argon Bonds walkthrough video
-    </div>
-
-    <p>
-      The bond dashboard tracks each position's principal, distributed income,
-      return to date, vault, and release status. Because positions are
-      independent, each one must be released separately. See
-      <DocLink to="/docs/desktop-app/treasury"
-        >Accessing Treasury</DocLink
-      >
-      for the features that become available at the Treasury level.
-    </p>
   </DocContent>
 </template>
 

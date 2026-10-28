@@ -8,7 +8,7 @@ const DEFAULT_FEED_URL = 'https://argonnetwork.substack.com/feed';
 const OUTPUT_PATH = resolve(dirname(fileURLToPath(import.meta.url)), '../public/data/updates.json');
 const REQUEST_HEADERS = {
   Accept: 'application/rss+xml, application/xml;q=0.9, text/xml;q=0.8',
-  'User-Agent': 'ArgonProtocolWebsite/1.0 (+https://argonprotocol.org)',
+  'User-Agent': 'ArgonNetworkWebsite/1.0 (+https://argon.network)',
 };
 
 export interface SubstackUpdate {

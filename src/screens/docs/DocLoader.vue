@@ -382,6 +382,10 @@ function normalizeCurrentPath(path: string) {
 .LEFTBARSCROLLCUE {
   @apply pointer-events-none absolute bottom-0 left-0 right-px flex h-24 items-end justify-center pb-3 text-argon-600;
   background: linear-gradient(to top, var(--color-argon-50) 52px, transparent);
+
+  @variant xl {
+    background: linear-gradient(to top, color-mix(in oklab, var(--color-argon-50) 50%, var(--bg-color)) 52px, transparent);
+  }
 }
 
 .LEFTBARSCROLLARROWS {
@@ -437,7 +441,7 @@ function normalizeCurrentPath(path: string) {
   }
 
   h3 {
-    @apply text-[26px] text-slate-900/80 mt-7 mb-4 font-serif;
+    @apply text-[26px] text-slate-900/80 mt-7 mb-2 font-serif;
   }
 
   h4 {

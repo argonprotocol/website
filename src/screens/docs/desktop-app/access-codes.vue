@@ -3,188 +3,117 @@
 
   <DocContent>
     <p>
-      Argon Desktop has three levels of participation: Basic, Treasury, and
-      Operations. Each level adds capabilities without transferring custody of
-      the user's account. Basic is available to everyone; Treasury begins with
-      an invitation; and Operations requires certification plus approval from a
-      sponsoring operator.
+      Argon Desktop has three access levels: Basic, Treasury, and Operations.
+      Each level adds capabilities while you retain control of your account.
+      Basic is available to everyone. Treasury requires an invitation from an
+      existing Operator. Operations requires Treasury Certification and approval
+      from your sponsoring Operator.
     </p>
 
-    <aside
-      class="my-8 rounded-lg border border-argon-200 bg-white/40 px-5 py-4"
-    >
-      <strong class="mb-1 block">Access does not grant wallet authority</strong>
-      <p class="m-0">
-        An access code changes which services Argon Desktop can connect to. It
-        does not reveal a recovery phrase, authorize a transaction, or give the
-        sponsoring operator control over the user's assets.
-      </p>
-    </aside>
-
-    <h2>Basic</h2>
+    <h2>Access to Basic</h2>
     <p>
-      Anyone can create or import a self-custodial account and use Argon
-      Desktop's
-      <DocLink to="/docs/desktop-app/basic-functionality"
-        >Basic functionality</DocLink
-      >
-      without an invitation. This includes viewing balances and managing normal
-      wallet transactions.
+      Basic is available without an invitation. You can
+      <DocLink to="/docs/bridgeless-transfers/connect-uniswap-wallet">connect Ethereum wallets</DocLink>,
+      view balances and transaction history,
+      <DocLink to="/docs/bridgeless-transfers/initiate-a-transfer">transfer supported assets</DocLink>,
+      and use
+      <DocLink to="/docs/assets-and-entities/stable-swaps">Market Stabilizers</DocLink>.
+      See
+      <DocLink to="/docs/desktop-app/basic-functionality">Basic Functionality</DocLink>
+      for details.
     </p>
 
+    <h2>Access to Treasury</h2>
     <p>
-      A Basic user is not connected to a sponsoring operator and does not yet
-      have access to the operator-supported Treasury or Operations services.
+      Treasury requires a one-use invitation from an existing Operator.
+      Accepting the invitation gives you access to
+      <DocLink to="/docs/assets-and-entities/bitcoin-liquids">Bitcoin Liquids</DocLink>,
+      <DocLink to="/docs/assets-and-entities/argon-bonds">Argon Bonds</DocLink>, and
+      <DocLink to="/docs/assets-and-entities/argonot-stakes">Argonot Stakes</DocLink>.
+      See <DocLink to="/docs/desktop-app/treasury">Treasury</DocLink> for details.
     </p>
 
-    <h2>Treasury</h2>
+    <h2>Access to Operations</h2>
     <p>
-      A network operator can create a one-use Treasury access code for a new
-      member. The code contains the information Argon Desktop needs to contact
-      the operator's server, preview the invitation, and establish an
-      authenticated connection when the member accepts it.
+      To request Operations access, you must first complete
+      <DocLink to="/docs/desktop-app/treasury-certification">Treasury Certification</DocLink>.
+      Your sponsoring Operator decides whether to approve the request and must
+      have an available Operations upgrade code. The protocol issues these codes
+      in limited quantities.
     </p>
-
     <p>
-      The inviting operator becomes the member's sponsor, and the operator's
-      server becomes the member's
-      <DocLink to="/docs/assets-and-entities/upstream-nodes"
-        >Upstream Node</DocLink
-      >. The invitation also identifies the sponsor's vault and any optional
-      Bitcoin Lock fee waiver included with the invitation.
+      Once your upgrade is approved and your Operational Account is registered,
+      you gain access to Mining, Vaulting, and the other operational features.
     </p>
-
     <p>
-      Accepting the code unlocks the
-      <DocLink to="/docs/desktop-app/treasury">Treasury level</DocLink>
-      of the app. It does not automatically commit assets or begin
-      <DocLink to="/docs/desktop-app/treasury-certification"
-        >Treasury Certification</DocLink
-      >. The member chooses each Treasury action separately.
+      Registration links your operational, vault, and mining accounts and records
+      your sponsor as your upstream Operator. You can then set up the
+      infrastructure required to complete
+      <DocLink to="/docs/desktop-app/operations-certification">Operator Certification</DocLink>.
     </p>
 
-    <h2>Operations</h2>
+    <h2>The Operator's Role in Controlling Access</h2>
     <p>
-      Operations is not unlocked by entering a second invitation code. After
-      completing Treasury Certification, the member sends an Operations upgrade
-      request to their sponsor. The sponsor reviews the request and decides
-      whether to approve it.
+      Only Operators can create and distribute Treasury invitations or approve
+      upgrades to Operations.
     </p>
 
+    <h3>How Operators Invite Treasury Users</h3>
     <p>
-      Approval requires the sponsor to have an available Operations upgrade
-      code. The sponsor's server signs an access proof for the member's exact
-      Operational Account, and the protocol consumes one of the sponsor's
-      available codes when that account is registered. The proof cannot be
-      reused for another account.
+      Operators can open Onboarding from the app's left sidebar and select
+      Create Invite to generate a one-use Treasury access code.
     </p>
 
+    <VideoLoop src="/videos/desktop-app-overview.webm" class="mt-8 mb-10">
+      <li>Onboarding</li>
+      <li>Create Invite Overlay</li>
+      <li>Copy Access Code</li>
+    </VideoLoop>
+
+    <h3>How Operators Upgrade Treasury Users</h3>
     <p>
-      Registration links the new operator's operational, vault, and mining
-      accounts and records the sponsoring operator as its upstream operator. The
-      new operator can then set up the infrastructure needed to complete
-      <DocLink to="/docs/desktop-app/operations-certification"
-        >Operator Certification</DocLink
-      >.
+      The Onboarding page shows the Treasury users in an Operator's downstream
+      network and any upgrade requests. Users who have
+      completed Treasury Certification are eligible to request an upgrade.
+      Approval remains the sponsoring Operator's decision and requires an
+      available Operations upgrade code.
     </p>
 
-    <h2>Two Kinds of Code</h2>
+    <VideoLoop src="/videos/desktop-app-overview.webm" class="mt-8 mb-10">
+      <li>Onboarding</li>
+      <li>Create Invite Overlay</li>
+      <li>Copy Access Code</li>
+    </VideoLoop>
+
+    <h3>How Operators Earn Upgrade Codes</h3>
     <p>
-      Argon Desktop uses similar language for two different forms of access.
-      Keeping them separate explains why an operator can invite a Treasury
-      member before having an Operations upgrade code available.
+      Each newly certified Operator receives one Operations upgrade code. The
+      protocol makes additional codes available through continued participation:
     </p>
-
-    <section
-      class="my-8 overflow-hidden rounded-lg border border-slate-300 bg-white/40"
-    >
-      <div class="border-b border-slate-300 px-5 py-5">
-        <strong class="block text-lg text-slate-800"
-          >Treasury access code</strong
-        >
-        <p class="mb-0 mt-2 text-slate-600">
-          A one-use invitation created by the operator's server. It connects a
-          member to the sponsor and unlocks Treasury services. Creating or
-          accepting it does not consume a protocol Operations upgrade code.
-        </p>
-      </div>
-      <div class="px-5 py-5">
-        <strong class="block text-lg text-slate-800"
-          >Operations upgrade code</strong
-        >
-        <p class="mb-0 mt-2 text-slate-600">
-          Protocol-tracked approval capacity belonging to a certified operator.
-          One code is consumed when an approved downstream Operational Account
-          registers.
-        </p>
-      </div>
-    </section>
-
-    <h2>How Operators Earn Upgrade Codes</h2>
-    <p>
-      Operator Certification provides the first Operations upgrade code. After
-      that, the protocol currently makes additional codes available through
-      three forms of continued participation:
-    </p>
-
-    <ul>
+    <ul class="ml-6 list-disc">
+      <li>A downstream Operator completes Operator Certification.</li>
       <li>
-        Each sponsored downstream operator who completes Operator Certification.
+        The Operator secures an additional 5,000 ARGN worth of Bitcoin through
+        their vault.
       </li>
-      <li>
-        Each additional 5,000 ARGN of Bitcoin value secured through the
-        operator's vault.
-      </li>
-      <li>Each additional five mining seats earned by the operator.</li>
+      <li>The Operator earns five additional mining seats.</li>
     </ul>
-
     <p>
-      An operator can currently have no more than three upgrade codes ready at
-      one time. Participation that qualifies for another code is tracked so the
-      code can become available when capacity opens. These settings are protocol
-      parameters and can change.
+      An Operator can currently hold up to three unused upgrade codes at a time.
+      The protocol tracks participation that qualifies for additional codes,
+      allowing those codes to become available when capacity opens.
     </p>
 
-    <h2>The Upgrade Decision</h2>
+    <h2>Ambassador Rewards</h2>
     <p>
-      Completing Treasury Certification makes a member eligible to request an
-      upgrade; it does not compel the sponsor to approve the request. The
-      sponsor is deciding whether to spend limited upgrade capacity and create a
-      continuing onchain sponsorship relationship with the new operator.
-    </p>
-
-    <p>
-      Approval does not make the sponsor responsible for the downstream
-      operator's mining, vault, keys, capital, or returns. Each operator remains
-      responsible for its own accounts and infrastructure.
-    </p>
-
-    <h2>Upgrade Sequence</h2>
-    <ol>
-      <li>An operator sends a one-use Treasury access code.</li>
-      <li>
-        The member accepts it and connects to the operator's Upstream Node.
-      </li>
-      <li>The member completes Treasury Certification.</li>
-      <li>The member requests an Operations upgrade.</li>
-      <li>
-        The sponsor approves the request using an available Operations upgrade
-        code.
-      </li>
-      <li>
-        The new Operational Account registers with the signed access proof.
-      </li>
-      <li>The new operator completes Operator Certification.</li>
-    </ol>
-
-    <p>
-      Certification and sponsorship rewards are earned only at the final
-      certification event—not when an invitation is created, accepted, or
-      approved. See
-      <DocLink to="/docs/assets-and-entities/operational-rewards-pool"
-        >Expansion Rewards Pool</DocLink
-      >
-      for the current reward rules.
+      The Ambassador Rewards pool currently holds
+      ₳{{ (Number(data.treasuryRewardsPoolMicrogons) / 1_000_000).toLocaleString('en-US', { maximumFractionDigits: 0 }) }}
+      to fund rewards for
+      Operators who complete Operator Certification and the upstream Operators
+      who help onboard them. Rewards are subject to the protocol's eligibility
+      rules. See
+      <DocLink to="/docs/assets-and-entities/ambassador-rewards">Ambassador Rewards</DocLink>
+      for details.
     </p>
   </DocContent>
 </template>
@@ -193,4 +122,8 @@
 import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
+import VideoLoop from "@/components/VideoLoop.vue";
+import Data from "@/lib/Data";
+
+const data = Data.basics;
 </script>

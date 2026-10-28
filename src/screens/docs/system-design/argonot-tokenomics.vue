@@ -41,7 +41,7 @@
 
     <h2>Issuance</h2>
     <p>
-      The block rewards began at 0.5 ARGNOT on January 15, 2026, and they rise
+      The block rewards began at 0.5 ARGNOT on January 15, 2025, and they rise
       by 0.001 ARGNOT every 180 ticks until it reaches 5 ARGNOT per block. It then steps down every 2.1
       million ticks according to 5 ÷ (the number of completed eras + 1).
     </p>

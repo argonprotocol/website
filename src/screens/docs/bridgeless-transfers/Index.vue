@@ -3,183 +3,145 @@
 
   <DocContent>
     <p>
-      Bridgeless Transfers move
-      <DocLink to="/docs/assets-and-entities/argon-stablecoins"
-        >ARGN</DocLink
-      >
-      and
-      <DocLink to="/docs/assets-and-entities/argonot-tokens"
-        >ARGNOT</DocLink
-      >
-      between Argon and supported external networks without depositing them
-      into a conventional bridge reserve. The tokens are removed from the
-      source network and issued on the destination network after the transfer
-      has been verified.
+      Argon's Bridgeless Transfer is able to move tokens directly
+      from the Argon Network to remote destination networks without needing
+      a conventional bridge or requiring proof of transfer. By avoiding the bridge, it
+      avoids the one of the biggest risks in the crypto world, the hacking of cross-chain bridges.
     </p>
 
     <p>
-      Ethereum is the first supported external network. Argon Desktop brings
-      the two networks together through an Internal App Wallet and one or more
-      external Ethereum wallets called <strong>Transfer Portals</strong>.
+      Ethereum is Argon's first supported external network, but more are expected.
     </p>
 
     <section
       class="my-9 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-6 text-center"
     >
       <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">
-        The Transfer Rule
+        The Transfer Flow
       </div>
       <div class="mt-4 text-xl font-semibold text-slate-800 sm:text-2xl">
-        Burn on the source network
+        Burn on Argon
         <span class="mx-2 text-argon-500">→</span>
-        Verify the transfer
+        <span class="opacity-30">No Bridge</span>
         <span class="mx-2 text-argon-500">→</span>
-        Issue on the destination network
+        Mint on Remote
       </div>
     </section>
 
-    <h2>Ethereum to Argon</h2>
+    <h2>Remote Minting Authorities</h2>
     <p>
-      A transfer into Argon begins in a connected Ethereum wallet. The Ethereum
-      gateway burns the selected ARGN or ARGNOT and records the destination
-      address of the Internal App Wallet. The app then follows three stages:
+      Argon's Remote Minting Authorities allow tokens to jump from Argon
+      to external networks without requiring a bridge. It does this without
+      needing to follow Argon's blocks or pre-validate transfer details.
+    </p>
+
+    <p>
+      Each authority has a minting allowance in the Remote Contract. Think of
+      it as funds already waiting on the remote network. The authority can
+      directly mint up to that amount without needing Argon approval.
+    </p>
+
+    <p>
+      That freedom is backed by the authority's own funds, which stay locked
+      on Argon. To unlock its funds, the authority must provide proof from the Remote
+      Contract showing that it followed all protocol rules. If it fails to follow
+      the agreed upon rules, it cannot reclaim the matching funds on Argon.
+    </p>
+
+    <p>
+      Although simple in concept, this Minting Authority architecture is a
+      profound leap forward in seamlessly moving between networks without
+      putting your funds at risk on a bridge.
+    </p>
+
+    <p>
+      You can read more about
+      <DocLink
+          to="/docs/bridgeless-transfers/remote-minting-authorities"
+      >Remote Minting Authorities</DocLink
+      >.
+    </p>
+
+    <h2>Remote Wallet Connectors</h2>
+    <p>
+      Remote Wallet Connectors bring your Ethereum wallets into Argon Desktop,
+      showing their ARGN and ARGNOT balances alongside your Internal App Wallet.
+      They let you initiate transfers between Ethereum and Argon. Connecting a
+      wallet does not move its funds.
+    </p>
+
+    <p>
+      Learn more about
+      <DocLink to="/docs/bridgeless-transfers/remote-wallet-connectors">Remote Wallet Connectors</DocLink>
+      and how to connect your wallet.
+    </p>
+
+    <h2>Jumping from Argon to Ethereum</h2>
+    <p>
+      A transfer out of Argon begins with an Ethereum wallet connector and the amount
+      of tokens you want to move. You must include an Argon network fee paid in ARGN
+      and a Ethereum network fee paid in ETH. The jump follows a three-stage lifecycle:
     </p>
 
     <ol>
       <li>
-        <strong>Finalizing on Ethereum.</strong> The transaction containing the
-        burn reaches Ethereum finality.
+        <strong>Finalize on Argon.</strong> The transfer request is submitted to
+        the Argon chain and the tokens are removed from spendable circulation.
       </li>
       <li>
-        <strong>Proving to Argon.</strong> The gateway activity is included in
-        the ordered Ethereum activity proven to Argon.
+        <strong>Wait for Minting Authorization.</strong> One or more Minting
+        Authorities attach their signed collateral to the Argon chain until the
+        request is fully backed.
       </li>
       <li>
-        <strong>Finalizing on Argon.</strong> Argon verifies the proof and makes
-        the corresponding tokens available in the Internal App Wallet.
+        <strong>Submit to Ethereum.</strong> You submit your request along with the signed
+        minting authorizations directly to the Argon contract on Ethereum. It mints your tokens
+        and deposits them in your wallet.
+      </li>
+    </ol>
+
+    <p>
+      Throughout this entire process, at no point was the user's funds sitting at risk on a
+      bridge. This is because no messages needed to be passed between Argon and Ethereum, only
+      the final packet of minting authorizations submitted directly by the user in the last step.
+    </p>
+
+    <p>
+      Learn more about
+      <DocLink to="/docs/bridgeless-transfers/from-argon-to-ethereum">Transferring from Argon</DocLink>.
+    </p>
+
+    <h2>Jumping from Ethereum to Argon</h2>
+    <p>
+      The user begins by submitting a single transaction to the Ethereum
+      contract with the amount of tokens to transfer and the destination address
+      on Argon Network:
+    </p>
+
+    <ol>
+      <li>
+        <strong>Finalize on Ethereum.</strong> The contract burns the requested
+        number of tokens from the user's wallet.
+      </li>
+      <li>
+        <strong>Emit to Argon.</strong> An event proving the tokens were burned on
+        Ethereum are emitted as an ordered event and transferred to Argon Network.
+      </li>
+      <li>
+        <strong>Finalize on Argon.</strong> Argon verifies the proof and makes
+        the corresponding tokens available in the user's Internal App Wallet.
       </li>
     </ol>
 
     <p>
       The connected Ethereum wallet pays the Ethereum network fee in ETH. No
       Minting Authority is needed for this direction because the Ethereum burn
-      can be proven directly to Argon.
-    </p>
-
-    <h2>Argon to Ethereum</h2>
-    <p>
-      A transfer out of Argon begins with a request naming the selected
-      Ethereum wallet, token, and amount. The principal is moved to Argon's burn
-      account, and a Minting Authority tip is held while the transfer is open.
-      The app then follows a different three-stage lifecycle:
-    </p>
-
-    <ol>
-      <li>
-        <strong>Finalizing on Argon.</strong> Argon records the transfer request
-        and removes the amount from spendable circulation.
-      </li>
-      <li>
-        <strong>Waiting for Minting Authorization.</strong> One or more Minting
-        Authorities attach signed collateral until the request is fully backed.
-      </li>
-      <li>
-        <strong>Sending to Ethereum.</strong> The Ethereum gateway verifies the
-        authorizations and issues the tokens to the named Ethereum address.
-      </li>
-    </ol>
-
-    <p>
-      The completed Ethereum activity is proven back to Argon. That proof
-      reconciles the participating authorities' collateral and distributes the
-      held tip. Transfers in this direction include an Argon network fee, a
-      Minting Authority tip, and an Ethereum network fee paid in ETH.
-    </p>
-
-    <h2>Transfer Portals in Argon Desktop</h2>
-    <p>
-      A Transfer Portal is an Ethereum wallet imported into Argon Desktop. It
-      appears as an external connector around the Internal App Wallet and shows
-      the ARGN and ARGNOT available at that Ethereum address. Connecting a
-      wallet does not move its funds.
+      can be proven directly on Argon.
     </p>
 
     <p>
-      From a portal, you can select ARGN or ARGNOT, enter an amount, review the
-      network costs, and initiate a transfer into the Internal App Wallet. From
-      the Internal App Wallet, you can select a connected Ethereum wallet as the
-      destination for a transfer in the other direction.
-    </p>
-
-    <p>
-      Argon Desktop encrypts imported wallet secrets on the device and uses
-      them to sign the required Ethereum transactions. Learn how to
-      <DocLink to="/docs/bridgeless-transfers/connect-metamask-wallet"
-        >import a MetaMask account</DocLink
-      >
-      using its private key or
-      <DocLink to="/docs/bridgeless-transfers/connect-uniswap-wallet"
-        >import a Uniswap Wallet account</DocLink
-      >
-      using its recovery phrase.
-    </p>
-
-    <aside
-      class="my-8 rounded-lg border border-argon-200 bg-white/40 px-5 py-4"
-    >
-      <strong class="mb-1 block">Bitcoin uses a separate channel</strong>
-      <p class="m-0">
-        Bitcoin also appears as a connector in the wallet interface, but it
-        does not use the ARGN and ARGNOT transfer process described here. Its
-        channel is used to fund Bitcoin network addresses and create
-        <DocLink to="/docs/assets-and-entities/bitcoin-locks"
-          >Bitcoin Locks</DocLink
-        >.
-      </p>
-    </aside>
-
-    <h2>The Operational Roles</h2>
-    <p>
-      Bridgeless Transfers separate user transfers from the operational roles
-      that support them:
-    </p>
-
-    <ul>
-      <li>
-        <DocLink
-          to="/docs/bridgeless-transfers/localized-minting-authorities"
-          >Localized Minting Authorities</DocLink
-        >
-        commit collateral and authorize individual transfers from Argon to an
-        external network.
-      </li>
-      <li>
-        The
-        <DocLink
-          to="/docs/bridgeless-transfers/global-issuance-council"
-          >Global Issuance Council</DocLink
-        >
-        approves shared gateway changes, including authority activations,
-        authority deactivations, and council rotations. It does not approve
-        individual user transfers.
-      </li>
-    </ul>
-
-    <h2>Tracking a Transfer</h2>
-    <p>
-      Cross-network finality, proof relay, and Minting Authorization take time.
-      Argon Desktop records pending transfers locally, resumes tracking them
-      after the app restarts, and shows the current stage in the wallet's
-      transfer-status bar. A transfer remains pending until its destination
-      network has finalized the result.
-    </p>
-
-    <p>
-      Continue to
-      <DocLink to="/docs/bridgeless-transfers/open-a-transfer-portal"
-        >Open a Transfer Portal</DocLink
-      >
-      for the user workflow.
+      Learn more about
+      <DocLink to="/docs/bridgeless-transfers/from-ethereum-to-argon">Transferring to Argon</DocLink>.
     </p>
   </DocContent>
 </template>

@@ -78,7 +78,7 @@
       combines:
     </p>
 
-    <ul>
+    <ul class="list-disc pl-5">
       <li>
         eligible ARGN committed to the operator's
         <DocLink to="/docs/assets-and-entities/vaulting-operations"
@@ -144,7 +144,7 @@
       reordered versions of the authority set.
     </p>
 
-    <ol>
+    <ol class="list-decimal">
       <li>
         Argon queues an authority activation, authority deactivation, or council
         rotation.
@@ -164,29 +164,6 @@
         proven back to Argon to complete the change.
       </li>
     </ol>
-
-    <h2>Working in Argon Desktop</h2>
-    <p>
-      Active members see council work in the
-      <strong>Global Council Approval Queue</strong> within Crosschain
-      Transfers. Each row identifies the type of gateway update, its queue
-      position, approval progress, and what it is waiting for.
-    </p>
-
-    <p>
-      <strong>Approve Updates</strong> opens the Vault Approvals flow, where the
-      operator can review the pending targets and record the required council
-      signatures. Argon Desktop can combine those approvals with other vault
-      actions and submit multiple contiguous signatures together.
-    </p>
-
-    <p>
-      Once the queue reaches quorum, the dashboard reports that the update is
-      ready for Ethereum. Argon Desktop coordinates the relay and exposes
-      <strong>Relay Gateway Updates</strong> when direct action is needed. The
-      queue remains visible while Ethereum finalizes the update and Argon waits
-      for the proof confirming it.
-    </p>
 
     <h2>An Operational Obligation</h2>
     <p>

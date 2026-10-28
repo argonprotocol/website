@@ -175,14 +175,14 @@
             <span>
               {{ data.bitcoinAPR ? numeral(data.bitcoinAPR).formatIfElseCapped('< 1_000', '0,0.[0]', '0,0', 9_999) : '---' }}%
             </span>
-            <label>Current Locked Bitcoin APR</label>
+            <label>Current Bitcoin Liquids APR</label>
           </div>
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">
             <span>
               {{ data.bondsAPR ? numeral(data.bondsAPR).formatIfElseCapped('< 1_000', '0,0.[0]', '0,0', 9_999) : '---' }}%
             </span>
-            <label>Current Treasury Bond APR</label>
+            <label>Current Argon Bonds APR</label>
           </div>
 
           <div StatWrapper class="flex flex-col h-full border-b border-slate-400/50">

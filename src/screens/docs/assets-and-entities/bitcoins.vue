@@ -3,19 +3,21 @@
 
   <DocContent>
     <p>
-      Bitcoin (BTC) is a native asset of the Bitcoin network. Argon Desktop can
-      hold and manage Bitcoin without wrapping it, bridging it to another
-      blockchain, or replacing it with a separate token. The Bitcoin remains in
+      Bitcoin (BTC) provides external value and stabilization capital in Argon’s
+      triune token system, working alongside
+      <DocLink to="/docs/assets-and-entities/argon-stablecoins">Argon stablecoins</DocLink>
+      and <DocLink to="/docs/assets-and-entities/argonot-tokens">Argonot ownership tokens</DocLink>.
+      It remains native to the Bitcoin network. Bitcoin used within Argon is not
+      wrapped, bridged to another blockchain, or replaced with a separate token. The Bitcoin remains in
       a Bitcoin UTXO and continues to be verified by the Bitcoin network.
     </p>
 
     <p>
-      Moving Bitcoin into your App Wallet places it into a
+      Bitcoin participates in Argon through a
       <DocLink to="/docs/assets-and-entities/bitcoin-locks"
         >Bitcoin Lock</DocLink
-      >. The Lock is a multisig custody arrangement between you and a vault
-      cosigner. It secures the Bitcoin inside the wallet, but it does not by
-      itself create or distribute Argon stablecoins.
+      >, a multisig custody arrangement between its owner and a vault cosigner.
+      Funding a Lock does not by itself create or distribute Argon stablecoins.
     </p>
 
     <section class="my-8 grid gap-3 md:grid-cols-3">
@@ -38,7 +40,7 @@
           >
         </div>
         <p class="mt-2 mb-0 text-sm text-slate-600">
-          The multisig arrangement that holds the BTC in your App Wallet.
+          The multisig arrangement that holds the BTC.
         </p>
       </div>
       <div class="rounded-lg border border-argon-300 bg-argon-50/50 p-5">
@@ -57,29 +59,18 @@
       </div>
     </section>
 
-    <h2>Bitcoin in Argon Desktop</h2>
+    <h2>Bitcoin Custody</h2>
     <p>
-      The App Wallet creates a Bitcoin deposit channel before you move BTC into
-      it. The channel identifies a vault cosigner, derives the owner's Bitcoin
-      key, and produces a multisig funding address. After the Bitcoin
-      transaction is confirmed, the funded UTXO appears in the wallet as a
-      Bitcoin Lock.
-    </p>
-
-    <p>
-      Your recovery phrase controls the owner's side of the Lock. The selected
-      <DocLink to="/docs/assets-and-entities/vaulting-operations"
-        >Stabilization Vault</DocLink
-      >
-      supplies the second signing key. During the normal Lock term, neither side
-      can independently spend the Bitcoin.
+      A Bitcoin Lock combines an owner-controlled Bitcoin key with a cosigning
+      key supplied by a
+      <DocLink to="/docs/assets-and-entities/vaulting-operations">Stabilization Vault</DocLink>.
+      During the normal Lock term, neither side can independently spend the Bitcoin.
     </p>
 
     <h2>Locking and Liquidity Are Separate</h2>
     <p>
-      A Bitcoin Lock can exist without a Bitcoin Liquid. This lets the App
-      Wallet hold BTC in its multisig structure without automatically creating
-      ARGN or opening a financial position.
+      A Bitcoin Lock can exist without a Bitcoin Liquid. Bitcoin can remain
+      locked without creating ARGN or opening a Liquid.
     </p>
 
     <aside
@@ -87,39 +78,13 @@
     >
       <strong class="block mb-1">Moving BTC does not create ARGN</strong>
       <p class="m-0">
-        Funding a Bitcoin Lock only moves Bitcoin into the App Wallet's custody
-        arrangement. To receive
+        Funding a Bitcoin Lock only funds its multisig custody arrangement. To receive
         <DocLink to="/docs/assets-and-entities/argon-stablecoins"
           >Argon stablecoins</DocLink
         >, the owner must separately create a Bitcoin Liquid against an eligible
         Lock.
       </p>
     </aside>
-
-    <h2>Insurance Is Optional</h2>
-    <p>
-      When creating a Bitcoin Lock, you can choose how much vault-backed
-      <strong>insurance</strong> it carries. A Lock may have no insurance, or it
-      may reserve any supported positive amount up to the vault's available
-      capacity. Insurance protects against covered failures of the vault
-      cosigner; it does not create ARGN and does not change ownership of the
-      Bitcoin.
-    </p>
-
-    <p>
-      A Bitcoin Liquid requires available insurance because the insurance
-      capital supports the resulting ARGN position. An uninsured Lock can still
-      hold Bitcoin, but it cannot support a Liquid until sufficient insurance is
-      added.
-    </p>
-
-    <h2>Moving Bitcoin Out</h2>
-    <p>
-      To move BTC out of the App Wallet, the owner requests release to a Bitcoin
-      address and supplies a Bitcoin network fee. Any open Liquid must first be
-      closed. The owner and vault then sign the release transaction, and the App
-      broadcasts it to the Bitcoin network.
-    </p>
 
     <p>
       See
@@ -131,6 +96,10 @@
         >Bitcoin Liquids</DocLink
       >
       for the process of receiving ARGN against locked Bitcoin.
+    </p>
+    <p>
+      See <DocLink to="/docs/desktop-app/internal-wallet">Internal Wallet</DocLink>
+      for Bitcoin deposit and withdrawal instructions in Argon Desktop.
     </p>
   </DocContent>
 </template>

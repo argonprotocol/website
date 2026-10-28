@@ -62,7 +62,7 @@
             <DocLink to="/docs/desktop-app/self-custody-risks">Self-Custody Risks</DocLink>
           </li>
           <li class="mb-1!">
-            <DocLink to="/docs/assets-and-entities/stable-swaps">Stable Swaps</DocLink>
+            <DocLink to="/docs/assets-and-entities/stable-swaps">Market Stabilizers</DocLink>
           </li>
         </ul>
       </li>

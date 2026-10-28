@@ -3,7 +3,7 @@
 
   <DocContent v-if="isLoaded">
     <aside class="mb-4 rounded-lg border border-amber-300 px-4 py-2 text-amber-950 font-bold">
-      NOTE: This page documents the upcoming release of Argon Mainnet v1.5.
+      NOTE: Some parts of this page documents the upcoming release of Argon Mainnet v1.6.
     </aside>
 
     <p>
@@ -259,9 +259,7 @@
         </dt>
         <dd class="m-0 mt-2 sm:mt-0">
           <strong class="block text-lg">
-            <DocLink to="/docs/assets-and-entities/operational-rewards-pool"
-            >Expansion Rewards Pool</DocLink
-            >
+            <DocLink to="/docs/assets-and-entities/ambassador-rewards">Ambassador Rewards</DocLink>
           </strong>
           This is an experimental fund meant to support the growth of the network. The
           range is based on viable uses. Any capital not used is burned from the ecosystem.

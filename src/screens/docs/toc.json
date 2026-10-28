@@ -9,6 +9,11 @@
         "isActive": true
       },
       {
+        "title": "Don't Get Hacked!!",
+        "link": "/getting-started/dont-get-hacked",
+        "isActive": true
+      },
+      {
         "title": "Frequent Questions",
         "link": "/getting-started/frequent-questions",
         "isActive": true
@@ -40,15 +45,6 @@
         "isActive": true
       },
       {
-        "title": "Growth Simulator",
-        "link": "/growth-simulator",
-        "isActive": true
-      },      {
-        "title": "Death-Spiral Simulator",
-        "link": "/death-spiral-simulator",
-        "isActive": true
-      },
-      {
         "title": "Argon Tokenomics",
         "link": "/argon-tokenomics",
         "isActive": true
@@ -66,53 +62,74 @@
     ]
   },
   {
+    "title": "System Modeling",
+    "base": "/engine-modeling",
+    "items": [
+      {
+        "title": "Liquid Locking for Bitcoin",
+        "link": "/llb",
+        "isActive": true
+      },
+      {
+        "title": "Exponential Growth Engine",
+        "link": "/ege",
+        "isActive": true
+      },
+      {
+        "title": "Ultimate Death Spiraling",
+        "link": "/uds",
+        "isActive": true
+      }
+    ]
+  },
+  {
     "title": "The Desktop App",
     "base": "/desktop-app",
     "items": [
       {
         "title": "Overview",
         "link": "/",
-        "isActive": false
+        "isActive": true
       },
       {
         "title": "Internal Wallet",
         "link": "/internal-wallet",
-        "isActive": false
+        "isActive": true
       },
       {
         "title": "Self-Custody Risks",
         "link": "/self-custody-risks",
-        "isActive": false
+        "isActive": true
       },
       {
         "title": "Access and Upgrades",
         "link": "/access-codes",
-        "isActive": false
+        "isActive": true
       },
       {
         "title": ["Basic Functionality", "Level One"],
         "link": "/basic-functionality",
-        "isActive": false
+        "isActive": true
       },
       {
         "title": ["Treasury", "Level Two"],
         "link": "/treasury",
-        "isActive": false
-      },
-      {
-        "title": ["Operations", "Level Three"],
-        "link": "/operations",
-        "isActive": false
+        "isActive": true
       },
       {
         "title": "Treasury Certification",
         "link": "/treasury-certification",
-        "isActive": false
+        "isActive": true
+      },
+      {
+        "title": ["Operations", "Level Three"],
+        "link": "/operations",
+        "isActive": true
       },
       {
         "title": "Operator Certification",
         "link": "/operations-certification",
-        "isActive": false
+        "isActive": true
       }
     ]
   },
@@ -123,47 +140,42 @@
       {
         "title": "How It Works",
         "link": "/",
-        "isActive": false
+        "isActive": true
       },
       {
-        "title": "Initiate a Transfer",
-        "link": "/initiate-a-transfer",
-        "isActive": false
-      },
-      {
-        "title": "Connectors",
-        "link": "/connectors",
-        "isActive": false
+        "title": "Remote Wallet Connectors",
+        "link": "/remote-wallet-connectors",
+        "isActive": true
       },
       {
         "title": "Connect a MetaMask Wallet",
         "link": "/connect-metamask-wallet",
-        "isActive": false
+        "isActive": true
       },
       {
         "title": "Connect a Uniswap Wallet",
         "link": "/connect-uniswap-wallet",
-        "isActive": false
+        "isActive": true
       },
       {
-        "title": "From Argon to Remote",
-        "link": "/from-argon-to-remote",
-        "isActive": false
+        "title": "From Argon to Ethereum",
+        "link": "/from-argon-to-ethereum",
+        "isActive": true
       },
       {
-        "title": "From Remote to Argon",
-        "link": "/from-remote-to-argon",
-        "isActive": false
+        "title": "From Ethereum to Argon",
+        "link": "/from-ethereum-to-argon",
+        "isActive": true
       },
       {
         "title": "Remote Minting Authorities",
         "link": "/remote-minting-authorities",
-        "isActive": false
+        "isActive": true
       },
       {
         "title": "Global Issuance Council",
         "link": "/global-issuance-council",
-        "isActive": false
+        "isActive": true
       }
     ]
   },
@@ -172,73 +184,73 @@
     "base": "/assets-and-entities",
     "items": [
       {
-        "title": "Argons",
+        "title": "Argon Stablecoins",
         "link": "/argon-stablecoins",
-        "isActive": false
+        "isActive": true
       },      {
         "title": "Argon Bonds",
         "link": "/argon-bonds",
-        "isActive": false
+        "isActive": true
       },
       {
-        "title": "Argonots",
+        "title": "Argonot Tokens",
         "link": "/argonot-tokens",
-        "isActive": false
+        "isActive": true
       },
       {
         "title": "Argonot Stakes",
         "link": "/argonot-stakes",
-        "isActive": false
+        "isActive": true
       },
       {
         "title": "Bitcoins",
         "link": "/bitcoins",
-        "isActive": false
+        "isActive": true
       },
       {
         "title": "Bitcoin Locks",
         "link": "/bitcoin-locks",
-        "isActive": false
+        "isActive": true
       },
       {
         "title": "Bitcoin Liquids",
         "link": "/bitcoin-liquids",
-        "isActive": false
+        "isActive": true
       },
       {
-        "title": "Stable Swaps",
-        "link": "/stable-swaps",
-        "isActive": false
+        "title": "Market Stabilizers",
+        "link": "/market-stabilizers",
+        "isActive": true
       },
       {
         "title": "Mining Operations",
         "link": "/mining-operations",
-        "isActive": false
+        "isActive": true
       },
       {
         "title": "Vaulting Operations",
         "link": "/vaulting-operations",
-        "isActive": false
+        "isActive": true
       },
       {
-        "title": "Upstream Nodes",
-        "link": "/upstream-nodes",
-        "isActive": false
+        "title": "Connections",
+        "link": "/connections",
+        "isActive": true
       },
       {
-        "title": "Expansion Rewards Pool",
-        "link": "/operational-rewards-pool",
-        "isActive": false
+        "title": "Ambassador Rewards",
+        "link": "/ambassador-rewards",
+        "isActive": true
       },
       {
-        "title": "Mainchain",
+        "title": "The Mainchain",
         "link": "/mainchain",
-        "isActive": false
+        "isActive": true
       },
       {
-        "title": "Sidechain",
+        "title": "The Sidechain",
         "link": "/sidechain",
-        "isActive": false
+        "isActive": true
       }
     ]
   },
@@ -259,22 +271,6 @@
       {
         "title": "Recovery from Death Spirals",
         "link": "/recovery-from-death-spirals",
-        "isActive": true
-      }
-    ]
-  },
-  {
-    "title": "Engine Modeling",
-    "base": "/engine-modeling",
-    "items": [
-      {
-        "title": "Liquid Locking for Bitcoin",
-        "link": "/llb",
-        "isActive": true
-      },
-      {
-        "title": "Stabilization Analysis Model",
-        "link": "/sam",
         "isActive": true
       }
     ]

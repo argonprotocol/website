@@ -1,19 +1,17 @@
 <template>
-  <DocHeader>Localized Minting Authorities</DocHeader>
+  <DocHeader>Remote Minting Authorities</DocHeader>
 
   <DocContent>
     <p>
-      A <strong>Localized Minting Authority</strong> is a vault-operated,
-      collateral-backed signer that authorizes individual transfers from Argon
+      Remote Minting Authorities are vault-operated,
+      collateral-backed signers that authorize individual transfers from Argon
       to a supported external network. Ethereum is the first supported network.
-      Argon Desktop shortens the role's name to
-      <strong>Minting Authority</strong>.
     </p>
 
     <p>
       When someone transfers ARGN or ARGNOT to Ethereum, the tokens are first
-      removed from spendable circulation on Argon. One or more authorities then
-      reserve enough collateral and sign the transfer request. The Ethereum
+      removed from spendable circulation on Argon. One or more authorities with
+      enough collateral sign the minting request. The Ethereum
       gateway can issue the corresponding tokens only after the request is
       fully backed.
     </p>
@@ -35,13 +33,13 @@
       </p>
     </section>
 
-    <h2>Why the Authority Is Localized</h2>
+    <h2>What Powers Are Bequeathed to the Authority?</h2>
     <p>
       Each authority belongs to a specific
       <DocLink to="/docs/assets-and-entities/vaulting-operations"
         >vault operator</DocLink
       >
-      and is registered for a specific destination network. It signs only the
+      and is registered for a specific destination network (i.e., Ethereum). It signs only the
       individual transfer requests that the operator chooses to fund. It cannot
       change the gateway, alter token rules, or issue tokens without a valid
       transfer request and sufficient collateral.
@@ -63,18 +61,12 @@
 
     <ul>
       <li>
-        <strong>Bond-backed ARGN</strong> associated with active
-        <DocLink to="/docs/assets-and-entities/argon-bonds"
-          >Argon Bonds</DocLink
-        >
-        in the operator's vault account.
+        <strong>ARGN Securitization</strong> that is active in the operator's vault
+        and that has been explicitly made available for minting-authority work.
       </li>
       <li>
-        <strong>Committed ARGNOT</strong> that the operator has explicitly made
-        available for minting-authority work. See
-        <DocLink to="/docs/assets-and-entities/argonot-tokens"
-          >Argonot Tokens</DocLink
-        >.
+        <strong>ARGNOT Securitization</strong> that is active in the operator's vault
+        and that has been explicitly made available for minting-authority work.
       </li>
     </ul>
 
@@ -97,22 +89,20 @@
       </p>
     </aside>
 
-    <h2>Becoming an Active Authority</h2>
+    <h2>Becoming an Active Minting Authority</h2>
     <p>
       Operations access alone does not create a Minting Authority. The operator
       must have a vault, prepare the vault's relay delegate, and complete the
       authority activation process:
     </p>
 
-    <ol>
+    <ol class="list-decimal">
       <li>
-        In the Crosschain Transfers dashboard, select
-        <strong>Add Authority</strong>.
+        In the Crosschain Transfers dashboard, select Add Authority.
       </li>
       <li>
-        Choose the bond-backed ARGN, committed ARGNOT, or combination that will
-        establish the authority's capacity. Argon Desktop generates a new
-        Ethereum signing key for the authority.
+        Choose how much ARGN or ARGNOT you want to commit to
+        establish your authority's capacity.
       </li>
       <li>
         Submit the request. The protocol encumbers the collateral and places
@@ -125,27 +115,21 @@
       </li>
     </ol>
 
-    <p>
-      The protocol also holds an estimated activation-relay reimbursement in
-      ARGN. When the activation is proven, the relayer receives the applicable
-      amount and any unused portion is returned to the operator.
-    </p>
-
     <h2>Funding Transfer Requests</h2>
     <p>
       New Argon-to-Ethereum requests appear in the Crosschain Transfers
-      dashboard. Before funding one, the operator can review the token, amount,
+      dashboard. Before funding a request, the operator can review the token, amount,
       destination, required collateral, expiration, and available tip.
     </p>
 
-    <ol>
+    <ol class="list-decimal">
       <li>Select one or more available transfer requests.</li>
       <li>
         Review the collateral that will be reserved and the corresponding share
         of each transfer's tip.
       </li>
       <li>
-        Select <strong>Fund Selected</strong>. Argon Desktop signs the
+        Select "Fund Selected". Argon Desktop signs the
         authorizations and records the collateral reservations on Argon.
       </li>
       <li>
@@ -196,13 +180,6 @@
       for activation. Its deactivation enters the council approval queue, is
       applied on Ethereum, and is then proven back to Argon. Any verified
       remaining collateral is released only after that process completes.
-    </p>
-
-    <p>
-      For the complete user-transfer lifecycle, return to
-      <DocLink to="/docs/bridgeless-transfers"
-        >How Bridgeless Transfers Work</DocLink
-      >.
     </p>
   </DocContent>
 </template>
