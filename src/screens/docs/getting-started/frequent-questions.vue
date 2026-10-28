@@ -125,8 +125,8 @@
         First, make sure you save your 12-word recovery phrase. Record the words
         in the exact order, keep them private, and store them offline if
         possible. Anyone who obtains the phrase can restore the wallet and
-        control its assets. You can import your account into any computer by
-        entering these 12-words into the recovery screen of Argon Desktop.
+        control its assets. To import your account on another computer,
+        enter these 12 words on Argon Desktop’s recovery screen.
       </p>
     </article>
 

@@ -17,7 +17,7 @@
 
     <h2>Start In Argon Desktop</h2>
     <p class="mt-2">
-      Open your Argon Desktop app and from the Account Overview screen click <strong>Connect Ethereum Wallet</strong> (<strong>see A</strong>).
+      Open Argon Desktop. From Account Overview, click <strong>Connect Ethereum Wallet</strong> (<strong>see A</strong>).
     </p>
 
     <figure class="DesktopFigure AnnotatedFigure ConnectFigure">
@@ -28,7 +28,7 @@
     </figure>
 
     <p>
-      In the overlay that will appear, select <strong>Private Key</strong> (see <strong>B</strong>).
+      In the overlay that appears, select <strong>Private Key</strong> (see <strong>B</strong>).
       Keep this window open while you retrieve the private key from MetaMask.
     </p>
 
@@ -97,11 +97,11 @@
     <h2 class="pt-5">Finish In Argon Desktop</h2>
 
     <p class="mt-2">
-      Return to the Connect Ethereum Wallet overlay previously opened in Argon Desktop, and paste the copied value into
+      Return to the Connect Ethereum Wallet overlay in Argon Desktop and paste the copied private key into
       the private-key field (see <strong>I</strong>).
     </p>
     <p>
-      Enter a recognizable name for the wallet (see <strong>J</strong>) then click
+      Enter a recognizable name for the wallet (see <strong>J</strong>), then click
       <strong>Import Wallet</strong> (see <strong>K</strong>).
     </p>
 

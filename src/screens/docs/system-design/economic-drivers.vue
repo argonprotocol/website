@@ -3,7 +3,7 @@
 
   <DocContent v-if="isLoaded">
     <aside class="mb-4 rounded-lg border border-amber-300 px-4 py-2 text-amber-950 font-bold">
-      NOTE: Some parts of this page documents the upcoming release of Argon Mainnet v1.6.
+      NOTE: Some parts of this page document the upcoming release of Argon Mainnet v1.6.
     </aside>
 
     <p>
@@ -74,7 +74,7 @@
 
     <p>
       Its market price rises and falls as the market's perception of these
-      opportunities change. Because ARGNOT is both earned through mining and
+      opportunities changes. Because ARGNOT is both earned through mining and
       required to compete for mining seats, its price feeds directly into the
       economics of the network.
     </p>
@@ -114,9 +114,9 @@
       </li>
       <li>Vaults use ARGN and ARGNOT to securitize Bitcoins. Their earnings from mining auctions are then shared with their Bond holders.</li>
       <li>Argon Bonds contribute liquidity to Bitcoins locked in Vaults, and in return, they earn a share of the Vault's revenue.</li>
-      <li>Argonot Stakes let holders lease their tokens to Mining and Vaulting in return for a proportional share of of mining seat auction revenue.</li>
-      <li>Bitcoins temporarily lock into Argon's Vaults and in exchange receive their full-market value as a unencumbered stablecoin loan.</li>
-      <li>The yield-bearing properties of Argonot Stakes, Argon Bonds, and Vault securitization creates increased demand cycles within trading markets.</li>
+      <li>Argonot Stakes let holders lease their tokens to Mining and Vaulting in return for a proportional share of mining seat auction revenue.</li>
+      <li>Bitcoins temporarily lock into Argon's Vaults and in exchange receive their full-market value as an unencumbered stablecoin loan.</li>
+      <li>The yield-bearing properties of Argonot Stakes, Argon Bonds, and Vault securitization create increased demand cycles within trading markets.</li>
     </ul>
 
     <h3>The Two Primary Entities</h3>
@@ -193,7 +193,7 @@
     <p>
       The above calculator uses ten-day returns because each mining seat lasts approximately ten days. Annual Percentage
       Rate is also shown to make it easier to compare with more familiar assets. For example, the average return of
-      Warren Buffet's Berkshire Hathaway is {{ averageBerkshireHathawayAPY }}% APY over the last six decades.
+      Warren Buffett's Berkshire Hathaway is {{ averageBerkshireHathawayAPY }}% APY over the last six decades.
     </p>
 
     <h3>The Three Variables that Drive Mining Returns</h3>
@@ -430,8 +430,7 @@
     <p>
       The following calculator begins with current network data and lets you
       explore how operator capital, Bitcoin utilization, bond participation,
-      market conditions, and revenue-sharing affects a vault's possible
-      returns.
+      market conditions, and revenue-sharing affect a vault's possible returns.
     </p>
 
     <VaultingCalculator />
@@ -677,26 +676,10 @@
     </p>
 
     <p>
-      The closing obligation does not rise above the amount established by the
-      Liquid. If Bitcoin appreciates, the holder retains that upside without a
-      larger closing ceiling. If ARGN trades below target, the protocol's
-      closing rules can make acquiring the required ARGN less expensive while
-      removing a larger quantity from circulation.
-    </p>
-
-    <p>
-      The same activity supplies returns elsewhere in the system. Vaults can
-      earn service fees from the Lock, and insured Bitcoin expands the eligible
-      bond capacity that determines how mining-bid revenue reaches Vaults and
-      Bond holders. Explore
-      <DocLink to="/docs/assets-and-entities/bitcoin-locks"
-        >Bitcoin Locks</DocLink
-      >
-      and
-      <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
-        >Bitcoin Liquids</DocLink
-      >
-      for the two parts of this position.
+      These same factors impact returns elsewhere in the system. For example,
+      Vaults earn service fees from their Liquids, and the amount of Liquids
+      determines how much mining-bid revenue is paid out to Vaults and Bond
+      holders.
     </p>
 
     <h2>The Economic Flywheel</h2>

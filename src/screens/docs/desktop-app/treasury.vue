@@ -33,10 +33,10 @@
     </p>
 
     <p>
-      Creating a Liquid lets you receive ARGN against the full market value of
-      your Bitcoin. See <DocLink to="/docs/desktop-app/internal-wallet">Internal Wallet</DocLink> for instructions on depositing BTC. Simply
-      holding BTC in your internal wallet does not automatically create a Liquid
-      or issue ARGN. You must specifically create the Liquid.
+      A Liquid lets you receive Argons without selling your Bitcoin. How much
+      you can receive depends on your Bitcoin’s value and the backing available
+      from the vault. Deposit your Bitcoin first, then create a Liquid. See
+      <DocLink to="/docs/desktop-app/internal-wallet">Internal Wallet</DocLink> for deposit instructions.
     </p>
 
     <p>

@@ -13,8 +13,8 @@
     </p>
 
     <p>
-      Each purchase of one or more bonds are recorded on the chain as a
-      <strong>bond position</strong> with its own revenue-sharing terms,
+      Each purchase of one or more bonds is recorded on the chain as a
+      <em>bond position</em> with its own revenue-sharing terms,
       earnings history, and release status. Buying more bonds at a later date
       creates another position rather than adding to the first one.
     </p>
@@ -53,8 +53,8 @@
 
     <p>
       A bond's underlying argons are never transferred to the vault operator for
-      them to control. Unlike traditional bonds, a Argon Bond position
-      cannot default becaUSE A vault operator has no ability to take the funds or refuse repayment.
+      them to control. Unlike traditional bonds, an Argon Bond position
+      cannot default because a vault operator has no ability to take the funds or refuse repayment.
     </p>
 
     <h2>Why Vaults Use Bonds</h2>
@@ -207,14 +207,13 @@
     <h2>Principal Capital Is Protected</h2>
     <p>
       Argons used in the purchase of a bond are applied to the vault where they were
-      purchased, however the vault operator never receives direct control of those
+      purchased. However, the vault operator never receives direct control of those
       stablecoins. Instead, the onchain protocol holds the ARGN and enforces their eventual
-      return. This prevents the operator from taking the principal or defaulting on
-      their repayment.
+      return. This prevents the operator from taking the principal or defaulting on repayment.
     </p>
     <p>
-      Principal protection only applies to the ARGN entities. It does not protect ARGN's market value or guarantee any level
-      of financial return.
+      Principal protection applies only to the ARGN committed to the bond. It does
+      not protect ARGN's market value or guarantee any level of financial return.
     </p>
 
   </DocContent>

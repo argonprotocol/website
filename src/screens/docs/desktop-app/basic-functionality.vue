@@ -64,8 +64,8 @@
     </p>
 
     <p>
-      You can connect an external Ethereum wallet directly into the app
-      which allows you to view remote balances and initiate transfers. See
+      You can connect an external Ethereum wallet to the app to view its
+      balances and initiate transfers. See
       <DocLink to="/docs/bridgeless-transfers">Bridgeless Transfers</DocLink>.
     </p>
 
@@ -99,9 +99,9 @@
     <p>
       You can gain access to even more Argon features by upgrading to
       <DocLink to="/docs/desktop-app/treasury">Treasury (Level Two)</DocLink>.
-      All you need is an invite from a network Operator. Treasury unlocks
-      Desktop with a number of additional yield-bearing instruments such as Bitcoin
-      Liquids, Argon Bonds, and Argonot Stakes.
+      All you need is an invite from a network Operator. Treasury gives you
+      access to additional yield-bearing instruments, including Bitcoin Liquids,
+      Argon Bonds, and Argonot Stakes.
     </p>
   </DocContent>
 </template>

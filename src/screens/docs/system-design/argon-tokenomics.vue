@@ -2,9 +2,9 @@
   <DocHeader>Argon Tokenomics</DocHeader>
   <DocContent>
     <p>
-      Argon (ARGN) is the network's transactional currency. It has no fixed supply supply.
-      It's designed to expand and contract with demand in order to give it stable
-      purchasing-power.
+      Argon (ARGN) is the network's transactional currency. It has no fixed supply cap.
+      Its supply is designed to expand and contract with demand to maintain stable
+      purchasing power.
     </p>
 
     <table>
@@ -40,7 +40,7 @@
 
     <h2>An Elastic Supply</h2>
     <p>
-      The block rewards began at 0.5 ARGN per block on January 15, 2025. It will continue rising
+      The block reward began at 0.5 ARGN per block on January 15, 2025. It increases
       by 0.001 ARGN every 180 ticks until it reaches a base rate of 5 ARGN per block. That
       base rate does not decline.
     </p>
@@ -71,21 +71,20 @@
     </p>
 
     <h2>Common Argon Usage</h2>
-    <p>In addition to the more traditional uses for stablecoins in crypto trading and payments, Argons
-    have multiple other use-cases:</p>
+    <p>Argons have several uses within the network:</p>
     <ul class="list-disc ml-10">
       <li>As auction bids for Mining Seats</li>
       <li>As capital for Argon Bonds</li>
       <li>As securitization for Stabilization Vaults</li>
       <li>As the unlocking token for Bitcoin Liquids</li>
       <li>As traditional stablecoins in crypto trading</li>
-      <li>As traditional medium of exchange in payments</li>
+      <li>As a medium of exchange in payments</li>
     </ul>
 
     <h2>Circulation Freezes</h2>
     <p>
-      Argon has several mechanisms that freeze argons on-chain. This has a similar outcome on
-      market pricing as removing from circulation, at least for the duration of the freeze:
+      Argon has several mechanisms that freeze argons on-chain. This has a similar effect on market prices as removing Argons
+      from circulation, at least for the duration of the freeze:
     </p>
     <ul class="list-disc ml-10">
       <li>Mining (1 to 10 days)</li>

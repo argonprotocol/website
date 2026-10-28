@@ -33,7 +33,7 @@
       </p>
     </section>
 
-    <h2>What Powers Are Bequeathed to the Authority?</h2>
+    <h2>What Can a Minting Authority Do?</h2>
     <p>
       Each authority belongs to a specific
       <DocLink to="/docs/assets-and-entities/vaulting-operations"

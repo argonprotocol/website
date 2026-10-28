@@ -27,13 +27,17 @@
         >
       </li>
       <li>
-        <strong>Bitcoin Lock or Liquid Lock.</strong> A Bitcoin multisig position held
-        through an on-chain vault arrangement. The owner receives the Bitcoin’s
-        market value in liquid Argons while retaining a defined path to release
-        the Bitcoin.
+        <strong>Bitcoin Lock.</strong> Bitcoin secured by your signing key and
+        a vault’s signing key. The Bitcoin stays on the Bitcoin network.
         <DocLink to="/docs/assets-and-entities/bitcoin-locks"
           >Learn more about Bitcoin Locks.</DocLink
         >
+      </li>
+      <li>
+        <strong>Bitcoin Liquid.</strong> A way to receive Argons without selling
+        your locked Bitcoin. You return the required Argons when you close the
+        Liquid.
+        <DocLink to="/docs/assets-and-entities/bitcoin-liquids">Learn more about Bitcoin Liquids.</DocLink>
       </li>
       <li>
         <strong>Argon Bond.</strong> A yield-bearing position that lends
@@ -110,7 +114,7 @@
       <li>
         <strong>Treasury.</strong> The network system that puts mining-auction
         revenue and contributed capital to work in stabilization activities.
-        Argon Desktop’s Treasury features include Bitcoin Locks, Argon Bonds,
+        Argon Desktop’s Treasury features include Bitcoin Liquids, Argon Bonds,
         and Argonot Stakes.
       </li>
       <li>

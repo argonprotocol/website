@@ -41,7 +41,7 @@
 
     <h2>Issuance</h2>
     <p>
-      The block rewards began at 0.5 ARGNOT on January 15, 2025, and they rise
+      The block reward began at 0.5 ARGNOT on January 15, 2025, and rises
       by 0.001 ARGNOT every 180 ticks until it reaches 5 ARGNOT per block. It then steps down every 2.1
       million ticks according to 5 ÷ (the number of completed eras + 1).
     </p>
@@ -51,7 +51,7 @@
 
     <h2>Common Argonot Usage</h2>
     <p>
-      There several ways Argonot are used within the network:
+      There are several ways Argonots are used within the network:
     </p>
     <ul>
       <li>
@@ -87,7 +87,7 @@
     <h2>Circulation Freezes</h2>
     <p>
       The network has several mechanisms that freeze the Argonot tokens on-chain, effectively removing them from
-      trading circulation. Each of the mechanisms has different freeze durations:
+      trading circulation. Each mechanism has its own freeze duration:
     </p>
     <ul class="list-disc ml-10">
       <li>Mining (1 to 10 days) &ndash; up to 40% can be allocated.</li>

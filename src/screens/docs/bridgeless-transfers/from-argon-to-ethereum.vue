@@ -16,8 +16,8 @@
 
     <h2>Before You Begin</h2>
     <p>
-      You need an Ethereum wallet containing the tokens you want to transfer.
-      The wallet also needs enough ETH to pay any Ethereum network fees.
+      The tokens you want to send must be in your Internal App Wallet. You’ll
+      also need ETH in your Ethereum wallet for Ethereum fees.
     </p>
 
     <h2>Connect Your Ethereum Wallet</h2>

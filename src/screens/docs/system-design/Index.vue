@@ -6,7 +6,7 @@
       over time. Its target value follows the cost of real goods, while its
       market price is set by people trading Argons. When those two prices move
       apart, the protocol creates incentives for independent participants to
-      bring it back to target.
+      bring the market price back to target.
     </p>
 
     <img
@@ -76,7 +76,7 @@
     <h2>2. Stabilization Algorithms</h2>
     <p>
       Argon's stabilization algorithms compare the stablecoin's market price with its target
-      price and adjusts the monetary rewards as needed to maintain balance. The system does not
+      price and adjust the monetary rewards as needed to maintain balance. The system does not
       require anyone to buy, sell, mint, or burn. It simply creates an economically
       attractive environment for the market to help close the price gap.
     </p>
@@ -137,13 +137,13 @@
       Argon's Consumer Price Index provides the reference point for stabilization.
       Instead of targeting a permanent exchange rate with the U.S. dollar, Argon
       tracks the fluctuation in the measured cost of real goods. If those costs rise,
-      Argon’s target price adjusts with it.
+      Argon’s target price adjusts with them.
     </p>
 
     <h2>5. Stabilized Currency</h2>
     <p>
       Argon is a stablecoin where “stable” refers to stable purchasing power
-      over time not simply a fixed amount of dollars. Learn why this distinction
+      over time, not simply a fixed amount of dollars. Learn why this distinction
       matters in <DocLink to="/docs/economic-pillars/protection-from-inflation"
       >Protection from Inflation</DocLink
       >.

@@ -4,7 +4,7 @@
     <p>
       We highly recommend that you follow
       <a href="https://discord.com/invite/argonnetwork" target="_blank" rel="noopener noreferrer">Argon's official Discord server</a>
-      for updates, questions, and conversations. It's the easiest way to connected and up-to-date on what is happening.
+      for updates, questions, and conversations. It's the easiest way to stay up-to-date on what is happening.
     </p>
     <p>
       However, there is a big caveat!

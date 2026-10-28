@@ -6,7 +6,7 @@
       Argon's Bridgeless Transfer is able to move tokens directly
       from the Argon Network to remote destination networks without needing
       a conventional bridge or requiring proof of transfer. By avoiding the bridge, it
-      avoids the one of the biggest risks in the crypto world, the hacking of cross-chain bridges.
+      avoids one of the biggest risks in the crypto world, the hacking of cross-chain bridges.
     </p>
 
     <p>
@@ -31,7 +31,7 @@
     <h2>Remote Minting Authorities</h2>
     <p>
       Argon's Remote Minting Authorities allow tokens to jump from Argon
-      to external networks without requiring a bridge. It does this without
+      to external networks without requiring a bridge. They do this without
       needing to follow Argon's blocks or pre-validate transfer details.
     </p>
 
@@ -45,7 +45,7 @@
       That freedom is backed by the authority's own funds, which stay locked
       on Argon. To unlock its funds, the authority must provide proof from the Remote
       Contract showing that it followed all protocol rules. If it fails to follow
-      the agreed upon rules, it cannot reclaim the matching funds on Argon.
+      the rules it agreed to follow, it cannot reclaim the matching funds on Argon.
     </p>
 
     <p>
@@ -80,7 +80,7 @@
     <p>
       A transfer out of Argon begins with an Ethereum wallet connector and the amount
       of tokens you want to move. You must include an Argon network fee paid in ARGN
-      and a Ethereum network fee paid in ETH. The jump follows a three-stage lifecycle:
+      and an Ethereum network fee paid in ETH. The jump follows a three-stage lifecycle:
     </p>
 
     <ol>
@@ -101,9 +101,9 @@
     </ol>
 
     <p>
-      Throughout this entire process, at no point was the user's funds sitting at risk on a
-      bridge. This is because no messages needed to be passed between Argon and Ethereum, only
-      the final packet of minting authorizations submitted directly by the user in the last step.
+      Throughout this process, the user's funds never sit on a bridge. No messages need to
+      pass between Argon and Ethereum; the user submits the final packet of minting
+      authorizations directly in the last step.
     </p>
 
     <p>
@@ -115,7 +115,7 @@
     <p>
       The user begins by submitting a single transaction to the Ethereum
       contract with the amount of tokens to transfer and the destination address
-      on Argon Network:
+      on the Argon Network:
     </p>
 
     <ol>
@@ -124,8 +124,8 @@
         number of tokens from the user's wallet.
       </li>
       <li>
-        <strong>Emit to Argon.</strong> An event proving the tokens were burned on
-        Ethereum are emitted as an ordered event and transferred to Argon Network.
+        <strong>Emit to Argon.</strong> An ordered event proving the tokens were burned on Ethereum is emitted
+        and transferred to the Argon Network.
       </li>
       <li>
         <strong>Finalize on Argon.</strong> Argon verifies the proof and makes

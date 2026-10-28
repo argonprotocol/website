@@ -47,9 +47,9 @@
 
     <h2>Note: Bitcoin Is a Completely Different Process</h2>
     <p>
-      Bitcoin also appears as a connector in the wallet interface, but it follow a
+      Bitcoin also appears as a connector in the wallet interface, but it follows a
       completely different transfer mechanism. It uses channels and locks
-      to securely transfer BTC into into your wallet.
+      to securely transfer BTC into your wallet.
     </p>
     <p>
       Learn more about <DocLink to="/docs/assets-and-entities/bitcoin-locks">Bitcoin Locks</DocLink>.

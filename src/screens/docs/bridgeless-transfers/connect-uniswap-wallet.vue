@@ -16,7 +16,7 @@
 
     <h2>Start In Argon Desktop</h2>
     <p class="mt-2">
-      Open your Argon Desktop app and from the Account Overview screen click <strong>Connect Ethereum Wallet</strong>
+      Open Argon Desktop. From Account Overview, click <strong>Connect Ethereum Wallet</strong>
       (<strong>see A</strong>).
     </p>
 
@@ -91,7 +91,7 @@
     <h2 class="pt-5">Finish In Argon Desktop</h2>
 
     <p class="mt-2">
-      Return to the Connect Ethereum Wallet overlay previously opened in Argon Desktop, and paste the copied recovery
+      Return to the Connect Ethereum Wallet overlay in Argon Desktop and paste the copied recovery
       phrase into the mnemonic field (see <strong>H</strong>). Then click <strong>Load Wallets From Mnemonic</strong>
       (see <strong>I</strong>).
     </p>

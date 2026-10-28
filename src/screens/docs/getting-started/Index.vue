@@ -37,7 +37,7 @@
     <h2>Before You Begin</h2>
     <p>
       Argon Desktop does not rely on a centralized company or database. It's a self-custodial system where you control
-      your own keys and approve your own transactions. This also means you're responsibility for backups, security, and
+      your own keys and approve your own transactions. This also means you're responsible for backups, security, and
       recovery. Before moving or managing funds, please
       <DocLink to="/docs/desktop-app/self-custody-risks">review the risks</DocLink>.
     </p>

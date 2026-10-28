@@ -178,20 +178,20 @@
 
     <p>
       Stopping new issuance does not remove Argons that already exist in circulation. Actual
-      contraction only occurs when Argons are burned. Bitcoin unlocking provides the
-      needed burn mechanism.
+      contraction only occurs when Argons are burned. The release of Bitcoin Liquids
+      provides the needed burn mechanism.
     </p>
 
     <h3>The Bitcoin Redemption Curve</h3>
     <p>
-      To release a Bitcoin, its owner must insert the required number into the network
-      vaults. Once the Bitcoin is release, the mainchain burns those Argons. The number
-      of Argons required is based on the following formula:
+      To release a Bitcoin Liquid, return the required Argons to the network.
+      The network burns those Argons, reducing circulation. The formula below
+      shows how many Argons are needed:
     </p>
 
     <div class="my-8 w-full max-w-full overflow-hidden rounded-lg border border-gray-400 bg-white/30 px-3 pt-6 sm:px-5">
       <MathFormula
-        label="Complete Bitcoin unlocking formula"
+        label="Bitcoin Liquid release formula"
         class="text-base sm:text-lg"
         source="\begin{aligned}
           r &= \frac{A_c}{A_t} \\[1em]
@@ -206,7 +206,7 @@
       />
 
       <p class="mt-6 mb-0 text-sm text-slate-600">
-        U is the number of Argons required to unlock the Bitcoin. A<sub>c</sub>
+        U is the number of Argons required to release a Bitcoin Liquid. A<sub>c</sub>
         is Argon’s current market price, A<sub>t</sub> is Argon’s target price,
         B<sub>c</sub> is Bitcoin’s current market price, and B<sub>v</sub> is
         Bitcoin’s market price when it was locked.
