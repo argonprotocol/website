@@ -40,8 +40,8 @@
     </p>
 
     <p>
-      Click on any Liquid to see the details, daily returns, and actions that
-      can be taken, such as closing the Liquid.
+      Select a Liquid to view its details, daily returns, and available actions,
+      including release.
     </p>
 
     <p>

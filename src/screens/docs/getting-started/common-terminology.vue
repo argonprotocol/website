@@ -13,7 +13,7 @@
         stablecoin. Its value follows the cost of real goods rather than
         a fixed amount of fiat currency. “Argon” can also refer to the network
         itself.
-        <DocLink to="/docs/assets-and-entities/argons"
+        <DocLink to="/docs/assets-and-entities/argon-stablecoins"
           >Learn more about Argons.</DocLink
         >
       </li>
@@ -22,7 +22,7 @@
         capitalize parts of the network. Miners commit Argonots when bidding for
         mining seats, and vault operators use them as part of vault
         securitization. Argonots can also be placed into yield-bearing stakes.
-        <DocLink to="/docs/assets-and-entities/argonots"
+        <DocLink to="/docs/assets-and-entities/argonot-tokens"
           >Learn more about Argonots.</DocLink
         >
       </li>
@@ -35,21 +35,18 @@
       </li>
       <li>
         <strong>Bitcoin Liquid.</strong> A way to receive Argons without selling
-        your locked Bitcoin. You return the required Argons when you close the
-        Liquid.
+        your locked Bitcoin. You return the required Argons to release the Liquid.
         <DocLink to="/docs/assets-and-entities/bitcoin-liquids">Learn more about Bitcoin Liquids.</DocLink>
       </li>
       <li>
-        <strong>Argon Bond.</strong> A yield-bearing position that lends
-        Argons to a vault. Bondholders receive a share of the vault’s
+        <strong>Argon Bond.</strong> A yield-bearing position created by committing Argons through a vault. Bondholders receive a share of the vault’s
         stabilization revenue, subject to the bond’s onchain terms.
         <DocLink to="/docs/assets-and-entities/argon-bonds"
           >Learn more about Argon Bonds.</DocLink
         >
       </li>
       <li>
-        <strong>Argonot Stake.</strong> A yield-bearing position that lends
-        Argonots to a miner. Stakeholders receive a share of mining-auction
+        <strong>Argonot Stake.</strong> A yield-bearing position created by committing Argonots through a miner. Stakeholders receive a share of mining-auction
         revenue, subject to the stake’s onchain terms.
         <DocLink to="/docs/assets-and-entities/argonot-stakes"
           >Learn more about Argonot Stakes.</DocLink

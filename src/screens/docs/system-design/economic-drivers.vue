@@ -9,7 +9,7 @@
     <p>
       Argon Network’s economic model is designed to function without relying on appreciation in
       the market price of Argon (ARGN) or Argonot (ARGNOT). Instead, it creates an interlocking
-      system of Mining Seats, Argonot Stakes, Stabilization Vaults, Argon Bonds, and Bitcoin Liquid Locking.
+      system of Mining Seats, Argonot Stakes, Stabilization Vaults, Argon Bonds, and Bitcoin Liquids.
     </p>
 
     <p>
@@ -58,7 +58,7 @@
     <p>
       ARGN is never meant to appreciate in value. It is the stablecoin used for payments,
       mining bids, Argon Bonds, vault capital, and
-      Bitcoin Liquid Locking. Its target follows purchasing power, so the
+      Bitcoin Liquids. Its target follows purchasing power, so the
       network expands or contracts its circulating supply as market demand
       changes.
     </p>
@@ -87,7 +87,7 @@
       into Argon's economic system through
       <DocLink to="/docs/assets-and-entities/bitcoin-locks">Bitcoin Locks</DocLink>
       and
-      <DocLink to="/docs/assets-and-entities/bitcoin-locks">Liquids</DocLink>.
+      <DocLink to="/docs/assets-and-entities/bitcoin-liquids">Liquids</DocLink>.
       Bitcoins locked inside the Argon ecosystem gain liquidity and downside-hedging opportunities,
       while vaults gain service revenue and Argon Bond capacity.
     </p>
@@ -191,14 +191,15 @@
     <MiningCalculator />
 
     <p>
-      The above calculator uses ten-day returns because each mining seat lasts approximately ten days. Annual Percentage
-      Rate is also shown to make it easier to compare with more familiar assets. For example, the average return of
+      The calculator uses ten-day returns because each mining seat lasts
+      approximately ten days. It also shows Annual Percentage Yield (APY) to
+      make comparisons with other assets easier. For example, the average return of
       Warren Buffett's Berkshire Hathaway is {{ averageBerkshireHathawayAPY }}% APY over the last six decades.
     </p>
 
     <h3>The Three Variables that Drive Mining Returns</h3>
 
-    The circled numbers on the left-side of the calculator highlight the three primary variables
+    The circled numbers on the left side of the calculator highlight the three primary variables
     that drive mining returns.
 
     <h4>1. Bid Price</h4>
@@ -247,7 +248,7 @@
         </dt>
         <dd class="m-0 mt-2 sm:mt-0">
           <strong class="block text-lg">
-            <DocLink to="/docs/assets-and-entities">Stabilization Vaults</DocLink>
+            <DocLink to="/docs/assets-and-entities/vaulting-operations">Stabilization Vaults</DocLink>
           </strong>
           Allocated among qualifying vaults according to their amount of securitization. The range is based
           on each vault's locked Bitcoins, securitized Argonots, and bonds generated.
@@ -286,7 +287,7 @@
         </dt>
         <dd class="m-0 mt-2 sm:mt-0">
           <strong class="block text-lg">
-            <DocLink to="/docs/assets-and-entities/argonot-stakes"
+            <DocLink to="/docs/assets-and-entities/argon-bonds"
             >Argon Bonds</DocLink
             >
           </strong>
@@ -301,7 +302,7 @@
         </dt>
         <dd class="m-0 mt-2 sm:mt-0">
           <strong class="block text-lg">
-            <DocLink to="/docs/assets-and-entities">Bitcoin Liquids</DocLink>
+            <DocLink to="/docs/assets-and-entities/bitcoin-liquids">Bitcoin Liquids</DocLink>
           </strong>
           Distributed proportionally among the BTC positions supplying short positions against
           the ARGN token. The higher range is based on Profit Surges gifted by upstream operators.
@@ -602,10 +603,9 @@
       for position capacity, earnings, and release rules.
     </p>
 
-    <h2>Bitcoin Liquid Locking</h2>
+    <h2>Bitcoin Liquids</h2>
     <p>
-      Bitcoin Liquid Locking brings an asset from outside Argon into this return
-      system. A Bitcoin holder can keep BTC in a native multisig Lock and create
+      Bitcoin Liquids bring an asset from outside Argon into this return system. A Bitcoin holder can keep BTC in a native multisig Lock and create
       an optional Liquid to receive spendable ARGN against its value. The holder
       retains exposure to Bitcoin while gaining liquidity without selling it.
     </p>

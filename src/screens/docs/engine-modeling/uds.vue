@@ -4,9 +4,9 @@
   <DocContent>
     <p>
       Ultimate Death Spiraling (UDS) is an interactive stress test of Argon's
-      stability mechanisms. It uses current network data and allows you to model
-      price collapse down to $0.001. Once collapsed, the model uses Argon's Liquid Locking
-      algorithm to simulate what happens as BTC pulls out of the network.
+      stability mechanisms. It uses current network data to model a collapse in Argon’s price to
+      $0.001. After the simulated collapse, it models Bitcoin Liquid releases
+      as BTC leaves the network.
     </p>
 
     <a
@@ -27,7 +27,7 @@
       Explore
       <DocLink to="/docs/engine-modeling/llb">Liquid Locking for Bitcoin</DocLink>
       or read about Argon's
-      <DocLink to="/docs/system-design/stability-algorithms">Stability Algorithms</DocLink>.
+      <DocLink to="/docs/system-design/stabilization-algorithms">Stabilization Algorithms</DocLink>.
     </p>
   </DocContent>
 </template>

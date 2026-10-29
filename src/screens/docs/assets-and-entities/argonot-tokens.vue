@@ -3,8 +3,8 @@
 
   <DocContent>
     <p>
-      Argonot (ARGNOT) is the ownership and operating-capital token in Argon’s
-      triune token system, working alongside
+      Argonot (ARGNOT) is the network’s ownership and operating-capital token.
+      It works alongside
       <DocLink to="/docs/assets-and-entities/argon-stablecoins">Argon stablecoins</DocLink>
       and <DocLink to="/docs/assets-and-entities/bitcoins">Bitcoin</DocLink>.
       It is a native token used to capitalize and participate in the Argon
@@ -72,8 +72,8 @@
       <li>
         <strong>Crosschain Collateral.</strong>
         ARGNOT can also be committed as collateral for a
-        <DocLink to="/docs/bridgeless-transfers/localized-minting-authorities"
-          >Localized Minting Authority</DocLink
+        <DocLink to="/docs/bridgeless-transfers/remote-minting-authorities"
+          >Remote Minting Authority</DocLink
         >. The protocol holds the committed tokens and can assign part of them to
         active crosschain obligations. Collateral assigned to an obligation cannot
         be released until that obligation is resolved, and it can be burned if the
@@ -86,8 +86,8 @@
       New ARGNOT enters circulation through mining rewards. Its issuance follows
       a protocol-defined schedule and does not expand or contract in response to
       ARGN's target price. See
-      <DocLink to="/docs/system-design/tokenomics-of-argonot"
-        >Tokenomics of Argonot</DocLink
+      <DocLink to="/docs/system-design/argonot-tokenomics"
+        >Argonot Tokenomics</DocLink
       >
       for the reward schedule and supply rules.
     </p>

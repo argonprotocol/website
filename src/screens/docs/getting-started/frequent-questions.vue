@@ -18,7 +18,7 @@
         Argon instead creates stable purchasing power using a Consumer Price
         Index based on the cost of real goods. As those costs change, Argon’s
         target value changes with them. Learn more about
-        <DocLink to="/docs/assets-and-entities/argons"
+        <DocLink to="/docs/assets-and-entities/argon-stablecoins"
           >Argons</DocLink
         >
         and
@@ -42,12 +42,11 @@
     <article>
       <header>How Is an Argonot Different From an Argon?</header>
       <p>
-        Argonot (ARGNOT) is a separate
-        token from the Argon. It is used in mining, vault securitization, and Argonot Stakes. Argonots
+        Argonot (ARGNOT) is a separate token from Argon. It is used in mining, vault securitization, and Argonot Stakes. Argonots
         do not represent company shares or a claim on a company. Their market
         value is determined by supply and demand rather than a stable
         purchasing-power target.
-        <DocLink to="/docs/assets-and-entities/argonots"
+        <DocLink to="/docs/assets-and-entities/argonot-tokens"
           >Learn more about Argonots</DocLink
         >
         and
@@ -87,7 +86,7 @@
       <header>What Is the Difference Between Treasury and Operations?</header>
       <p>
         <DocLink to="/docs/desktop-app/treasury">Treasury</DocLink> is
-        where members deploy assets through features such as Bitcoin Locks,
+        where members deploy assets through features such as Bitcoin Liquids,
         Argon Bonds, and Argonot Stakes. Market Stabilizers remain available as
         <DocLink to="/docs/desktop-app/basic-functionality">Basic Functionality</DocLink>.
         <DocLink to="/docs/desktop-app/operations">Becoming an Operator</DocLink>
@@ -171,15 +170,12 @@
         Do the Returns Estimates Show How Many Dollars I Will Earn?
       </header>
       <p>
-        No. The return percentages in Argon Desktop and throughout this website
-        measure Argon-denominated yield: they estimate
-        how many additional Argons an amount of Argons may earn. Argon is not
-        pegged to the U.S. dollar, and its return calculations do not assume a
-        future dollar price. Any USD equivalent value is a
-        temporary and likely inaccurate conversion, not part of the return
-        itself. The percentage says how much an Argon position may grow in
-        Argons; it does not establish whether those Argons will have any
-        particular real-world or dollar value when they are earned.
+        No. These percentages estimate how many additional Argons a position may
+        earn. They do not estimate a future dollar return. Argon is not pegged
+        to the U.S. dollar, and the calculations do not assume a future dollar
+        price. Any USD figure is a temporary conversion that may be inaccurate.
+        The percentage describes growth in Argons; it does not guarantee what
+        those Argons will buy or be worth in dollars when earned.
       </p>
     </article>
 

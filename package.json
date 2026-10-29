@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "docs:review": "node tools/docs-review.mjs",
     "build": "run-p type-check \"build-only {@}\" --",
     "build:staging": "NODE_ENV=staging vite build --outDir dist-staging",
     "build:production": "NODE_ENV=production vite build --outDir dist-production",

@@ -5,7 +5,7 @@
     <p>
       Liquid Locking for Bitcoin (LLB) is an interactive model of how Bitcoin
       holders participate in Argon's stability mechanism. It uses historical
-      BTC prices to compare Liquid Locking against those who simply hold Bitcoin. You can adjust
+      BTC prices to compare Bitcoin Liquids with simply holding Bitcoin. You can adjust
       dates, ratchet thresholds, and hypothetical ARGN price drops to explore
       different scenarios.
     </p>
@@ -39,7 +39,7 @@
       Explore Argon's
       <DocLink to="/docs/engine-modeling/ege">Exponential Growth Engine</DocLink>
       or read about Argon's
-      <DocLink to="/docs/system-design/stability-algorithms">Stability Algorithms</DocLink>.
+      <DocLink to="/docs/system-design/stabilization-algorithms">Stabilization Algorithms</DocLink>.
     </p>
   </DocContent>
 </template>

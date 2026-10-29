@@ -9,12 +9,6 @@
       standing return to operators or Upstream Nodes.
     </p>
 
-    <p>
-      This name distinguishes the pool from <strong>Treasury</strong>, the part
-      of Argon Desktop where members use Bitcoin Locks, Argon Bonds, Argonot
-      Stakes, and related services.
-    </p>
-
     <h2>How the Pool Is Funded</h2>
     <p>
       Operators compete for mining seats by bidding ARGN. Winning bids enter the
@@ -99,9 +93,9 @@
     </section>
 
     <p>
-      These amounts and the five-certification interval are protocol settings.
-      They can be changed without changing what event qualifies: the downstream
-      account must complete Operator Certification.
+      These amounts and the five-certification steps are core protocol settings
+      that apply to everyone. They cannot be arbitrarily changed for any single
+      person.
     </p>
 
     <h2>Reward, Referral, and Upgrade Code</h2>

@@ -102,11 +102,9 @@
 
     <p>
       Instead of succumbing to inflation, Argon sets its purchasing-power target using the Consumer Price
-      Index (CPI) to maintain consistent purchasing power across generations. As consumer prices rise in
-      dollar denominated value, Argon's target dollar value rises as well. Its decentralized algorithms
+      Index (CPI) to maintain consistent purchasing power across generations. As consumer prices rise in dollars, Argon's target dollar value rises as well. Its decentralized algorithms
       adjust supply based on market demand — when Argon trades above target, miners expand the supply. When
-      it trades below target, Bitcoin holders have an incentive to buy and burn Argons to recover their
-      locked bitcoin, reducing the supply.<sup><a href="#inflation-note-4" aria-label="See note 4 on Argon stabilization">[4]</a></sup>
+      it trades below target, Bitcoin holders have an incentive to buy and burn Argons to release their Bitcoin Liquids, reducing the supply.<sup><a href="#inflation-note-4" aria-label="See note 4 on Argon stabilization">[4]</a></sup>
     </p>
 
     <p>

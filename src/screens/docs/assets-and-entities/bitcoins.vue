@@ -3,8 +3,8 @@
 
   <DocContent>
     <p>
-      Bitcoin (BTC) provides external value and stabilization capital in Argon’s
-      triune token system, working alongside
+      Bitcoin (BTC) provides external value and stabilization capital for Argon.
+      It works alongside
       <DocLink to="/docs/assets-and-entities/argon-stablecoins">Argon stablecoins</DocLink>
       and <DocLink to="/docs/assets-and-entities/argonot-tokens">Argonot ownership tokens</DocLink>.
       It remains native to the Bitcoin network. Bitcoin used within Argon is not

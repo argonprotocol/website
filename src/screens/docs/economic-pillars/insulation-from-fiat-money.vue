@@ -759,9 +759,9 @@
         <td centralized Yes><div wrapper>Yes</div></td>
         <td description>
           <div wrapper>
-            The core of Argon's price stabilization mechanism is its use of Bitcoin. Anyone can set up vaults,
-            liquid lock bitcoins and provide stabilization capacity for the Argon network. Bitcoin holders have a
-            financial reason to buy and burn Argons when doing so lets them recover their bitcoin at a discount.
+            The core of Argon's price stabilization mechanism is its use of Bitcoin. Anyone can set up vaults, create Bitcoin Liquids, and provide stabilization capacity
+            for Argon. Bitcoin holders have a financial reason to buy and burn Argons when doing so
+            lets them release their Liquids at a discount.
             Each vault serves its own locks, while the network's stabilization capacity draws on independent
             operators and Bitcoin holders. This layered dependence around a decentralized base asset gives Argon's
             stack a resilient foundation, independent of any single government, bank, or company.

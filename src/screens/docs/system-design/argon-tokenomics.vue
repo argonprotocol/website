@@ -60,7 +60,7 @@
     <p>
       Argons are burned when Bitcoin Liquids are released or when finalized
       Sidechain transaction taxes are recorded on the mainchain. These burns
-      counter ongoing issuance, with Bitcoin unlocking providing the
+      counter ongoing issuance, with Bitcoin Liquid releases providing the
       price-responsive contraction mechanism.
     </p>
     <p>
@@ -76,7 +76,7 @@
       <li>As auction bids for Mining Seats</li>
       <li>As capital for Argon Bonds</li>
       <li>As securitization for Stabilization Vaults</li>
-      <li>As the unlocking token for Bitcoin Liquids</li>
+      <li>To release Bitcoin Liquids</li>
       <li>As traditional stablecoins in crypto trading</li>
       <li>As a medium of exchange in payments</li>
     </ul>
@@ -103,8 +103,8 @@
 
     <p>
       See
-      <DocLink to="/docs/system-design/stability-algorithms"
-        >Stability Algorithms</DocLink
+      <DocLink to="/docs/system-design/stabilization-algorithms"
+        >Stabilization Algorithms</DocLink
       >
       for the rules that translate market prices into supply incentives.
     </p>

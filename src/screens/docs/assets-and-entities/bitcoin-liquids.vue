@@ -15,9 +15,9 @@
     <p>
       Alongside that liquidity, a Liquid provides protection when Bitcoin's
       price falls, opportunities to capture price movements through ratcheting,
-      and a share of mining revenue. Its obligation to burn ARGN when closing
+      and a share of mining revenue. The obligation to burn ARGN when the Liquid is released
       also creates a short position against ARGN: buying discounted Argons can
-      make closing less expensive while removing those Argons from circulation.
+      make release less expensive while removing those Argons from circulation.
     </p>
 
     <p>
@@ -120,14 +120,14 @@
     <h2>The Liquid Position</h2>
     <p>
       A Liquid makes ARGN spendable while its underlying BTC remains in the
-      multisig Lock. In exchange, the position records an ARGN closing
-      obligation. The Liquid must be closed before the supporting Bitcoin can be
-      released.
+      multisig Lock. In exchange, the position records an ARGN release
+      obligation. The Liquid must be released before the supporting Bitcoin can be
+      moved.
     </p>
 
     <p>
-      Closing starts with the lower of the Bitcoin's current value and the
-      Liquid's recorded valuation, expressed in ARGN at its target price. That
+      The release calculation starts with the lower of the Bitcoin's current
+      value and the Liquid's recorded valuation, expressed in ARGN at its target price. That
       recorded valuation is established when the position is created and can
       change through ratcheting. The protocol then applies a redemption curve
       based on ARGN's market price relative to its target. The valuation cap
@@ -149,9 +149,8 @@
     <h2>Protection When Bitcoin's Price Falls</h2>
     <p>
       If Bitcoin falls below the Liquid's recorded valuation, the base used to
-      calculate its closing amount falls with it. The owner has already
-      received liquidity at the earlier valuation but can close against the
-      lower current value. The difference helps offset the decline in the
+      calculate its release amount falls with it. The owner has already
+      received liquidity at the earlier valuation but can release the Liquid against the lower current value. The difference helps offset the decline in the
       Bitcoin allocated to the Liquid.
     </p>
 
@@ -163,7 +162,7 @@
         liquidity available. Bitcoin then falls to $70,000 without a ratchet.
       </p>
       <ul>
-        <li>Closing the Liquid burns 70,000 ARGN.</li>
+        <li>Releasing the Liquid burns 70,000 ARGN.</li>
         <li>The owner retains the remaining 30,000 ARGN, worth $30,000.</li>
         <li>The owner still has 1 BTC, now worth $70,000.</li>
       </ul>
@@ -177,9 +176,8 @@
     <p>
       This protection applies to the Bitcoin participating in the Liquid and
       depends on the liquidity actually received, its subsequent use, ARGN's
-      price, and fees. Spending the proceeds leaves the owner needing to obtain
-      ARGN to close. The Cosigner Guarantee addresses defined vault cosigning
-      failures; the price protection comes from the Liquid's closing rules.
+      price, and fees. An owner who spends the proceeds must obtain ARGN to release the Liquid. The Cosigner Guarantee addresses defined vault cosigning
+      failures; the price protection comes from the Liquid's release rules.
     </p>
 
     <h2>Capturing Price Movements Through Ratcheting</h2>
@@ -223,15 +221,15 @@
         Total net receipts become 110,000 ARGN.
       </p>
       <p class="mb-0">
-        Closing at the restored 100,000-ARGN valuation leaves 10,000 ARGN plus
-        the original BTC. That is $10,000 of modeled profit before fees even
+        Releasing the Liquid at the restored 100,000-ARGN valuation leaves
+        10,000 ARGN plus the original BTC. That is $10,000 of modeled profit before fees even
         though Bitcoin finishes at its starting price. New liquidity alone is
-        not the profit: the closing obligation must also be accounted for.
+        not the profit: the release obligation must also be accounted for.
       </p>
     </section>
 
     <p>
-      A ratchet also changes the valuation used for subsequent closing. The
+      A ratchet also changes the valuation used for subsequent releases. The
       model illustrates one price path; actual results depend on the path,
       available guarantee capacity, distribution timing, and transaction costs.
       Use the
@@ -297,9 +295,9 @@
     <h2>Short Positions Against ARGN</h2>
     <p>
       A Liquid receives ARGN now and carries an obligation to burn ARGN later.
-      If the owner sells or spends the received Argons, closing requires
-      obtaining them again. A lower ARGN market price can make those purchases
-      less expensive. This is the economic short position that Bitcoin
+      If the owner sells or spends the received Argons, they must obtain them
+      again to release the Liquid. A lower ARGN market price can make those
+      purchases less expensive. This is the economic short position that Bitcoin
       Liquids supply against ARGN.
     </p>
 
@@ -307,30 +305,29 @@
       The redemption curve adjusts how many Argons must be burned as their
       market price falls below target. A deeper decline can require more
       Argons while still reducing their total purchase cost. Buying those
-      Argons adds demand, and burning them when the Liquid closes reduces
+      Argons adds demand, and burning them when the Liquid is released reduces
       circulation. Together, these actions support Argon's return toward its
       target price.
     </p>
 
     <p>
       Holding the original ARGN offsets the exposure created by selling or
-      spending it, but those tokens may not cover the entire closing amount
-      after the curve changes. Closing can also become more expensive if ARGN
-      trades above target. The opportunity depends on the closing quote and
+      spending it, but those tokens may not cover the entire release amount
+      after the curve changes. Releasing a Liquid can also become more expensive if ARGN
+      trades above target. The opportunity depends on the release quote and
       the prices at which the owner can actually acquire the required tokens.
     </p>
 
-    <h2>Calculating the Closing Amount</h2>
+    <h2>Calculating the Release Amount</h2>
     <p>
-      The following algorithm determines the ARGN burn needed to close the
-      Liquid before its Bitcoin can be released. It uses only the BTC
-      allocated to this position, rather than every Bitcoin in its underlying
-      Lock.
+      The following algorithm determines how many Argons are needed to release a
+      Bitcoin Liquid. It uses only the BTC allocated to that Liquid, rather
+      than all the Bitcoin in the underlying Lock.
     </p>
 
     <div class="my-8 w-full max-w-full overflow-hidden rounded-lg border border-gray-400 bg-white/30 px-3 py-5 sm:px-5">
       <MathFormula
-        label="Bitcoin Liquid closing amount and market purchase cost"
+        label="Bitcoin Liquid release amount and market purchase cost"
         class="text-base sm:text-lg"
         source="\begin{aligned}
           r &amp;= \frac{A_m}{A_t} \\[1em]
@@ -380,7 +377,7 @@
     <div class="my-8 overflow-x-auto rounded-lg border border-slate-300 bg-white/40">
       <table class="m-0 w-full text-sm">
         <caption class="px-4 py-3 text-left font-bold text-slate-800">
-          Closing a Liquid With a 100,000-ARGN Base
+          Releasing a Liquid With a 100,000-ARGN Base
         </caption>
         <thead class="border-y border-slate-300 bg-slate-100/70">
           <tr>
@@ -429,15 +426,15 @@
       assume the required ARGN can be purchased at the displayed market price
       and exclude fees. At $0.80, the owner needs 105,480 ARGN but pays $84,384
       to acquire them. If the original 100,000 ARGN had been sold for $100,000,
-      closing leaves $15,616 of those proceeds before fees, while freeing the
-      BTC from its Liquid obligation.
+      releasing the Liquid leaves $15,616 of those proceeds before fees, while
+      freeing the BTC from its Liquid obligation.
     </p>
 
     <p>
       This price-sensitive burn is part of the supply-contraction mechanism
       described in
       <DocLink to="/docs/system-design/stabilization-algorithms">Stabilization Algorithms</DocLink>.
-      The wallet's current closing quote reflects the position and the
+      The wallet's current release quote reflects the position and the
       protocol's current price inputs.
     </p>
 
@@ -467,7 +464,7 @@
         </div>
         <p class="mt-3 mb-0 text-sm text-slate-600">
           Choose an amount within the Lock's capacity and submit the Liquid. The
-          position records its ARGN amount and closing terms.
+          position records its ARGN amount and release terms.
         </p>
       </li>
       <li class="m-0 rounded-lg border border-slate-300 bg-white/40 p-5">
@@ -489,18 +486,18 @@
             class="flex size-8 items-center justify-center rounded-full bg-argon-100 text-sm font-bold text-argon-700"
             >4</span
           >
-          <strong class="text-lg">Close</strong>
+          <strong class="text-lg">Release</strong>
         </div>
         <p class="mt-3 mb-0 text-sm text-slate-600">
-          Acquire and burn the required ARGN to close the Liquid. Its Bitcoin
+          Acquire and burn the required ARGN to release the Liquid. Its Bitcoin
           remains locked until the owner separately requests release.
         </p>
       </li>
     </ol>
 
-    <h2>Closing Is Not Releasing</h2>
+    <h2>Releasing a Liquid and Moving Bitcoin</h2>
     <p>
-      Closing a Liquid settles its ARGN obligation and frees the guarantee
+      Releasing a Liquid settles its ARGN obligation and frees the guarantee
       capacity used by the position. It does not spend the Bitcoin UTXO. The
       owner may leave the BTC in the App Wallet or begin the separate Bitcoin
       Lock release process.
@@ -508,7 +505,7 @@
 
     <p>
       Likewise, releasing a Bitcoin Lock cannot bypass an open Liquid. The App
-      Wallet must close the position before it can construct and submit the
+      Wallet must release the position before it can construct and submit the
       Bitcoin release transaction.
     </p>
   </DocContent>

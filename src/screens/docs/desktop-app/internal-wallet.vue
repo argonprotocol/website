@@ -138,8 +138,7 @@
     </p>
     <p>
       To send BTC, select Send, enter the amount and recipient's Bitcoin address,
-      and review the Bitcoin network fee before confirming. Any open Bitcoin
-      Liquid must first be closed. You and the vault then sign the release
+      and review the Bitcoin network fee before confirming. Any open Bitcoin Liquid must first be released. You and the vault then sign the release
       transaction, and the app broadcasts it to the Bitcoin network.
     </p>
     <p>

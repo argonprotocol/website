@@ -3,9 +3,9 @@
 
   <DocContent>
     <p>
-      Argon (ARGN) is the transactional currency in Argon’s triune token system,
-      which brings together Argon stablecoins,
-      <DocLink to="/docs/assets-and-entities/argonot-tokens">Argonot ownership tokens</DocLink>,
+      Argon (ARGN) is the network’s transactional currency. It is one of three
+      assets in Argon’s economy, alongside
+      <DocLink to="/docs/assets-and-entities/argonot-tokens">Argonot ownership tokens</DocLink>
       and <DocLink to="/docs/assets-and-entities/bitcoins">Bitcoin</DocLink>. It is
       designed to hold stable purchasing power over time while remaining
       independent of banks, custodians, and fiat reserves. It is represented
@@ -22,11 +22,11 @@
       The network compares this inflation-agnostic target price with Argon's market price. When
       the market price is above target, the protocol can create opportunities
       for additional issuance. When the market price is below target, new
-      price-responsive issuance stops and Bitcoin unlocking creates an incentive
-      to burn Argons. These mechanisms change supply through the voluntary
+      price-responsive issuance stops, and releasing Bitcoin Liquids creates an
+      incentive to burn Argons. These mechanisms change supply through the voluntary
       actions of independent network participants. The
-      <DocLink to="/docs/system-design/stability-algorithms"
-        >Stability Algorithms</DocLink
+      <DocLink to="/docs/system-design/stabilization-algorithms"
+        >Stabilization Algorithms</DocLink
       >
       page explains this process in detail.
     </p>
@@ -61,8 +61,8 @@
           >Treasury bonds</DocLink
         >
         that supply liquidity for
-        <DocLink to="/docs/assets-and-entities/bitcoin-locks"
-          >Bitcoin Locks</DocLink
+        <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
+          >Bitcoin Liquids</DocLink
         >
         and share in network revenue.
       </li>
@@ -76,7 +76,7 @@
       </li>
       <li>
         <strong>Bitcoin Liquids.</strong> A holder burns the required number
-        of Argons to release the BTC held in a
+        of Argons to release a
         <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
           >Liquid</DocLink
         >.
@@ -85,7 +85,7 @@
         <strong>Crosschain Collateral.</strong> Argons can be transferred to supported
         external networks through Argon's
         <DocLink
-          to="/docs/bridgeless-transfers/localized-minting-authorities"
+          to="/docs/bridgeless-transfers/remote-minting-authorities"
           >minting-authority system</DocLink
         >. Moving ARGN between networks changes where it is represented; it does
         not create a separate supply.
@@ -93,9 +93,9 @@
     </ul>
 
     <p>
-      These uses connect ARGN to the network's payments, mining, Treasury, and
-      Bitcoin Liquid Locking systems. They also create pathways for Argons to move
-      between holders, become temporarily committed, or leave circulation.
+      These uses connect ARGN to payments, mining, Treasury, and Bitcoin Liquids.
+      They allow Argons to move between holders, become temporarily committed,
+      or leave circulation.
     </p>
 
     <h2>Issuance and Supply</h2>
@@ -110,9 +110,9 @@
       Liquids are released and when finalized Sidechain transaction taxes are
       recorded on the mainchain. Holding ARGN in a Bond or as vault capital
       temporarily restricts its availability without destroying it. See
-      <DocLink to="/docs/system-design/tokenomics-of-argon">Tokenomics of Argon</DocLink>
+      <DocLink to="/docs/system-design/argon-tokenomics">Argon Tokenomics</DocLink>
       and
-      <DocLink to="/docs/system-design/stability-algorithms">Stability Algorithms</DocLink>
+      <DocLink to="/docs/system-design/stabilization-algorithms">Stabilization Algorithms</DocLink>
       for the issuance, burning, and supply-response rules.
     </p>
 
@@ -170,16 +170,15 @@
     <p>
       These are availability conditions, not a lifecycle every Argon follows.
       Bond principal and vault securitization have different protections and
-      release rules. Mining-seat payments spend ARGN, and closing a Bitcoin
-      Liquid burns ARGN; neither is a temporary commitment that returns those
+      release rules. Mining-seat payments spend ARGN, and releasing a Bitcoin Liquid burns ARGN; neither is a temporary commitment that returns those
       Argons to the holder.
     </p>
 
     <h2>Learn More</h2>
     <p>
       See
-      <DocLink to="/docs/system-design/stability-algorithms"
-        >Stability Algorithms</DocLink
+      <DocLink to="/docs/system-design/stabilization-algorithms"
+        >Stabilization Algorithms</DocLink
       >
       for a detailed explanation of the target price and expansion and
       contraction mechanisms.

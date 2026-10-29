@@ -2,7 +2,7 @@
   <DocHeader>Stabilization Algorithms</DocHeader>
   <DocContent>
     <aside class="mb-4 rounded-lg border border-amber-300 px-4 py-2 text-amber-950 font-bold">
-      NOTE: Some parts of this page documents the upcoming release of Argon Mainnet v1.6.
+      NOTE: Some parts of this page document the upcoming release of Argon Mainnet v1.6.
     </aside>
 
     <p>
@@ -27,7 +27,7 @@
       <li>
         <strong>Target Price.</strong> Argon started at an exchange rate of 1 ARGN for 1
         USD on January 15, 2025. Since then, its target price has algorithmically
-        adjusted to counteract fluctuations USD inflation.
+        adjusted to counteract fluctuations in U.S. dollar inflation.
       </li>
       <li>
         <strong>Market Price.</strong> Argon's oracle observes the Argon/USDC market
@@ -94,15 +94,15 @@
 
     <ul>
       <li>
-        <strong>Negative signal = Market is above target</strong>; more circulating
+        <strong>Negative signal: Market is above target.</strong> More circulating
         supply is needed.
       </li>
       <li>
-        <strong>Zero signal = Market is near target:</strong>; no price-driven supply
+        <strong>Zero signal: Market is near target.</strong> No price-driven supply
         adjustment is needed.
       </li>
       <li>
-        <strong>Positive signal = Market is below target:</strong>; less circulating
+        <strong>Positive signal: Market is below target.</strong> Less circulating
         supply is needed.
       </li>
     </ul>
@@ -118,7 +118,7 @@
     <p>
       A market price that is above target indicates that buyers are demanding more
       Argons than sellers are making available. The mainchain expands circulation
-      through mining and, under constrained conditions, through Bitcoin Locks.
+      through mining and, under constrained conditions, through Bitcoin Liquids.
     </p>
 
     <h3>Mining Issuance</h3>
@@ -145,34 +145,32 @@
       >.
     </p>
 
-    <h3>Bitcoin Liquid Locking</h3>
+    <h3>Bitcoin Liquids</h3>
     <p>
-      Funding a Bitcoin Liquid creates a queued right to receive Argons based on
-      the underlying Bitcoin value. That queue is not an unrestricted source of new
-      currency. Its minting pallet pays only when Argon's market price is at or above
-      target, and the cumulative amount minted for Bitcoin Locks cannot exceed the
-      amount minted through mining.
+      Creating a Bitcoin Liquid queues the Argons it is eligible to receive,
+      based on the underlying Bitcoin value. The protocol mints these Argons
+      only when Argon’s market price is at or above target. The cumulative
+      amount minted for Bitcoin Liquids cannot exceed the amount minted
+      through mining.
     </p>
 
     <p>
-      Each queued lock is also limited to a portion of its remaining amount per
-      frame. These constraints pace new liquidity and connect it to the mining
-      side of the system. In exchange, every funded lock establishes a future
-      obligation to burn Argons before its Bitcoin can be released.
+      Each queued Liquid can receive only a portion of its remaining amount per
+      frame. These constraints pace new liquidity and connect it to mining
+      issuance. The holder must burn Argons when releasing the Liquid.
     </p>
 
     <p>
-      Vault collateral and Treasury capital make these locks operational, but
-      Treasury does not choose the direction of the supply response. The price
-      index, minting, block-reward, and Bitcoin Lock rules enforce that response
-      on-chain.
+      Vault collateral and Treasury capital support these Liquids. Treasury does
+      not choose the direction of the supply response: the price index,
+      issuance, block rewards, and Bitcoin Liquid rules enforce it on-chain.
     </p>
 
     <h2>Contract Supply When Price Is Below Target</h2>
     <p>
       A market price that is below target indicates that more Argons are available than
       buyers want. The first response is to stop adding price-triggered supply: minting
-      from queued Bitcoin Liquids pause, and mining block rewards move back toward their
+      from queued Bitcoin Liquids pauses, and mining block rewards move back toward their
       base minimum.
     </p>
 
@@ -215,16 +213,14 @@
 
     <ul>
       <li>
-        When Argon is at or above target, the multiplier is at a value of one, and the lock uses its normal
+        When Argon is at or above target, the multiplier is at a value of one, and the Liquid uses its normal
         target-denominated redemption amount.
       </li>
       <li>
-        When Argon is slightly below target, a smooth quadratic section discounts the cost of
-        unlocking without introducing a sudden cliff at the target boundary.
+        When Argon is slightly below target, a smooth quadratic section discounts the cost of releasing a Liquid without introducing a sudden cliff at the target boundary.
       </li>
       <li>
-        As Argon falls farther below target, the curve becomes increasingly aggressive. The
-        Bitcoin can be cheaper to unlock in market-value terms even as the
+        As Argon falls farther below target, the curve becomes increasingly aggressive. Releasing a Bitcoin Liquid can cost less in market terms even as the
         number of Argons burned grows dramatically higher.
       </li>
       <li>
@@ -235,25 +231,25 @@
     </ul>
 
     <p>
-      This combination formula ensures Bitcoin holders profit by
-      buying discounted Argons to recover their Bitcoin, while the system gets
-      the contraction it needs. The amount of active locked
-      Bitcoin therefore determines how much potential burn capacity is
-      available. Read more about
+      This formula gives holders an incentive to buy discounted Argons and
+      release Bitcoin Liquids, reducing circulation. The Bitcoin value
+      underlying active Liquids determines the potential burn capacity.
+      Read more about
       <DocLink to="/docs/assets-and-entities/bitcoin-locks">Bitcoin Locks</DocLink>
-      and <DocLink to="/docs/assets-and-entities/bitcoin-locks">Liquids</DocLink>.
+      and <DocLink to="/docs/assets-and-entities/bitcoin-liquids">Liquids</DocLink>.
     </p>
 
     <h3>The Purpose of Market Stabilizers</h3>
     <p>
-      Bitcoin Liquid Locking ensures that Argon is guaranteed to eventually return to target,
-      however there is no guarantee on timeframe. Latency will naturally occur between price
-      deviation, Bitcoin unlocking, and circulation reduction. This is where Market Stabilizers comes
-      into play. Argon Desktop provides simple Uniswap monitoring tools to create market alerts
-      and present rapid arbitrage opportunities between chains. This allows small deviations to
-      rapidly correct without waiting on the Bitcoin unlock process to reduce circulation. Learn
+      Releasing a Bitcoin Liquid creates an incentive for Argon to return to target,
+      but the response takes time. Price changes, Liquid releases, and supply
+      reductions do not happen at once. Market Stabilizers help participants
+      respond to smaller price gaps sooner. Argon Desktop provides Uniswap
+      monitoring tools to create market alerts and highlight arbitrage
+      opportunities between chains. These tools can help correct small
+      deviations while Bitcoin Liquid releases reduce circulation. Learn
       more about
-      <DocLink to="/docs/assets-and-entities/stable-swaps"
+      <DocLink to="/docs/assets-and-entities/market-stabilizers"
         >Market Stabilizers</DocLink
       >.
     </p>
@@ -311,8 +307,7 @@
         mining issuance.
       </li>
       <li>
-        Sidechains burns require finalized taxable activity, while ordinary
-        Bitcoin redemption burns require the release to complete.
+        Sidechain burns require finalized taxable activity.
       </li>
     </ul>
 
@@ -340,8 +335,8 @@
 
     <p>
       For the wider context, see
-      <DocLink to="/docs/system-design/how-it-works"
-        >How Argon Works</DocLink
+      <DocLink to="/docs/system-design"
+        >Architectural Basics</DocLink
       > and
       <DocLink to="/docs/economic-pillars/recovery-from-death-spirals"
         >Recovery from Death Spirals</DocLink

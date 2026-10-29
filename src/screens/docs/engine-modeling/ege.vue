@@ -4,8 +4,8 @@
   <DocContent>
     <p>
       Exponential Growth Engine (EGE) is an interactive model of how Argon's mining
-      and vaulting incentives drive network growth. It uses current network
-      state then allows you to interactively explore how the network responds.
+      and vaulting incentives drive network growth. It starts with current network data and lets you explore
+      how changes in mining and vaulting affect the network.
     </p>
 
     <a

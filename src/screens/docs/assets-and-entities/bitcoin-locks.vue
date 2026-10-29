@@ -5,8 +5,7 @@
     <p>
       A Bitcoin Lock is a native Bitcoin UTXO held in a time-bound multisig
       arrangement between its owner and a Stabilization Vault. Argon Desktop
-      creates the Lock when Bitcoin is moved into the App Wallet. The owner
-      retains the owner's key, while the vault supplies the cosigning key.
+      creates the Lock when Bitcoin is moved into the App Wallet. The owner retains their key, while the vault supplies the cosigning key.
     </p>
 
     <p>
@@ -153,7 +152,7 @@
           <strong class="text-lg">Release</strong>
         </div>
         <p class="mt-3 mb-0 text-sm text-slate-600">
-          Close any open Liquid, choose a destination and network fee, and
+          Release any open Liquid, choose a destination and network fee, and
           complete the owner-and-vault release transaction.
         </p>
       </li>
@@ -169,8 +168,7 @@
 
     <p>
       A Lock with an open Bitcoin Liquid cannot be released because its Bitcoin
-      still supports an outstanding ARGN position. Closing the Liquid settles
-      that obligation; it does not itself move the Bitcoin. The owner can then
+      still supports an outstanding ARGN position. Releasing the Liquid settles that obligation; it does not itself move the Bitcoin. The owner can then
       keep the BTC in the Lock or request its release separately.
     </p>
 

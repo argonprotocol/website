@@ -56,13 +56,13 @@
             <DocLink to="/docs/desktop-app">Argon Desktop overview</DocLink>
           </li>
           <li class="mb-1!">
-            <DocLink to="/docs/bridgeless-transfers/initiate-a-transfer">Open a Transfer Portal</DocLink>
+            <DocLink to="/docs/bridgeless-transfers">Bridgeless Transfers</DocLink>
           </li>
           <li class="mb-1!">
             <DocLink to="/docs/desktop-app/self-custody-risks">Self-Custody Risks</DocLink>
           </li>
           <li class="mb-1!">
-            <DocLink to="/docs/assets-and-entities/stable-swaps">Market Stabilizers</DocLink>
+            <DocLink to="/docs/assets-and-entities/market-stabilizers">Market Stabilizers</DocLink>
           </li>
         </ul>
       </li>

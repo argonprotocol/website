@@ -129,7 +129,7 @@
     </StabilityChart>
 
     <p>
-      Regardless of how well-intentioned the creators of fiat, the near-zero cost of minting additional currency can
+      Regardless of how well-intentioned the creators of fiat are, the near-zero cost of minting additional currency can
       encourage over-minting. This over-minting can lead to hyperinflation and eventual collapse.<sup class="recovery-note-ref"><a href="#recovery-note-3" aria-label="See note 3 on monetary policy and inflation">[3]</a></sup>
     </p>
 
@@ -145,8 +145,8 @@
     <p>
       Argon's stabilization mechanisms function more like gold than fiat. By combining exogenous
       assets with a closed-loop system of counterbalances, Argon is designed to keep its market price aligned
-      with its purchasing-power target. Its novel incentives (vault shorts, treasury dispersals,
-      mining bids) naturally counteract the destabilizing pressures of the market.
+      with its purchasing-power target. Incentives such as Bitcoin Liquid shorts, Treasury distributions, and mining bids
+      counteract destabilizing market pressures.
     </p>
 
     <p>
@@ -204,7 +204,7 @@
     </StabilityChart>
 
     <p>
-      Argon's burning mechanism ties supply reduction to the opportunity to recover Bitcoin. When Argon falls below
+      Argon’s burning mechanism ties supply reduction to Bitcoin Liquid releases. When Argon falls below
       target, its redemption rules make buying and burning Argons more attractive to Bitcoin holders. This creates a
       reason to remove excess supply even when confidence in Argon itself is weak.
     </p>
@@ -224,9 +224,8 @@
     </p>
     <p>
       Argon uses Bitcoin as an exogenous profit incentive: an asset with its own market and demand outside
-      the Argon network. By locking their bitcoin, holders can receive the full market value of their
-      Bitcoin as Argon stablecoins, taking value off the table while retaining the ability to recover their
-      bitcoin later.
+      the Argon network. By creating Bitcoin Liquids, holders can receive Argon stablecoins against their Bitcoin
+      without selling it.
     </p>
 
     <div class="text-sm opacity-90 italic mb-2 mt-8">The Volatile Price Swings of Bitcoin<sup class="recovery-note-ref"><a href="#recovery-note-6" aria-label="See note 6 on the Bitcoin price data">[6]</a></sup></div>
@@ -244,15 +243,15 @@
     </BitcoinPriceHistoryChart>
 
     <p>
-      Bitcoin’s volatility creates opportunities. When Bitcoin’s price falls, holders can recover their bitcoin by
-      returning fewer Argons than they originally received, keeping the difference. The returned Argons are burned,
+      Bitcoin’s volatility creates opportunities. When Bitcoin’s price falls, holders can release their Liquids by returning fewer Argons
+      than they originally received, keeping the difference. The returned Argons are burned,
       turning the holder’s hedge into a reduction in circulating supply.
     </p>
     <p>
-      A second profit opportunity emerges when Argon itself falls below target. Bitcoin holders can buy discounted Argons and use them to unlock their bitcoin. As Argon falls further below target, the redemption rules strengthen this incentive: recovering the bitcoin can become cheaper in market terms while requiring a larger number of Argons to be burned.<sup class="recovery-note-ref"><a href="#recovery-note-4" aria-label="See note 4 on Argon's stabilization mechanisms">[4]</a></sup>
+      A second profit opportunity emerges when Argon itself falls below target. Bitcoin holders can buy discounted Argons and use them to release their Liquids. As Argon falls further below target, the redemption rules strengthen this incentive: releasing the Liquid can become cheaper in market terms while requiring a larger number of Argons to be burned.<sup class="recovery-note-ref"><a href="#recovery-note-4" aria-label="See note 4 on Argon's stabilization mechanisms">[4]</a></sup>
     </p>
     <p>
-      What creates a profit for the Bitcoin holder also removes excess currency from circulation. Participants have a financial reason to buy Argons even while others are selling, because doing so allows them to recover an asset with value outside the Argon network.
+      What creates a profit for the Bitcoin holder also removes excess currency from circulation. Participants have a financial reason to buy Argons even while others are selling, because doing so releases a Liquid backed by an asset with value outside the Argon network.
     </p>
     <p>
       This gives falling prices a counteracting force. A decline in Argon’s price strengthens the incentive to buy and burn it, drawing on Bitcoin’s external value to support recovery.
@@ -286,8 +285,7 @@
         <li id="recovery-note-4">
           <strong>Argon's minting, burning, and Bitcoin redemption.</strong>
           The <DocLink to="/docs/system-design/stabilization-algorithms">Stabilization Algorithms</DocLink> page explains
-          how issuance responds to Argon's price and how the Bitcoin redemption curve determines the Argons required for
-          unlocking. The <DocLink to="/docs/whitepapers/fundamentals">stability fundamentals whitepaper</DocLink> develops
+          how issuance responds to Argon's price and how the Bitcoin redemption curve determines the Argons required to release a Bitcoin Liquid. The <DocLink to="/docs/whitepapers/fundamentals">stability fundamentals whitepaper</DocLink> develops
           the economic rationale, including Bitcoin locking and unlocking, minting, and supply contraction.
         </li>
         <li id="recovery-note-5">

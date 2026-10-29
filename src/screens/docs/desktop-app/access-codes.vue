@@ -15,9 +15,9 @@
       Basic is available without an invitation. You can
       <DocLink to="/docs/bridgeless-transfers/connect-uniswap-wallet">connect Ethereum wallets</DocLink>,
       view balances and transaction history,
-      <DocLink to="/docs/bridgeless-transfers/initiate-a-transfer">transfer supported assets</DocLink>,
+      <DocLink to="/docs/bridgeless-transfers">transfer supported assets</DocLink>,
       and use
-      <DocLink to="/docs/assets-and-entities/stable-swaps">Market Stabilizers</DocLink>.
+      <DocLink to="/docs/assets-and-entities/market-stabilizers">Market Stabilizers</DocLink>.
       See
       <DocLink to="/docs/desktop-app/basic-functionality">Basic Functionality</DocLink>
       for details.

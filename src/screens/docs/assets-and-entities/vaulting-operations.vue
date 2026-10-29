@@ -52,9 +52,8 @@
     </p>
 
     <p>
-      The guarantee does not protect against Bitcoin price changes or guarantee ARGN’s market value. The
-      Liquid’s closing rules provide its separate price protection. Closing a Liquid settles its ARGN
-      obligation and frees the guarantee capacity used by that position; releasing the Bitcoin is a
+      The guarantee does not protect against Bitcoin price changes or guarantee ARGN’s market value. The Liquid’s release rules provide its separate price protection. Releasing
+      a Liquid settles its ARGN obligation and frees the guarantee capacity used by that position; releasing the Bitcoin is a
       separate transaction.
     </p>
 
@@ -193,9 +192,8 @@
 
     <p>
       At each frame distribution, mining-bid revenue is allocated among protocol-defined pools and
-      eligible participants. Allocation percentages must use a clearly identified revenue base. The
-      website model below expresses its allocations as shares of the full mining-auction revenue input,
-      before subtracting other pools. See
+      eligible participants. The model below expresses each allocation as a share of total
+      mining-auction revenue, before subtracting other pools. See
       <DocLink to="/docs/assets-and-entities/mining-operations">Mining Operations</DocLink> for the
       source of the bid pool, <DocLink to="/docs/assets-and-entities/argon-bonds">Argon Bonds</DocLink>
       for Bond position terms, and
@@ -205,11 +203,10 @@
     <h3>How the Website Model Estimates Vault Revenue</h3>
 
     <p>
-      The following six steps explain the website’s illustrative vaulting calculator. They describe a
-      model of how capital, Bitcoin participation, Bonds, and ARGNOT can affect operator revenue. The
-      model’s parameters and formulas are not a statement of the currently deployed payout rules. Actual
-      earnings depend on the protocol version, active parameters, eligibility, and each frame’s network
-      state.
+      The following six steps explain how the vaulting calculator models the effects of capital,
+      Bitcoin participation, Bonds, and ARGNOT on operator revenue. These are illustrative
+      assumptions, not the currently deployed payout rules. Actual earnings depend on the protocol
+      version, active parameters, eligibility, and each frame’s network state.
     </p>
 
     <p>
@@ -241,8 +238,8 @@
         to mining × 15%, 1 ARGN)
       </div>
       <p class="m-0 text-sm text-slate-600">
-        The website calculator fixes the Bitcoin-capacity rate at 15%. That model assumption does not
-        establish which parameter is active in a deployed distribution.
+        The website calculator uses a fixed Bitcoin-capacity rate of 15%. The deployed rate depends
+      on the active protocol parameters.
       </p>
     </section>
 
@@ -250,8 +247,7 @@
 
     <p>
       The model compares the operator’s initial ARGN securitization with Desired Bitcoin Space. The
-      resulting Vault Factor is capped at 1. This is an individual scenario factor; it does not reproduce
-      the live allocation of a shared pool among competing vaults.
+      resulting Vault Factor is capped at 1. This factor describes one vault scenario; it does not reproduce how live vaults share the pool.
     </p>
 
     <div class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl">
@@ -296,8 +292,7 @@
     <p>
       The website model includes optional ARGNOT securitization. It measures ARGNOT utilization against
       capacity equal to twice the initial ARGN securitization. It also scales modeled revenue with the
-      operator’s total capital. These effects are modeling assumptions and do not establish that an
-      ARGNOT reward uplift is active in the deployed protocol.
+      operator’s total capital. Both effects are model assumptions; they do not establish the deployed ARGNOT reward rules.
     </p>
 
     <div class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl">
@@ -409,8 +404,7 @@
         In the website model, more operator capital can increase absolute revenue, while Bitcoin and Bond
         utilization determine how much of the modeled capacity is used. ARGNOT provides the optional
         modeled multiplier and bonus. Larger revenue shares offered to Bonds and Liquids reduce the
-        model’s operator maximum. Actual protocol payouts must be assessed under the active deployment’s
-        rules.
+        model’s operator maximum. Protocol payouts follow the active deployment’s rules.
       </p>
     </aside>
 

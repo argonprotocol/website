@@ -142,10 +142,10 @@
     <h3>How Bids Compete</h3>
     <p>
       While seats remain available, a public bid can be zero. Once the winning
-      list is full, a new public bid must strictly exceed the lowest funded
-      maximum among current winners. Exceeding only the lowest price already
-      paid is insufficient, even if the new bid commits to a much higher
-      maximum.
+      list is full, a new public bid must have a starting price that exceeds the
+      lowest funded maximum among current winners. Exceeding an existing bid's lowest
+      price without exceeding the existing bid's maximum is insufficient and will
+      result in a discarded bid.
     </p>
     <p>
       This entry requirement is checked at submission and again at settlement.
@@ -198,13 +198,13 @@
           </thead>
           <tbody>
             <tr>
-              <th scope="row">A</th>
+              <th scope="row" class="border-y border-slate-300">A</th>
               <td>1,000</td>
               <td>1,500</td>
               <td>Wins at 1,400.01</td>
             </tr>
             <tr>
-              <th scope="row">B</th>
+              <th scope="row" class="border-y border-slate-300">B</th>
               <td>1,000</td>
               <td>1,400</td>
               <td>No seat; no bid payment</td>
@@ -222,7 +222,7 @@
 
     <h3>Closing the Auction</h3>
     <p>
-      New submissions can close unpredictably during the protocol-defined
+      New submissions close randomly during the protocol-defined
       closing window. They also close early enough to allow pending batches to
       settle before cohort activation. Bids already queued retain their full
       five-block disclosure window even after submissions close.
@@ -369,12 +369,12 @@
     <p>
       ARGN block issuance can change with the stablecoin's supply needs, while
       ARGNOT follows its own issuance schedule. See
-      <DocLink to="/docs/system-design/tokenomics-of-argon"
-        >Tokenomics of Argon</DocLink
+      <DocLink to="/docs/system-design/argon-tokenomics"
+        >Argon Tokenomics</DocLink
       >
       and
-      <DocLink to="/docs/system-design/tokenomics-of-argonot"
-        >Tokenomics of Argonot</DocLink
+      <DocLink to="/docs/system-design/argonot-tokenomics"
+        >Argonot Tokenomics</DocLink
       >
       for those rules.
     </p>

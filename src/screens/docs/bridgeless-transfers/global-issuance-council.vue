@@ -59,8 +59,8 @@
     <p>
       The council does not sign individual user transfers. That work belongs to
       <DocLink
-        to="/docs/bridgeless-transfers/localized-minting-authorities"
-        >Localized Minting Authorities</DocLink
+        to="/docs/bridgeless-transfers/remote-minting-authorities"
+        >Remote Minting Authorities</DocLink
       >, which select specific Argon-to-Ethereum requests and place collateral
       behind them.
     </p>

@@ -38,7 +38,7 @@
         expanding the supply.
       </li>
       <li>
-        When Argon trades below target, Bitcoin unlocking becomes more
+        When Argon trades below target, releasing Bitcoin Liquids becomes more
         attractive and creates demand to buy and burn Argons.
       </li>
       <li>
@@ -56,14 +56,13 @@
     <p>
       Treasury is the network’s capital and revenue-distribution system. It
       connects capital providers with the mining and vaulting activities needed to
-      create and stabilize the Argon. In return, participants can access Bitcoin
-      Locks, Argon Bonds, and Argonot Stakes.
+      create and stabilize the Argon. In return, participants can access Bitcoin Liquids, Argon Bonds, and Argonot Stakes.
     </p>
     <p>
       Argon's Desktop app helps users participate in these yield-bearing instruments
       while the mainchain enforces the underlying asset rules and distributions. Explore
-      <DocLink to="/docs/assets-and-entities/bitcoin-locks"
-        >Bitcoin Locks</DocLink
+      <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
+        >Bitcoin Liquids</DocLink
       >,
       <DocLink to="/docs/assets-and-entities/argon-bonds"
         >Argon Bonds</DocLink
@@ -89,8 +88,7 @@
         available to the market.
       </li>
       <li>
-        <strong>Below target:</strong> when supply is outpacing demand, the economics
-        of releasing Bitcoin Locks encourage holders to acquire and burn Argons,
+        <strong>Below target:</strong> when supply is outpacing demand, the economics of releasing Bitcoin Liquids encourage holders to acquire and burn Argons,
         thereby removing them from circulation.
       </li>
       <li>
@@ -164,23 +162,23 @@
 
     <h2>6. The Massive Short</h2>
     <p>
-      Bitcoin holders can place their Bitcoin into Liquid Lock positions and receive
-      full market value in the form of Argon stablecoins. Releasing this same Bitcoin requires
-      Argons to be burned. The exact amount is detailed in the lock’s on-chain terms. Each lock
-      therefore creates a potential future source of demand for Argons.
+      Bitcoin holders can create Bitcoin Liquids to receive Argon stablecoins
+      without selling their Bitcoin. Releasing a Liquid requires Argons to be
+      burned. The amount depends on the Liquid’s terms and the redemption curve.
+      Each Liquid therefore creates a potential future source of demand for Argons.
     </p>
     <p>
-      The “Massive Short” is the collective effect of many individual Bitcoin Locks. Each lock
-      behaves like a short position against Argon. When the Argon trades below target, Bitcoins
-      become cheaper to unlock. At the same time, the unlocking formula increases the number
-      of Argons that must be burned in the unlock. Bitcoin holders can therefore unlock at a discount while
-      substantially increasing the number of Argons that would normally be removed from circulation.
-      This helps bring supply and demand back toward balance.
+      The “Massive Short” is the collective effect of many individual Bitcoin
+      Liquids. Each acts like a short position against Argon. When Argon trades
+      below target, buying the Argons needed to release a Liquid can cost less,
+      even when the redemption curve requires more Argons to be burned. Buying
+      adds demand, and burning reduces supply, helping bring the two back
+      toward balance.
     </p>
     <p>
      Learn more about
-      <DocLink to="/docs/assets-and-entities/bitcoin-locks"
-        >Bitcoin Locks</DocLink
+      <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
+        >Bitcoin Liquids</DocLink
       >
       and
       <DocLink to="/docs/economic-pillars/recovery-from-death-spirals"
@@ -193,7 +191,7 @@
       Argons and Argonots can seamlessly move between the Argon Network and any supported external
       network without requiring a traditional cross-chain bridge. Instead of requiring a centralized
       party or a complicated dance between chains, Argon's bridgeless innovation allows transfers to
-      be <DocLink to="/docs/bridgeless-transfers/from-argon-to-remote">directly executed by the
+      be <DocLink to="/docs/bridgeless-transfers/from-argon-to-ethereum">directly executed by the
       requesting user</DocLink>.
     </p>
 

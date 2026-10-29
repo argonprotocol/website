@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Argon documentation — Track changes</title>
+    <style>
+      :root { color-scheme: light; --paper:#fcf9fd; --text:#28202c; --muted:#6f6374; --line:#ded3e3; --purple:#681b77; }
+      * { box-sizing:border-box; }
+      body { margin:0; height:100dvh; display:flex; flex-direction:column; background:var(--paper); color:var(--text); font:16px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+      header { background:#f4edf7; border-bottom:1px solid var(--line); padding:14px 20px; }
+      .header-inner { max-width:1100px; margin:auto; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
+      .brand { color:var(--purple); font-weight:750; letter-spacing:.12em; }
+      .caption, #counter { color:var(--muted); font-size:14px; }
+      main { flex:1; min-height:0; display:flex; flex-direction:column; }
+      nav, .controls { flex:none; width:min(100%,1100px); margin:0 auto; padding:12px 20px; display:flex; align-items:center; flex-wrap:wrap; gap:10px; }
+      select { flex:1 1 230px; min-width:0; }
+      button,select { color:var(--text); background:var(--paper); border:1px solid var(--line); border-radius:7px; padding:9px 12px; font:inherit; font-size:14px; }
+      button { cursor:pointer; }
+      button:disabled { opacity:.4; cursor:default; }
+      button:focus-visible,select:focus-visible { outline:3px solid var(--purple); outline-offset:3px; }
+      .controls { justify-content:space-between; padding-top:0; }
+      .modes, .legend { display:flex; gap:6px; }
+      .modes button[aria-pressed="true"] { color:white; background:var(--purple); border-color:var(--purple); }
+      .legend { gap:12px; font-size:14px; }
+      del { color:#942e32; background:#fce6e7; padding:1px 5px; }
+      ins { color:#17633e; background:#e1f3e8; padding:1px 5px; text-underline-offset:3px; }
+      #page-note { margin:0; padding:0 20px 10px; text-align:center; color:var(--muted); font-size:13px; }
+      #full-document { flex:1; min-height:0; width:100%; border:0; border-top:1px solid var(--line); background:var(--paper); }
+      #message { padding:40px 24px; max-width:780px; margin:0 auto; white-space:pre-wrap; }
+      [hidden] { display:none !important; }
+      @media(max-width:480px) { select { flex-basis:100%; order:-1; } nav, .controls { padding-left:14px; padding-right:14px; } }
+    </style>
+  </head>
+  <body>
+    <header><div class="header-inner"><span class="brand">ARGON</span><span class="caption" id="baseline">Documentation review</span></div></header>
+    <main>
+      <nav aria-label="Changed pages">
+        <button id="previous" type="button">← Previous</button>
+        <span id="counter"></span>
+        <button id="next" type="button">Next →</button>
+        <select id="page-picker" aria-label="Review page"></select>
+      </nav>
+      <div class="controls">
+        <div class="modes" role="group" aria-label="Text view">
+          <button type="button" data-mode="original" aria-pressed="false">Original</button>
+          <button type="button" data-mode="changes" aria-pressed="true">Track changes</button>
+          <button type="button" data-mode="revised" aria-pressed="false">Revised</button>
+        </div>
+        <div id="legend" class="legend"><del>Removed</del><ins>Added</ins></div>
+      </div>
+      <p id="page-note" hidden></p>
+      <div id="message" role="status" hidden></div>
+      <iframe id="full-document" title="Full documentation page" hidden></iframe>
+    </main>
+    <script type="module">
+      const params = new URLSearchParams(location.search);
+      let selected = params.get('page');
+      let mode = ['original', 'revised', 'changes'].includes(params.get('mode')) ? params.get('mode') : 'changes';
+      let state;
+      let fetching = false;
+      let disconnected = false;
+      const picker = document.getElementById('page-picker');
+      const frame = document.getElementById('full-document');
+      const message = document.getElementById('message');
+
+      function render() {
+        const pages = state.pages;
+        let index = pages.findIndex(page => page.path === selected);
+        if (index < 0) index = 0;
+        const page = pages[index];
+        selected = page?.path ?? null;
+        picker.replaceChildren(...pages.map(page => {
+          const option = document.createElement('option');
+          option.value = page.path;
+          option.textContent = page.title;
+          return option;
+        }));
+        picker.value = selected ?? '';
+        picker.disabled = !page;
+        document.getElementById('counter').textContent = page ? `${index + 1} of ${pages.length}` : '0 pages';
+        document.getElementById('previous').disabled = index <= 0;
+        document.getElementById('next').disabled = !page || index >= pages.length - 1;
+        document.getElementById('baseline').textContent = state.session
+          ? `Saved review · ${state.session}` : `Documentation · Compared with ${state.base.slice(0, 8)}`;
+        document.getElementById('legend').hidden = mode !== 'changes';
+        for (const button of document.querySelectorAll('[data-mode]')) {
+          button.setAttribute('aria-pressed', String(button.dataset.mode === mode));
+        }
+        let notice = '';
+        if (!page) notice = 'There are no documentation changes against this baseline. Whitepapers are excluded.';
+        else if (page.error) notice = page.error;
+        else if (page.status === 'deleted') notice = 'This entire page was deleted. Its previous source is preserved in the Git baseline or saved session; this viewer cannot mount a deleted route.';
+        else if (page.status === 'added' && mode === 'original') notice = 'This page did not exist in the baseline.';
+        message.hidden = !notice;
+        message.textContent = notice;
+        frame.hidden = Boolean(notice);
+        if (notice) frame.removeAttribute('src');
+        else {
+          const url = `${page.route}?reviewMode=${mode}`;
+          if (frame.getAttribute('src') !== url) frame.src = url;
+          frame.title = `${page.title} — full documentation page`;
+        }
+        const note = document.getElementById('page-note');
+        note.hidden = !page || Boolean(page.passages) || mode !== 'changes';
+        note.textContent = 'This page has layout, formatting, or code changes without marked text changes.';
+        document.title = page ? `${page.title} — Argon track changes` : 'Argon documentation — Track changes';
+        const query = new URLSearchParams({ mode });
+        if (selected) query.set('page', selected);
+        history.replaceState(null, '', `${location.pathname}?${query}`);
+      }
+
+      async function refresh() {
+        if (fetching) return;
+        fetching = true;
+        try {
+          const response = await fetch('/__docs_review/state', { cache: 'no-store' });
+          if (!response.ok) throw new Error('The local review server is unavailable.');
+          const fresh = await response.json();
+          if (!state || disconnected || fresh.revision !== state.revision || fresh.fingerprint !== state.fingerprint) {
+            state = fresh;
+            render();
+          }
+          disconnected = false;
+        } catch (error) {
+          disconnected = true;
+          message.hidden = false;
+          message.textContent = `Cannot refresh this review. ${error.message}`;
+        } finally {
+          fetching = false;
+        }
+      }
+
+      picker.addEventListener('change', () => {
+        selected = picker.value;
+        render();
+      });
+      for (const [id, step] of [['previous', -1], ['next', 1]]) {
+        document.getElementById(id).addEventListener('click', () => {
+          const index = state.pages.findIndex(page => page.path === selected);
+          selected = state.pages[index + step]?.path ?? selected;
+          render();
+        });
+      }
+      for (const button of document.querySelectorAll('[data-mode]')) {
+        button.addEventListener('click', () => {
+          mode = button.dataset.mode;
+          render();
+        });
+      }
+      await refresh();
+      setInterval(refresh, 2000);
+    </script>
+  </body>
+</html>
