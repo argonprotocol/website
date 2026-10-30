@@ -108,7 +108,7 @@
 
     <ul class="list-disc ml-10">
       <li>
-        Mining operators bid ARGN and ARGNOT for Mining Seats. 1-57% of the revenue from
+        Mining operators bid ARGN and ARGNOT for Mining Seats. 5-51% of the revenue from
         mining auctions is distributed to Vaults, 15-21% is distributed to Argonot Stakes,
         5-7% to Bonds, and 3-5% to Bitcoin Liquids.
       </li>
@@ -244,7 +244,7 @@
     <dl class="my-8 border-t border-slate-300">
       <div class="border-b border-slate-300 py-5 sm:flex sm:gap-6">
         <dt class="text-3xl font-bold text-argon-700 sm:w-28 sm:shrink-0">
-          1-57%
+          5-51%
         </dt>
         <dd class="m-0 mt-2 sm:mt-0">
           <strong class="block text-lg">
@@ -260,7 +260,7 @@
         </dt>
         <dd class="m-0 mt-2 sm:mt-0">
           <strong class="block text-lg">
-            <DocLink to="/docs/assets-and-entities/ambassador-rewards">Ambassador Rewards</DocLink>
+            <DocLink to="/docs/assets-and-entities/certification-rewards">Certification Rewards</DocLink>
           </strong>
           This is an experimental fund meant to support the growth of the network. The
           range is based on viable uses. Any capital not used is burned from the ecosystem.

@@ -358,7 +358,7 @@ import { microgonToArgon } from "@/lib/currencyUtils";
 
 const BITCOIN_CAPACITY_RATE = 0.15;
 const VAULTING_ALLOCATION_PERCENT = 65;
-const AMBASSADOR_REWARDS_ALLOCATION_PERCENT = 20;
+const CERTIFICATION_REWARDS_ALLOCATION_PERCENT = 20;
 
 const data = Vue.ref(Data.basics);
 

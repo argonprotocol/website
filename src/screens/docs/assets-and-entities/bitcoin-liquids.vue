@@ -247,23 +247,21 @@
       coming out of the operator's allocation.
     </p>
 
-    <section class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-5">
-      <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">
-        Liquid Revenue Share
-      </div>
-      <div class="my-3 text-3xl font-bold text-argon-700">3%–5%</div>
-      <p class="m-0 text-sm text-slate-600">
-        This is the share of eligible revenue allocated to Liquids. An
-        individual position receives its proportional share of that pool;
-        the percentage is not an annual return on its Bitcoin's value.
-      </p>
-    </section>
+    <RevenueShareBox :base-share="3" :profit-surge="2" :throttle-apy="100">
+      <template #title>Bitcoin Liquids</template>
+    </RevenueShareBox>
 
     <p>
-      A BTC position receives its full revenue share on distributions up to
-      the <strong>100% APY</strong> threshold. Only the portion above that
-      threshold receives a <strong>50% reduction</strong>. The reduction does
-      not apply to the entire distribution when the threshold is crossed.
+      The reserve carries earnings from stronger mining periods into weaker
+      ones. When revenue falls, saved earnings supplement current payouts to
+      help sustain returns at the throttle level while reserves remain
+      available. Returns can still exceed that level.
+    </p>
+
+    <p>
+      An individual position receives its proportional share of the eligible
+      revenue pool. The revenue-share percentage is not an annual return on
+      its Bitcoin's value.
     </p>
 
     <p>
@@ -513,6 +511,7 @@
 
 <script setup lang="ts">
 import MathFormula from "@/components/MathFormula.vue";
+import RevenueShareBox from "@/components/RevenueShareBox.vue";
 import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";

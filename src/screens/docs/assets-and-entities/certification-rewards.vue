@@ -1,9 +1,9 @@
 <template>
-  <DocHeader>Ambassador Rewards</DocHeader>
+  <DocHeader>Certification Rewards</DocHeader>
 
   <DocContent>
     <p>
-      Ambassador Rewards are funded by a share of mining-seat bid revenue set
+      Certification Rewards are funded by a share of mining-seat bid revenue set
       aside to help qualified members become network operators. This pool funds
       protocol-defined certification and referral rewards rather than paying a
       standing return to operators or Upstream Nodes.
@@ -14,19 +14,19 @@
       Operators compete for mining seats by bidding ARGN. Winning bids enter the
       mining-bid pool. Before the remaining bid revenue is distributed to
       Argonot Stakes and qualifying Stabilization Vaults, the protocol assigns
-      20% to Ambassador Rewards.
+      20% to Certification Rewards.
     </p>
 
     <section
       class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-5"
     >
       <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">
-        Ambassador Rewards Allocation
+        Certification Rewards Allocation
       </div>
       <div
         class="my-4 overflow-x-auto rounded-md border border-argon-200 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-xl text-slate-800 sm:text-2xl"
       >
-        Ambassador Rewards = 20% of winning mining bids
+        Certification Rewards = 20% of winning mining bids
       </div>
       <p class="m-0 text-sm text-slate-600">
         This is a share of bid revenue paid by winning miners. It is not a share
@@ -48,7 +48,7 @@
 
     <h2>When Rewards Are Earned</h2>
     <p>
-      Ambassador Rewards are tied to completed Operator Certification. No
+      Certification Rewards are tied to completed Operator Certification. No
       reward is earned merely because an operator creates an invitation, a
       member accepts an access code, or a sponsor approves Operations access.
     </p>
@@ -162,7 +162,7 @@
 
     <h2>Unused Funds</h2>
     <p>
-      The Ambassador Rewards allocation is not a general-purpose protocol
+      The Certification Rewards allocation is not a general-purpose protocol
       budget and is not distributed pro rata among operators. Within the
       economic model, the 20% share either funds qualifying onboarding rewards
       or is burned when it is not used for those rewards.

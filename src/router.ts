@@ -46,7 +46,11 @@ const router = createRouter({
     },
     {
       path: '/docs/assets-and-entities/operational-rewards-pool',
-      redirect: '/docs/assets-and-entities/ambassador-rewards'
+      redirect: '/docs/assets-and-entities/certification-rewards'
+    },
+    {
+      path: '/docs/assets-and-entities/ambassador-rewards',
+      redirect: '/docs/assets-and-entities/certification-rewards'
     },
     {
       path: '/docs/assets-and-entities/upstream-nodes',

@@ -14,15 +14,15 @@
 
     <p>
       Argon does not target a permanently fixed price of one U.S. dollar.
-      Instead, its target begins with a dollar-denominated reference and moves
+      Instead, it uses a dollar-denominated reference that moves
       against inflation (as currently tracked by the U.S. Consumer Price Index). The intent is for one Argon
       to retain comparable purchasing power as consumer prices change.
     </p>
     <p>
-      The network compares this inflation-agnostic target price with Argon's market price. When
-      the market price is above target, the protocol can create opportunities
+      The network compares Argon's inflation-agnostic target price with its actual market price. When
+      the market price is above target, the protocol creates opportunities
       for additional issuance. When the market price is below target, new
-      price-responsive issuance stops, and releasing Bitcoin Liquids creates an
+      issuance slows down, and Bitcoin Liquids create an
       incentive to burn Argons. These mechanisms change supply through the voluntary
       actions of independent network participants. The
       <DocLink to="/docs/system-design/stabilization-algorithms"
@@ -98,7 +98,7 @@
       or leave circulation.
     </p>
 
-    <h2>Issuance and Supply</h2>
+    <h2>Issuance, Supply and Burning</h2>
     <p>
       ARGN has an elastic supply with no fixed cap. New Argons enter circulation
       through base mining rewards, with additional price-responsive rewards
@@ -126,8 +126,7 @@
     </p>
     <p>
       Holders remain responsible for their own keys and transaction approvals.
-      ARGN's purchasing-power target does not guarantee its market value while
-      it is held or transferred.
+      ARGN's purchasing-power target does not guarantee its market value.
     </p>
 
     <h2>How Commitment Changes Availability</h2>
@@ -169,9 +168,9 @@
 
     <p>
       These are availability conditions, not a lifecycle every Argon follows.
-      Bond principal and vault securitization have different protections and
-      release rules. Mining-seat payments spend ARGN, and releasing a Bitcoin Liquid burns ARGN; neither is a temporary commitment that returns those
-      Argons to the holder.
+      Bond principal and vault securitization each have different protections and
+      release rules. Mining-seat payments spend ARGN, and the release of a Bitcoin
+      Liquid burns ARGN.
     </p>
 
     <h2>Learn More</h2>

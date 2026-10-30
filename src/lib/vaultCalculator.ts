@@ -1,5 +1,5 @@
-export const MIN_VAULT_PROFIT_RATE = 0.01;
-export const MAX_VAULT_PROFIT_RATE = 0.57;
+export const MIN_VAULT_PROFIT_RATE = 0.05;
+export const MAX_VAULT_PROFIT_RATE = 0.51;
 export const BITCOIN_CORE_WEIGHT = 0.9;
 export const BOND_CORE_WEIGHT = 0.1;
 export const BITCOIN_CAPACITY_RATE = 0.15;

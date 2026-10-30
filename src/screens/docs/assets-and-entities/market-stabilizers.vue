@@ -5,8 +5,8 @@
     <p>
       Market Stabilizers reward participants for supplying liquidity near
       Argon's target price and buying ARGN when it trades below target. They
-      give users two ways to support the market: <strong>Stabilizer Pools</strong>
-      and <strong>Stabilizer Buys</strong>.
+      give users two ways to support the market: Stabilizer Pools
+      and Stabilizer Buys.
     </p>
 
     <p>
@@ -22,10 +22,10 @@
     <h2>Stabilizer Pools</h2>
     <p>
       A Stabilizer Pool position is a Uniswap liquidity position in an
-      official <strong>ARGN/USDC pool</strong>. Its liquidity should sit within
+      official ARGN/USDC pool. Its liquidity is meant to sit within
       the 10% band below Argon's target price: between 90% and 100% of the
       target. This places liquidity where it can support purchases as ARGN
-      trades below target.
+      trades at or below target.
     </p>
 
     <h3>Trading Fees</h3>
@@ -65,7 +65,7 @@
     <h2>Stabilizer Buys</h2>
     <p>
       When ARGN trades below its target price, users can place Stabilizer Buy
-      orders through a special <strong>Ethereum contract</strong>. Successful
+      orders through a special Ethereum contract. Successful
       purchases are automatically moved to Argon and placed into a lock.
       The mechanism rewards participants for buying discounted ARGN and
       committing it to a locked position.

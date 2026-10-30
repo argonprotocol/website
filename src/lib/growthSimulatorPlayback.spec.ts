@@ -168,7 +168,7 @@ describe("six-step simulator playback", () => {
     const iterator = iteratePlaybackStep(start, engine);
     const target = iterator.next().value;
     expect(target.revenue).toBeCloseTo(12324 * calculateVaultRevenueShare(start.state));
-    expect(target.revenue).toBeLessThanOrEqual(12324 * 0.57);
+    expect(target.revenue).toBeLessThanOrEqual(12324 * 0.51);
     expect(target.bidCosts).toBe(12324);
     expect(target.state).toBe(start.state);
     expect(target.cycleDays).toBe(12);
@@ -178,9 +178,9 @@ describe("six-step simulator playback", () => {
   });
 
   it.each([
-    { bitcoinLocked: 1, minedArgons: 0, securitization: 100, share: 0.57 },
-    { bitcoinLocked: 0, minedArgons: 0, securitization: 100, share: 0.03 },
-    { bitcoinLocked: 1, minedArgons: 10000, securitization: 100, share: 0.57 / 15 },
+    { bitcoinLocked: 1, minedArgons: 0, securitization: 100, share: 0.51 },
+    { bitcoinLocked: 0, minedArgons: 0, securitization: 100, share: 0.15 },
+    { bitcoinLocked: 1, minedArgons: 10000, securitization: 100, share: 0.51 / 15 },
     { bitcoinLocked: 0, minedArgons: 0, securitization: 0, share: 0 },
   ])("uses vault utilization and coverage for revenue: $share", ({ bitcoinLocked, minedArgons, securitization, share }) => {
     const start = { ...initialFrame(), step: 1 as const, bidCosts: 1000 };
@@ -197,7 +197,7 @@ describe("six-step simulator playback", () => {
     };
     const result = finishStep(start);
     expect(result.revenue).toBeCloseTo(1000 * share);
-    expect(result.revenue).toBeLessThanOrEqual(result.bidCosts * 0.57);
+    expect(result.revenue).toBeLessThanOrEqual(result.bidCosts * 0.51);
     expect(result.bidCosts).toBe(1000);
     expect(result.state).toBe(start.state);
   });

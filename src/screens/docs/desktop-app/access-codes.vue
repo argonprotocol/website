@@ -104,15 +104,15 @@
       allowing those codes to become available when capacity opens.
     </p>
 
-    <h2>Ambassador Rewards</h2>
+    <h2>Certification Rewards</h2>
     <p>
-      The Ambassador Rewards pool currently holds
+      The Certification Rewards pool currently holds
       ₳{{ (Number(data.treasuryRewardsPoolMicrogons) / 1_000_000).toLocaleString('en-US', { maximumFractionDigits: 0 }) }}
       to fund rewards for
       Operators who complete Operator Certification and the upstream Operators
       who help onboard them. Rewards are subject to the protocol's eligibility
       rules. See
-      <DocLink to="/docs/assets-and-entities/ambassador-rewards">Ambassador Rewards</DocLink>
+      <DocLink to="/docs/assets-and-entities/certification-rewards">Certification Rewards</DocLink>
       for details.
     </p>
   </DocContent>

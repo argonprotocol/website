@@ -5,7 +5,7 @@
 
   <DocContent>
     <p>
-      Argon is a decentralized digital currency designed to preserve purchasing power over time. Instead of pegging to
+      Argon is a decentralized digital currency designed to preserve purchasing power. Instead of pegging to
       fiat currency such as the U.S. dollar, Argon follows a Consumer Price Index that tracks the cost of real goods. As
       those costs change, Argon’s target value changes with them.
     </p>
@@ -19,7 +19,7 @@
     <p>
       If you’re new to Argon, the following pages provide a great introduction:
     </p>
-    <ol>
+    <ol class="list-decimal">
       <li>
         Begin with an <DocLink to="/docs/system-design">Overview of the System Design</DocLink>
         for an understanding of the network’s major components and the roles they play.
@@ -51,7 +51,7 @@
       <li>
         <strong>Stablecoin User.</strong> You want to hold, send, receive, or exchange a digital currency designed to
         preserve its purchasing power over time.
-        <ul class="ml-4">
+        <ul class="ml-8 list-disc mt-2">
           <li class="mb-1!">
             <DocLink to="/docs/desktop-app">Argon Desktop overview</DocLink>
           </li>
@@ -69,7 +69,7 @@
       <li>
         <strong>Active Custodian.</strong> You want to supply capital through Treasury’s yield-bearing assets, which
         help finance the network’s mining and vaulting activity.
-        <ul class="ml-4">
+        <ul class="ml-8 list-disc mt-2">
           <li class="mb-1!">
             <DocLink to="/docs/desktop-app/treasury">Treasury</DocLink>
           </li>
@@ -87,7 +87,7 @@
       <li>
         <strong>Network Operator.</strong> You want to help run the network by mining blocks, operating vaults, or
         participating in bridgeless issuance.
-        <ul class="ml-4">
+        <ul class="ml-8 list-disc mt-2">
           <li class="mb-1!">
             <DocLink to="/docs/desktop-app/operations">Operations</DocLink>
           </li>

@@ -26,10 +26,10 @@
     <aside
       class="my-8 rounded-lg border border-argon-200 bg-white/40 px-5 py-4"
     >
-      <strong class="block mb-1">What “ownership” does not mean</strong>
+      <strong class="block mb-1">What "Ownership" Does Not Mean</strong>
       <p class="m-0">
-        ARGNOT does not represent shares in a company, give its holder protocol
-        voting rights, or create an automatic claim on network revenue. Holding
+        ARGNOT does not represent shares in a company or create an automatic
+        claim on network revenue. Holding
         ARGNOT and putting ARGNOT to work are separate actions.
       </p>
     </aside>

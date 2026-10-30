@@ -99,7 +99,7 @@
     </p>
 
     <p>
-      See <DocLink to="/docs/assets-and-entities/ambassador-rewards">Ambassador Rewards</DocLink> for reward amounts, eligibility, and collection rules.
+      See <DocLink to="/docs/assets-and-entities/certification-rewards">Certification Rewards</DocLink> for reward amounts, eligibility, and collection rules.
     </p>
   </DocContent>
 </template>

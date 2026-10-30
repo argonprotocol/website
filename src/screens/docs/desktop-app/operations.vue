@@ -72,7 +72,7 @@
 
     <p>
       The Onboarding dashboard also tracks certification and referral progress
-      and shows rewards available to claim. See <DocLink to="/docs/assets-and-entities/ambassador-rewards">Ambassador Rewards</DocLink> for funding and
+      and shows rewards available to claim. See <DocLink to="/docs/assets-and-entities/certification-rewards">Certification Rewards</DocLink> for funding and
       eligibility rules.
     </p>
 

@@ -2,23 +2,23 @@
   <DocHeader>Don't Get Hacked</DocHeader>
   <DocContent>
     <p>
-      We highly recommend that you follow
+      We highly recommend you follow
       <a href="https://discord.com/invite/argonnetwork" target="_blank" rel="noopener noreferrer">Argon's official Discord server</a>
-      for updates, questions, and conversations. It's the easiest way to stay up-to-date on what is happening.
+      for updates, questions, and conversations. It's the easiest way to stay up-to-date.
     </p>
     <p>
-      However, there is a big caveat!
+      However, there is a big caveat...
     </p>
     <p>
       Discord and the broader internet are filled with hackers and scammers.
-      Some impersonate Argon's core developers, including
-      <strong>@calebjclark</strong> and <strong>@blakeb</strong>, to gain your trust.
-      They can copy our names and profile pictures, so a familiar-looking
-      profile is not proof that you're talking to one of us.
+      Many of our users have reported being impersonated by peopling claiming to be
+      <strong>@calebjclark</strong> and <strong>@blakeb</strong>, some of our core developers. These scammers have
+      copied their names and profile pictures, and they'll try to convince you to click a dangerous link or provide private data.
+      So be forewarned! A familiar-looking profile is not proof you're talking to one of us.
     </p>
     <p>
       We built <strong>Argon Verifier</strong> to help you check someone's role
-      in the official Argon Discord server. Use it to verify anyone who
+      in the official Argon Discord server and not get scammed. Use it to verify anyone who
       contacts you claiming to be part of the core team.
     </p>
 

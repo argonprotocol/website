@@ -16,7 +16,7 @@
       Each purchase of one or more bonds is recorded on the chain as a
       <em>bond position</em> with its own revenue-sharing terms,
       earnings history, and release status. Buying more bonds at a later date
-      creates another position rather than adding to the first one.
+      creates another position rather than adding to the first.
     </p>
 
     <section
@@ -62,10 +62,7 @@
       <DocLink to="/docs/assets-and-entities/vaulting-operations"
         >Stabilization Vaults</DocLink
       >
-      support the network's
-      <DocLink to="/docs/assets-and-entities/bitcoin-locks"
-        >Bitcoin Locks</DocLink
-      >. These vaults need ARGN capital to provide liquidity for the locks.
+      need ARGN capital to provide liquidity for the Bitcoin Liquids.
       Argon Bonds let the broader community participate in supplying this
       capital.
     </p>
@@ -77,9 +74,7 @@
       portion of its bonds when allocating revenue.
     </p>
 
-    <section
-      class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-5"
-    >
+    <section class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-5">
       <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">
         Revenue-Eligible Capacity
       </div>
@@ -96,36 +91,28 @@
 
     <h2>Where Bond Earnings Come From</h2>
     <p>
-      Bond earnings come from the ARGN paid by miners in winning mining-seat
-      bids. A portion of that revenue flows through Stabilization Vaults to
+      Bond earnings come from the ARGN paid by miners in mining-seat
+      auctions. A portion of that revenue flows through Stabilization Vaults to
       eligible Bond positions at the end of each frame.
     </p>
 
-    <section class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-5">
-      <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">
-        Bond Revenue Share
-      </div>
-      <div class="my-3 text-3xl font-bold text-argon-700">5%–7%</div>
-      <p class="m-0 text-sm text-slate-600">
-        Bonds receive 5% of eligible vaulting revenue by default. A vault
-        operator can offer as much as 7% to attract Bond capital. Every
-        additional percentage point comes out of the operator's share.
-      </p>
-    </section>
+    <RevenueShareBox :base-share="5" :profit-surge="2" :throttle-apy="100">
+      <template #title>Argon Bonds</template>
+    </RevenueShareBox>
 
     <p>
-      Each position earns according to the revenue-sharing terms offered when
-      it was created. Revenue eligibility is tied to the ARGN market value of
-      Bitcoin secured by the vault, so adding Bonds alone does not create an
-      unlimited claim on mining-bid revenue.
+      The reserve carries earnings from stronger mining periods into weaker
+      ones. When revenue falls, saved earnings supplement current payouts to
+      help sustain returns at the throttle level while reserves remain
+      available. Returns can still exceed that level.
     </p>
 
     <p>
-      The amount available to Bonds changes with mining-seat bids. ARGNOT's
-      market price and growth in ARGN circulation can increase the value a
-      mining seat produces, supporting larger bids. A lower expected return
-      for miners also allows them to bid more, while a higher expected return
-      leaves less revenue available for distribution.
+      The daily distribution paid to Bonds is based on the previous day's mining auction.
+      In increase in ARGNOT's market price or the growth in ARGN circulation
+      can increase the value of these auctions. A lower expected return
+      for miners means more auction revenue for distribution, while a higher expected return
+      means less revenue.
     </p>
 
     <p>
@@ -220,6 +207,7 @@
 </template>
 
 <script setup lang="ts">
+import RevenueShareBox from "@/components/RevenueShareBox.vue";
 import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";

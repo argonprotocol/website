@@ -62,8 +62,8 @@
       />
 
       <div class="DOCSCONTENT min-w-0 flex-1 max-w-full">
-        <div class="max-w-[52rem] xl:mx-32 xl:mt-5">
-          <div class="post mb min-h-screen xl:pt-6">
+        <div class="max-w-[52rem] xl:mx-32 xl:mt-5 2xl:mx-12">
+          <div ref="docContentRef" class="post mb min-h-screen xl:pt-6">
             <component :is="activePage" v-if="activePage" />
             <div v-else class="py-6">
               <h2 class="text-xl font-semibold">Documentation</h2>
@@ -80,9 +80,7 @@
 <!--          </div>-->
         </div>
       </div>
-      <div class="RIGHTBAR">
-
-      </div>
+      <DocPageNav :key="activeDocPath" :content="docContentRef" />
     </div>
   </MainLayout>
 </template>
@@ -91,6 +89,7 @@
 import * as Vue from 'vue';
 import { useRoute } from 'vue-router';
 import DocLink from './DocLink.vue';
+import DocPageNav from './DocPageNav.vue';
 import { isDocLinkActive } from './docLinkState';
 import toc from './toc.json';
 import MainLayout from '@/navigation/MainLayout.vue';
@@ -98,6 +97,7 @@ import GithubLogo from '@/assets/github.svg?component';
 
 const route = useRoute();
 const isLeftbarOpen = Vue.ref(false);
+const docContentRef = Vue.ref<HTMLElement | null>(null);
 const leftbarWrapperRef = Vue.ref<HTMLElement | null>(null);
 const leftbarRef = Vue.ref<HTMLElement | null>(null);
 const leftbarContentRef = Vue.ref<HTMLElement | null>(null);
@@ -436,6 +436,11 @@ function normalizeCurrentPath(path: string) {
 }
 
 .DOCSCONTENT {
+  h2,
+  h3 {
+    scroll-margin-top: 2rem;
+  }
+
   h2 {
     @apply text-4xl text-slate-900 mt-7 mb-4 font-serif;
   }
@@ -490,7 +495,4 @@ function normalizeCurrentPath(path: string) {
   }
 }
 
-.RIGHTBAR {
-  @apply hidden;
-}
 </style>

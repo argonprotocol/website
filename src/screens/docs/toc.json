@@ -233,13 +233,13 @@
         "isActive": true
       },
       {
-        "title": "Connections",
+        "title": "Network Connections",
         "link": "/connections",
         "isActive": true
       },
       {
-        "title": "Ambassador Rewards",
-        "link": "/ambassador-rewards",
+        "title": "Certification Rewards",
+        "link": "/certification-rewards",
         "isActive": true
       },
       {

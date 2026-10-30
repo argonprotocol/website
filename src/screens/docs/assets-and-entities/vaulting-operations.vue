@@ -37,24 +37,15 @@
     </p>
 
     <p>
-      A Cosigner Guarantee is ARGN capital committed by the vault to address defined failures involving
-      its Bitcoin cosigning responsibilities. The applicable capital remains held while it supports the
-      guarantee or another protocol commitment. A vault can charge a flat fee plus an annualized rate for
-      its capital and cosigning service.
+      A Cosigner Guarantee is ARGN capital committed by the vault to ensure it fulfills
+      its Bitcoin cosigning responsibilities. The applicable capital remains held until the vault finishes
+      its commitments. A vault can charge a flat fee plus an annualized rate for
+      this cosigning service.
     </p>
 
     <p>
-      A Lock can hold BTC with zero guarantee, but it has no capacity for a
-      <DocLink to="/docs/assets-and-entities/bitcoin-liquids">Bitcoin Liquid</DocLink>. Creating a
-      Liquid is a separate action, and its amount is limited by both the eligible Bitcoin value and
-      available guarantee capacity. A guarantee can be added before creating a Liquid, subject to vault
-      availability and fees.
-    </p>
+      The guarantee does not protect against Bitcoin price changes or guarantee ARGN’s market value.
 
-    <p>
-      The guarantee does not protect against Bitcoin price changes or guarantee ARGN’s market value. The Liquid’s release rules provide its separate price protection. Releasing
-      a Liquid settles its ARGN obligation and frees the guarantee capacity used by that position; releasing the Bitcoin is a
-      separate transaction.
     </p>
 
     <h3>Liquidity Through Argon Bonds</h3>
@@ -67,10 +58,10 @@
     </p>
 
     <p>
-      Bond admission capacity and revenue eligibility are separate limits. Available bond space is tied
-      to the vault’s securitization capital. The supported portion that participates in revenue
-      distributions is limited by the ARGN market value of Bitcoin secured by the vault. Adding bond
-      capital alone does not create an unlimited claim on mining-bid revenue. See
+      Available bond space is tied to the vault’s ARGN securitization capital. Active Bonds earn from
+      their own mining-bid revenue pool and also contribute to the operator’s earnings. Bond and Bitcoin
+      contributions are rewarded separately, so a vault does not need to fill its Bitcoin capacity before
+      its active Bonds can contribute to revenue. See
       <DocLink to="/docs/assets-and-entities/argon-bonds">Argon Bonds</DocLink> for position terms and
       eligibility rules.
     </p>
@@ -127,7 +118,7 @@
       further.
     </p>
 
-    <h2>Operator Alliances</h2>
+    <h2>Operator Alliances <span class="font-light">(Coming Soon)</span></h2>
 
     <p>
       Planned operator alliances will allow vault operators to borrow unused Securitization or BTC
@@ -176,242 +167,228 @@
 
     <h2>How Vault Revenue Works</h2>
 
-    <p>
-      A vault can earn ARGN from two primary sources:
-    </p>
+    <p>A vault earns ARGN from two primary sources:</p>
 
     <ul>
       <li>
-        Bitcoin service fees paid for its Cosigner Guarantee capital and cosigning service.
+        <strong>Mining-Auction Revenue.</strong> Miners pay ARGN for mining seats. The protocol distributes
+        part of those winning bids to vault operators for the capital, secured Bitcoin, and liquidity
+        they contribute to the network.
       </li>
       <li>
-        Mining-bid revenue allocated to the operator according to the protocol’s eligibility, capital,
-        and participation rules.
+        <strong>Bitcoin Service Fees.</strong> The operator sets a flat fee and an annualized rate for
+        providing Cosigner Guarantee capital and cosigning services.
       </li>
     </ul>
 
     <p>
-      At each frame distribution, mining-bid revenue is allocated among protocol-defined pools and
-      eligible participants. The model below expresses each allocation as a share of total
-      mining-auction revenue, before subtracting other pools. See
-      <DocLink to="/docs/assets-and-entities/mining-operations">Mining Operations</DocLink> for the
-      source of the bid pool, <DocLink to="/docs/assets-and-entities/argon-bonds">Argon Bonds</DocLink>
-      for Bond position terms, and
-      <DocLink to="/docs/system-design/economic-drivers">Economic Drivers</DocLink> for the calculator.
+      A vault that also operates as a Remote Minting Authority can earn authorization tips. Those tips
+      are paid in the token being transferred and are separate from mining-bid revenue and Bitcoin fees.
     </p>
 
-    <h3>How the Website Model Estimates Vault Revenue</h3>
+    <h3>Mining-Auction Revenue</h3>
 
     <p>
-      The following six steps explain how the vaulting calculator models the effects of capital,
-      Bitcoin participation, Bonds, and ARGNOT on operator revenue. These are illustrative
-      assumptions, not the currently deployed payout rules. Actual earnings depend on the protocol
-      version, active parameters, eligibility, and each frame’s network state.
+      At the end of each frame, the protocol distributes the mining-bid pool using the capital and
+      participation recorded at the start of that frame. The mainchain runtime allocates up to 51% of
+      the full bid pool to vault operators across three earning components:
     </p>
 
-    <p>
-      All model capital values are expressed in ARGN. Initial ARGN Securitization means the operator’s
-      ARGN commitment and excludes third-party Bond principal. ARGNOT Securitization Value is the ARGN
-      value of the operator’s ARGNOT commitment. Utilization values are fractions from 0 to 1; 50% is
-      entered as 0.5. The formulas below assume positive initial ARGN securitization. The calculator
-      returns zero revenue and zero return when that amount is zero.
-    </p>
-
-    <p>
-      Mining Auction Revenue is the modeled full-network ARGN bid revenue over ten days. The ten-day
-      interval is a comparison period for the estimate; protocol distributions and collection obligations
-      operate by frame.
-    </p>
-
-    <h4>1. Establish the Network's Desired Bitcoin Space</h4>
-
-    <p>
-      The model begins with a network-wide target for Bitcoin capacity. It compares circulation
-      attributed to Bitcoin with 15% of circulation attributed to mining, then uses whichever amount is
-      greater. A minimum denominator of 1 ARGN avoids division by zero.
-    </p>
-
-    <section class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-5">
-      <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">Desired Bitcoin Space</div>
-      <div class="my-4 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl">
-        Desired Bitcoin Space = max(ARGN circulation attributed to Bitcoin, ARGN circulation attributed
-        to mining × 15%, 1 ARGN)
+    <aside class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-5">
+      <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">Vault Revenue Allocation</div>
+      <div class="my-4 rounded-md border border-argon-200 bg-white/60 px-4 py-5 text-center text-xl font-bold text-slate-800 sm:text-2xl">Up to 51% of mining-auction revenue</div>
+      <div class="overflow-x-auto">
+        <table class="w-full border-collapse font-sans! text-left">
+          <thead>
+            <tr class="border-b border-argon-200 text-xs tracking-wide text-argon-700 uppercase">
+              <th scope="col" class="py-3">Contribution</th>
+              <th scope="col" class="px-4 py-3 text-center">Auction Revenue</th>
+              <th scope="col" class="py-3 text-left!">What Earns It</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-argon-200">
+              <td class="py-4 font-bold text-slate-800 whitespace-nowrap">Argon Securitization</td>
+              <td class="px-4 py-4 text-center text-xl font-bold text-argon-700 tabular-nums">5%</td>
+              <td class="py-4 text-sm text-slate-600 text-left!">The operator’s committed ARGN collateral.</td>
+            </tr>
+            <tr class="border-b border-argon-200">
+              <td class="py-4 font-bold text-slate-800 whitespace-nowrap">Bitcoin Liquids Participation</td>
+              <td class="px-4 py-4 text-center text-xl font-bold text-argon-700 tabular-nums">42.835%</td>
+              <td class="py-4 text-sm text-slate-600 text-left!">Bitcoins covered by the vault’s Cosigner Guarantees.</td>
+            </tr>
+            <tr>
+              <td class="py-4 font-bold text-slate-800">Argon Bonds Participation</td>
+              <td class="px-4 py-4 text-center text-xl font-bold text-argon-700 tabular-nums">3.165%</td>
+              <td class="py-4 text-sm text-slate-600 text-left!">Active ARGN Bond principal supplied through the vault.</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
+    </aside>
+
+    <p>
+      These are network-wide allocations from the full mining-bid pool. An individual vault earns a
+      proportional share of each component; the percentages are not returns on its invested capital.
+      The three components are independent. Committing ARGN earns the securitization component, securing
+      Bitcoin earns the Bitcoin component, and attracting active Bonds earns the Bond component.
+    </p>
+
+    <h3>Network's Shared BTC Target</h3>
+
+    <aside class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-5">
+      <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">Shared BTC Target</div>
+      <div class="my-4 rounded-md border border-argon-200 bg-white/60 px-4 py-5 text-center text-xl font-bold text-slate-800 sm:text-2xl">50% of ARGN circulation</div>
       <p class="m-0 text-sm text-slate-600">
-        The website calculator uses a fixed Bitcoin-capacity rate of 15%. The deployed rate depends
-      on the active protocol parameters.
-      </p>
-    </section>
-
-    <h4>2. Measure the Vault's Contribution</h4>
-
-    <p>
-      The model compares the operator’s initial ARGN securitization with Desired Bitcoin Space. The
-      resulting Vault Factor is capped at 1. This factor describes one vault scenario; it does not reproduce how live vaults share the pool.
-    </p>
-
-    <div class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl">
-      Vault Factor = min(1, Initial ARGN Securitization ÷ Desired Bitcoin Space)
-    </div>
-
-    <h4>3. Measure How Fully the Vault Is Used</h4>
-
-    <p>
-      The model measures Bitcoin utilization by dividing its locked-Bitcoin value input by the initial
-      ARGN securitization and capping the result at 1. It measures Bond utilization the same way using
-      its Bond capital input. These simplified inputs do not reproduce the deployed rules for covered
-      Bitcoin, admission capacity, or revenue eligibility.
-    </p>
-
-    <div class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl">
-      Bitcoin Utilization = min(1, Bitcoin Locked Value ÷ Initial ARGN Securitization)
-    </div>
-
-    <div class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl">
-      Bond Utilization = min(1, Bond Capital ÷ Initial ARGN Securitization)
-    </div>
-
-    <p>
-      In this model, Bitcoin supplies 90% of the core utilization score. Bond utilization supplies the
-      remaining 10%, multiplied by Bitcoin utilization. Bonds therefore cannot increase the modeled
-      utilization score when the Bitcoin input is zero.
-    </p>
-
-    <div class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl">
-      Core Utilization = Bitcoin Utilization × (90% + 10% × Bond Utilization)
-    </div>
-
-    <p>
-      For example, a vault at 50% Bitcoin utilization receives 50% of the available Bitcoin component. A
-      vault at 100% Bitcoin utilization receives the full Bitcoin component and can unlock the final 10%
-      through purchased bonds.
-    </p>
-
-    <h4>4. Add ARGNOT Securitization</h4>
-
-    <p>
-      The website model includes optional ARGNOT securitization. It measures ARGNOT utilization against
-      capacity equal to twice the initial ARGN securitization. It also scales modeled revenue with the
-      operator’s total capital. Both effects are model assumptions; they do not establish the deployed ARGNOT reward rules.
-    </p>
-
-    <div class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl">
-      ARGNOT Utilization = min(1, ARGNOT Securitization Value ÷ (2 × Initial ARGN Securitization))
-    </div>
-
-    <div class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl">
-      Total Operator Capital = Initial ARGN Securitization + ARGNOT Securitization Value
-    </div>
-
-    <div class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl">
-      Capital Multiplier = Total Operator Capital ÷ Initial ARGN Securitization
-    </div>
-
-    <p>
-      The modeled ARGNOT bonus can increase the calculated return by up to 29% relative to the model
-      without ARGNOT. The bonus is multiplied by Bitcoin utilization and reaches its full effect only
-      when both utilization inputs are 1.
-    </p>
-
-    <div class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl">
-      ARGNOT Bonus = 1 + (29% × ARGNOT Utilization × Bitcoin Utilization)
-    </div>
-
-    <h4>5. Calculate the Modeled Revenue Rate</h4>
-
-    <p>
-      The model begins with a core revenue rate of 1% and increases it according to core utilization.
-      This is an intermediate weight applied to auction revenue, not a 1% return on invested capital. The
-      core maximum reserves room for the ARGNOT capital multiplier and bonus, and a final cap limits the
-      modeled operator rate.
-    </p>
-
-    <p>
-      The model’s standard 65% vaulting allocation comprises a maximum 57% operator share, a 5% Bond
-      share, and a 3% Bitcoin Liquid share. In this model, Bonds can be offered up to 7% and Liquids up
-      to 5%; percentage points above their standard allocations reduce the operator’s maximum. These are
-      model allocations expressed against the full auction-revenue input, not annual yields or successive
-      percentages of a shrinking remainder.
-    </p>
-
-    <div class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl">
-      Adjusted Maximum = max(1%, 57% − max(0, Bond Revenue Share − 5%) − max(0, Liquid Revenue Share −
-      3%))
-    </div>
-
-    <div class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl">
-      Core Maximum = Adjusted Maximum ÷ 3 ÷ 1.29
-    </div>
-
-    <div class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl">
-      Core Revenue Rate = 1% + Core Utilization × (Core Maximum − 1%)
-    </div>
-
-    <h4>6. Calculate Modeled Revenue and Return</h4>
-
-    <p>
-      The model applies the Vault Factor and capped operator revenue rate to the full-network auction
-      revenue estimated for the ten-day period. The result is modeled mining-bid revenue before operating
-      expenses. It excludes Bitcoin service fees and optional authority tips.
-    </p>
-
-    <div class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl">
-      Ten-Day Mining-Bid Revenue = Mining Auction Revenue × Vault Factor × min(Adjusted Maximum, Core
-      Revenue Rate × Capital Multiplier × ARGNOT Bonus)
-    </div>
-
-    <p>
-      The modeled ten-day return compares this mining-bid revenue with the ARGN value of the operator’s
-      initially committed ARGN and ARGNOT. It is a gross revenue-to-capital measure. Server costs,
-      transaction costs, and other operating expenses reduce net profit; Bitcoin service fees and
-      optional authority tips are separate earnings.
-    </p>
-
-    <div class="my-6 overflow-x-auto rounded-md border border-slate-300 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-lg text-slate-800 sm:text-xl">
-      Modeled Ten-Day Return (%) = Ten-Day Mining-Bid Revenue ÷ Total Operator Capital × 100
-    </div>
-
-    <section class="my-8 rounded-lg border border-slate-300 bg-white/40 px-5 py-5">
-      <h5 class="mt-0 text-lg font-bold text-slate-800">Modeled Example</h5>
-      <p>
-        Suppose Initial ARGN Securitization is ₳10,000, ARGNOT Securitization Value is ₳20,000, Bitcoin
-        Locked Value and Bond Capital are each ₳10,000, Desired Bitcoin Space is ₳100,000, and ten-day
-        Mining Auction Revenue is ₳1,000. Use the standard 5% Bond and 3% Liquid shares.
-      </p>
-
-      <p>
-        Vault Factor is 0.1. Bitcoin, Bond, ARGNOT, and core utilization are all 1. Core Maximum is 0.57
-        ÷ 3 ÷ 1.29; Capital Multiplier is 3 and ARGNOT Bonus is 1.29. The capped operator revenue rate is
-        therefore 0.57.
-      </p>
-
-      <p>
-        Ten-Day Mining-Bid Revenue is ₳1,000 × 0.1 × 0.57 = ₳57. Total Operator Capital is ₳30,000, so
-        the modeled ten-day return is 0.19% before operating costs. The 57% revenue rate is not a 57%
-        return on that capital.
-      </p>
-
-      <p class="mb-0">
-        Explore the assumptions in the
-        <DocLink to="/docs/system-design/economic-drivers">Economic Drivers vaulting calculator</DocLink>. Any annualized yield assumes the modeled conditions continue and earnings are repeatedly
-        reinvested; collecting revenue does not automatically reinvest it.
-      </p>
-    </section>
-
-    <aside class="my-8 rounded-lg border border-argon-200 bg-white/40 px-5 py-4">
-      <strong class="mb-1 block">In plain language</strong>
-      <p class="m-0">
-        In the website model, more operator capital can increase absolute revenue, while Bitcoin and Bond
-        utilization determine how much of the modeled capacity is used. ARGNOT provides the optional
-        modeled multiplier and bonus. Larger revenue shares offered to Bonds and Liquids reduce the
-        model’s operator maximum. Protocol payouts follow the active deployment’s rules.
+        Current circulation is <strong>{{ numeral(argonCirculation / 1_000_000).format('0.0') }}M ARGN</strong>,
+        making the shared participation target <strong>{{ numeral(sharedSecuritizationTarget / 1_000_000).format('0.0') }}M ARGN</strong>.
       </p>
     </aside>
 
     <p>
-      Vault earnings are held pending collection. The operator must resolve required cosigning work and
-      collect the revenue within the protocol's collection window. Revenue left uncollected after that
-      window is burned.
+      The shared target is used to calculate each vault’s Argon Securitization,
+      Bitcoin Liquids Participation, and Argon Bonds Participation
+      payouts. Each contribution is measured separately against the target to determine the vault’s
+      pro-rata share of the corresponding mining-auction revenue allocation:
+    </p>
+
+    <ul>
+      <li>
+        <strong>Argon Securitization:</strong> Committed ARGN collateral determines the vault’s share
+        of the 5% allocation.
+      </li>
+      <li>
+        <strong>Bitcoin Liquids Participation:</strong> Qualifying Bitcoin covered by Cosigner
+        Guarantees determines the vault’s share of the 42.835% allocation. The shared
+        target is converted to BTC using the network’s price feed for this comparison.
+      </li>
+      <li>
+        <strong>Argon Bonds Participation:</strong> Active ARGN Bond principal determines the vault’s
+        share of the 3.165% allocation.
+      </li>
+    </ul>
+
+    <p>
+      For example, with 3 million ARGN in circulation, the shared target is
+      1.5 million ARGN. A vault committing 150,000 ARGN in securitization contributes
+      10% of the target and receives 10% of the 5% payout, equivalent
+      to 0.5% of total mining-auction revenue.
+    </p>
+
+    <p>
+      For each component, participation below the target leaves part of its allocation unearned and
+      burned. If total network participation in that component exceeds the target, each vault’s share
+      is based on its contribution to that larger total, keeping payouts within the corresponding
+      allocation.
+    </p>
+
+    <p>
+      Only funded Bitcoin covered by a Cosigner Guarantee contributes to the Bitcoin component. A Lock
+      with zero guarantee does not earn that component. If the market value of all Bitcoin in the vault
+      exceeds its ARGN securitization, the Bitcoin component is reduced progressively, reaching a maximum
+      reduction of 20% when Bitcoin value is twice the securitization amount.
+    </p>
+
+    <p>
+      For operators with an upstream vault, part of their Bitcoin and Bond earnings depends on
+      maintaining eligible Bitcoin and Bond positions in that vault. The participation requirement is
+      limited by the upstream vault’s available capacity. 
+    </p>
+
+    <h3>Multiplier Based On ARGNOT Securitization</h3>
+
+    <p>
+      ARGNOT backing increases a vault’s eligible Bitcoin and Bond earnings. Committing ARGNOT worth up
+      to twice the vault’s ARGN securitization provides a capital multiplier of up to <strong>3×</strong>,
+      plus an additional bonus of up to <strong>29%</strong>.
+    </p>
+
+    <p>
+      These multipliers help the vault earn its full eligible share within the <strong>51% mining-bid
+      allocation</strong>. They do not increase that allocation or affect the separate ARGN
+      securitization component.
+    </p>
+
+    <p>
+      Committing ARGNOT also increases the operator’s invested capital, so a higher revenue multiplier
+      does not translate directly into the same increase in percentage return.
+    </p>
+
+    <aside class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-5">
+      <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">
+        ARGNOT Backing Target
+      </div>
+      <div class="my-4 rounded-md border border-argon-200 bg-white/60 px-4 py-5 text-center text-xl font-bold text-slate-800 sm:text-2xl">
+        2× your ARGN securitization value
+      </div>
+      <p class="m-0 text-sm text-slate-600">
+        For 10,000 ARGN in securitization, target ARGNOT worth 20,000 ARGN. The target is measured by
+        market value; the number of ARGNOT tokens needed depends on their price. Reaching this target
+        fully utilizes ARGNOT backing. Bitcoin and Bond participation still determine the vault’s
+        overall earnings.
+      </p>
+    </aside>
+
+    <h3>Multiplier Based On Upstream Distribution</h3>
+
+    <p>
+      Your upstream vault is the vault operated by your sponsor. Maintaining eligible Bitcoin and Bond
+      positions there helps maximize the Bitcoin Liquids Participation and Argon Bonds Participation
+      earnings of your own vault. These upstream positions must belong to your vault account.
+    </p>
+
+    <aside class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-5">
+      <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">Upstream Participation Targets</div>
+      <div class="my-4 rounded-md border border-argon-200 bg-white/60 px-4 py-5 text-center text-xl font-bold text-slate-800 sm:text-2xl">Up to 5,000 Bonds + ₳5,000 in Bitcoin Liquids participation</div>
+      <p class="m-0 text-sm text-slate-600">
+        Both positions are held in your upstream vault. Each target is limited by the capacity that
+        vault can make available to you.
+      </p>
+    </aside>
+
+    <p>
+      Mainchain measures Bitcoin Liquids participation by the ARGN value of Cosigner Guarantee capital
+      activated by your funded Bitcoin Locks. Bond participation is measured by active ARGN Bond
+      principal. Each side contributes half of your upstream participation score, increasing
+      proportionally as you approach its target.
+    </p>
+
+    <p>
+      The upstream participation factor can be adjusted onchain. With a 90% factor, no participation
+      in either component retains 10% of your otherwise eligible Bitcoin and Bond earnings when both
+      targets are available. Fully meeting one target with no participation in the other retains 55%,
+      and meeting both retains 100%.
+      Partial participation scales between these levels. The multiplier applies after the ARGNOT
+      adjustments; your ARGN securitization earnings are paid separately.
+    </p>
+
+    <p>
+      When the upstream vault has less capacity, the corresponding target is reduced. If that adjusted
+      target is zero, the component receives full participation credit. Capacity already reserved for
+      your unfunded Bitcoin Locks remains included in the Bitcoin target.
+      Operators with no upstream vault, or whose upstream vault is closed or inactive, receive the full
+      multiplier. Participation is recorded at the start of each frame for that frame’s payout.
+    </p>
+
+    <h3>Collecting Revenue</h3>
+
+    <p>
+      The operator’s mining-bid earnings and Bitcoin service fees are held pending collection. The
+      operator must clear required Bitcoin cosigns and any other duties that block collection, then
+      collect within ten frames, approximately ten days. Revenue left uncollected after that window is
+      burned. Bond holders’ direct payouts do not use the operator’s collection window.
+    </p>
+
+    <p>
+      Collected revenue is gross income. Server costs, transaction fees, and other operating expenses
+      reduce the operator’s net profit. Revenue collection does not automatically reinvest earnings.
+    </p>
+
+    <p>
+      See <DocLink to="/docs/assets-and-entities/mining-operations">Mining Operations</DocLink> for the
+      auctions that supply this revenue and
+      <DocLink to="/docs/system-design/economic-drivers">Economic Drivers</DocLink> for illustrative
+      revenue estimates. The calculator uses separate allocation and ARGNOT assumptions.
     </p>
 
     <h2>Core Operating Rules</h2>
@@ -531,4 +508,10 @@
 import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
+import Data from "@/lib/Data";
+import numeral from "@/lib/numeral";
+import { microgonToArgon } from "@/lib/currencyUtils";
+
+const argonCirculation = microgonToArgon(Data.basics.microgonsInCirculation.total);
+const sharedSecuritizationTarget = argonCirculation * 0.5;
 </script>

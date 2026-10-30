@@ -3,7 +3,7 @@
   <DocContent>
     <p>
       These answers cover the questions most people have when they first
-      encounter Argon or open Argon Desktop. For definitions of individual
+      encounter Argon. For definitions of individual
       concepts, see
       <DocLink to="/docs/getting-started/common-terminology"
         >Common Terminology</DocLink
@@ -16,7 +16,7 @@
       <p>
         A dollar-pegged stablecoin aims to mirror the value of U.S. dollars.
         Argon instead creates stable purchasing power using a Consumer Price
-        Index based on the cost of real goods. As those costs change, Argon’s
+        Index that follows the cost of real goods. As those costs change, Argon’s
         target value changes with them. Learn more about
         <DocLink to="/docs/assets-and-entities/argon-stablecoins"
           >Argons</DocLink
@@ -60,9 +60,9 @@
       <header>Where Can I Acquire Argons or Argonots?</header>
       <p>
         There is no official market. The tokens can theoretically trade on any
-        decentralized market. Uniswap is currently the most popular option, but
-        anyone can set up trading pairs on any market. Argon Desktop currently
-        supports moving compatible assets between your Ethereum and Argon
+        market. Uniswap is currently the most popular option, but
+        since it's open-source and decentralized, anyone can set up trading pairs on any market. Argon Desktop currently
+        supports moving compatible assets between your Argon and Ethereum
         wallets, but the system does not care how you acquired them. Always
         confirm the token, network, contract, price, and fees before approving a
         trade or transfer.

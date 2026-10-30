@@ -3,14 +3,14 @@
 
   <DocContent>
     <p>
-      A mining operation is an operator-run system that competes for
+      A mining operation is an operator-run system that competes for and manages
       time-limited <strong>mining seats</strong>. An active seat allows its
       operator to help produce and finalize blocks, earning the miner's share of
       block rewards and the transaction fees from blocks it produces.
     </p>
 
     <p>
-      Mining seats separate participation from a pure computing-power race.
+      Mining in the Argon Network is not a pure computing-power race.
       Operators first compete economically for a place in the active miner set;
       the protocol then assigns block opportunities among the miners that hold
       seats.
@@ -40,14 +40,10 @@
     <h2>Rotating Mining Seats</h2>
     <p>
       The active miner set is made from overlapping <strong>cohorts</strong>. At
-      the beginning of every frame, one newly selected cohort starts mining. The
-      cohort that began ten frames earlier retires at the same time.
-    </p>
-    <p>
-      A winning seat therefore remains active for ten frames—approximately ten
-      days. A miner cannot register overlapping terms. It can bid for a
-      continuation only when its current term is about to end, and that
-      continuation must win like any other seat.
+      the beginning of every frame, the latest auctioned cohort starts mining. The
+      cohort that began ten frames earlier retires at the same time. A winning seat
+      therefore remains active for ten frames, which is approximately ten
+      days in the Argon world.
     </p>
 
     <h2>How a Seat Auction Works</h2>
@@ -126,17 +122,9 @@
     </ol>
 
     <p>
-      The commitment binds the maximum to the original public bid, accounts,
-      authority keys, chain, and target frame. Automatic bids should specify the
-      target frame explicitly so a transaction is rejected if the auction has
-      changed. In the Node.js SDK, the disclosure call is named
-      <code>miningSlot.bidMax</code>.
-    </p>
-    <p>
       A successful submission confirms that a bid was queued. The
       <code>SlotBidderAdded</code> event confirms its acceptance into the winning
-      list after settlement. Later batches can still displace it before the
-      auction ends.
+      list after settlement.
     </p>
 
     <h3>How Bids Compete</h3>
@@ -320,13 +308,7 @@
 
     <p>
       The requirement can therefore change even when bids remain similar,
-      because the ARGN value of ARGNOT also changes. In the planned
-      <DocLink to="/docs/assets-and-entities/argonot-stakes"
-        >Argonot Stakes</DocLink
-      >
-      model, holders will be able to supply this operating capital through a
-      mining operation while the protocol retains control of the committed
-      principal.
+      because the ARGN value of ARGNOT also changes.
     </p>
 
     <h2>How the Network Adjusts Seat Capacity</h2>
@@ -384,7 +366,7 @@
       <DocLink to="/docs/assets-and-entities/argonot-stakes"
         >Argonot Stakes</DocLink
       >,
-      <DocLink to="/docs/assets-and-entities/ambassador-rewards">Ambassador Rewards</DocLink>,
+      <DocLink to="/docs/assets-and-entities/certification-rewards">Certification Rewards</DocLink>,
       and stabilization capital supplied through vaults and
       <DocLink to="/docs/assets-and-entities/argon-bonds"
         >Argon Bonds</DocLink

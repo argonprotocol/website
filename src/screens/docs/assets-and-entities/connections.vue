@@ -1,5 +1,5 @@
 <template>
-  <DocHeader>Connections</DocHeader>
+  <DocHeader>Network Connections</DocHeader>
 
   <DocContent>
     <p>
@@ -108,7 +108,7 @@
     <p>
       When a downstream member becomes a certified operator, the sponsor may qualify for an upgrade
       code or a certification reward. See
-      <DocLink to="/docs/assets-and-entities/ambassador-rewards">Ambassador Rewards</DocLink> for the
+      <DocLink to="/docs/assets-and-entities/certification-rewards">Certification Rewards</DocLink> for the
       funding and eligibility rules.
     </p>
 

@@ -21,21 +21,26 @@ describe("vault calculator", () => {
     expect(result.bitcoinUtilization).toBe(1);
     expect(result.bondUtilization).toBe(1);
     expect(result.argonotUtilization).toBe(1);
+    expect(result.adjustedMaxProfitRate).toBe(0.51);
     expect(result.vaultProfitRate).toBeCloseTo(MAX_VAULT_PROFIT_RATE);
   });
 
-  it("falls back to minimum core profitability when no BTC is locked", () => {
+  it.each([
+    { argonotSecuritizationValue: 0, profitRate: 0.05 },
+    { argonotSecuritizationValue: 2_000_000, profitRate: 0.15 },
+  ])("falls back to minimum core profitability with ARGNOT backing of $argonotSecuritizationValue when no BTC is locked", ({ argonotSecuritizationValue, profitRate }) => {
     const emptyVault = calculateVaultReturns({
       ...baseInput,
       auctionRevenue: 10_000,
+      argonotSecuritizationValue,
       bitcoinLockedValue: 0,
     });
 
     expect(emptyVault.bitcoinUtilization).toBe(0);
     expect(emptyVault.coreUtilization).toBe(0);
-    expect(emptyVault.vaultProfitRate).toBeCloseTo(0.03);
-    expect(emptyVault.tenDayReturn).toBeLessThanOrEqual(0.01);
-    expect(emptyVault.apy).toBeLessThan(1);
+    expect(emptyVault.vaultProfitRate).toBeCloseTo(profitRate);
+    expect(emptyVault.tenDayReturn).toBeCloseTo(0.05);
+    expect(emptyVault.apy).toBeCloseTo(1.8413, 4);
   });
 
   it("weights BTC utilization more heavily than Bond utilization", () => {
@@ -54,8 +59,8 @@ describe("vault calculator", () => {
       liquidRevenueShare: 0.05,
     });
 
-    expect(result.adjustedMaxProfitRate).toBeCloseTo(0.53);
-    expect(result.vaultProfitRate).toBeCloseTo(0.53);
+    expect(result.adjustedMaxProfitRate).toBeCloseTo(0.47);
+    expect(result.vaultProfitRate).toBeCloseTo(0.47);
   });
 
   it("returns finite zero values for an empty Vault", () => {

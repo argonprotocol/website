@@ -83,23 +83,16 @@
       increase this allocation to as much as 21%.
     </p>
 
-    <section
-      class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-5"
-    >
-      <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">
-        Stake Revenue
-      </div>
-      <div
-        class="my-4 overflow-x-auto rounded-md border border-argon-200 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-xl text-slate-800 sm:text-2xl"
-      >
-        Mining-bid revenue × 15–21% = Revenue for active Stakes
-      </div>
-      <p class="m-0 text-sm text-slate-600">
-        The default allocation is 15%; increases up to 21% depend on Profit
-        Surges granted by Mining Operators. Earnings per Stake also change as
-        mining bids and the amount of participating stake capital change.
-      </p>
-    </section>
+    <RevenueShareBox :base-share="15" :profit-surge="6" :throttle-apy="50">
+      <template #title>Argonot Stakes</template>
+    </RevenueShareBox>
+
+    <p>
+      The reserve carries earnings from stronger mining periods into weaker
+      ones. When revenue falls, saved earnings supplement current payouts to
+      help sustain returns at the throttle level while reserves remain
+      available. Returns can still exceed that level.
+    </p>
 
     <p>
       Each active position receives a proportional share based on its number of
@@ -226,6 +219,7 @@
 </template>
 
 <script setup lang="ts">
+import RevenueShareBox from "@/components/RevenueShareBox.vue";
 import DocLink from "@/screens/docs/DocLink.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import DocHeader from "@/screens/docs/DocHeader.vue";
