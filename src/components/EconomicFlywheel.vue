@@ -1,9 +1,9 @@
 <template>
   <figure class="my-10">
-    <div class="overflow-x-auto pb-2">
+    <div class="pb-2">
       <svg
         class="flywheel-svg"
-        viewBox="0 0 1600 650"
+        viewBox="39 25 1522 585"
         role="img"
         aria-labelledby="economic-flywheel-title economic-flywheel-description"
       >
@@ -94,7 +94,6 @@
 .flywheel-svg {
   display: block;
   width: 100%;
-  min-width: 850px;
   height: auto;
 }
 

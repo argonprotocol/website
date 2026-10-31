@@ -2,22 +2,24 @@
   <DocHeader>The Genesis Block</DocHeader>
 
   <DocContent>
+    <p>In the beginning there was nothing...</p>
+
     <p>
-      When Argon Mainnet launched on January 15, 2025, its genesis block awarded
-      nothing. No argons or argonots were pre-mined. None were granted to the
-      founders, early developers, or any other favored group.
+      No argons. No argonots. No tokens set aside for founders, early developers,
+      or any other favored group. When Argon Mainnet launched on January 15, 2025,
+      its genesis block awarded no value.
     </p>
 
     <p>
       Even after nearly six years spent
-      building Argon, its founders began with the same opportunity as everyone
+      building Argon, its founders began with the same level playing field as everyone
       else. Every token entered circulation through the public rules of the network.
       The earliest participants contributed computing power to mine the first
       blocks and earn the first rewards.
     </p>
 
     <p>
-      This was a deliberate choice. A currency intended to be open and
+      That empty beginning was deliberate. A currency intended to be open and
       decentralized should not begin with insiders holding a privileged share.
       Argon started at zero—and everything that followed was earned.
     </p>

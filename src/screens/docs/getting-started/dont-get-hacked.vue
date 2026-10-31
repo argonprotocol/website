@@ -1,5 +1,5 @@
 <template>
-  <DocHeader>Don't Get Hacked</DocHeader>
+  <DocHeader>Don't Get Hacked!</DocHeader>
   <DocContent>
     <p>
       We highly recommend you follow

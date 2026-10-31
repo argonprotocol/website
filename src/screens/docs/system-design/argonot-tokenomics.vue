@@ -92,7 +92,7 @@
     <ul class="list-disc ml-10">
       <li>Mining (1 to 10 days) &ndash; up to 40% can be allocated.</li>
       <li>Stakes (10 days) &ndash; up to 60% can be allocated.</li>
-      <li>Vault Securitization (10 days) &ndash; up to 40% can be allocated.</li>
+      <li>Vault Securitization (1 year) &ndash; up to 40% can be allocated.</li>
       <li>Minting Authorities (10 days) &ndash; as much as the network needs.</li>
     </ul>
   </DocContent>
