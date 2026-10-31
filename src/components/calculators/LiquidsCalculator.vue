@@ -407,7 +407,7 @@
                 <button
                   type="button"
                   class="text-argon-100"
-                  :class="expectedTDR[0] === Math.floor(data.miningTDR * 10) / 10 ? 'opacity-30' : 'cursor-pointer'"
+                  :class="expectedTDR[0] === Math.max(0, Math.min(MAX_EXPECTED_RETURN, Math.floor(data.miningTDR * 10) / 10)) ? 'opacity-30' : 'cursor-pointer'"
                   @click="resetExpectedTDR"
                 >
                   Reset to Mainnet
@@ -687,7 +687,7 @@ function resetCustomArgonotPrice() {
 }
 
 function resetExpectedTDR() {
-  expectedTDR.value = [Math.min(MAX_EXPECTED_RETURN, Math.floor(data.value.miningTDR * 10) / 10)];
+  expectedTDR.value = [Math.max(0, Math.min(MAX_EXPECTED_RETURN, Math.floor(data.value.miningTDR * 10) / 10))];
 }
 
 function updateExpectedTDR(values: number[] | undefined) {

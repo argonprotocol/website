@@ -182,21 +182,25 @@
     </ul>
 
     <p>
-      A vault that also operates as a Remote Minting Authority can earn authorization tips. Those tips
+      A vault that operates as a Remote Minting Authority can also earn authorization tips. Those tips
       are paid in the token being transferred and are separate from mining-bid revenue and Bitcoin fees.
+    </p>
+
+    <p>
+      The rest of this section will focus on Mining-Auction Revenue, which is the primary way vaults will
+      earn during the early stages of Argon's growth.
     </p>
 
     <h3>Mining-Auction Revenue</h3>
 
     <p>
-      At the end of each frame, the protocol distributes the mining-bid pool using the capital and
-      participation recorded at the start of that frame. The mainchain runtime allocates up to 51% of
-      the full bid pool to vault operators across three earning components:
+      At the end of each frame, the protocol distributes the mining-bid pool recorded in that frame.
+      Up to 51% is allocated to vault operators across three earning components:
     </p>
 
     <aside class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-5">
       <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">Vault Revenue Allocation</div>
-      <div class="my-4 rounded-md border border-argon-200 bg-white/60 px-4 py-5 text-center text-xl font-bold text-slate-800 sm:text-2xl">Up to 51% of mining-auction revenue</div>
+      <div class="my-4 rounded-md border border-argon-200 bg-white/60 px-4 py-5 text-center text-xl font-bold text-slate-800 sm:text-2xl">Up to 51% of Mining-Auction Revenue</div>
       <div class="overflow-x-auto">
         <table class="w-full border-collapse font-sans! text-left">
           <thead>
@@ -228,20 +232,34 @@
     </aside>
 
     <p>
-      These are network-wide allocations from the full mining-bid pool. An individual vault earns a
-      proportional share of each component; the percentages are not returns on its invested capital.
-      The three components are independent. Committing ARGN earns the securitization component, securing
+      Vaults earn a proportional share of their pro-rata contribution to the network's Payout Level (see next section).
+      All three components are independent of each other. Committing ARGN earns the securitization component, securing
       Bitcoin earns the Bitcoin component, and attracting active Bonds earns the Bond component.
     </p>
 
-    <h3>Network's Shared BTC Target</h3>
+    <p>
+      For example, a frame with 10,000 ARGN in winning mining bids would allocate up to 500 ARGN for
+      Argon Securitization payouts. If the network's Payout Level is 1M
+      and your vault has 100K in ARGN Securitization then you would earn
+      10%, which is 50 ARGN (20.02% APY).
+    </p>
+
+    <p>
+      Final payout also includes two multipliers which are applied, both which have their own sections below. The first multiplier
+      calculates how much ARGNOT Securitization is in the vault; the other calculates the distribution of capital
+      across vaults.
+    </p>
+
+    <h3>Payout Level: Network's Shared BTC Target</h3>
 
     <aside class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-5">
       <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">Shared BTC Target</div>
-      <div class="my-4 rounded-md border border-argon-200 bg-white/60 px-4 py-5 text-center text-xl font-bold text-slate-800 sm:text-2xl">50% of ARGN circulation</div>
+      <div class="my-4 rounded-md border border-argon-200 bg-white/60 px-4 py-5 text-center text-xl font-bold text-slate-800 sm:text-2xl">BTC @ 50% of ARGN Circulation</div>
       <p class="m-0 text-sm text-slate-600">
         Current circulation is <strong>{{ numeral(argonCirculation / 1_000_000).format('0.0') }}M ARGN</strong>,
         making the shared participation target <strong>{{ numeral(sharedSecuritizationTarget / 1_000_000).format('0.0') }}M ARGN</strong>.
+        Actual participation is <strong>{{ numeral(networkBitcoinValue / 1_000_000).format('0.0') }}M ARGN</strong>
+        worth of BTC locked across the network's vaults.
       </p>
     </aside>
 
@@ -250,6 +268,13 @@
       Bitcoin Liquids Participation, and Argon Bonds Participation
       payouts. Each contribution is measured separately against the target to determine the vault’s
       pro-rata share of the corresponding mining-auction revenue allocation:
+    </p>
+
+    <p>
+      Only BTC covered by a Cosigner Guarantee contributes to the Bitcoin component. A Lock
+      with zero guarantee does not earn that component. If the market value of all Bitcoin in the vault
+      exceeds its ARGN securitization, the Bitcoin component is reduced progressively, reaching a maximum
+      reduction of 20% when Bitcoin value is twice the securitization amount.
     </p>
 
     <ul>
@@ -282,20 +307,7 @@
       allocation.
     </p>
 
-    <p>
-      Only funded Bitcoin covered by a Cosigner Guarantee contributes to the Bitcoin component. A Lock
-      with zero guarantee does not earn that component. If the market value of all Bitcoin in the vault
-      exceeds its ARGN securitization, the Bitcoin component is reduced progressively, reaching a maximum
-      reduction of 20% when Bitcoin value is twice the securitization amount.
-    </p>
-
-    <p>
-      For operators with an upstream vault, part of their Bitcoin and Bond earnings depends on
-      maintaining eligible Bitcoin and Bond positions in that vault. The participation requirement is
-      limited by the upstream vault’s available capacity. 
-    </p>
-
-    <h3>Multiplier Based On ARGNOT Securitization</h3>
+    <h3>Multiplier: Amount of ARGNOT Securitization</h3>
 
     <p>
       ARGNOT backing increases a vault’s eligible Bitcoin and Bond earnings. Committing ARGNOT worth up
@@ -329,7 +341,7 @@
       </p>
     </aside>
 
-    <h3>Multiplier Based On Upstream Distribution</h3>
+    <h3>Multiplier: Amount of Upstream Distribution</h3>
 
     <p>
       Your upstream vault is the vault operated by your sponsor. Maintaining eligible Bitcoin and Bond
@@ -354,8 +366,8 @@
     </p>
 
     <p>
-      The upstream participation factor can be adjusted onchain. With a 90% factor, no participation
-      in either component retains 10% of your otherwise eligible Bitcoin and Bond earnings when both
+      With a 90% factor, no participation in either component retains 10% of your otherwise eligible
+      Bitcoin and Bond earnings when both
       targets are available. Fully meeting one target with no participation in the other retains 55%,
       and meeting both retains 100%.
       Partial participation scales between these levels. The multiplier applies after the ARGNOT
@@ -514,4 +526,5 @@ import { microgonToArgon } from "@/lib/currencyUtils";
 
 const argonCirculation = microgonToArgon(Data.basics.microgonsInCirculation.total);
 const sharedSecuritizationTarget = argonCirculation * 0.5;
+const networkBitcoinValue = Data.basics.vaulting.bitcoinLocked * Data.basics.usdForBtc / Data.basics.usdForArgon;
 </script>

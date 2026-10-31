@@ -12,6 +12,7 @@ import {
   MainchainClients,
   Mining,
   NetworkConfig,
+  TreasuryBonds,
   UnitOfMeasurement,
   GlobalVaultingStats
 } from '@argonprotocol/apps-core';
@@ -60,7 +61,10 @@ export default async function run() {
     const currency = new Currency(mainchainClients);
     const mining = new Mining(mainchainClients);
 
-    const activeArgonotStakes = await api.query.treasury.totalActiveArgonotBonds();
+    const activeArgonotStakes = Number(await TreasuryBonds.getActiveArgonotBonds(api));
+    if (!Number.isSafeInteger(activeArgonotStakes) || activeArgonotStakes < 0) {
+      throw new Error(`Invalid active Argonot stake count on ${chain}`);
+    }
     const treasuryReservesAccount = api.consts.treasury.treasuryReservesAccount;
     if (!treasuryReservesAccount) {
       throw new Error(`Treasury reserves account is unavailable on ${chain}`);

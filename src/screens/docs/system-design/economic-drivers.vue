@@ -256,18 +256,6 @@
       </div>
       <div class="border-b border-slate-300 py-5 sm:flex sm:gap-6">
         <dt class="text-3xl font-bold text-argon-700 sm:w-28 sm:shrink-0">
-          0-20%
-        </dt>
-        <dd class="m-0 mt-2 sm:mt-0">
-          <strong class="block text-lg">
-            <DocLink to="/docs/assets-and-entities/certification-rewards">Certification Rewards</DocLink>
-          </strong>
-          This is an experimental fund meant to support the growth of the network. The
-          range is based on viable uses. Any capital not used is burned from the ecosystem.
-        </dd>
-      </div>
-      <div class="border-b border-slate-300 py-5 sm:flex sm:gap-6">
-        <dt class="text-3xl font-bold text-argon-700 sm:w-28 sm:shrink-0">
           15-21%
         </dt>
         <dd class="m-0 mt-2 sm:mt-0">
@@ -306,6 +294,30 @@
           </strong>
           Distributed proportionally among the BTC positions supplying short positions against
           the ARGN token. The higher range is based on Profit Surges gifted by upstream operators.
+        </dd>
+      </div>
+      <div class="border-b border-slate-300 py-5 sm:flex sm:gap-6">
+        <dt class="text-3xl font-bold text-argon-700 sm:w-28 sm:shrink-0">
+          10%
+        </dt>
+        <dd class="m-0 mt-2 sm:mt-0">
+          <strong class="block text-lg">
+            <DocLink to="/docs/assets-and-entities/market-stabilizers">Market Stabilizers</DocLink>
+          </strong>
+          Allocated to Uniswap trading pools on Ethereum and other remote networks.
+          It incentives liquidity near Argon’s target price to help deepen markets and support price stability.
+        </dd>
+      </div>
+      <div class="border-b border-slate-300 py-5 sm:flex sm:gap-6">
+        <dt class="text-3xl font-bold text-argon-700 sm:w-28 sm:shrink-0">
+          10%
+        </dt>
+        <dd class="m-0 mt-2 sm:mt-0">
+          <strong class="block text-lg">
+            <DocLink to="/docs/assets-and-entities/certification-rewards">Certification Rewards</DocLink>
+          </strong>
+          This is an experimental fund meant to support the growth of the network. It rewards
+          those who become Certified Operators as well as the Operators who onboarded them.
         </dd>
       </div>
     </dl>
@@ -399,7 +411,7 @@
 
     <p>
       The vaulting economy receives 65% of mining-bid revenue. Under the standard
-      allocation, as much as 57% can be retained by vault operators, 5% is
+      allocation, as much as 51% can be retained by vault operators, 5% is
       shared with Argon Bond holders, and 3% is shared with Bitcoin Liquids.
       Vault operators can offer Bonds and Liquids a larger share, but any
       increase comes out of the operator's portion.

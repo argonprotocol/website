@@ -1,9 +1,31 @@
 <template>
   <div :class="{ 'group/video-loop': !$slots.default }">
-    <div class="border border-dashed border-black/20 rounded-lg overflow-hidden">
-      <ul v-if="$slots.default" class="aspect-video overflow-y-auto list-disc space-y-2 m-0 py-4 pl-8 pr-4">
-        <slot />
-      </ul>
+    <div class="rounded-lg overflow-hidden" :class="$slots.default ? 'border border-[#e2dbe8] bg-white shadow-sm' : 'border border-dashed border-black/20'">
+      <div v-if="$slots.default" class="video-placeholder aspect-video min-h-min flex flex-col items-center justify-center px-6 py-9">
+        <div class="mb-6 shrink-0 text-center">
+          <svg
+            width="36"
+            height="36"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="mx-auto mb-3 size-9 text-[#80529f]"
+            aria-hidden="true"
+          >
+            <path d="m4 10 16-4-1-4L3 6l1 4Z" />
+            <path d="m8 4.75 3 3.5m3-5 3 3.5M4 10h16v10a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V10Z" />
+          </svg>
+          <div class="text-[23px] leading-tight font-medium tracking-tight">Video Placeholder</div>
+        </div>
+        <div class="w-full max-w-[370px] shrink-0 border-t border-[#e2dbe8] pt-4">
+          <ul class="m-0 mt-3 flex flex-col gap-2 list-disc pl-[18px] marker:text-[#80529f]">
+            <slot />
+          </ul>
+        </div>
+      </div>
       <video
         v-else-if="props.src"
         autoplay
@@ -22,7 +44,7 @@
         <source :src="props.src" type="video/webm">
       </video>
     </div>
-    <div class="flex items-center gap-2 border border-black/20 rounded-md shadow-md bg-white min-h-8 mt-0.5 px-2 py-1 opacity-30 transition-opacity duration-500 ease-in-out group-hover/video-loop:opacity-100">
+    <div v-if="!$slots.default" class="flex items-center gap-2 border border-black/20 rounded-md shadow-md bg-white min-h-8 mt-0.5 px-2 py-1 opacity-30 transition-opacity duration-500 ease-in-out group-hover/video-loop:opacity-100">
       <button
         type="button"
         class="flex size-6 shrink-0 items-center justify-center rounded text-black/50 hover:text-black/80 focus-visible:outline-2 focus-visible:outline-purple-500 transition-opacity duration-500 ease-in-out"
@@ -198,6 +220,17 @@ async function handleTransitionEnd(event: TransitionEvent): Promise<void> {
 </script>
 
 <style scoped>
+.video-placeholder {
+  background: radial-gradient(ellipse at 50% 0%, #f5eef9, #fff 76%);
+  color: #29232e;
+}
+
+.video-placeholder :slotted(li) {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 .video-progress {
   appearance: none;
   height: 8px;

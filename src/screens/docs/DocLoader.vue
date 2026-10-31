@@ -7,7 +7,7 @@
         class="LEFTBARWRAPPER"
         :class="{ 'translate-x-0': isLeftbarOpen, '-translate-x-full': !isLeftbarOpen }"
       >
-        <div ref="leftbarRef" class="LEFTBAR" @wheel="revealLeftbarTop" @scroll.passive="updateLeftbarScrollCue">
+        <div ref="leftbarRef" class="LEFTBAR" @wheel="revealLeftbarTop" @scroll.passive="scheduleLeftbarUpdate">
           <div ref="leftbarContentRef" class="LEFTBARCONTENT">
             <template v-if="docsToc" v-for="(group, i1) in docsToc" :key="`title-${i1}`">
               <template v-if="group.items">
@@ -104,64 +104,77 @@ const leftbarContentRef = Vue.ref<HTMLElement | null>(null);
 const isLeftbarBottomVisible = Vue.ref(false);
 const canScrollLeftbarDown = Vue.ref(false);
 let leftbarResizeObserver: ResizeObserver | undefined;
+let leftbarMobileQuery: MediaQueryList | undefined;
+let leftbarFrame: number | undefined;
+let pendingLeftbarDelta = 0;
 
-function updateLeftbarScrollCue() {
-  const leftbar = leftbarRef.value;
-  canScrollLeftbarDown.value = !!leftbar && leftbar.scrollHeight - leftbar.clientHeight - leftbar.scrollTop > 2;
+function scheduleLeftbarUpdate() {
+  if (leftbarFrame === undefined) leftbarFrame = window.requestAnimationFrame(updateLeftbarLayout);
 }
 
 function revealLeftbarTop(event: WheelEvent) {
   const wrapper = leftbarWrapperRef.value;
-  const leftbar = event.currentTarget as HTMLElement;
   if (!wrapper || event.deltaY >= 0 || event.ctrlKey || !event.cancelable) return;
-  if (window.matchMedia('(max-width: 1279px)').matches) return;
+  if (leftbarMobileQuery?.matches) return;
 
-  const hiddenHeight = Math.max(0, -wrapper.getBoundingClientRect().top);
-  if (hiddenHeight === 0) return;
+  // Only the first intercepted event in a frame needs a synchronous position check.
+  // Allow for fractional pixels that the browser cannot scroll away exactly.
+  if (pendingLeftbarDelta === 0 && wrapper.getBoundingClientRect().top >= -1) return;
 
   const unit = event.deltaMode === WheelEvent.DOM_DELTA_LINE
     ? 16
     : event.deltaMode === WheelEvent.DOM_DELTA_PAGE
       ? window.innerHeight
       : 1;
-  const requestedDelta = event.deltaY * unit;
-  const pageDelta = Math.max(requestedDelta, -hiddenHeight);
-
   event.preventDefault();
-  window.scrollBy({ top: pageDelta, behavior: 'instant' });
-  leftbar.scrollTop += requestedDelta - pageDelta;
+  pendingLeftbarDelta += event.deltaY * unit;
+  scheduleLeftbarUpdate();
 }
 
-function updateLeftbarHeight() {
+function updateLeftbarLayout() {
+  leftbarFrame = undefined;
   const wrapper = leftbarWrapperRef.value;
-  if (!wrapper) return;
+  const leftbar = leftbarRef.value;
+  if (!wrapper || !leftbar) return;
 
-  if (window.matchMedia('(max-width: 1279px)').matches) {
-    wrapper.style.height = '';
-    isLeftbarBottomVisible.value = false;
-    updateLeftbarScrollCue();
-    return;
-  }
+  // Read all geometry before changing height or either scroll position.
+  const rect = leftbarMobileQuery?.matches ? undefined : wrapper.getBoundingClientRect();
+  const viewportHeight = window.innerHeight;
+  const maxScrollTop = Math.max(0, leftbar.scrollHeight - leftbar.clientHeight);
+  const scrollTop = leftbar.scrollTop;
+  const requestedDelta = pendingLeftbarDelta;
+  pendingLeftbarDelta = 0;
+  const pageDelta = rect && rect.top < -1 ? Math.max(requestedDelta, rect.top) : 0;
+  const menuDelta = requestedDelta - pageDelta;
+  const nextScrollTop = Math.max(0, Math.min(maxScrollTop, scrollTop + menuDelta));
+  const height = rect ? `${Math.max(0, viewportHeight - Math.max(0, rect.top))}px` : '';
+  const heightChanged = wrapper.style.height !== height;
 
-  const visibleTop = Math.max(0, wrapper.getBoundingClientRect().top);
-  wrapper.style.height = `${Math.max(0, window.innerHeight - visibleTop)}px`;
-  isLeftbarBottomVisible.value = wrapper.getBoundingClientRect().bottom < window.innerHeight - 1;
-  updateLeftbarScrollCue();
+  isLeftbarBottomVisible.value = !!rect && rect.bottom - pageDelta < viewportHeight - 1;
+  canScrollLeftbarDown.value = maxScrollTop - nextScrollTop > 2;
+  if (heightChanged) wrapper.style.height = height;
+  if (pageDelta !== 0) window.scrollBy({ top: pageDelta, behavior: 'instant' });
+  if (menuDelta !== 0) leftbar.scrollTop = nextScrollTop;
+
+  // A height change can move a sticky sidebar at the footer; measure it next frame.
+  if (heightChanged) scheduleLeftbarUpdate();
 }
 
 Vue.onMounted(() => {
-  updateLeftbarHeight();
-  leftbarResizeObserver = new ResizeObserver(updateLeftbarScrollCue);
+  leftbarMobileQuery = window.matchMedia('(max-width: 1279px)');
+  updateLeftbarLayout();
+  leftbarResizeObserver = new ResizeObserver(scheduleLeftbarUpdate);
   if (leftbarRef.value) leftbarResizeObserver.observe(leftbarRef.value);
   if (leftbarContentRef.value) leftbarResizeObserver.observe(leftbarContentRef.value);
-  window.addEventListener('scroll', updateLeftbarHeight, { passive: true });
-  window.addEventListener('resize', updateLeftbarHeight);
+  window.addEventListener('scroll', scheduleLeftbarUpdate, { passive: true });
+  window.addEventListener('resize', scheduleLeftbarUpdate);
 });
 
 Vue.onBeforeUnmount(() => {
+  if (leftbarFrame !== undefined) window.cancelAnimationFrame(leftbarFrame);
   leftbarResizeObserver?.disconnect();
-  window.removeEventListener('scroll', updateLeftbarHeight);
-  window.removeEventListener('resize', updateLeftbarHeight);
+  window.removeEventListener('scroll', scheduleLeftbarUpdate);
+  window.removeEventListener('resize', scheduleLeftbarUpdate);
 });
 
 type TocItem = {

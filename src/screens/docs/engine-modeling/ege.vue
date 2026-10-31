@@ -10,7 +10,7 @@
 
     <a
       class="my-8 flex items-center justify-between gap-5 rounded-lg border border-argon-400 bg-argon-50/60 px-5 py-5 text-slate-900 no-underline transition-colors hover:border-argon-600 hover:bg-argon-100/60"
-      href="https://sam.argon.network/"
+      href="https://ege.argon.network/"
       target="_blank"
       rel="noreferrer"
     >

@@ -266,7 +266,7 @@
                 <button
                   type="button"
                   class="text-argon-100"
-                  :class="expectedTDR[0] === Math.floor(data.miningTDR * 10) / 10 ? 'opacity-30' : 'cursor-pointer'"
+                  :class="expectedTDR[0] === Math.max(0, Math.min(MAX_EXPECTED_RETURN, Math.floor(data.miningTDR * 10) / 10)) ? 'opacity-30' : 'cursor-pointer'"
                   @click="resetExpectedTDR"
                 >
                   Reset to Mainnet
@@ -600,7 +600,7 @@ const isLoaded = Vue.ref(false);
 const seatCount = Vue.computed(() => data.value.mining.nextEpochSeatCount);
 const argonotsBid = Vue.computed(() => micronotToArgonot(data.value.mining.currentMicronotsForBid));
 const expectedTDR = Vue.ref([
-  Math.min(MAX_EXPECTED_RETURN, Math.floor(data.value.miningTDR * 10) / 10),
+  Math.max(0, Math.min(MAX_EXPECTED_RETURN, Math.floor(data.value.miningTDR * 10) / 10)),
 ]);
 const customArgonotPrice = Vue.ref([
   data.value.usdForArgon > 0 ? data.value.usdForArgonot / data.value.usdForArgon : 0,
@@ -738,7 +738,7 @@ Vue.watchEffect(() => {
 });
 
 function resetExpectedTDR() {
-  expectedTDR.value = [Math.min(MAX_EXPECTED_RETURN, Math.floor(data.value.miningTDR * 10) / 10)];
+  expectedTDR.value = [Math.max(0, Math.min(MAX_EXPECTED_RETURN, Math.floor(data.value.miningTDR * 10) / 10))];
 }
 
 function updateExpectedTDR(values: number[] | undefined) {
