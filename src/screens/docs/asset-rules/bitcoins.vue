@@ -5,19 +5,18 @@
     <p>
       Bitcoin (BTC) provides external value and stabilization capital for Argon.
       It works alongside
-      <DocLink to="/docs/assets-and-entities/argon-stablecoins">Argon stablecoins</DocLink>
-      and <DocLink to="/docs/assets-and-entities/argonot-tokens">Argonot ownership tokens</DocLink>.
-      It remains native to the Bitcoin network. Bitcoin used within Argon is not
-      wrapped, bridged to another blockchain, or replaced with a separate token. The Bitcoin remains in
+      <DocLink to="/docs/asset-rules/argons">Argon stablecoins</DocLink>
+      and <DocLink to="/docs/asset-rules/argonots">Argonot ownership tokens</DocLink>,
+      but it remains native to the Bitcoin network. None of the BTC is
+      wrapped, bridged to another blockchain, or replaced with a separate token. The BTC remains in
       a Bitcoin UTXO and continues to be verified by the Bitcoin network.
     </p>
 
     <p>
-      Bitcoin participates in Argon through a
-      <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+      Bitcoin connects into the Argon Network through a
+      <DocLink to="/docs/asset-rules/bitcoin-locks"
         >Bitcoin Lock</DocLink
       >, a multisig custody arrangement between its owner and a vault cosigner.
-      Funding a Lock does not by itself create or distribute Argon stablecoins.
     </p>
 
     <section class="my-8 grid gap-3 md:grid-cols-3">
@@ -35,7 +34,7 @@
           The Custody
         </div>
         <div class="mt-2 text-xl font-bold text-slate-800">
-          <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+          <DocLink to="/docs/asset-rules/bitcoin-locks"
             >Bitcoin Lock</DocLink
           >
         </div>
@@ -48,12 +47,12 @@
           The Position
         </div>
         <div class="mt-2 text-xl font-bold text-slate-800">
-          <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
+          <DocLink to="/docs/asset-rules/bitcoin-liquids"
             >Bitcoin Liquid</DocLink
           >
         </div>
         <p class="mt-2 mb-0 text-sm text-slate-600">
-          A separate position that makes part of the locked Bitcoin's value
+          A separate position that makes the BTC's value
           available as ARGN.
         </p>
       </div>
@@ -63,36 +62,27 @@
     <p>
       A Bitcoin Lock combines an owner-controlled Bitcoin key with a cosigning
       key supplied by a
-      <DocLink to="/docs/assets-and-entities/vaulting-operations">Stabilization Vault</DocLink>.
-      During the normal Lock term, neither side can independently spend the Bitcoin.
+      <DocLink to="/docs/network-rules/vaulting-operations">Stabilization Vault</DocLink>.
+      During the normal Lock term, neither side can independently move the Bitcoin.
     </p>
 
     <h2>Locking and Liquidity Are Separate</h2>
     <p>
-      A Bitcoin Lock can exist without a Bitcoin Liquid. Bitcoin can remain
-      locked without creating ARGN or opening a Liquid.
+      A Bitcoin Lock can exist without a Bitcoin Liquid. Create a Bitcoin Lock only establishes
+      its multisig custody arrangement. To receive a Bitcoin's market value in the form of
+      <DocLink to="/docs/asset-rules/argons"
+      >Argon stablecoins</DocLink
+      >, the owner must separately create a Bitcoin Liquid against the eligible
+      Lock.
     </p>
-
-    <aside
-      class="my-8 rounded-lg border border-argon-200 bg-white/40 px-5 py-4"
-    >
-      <strong class="block mb-1">Moving BTC does not create ARGN</strong>
-      <p class="m-0">
-        Funding a Bitcoin Lock only funds its multisig custody arrangement. To receive
-        <DocLink to="/docs/assets-and-entities/argon-stablecoins"
-          >Argon stablecoins</DocLink
-        >, the owner must separately create a Bitcoin Liquid against an eligible
-        Lock.
-      </p>
-    </aside>
 
     <p>
       See
-      <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+      <DocLink to="/docs/asset-rules/bitcoin-locks"
         >Bitcoin Locks</DocLink
       >
       for custody, insurance, and release rules, or
-      <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
+      <DocLink to="/docs/asset-rules/bitcoin-liquids"
         >Bitcoin Liquids</DocLink
       >
       for the process of receiving ARGN against locked Bitcoin.

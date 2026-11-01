@@ -1,7 +1,7 @@
 <template>
   <DocHeader>Economic Drivers</DocHeader>
 
-  <DocContent v-if="isLoaded">
+  <DocContent>
     <aside class="mb-4 rounded-lg border border-amber-300 px-4 py-2 text-amber-950 font-bold">
       NOTE: Some parts of this page document the upcoming release of Argon Mainnet v1.6.
     </aside>
@@ -20,15 +20,6 @@
       incurred by one participant often become revenue for another, creating a connected,
       closed-loop economic model.
     </p>
-
-    <aside class="mb-8 rounded-lg border border-amber-300 bg-amber-50 px-5 pt-4 text-amber-950">
-      <strong class="mb-1 block">Academic Illustrations Only</strong>
-      <p class="m-0">
-        This page uses current network data and adjustable models to illustrate
-        how value moves through Argon's economy. It does not predict future
-        market prices or imply any specific return.
-      </p>
-    </aside>
 
     <h2>Three Underlying Assets</h2>
     <p>
@@ -85,9 +76,9 @@
     <p>
       Bitcoin remains native to the Bitcoin network, but its value is integrated
       into Argon's economic system through
-      <DocLink to="/docs/assets-and-entities/bitcoin-locks">Bitcoin Locks</DocLink>
+      <DocLink to="/docs/asset-rules/bitcoin-locks">Bitcoin Locks</DocLink>
       and
-      <DocLink to="/docs/assets-and-entities/bitcoin-liquids">Liquids</DocLink>.
+      <DocLink to="/docs/asset-rules/bitcoin-liquids">Liquids</DocLink>.
       Bitcoins locked inside the Argon ecosystem gain liquidity and downside-hedging opportunities,
       while vaults gain service revenue and Argon Bond capacity.
     </p>
@@ -182,56 +173,15 @@
     </p>
 
     <p>
-      The following calculator starts with the network's current pricing. Adjust
-      the sliders to control expected return, growth in ARGN circulation, and ARGNOT's market
-      price. Go to <DocLink to="/docs/assets-and-entities/mining-operations">Mining Operations</DocLink>
-      to better understand the details of how the bidding and mining process works.
-    </p>
-
-    <MiningCalculator />
-
-    <p>
-      The calculator uses ten-day returns because each mining seat lasts
-      approximately ten days. It also shows Annual Percentage Yield (APY) to
-      make comparisons with other assets easier. For example, the average return of
-      Warren Buffett's Berkshire Hathaway is {{ averageBerkshireHathawayAPY }}% APY over the last six decades.
-    </p>
-
-    <h3>The Three Variables that Drive Mining Returns</h3>
-
-    The circled numbers on the left side of the calculator highlight the three primary variables
-    that drive mining returns.
-
-    <h4>1. Bid Price</h4>
-    <p>
-      The ARGN in a winning bid is the price paid for a mining seat. The ARGNOT
-      is committed operating capital and returns after the term. A lower winning
-      bid leaves more of the immutable base rewards as potential profit, while
-      competition for seats can push bids higher.
-    </p>
-
-    <h4>2. Growth in ARGN Demand</h4>
-    <p>
-      When market demand moves ARGN above its target, the stabilization
-      algorithm makes additional ARGN issuance available to miners. Greater
-      circulation growth can therefore increase a seat's output beyond its
-      immutable base rewards.
-    </p>
-
-    <h4>3. ARGNOT's Market Price</h4>
-    <p>
-      A mining term produces ARGNOT as well as ARGN. Changes in ARGNOT's market
-      value affect the final value of those rewards and of the ARGNOT committed
-      to the seat. This creates a direct connection between demand for
-      operational access and the economics of mining.
-    </p>
-
-    <p>
       Read
-      <DocLink to="/docs/assets-and-entities/mining-operations"
-        >Mining Operations</DocLink
+      <DocLink to="/docs/network-rules/mining-operations"
+      >Mining Operations</DocLink
       >
       for the auction, cohort, and block-production rules behind the model.
+    </p>
+
+    <p class="my-6">
+      <DocLink class="font-semibold" to="/docs/calculators/mining">Explore the Mining Calculator →</DocLink>
     </p>
 
     <h3>Distribution of Auction Revenue</h3>
@@ -248,7 +198,7 @@
         </dt>
         <dd class="m-0 mt-2 sm:mt-0">
           <strong class="block text-lg">
-            <DocLink to="/docs/assets-and-entities/vaulting-operations">Stabilization Vaults</DocLink>
+            <DocLink to="/docs/network-rules/vaulting-operations">Stabilization Vaults</DocLink>
           </strong>
           Allocated among qualifying vaults according to their amount of securitization. The range is based
           on each vault's locked Bitcoins, securitized Argonots, and bonds generated.
@@ -260,7 +210,7 @@
         </dt>
         <dd class="m-0 mt-2 sm:mt-0">
           <strong class="block text-lg">
-            <DocLink to="/docs/assets-and-entities/argonot-stakes"
+            <DocLink to="/docs/asset-rules/argonot-stakes"
             >Argonot Stakes</DocLink
             >
           </strong>
@@ -275,7 +225,7 @@
         </dt>
         <dd class="m-0 mt-2 sm:mt-0">
           <strong class="block text-lg">
-            <DocLink to="/docs/assets-and-entities/argon-bonds"
+            <DocLink to="/docs/asset-rules/argon-bonds"
             >Argon Bonds</DocLink
             >
           </strong>
@@ -290,7 +240,7 @@
         </dt>
         <dd class="m-0 mt-2 sm:mt-0">
           <strong class="block text-lg">
-            <DocLink to="/docs/assets-and-entities/bitcoin-liquids">Bitcoin Liquids</DocLink>
+            <DocLink to="/docs/asset-rules/bitcoin-liquids">Bitcoin Liquids</DocLink>
           </strong>
           Distributed proportionally among the BTC positions supplying short positions against
           the ARGN token. The higher range is based on Profit Surges gifted by upstream operators.
@@ -302,7 +252,7 @@
         </dt>
         <dd class="m-0 mt-2 sm:mt-0">
           <strong class="block text-lg">
-            <DocLink to="/docs/assets-and-entities/market-stabilizers">Market Stabilizers</DocLink>
+            <DocLink to="/docs/network-rules/market-stabilizers">Market Stabilizers</DocLink>
           </strong>
           Allocated to Uniswap trading pools on Ethereum and other remote networks.
           It incentives liquidity near Argon’s target price to help deepen markets and support price stability.
@@ -314,7 +264,7 @@
         </dt>
         <dd class="m-0 mt-2 sm:mt-0">
           <strong class="block text-lg">
-            <DocLink to="/docs/assets-and-entities/certification-rewards">Certification Rewards</DocLink>
+            <DocLink to="/docs/network-rules/certification-rewards">Certification Rewards</DocLink>
           </strong>
           This is an experimental fund meant to support the growth of the network. It rewards
           those who become Certified Operators as well as the Operators who onboarded them.
@@ -338,67 +288,14 @@
     </p>
 
     <p>
-      The following calculator models how mining economics, Stake participation,
-      and ARGNOT's market price can affect returns. It begins with current Mainnet
-      data, but its results are illustrations rather than predictions.
-    </p>
-
-    <StakesCalculator />
-
-    <p>
-      The Expected Ten Day Return compares a Stake's modeled ARGN earnings with
-      the market value of its ARGNOT principal. Expected APY annualizes that
-      ten-day return under the assumption that the same conditions continue and
-      earnings are repeatedly reinvested. Stake earnings do not compound
-      automatically, and actual bids, participation, prices, and Profit Surges can
-      all change.
-    </p>
-
-    <h3>The Five Variables that Drive Staking Returns</h3>
-
-    <h4>1. ARGNOT Market Price</h4>
-    <p>
-      Stake earnings are paid in ARGN, while each Stake requires one ARGNOT.
-      If mining revenue remains unchanged, a higher ARGNOT price produces a lower
-      percentage return. However, ARGNOT is also part of the value produced by a
-      mining seat, so a higher price can support larger mining bids and increase
-      the revenue distributed to Stakes.
-    </p>
-
-    <h4>2. Growth In Argon Circulation</h4>
-    <p>
-      Growth in Argon circulation creates additional ARGN mining rewards. Those
-      rewards increase the value produced by each mining seat, allowing operators
-      to submit larger bids and increasing the revenue available to Stakes.
-    </p>
-
-    <h4>3. Expected Return Per Mining Seat</h4>
-    <p>
-      Mining operators bid according to the value they expect a seat to produce.
-      Accepting a lower mining return allows a larger bid, while requiring a higher
-      return reduces the amount an operator can bid. Larger winning bids create
-      more revenue for Argonot Stakes.
-    </p>
-
-    <h4>4. Percent of ARGNOT Staked</h4>
-    <p>
-      Up to 60% of circulating ARGNOT can participate in active Stakes. Each Stake
-      receives a proportional share of the available revenue, so returns per Stake
-      decrease as more ARGNOT participates and increase as participation falls.
-    </p>
-
-    <h4>5. Payout From the Mining Pool</h4>
-    <p>
-      Argonot Stakes receive a standard 15% allocation from mining-bid revenue.
-      Mining operators can increase this allocation through Profit Surges, raising
-      the payout as high as 21%.
-    </p>
-
-    <p>
       Read
-      <DocLink to="/docs/assets-and-entities/argonot-stakes">Argonot Stakes</DocLink>
+      <DocLink to="/docs/asset-rules/argonot-stakes">Argonot Stakes</DocLink>
       for position sizes, miner selection, revenue distributions, and release
       rules.
+    </p>
+
+    <p class="my-6">
+      <DocLink class="font-semibold" to="/docs/calculators/argonot-stakes">Explore the Argonot Stakes Calculator →</DocLink>
     </p>
 
     <h2>Vaulting</h2>
@@ -440,98 +337,13 @@
       the operator.
     </p>
 
-    <p>
-      The following calculator begins with current network data and lets you
-      explore how operator capital, Bitcoin utilization, bond participation,
-      market conditions, and revenue-sharing affect a vault's possible returns.
-    </p>
-
-    <VaultingCalculator />
-
-    <p>
-      The footer compares the operator's invested capital with its estimated
-      ten-day revenue. The annualized yield assumes the same conditions continue
-      and that earnings are repeatedly reinvested; it is an illustration rather
-      than a prediction.
-    </p>
-
-    <h3>The Nine Variables that Shape Vaulting Returns</h3>
-
-    <p>
-      The circled numbers on the left side of the calculator identify the nine
-      inputs that shape the vault's revenue and percentage return.
-    </p>
-
-    <h4>1. ARGNOT Market Price</h4>
-    <p>
-      ARGNOT is part of the value produced by mining and committed in mining
-      bids. A change in its market price changes mining-seat economics, which can
-      change the ARGN bid revenue available to vaults.
-    </p>
-
-    <h4>2. Growth In Argon Circulation</h4>
-    <p>
-      Growth in Argon circulation creates additional ARGN mining rewards. Those
-      rewards increase the value produced by each mining seat, allowing operators
-      to submit larger bids and increasing the revenue available to vaults.
-    </p>
-
-    <h4>3. Expected Return Per Mining Seat</h4>
-    <p>
-      Mining operators bid according to the return they expect a seat to
-      produce. Accepting a lower mining return supports a larger bid and creates
-      more revenue for vaulting, while requiring a higher return reduces the bid.
-    </p>
-
-    <h4>4. Initial ARGN Securitization</h4>
-    <p>
-      Initial ARGN securitization establishes the vault's Bitcoin capacity. The
-      protocol compares it with the network's desired Bitcoin space to determine
-      the vault's share of eligible mining-bid revenue. Increasing it generally
-      raises absolute revenue, although it does not always raise the percentage
-      return by the same amount.
-    </p>
-
-    <h4>5. Initial ARGNOT Securitization</h4>
-    <p>
-      ARGNOT adds supporting operator capital without diluting the calculated
-      return. Once Bitcoin is locked, ARGNOT can also provide a return bonus of
-      up to 29%. The bonus grows proportionally with Bitcoin utilization and
-      reaches its maximum only when both capacities are full.
-    </p>
-
-    <h4>6. Bitcoin Utilization</h4>
-    <p>
-      Bitcoin utilization is the primary driver of vaulting returns. It supplies
-      90% of core utilization and acts as the gate for the benefits provided by
-      ARGNOT and Bonds. Each additional amount of locked Bitcoin contributes
-      proportionally to the calculation.
-    </p>
-
-    <h4>7. Bond Participation</h4>
-    <p>
-      Purchased Argon Bonds supply the final 10% of core utilization. Their
-      contribution is multiplied by Bitcoin utilization, so Bonds cannot improve
-      the operator's return when no Bitcoin is locked.
-    </p>
-
-    <h4>8. Revenue Shared With Bonds</h4>
-    <p>
-      The standard bondholder share is 5% of eligible vaulting revenue. A vault
-      can offer as much as 7% to attract bond capital, but every percentage point
-      above the standard share comes out of the operator's maximum.
-    </p>
-
-    <h4>9. Revenue Shared With Bitcoin Liquids</h4>
-    <p>
-      Bitcoin Liquids receive a standard 3% share. A vault can increase it to 5%
-      to attract Bitcoin users, but the additional share also comes out of the
-      operator's maximum.
+    <p class="my-6">
+      <DocLink class="font-semibold" to="/docs/calculators/vaulting">Explore the Vaulting Calculator →</DocLink>
     </p>
 
     <p>
       Read
-      <DocLink to="/docs/assets-and-entities/vaulting-operations"
+      <DocLink to="/docs/network-rules/vaulting-operations"
         >Vaulting Operations</DocLink
       >
       for the complete revenue formula, capital requirements, insurance rules,
@@ -551,68 +363,19 @@
       A Bond earns the percentage of eligible vaulting revenue offered when its
       position was created. Revenue eligibility is tied to the ARGN market value
       of Bitcoin secured by the vault, so adding Bonds alone does not create an
-      unlimited claim on mining-bid revenue. The following calculator begins
-      with current Mainnet data and shows how mining economics and the vault's
-      offered profit split can affect a Bond's modeled return.
-    </p>
-
-    <BondsCalculator />
-
-    <p>
-      Modeled Ten Day Return compares a Bond's estimated ARGN earnings with its
-      one-ARGN principal. Modeled APY annualizes that ten-day return under the
-      assumption that the same conditions continue and earnings are repeatedly
-      reinvested. Bond earnings do not compound automatically, and actual mining
-      bids, Bitcoin-backed capacity, participation, and revenue-sharing terms can
-      all change.
-    </p>
-
-    <h3>The Four Variables that Drive Bond Returns</h3>
-
-    <p>
-      The circled numbers on the left side of the calculator identify the four
-      inputs that shape the revenue available to eligible Bonds and the share
-      they receive.
-    </p>
-
-    <h4>1. ARGNOT Market Price</h4>
-    <p>
-      ARGNOT is part of the value produced by a mining seat and committed in a
-      mining bid. A higher market price can increase the modeled value of the
-      seat, allowing operators to submit larger ARGN bids. Because a portion of
-      those bids flows through vaults to Bonds, this can increase Bond revenue.
-    </p>
-
-    <h4>2. Growth In Argon Circulation</h4>
-    <p>
-      Growth in ARGN circulation creates additional mining rewards. Those
-      rewards increase the value produced by each mining seat, which can support
-      larger bids and increase the mining-bid revenue available to eligible
-      Bonds.
-    </p>
-
-    <h4>3. Expected Return Per Mining Seat</h4>
-    <p>
-      Mining operators bid according to the return they expect a seat to
-      produce. Accepting a lower mining return supports a larger bid and creates
-      more revenue for Bonds, while requiring a higher return reduces the bid
-      and the revenue available for distribution.
-    </p>
-
-    <h4>4. Profit Split for Bonds</h4>
-    <p>
-      Bonds receive 5% of eligible vaulting revenue by default. A vault operator
-      can offer as much as 7% to attract Bond capital. A higher split increases
-      the portion paid to Bond holders, but every additional percentage point
-      comes out of the vault operator's share.
+      unlimited claim on mining-bid revenue.
     </p>
 
     <p>
       Read
-      <DocLink to="/docs/assets-and-entities/argon-bonds"
+      <DocLink to="/docs/asset-rules/argon-bonds"
         >Argon Bonds</DocLink
       >
       for position capacity, earnings, and release rules.
+    </p>
+
+    <p class="my-6">
+      <DocLink class="font-semibold" to="/docs/calculators/argon-bonds">Explore the Argon Bonds Calculator →</DocLink>
     </p>
 
     <h2>Bitcoin Liquids</h2>
@@ -623,75 +386,12 @@
     </p>
 
     <p>
-      The following calculator begins with current Mainnet prices and activity.
-      Choose how much BTC participates in the Liquid, replay the last year of
-      Bitcoin prices with a selected ratchet threshold, and adjust the mining
-      conditions and revenue share to see how they affect its modeled return.
+      Read <DocLink to="/docs/asset-rules/bitcoin-liquids">Bitcoin Liquids</DocLink>
+      for liquidity, ratcheting, revenue, and release rules.
     </p>
 
-    <LiquidsCalculator />
-
-    <p>
-      The selected BTC amount is modeled as a new position added to the Bitcoin
-      already locked across the network. Its share of the resulting BTC total
-      determines its proportional share of Liquid revenue. Modeled Liquid
-      profits include both a simple annual projection of current ten-day mining
-      proceeds and the net liquidity taken off the table by upward ratchets.
-      The modeled APR expresses that combined profit against the historical
-      starting capital and does not assume automatic compounding.
-    </p>
-
-    <h3>The Six Variables that Drive Bitcoin Liquid Returns</h3>
-
-    <h4>1. Bitcoin Used for the Liquid</h4>
-    <p>
-      The Bitcoin amount establishes the modeled size of the position. Its ARGN
-      market value is calculated from current BTC and ARGN prices, while the BTC
-      itself remains inside its native multisig Lock.
-    </p>
-
-    <h4>2. Ratchet Threshold</h4>
-    <p>
-      The ratchet threshold controls how far Bitcoin's price must move from the
-      most recent ratchet price before the position adjusts. The calculator
-      replays the trailing year of daily Bitcoin prices using a minimum
-      threshold of 5%. An upward ratchet provides full liquidity until the
-      cumulative ARGN received reaches the position's current market value. Any
-      remaining increase provides 50% liquidity.
-    </p>
-
-    <h4>3. ARGNOT Market Price</h4>
-    <p>
-      ARGNOT contributes to the value produced by mining seats. Its market price
-      can therefore change mining bids and the revenue available to Bitcoin
-      Liquids.
-    </p>
-
-    <h4>4. Growth In Argon Circulation</h4>
-    <p>
-      Growth in ARGN circulation creates additional mining rewards. That added
-      value can support larger mining bids and increase downstream Liquid
-      revenue.
-    </p>
-
-    <h4>5. Expected Return Per Mining Seat</h4>
-    <p>
-      A lower expected mining return supports a larger competitive bid, while a
-      higher expected return leaves less bid revenue available for distribution.
-    </p>
-
-    <h4>6. Profit Split for Bitcoin Liquids</h4>
-    <p>
-      Bitcoin Liquids receive 3% of eligible vaulting revenue by default. A
-      vault can offer as much as 5%, with the additional share coming out of the
-      vault operator's portion.
-    </p>
-
-    <p>
-      These same factors impact returns elsewhere in the system. For example,
-      Vaults earn service fees from their Liquids, and the amount of Liquids
-      determines how much mining-bid revenue is paid out to Vaults and Bond
-      holders.
+    <p class="my-6">
+      <DocLink class="font-semibold" to="/docs/calculators/bitcoin-liquids">Explore the Bitcoin Liquids Calculator →</DocLink>
     </p>
 
     <h2>The Economic Flywheel</h2>
@@ -710,18 +410,14 @@
       In this way, the network does not need ARGN itself to become a speculative
       asset. Its economy is driven by recurring demand for useful currency,
       scarce operational access, independent infrastructure, and productive
-      capital. The calculators on this page make those relationships visible by
+      capital. The linked calculators make those relationships visible by
       letting one variable flow through the opportunities that follow it.
     </p>
   </DocContent>
-
-  <DocContent v-else>Loading current network data...</DocContent>
 </template>
 
 <script setup lang="ts">
 import DocLink from "@/screens/docs/DocLink.vue";
-import * as Vue from "vue";
-import numeral from "@/lib/numeral";
 import DocHeader from "@/screens/docs/DocHeader.vue";
 import DocContent from "@/screens/docs/DocContent.vue";
 import ArgonIcon from "@/assets/logo.svg?component";
@@ -730,32 +426,7 @@ import BitcoinIcon from "@/assets/bitcoin.svg?component";
 import ArgonStableChart from "@/components/ArgonStableChart.vue";
 import ArgonotVolatilityChart from "@/components/ArgonotVolatilityChart.vue";
 import BitcoinVolatilityChart from "@/components/BitcoinVolatilityChart.vue";
-import MiningCalculator from "@/components/calculators/MiningCalculator.vue";
-import VaultingCalculator from "@/components/calculators/VaultingCalculator.vue";
-import Data, { NetworkName } from "@/lib/Data";
-import {
-  defaultBasicsRecord,
-  type IBasicsRecord,
-} from "@/interfaces/IBasicsRecord";
-import StakesCalculator from "@/components/calculators/StakesCalculator.vue";
-import BondsCalculator from "@/components/calculators/BondsCalculator.vue";
-import LiquidsCalculator from "@/components/calculators/LiquidsCalculator.vue";
 import EconomicFlywheel from "@/components/EconomicFlywheel.vue";
-
-const chainName = Vue.ref<NetworkName>(NetworkName.mainnet);
-const data = Vue.ref<IBasicsRecord>(defaultBasicsRecord);
-const isLoaded = Vue.ref(false);
-
-const averageBerkshireHathawayAPY = 19.9;
-
-async function loadData() {
-  data.value = await Data.fetchBasics();
-}
-
-Vue.onMounted(async () => {
-  await loadData();
-  isLoaded.value = true;
-});
 </script>
 
 <style scoped>

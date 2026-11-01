@@ -3,15 +3,15 @@
 
   <DocContent>
     <p>
-      A mining operation is an operator-run system that competes for and manages
+      Mining is an operator-run system that competes for and manages
       time-limited <strong>mining seats</strong>. An active seat allows its
-      operator to help produce and finalize blocks, earning the miner's share of
-      block rewards and the transaction fees from blocks it produces.
+      operator to produce and finalize blocks, earning the miner a share of
+      block rewards and transaction fees from the blocks it produces.
     </p>
 
     <p>
-      Mining in the Argon Network is not a pure computing-power race.
-      Operators first compete economically for a place in the active miner set;
+      Mining in the Argon Network is not a computing-power race.
+      Operators compete economically for a place in the active miner set;
       the protocol then assigns block opportunities among the miners that hold
       seats.
     </p>
@@ -37,7 +37,11 @@
       </div>
     </section>
 
-    <h2>Rotating Mining Seats</h2>
+    <p class="my-6">
+      <DocLink class="font-semibold" to="/docs/calculators/mining">Explore the Mining Calculator →</DocLink>
+    </p>
+
+    <h2>Mining Seat Rotation</h2>
     <p>
       The active miner set is made from overlapping <strong>cohorts</strong>. At
       the beginning of every frame, the latest auctioned cohort starts mining. The
@@ -46,11 +50,11 @@
       days in the Argon world.
     </p>
 
-    <h2>How a Seat Auction Works</h2>
+    <h2>How Seat Auctions Works</h2>
     <p>
       Each incoming cohort has a set number of seats. An eligible operator
       enters the auction by providing mining authority keys, an
-      <DocLink to="/docs/assets-and-entities/argon-stablecoins"
+      <DocLink to="/docs/asset-rules/argons"
         >ARGN</DocLink
       >
       bid, and the required ARGNOT collateral. Bids are queued in batches based
@@ -251,7 +255,7 @@
         </div>
         <p class="mt-2 mb-0 text-sm text-slate-600">
           The required
-          <DocLink to="/docs/assets-and-entities/argonot-tokens"
+          <DocLink to="/docs/asset-rules/argonots"
             >ARGNOT</DocLink
           >
           is held by the protocol. It remains the funding account's property and
@@ -363,12 +367,12 @@
     <p>
       Winning bids flow into the mining-bid pool rather than directly to block
       producers. The protocol distributes that revenue among
-      <DocLink to="/docs/assets-and-entities/argonot-stakes"
+      <DocLink to="/docs/asset-rules/argonot-stakes"
         >Argonot Stakes</DocLink
       >,
-      <DocLink to="/docs/assets-and-entities/certification-rewards">Certification Rewards</DocLink>,
+      <DocLink to="/docs/network-rules/certification-rewards">Certification Rewards</DocLink>,
       and stabilization capital supplied through vaults and
-      <DocLink to="/docs/assets-and-entities/argon-bonds"
+      <DocLink to="/docs/asset-rules/argon-bonds"
         >Argon Bonds</DocLink
       >.
     </p>

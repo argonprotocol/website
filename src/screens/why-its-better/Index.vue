@@ -350,7 +350,7 @@
               </router-link>
             </div>
             <div>
-              <router-link to="/docs/bitcoin-locking">
+              <router-link to="/docs/system-modeling/llb">
                 <ArrowRightCircleIcon class="h-6 inline-block -mt-1" />
                 Learn About Liquid Locking for Bitcoin
               </router-link>
@@ -437,7 +437,7 @@
               </router-link>
             </div>
             <div>
-              <router-link to="/docs/bitcoin-locking">
+              <router-link to="/docs/system-modeling/uds">
                 <ArrowRightCircleIcon class="h-6 inline-block -mt-1" />
                 Explore Our Stabilization Analysis Model
               </router-link>

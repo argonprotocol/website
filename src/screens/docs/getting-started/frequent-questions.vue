@@ -18,7 +18,7 @@
         Argon instead creates stable purchasing power using a Consumer Price
         Index that follows the cost of real goods. As those costs change, Argon’s
         target value changes with them. Learn more about
-        <DocLink to="/docs/assets-and-entities/argon-stablecoins"
+        <DocLink to="/docs/asset-rules/argons"
           >Argons</DocLink
         >
         and
@@ -46,7 +46,7 @@
         do not represent company shares or a claim on a company. Their market
         value is determined by supply and demand rather than a stable
         purchasing-power target.
-        <DocLink to="/docs/assets-and-entities/argonot-tokens"
+        <DocLink to="/docs/asset-rules/argonots"
           >Learn more about Argonots</DocLink
         >
         and
@@ -148,7 +148,7 @@
         machines, while mining seats are allocated through recurring auctions.
         Operators are still responsible for reliable compute, storage,
         networking, and uptime.
-        <DocLink to="/docs/assets-and-entities/mining-operations"
+        <DocLink to="/docs/network-rules/mining-operations"
           >Learn more about mining.</DocLink
         >
       </p>

@@ -61,13 +61,13 @@
     <p>
       Argon's Desktop app helps users participate in these yield-bearing instruments
       while the mainchain enforces the underlying asset rules and distributions. Explore
-      <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
+      <DocLink to="/docs/asset-rules/bitcoin-liquids"
         >Bitcoin Liquids</DocLink
       >,
-      <DocLink to="/docs/assets-and-entities/argon-bonds"
+      <DocLink to="/docs/asset-rules/argon-bonds"
         >Argon Bonds</DocLink
       >,
-      <DocLink to="/docs/assets-and-entities/argonot-stakes"
+      <DocLink to="/docs/asset-rules/argonot-stakes"
         >Argonot Stakes</DocLink
       >.
     </p>
@@ -121,11 +121,11 @@
       capital and infrastructure. The operators are compensated through protocol rewards,
       auction distributions, and service fees rather than by a central company.
       Explore
-      <DocLink to="/docs/assets-and-entities/mining-operations"
+      <DocLink to="/docs/network-rules/mining-operations"
         >mining operations</DocLink
       >
       and
-      <DocLink to="/docs/assets-and-entities/vaulting-operations"
+      <DocLink to="/docs/network-rules/vaulting-operations"
         >vaulting operations</DocLink
       >.
     </p>
@@ -177,7 +177,7 @@
     </p>
     <p>
      Learn more about
-      <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
+      <DocLink to="/docs/asset-rules/bitcoin-liquids"
         >Bitcoin Liquids</DocLink
       >
       and

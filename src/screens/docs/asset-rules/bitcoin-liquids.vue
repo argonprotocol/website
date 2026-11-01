@@ -4,27 +4,23 @@
   <DocContent>
     <p>
       A Bitcoin Liquid is an onchain financial position that lets the owner of a
-      <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+      <DocLink to="/docs/asset-rules/bitcoin-locks"
         >Bitcoin Lock</DocLink
       >
-      receive Argon stablecoins against part of the locked Bitcoin's value. The
-      Liquid does not move the Bitcoin, replace it with a wrapped token, or
-      create another Bitcoin Lock.
+      receive Argon stablecoins against the market value of their BTC. The
+      Liquid does not move the Bitcoin or replace it with a wrapped token.
     </p>
 
     <p>
-      Alongside that liquidity, a Liquid provides protection when Bitcoin's
-      price falls, opportunities to capture price movements through ratcheting,
-      and a share of mining revenue. The obligation to burn ARGN when the Liquid is released
-      also creates a short position against ARGN: buying discounted Argons can
-      make release less expensive while removing those Argons from circulation.
+      In addition to creating liquidity from their Bitcoin, a Liquid provides protection for the Bitcoin owner
+      if BTC's market price falls. It also allows the owner to capture a share of the network's mining revenue
+      as well as price movements through ratcheting.
     </p>
 
     <p>
-      Locking Bitcoin and creating a Liquid are separate actions. A funded Lock
-      can remain in the App Wallet without producing any ARGN. The owner must
-      choose to create a Liquid before the protocol records an ARGN position and
-      begins distributing stablecoins.
+      Argon Network benefits from these Liquids due to their obligations to burn ARGN when the Liquid is released.
+      Their curve formula creates a short position against ARGN that ensures
+      ARGN's market price cannot fall without a rebound.
     </p>
 
     <section
@@ -37,109 +33,121 @@
       </header>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4">
         <div class="border-b border-slate-300 p-5 sm:border-r lg:border-b-0">
-          <div class="text-2xl font-bold text-argon-600">Funded Lock</div>
+          <div class="text-2xl font-bold text-argon-600">An Active, Funded Lock</div>
           <div class="mt-1 text-sm text-slate-600">
-            The underlying BTC is confirmed
+            The underlying BTC must be in a confirmed Lock position.
           </div>
         </div>
         <div class="border-b border-slate-300 p-5 lg:border-r lg:border-b-0">
-          <div class="text-2xl font-bold text-argon-600">Cosigner Guarantee</div>
+          <div class="text-2xl font-bold text-argon-600">Full Cosigner Guarantee</div>
           <div class="mt-1 text-sm text-slate-600">
-            Vault capital supports the position
+            The Vault must supply a Guarantee equal to the full market value.
           </div>
         </div>
         <div class="border-b border-slate-300 p-5 sm:border-r sm:border-b-0">
-          <div class="text-2xl font-bold text-argon-600">ARGN</div>
+          <div class="text-2xl font-bold text-argon-600">Agreement to Repay ARGN</div>
           <div class="mt-1 text-sm text-slate-600">
-            The asset distributed to the owner
+            The BTC must fully repay the required ARGN when releasing.
           </div>
         </div>
         <div class="p-5">
-          <div class="text-2xl font-bold text-argon-600">BTC stays locked</div>
+          <div class="text-2xl font-bold text-argon-600">The BTC Stays Locked</div>
           <div class="mt-1 text-sm text-slate-600">
-            The multisig UTXO does not move
+            The multisig of UTXO ensures rules are fully followed.
           </div>
         </div>
       </div>
     </section>
 
-    <h2>How Much ARGN a Liquid Can Create</h2>
-    <p>
-      A Liquid can use only the portion of a Lock's value supported by unused
-      Cosigner Guarantee capacity. Its maximum size is limited by both the
-      eligible value of the locked Bitcoin and the available guarantee amount.
+    <p class="my-6">
+      <DocLink class="font-semibold" to="/docs/calculators/bitcoin-liquids">Explore the Bitcoin Liquids Calculator →</DocLink>
     </p>
 
-    <section
-      class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-5"
-    >
-      <div class="text-sm font-bold tracking-wide text-argon-700 uppercase">
-        Liquid Capacity
-      </div>
-      <div
-        class="my-4 overflow-x-auto rounded-md border border-argon-200 bg-white/60 px-4 py-5 text-center font-['Latin_Modern_Math'] text-xl text-slate-800 sm:text-2xl"
-      >
-        Liquid amount ≤ eligible BTC value and available guarantee
-      </div>
-      <p class="m-0 text-sm text-slate-600">
-        A Lock with zero guarantee has no Liquid capacity. A guarantee can be
-        added before a Liquid is created, subject to vault availability and
-        fees.
-      </p>
-    </section>
-
+    <h2>What The User Receives</h2>
     <p>
-      The protocol values the Bitcoin in ARGN using its current Bitcoin pricing
-      data and Argon's purchasing-power target. The owner chooses an amount
-      within the available capacity rather than being required to create a
-      Liquid for the full value of the Lock.
+      The user receives the full market value of the BTC held in their
+      Liquid. It's paid out in ARGN which the user can deploy however they want
+      (there are no limitations). These ARGN are minted according to the following rules:
     </p>
 
-    <h2>Where the Argons Come From</h2>
+    <ol class="list-decimal">
+      <li>
+        <strong>10% per frame over ten frames.</strong> Each frame can mint 10%
+        of the original promised amount, until the full amount has been paid.
+      </li>
+      <li>
+        <strong>Minting only happens at or above target.</strong> New ARGN are
+        minted only when Argon's market price is at or above its target price.
+      </li>
+      <li>
+        <strong>ARGN is guaranteed regardless of price.</strong>
+        Although minting pauses when ARGN is below target, unpaid amount stays
+        queued until minting resumes.
+      </li>
+    </ol>
+
     <p>
-      Creating a Liquid records the amount of
-      <DocLink to="/docs/assets-and-entities/argon-stablecoins"
-        >ARGN</DocLink
-      >
-      the position is eligible to receive. Available Treasury capital can supply
-      this liquidity, including capital contributed through
-      <DocLink to="/docs/assets-and-entities/argon-bonds"
-        >Argon Bonds</DocLink
-      >. Any remaining amount follows the protocol's controlled issuance rules.
+      The ten-frame schedule depends on minting conditions. Price pauses and
+      limits on available mining issuance can extend the time needed to receive
+      the full amount. See
+      <DocLink to="/docs/system-design/stabilization-algorithms#expand-supply-when-price-is-above-target">Stabilization Algorithms</DocLink>
+      for the network's issuance controls.
     </p>
 
     <p>
-      This means a Liquid is not permission to mint an unlimited number of
-      Argons. Distribution remains constrained by the Lock's Bitcoin value,
-      Cosigner Guarantee, Treasury liquidity, and the network's issuance limits.
-      See
-      <DocLink to="/docs/system-design/stabilization-algorithms">Stabilization Algorithms</DocLink>
-      for the system-wide issuance controls.
+      In addition to receiving ARGN equal to the full market price of their BTC, Liquids also earn
+      <a href="#earning-yield-from-mining-revenue">yield from mining revenue</a>
+      and capture
+      <a href="#capturing-price-movements-through-ratcheting">price movements through ratcheting</a>.
+      The returns vary with network revenue, the vault's terms, Bitcoin's
+      price path, and fees.
     </p>
 
-    <h2>The Liquid Position</h2>
+    <h2>What The User Gives</h2>
     <p>
-      A Liquid makes ARGN spendable while its underlying BTC remains in the
-      multisig Lock. In exchange, the position records an ARGN release
-      obligation. The Liquid must be released before the supporting Bitcoin can be
-      moved.
+      In exchange for receiving ARGN, the user agrees to burn the release
+      amount calculated by the protocol when they release the Liquid. The
+      supporting BTC remains in its multisig Lock until that obligation is
+      settled. If the user spends or sells the ARGN they receive, they must
+      obtain the required ARGN before releasing the position.
     </p>
 
     <p>
-      The release calculation starts with the lower of the Bitcoin's current
-      value and the Liquid's recorded valuation, expressed in ARGN at its target price. That
-      recorded valuation is established when the position is created and can
-      change through ratcheting. The protocol then applies a redemption curve
-      based on ARGN's market price relative to its target. The valuation cap
-      applies before this curve; it is not a fixed ceiling on the final number
-      of Argons required.
+      The release amount can change. Its base is the lower of the allocated
+      Bitcoin's current value and the Liquid's recorded valuation, expressed
+      in ARGN at target. Ratcheting updates the recorded valuation, and a
+      redemption curve adjusts the final ARGN amount according to Argon's
+      market price relative to target. The sections below explain the
+      commitment:
     </p>
+
+    <ul>
+      <li>
+        <a href="#calculating-the-release-amount">Calculating the Release Amount</a>
+        explains the valuation and curve that determine how many ARGN must be
+        burned.
+      </li>
+      <li>
+        <a href="#protection-when-bitcoins-price-falls">Protection When Bitcoin's Price Falls</a>
+        explains how a decline in BTC's value can lower the release base.
+      </li>
+      <li>
+        <a href="#short-positions-against-argn">Short Positions Against ARGN</a>
+        explains how ARGN's price affects the token amount and market cost of
+        settling the obligation.
+      </li>
+      <li>
+        <a href="#releasing-a-liquid-and-moving-bitcoin">Releasing a Liquid and Moving Bitcoin</a>
+        explains how settling the Liquid allows the owner to begin the
+        separate Bitcoin Lock release process.
+      </li>
+    </ul>
 
     <aside
       class="my-8 rounded-lg border border-argon-200 bg-white/40 px-5 py-4"
     >
-      <strong class="block mb-1">A Liquid is a position, not a token</strong>
-      <p class="m-0">
+      <strong class="block mb-1">A Liquid Is a Position, Not a Token</strong>
+      <p class="m-0!">
         The owner receives ordinary ARGN. “Bitcoin Liquid” refers to the
         recorded relationship between that ARGN and a Bitcoin Lock; it is not a
         separate currency that can be transferred independently.
@@ -154,8 +162,8 @@
       Bitcoin allocated to the Liquid.
     </p>
 
-    <section class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-5">
-      <h3 class="mt-0">Example: Bitcoin Falls From $100,000 to $70,000</h3>
+    <section class="my-8 rounded-lg border border-argon-300 bg-argon-50/50 px-5 py-4">
+      <h3 class="mt-0!">Example: Bitcoin Falls From $100,000 to $70,000</h3>
       <p>
         Suppose a Liquid allocates 1 BTC at $100,000 and receives 100,000 ARGN.
         ARGN's target and market price both remain $1, and the owner keeps that
@@ -166,7 +174,7 @@
         <li>The owner retains the remaining 30,000 ARGN, worth $30,000.</li>
         <li>The owner still has 1 BTC, now worth $70,000.</li>
       </ul>
-      <p class="mb-0">
+      <p class="mb-0!">
         The combined value is $100,000 before fees, compared with $70,000 for
         simply holding that Bitcoin. The retained liquidity offsets the
         $30,000 decline under these assumptions.
@@ -199,15 +207,14 @@
 
     <h3>How the Return Model Captures Ratchet Profits</h3>
     <p>
-      The calculator in
-      <DocLink to="/docs/system-design/economic-drivers">Economic Drivers</DocLink>
+      The <DocLink to="/docs/calculators/bitcoin-liquids">Bitcoin Liquids Calculator</DocLink>
       replays Bitcoin prices with a selected ratchet threshold. It models full
       liquidity from an upward move until cumulative ARGN received reaches the
       Bitcoin's current value, then 50% liquidity for the remaining increase.
     </p>
 
     <section class="my-8 rounded-lg border border-slate-300 bg-white/40 px-5 py-5">
-      <h3 class="mt-0">Modeled Example: A Drop Followed by a Recovery</h3>
+      <h3 class="mt-0!">Modeled Example: A Drop Followed by a Recovery</h3>
       <p>
         Start with 1 BTC at $100,000 and 100,000 ARGN received. Assume ARGN
         remains at a $1 target and market price, all payouts complete, and fees
@@ -220,7 +227,7 @@
         so the $20,000 upward move provides 50% liquidity: another 10,000 ARGN.
         Total net receipts become 110,000 ARGN.
       </p>
-      <p class="mb-0">
+      <p class="mb-0!">
         Releasing the Liquid at the restored 100,000-ARGN valuation leaves
         10,000 ARGN plus the original BTC. That is $10,000 of modeled profit before fees even
         though Bitcoin finishes at its starting price. New liquidity alone is
@@ -233,7 +240,7 @@
       model illustrates one price path; actual results depend on the path,
       available guarantee capacity, distribution timing, and transaction costs.
       Use the
-      <DocLink to="/docs/engine-modeling/llb">Liquid Locking for Bitcoin model</DocLink>
+      <DocLink to="/docs/system-modeling/llb">Liquid Locking for Bitcoin model</DocLink>
       to explore historical prices, ratchets, and hypothetical ARGN price drops.
     </p>
 
@@ -284,8 +291,9 @@
       Yield changes with mining bids, the vault's revenue-sharing terms,
       eligible Bitcoin participation, and the size of the position relative to
       other participants. ARGNOT's market price, growth in ARGN circulation,
-      and miners' expected returns can affect what miners bid. The Economic
-      Drivers calculator combines projected mining earnings with modeled
+      and miners' expected returns can affect what miners bid. The
+      <DocLink to="/docs/calculators/bitcoin-liquids">Bitcoin Liquids Calculator</DocLink>
+      combines projected mining earnings with modeled
       ratchet profits to estimate an annual return; its 3%–5% revenue share
       should not be read as a promised APR.
     </p>

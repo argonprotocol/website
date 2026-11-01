@@ -45,7 +45,7 @@
     </p>
 
     <p>
-      See <DocLink to="/docs/assets-and-entities/bitcoin-locks">Bitcoin Locks</DocLink> and <DocLink to="/docs/assets-and-entities/bitcoin-liquids">Bitcoin Liquids</DocLink> for funding, cosigning guarantees, and
+      See <DocLink to="/docs/asset-rules/bitcoin-locks">Bitcoin Locks</DocLink> and <DocLink to="/docs/asset-rules/bitcoin-liquids">Bitcoin Liquids</DocLink> for funding, cosigning guarantees, and
       release rules.
     </p>
 
@@ -66,7 +66,7 @@
       return to date, vault, status, and release timing. Each position must be
       released separately. Requesting release ends its participation in future
       earnings and starts the waiting period before its ARGN becomes available
-      to spend. See <DocLink to="/docs/assets-and-entities/argon-bonds">Argon Bonds</DocLink> for the complete lifecycle.
+      to spend. See <DocLink to="/docs/asset-rules/argon-bonds">Argon Bonds</DocLink> for the complete lifecycle.
     </p>
 
     <h2>Argonot Stakes</h2>
@@ -86,7 +86,7 @@
       ARGN income, return to date, associated miner, and release status. Each
       position must be released separately. Requesting release ends its
       participation in future earnings and starts the waiting period before its
-      ARGNOT becomes available to spend. See <DocLink to="/docs/assets-and-entities/argonot-stakes">Argonot Stakes</DocLink> for
+      ARGNOT becomes available to spend. See <DocLink to="/docs/asset-rules/argonot-stakes">Argonot Stakes</DocLink> for
       participation, earnings, and release rules.
     </p>
   </DocContent>

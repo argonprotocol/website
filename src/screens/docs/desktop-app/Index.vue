@@ -40,18 +40,18 @@
     <p>
       <strong>Treasury</strong> requires an invitation from an existing Operator.
       It provides access to the network's yield-bearing assets, including
-      <DocLink to="/docs/assets-and-entities/bitcoin-liquids">Bitcoin Liquids</DocLink>,
-      <DocLink to="/docs/assets-and-entities/argon-bonds">Argon Bonds</DocLink>, and
-      <DocLink to="/docs/assets-and-entities/argonot-stakes">Argonot Stakes</DocLink>.
+      <DocLink to="/docs/asset-rules/bitcoin-liquids">Bitcoin Liquids</DocLink>,
+      <DocLink to="/docs/asset-rules/argon-bonds">Argon Bonds</DocLink>, and
+      <DocLink to="/docs/asset-rules/argonot-stakes">Argonot Stakes</DocLink>.
     </p>
 
     <p>
       <strong>Operations</strong> is the app's highest access level and requires
       approval from an existing Operator. Operators can compete for
-      <DocLink to="/docs/assets-and-entities/mining-operations"
+      <DocLink to="/docs/network-rules/mining-operations"
         >Mining Seats</DocLink
       >, establish and manage
-      <DocLink to="/docs/assets-and-entities/vaulting-operations"
+      <DocLink to="/docs/network-rules/vaulting-operations"
         >Vaults</DocLink
       >, and onboard new members.
     </p>

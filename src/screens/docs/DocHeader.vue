@@ -48,6 +48,7 @@ type TocGroup = {
   title: string;
   base?: string;
   link?: string;
+  items?: { link: string; isActive: boolean }[];
 };
 
 function cleanDocPath(path: unknown) {
@@ -63,7 +64,8 @@ const breadcrumbs = Vue.computed(() => {
     const groupFolder = cleanDocPath(group.base);
     return groupFolder === parentFolder || (!groupFolder && parentFolder === 'getting-started');
   });
-  const parentLink = cleanDocPath(parentGroup?.base);
+  const firstPage = parentGroup?.items?.find((item) => item.isActive)?.link;
+  const parentLink = [parentGroup?.base, firstPage].map(cleanDocPath).filter(Boolean).join('/');
 
   return [
     {

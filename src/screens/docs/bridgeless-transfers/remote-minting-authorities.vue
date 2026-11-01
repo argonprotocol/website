@@ -36,7 +36,7 @@
     <h2>What Can a Minting Authority Do?</h2>
     <p>
       Each authority belongs to a specific
-      <DocLink to="/docs/assets-and-entities/vaulting-operations"
+      <DocLink to="/docs/network-rules/vaulting-operations"
         >vault operator</DocLink
       >
       and is registered for a specific destination network (i.e., Ethereum). It signs only the

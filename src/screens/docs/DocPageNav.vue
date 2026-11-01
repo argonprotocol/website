@@ -1,4 +1,14 @@
 <template>
+  <Teleport v-for="heading in headings" :key="permalinkKeys.get(heading)" :to="heading">
+    <a
+      class="DOCSHEADINGLINK text-argon-600"
+      :href="`#${encodeURIComponent(heading.id)}`"
+      :aria-label="`Link to ${heading.textContent?.trim()}`"
+      :title="`Link to ${heading.textContent?.trim()}`"
+    >
+      <LinkIcon class="size-5" aria-hidden="true" />
+    </a>
+  </Teleport>
   <nav v-if="headings.length > 1" class="DOCSPAGENAV" aria-label="On this page">
     <p class="mb-3 pl-3 text-xs font-semibold uppercase tracking-widest text-argon-900/50">On this page</p>
     <ol class="border-l border-slate-300">
@@ -16,14 +26,17 @@
 
 <script setup lang="ts">
 import * as Vue from 'vue';
+import { LinkIcon } from '@heroicons/vue/24/outline';
 
 const props = defineProps<{
   content: HTMLElement | null;
 }>();
 
-const headingSelector = '.DocContent > h2, .DocContent > section > h2';
+const headingSelector = '.DocContent h2';
 const headings = Vue.shallowRef<HTMLElement[]>([]);
+const permalinkKeys = Vue.shallowRef(new Map<HTMLElement, number>());
 const activeId = Vue.ref('');
+let nextPermalinkKey = 0;
 let frame: number | undefined;
 
 function updateActiveHeading() {
@@ -50,6 +63,7 @@ function scheduleActiveHeading() {
 
 Vue.watch(() => props.content, (content, _previous, onCleanup) => {
   headings.value = [];
+  permalinkKeys.value = new Map();
   activeId.value = '';
   if (!content) return;
 
@@ -70,6 +84,13 @@ Vue.watch(() => props.content, (content, _previous, onCleanup) => {
       usedIds.add(id);
     }
 
+    // Recreate a permalink if a heading update replaced its teleported contents.
+    permalinkKeys.value = new Map(items.map(heading => [
+      heading,
+      heading.querySelector('.DOCSHEADINGLINK')
+        ? permalinkKeys.value.get(heading) ?? nextPermalinkKey++
+        : nextPermalinkKey++,
+    ]));
     headings.value = items;
 
     if (pendingHash && pendingHash === window.location.hash) {
@@ -117,6 +138,20 @@ Vue.onBeforeUnmount(() => {
 
 <style scoped>
 @import "../../main.css";
+
+.DOCSHEADINGLINK {
+  @apply ml-2 inline-flex size-7 items-center justify-center rounded align-middle no-underline opacity-0 hover:bg-argon-100 focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-argon-600;
+}
+
+:global(.DocContent h2:hover .DOCSHEADINGLINK) {
+  @apply opacity-100;
+}
+
+@media (hover: none) {
+  .DOCSHEADINGLINK {
+    @apply opacity-100;
+  }
+}
 
 .DOCSPAGENAV {
   @apply sticky top-8 mt-11 hidden max-h-[calc(100dvh-4rem)] w-64 shrink-0 self-start overflow-y-auto py-1 pr-8 2xl:block;

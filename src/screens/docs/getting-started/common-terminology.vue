@@ -13,7 +13,7 @@
         stablecoin. Its value follows the cost of real goods rather than
         a fixed amount of fiat currency. “Argon” can also refer to the network
         itself.
-        <DocLink to="/docs/assets-and-entities/argon-stablecoins"
+        <DocLink to="/docs/asset-rules/argons"
           >Learn more about Argons.</DocLink
         >
       </li>
@@ -22,33 +22,33 @@
         capitalize parts of the network. Miners commit Argonots when bidding for
         mining seats, and vault operators use them as part of vault
         securitization. Argonots can also be placed into yield-bearing stakes.
-        <DocLink to="/docs/assets-and-entities/argonot-tokens"
+        <DocLink to="/docs/asset-rules/argonots"
           >Learn more about Argonots.</DocLink
         >
       </li>
       <li>
         <strong>Bitcoin Lock.</strong> Bitcoin secured by your signing key and
         a vault’s signing key. The Bitcoin stays on the Bitcoin network.
-        <DocLink to="/docs/assets-and-entities/bitcoin-locks"
+        <DocLink to="/docs/asset-rules/bitcoin-locks"
           >Learn more about Bitcoin Locks.</DocLink
         >
       </li>
       <li>
         <strong>Bitcoin Liquid.</strong> A way to receive Argons without selling
         your locked Bitcoin. You return the required Argons to release the Liquid.
-        <DocLink to="/docs/assets-and-entities/bitcoin-liquids">Learn more about Bitcoin Liquids.</DocLink>
+        <DocLink to="/docs/asset-rules/bitcoin-liquids">Learn more about Bitcoin Liquids.</DocLink>
       </li>
       <li>
         <strong>Argon Bond.</strong> A yield-bearing position created by committing Argons through a vault. Bondholders receive a share of the vault’s
         stabilization revenue, subject to the bond’s onchain terms.
-        <DocLink to="/docs/assets-and-entities/argon-bonds"
+        <DocLink to="/docs/asset-rules/argon-bonds"
           >Learn more about Argon Bonds.</DocLink
         >
       </li>
       <li>
         <strong>Argonot Stake.</strong> A yield-bearing position created by committing Argonots through a miner. Stakeholders receive a share of mining-auction
         revenue, subject to the stake’s onchain terms.
-        <DocLink to="/docs/assets-and-entities/argonot-stakes"
+        <DocLink to="/docs/asset-rules/argonot-stakes"
           >Learn more about Argonot Stakes.</DocLink
         >
       </li>
@@ -73,7 +73,7 @@
       <li>
         <strong>Mining Auction.</strong> The open bidding process that selects
         the miners for an upcoming seat term.
-        <DocLink to="/docs/assets-and-entities/mining-operations"
+        <DocLink to="/docs/network-rules/mining-operations"
           >Learn more about mining.</DocLink
         >
       </li>
@@ -94,7 +94,7 @@
         <strong>Stabilization Vault.</strong> An onchain operation that supports
         Bitcoin Locks and deploys capital into Treasury. A vault operator sets
         its available capacity, fees, and capital-allocation rules.
-        <DocLink to="/docs/assets-and-entities/vaulting-operations"
+        <DocLink to="/docs/network-rules/vaulting-operations"
           >Learn more about vaulting.</DocLink
         >
       </li>

@@ -42,7 +42,7 @@
       The Mining dashboard tracks your bids, upcoming auctions, active seats,
       completed mining terms, block rewards, and balances associated with the
       operation. You can use multiple mining accounts to compete for multiple
-      seats. See <DocLink to="/docs/assets-and-entities/mining-operations">Mining Operations</DocLink> for auction rules, seat terms, and operating
+      seats. See <DocLink to="/docs/network-rules/mining-operations">Mining Operations</DocLink> for auction rules, seat terms, and operating
       responsibilities.
     </p>
 
@@ -59,7 +59,7 @@
     <p>
       Use the Vaulting dashboard to review Bitcoin cosigning requests, adjust
       capital and settings, collect revenue, and monitor vault health. See
-      <DocLink to="/docs/assets-and-entities/vaulting-operations">Vaulting Operations</DocLink> for capital requirements and ongoing responsibilities.
+      <DocLink to="/docs/network-rules/vaulting-operations">Vaulting Operations</DocLink> for capital requirements and ongoing responsibilities.
     </p>
 
     <h2>Member Onboarding</h2>
@@ -72,7 +72,7 @@
 
     <p>
       The Onboarding dashboard also tracks certification and referral progress
-      and shows rewards available to claim. See <DocLink to="/docs/assets-and-entities/certification-rewards">Certification Rewards</DocLink> for funding and
+      and shows rewards available to claim. See <DocLink to="/docs/network-rules/certification-rewards">Certification Rewards</DocLink> for funding and
       eligibility rules.
     </p>
 
@@ -82,7 +82,7 @@
       Your sponsor is your upstream connection, and the members and operators you sponsor are your
       downstream connections. Planned alliance tools will let operators search a list of other
       operators and create connections to borrow or supply unused Securitization or BTC for their
-      vaults. See <DocLink to="/docs/assets-and-entities/connections">Connections</DocLink> for how
+      vaults. See <DocLink to="/docs/network-rules/connections">Connections</DocLink> for how
       these relationships fit together.
     </p>
   </DocContent>

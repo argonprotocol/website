@@ -62,7 +62,7 @@
             <DocLink to="/docs/desktop-app/self-custody-risks">Self-Custody Risks</DocLink>
           </li>
           <li class="mb-1!">
-            <DocLink to="/docs/assets-and-entities/market-stabilizers">Market Stabilizers</DocLink>
+            <DocLink to="/docs/network-rules/market-stabilizers">Market Stabilizers</DocLink>
           </li>
         </ul>
       </li>
@@ -74,13 +74,13 @@
             <DocLink to="/docs/desktop-app/treasury">Treasury</DocLink>
           </li>
           <li class="mb-1!">
-            <DocLink to="/docs/assets-and-entities/bitcoin-liquids">Bitcoin Liquids</DocLink>
+            <DocLink to="/docs/asset-rules/bitcoin-liquids">Bitcoin Liquids</DocLink>
           </li>
           <li class="mb-1!">
-            <DocLink to="/docs/assets-and-entities/argon-bonds">Argon Bonds</DocLink>
+            <DocLink to="/docs/asset-rules/argon-bonds">Argon Bonds</DocLink>
           </li>
           <li class="mb-1!">
-            <DocLink to="/docs/assets-and-entities/argonot-stakes">Argonot Stakes</DocLink>
+            <DocLink to="/docs/asset-rules/argonot-stakes">Argonot Stakes</DocLink>
           </li>
         </ul>
       </li>
@@ -92,10 +92,10 @@
             <DocLink to="/docs/desktop-app/operations">Operations</DocLink>
           </li>
           <li class="mb-1!">
-            <DocLink to="/docs/assets-and-entities/mining-operations">Mining Operations</DocLink>
+            <DocLink to="/docs/network-rules/mining-operations">Mining Operations</DocLink>
           </li>
           <li class="mb-1!">
-            <DocLink to="/docs/assets-and-entities/vaulting-operations">Vaulting Operations</DocLink>
+            <DocLink to="/docs/network-rules/vaulting-operations">Vaulting Operations</DocLink>
           </li>
           <li class="mb-1!">
             <DocLink to="/docs/bridgeless-transfers/global-issuance-council">

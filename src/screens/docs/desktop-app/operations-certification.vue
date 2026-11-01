@@ -57,7 +57,7 @@
     </p>
 
     <p>
-      See <DocLink to="/docs/assets-and-entities/vaulting-operations">Vaulting Operations</DocLink> for setup instructions, capital requirements, withdrawal
+      See <DocLink to="/docs/network-rules/vaulting-operations">Vaulting Operations</DocLink> for setup instructions, capital requirements, withdrawal
       restrictions, and operating responsibilities.
     </p>
 
@@ -70,7 +70,7 @@
     </p>
 
     <p>
-      See <DocLink to="/docs/assets-and-entities/mining-operations">Mining Operations</DocLink> for seat auctions, terms, collateral, and operating
+      See <DocLink to="/docs/network-rules/mining-operations">Mining Operations</DocLink> for seat auctions, terms, collateral, and operating
       responsibilities.
     </p>
 
@@ -99,7 +99,7 @@
     </p>
 
     <p>
-      See <DocLink to="/docs/assets-and-entities/certification-rewards">Certification Rewards</DocLink> for reward amounts, eligibility, and collection rules.
+      See <DocLink to="/docs/network-rules/certification-rewards">Certification Rewards</DocLink> for reward amounts, eligibility, and collection rules.
     </p>
   </DocContent>
 </template>

@@ -8,6 +8,28 @@ import { TooltipTrigger } from 'reka-ui';
 
 const settings = vi.hoisted(() => ({ override: false }));
 
+vi.mock('./toc.json', async importOriginal => {
+  const actual = await importOriginal<{ default: typeof toc }>();
+  return {
+    default: [
+      ...actual.default,
+      {
+        title: 'Inactive test section',
+        base: '/inactive-section',
+        items: [{ title: 'Overview', link: '/', isActive: false }],
+      },
+      {
+        title: 'Mixed test section',
+        base: '/mixed-section',
+        items: [
+          { title: 'Published page', link: '/published', isActive: true },
+          { title: 'Draft page', link: '/draft', isActive: false },
+        ],
+      },
+    ],
+  };
+});
+
 vi.mock('./docLinkState', async importOriginal => {
   const actual = await importOriginal<typeof import('./docLinkState')>();
   return {
@@ -33,11 +55,18 @@ describe('docs link state', () => {
   });
 
   it.each([
-    ['/docs/desktop-app/overview/?tab=one#details', false],
-    ['/docs/desktop-app/Index', false],
-    ['/docs/assets-and-entities', false],
-    ['/docs/engine-modeling', false],
-    ['/docs/bridgeless-transfers/localized-minting-authorities', false],
+    ['/docs/desktop-app/overview/?tab=one#details', true],
+    ['/docs/desktop-app/Index', true],
+    ['/docs/asset-rules', true],
+    ['/docs/network-rules', true],
+    ['/docs/calculators', true],
+    ['/docs/system-modeling', true],
+    ['/docs/inactive-section/overview/?tab=one#details', false],
+    ['/docs/inactive-section/Index', false],
+    ['/docs/inactive-section/unlisted-page', false],
+    ['/docs/mixed-section', true],
+    ['/docs/mixed-section/published', true],
+    ['/docs/mixed-section/draft#details', false],
     ['/docs/getting-started/Index', true],
     ['/docs/system-design', true],
     ['/docs/system-design/argon-tokenomics#supply', true],
@@ -66,7 +95,7 @@ async function mountLink(to: string) {
 
 describe('DocLink', () => {
   it('disables inactive links for pointer and keyboard activation without emitting clicks', async () => {
-    const { router, wrapper } = await mountLink('/docs/desktop-app');
+    const { router, wrapper } = await mountLink('/docs/inactive-section');
     const anchor = wrapper.get('a');
     expect(anchor.attributes('href')).toBeUndefined();
     expect(anchor.attributes('aria-disabled')).toBe('true');
@@ -93,7 +122,7 @@ describe('DocLink', () => {
       disconnect() {
       }
     });
-    const { wrapper } = await mountLink('/docs/desktop-app');
+    const { wrapper } = await mountLink('/docs/inactive-section');
     try {
       const anchor = wrapper.get('a');
       await anchor.trigger('pointermove', { pointerType: 'mouse', clientX: 40, clientY: 60 });
@@ -114,6 +143,7 @@ describe('DocLink', () => {
 
   it.each([
     ['/docs/system-design', false],
+    ['/docs/inactive-section', true],
     ['/docs/desktop-app', true],
     ['/updates/argon-is-live', false],
   ])('keeps %s navigable with override=%s', async (path, override) => {

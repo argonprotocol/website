@@ -62,7 +62,7 @@
       />
 
       <div class="DOCSCONTENT min-w-0 flex-1 max-w-full">
-        <div class="max-w-[52rem] xl:mx-32 xl:mt-5 2xl:mx-12">
+        <div class="max-w-[52rem] xl:mx-auto xl:mt-5">
           <div ref="docContentRef" class="post mb min-h-screen xl:pt-6">
             <component :is="activePage" v-if="activePage" />
             <div v-else class="py-6">

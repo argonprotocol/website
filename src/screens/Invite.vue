@@ -218,7 +218,7 @@
                   Download Argon Desktop
                 </a>
                 <RouterLink
-                  to="/docs/desktop-apps/treasury"
+                  to="/docs/desktop-app/treasury"
                   class="text-lg text-black no-underline transition hover:text-violet-700"
                 >
                   Open documentation

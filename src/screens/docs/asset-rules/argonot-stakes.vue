@@ -4,7 +4,7 @@
   <DocContent>
     <p>
       Argonot Stakes are onchain, yield-bearing positions that supply
-      <DocLink to="/docs/assets-and-entities/argonot-tokens"
+      <DocLink to="/docs/asset-rules/argonots"
         >ARGNOT</DocLink
       >
       capital to mining operations. Each Stake is created by committing one
@@ -53,10 +53,14 @@
       </div>
     </section>
 
+    <p class="my-6">
+      <DocLink class="font-semibold" to="/docs/calculators/argonot-stakes">Explore the Argonot Stakes Calculator →</DocLink>
+    </p>
+
     <h2>Why Miners Use Stakes</h2>
     <p>
       Every
-      <DocLink to="/docs/assets-and-entities/mining-operations"
+      <DocLink to="/docs/network-rules/mining-operations"
         >mining seat</DocLink
       >
       requires ARGNOT collateral in addition to an ARGN bid. Argonot Stakes let
@@ -66,7 +70,7 @@
 
     <p>
       This creates a relationship similar to the one between
-      <DocLink to="/docs/assets-and-entities/argon-bonds"
+      <DocLink to="/docs/asset-rules/argon-bonds"
         >Argon Bonds</DocLink
       >
       and Stabilization Vaults: Bonds supply ARGN capital through a vault, while

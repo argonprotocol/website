@@ -43,22 +43,6 @@ const router = createRouter({
       redirect: '/launch-plan'
     },
     {
-      path: '/docs/engine-modeling/sam',
-      redirect: '/docs/engine-modeling/dsc'
-    },
-    {
-      path: '/docs/assets-and-entities/operational-rewards-pool',
-      redirect: '/docs/assets-and-entities/certification-rewards'
-    },
-    {
-      path: '/docs/assets-and-entities/ambassador-rewards',
-      redirect: '/docs/assets-and-entities/certification-rewards'
-    },
-    {
-      path: '/docs/assets-and-entities/upstream-nodes',
-      redirect: '/docs/assets-and-entities/connections'
-    },
-    {
       path: '/docs/:id?/:subId?',
       component: () => import('@/screens/docs/DocLoader.vue')
     },

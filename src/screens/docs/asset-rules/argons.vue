@@ -5,8 +5,8 @@
     <p>
       Argon (ARGN) is the network’s transactional currency. It is one of three
       assets in Argon’s economy, alongside
-      <DocLink to="/docs/assets-and-entities/argonot-tokens">Argonot ownership tokens</DocLink>
-      and <DocLink to="/docs/assets-and-entities/bitcoins">Bitcoin</DocLink>. It is
+      <DocLink to="/docs/asset-rules/argonots">Argonot ownership tokens</DocLink>
+      and <DocLink to="/docs/asset-rules/bitcoins">Bitcoin</DocLink>. It is
       designed to hold stable purchasing power over time while remaining
       independent of banks, custodians, and fiat reserves. It is represented
       by the symbol ₳, and each Argon can be divided into one million microgons.
@@ -51,24 +51,24 @@
       <li>
         <strong>Mining Bids.</strong> Mining operators bid Argons for the right
         to occupy mining seats and produce blocks. See
-        <DocLink to="/docs/assets-and-entities/mining-operations"
+        <DocLink to="/docs/network-rules/mining-operations"
           >Mining Operations</DocLink
         >.
       </li>
       <li>
         <strong>Argon Bonds.</strong> Holders can commit Argons to
-        <DocLink to="/docs/assets-and-entities/argon-bonds"
+        <DocLink to="/docs/asset-rules/argon-bonds"
           >Treasury bonds</DocLink
         >
         that supply liquidity for
-        <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
+        <DocLink to="/docs/asset-rules/bitcoin-liquids"
           >Bitcoin Liquids</DocLink
         >
         and share in network revenue.
       </li>
       <li>
         <strong>Vault Securitization.</strong>
-        <DocLink to="/docs/assets-and-entities/vaulting-operations"
+        <DocLink to="/docs/network-rules/vaulting-operations"
           >Vault operators</DocLink
         >
         commit Argons as capital that secures their participation in the
@@ -77,7 +77,7 @@
       <li>
         <strong>Bitcoin Liquids.</strong> A holder burns the required number
         of Argons to release a
-        <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
+        <DocLink to="/docs/asset-rules/bitcoin-liquids"
           >Liquid</DocLink
         >.
       </li>

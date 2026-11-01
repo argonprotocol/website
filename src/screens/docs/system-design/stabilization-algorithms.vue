@@ -23,7 +23,7 @@
       Argon's stabilization loop begins with three primary values that are
       maintained on-chain:
     </p>
-    <ol>
+    <ol class="list-decimal ml-10">
       <li>
         <strong>Target Price.</strong> Argon started at an exchange rate of 1 ARGN for 1
         USD on January 15, 2025. Since then, its target price has algorithmically
@@ -140,7 +140,7 @@
 
     <p>
       Learn more about
-      <DocLink to="/docs/assets-and-entities/mining-operations"
+      <DocLink to="/docs/network-rules/mining-operations"
         >Mining Operations</DocLink
       >.
     </p>
@@ -235,8 +235,8 @@
       release Bitcoin Liquids, reducing circulation. The Bitcoin value
       underlying active Liquids determines the potential burn capacity.
       Read more about
-      <DocLink to="/docs/assets-and-entities/bitcoin-locks">Bitcoin Locks</DocLink>
-      and <DocLink to="/docs/assets-and-entities/bitcoin-liquids">Liquids</DocLink>.
+      <DocLink to="/docs/asset-rules/bitcoin-locks">Bitcoin Locks</DocLink>
+      and <DocLink to="/docs/asset-rules/bitcoin-liquids">Liquids</DocLink>.
     </p>
 
     <h3>The Purpose of Market Stabilizers</h3>
@@ -249,7 +249,7 @@
       opportunities between chains. These tools can help correct small
       deviations while Bitcoin Liquid releases reduce circulation. Learn
       more about
-      <DocLink to="/docs/assets-and-entities/market-stabilizers"
+      <DocLink to="/docs/network-rules/market-stabilizers"
         >Market Stabilizers</DocLink
       >.
     </p>
@@ -272,7 +272,7 @@
     <h3>The Continuous Burn of the Sidechain</h3>
     <p>
       The second continuous burn mechanism is Argon's
-      <DocLink to="/docs/assets-and-entities/sidechain">Sidechain</DocLink>. The Sidechain
+      <DocLink to="/docs/system-design/mainchain-vs-sidechain#the-sidechain">Sidechain</DocLink>. The Sidechain
       operates as a fast, inexpensive micro-payment
       settlement layer. Payments on this Sidechain create transaction
       taxes, and these taxes are burned when the transaction settles on

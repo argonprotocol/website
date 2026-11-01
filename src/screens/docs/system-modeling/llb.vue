@@ -37,7 +37,7 @@
 
     <p>
       Explore Argon's
-      <DocLink to="/docs/engine-modeling/ege">Exponential Growth Engine</DocLink>
+      <DocLink to="/docs/system-modeling/ege">Exponential Growth Engine</DocLink>
       or read about Argon's
       <DocLink to="/docs/system-design/stabilization-algorithms">Stabilization Algorithms</DocLink>.
     </p>

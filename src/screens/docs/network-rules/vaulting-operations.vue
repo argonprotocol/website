@@ -5,8 +5,8 @@
     <p>
       A Stabilization Vault is an operator-run service that combines committed ARGN capital with Bitcoin
       cosigning infrastructure. A vault can provide a Cosigner Guarantee for
-      <DocLink to="/docs/assets-and-entities/bitcoin-locks">Bitcoin Locks</DocLink>, support liquidity
-      supplied through <DocLink to="/docs/assets-and-entities/argon-bonds">Argon Bonds</DocLink>, and
+      <DocLink to="/docs/asset-rules/bitcoin-locks">Bitcoin Locks</DocLink>, support liquidity
+      supplied through <DocLink to="/docs/asset-rules/argon-bonds">Argon Bonds</DocLink>, and
       optionally operate as a
       <DocLink to="/docs/bridgeless-transfers/remote-minting-authorities">Remote Minting Authority</DocLink>.
     </p>
@@ -25,6 +25,10 @@
         the applicable timelock path.
       </p>
     </aside>
+
+    <p class="my-6">
+      <DocLink class="font-semibold" to="/docs/calculators/vaulting">Explore the Vaulting Calculator →</DocLink>
+    </p>
 
     <h2>What a Vault Provides</h2>
 
@@ -53,7 +57,7 @@
     <p>
       Argon Bonds supply ARGN capital to the protocol through a selected vault. That capital helps the
       network provide liquidity for
-      <DocLink to="/docs/assets-and-entities/bitcoin-liquids">Bitcoin Liquids</DocLink>. Bond principal
+      <DocLink to="/docs/asset-rules/bitcoin-liquids">Bitcoin Liquids</DocLink>. Bond principal
       remains under protocol control and is not transferred to the vault operator.
     </p>
 
@@ -62,7 +66,7 @@
       their own mining-bid revenue pool and also contribute to the operator’s earnings. Bond and Bitcoin
       contributions are rewarded separately, so a vault does not need to fill its Bitcoin capacity before
       its active Bonds can contribute to revenue. See
-      <DocLink to="/docs/assets-and-entities/argon-bonds">Argon Bonds</DocLink> for position terms and
+      <DocLink to="/docs/asset-rules/argon-bonds">Argon Bonds</DocLink> for position terms and
       eligibility rules.
     </p>
 
@@ -70,7 +74,7 @@
 
     <p>
       A vault operator can separately make active ARGN or
-      <DocLink to="/docs/assets-and-entities/argonot-tokens">ARGNOT</DocLink> securitization available to
+      <DocLink to="/docs/asset-rules/argonots">ARGNOT</DocLink> securitization available to
       authorize transfers from Argon to a supported external network. Ethereum is the first supported
       network. An ARGN transfer uses available bond-backed ARGN before committed ARGNOT; an ARGNOT
       transfer can be backed only by ARGNOT. Committing capital to a vault does not activate an authority
@@ -124,7 +128,7 @@
       Planned operator alliances will allow vault operators to borrow unused Securitization or BTC
       from other vaults or operators to help fill their own vaults. Argon Desktop will add tools to
       search for operators and create connections around these resources. See
-      <DocLink to="/docs/assets-and-entities/connections">Connections</DocLink> for how alliances will
+      <DocLink to="/docs/network-rules/connections">Connections</DocLink> for how alliances will
       fit into an operator's network.
     </p>
 
@@ -397,7 +401,7 @@
     </p>
 
     <p>
-      See <DocLink to="/docs/assets-and-entities/mining-operations">Mining Operations</DocLink> for the
+      See <DocLink to="/docs/network-rules/mining-operations">Mining Operations</DocLink> for the
       auctions that supply this revenue and
       <DocLink to="/docs/system-design/economic-drivers">Economic Drivers</DocLink> for illustrative
       revenue estimates. The calculator uses separate allocation and ARGNOT assumptions.

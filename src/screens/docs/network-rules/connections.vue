@@ -58,8 +58,8 @@
     <ul class="list-disc pl-5">
       <li>
         Access to their Stabilization Vault for
-        <DocLink to="/docs/assets-and-entities/bitcoin-locks">Bitcoin Locks</DocLink> and
-        <DocLink to="/docs/assets-and-entities/argon-bonds">Argon Bonds</DocLink>.
+        <DocLink to="/docs/asset-rules/bitcoin-locks">Bitcoin Locks</DocLink> and
+        <DocLink to="/docs/asset-rules/argon-bonds">Argon Bonds</DocLink>.
       </li>
       <li>
         An optional Bitcoin Lock fee waiver, subject to the amount and expiration they select.
@@ -108,7 +108,7 @@
     <p>
       When a downstream member becomes a certified operator, the sponsor may qualify for an upgrade
       code or a certification reward. See
-      <DocLink to="/docs/assets-and-entities/certification-rewards">Certification Rewards</DocLink> for the
+      <DocLink to="/docs/network-rules/certification-rewards">Certification Rewards</DocLink> for the
       funding and eligibility rules.
     </p>
 
@@ -149,7 +149,7 @@
       Sponsorship establishes the invitation and access relationship. Alliances will add peer
       connections for working with other operators and matching available resources with vault needs.
       The borrowing terms and transaction process will be described when the capability launches.
-      See <DocLink to="/docs/assets-and-entities/vaulting-operations">Vaulting Operations</DocLink> for
+      See <DocLink to="/docs/network-rules/vaulting-operations">Vaulting Operations</DocLink> for
       how vault capital and Bitcoin participation work today.
     </p>
 

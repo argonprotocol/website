@@ -81,13 +81,13 @@
     <ul class="list-disc pl-5">
       <li>
         eligible ARGN committed to the operator's
-        <DocLink to="/docs/assets-and-entities/vaulting-operations"
+        <DocLink to="/docs/network-rules/vaulting-operations"
           >vault</DocLink
         >; and
       </li>
       <li>
         committed
-        <DocLink to="/docs/assets-and-entities/argonot-tokens"
+        <DocLink to="/docs/asset-rules/argonots"
           >ARGNOT</DocLink
         >
         converted to an ARGN value using the protocol-defined value recorded

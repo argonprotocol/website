@@ -97,7 +97,7 @@
       cosigner. The channel identifies the vault cosigner, derives your Bitcoin
       key, and produces a multisig funding address for your deposit.
       Depositing BTC creates a
-      <DocLink to="/docs/assets-and-entities/bitcoin-locks">Bitcoin Lock</DocLink>:
+      <DocLink to="/docs/asset-rules/bitcoin-locks">Bitcoin Lock</DocLink>:
       Bitcoin held on the Bitcoin network in a multisig arrangement between you
       and the vault. Argon Desktop displays and manages this position.
     </p>
@@ -144,7 +144,7 @@
     <p>
       The protocol gives the vault a defined period to provide its signature
       before failure-handling rules apply. See
-      <DocLink to="/docs/assets-and-entities/bitcoin-locks">Bitcoin Locks</DocLink>
+      <DocLink to="/docs/asset-rules/bitcoin-locks">Bitcoin Locks</DocLink>
       for more about releasing BTC.
     </p>
 

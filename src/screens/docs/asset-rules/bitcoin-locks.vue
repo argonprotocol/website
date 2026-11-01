@@ -5,13 +5,13 @@
     <p>
       A Bitcoin Lock is a native Bitcoin UTXO held in a time-bound multisig
       arrangement between its owner and a Stabilization Vault. Argon Desktop
-      creates the Lock when Bitcoin is moved into the App Wallet. The owner retains their key, while the vault supplies the cosigning key.
+      creates the Lock when Bitcoin is moved into the App Wallet. The owner retains their key, while the vault supplies a cosigning key.
     </p>
 
     <p>
-      The Lock is the custody and security layer for the Bitcoin. It is separate
+      The Lock is the custody and security layer. It is separate
       from a
-      <DocLink to="/docs/assets-and-entities/bitcoin-liquids"
+      <DocLink to="/docs/asset-rules/bitcoin-liquids"
         >Bitcoin Liquid</DocLink
       >, which is the optional financial position used to receive ARGN against
       the locked BTC.
@@ -21,7 +21,7 @@
       class="my-8 rounded-lg border border-amber-300 bg-amber-50/60 px-5 py-4"
     >
       <strong class="block mb-1 text-amber-900"
-        >A Lock does not issue stablecoins</strong
+        >A Lock Does Not Issue Stablecoins</strong
       >
       <p class="m-0 text-amber-900/80">
         Sending Bitcoin to a Lock only funds the multisig UTXO. The owner must
@@ -34,7 +34,7 @@
     <p>
       Before Bitcoin is deposited, the App Wallet combines an owner key with a
       key supplied by a
-      <DocLink to="/docs/assets-and-entities/vaulting-operations"
+      <DocLink to="/docs/network-rules/vaulting-operations"
         >Stabilization Vault</DocLink
       >. These keys define the Bitcoin script and funding address for the Lock.
       The Bitcoin is sent directly to that address and never leaves the Bitcoin
@@ -57,17 +57,17 @@
     </ul>
 
     <p>
-      During the normal Lock term, neither the owner nor the vault can move the
-      Bitcoin alone. The multisig script and its timeouts—not possession of an
-      account password—determine which signatures can spend the UTXO.
+      During the normal Lock term, neither the owner nor the vault can unilaterally
+      move the Bitcoin. The multisig script and its timeouts — not possession of an
+      account password — determine which combination of signatures can spend the UTXO.
     </p>
 
     <h2>Cosigner Guarantee</h2>
     <p>
       A Lock can be created with a <strong>Cosigner Guarantee</strong> of any
-      supported amount, including zero. The guarantee is ARGN capital that
-      the vault commits to the Lock so the protocol has funds available for
-      defined failures involving the vault or its cosigning responsibilities.
+      supported amount, including zero. This guarantee is ARGN capital that
+      the vault commits to the Lock, and which the vault loses if it fails to fulfill
+      its cosigning responsibilities.
     </p>
 
     <section
@@ -158,7 +158,7 @@
       </li>
     </ol>
 
-    <h2>Releasing Locked Bitcoin</h2>
+    <h2>Releasing a Locked Bitcoin</h2>
     <p>
       Releasing a Lock is a Bitcoin transaction. The owner chooses the
       destination address and Bitcoin network fee, signs the release, and asks

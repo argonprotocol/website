@@ -17,8 +17,15 @@ describe('production documentation imports', () => {
     const source = activeDocImports(toc, resolve('src/screens/docs'));
     expect(source).toContain('./getting-started/Index.vue');
     expect(source).toContain('./system-design/Index.vue');
+    expect(source).toContain('./system-design/mainchain-vs-sidechain.vue');
+    expect(source).not.toContain('./system-design/mainchain.vue');
+    expect(source).not.toContain('./system-design/sidechain.vue');
+    expect(source).toContain('./asset-rules/argons.vue');
+    expect(source).toContain('./network-rules/mining-operations.vue');
+    expect(source).toContain('./calculators/mining.vue');
+    expect(source).toContain('./system-modeling/ege.vue');
     expect(source).toContain('./economic-pillars/protection-from-inflation.vue');
-    expect(source).not.toMatch(/desktop-app|bridgeless-transfers|assets-and-entities|engine-modeling|DocLink|DocHeader/);
+    expect(source).not.toMatch(/assets-and-entities|engine-modeling|DocLink|DocHeader/);
     expect(source.match(/import\(/g)).toHaveLength(toc.flatMap(group => group.items).filter(item => item.isActive).length);
   });
 

@@ -56,19 +56,19 @@
     </p>
 
     <p>
-      See <DocLink to="/docs/assets-and-entities/bitcoin-locks">Bitcoin Locks</DocLink> and <DocLink to="/docs/assets-and-entities/bitcoin-liquids">Bitcoin Liquids</DocLink> for details.
+      See <DocLink to="/docs/asset-rules/bitcoin-locks">Bitcoin Locks</DocLink> and <DocLink to="/docs/asset-rules/bitcoin-liquids">Bitcoin Liquids</DocLink> for details.
     </p>
 
     <h3>Maintain 2,500 Active Argon Bonds</h3>
 
     <p>
-      Maintain active <DocLink to="/docs/assets-and-entities/argon-bonds">Argon Bond</DocLink> positions with a combined principal of at
+      Maintain active <DocLink to="/docs/asset-rules/argon-bonds">Argon Bond</DocLink> positions with a combined principal of at
       least 2,500 ARGN. Positions that are being released do not count toward
       this requirement.
     </p>
 
     <p>
-      See <DocLink to="/docs/assets-and-entities/argon-bonds">Argon Bonds</DocLink> for details.
+      See <DocLink to="/docs/asset-rules/argon-bonds">Argon Bonds</DocLink> for details.
     </p>
 
     <h2>Request an Operations Upgrade</h2>

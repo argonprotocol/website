@@ -17,7 +17,7 @@
       view balances and transaction history,
       <DocLink to="/docs/bridgeless-transfers">transfer supported assets</DocLink>,
       and use
-      <DocLink to="/docs/assets-and-entities/market-stabilizers">Market Stabilizers</DocLink>.
+      <DocLink to="/docs/network-rules/market-stabilizers">Market Stabilizers</DocLink>.
       See
       <DocLink to="/docs/desktop-app/basic-functionality">Basic Functionality</DocLink>
       for details.
@@ -27,9 +27,9 @@
     <p>
       Treasury requires a one-use invitation from an existing Operator.
       Accepting the invitation gives you access to
-      <DocLink to="/docs/assets-and-entities/bitcoin-liquids">Bitcoin Liquids</DocLink>,
-      <DocLink to="/docs/assets-and-entities/argon-bonds">Argon Bonds</DocLink>, and
-      <DocLink to="/docs/assets-and-entities/argonot-stakes">Argonot Stakes</DocLink>.
+      <DocLink to="/docs/asset-rules/bitcoin-liquids">Bitcoin Liquids</DocLink>,
+      <DocLink to="/docs/asset-rules/argon-bonds">Argon Bonds</DocLink>, and
+      <DocLink to="/docs/asset-rules/argonot-stakes">Argonot Stakes</DocLink>.
       See <DocLink to="/docs/desktop-app/treasury">Treasury</DocLink> for details.
     </p>
 
@@ -112,7 +112,7 @@
       Operators who complete Operator Certification and the upstream Operators
       who help onboard them. Rewards are subject to the protocol's eligibility
       rules. See
-      <DocLink to="/docs/assets-and-entities/certification-rewards">Certification Rewards</DocLink>
+      <DocLink to="/docs/network-rules/certification-rewards">Certification Rewards</DocLink>
       for details.
     </p>
   </DocContent>

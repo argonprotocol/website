@@ -36,11 +36,11 @@
 
     <p>
       See
-      <DocLink to="/docs/assets-and-entities/mining-operations"
+      <DocLink to="/docs/network-rules/mining-operations"
         >Mining Operations</DocLink
       >
       for how seat auctions create this revenue and
-      <DocLink to="/docs/assets-and-entities/argon-bonds"
+      <DocLink to="/docs/asset-rules/argon-bonds"
         >Argon Bonds</DocLink
       >
       for the rest of the bid-pool distribution.

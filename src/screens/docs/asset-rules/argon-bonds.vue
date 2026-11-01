@@ -5,7 +5,7 @@
     <p>
       Argon Bonds are onchain, yield-bearing positions that earn a share of
       Stabilization Vault revenue. Each bond is created by committing one
-      <DocLink to="/docs/assets-and-entities/argon-stablecoins"
+      <DocLink to="/docs/asset-rules/argons"
         >ARGN</DocLink
       >
       to a vault, with the ARGN held by the protocol until the position is
@@ -57,9 +57,13 @@
       cannot default because a vault operator has no ability to take the funds or refuse repayment.
     </p>
 
+    <p class="my-6">
+      <DocLink class="font-semibold" to="/docs/calculators/argon-bonds">Explore the Argon Bonds Calculator →</DocLink>
+    </p>
+
     <h2>Why Vaults Use Bonds</h2>
     <p>
-      <DocLink to="/docs/assets-and-entities/vaulting-operations"
+      <DocLink to="/docs/network-rules/vaulting-operations"
         >Stabilization Vaults</DocLink
       >
       need ARGN capital to provide liquidity for the Bitcoin Liquids.

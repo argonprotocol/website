@@ -136,7 +136,7 @@
                   Download Operations App
                 </a>
                 <RouterLink
-                  to="/docs/desktop-apps/operations"
+                  to="/docs/desktop-app/operations"
                   class="text-lg text-black no-underline transition hover:text-violet-700"
                 >
                   Open documentation

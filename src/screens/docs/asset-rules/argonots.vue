@@ -5,11 +5,11 @@
     <p>
       Argonot (ARGNOT) is the network’s ownership and operating-capital token.
       It works alongside
-      <DocLink to="/docs/assets-and-entities/argon-stablecoins">Argon stablecoins</DocLink>
-      and <DocLink to="/docs/assets-and-entities/bitcoins">Bitcoin</DocLink>.
+      <DocLink to="/docs/asset-rules/argons">Argon stablecoins</DocLink>
+      and <DocLink to="/docs/asset-rules/bitcoins">Bitcoin</DocLink>.
       It is a native token used to capitalize and participate in the Argon
       network. It is separate from the
-      <DocLink to="/docs/assets-and-entities/argon-stablecoins"
+      <DocLink to="/docs/asset-rules/argons"
         >ARGN stablecoin</DocLink
       >, has no target price, and can rise or fall in market value. Each ARGNOT
       can be divided into one million micronots.
@@ -40,7 +40,7 @@
         <strong>Mining Bid Support.</strong>
         A mining operator must commit the required amount of ARGNOT before bidding
         for a
-        <DocLink to="/docs/assets-and-entities/mining-operations"
+        <DocLink to="/docs/network-rules/mining-operations"
           >mining seat</DocLink
         >. The bid itself is made in ARGN; the ARGNOT is separate collateral that
         the protocol places on hold while it is needed for bidding or an active
@@ -53,7 +53,7 @@
       </li>
       <li>
         <strong>Vault Securitization.</strong>
-        <DocLink to="/docs/assets-and-entities/vaulting-operations"
+        <DocLink to="/docs/network-rules/vaulting-operations"
         >Vault operators</DocLink
         >
         can commit ARGNOT as additional securitization capital. Once Bitcoin is
@@ -63,7 +63,7 @@
       <li>
         <strong>Argonot Stakes.</strong>
         A holder can commit ARGNOT to an
-        <DocLink to="/docs/assets-and-entities/argonot-stakes"
+        <DocLink to="/docs/asset-rules/argonot-stakes"
           >Argonot Stake</DocLink
         >. Active stakes receive a proportional share of the ARGN revenue that the
         protocol allocates from mining auctions. Simply holding liquid ARGNOT does

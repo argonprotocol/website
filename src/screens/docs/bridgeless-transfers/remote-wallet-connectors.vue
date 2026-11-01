@@ -52,7 +52,7 @@
       to securely transfer BTC into your wallet.
     </p>
     <p>
-      Learn more about <DocLink to="/docs/assets-and-entities/bitcoin-locks">Bitcoin Locks</DocLink>.
+      Learn more about <DocLink to="/docs/asset-rules/bitcoin-locks">Bitcoin Locks</DocLink>.
     </p>
   </DocContent>
 </template>

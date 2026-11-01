@@ -26,63 +26,6 @@
     ]
   },
   {
-    "title": "System Design",
-    "base": "/system-design",
-    "items": [
-      {
-        "title": "Architectural Basics",
-        "link": "/",
-        "isActive": true
-      },
-      {
-        "title": "Stabilization Algorithms",
-        "link": "/stabilization-algorithms",
-        "isActive": true
-      },
-      {
-        "title": "Economic Drivers",
-        "link": "/economic-drivers",
-        "isActive": true
-      },
-      {
-        "title": "Argon Tokenomics",
-        "link": "/argon-tokenomics",
-        "isActive": true
-      },
-      {
-        "title": "Argonot Tokenomics",
-        "link": "/argonot-tokenomics",
-        "isActive": true
-      },
-      {
-        "title": "The Genesis Block",
-        "link": "/the-genesis-block",
-        "isActive": true
-      }
-    ]
-  },
-  {
-    "title": "System Modeling",
-    "base": "/engine-modeling",
-    "items": [
-      {
-        "title": "Liquid Locking for Bitcoin",
-        "link": "/llb",
-        "isActive": true
-      },
-      {
-        "title": "Exponential Growth Engine",
-        "link": "/ege",
-        "isActive": true
-      },
-      {
-        "title": "Ultimate Death Spiraling",
-        "link": "/uds",
-        "isActive": true
-      }
-    ]
-  },
-  {
     "title": "The Desktop App",
     "base": "/desktop-app",
     "items": [
@@ -138,7 +81,7 @@
     "base": "bridgeless-transfers",
     "items": [
       {
-        "title": "How It Works",
+        "title": "How They Work",
         "link": "/",
         "isActive": true
       },
@@ -180,21 +123,115 @@
     ]
   },
   {
-    "title": "Assets and Entities",
-    "base": "/assets-and-entities",
+    "title": "System Design",
+    "base": "/system-design",
     "items": [
       {
-        "title": "Argon Stablecoins",
-        "link": "/argon-stablecoins",
+        "title": "Architectural Basics",
+        "link": "/",
         "isActive": true
-      },      {
+      },
+      {
+        "title": "Stabilization Algorithms",
+        "link": "/stabilization-algorithms",
+        "isActive": true
+      },
+      {
+        "title": "Economic Drivers",
+        "link": "/economic-drivers",
+        "isActive": true
+      },
+      {
+        "title": "Argon Tokenomics",
+        "link": "/argon-tokenomics",
+        "isActive": true
+      },
+      {
+        "title": "Argonot Tokenomics",
+        "link": "/argonot-tokenomics",
+        "isActive": true
+      },
+      {
+        "title": "Mainchain vs Sidechain",
+        "link": "/mainchain-vs-sidechain",
+        "isActive": true
+      },
+      {
+        "title": "The Genesis Block",
+        "link": "/the-genesis-block",
+        "isActive": true
+      }
+    ]
+  },
+  {
+    "title": "System Modeling",
+    "base": "/system-modeling",
+    "items": [
+      {
+        "title": "Liquid Locking for Bitcoin",
+        "link": "/llb",
+        "isActive": true
+      },
+      {
+        "title": "Exponential Growth Engine",
+        "link": "/ege",
+        "isActive": true
+      },
+      {
+        "title": "Ultimate Death Spiraling",
+        "link": "/uds",
+        "isActive": true
+      }
+    ]
+  },
+  {
+    "title": "Calculators",
+    "base": "/calculators",
+    "items": [
+      {
+        "title": "Mining Calculator",
+        "link": "/mining",
+        "isActive": true
+      },
+      {
+        "title": "Vaulting Calculator",
+        "link": "/vaulting",
+        "isActive": true
+      },
+      {
+        "title": "Argonot Stakes Calculator",
+        "link": "/argonot-stakes",
+        "isActive": true
+      },
+      {
+        "title": "Argon Bonds Calculator",
+        "link": "/argon-bonds",
+        "isActive": true
+      },
+      {
+        "title": "Bitcoin Liquids Calculator",
+        "link": "/bitcoin-liquids",
+        "isActive": true
+      }
+    ]
+  },
+  {
+    "title": "Asset Rules",
+    "base": "/asset-rules",
+    "items": [
+      {
+        "title": "Argons",
+        "link": "/argons",
+        "isActive": true
+      },
+      {
         "title": "Argon Bonds",
         "link": "/argon-bonds",
         "isActive": true
       },
       {
-        "title": "Argonot Tokens",
-        "link": "/argonot-tokens",
+        "title": "Argonots",
+        "link": "/argonots",
         "isActive": true
       },
       {
@@ -216,7 +253,13 @@
         "title": "Bitcoin Liquids",
         "link": "/bitcoin-liquids",
         "isActive": true
-      },
+      }
+    ]
+  },
+  {
+    "title": "Network Rules",
+    "base": "/network-rules",
+    "items": [
       {
         "title": "Market Stabilizers",
         "link": "/market-stabilizers",
@@ -240,16 +283,6 @@
       {
         "title": "Certification Rewards",
         "link": "/certification-rewards",
-        "isActive": true
-      },
-      {
-        "title": "The Mainchain",
-        "link": "/mainchain",
-        "isActive": true
-      },
-      {
-        "title": "The Sidechain",
-        "link": "/sidechain",
         "isActive": true
       }
     ]
