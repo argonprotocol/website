@@ -71,15 +71,39 @@
       committing it to a locked position.
     </p>
 
+    <h3>Buying in Argon Desktop</h3>
+    <p>
+      You pay for Stabilizer Buys with USDC from a connected Ethereum wallet,
+      which also needs ETH to cover network fees. See
+      <DocLink to="/docs/bridgeless-transfers/remote-wallet-connectors#fund-your-ethereum-wallet">Remote Wallet Connectors</DocLink>
+      for how to connect and fund your wallet.
+    </p>
+    <p>
+      Argon Desktop can also watch the market for buying opportunities and
+      notify you when estimated returns reach a level you choose. You can then
+      review the opportunity and decide whether to buy.
+    </p>
+
     <h3>A Bonus Based on the Discount</h3>
     <p>
-      The starting bonus is <strong>100% of the purchase's discount</strong>
-      from target. Users can bid a lower bonus percentage to give their orders
+      The maximum bonus is <strong>100% of your purchase's discount</strong>
+      from target. You can bid a lower bonus percentage to give your order
       priority. A bid of 80%, for example, asks for a bonus equal to 80% of
       the discount instead of the full discount.
     </p>
 
+    <p>
+      Bonuses are paid from a reserves pool of unearned mining-auction revenue.
+      If the reserves cannot cover the full bonuses, your bonus is prorated
+      according to the funds available.
+    </p>
+
     <h3>How Bonus Bids Compete</h3>
+    <p>
+      Bidding opens in the
+      <DocLink to="/docs/getting-started/common-terminology#network-and-mining">frame</DocLink>
+      after your purchase is confirmed on Argon and remains open for one frame.
+    </p>
     <ol>
       <li>
         <strong>Choose a bonus bid.</strong> Specify the bonus percentage you
@@ -88,7 +112,8 @@
       <li>
         <strong>Lower bids take priority.</strong> Buys are ordered by their
         requested bonus percentage, with users accepting less ranked ahead
-        of users asking for more.
+        of users asking for more. You can bid up to four times before bidding
+        closes, and each change to your bid counts toward that limit.
       </li>
       <li>
         <strong>Only 90% receive a bonus.</strong> Only 90% of below-target
@@ -102,6 +127,51 @@
       a smaller share of the discount improves a buy's ranking, encouraging
       bids below the starting bonus of 100%. Successful purchases are moved
       to Argon and locked whether or not they receive a bonus.
+    </p>
+
+    <h3>Pay Down a Liquid and Keep the Upside</h3>
+    <p>
+      You can commit a Stabilizer Buy to paying down all or part of your
+      <DocLink to="/docs/asset-rules/bitcoin-liquids">Bitcoin Liquid</DocLink>,
+      with benefits beyond the ordinary purchase bonus:
+    </p>
+    <ul class="ml-6">
+      <li>
+        <strong>Pay down your Liquid at a discount.</strong> Your purchase locks
+        in how much of the Liquid it will repay, so a later rise in Bitcoin's
+        price does not raise that cost. When the
+        <a href="#when-funds-become-available">30-day hold</a> ends, the repayment
+        frees the corresponding Bitcoin for a new Liquid.
+      </li>
+      <li>
+        <strong>Keep the upside if ARGN recovers.</strong> If a recovery reduces
+        your Liquid's
+        <DocLink to="/docs/asset-rules/bitcoin-liquids#calculating-the-release-amount">repayment amount</DocLink>,
+        you keep the difference in your wallet. The refund uses ARGN's high-water
+        mark during the hold, even if its price later falls.
+      </li>
+      <li>
+        <strong>Earn an extra ARGN bonus.</strong> On top of the ordinary
+        discount bonus, you can earn up to 5% of the ARGN used to repay your
+        Liquid. Your bid for the discount bonus determines how much of this
+        extra bonus you earn.
+      </li>
+    </ul>
+    <aside class="my-8 rounded-lg border border-argon-200 bg-white/40 px-5 py-4">
+      <p class="m-0!">
+        <strong>NOTE:</strong> You cannot ratchet or release the Liquid until
+        the buy settles.
+      </p>
+    </aside>
+
+    <h3 id="when-funds-become-available">When Funds Become Available</h3>
+    <p>
+      Your purchased ARGN remains locked for <strong>30 days</strong> from
+      confirmation on Argon, including the time spent in bidding. When this
+      period ends, the ARGN becomes available in your
+      <DocLink to="/docs/desktop-app/internal-wallet">Internal App Wallet</DocLink>
+      or is used to repay the Liquid you committed it to. Bonuses and any ARGN
+      left after repayment are paid to your wallet.
     </p>
   </DocContent>
 </template>
