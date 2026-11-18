@@ -51,6 +51,10 @@ jobs:
         env:
           YARN_ENABLE_IMMUTABLE_INSTALLS: "false"
 
+      - name: Generate Apps runtime client
+        run: yarn generate:runtime-client
+        working-directory: apps
+
       - name: Update data
         run: yarn update-data:local && yarn update-data:substack
         working-directory: website
