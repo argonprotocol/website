@@ -9,6 +9,11 @@ const router = createRouter({
       component: HomeView
     },
     {
+      path: '/trade',
+      meta: { skipNetworkData: true },
+      component: () => import('@/screens/trade/Index.vue'),
+    },
+    {
       path: '/desktop-app',
       component: () => import('@/screens/desktop-app/Index.vue')
     },

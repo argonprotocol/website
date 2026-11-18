@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@v5
         with:
           repository: argonprotocol/apps
-          ref: e45d62536965d8947d5251705887a1c204d42021
+          ref: ee5dec15a062221b910a4fe89c88ddec35b5b10e
           path: apps
 
       - name: Setup Node
