@@ -1,5 +1,5 @@
 <template>
-  <RouterView v-if="isLoaded" />
+  <RouterView v-if="route.meta.skipNetworkData || isLoaded" />
   <main v-else class="flex min-h-dvh items-center justify-center p-6 text-center">
     <div>
       <template v-if="loadFailed">
@@ -12,9 +12,11 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { ref, watch } from 'vue';
+import { useRoute } from 'vue-router';
 import Data from '@/lib/Data';
 
+const route = useRoute();
 const isLoaded = ref(false);
 const loadFailed = ref(false);
 
@@ -29,5 +31,7 @@ async function loadData() {
   }
 }
 
-onMounted(loadData);
+watch(() => route.meta.skipNetworkData, skip => {
+  if (!skip && !isLoaded.value) void loadData();
+}, { immediate: true });
 </script>

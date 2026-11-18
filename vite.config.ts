@@ -10,6 +10,21 @@ import { activeDocsPlugin } from './build/activeDocs';
 export default defineConfig({
   plugins: [
     activeDocsPlugin(),
+    {
+      name: 'hidden-trade-page',
+      generateBundle: {
+        order: 'post',
+        handler(_options, bundle) {
+          const index = bundle['index.html'];
+          if (index?.type !== 'asset' || typeof index.source !== 'string') return;
+          this.emitFile({
+            type: 'asset',
+            fileName: 'trade/index.html',
+            source: index.source.replace('<head>', '<head>\n    <meta name="robots" content="noindex, nofollow">'),
+          });
+        },
+      },
+    },
     vue(),
     tailwindcss(),
     svgLoader(),
