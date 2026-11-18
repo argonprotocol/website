@@ -1,21 +1,21 @@
 {
-  "lastUpdatedAt": "2026-11-18T20:39:56.505Z",
-  "currentBlockNumber": 1060543,
+  "lastUpdatedAt": "2026-11-18T20:42:18.174Z",
+  "currentBlockNumber": 1060546,
   "activeArgonotStakes": 0,
   "treasuryRewardsPoolMicrogons": "430758753n",
   "baseMicrogonsMinedPerBlock": "3750000n",
   "baseMicronotsMinedPerBlock": "3750000n",
   "microgonsInCirculation": {
     "fromBitcoin": "20439606064n",
-    "fromMining": "1882776421615n",
-    "total": "1903216027679n"
+    "fromMining": "1882787671615n",
+    "total": "1903227277679n"
   },
-  "micronotsInCirculation": "2265401342885n",
+  "micronotsInCirculation": "2265412592885n",
   "usdForArgon": 1.04,
   "usdTargetForArgon": 1.049,
   "usdForArgonot": 0.156,
   "usdForBtc": 73494.795,
-  "totalMarketValueUsd": 2349878.166496379,
+  "totalMarketValueUsd": 2349891.7227574456,
   "restabilizationLeverage": 34,
   "miningTDR": 20669.77,
   "miningAPR": 754446.4494366326,
