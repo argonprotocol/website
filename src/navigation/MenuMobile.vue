@@ -14,7 +14,7 @@
     <div Button class="MobileMenuIconButton">
       <Bars3Icon @click="toggleMenu" class="w-6 h-6" />
     </div>
-    <Teleport to="body">
+    <Teleport v-if="isMounted" to="body">
       <div v-if="isOpen" class="absolute top-0 left-0 w-full bg-linear-to-b from-[var(--bg-color)] to-white border-b border-gray-200 rounded-b-md shadow-lg z-100">
         <div BarWrapper class="flex flex-row items-center pt-4 pb-3 px-5 w-full whitespace-nowrap text-base gap-x-5 cursor-default">
           <RouterLink LogoWrapper class="flex flex-row items-center cursor-pointer gap-x-4 no-underline!" to="/">
@@ -131,9 +131,11 @@
 <script setup lang="ts">
 import * as Vue from "vue";
 import { Bars3Icon, XMarkIcon } from "@heroicons/vue/24/solid";
-import router from "@/router";
+import { useRouter } from 'vue-router';
 import Logo from "@/assets/logo.svg";
 import XIcon from "@/assets/x.svg";
+
+const router = useRouter();
 
 const props = withDefaults(
   defineProps<{
@@ -183,6 +185,11 @@ const statusLightest = Vue.computed(() => menuColor.value.statusLightest);
 const statusDarkest = Vue.computed(() => menuColor.value.statusDarkest);
 
 const isOpen = Vue.ref(false);
+const isMounted = Vue.ref(false);
+
+Vue.onMounted(() => {
+  isMounted.value = true;
+});
 
 function toggleMenu() {
   isOpen.value = !isOpen.value;
