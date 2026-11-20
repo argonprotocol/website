@@ -10,6 +10,8 @@
     "build:staging": "NODE_ENV=staging vite build --outDir dist-staging",
     "build:production": "NODE_ENV=production vite build --outDir dist-production",
     "preview": "vite preview",
+    "preview:production": "node build/verifyProduction.mjs --serve",
+    "verify:production": "node build/verifyProduction.mjs --verify",
     "test:unit": "vitest",
     "test:trade": "vitest run src/lib/trade --maxWorkers=1 --minWorkers=1",
     "build-only": "vite build",

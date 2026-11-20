@@ -61,6 +61,7 @@ const router = createRouter({
     },
     {
       path: '/why-its-better',
+      meta: { skipNetworkData: true },
       component: () => import('@/screens/why-its-better/Index.vue')
     },
     {

@@ -1,0 +1,17 @@
+{
+  "ingress": {
+    "rules": [
+      {
+        "match": { "path": { "exact": "/why-its-better/" } },
+        "redirect": { "uri": "/why-its-better", "redirect_code": 301 }
+      },
+      {
+        "match": { "path": { "exact": "/why-its-better" } },
+        "component": {
+          "name": "website",
+          "rewrite": "/why-its-better/index.html"
+        }
+      }
+    ]
+  }
+}

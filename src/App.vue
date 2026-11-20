@@ -1,4 +1,5 @@
 <template>
+  <PageMetadata />
   <RouterView v-if="route.meta.skipNetworkData || isLoaded" />
   <main v-else class="flex min-h-dvh items-center justify-center p-6 text-center">
     <div>
@@ -15,6 +16,7 @@
 import { ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 import Data from '@/lib/Data';
+import PageMetadata from './PageMetadata.vue';
 
 const route = useRoute();
 const isLoaded = ref(false);

@@ -92,12 +92,14 @@
 </template>
 
 <script setup lang="ts">
-import router from '../router';
+import { useRouter } from 'vue-router';
 import Logo from '../assets/logo.svg';
 import DiscordIcon from '../assets/discord.svg';
 import GithubIcon from '../assets/github.svg';
 import MenuMobile from "@/navigation/MenuMobile.vue";
 import XIcon from "@/assets/x.svg";
+
+const router = useRouter();
 
 const props = withDefaults(
   defineProps<{
