@@ -1,43 +1,43 @@
 {
-  "lastUpdatedAt": "2026-11-27T11:27:14.975Z",
-  "currentBlockNumber": 1018842,
+  "lastUpdatedAt": "2026-11-27T20:10:29.818Z",
+  "currentBlockNumber": 1019365,
   "activeArgonotStakes": 606453,
-  "treasuryRewardsPoolMicrogons": "836685866387n",
+  "treasuryRewardsPoolMicrogons": "839167546387n",
   "baseMicrogonsMinedPerBlock": "3750000n",
   "baseMicronotsMinedPerBlock": "3750000n",
   "microgonsInCirculation": {
-    "fromBitcoin": "29145153230n",
-    "fromMining": "2888769204858n",
-    "total": "2917914358088n"
+    "fromBitcoin": "26240137281n",
+    "fromMining": "2887866763330n",
+    "total": "2914106900611n"
   },
-  "micronotsInCirculation": "2473916634084n",
+  "micronotsInCirculation": "2475877884084n",
   "usdForArgon": 0.975,
   "usdTargetForArgon": 1.068,
   "usdForArgonot": 2.929,
-  "usdForBtc": 61641.915,
-  "totalMarketValueUsd": 10362439.903402543,
-  "restabilizationLeverage": 42.2,
-  "miningTDR": 11.5,
-  "miningAPR": 419.60179806455864,
+  "usdForBtc": 59784.969,
+  "totalMarketValueUsd": 10364118.040359745,
+  "restabilizationLeverage": 40.9,
+  "miningTDR": 12.54,
+  "miningAPR": 457.590146104081,
   "vaultingAPR": 1186.4289359198026,
   "bondsAPR": 174.51851963060895,
   "bitcoinAPR": 115.54,
   "mining": {
-    "activeSeatCount": 221,
-    "nextEpochSeatCount": 171,
-    "activeBidCostsUsd": 166520.33633477121,
-    "activeBlockRewardsUsd": 217826.21379130625,
-    "currentMicronotsForBid": "382001422n",
+    "activeSeatCount": 223,
+    "nextEpochSeatCount": 168,
+    "activeBidCostsUsd": 161472.7729249014,
+    "activeBlockRewardsUsd": 217844.34019238965,
+    "currentMicronotsForBid": "393382116n",
     "baseMicrogonRewardsPerBlock": "3749999n",
     "baseMicronotRewardsPerBlock": "3749999n"
   },
   "vaulting": {
     "count": 54,
     "eligibleBondCapital": 457248,
-    "valueInVaults": 327956.2463194027,
+    "valueInVaults": 318076.6531924142,
     "bitcoinLocked": 5.32034153,
     "bitcoinTxnCount": 232,
     "epochEarnings": 167053.42769902459,
-    "argonBurnCapacity": 123018880.46187998
+    "argonBurnCapacity": 119312969.99503882
   }
 }
